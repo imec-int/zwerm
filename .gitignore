@@ -1,0 +1,8 @@
+ext
+etc
+logs
+!sites
+sites/*
+!sites/all/modules/custom
+!sites/all/themese/custom
+
