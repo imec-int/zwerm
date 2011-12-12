@@ -1,0 +1,135 @@
+<?php
+
+/**
+ * @file
+ * Deployment tests.
+ */
+
+/**
+ * Tests the dependency framework in Deploy.
+ */
+class DeployDependencyTestCase extends DeployWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Dependency framework',
+      'description' => 'Test the dependency framework in Deploy.',
+      'group' => 'Deployment'
+    );
+  }
+
+  function setUp() {
+    parent::setUp(TRUE);
+  }
+
+  function testDependencies() {
+    // Add the 'field_tags' field.
+    $user = $this->drupalCreateUser();
+    $term1 = $this->createTerm();
+    $term2 = $this->createTerm();
+    $node1 = $this->drupalCreateNode(array(
+      'type' => 'article',
+      'uid' => $user->uid,
+      'field_tags' => array(LANGUAGE_NONE => array(array('tid' => $term1->tid), array('tid' => $term2->tid))),
+    ));
+    $node2 = $this->drupalCreateNode(array(
+      'type' => 'article',
+      'uid' => $user->uid,
+      // We fake that nid 1 is the translation of this node, just to test if
+      // the dependency works. We don't want to depend on a node reference.
+      'tnid' => $node1->nid,
+      'field_tags' => array(LANGUAGE_NONE => array(array('tid' => $term2->tid))),
+    ));
+    // This node only has dependencies that should be detected by $node2
+    // already.
+    $node3 = $this->drupalCreateNode(array(
+      'type' => 'article',
+      'uid' => $user->uid,
+      'field_tags' => array(LANGUAGE_NONE => array(array('tid' => $term1->tid), array('tid' => $term2->tid))),
+    ));
+
+    // Add only the last node to the collection. What should come out of the
+    // iterator should be all it's dependencies, and last the node it self.
+    $collection = array(
+      'node' => array($node2->nid => TRUE, $node3->nid => TRUE),
+    );
+
+    $iterator = deploy_iterator($collection);
+    $i = 0;
+    foreach ($iterator as $current) {
+      $test = FALSE;
+      $entity_type = $current['entity_type'];
+      $entity_id = $current['entity_id'];
+      $entity = $current['entity'];
+      switch ($i) {
+        case 0:
+          $test = ($entity_type == 'taxonomy_term' && $entity_id == $term2->tid);
+          break;
+        case 1:
+          $test = ($entity_type == 'user' && $entity_id == $user->uid);
+          break;
+        case 2:
+          $test = ($entity_type == 'taxonomy_term' && $entity_id == $term1->tid);
+          break;
+        case 3:
+          $test = ($entity_type == 'node' && $entity_id == $node1->nid);
+          break;
+        case 4:
+          $test = ($entity_type == 'node' && $entity_id == $node2->nid);
+          break;
+        case 5:
+          $test = ($entity_type == 'node' && $entity_id == $node3->nid);
+          break;
+      }
+      $placeholders = array('%entity_type' => $entity_type, '%entity_id' => $entity_id);
+      $this->assertTrue($test, t('%entity_type %entity_id was iterated over, in correct order.', $placeholders));
+      $this->assertTrue(uuid_is_valid($entity->uuid), t('%entity_type %entity_id was loaded with UUID.', $placeholders));
+      $i++;
+    }
+    $this->assertEqual($i, 6, 'Correct number of entities was iterated over.');
+  }
+}
+
+/**
+ * Test a full deployment between two sites, based on the provided example
+ * feature.
+ */
+class DeploySimpleDeploymentTestCase extends DeployWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Simple deployment setup',
+      'description' => 'Test a full deployment between two sites, based on the provided example feature.',
+      'group' => 'Deployment'
+    );
+  }
+
+  /**
+   * Simple deployment scenario.
+   *
+   * @see DeployWebTestCase::runScenario()
+   */
+  function testDeployment() {
+    $this->runScenario('deploy_example_plan');
+  }
+}
+
+/**
+ * Test a full deployment between two sites with the Views aggregator and the
+ * Queue processor.
+ */
+class DeployQueuedDeploymentTestCase extends DeployWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Queued deployment setup',
+      'description' => 'Test a full deployment between two sites, based on the provided example feature with the Queue API processor.',
+      'group' => 'Deployment'
+    );
+  }
+
+  function testDeployment() {
+    $this->editPlan('deploy_example_plan', array('processor_plugin' => 'DeployProcessorQueue'));
+    $this->runScenario('deploy_example_plan');
+  }
+}

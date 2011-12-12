@@ -1,0 +1,22 @@
+core = "7.x"
+dependencies[] = "deploy"
+dependencies[] = "deploy_ui"
+dependencies[] = "views"
+dependencies[] = "views_ui"
+description = "Example feature of a deployment setup."
+features[ctools][] = "deploy:deploy_endpoints:1"
+features[ctools][] = "deploy:deploy_plans:1"
+features[ctools][] = "views:views_default:3.0"
+features[deploy_endpoints][] = "deploy_example_endpoint"
+features[deploy_plans][] = "deploy_example_plan"
+features[views_view][] = "deploy_example_aggregator"
+name = "Deploy Example"
+package = "Features"
+php = "5.2.4"
+
+; Information added by drupal.org packaging script on 2011-11-21
+version = "7.x-2.x-dev"
+core = "7.x"
+project = "deploy"
+datestamp = "1321877132"
+
