@@ -1,6 +1,6 @@
 core = "7.x"
 dependencies[] = "services"
-description = "Enables rest service wuth correct settings"
+description = "Enables rest service with correct settings"
 features[ctools][] = "services:services:3"
 features[services_endpoint][] = "rest"
 name = "Scoga REST service"
