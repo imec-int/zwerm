@@ -1,0 +1,8 @@
+core = "7.x"
+dependencies[] = "features"
+description = "Enables the RFID reader content type"
+features[node][] = "rfid_reader"
+name = "Scoga RFID reader content type"
+package = "Features"
+project = "scoga_rfid_reader_content_type"
+version = "7.x-1.0"
