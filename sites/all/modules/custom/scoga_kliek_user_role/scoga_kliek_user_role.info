@@ -1,0 +1,8 @@
+core = "7.x"
+dependencies[] = "features"
+description = "Enables the "Kliek user" role"
+features[user_role][] = "kliek user"
+name = "Scoga 'Kliek user' role"
+package = "Features"
+project = "scoga_kliek_user_role"
+version = "7.x-1.0"
