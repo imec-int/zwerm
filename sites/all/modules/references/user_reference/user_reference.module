@@ -868,6 +868,7 @@ function user_reference_field_views_data($field) {
         'base' => 'users',
         'field' => 'uid',
         'base field' => 'uid',
+        'field' => $id_column,
         'label' => $field['field_name'],
         'field_name' => $field['field_name'],
       );
