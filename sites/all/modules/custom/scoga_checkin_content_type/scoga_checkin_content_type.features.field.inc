@@ -10,33 +10,43 @@
 function scoga_checkin_content_type_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-checkin-field_card_id'
-  $fields['node-checkin-field_card_id'] = array(
+  // Exported field: 'node-checkin-field_reader_reference'
+  $fields['node-checkin-field_reader_reference'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_card_id',
+      'field_name' => 'field_reader_reference',
       'foreign keys' => array(
-        'format' => array(
+        'nid' => array(
           'columns' => array(
-            'format' => 'format',
+            'nid' => 'nid',
           ),
-          'table' => 'filter_format',
+          'table' => 'node',
         ),
       ),
       'indexes' => array(
-        'format' => array(
-          0 => 'format',
+        'nid' => array(
+          0 => 'nid',
         ),
       ),
-      'module' => 'text',
+      'module' => 'node_reference',
       'settings' => array(
-        'max_length' => '255',
+        'referenceable_types' => array(
+          'article' => 0,
+          'checkin' => 0,
+          'page' => 0,
+          'rfid_reader' => 'rfid_reader',
+        ),
+        'view' => array(
+          'args' => array(),
+          'display_name' => '',
+          'view_name' => '',
+        ),
       ),
       'translatable' => '0',
-      'type' => 'text',
+      'type' => 'node_reference',
     ),
     'field_instance' => array(
       'bundle' => 'checkin',
@@ -46,10 +56,10 @@ function scoga_checkin_content_type_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
+          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
+          'type' => 'node_reference_default',
+          'weight' => 3,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -59,52 +69,62 @@ function scoga_checkin_content_type_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_card_id',
-      'label' => 'Card ID',
+      'field_name' => 'field_reader_reference',
+      'label' => 'Reader',
       'required' => 1,
       'settings' => array(
-        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
         'weight' => '2',
       ),
     ),
   );
 
-  // Exported field: 'node-checkin-field_reader_id'
-  $fields['node-checkin-field_reader_id'] = array(
+  // Exported field: 'node-checkin-field_user_reference'
+  $fields['node-checkin-field_user_reference'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_reader_id',
+      'field_name' => 'field_user_reference',
       'foreign keys' => array(
-        'format' => array(
+        'uid' => array(
           'columns' => array(
-            'format' => 'format',
+            'uid' => 'uid',
           ),
-          'table' => 'filter_format',
+          'table' => 'users',
         ),
       ),
       'indexes' => array(
-        'format' => array(
-          0 => 'format',
+        'uid' => array(
+          0 => 'uid',
         ),
       ),
-      'module' => 'text',
+      'module' => 'user_reference',
       'settings' => array(
-        'max_length' => '255',
+        'referenceable_roles' => array(
+          2 => 0,
+          3 => 0,
+          4 => '4',
+        ),
+        'referenceable_status' => array(
+          0 => 0,
+          1 => '1',
+        ),
+        'view' => array(
+          'args' => array(),
+          'display_name' => '',
+          'view_name' => '',
+        ),
       ),
       'translatable' => '0',
-      'type' => 'text',
+      'type' => 'user_reference',
     ),
     'field_instance' => array(
       'bundle' => 'checkin',
@@ -114,10 +134,10 @@ function scoga_checkin_content_type_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
+          'module' => 'user_reference',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 1,
+          'type' => 'user_reference_default',
+          'weight' => 2,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -127,20 +147,17 @@ function scoga_checkin_content_type_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_reader_id',
-      'label' => 'Reader ID',
+      'field_name' => 'field_user_reference',
+      'label' => 'User',
       'required' => 1,
       'settings' => array(
-        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
         'weight' => '1',
       ),
     ),
@@ -148,8 +165,8 @@ function scoga_checkin_content_type_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Card ID');
-  t('Reader ID');
+  t('Reader');
+  t('User');
 
   return $fields;
 }
