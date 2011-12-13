@@ -8,15 +8,6 @@
  */
 
 /**
- * Implements hook_perm().
- */
-function scoga_resource_checkin_perm() {
-  return array(
-    'checkin resource create',
-  );
-}
-
-/**
 * Implements hook_services_resources().
 */
 function scoga_resource_checkin_services_resources(){
@@ -29,6 +20,7 @@ function scoga_resource_checkin_services_resources(){
                     'module' => 'scoga_resource_checkin.callbacks'
                 ),
                 'callback' => '_scoga_resource_checkin_create',
+                'access callback' => 'user_access',
                 'access arguments' => array( 'checkin resource create' ),
                 'access arguments append' => FALSE,
                 'args' => array(
