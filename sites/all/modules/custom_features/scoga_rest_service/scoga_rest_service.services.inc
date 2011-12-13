@@ -39,8 +39,19 @@ function scoga_rest_service_default_services_endpoint() {
       ),
     ),
   );
-  $endpoint->resources = array();
-  $endpoint->debug = 0;
+  $endpoint->resources = array(
+    'reader_checkin' => array(
+      'operations' => array(
+        'index' => array(
+          'enabled' => 1,
+        ),
+        'create' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
+  );
+  $endpoint->debug = 1;
   $export['rest'] = $endpoint;
 
   return $export;
