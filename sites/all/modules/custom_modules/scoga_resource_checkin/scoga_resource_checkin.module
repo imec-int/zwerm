@@ -6,43 +6,70 @@
  * Time: 12:36
  * To change this template use File | Settings | File Templates.
  */
+/**
+ * Implements hook_perm().
+ */
 
+function scoga_resource_checkin_permission() {
+  return array(
+    'Access SCOGA Checkin service' => array(
+      'title' => t('Access SCOGA Checkin service'),
+      'description' => t('Make calls to the SCOGA checkin service'),
+    ),
+  );
+}
 /**
 * Implements hook_services_resources().
 */
 function scoga_resource_checkin_services_resources(){
     return array(
         'reader_checkin' => array(
-            'create' => array(
-                'help' => 'Creates a node of content type "Checkin"',
+            'index' => array(
+                'help' => 'List of "Checkin"',
                 'file' => array(
                     'file' => 'inc',
-                    'module' => 'scoga_resource_checkin.callbacks'
+                    'module' => 'scoga_resource_checkin'
                 ),
-                'callback' => '_scoga_resource_checkin_create',
-                'access callback' => 'user_access',
-                'access arguments' => array( 'checkin resource create' ),
-                'access arguments append' => FALSE,
+                'callback' => '_reader_checkin_index',
+                'access arguments' => array( 'Access SCOGA Checkin service' ),
                 'args' => array(
                     array(
                         'name' => 'cardID',
                         'type' => 'string',
                         'description' => 'The unique ID of the card',
                         'source' => 'param',
+                        'optional' => TRUE,
+                    ),
+                ),
+            ),
+            'create' => array(
+                'help' => 'Creates a node of content type "Checkin"',
+                'file' => array(
+                    'file' => 'inc',
+                    'module' => 'scoga_resource_checkin'
+                ),
+                'callback' => '_reader_checkin_create',
+                'access arguments' => array( 'Access SCOGA Checkin service' ),
+                'args' => array(
+                    array(
+                        'name' => 'cardID',
+                        'type' => 'string',
+                        'description' => 'The unique ID of the card',
+                        'source' => 'data',
                         'optional' => FALSE,
                     ),
                     array(
                         'name' => 'readerID',
                         'type' => 'string',
                         'description' => 'The unique ID of the RFID reader',
-                        'source' => 'param',
+                        'source' => 'data',
                         'optional' => FALSE,
                     ),
                     array(
                         'name' => 'timestamp',
                         'type' => 'int',
                         'description' => 'The unix epoch timestamp of checkin',
-                        'source' => 'param',
+                        'source' => 'data',
                         'optional' => TRUE,
                         'default value' => -1
                     ),
