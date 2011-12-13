@@ -1,0 +1,7 @@
+;Id$
+name = Scoga checkin service resources
+description = Checkin service resource definitions for Scoga
+package = Scoga
+core = 7.x
+files[] = scoga_resource_checkin.module
+dependencies[] = autoload

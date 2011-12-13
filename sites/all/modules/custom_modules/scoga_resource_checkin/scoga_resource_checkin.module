@@ -1,0 +1,61 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: creynder
+ * Date: 13/12/11
+ * Time: 12:36
+ * To change this template use File | Settings | File Templates.
+ */
+
+/**
+ * Implements hook_perm().
+ */
+function scoga_resource_checkin_perm() {
+  return array(
+    'checkin resource create',
+  );
+}
+
+/**
+* Implements hook_services_resources().
+*/
+function scoga_resource_checkin_services_resources(){
+    return array(
+        'reader_checkin' => array(
+            'create' => array(
+                'help' => 'Creates a node of content type "Checkin"',
+                'file' => array(
+                    'file' => 'inc',
+                    'module' => 'scoga_resource_checkin.callbacks'
+                ),
+                'callback' => '_scoga_resource_checkin_create',
+                'access arguments' => array( 'checkin resource create' ),
+                'access arguments append' => FALSE,
+                'args' => array(
+                    array(
+                        'name' => 'cardID',
+                        'type' => 'string',
+                        'description' => 'The unique ID of the card',
+                        'source' => 'param',
+                        'optional' => FALSE,
+                    ),
+                    array(
+                        'name' => 'readerID',
+                        'type' => 'string',
+                        'description' => 'The unique ID of the RFID reader',
+                        'source' => 'param',
+                        'optional' => FALSE,
+                    ),
+                    array(
+                        'name' => 'timestamp',
+                        'type' => 'int',
+                        'description' => 'The unix epoch timestamp of checkin',
+                        'source' => 'param',
+                        'optional' => TRUE,
+                        'default value' => -1
+                    ),
+                )
+            )
+        ),
+    );
+}
