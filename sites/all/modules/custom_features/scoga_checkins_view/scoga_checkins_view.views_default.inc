@@ -85,6 +85,28 @@ function scoga_checkins_view_views_default_views() {
   $handler->display->display_options['fields']['field_user_reference']['id'] = 'field_user_reference';
   $handler->display->display_options['fields']['field_user_reference']['table'] = 'field_data_field_user_reference';
   $handler->display->display_options['fields']['field_user_reference']['field'] = 'field_user_reference';
+  /* Field: Content: Checkin time (MS) */
+  $handler->display->display_options['fields']['field_checkin_time']['id'] = 'field_checkin_time';
+  $handler->display->display_options['fields']['field_checkin_time']['table'] = 'field_data_field_checkin_time';
+  $handler->display->display_options['fields']['field_checkin_time']['field'] = 'field_checkin_time';
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_checkin_time']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_checkin_time']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_checkin_time']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_checkin_time']['field_api_classes'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
