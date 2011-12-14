@@ -104,6 +104,28 @@ function scoga_checkins_view_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'checkin' => 'checkin',
   );
+  /* Filter criterion: Content: Reader (field_reader_reference) */
+  $handler->display->display_options['filters']['field_reader_reference_nid']['id'] = 'field_reader_reference_nid';
+  $handler->display->display_options['filters']['field_reader_reference_nid']['table'] = 'field_data_field_reader_reference';
+  $handler->display->display_options['filters']['field_reader_reference_nid']['field'] = 'field_reader_reference_nid';
+  $handler->display->display_options['filters']['field_reader_reference_nid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_reader_reference_nid']['expose']['operator_id'] = 'field_reader_reference_nid_op';
+  $handler->display->display_options['filters']['field_reader_reference_nid']['expose']['label'] = 'Reader';
+  $handler->display->display_options['filters']['field_reader_reference_nid']['expose']['operator'] = 'field_reader_reference_nid_op';
+  $handler->display->display_options['filters']['field_reader_reference_nid']['expose']['identifier'] = 'field_reader_reference_nid';
+  $handler->display->display_options['filters']['field_reader_reference_nid']['expose']['multiple'] = 1;
+  $handler->display->display_options['filters']['field_reader_reference_nid']['expose']['reduce'] = 0;
+  /* Filter criterion: Content: User (field_user_reference) */
+  $handler->display->display_options['filters']['field_user_reference_uid']['id'] = 'field_user_reference_uid';
+  $handler->display->display_options['filters']['field_user_reference_uid']['table'] = 'field_data_field_user_reference';
+  $handler->display->display_options['filters']['field_user_reference_uid']['field'] = 'field_user_reference_uid';
+  $handler->display->display_options['filters']['field_user_reference_uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_user_reference_uid']['expose']['operator_id'] = 'field_user_reference_uid_op';
+  $handler->display->display_options['filters']['field_user_reference_uid']['expose']['label'] = 'User';
+  $handler->display->display_options['filters']['field_user_reference_uid']['expose']['operator'] = 'field_user_reference_uid_op';
+  $handler->display->display_options['filters']['field_user_reference_uid']['expose']['identifier'] = 'field_user_reference_uid';
+  $handler->display->display_options['filters']['field_user_reference_uid']['expose']['multiple'] = 1;
+  $handler->display->display_options['filters']['field_user_reference_uid']['expose']['reduce'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
