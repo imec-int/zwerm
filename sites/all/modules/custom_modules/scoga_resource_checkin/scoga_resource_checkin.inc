@@ -26,7 +26,7 @@ function _reader_checkin_create( $params ){
     $card_id = $params[ 'cardID' ];
     $reader_id = $params[ 'readerID' ];
     //cut off trailing decimal zeroes
-    $checkin_time = number_format( $params[ 'timestamp' ], 0 );
+    $checkin_time = _format_ms_timestamp( $params[ 'timestamp' ] );
 
 /*
  * get or create user profile
@@ -74,7 +74,7 @@ function _reader_checkin_create( $params ){
 
     //checkin time, if any
     if( $checkin_time ){
-        $checkin_node->title .= ' at ' . date( 'H:i:s d/m/Y', number_format( $checkin_time / 1000, 0 ) );
+        $checkin_node->title .= ' at ' . date( 'H:i:s d/m/Y', _format_ms_timestamp( $checkin_time / 1000 ) );
         $checkin_node->field_checkin_time[ $lang ][ 0 ] = array(
             'value' => $checkin_time
         );
@@ -85,6 +85,10 @@ function _reader_checkin_create( $params ){
     node_save( $checkin_node );
 
     return $checkin_node;
+}
+
+function _format_ms_timestamp( $timestamp, $decimals = 0 ){
+    return number_format( $timestamp, $decimals, '.', '' );
 }
 
 /*
