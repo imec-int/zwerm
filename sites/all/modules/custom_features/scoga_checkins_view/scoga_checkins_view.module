@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Scoga Checkins view feature.
- */
-
-include_once('scoga_checkins_view.features.inc');

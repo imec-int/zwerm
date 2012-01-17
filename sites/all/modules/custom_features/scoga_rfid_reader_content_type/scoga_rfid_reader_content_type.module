@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Scoga RFID reader content type feature.
- */
-
-include_once('scoga_rfid_reader_content_type.features.inc');
