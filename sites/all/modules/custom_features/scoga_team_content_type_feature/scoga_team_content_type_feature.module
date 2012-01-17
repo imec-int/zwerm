@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Scoga team content type feature feature.
+ */
+
+include_once('scoga_team_content_type_feature.features.inc');
