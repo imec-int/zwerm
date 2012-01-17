@@ -90,13 +90,17 @@ function scoga_kliek_team_feature_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_score',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(),
       'module' => 'number',
       'settings' => array(
         'decimal_separator' => '.',
         'precision' => '10',
-        'scale' => '8',
+        'profile2_private' => 0,
+        'scale' => '0',
       ),
       'translatable' => '0',
       'type' => 'number_decimal',
