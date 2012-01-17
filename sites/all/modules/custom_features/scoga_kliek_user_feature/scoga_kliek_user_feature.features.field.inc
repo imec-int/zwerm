@@ -493,7 +493,11 @@ function scoga_kliek_user_feature_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'user',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'nid' => '172',
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(
