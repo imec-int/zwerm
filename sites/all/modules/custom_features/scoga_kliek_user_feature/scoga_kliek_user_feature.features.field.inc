@@ -445,6 +445,80 @@ function scoga_kliek_user_feature_field_default_fields() {
     ),
   );
 
+  // Exported field: 'user-user-field_team_reference'
+  $fields['user-user-field_team_reference'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_team_reference',
+      'foreign keys' => array(
+        'nid' => array(
+          'columns' => array(
+            'nid' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'nid' => array(
+          0 => 'nid',
+        ),
+      ),
+      'module' => 'node_reference',
+      'settings' => array(
+        'referenceable_types' => array(
+          'article' => 0,
+          'checkin' => 0,
+          'kliek_team' => 'kliek_team',
+          'page' => 0,
+          'rfid_reader' => 0,
+        ),
+        'view' => array(
+          'args' => array(),
+          'display_name' => '',
+          'view_name' => '',
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'node_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'user',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(),
+          'type' => 'node_reference_default',
+          'weight' => 8,
+        ),
+      ),
+      'entity_type' => 'user',
+      'field_name' => 'field_team_reference',
+      'label' => 'Team',
+      'required' => 1,
+      'settings' => array(
+        'user_register_form' => 1,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'node_reference',
+        'settings' => array(
+          'autocomplete_match' => 'contains',
+          'autocomplete_path' => 'node_reference/autocomplete',
+          'size' => '60',
+        ),
+        'type' => 'node_reference_autocomplete',
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Exported field: 'user-user-field_zipcode'
   $fields['user-user-field_zipcode'] = array(
     'field_config' => array(
@@ -516,6 +590,7 @@ function scoga_kliek_user_feature_field_default_fields() {
   t('Phone number');
   t('Score');
   t('Street');
+  t('Team');
   t('Zipcode');
 
   return $fields;
