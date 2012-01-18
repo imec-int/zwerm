@@ -18,6 +18,9 @@ function scoga_kliek_user_feature_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_card_id',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
