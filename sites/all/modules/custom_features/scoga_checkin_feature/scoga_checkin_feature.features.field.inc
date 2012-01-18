@@ -150,6 +150,77 @@ function scoga_checkin_feature_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-checkin-field_checkin_valid'
+  $fields['node-checkin-field_checkin_valid'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_checkin_valid',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => '',
+          1 => '',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'checkin',
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'deleted' => '0',
+      'description' => 'Determines whether the checkin will be counted for the team and player scores or not.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 6,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_checkin_valid',
+      'label' => 'Valid',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 1,
+        ),
+        'type' => 'options_onoff',
+        'weight' => '5',
+      ),
+    ),
+  );
+
   // Exported field: 'node-checkin-field_reader_reference'
   $fields['node-checkin-field_reader_reference'] = array(
     'field_config' => array(
@@ -306,9 +377,11 @@ function scoga_checkin_feature_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Checkin time (MS)');
+  t('Determines whether the checkin will be counted for the team and player scores or not.');
   t('Reader');
   t('Score');
   t('User');
+  t('Valid');
 
   return $fields;
 }
