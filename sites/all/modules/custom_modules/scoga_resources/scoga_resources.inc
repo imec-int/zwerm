@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-function _reader_checkin_index( $params ){
+function retrieve_checkin_nodes_list( $params ){
     watchdog( '[SCOGA] reader checkin index', serialize($params));
     $view = views_get_view( 'checkins' );
    	$view->execute_display( 'default' );
@@ -15,38 +15,47 @@ function _reader_checkin_index( $params ){
     return $results;
 }
 
-function _reader_checkin_create( $params ){
+/**
+ * Creates a node of type "Checkin", linked to a user account and a RFID reader node
+ *
+ * @param $params
+ * @return stdClass|string
+ */
+function create_checkin_node( $params ){
     watchdog('[SCOGA} reader checkin create', serialize( $params ) );
 
     $lang = LANGUAGE_NONE; //'en';
+    $checkin_time_format = 'H:i:s d/m/Y';
+
 
 /*
  * catch parameters
  */
     $card_id = $params[ 'cardID' ];
     $reader_id = $params[ 'readerID' ];
-    //cut off trailing decimal zeroes
-    $checkin_time = _format_ms_timestamp( $params[ 'timestamp' ] );
+    $checkin_time = $params[ 'timestamp' ];
+    if( $checkin_time ){
+        $checkin_time_pretty = date( $checkin_time_format, number_format( $checkin_time / 1000, 0, '.', '' ) );
+    }else{
+        $checkin_time_pretty = date( $checkin_time_format );
+    }
 
-/*
- * get or create user profile
- */
-    $user_profile = _retrieve_user_profile( $card_id );
 
-    //internal server error catch
-    if( $user_profile === FALSE ) return 'could not retrieve/create user';
+    /*
+     * get user profile
+     */
+    $user_profile = _retrieve_user_profile_by_card_id( $card_id );
+    if( $user_profile === FALSE ) return 'user did not exist'; // <--- EXIT
 
-/*
- * get or create reader node
- */
-    $reader_node = _retrieve_reader_node( $reader_id );
+    /*
+     * get reader node
+     */
+    $reader_node = _retrieve_reader_node_by_reader_id( $reader_id );
+    if( $reader_node === FALSE ) return 'reader did not exist'; // <--- EXIT
 
-    //internal server error catch
-    if( $reader_node === FALSE ) return 'could not retrieve/create reader';
-
-/*
- * create checkin node
- */
+    /*
+     * create checkin node
+     */
     $checkin_node = new stdClass();
     $checkin_node->type = 'checkin';
     node_object_prepare( $checkin_node );
@@ -56,11 +65,6 @@ function _reader_checkin_create( $params ){
     $checkin_node->language = $lang;
 
     //optional fields
-    $checkin_node->title = $user_profile->name
-        . ' checked in with '
-        . $reader_node->title;
-
-
     //user reference
     $checkin_node->field_user_reference[ $lang ][ 0 ] = array(
         'uid' => $user_profile->uid
@@ -71,14 +75,14 @@ function _reader_checkin_create( $params ){
         'nid' => $reader_node->nid
     );
 
+    $checkin_node->title = $user_profile->name
+        . ' checked in with '
+        . $reader_node->title
+        . $checkin_time_pretty;
 
-    //checkin time, if any
-    if( $checkin_time ){
-        $checkin_node->title .= ' at ' . date( 'H:i:s d/m/Y', _format_ms_timestamp( $checkin_time / 1000 ) );
-        $checkin_node->field_checkin_time[ $lang ][ 0 ] = array(
-            'value' => $checkin_time
-        );
-    }
+    $checkin_node->field_checkin_time[ $lang ][ 0 ] = array(
+        'value' => $checkin_time_pretty;
+    );
 
     //save the mofo node
     $checkin_node = node_submit( $checkin_node );
@@ -87,14 +91,11 @@ function _reader_checkin_create( $params ){
     return $checkin_node;
 }
 
-function _format_ms_timestamp( $timestamp, $decimals = 0 ){
-    return number_format( $timestamp, $decimals, '.', '' );
-}
 
 /*
  * retrieve user profile by card ID
  */
-function _retrieve_user_profile( $card_id ){
+function _retrieve_user_profile_by_card_id( $card_id ){
     $user_entity_type = 'user';
     $user_query = new EntityFieldQuery();
 
@@ -109,10 +110,6 @@ function _retrieve_user_profile( $card_id ){
 
     //return count( $user_uids );
     switch( count( $user_uids ) ){
-        case 0 : {
-            //no user profile found -> new card ID
-            return _create_kliek_user( $card_id );
-        }
         case 1 : {
             //exactly one match, as it should
             return user_load( $user_uids[ 0 ] );
@@ -125,14 +122,13 @@ function _retrieve_user_profile( $card_id ){
     }
 }
 
-function _create_kliek_user( $card_id ){
+function _create_authenticated_user( $card_id ){
     $user_profile = new stdClass();
     $user_profile->name = 'kliek user '. $card_id;
     $user_profile->status = 1; //published
     $user_profile->mail = 'none';
     $user_profile->roles = array(
-        2 => 'authenticated user',
-        4 => 'kliek user'
+        2 => 'authenticated user'
     );
     $user_profile->field_card_id[ LANGUAGE_NONE ][ 0 ] = array(
         'value' => $card_id
@@ -144,7 +140,7 @@ function _create_kliek_user( $card_id ){
 /*
  * get reader node by RFID reader ID
  */
-function _retrieve_reader_node( $reader_id ){
+function _retrieve_reader_node_by_reader_id( $reader_id ){
     $reader_entity_type = 'node';
     $reader_query = new EntityFieldQuery();
 
@@ -159,10 +155,6 @@ function _retrieve_reader_node( $reader_id ){
 
     //
     switch( count( $reader_nids ) ){
-        case 0 : {
-            //no reader node found -> new RFID reader ID
-            return _create_rfid_reader( $reader_id );
-        }
         case 1 : {
             //exactly one match, as it should
             return node_load( $reader_nids[ 0 ] );

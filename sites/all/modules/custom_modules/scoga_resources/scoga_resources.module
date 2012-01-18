@@ -10,28 +10,33 @@
  * Implements hook_perm().
  */
 
-function scoga_resource_checkin_permission() {
-  return array(
-    'Access SCOGA Checkin service' => array(
-      'title' => t('Access SCOGA Checkin service'),
-      'description' => t('Make calls to the SCOGA checkin service'),
-    ),
-  );
+function scoga_resources_permission() {
+    return array(
+        'retrieve checkin nodes list' => array(
+            'title' => t('Retrieve "Checkin" nodes list'),
+            'description' => t('Retrieve a list of "Checkin" nodes'),
+        ),
+        'create checkin node' => array(
+            'title' => t('Create "Checkin" node'),
+            'description' => t('Create a node of content type "Checkin" through the REST service.'),
+        ),
+    );
 }
+
 /**
 * Implements hook_services_resources().
 */
-function scoga_resource_checkin_services_resources(){
+function scoga_resources_services_resources(){
     return array(
         'reader_checkin' => array(
             'index' => array(
                 'help' => 'List of "Checkin"',
                 'file' => array(
                     'file' => 'inc',
-                    'module' => 'scoga_resource_checkin'
+                    'module' => 'scoga_resources'
                 ),
-                'callback' => '_reader_checkin_index',
-                'access arguments' => array( 'Access SCOGA Checkin service' ),
+                'callback' => 'retrieve_checkin_nodes_list',
+                'access arguments' => array( 'retrieve checkin nodes list' ),
                 'args' => array(
                     array(
                         'name' => 'cardID',
@@ -46,10 +51,10 @@ function scoga_resource_checkin_services_resources(){
                 'help' => 'Creates a node of content type "Checkin"',
                 'file' => array(
                     'file' => 'inc',
-                    'module' => 'scoga_resource_checkin'
+                    'module' => 'scoga_resources'
                 ),
-                'callback' => '_reader_checkin_create',
-                'access arguments' => array( 'Access SCOGA Checkin service' ),
+                'callback' => 'create_checkin_node',
+                'access arguments' => array( 'create checkin node' ),
                 'args' => array(
                     array(
                         'name' => 'cardID',
