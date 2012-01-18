@@ -49,20 +49,8 @@ function scoga_kliek_team_feature_node_export_features_default() {
         ),
       ),
     ),
-    \'field_score\' => array(
-      \'und\' => array(
-        \'0\' => array(
-          \'value\' => \'0\',
-        ),
-      ),
-    ),
-    \'field_score_multiplier\' => array(
-      \'und\' => array(
-        \'0\' => array(
-          \'value\' => \'1.00000000\',
-        ),
-      ),
-    ),
+    \'field_team_score\' => array(),
+    \'field_team_score_multiplier\' => array(),
     \'rdf_mapping\' => array(
       \'rdftype\' => array(
         \'0\' => \'sioc:Item\',

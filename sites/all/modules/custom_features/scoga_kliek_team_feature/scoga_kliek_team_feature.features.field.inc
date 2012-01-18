@@ -77,19 +77,19 @@ function scoga_kliek_team_feature_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '31',
+        'weight' => '3',
       ),
     ),
   );
 
-  // Exported field: 'node-kliek_team-field_score'
-  $fields['node-kliek_team-field_score'] = array(
+  // Exported field: 'node-kliek_team-field_team_score'
+  $fields['node-kliek_team-field_team_score'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_score',
+      'field_name' => 'field_team_score',
       'field_permissions' => array(
         'type' => '2',
       ),
@@ -99,8 +99,7 @@ function scoga_kliek_team_feature_field_default_fields() {
       'settings' => array(
         'decimal_separator' => '.',
         'precision' => '10',
-        'profile2_private' => 0,
-        'scale' => '0',
+        'scale' => '8',
       ),
       'translatable' => '0',
       'type' => 'number_decimal',
@@ -113,36 +112,29 @@ function scoga_kliek_team_feature_field_default_fields() {
         ),
       ),
       'deleted' => '0',
-      'description' => 'The accumulated score of the team, this field\'s value should be calculatable by adding the scores of the various player and team actions scores multiplied with the team score weight.
-Used as a cache, so that the calculations do not need to run incessantly',
+      'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'number',
           'settings' => array(
             'decimal_separator' => '.',
-            'prefix_suffix' => 1,
-            'scale' => '0',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '1',
+          'weight' => 3,
         ),
         'teaser' => array(
-          'label' => 'inline',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => 1,
-            'scale' => '0',
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_decimal',
-          'weight' => '1',
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_score',
+      'field_name' => 'field_team_score',
       'label' => 'Total score',
       'required' => 0,
       'settings' => array(
@@ -157,19 +149,19 @@ Used as a cache, so that the calculations do not need to run incessantly',
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '32',
+        'weight' => '4',
       ),
     ),
   );
 
-  // Exported field: 'node-kliek_team-field_score_multiplier'
-  $fields['node-kliek_team-field_score_multiplier'] = array(
+  // Exported field: 'node-kliek_team-field_team_score_multiplier'
+  $fields['node-kliek_team-field_team_score_multiplier'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_score_multiplier',
+      'field_name' => 'field_team_score_multiplier',
       'field_permissions' => array(
         'type' => '2',
       ),
@@ -204,7 +196,7 @@ Used as a cache, so that the calculations do not need to run incessantly',
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => 2,
+          'weight' => 4,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -214,12 +206,12 @@ Used as a cache, so that the calculations do not need to run incessantly',
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_score_multiplier',
+      'field_name' => 'field_team_score_multiplier',
       'label' => 'Score multiplier',
-      'required' => 1,
+      'required' => 0,
       'settings' => array(
         'max' => '',
-        'min' => '0',
+        'min' => '',
         'prefix' => '',
         'suffix' => '',
         'user_register_form' => FALSE,
@@ -229,7 +221,7 @@ Used as a cache, so that the calculations do not need to run incessantly',
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '33',
+        'weight' => '5',
       ),
     ),
   );
@@ -239,8 +231,6 @@ Used as a cache, so that the calculations do not need to run incessantly',
   t('Body');
   t('Score multiplier');
   t('The "score multiplier" value is multiplied to the raw score of a player/team action to calculate the points a team gets for a specific player/team action ');
-  t('The accumulated score of the team, this field\'s value should be calculatable by adding the scores of the various player and team actions scores multiplied with the team score weight.
-Used as a cache, so that the calculations do not need to run incessantly');
   t('Total score');
 
   return $fields;
