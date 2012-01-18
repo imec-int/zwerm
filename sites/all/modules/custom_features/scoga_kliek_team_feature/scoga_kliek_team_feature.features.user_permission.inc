@@ -15,7 +15,8 @@ function scoga_kliek_team_feature_user_default_permissions() {
     'name' => 'view field_score',
     'roles' => array(
       0 => 'administrator',
-      1 => 'authenticated user',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
@@ -25,7 +26,8 @@ function scoga_kliek_team_feature_user_default_permissions() {
     'name' => 'view own field_score',
     'roles' => array(
       0 => 'administrator',
-      1 => 'authenticated user',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );

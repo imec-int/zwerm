@@ -24,17 +24,42 @@ function scoga_kliek_team_feature_node_export_features_default() {
     \'type\' => \'kliek_team\',
     \'language\' => \'und\',
     \'created\' => \'1326813300\',
-    \'changed\' => \'1326813300\',
+    \'changed\' => \'1326880895\',
     \'tnid\' => \'0\',
     \'translate\' => \'0\',
     \'uuid\' => \'8752a284-d3e7-cc24-1970-9c7264725541\',
-    \'revision_timestamp\' => \'1326813300\',
+    \'revision_timestamp\' => \'1326880895\',
     \'revision_uid\' => \'1\',
-    \'body\' => array(),
+    \'body\' => array(
+      \'und\' => array(
+        \'0\' => array(
+          \'value\' => \'<p>&nbsp;</p>
+<div>
+	<p>This is the default team a player belongs to. After registration ALL players should be part of a &quot;real&quot; team.</p>
+</div>
+<p>&nbsp;</p>
+\',
+          \'summary\' => \'\',
+          \'format\' => \'filtered_html\',
+          \'safe_value\' => \'<p> </p>
+<p>	This is the default team a player belongs to. After registration ALL players should be part of a "real" team.</p>
+<p> </p>
+\',
+          \'safe_summary\' => \'\',
+        ),
+      ),
+    ),
     \'field_score\' => array(
       \'und\' => array(
         \'0\' => array(
           \'value\' => \'0\',
+        ),
+      ),
+    ),
+    \'field_score_multiplier\' => array(
+      \'und\' => array(
+        \'0\' => array(
+          \'value\' => \'1.00000000\',
         ),
       ),
     ),
