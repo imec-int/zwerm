@@ -6,17 +6,20 @@
  * Time: 12:36
  * To change this template use File | Settings | File Templates.
  */
+
+const PERM_RETRIEVE_CHECKINS = 'retrieve checkin nodes list';
+const PERM_CREATE_CHECKIN = 'create checkin node';
+
 /**
  * Implements hook_perm().
  */
-
 function scoga_resources_permission() {
     return array(
-        'retrieve checkin nodes list' => array(
+        PERM_RETRIEVE_CHECKINS => array(
             'title' => t('Retrieve "Checkin" nodes list'),
             'description' => t('Retrieve a list of "Checkin" nodes'),
         ),
-        'create checkin node' => array(
+        PERM_CREATE_CHECKIN => array(
             'title' => t('Create "Checkin" node'),
             'description' => t('Create a node of content type "Checkin" through the REST service.'),
         ),

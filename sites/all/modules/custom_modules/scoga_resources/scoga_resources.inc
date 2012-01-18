@@ -28,9 +28,9 @@ function create_checkin_node( $params ){
     $checkin_time_format = 'H:i:s d/m/Y';
 
 
-/*
- * catch parameters
- */
+    /*
+     * catch parameters
+     */
     $card_id = $params[ 'cardID' ];
     $reader_id = $params[ 'readerID' ];
     $checkin_time = $params[ 'timestamp' ];
@@ -44,8 +44,21 @@ function create_checkin_node( $params ){
     /*
      * get user profile
      */
-    $user_profile = _retrieve_user_profile_by_card_id( $card_id );
-    if( $user_profile === FALSE ) return 'user did not exist'; // <--- EXIT
+    $user_account = _retrieve_user_account_by_card_id( $card_id );
+    if( $user_account === FALSE ) return 'user did not exist'; // <--- EXIT
+
+    /*
+     * check if user has correct permissions
+     *
+     * NB:
+     * permission string must be lower case,
+     * see http://api.drupal.org/api/drupal/modules--user--user.module/function/user_access/7#comment-12914
+     */
+    if( user_access( strtolower( PERM_CREATE_CHECKIN ), $user_account ) ){
+
+    }else{
+        return 'user not allowed to create checkin'; //<--- EXIT
+    }
 
     /*
      * get reader node
@@ -61,13 +74,13 @@ function create_checkin_node( $params ){
     node_object_prepare( $checkin_node );
 
     //required fields
-    $checkin_node->uid = $user_profile->uid;
+    $checkin_node->uid = $user_account->uid;
     $checkin_node->language = $lang;
 
     //optional fields
     //user reference
     $checkin_node->field_user_reference[ $lang ][ 0 ] = array(
-        'uid' => $user_profile->uid
+        'uid' => $user_account->uid
     );
 
     //reader reference
@@ -75,13 +88,13 @@ function create_checkin_node( $params ){
         'nid' => $reader_node->nid
     );
 
-    $checkin_node->title = $user_profile->name
+    $checkin_node->title = $user_account->name
         . ' checked in with '
         . $reader_node->title
         . $checkin_time_pretty;
 
     $checkin_node->field_checkin_time[ $lang ][ 0 ] = array(
-        'value' => $checkin_time_pretty;
+        'value' => $checkin_time_pretty
     );
 
     //save the mofo node
@@ -92,10 +105,12 @@ function create_checkin_node( $params ){
 }
 
 
-/*
- * retrieve user profile by card ID
+/**
+ * retrieve user account by card ID
+ * @param $card_id
+ * @return bool|mixed
  */
-function _retrieve_user_profile_by_card_id( $card_id ){
+function _retrieve_user_account_by_card_id( $card_id ){
     $user_entity_type = 'user';
     $user_query = new EntityFieldQuery();
 
@@ -122,6 +137,11 @@ function _retrieve_user_profile_by_card_id( $card_id ){
     }
 }
 
+/**
+ * create an authenticated user
+ * @param $card_id
+ * @return bool|stdClass
+ */
 function _create_authenticated_user( $card_id ){
     $user_profile = new stdClass();
     $user_profile->name = 'kliek user '. $card_id;
