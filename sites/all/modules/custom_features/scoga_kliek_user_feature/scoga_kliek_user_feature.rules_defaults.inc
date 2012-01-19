@@ -9,17 +9,21 @@
  */
 function scoga_kliek_user_feature_default_rules_configuration() {
   $items = array();
-  $items['rules_assign_kliek_role'] = entity_import('rules_config', '{ "rules_assign_kliek_role" : {
-      "LABEL" : "Assign KLIEK role",
+  $items['rules_set_user_as_registered'] = entity_import('rules_config', '{ "rules_set_user_as_registered" : {
+      "LABEL" : "Set user as registered",
       "PLUGIN" : "reaction rule",
       "REQUIRES" : [ "rules" ],
       "ON" : [ "user_update" ],
       "IF" : [
-        { "entity_has_field" : { "entity" : [ "account" ], "field" : "field_card_id" } },
-        { "NOT data_is_empty" : { "data" : [ "account:field-card-id" ] } }
+        { "user_has_role" : {
+            "account" : [ "account" ],
+            "roles" : { "value" : { "4" : "4" } },
+            "operation" : "OR"
+          }
+        }
       ],
       "DO" : [
-        { "user_add_role" : { "account" : [ "account" ], "roles" : { "value" : { "4" : "4" } } } }
+        { "data_set" : { "data" : [ "account:field-user-registered" ], "value" : 1 } }
       ]
     }
   }');
