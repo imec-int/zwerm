@@ -42,9 +42,13 @@ function scoga_rest_service_default_services_endpoint() {
   $endpoint->resources = array(
     'reader_checkin' => array(
       'operations' => array(
-        'index' => array(
+        'create' => array(
           'enabled' => 1,
         ),
+      ),
+    ),
+    'register_reader' => array(
+      'operations' => array(
         'create' => array(
           'enabled' => 1,
         ),
