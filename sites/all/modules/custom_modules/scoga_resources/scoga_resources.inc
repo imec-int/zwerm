@@ -7,14 +7,6 @@
  * To change this template use File | Settings | File Templates.
  */
 
-function retrieve_checkin_nodes_list( $params ){
-    watchdog( '[SCOGA] reader checkin index', serialize($params));
-    $view = views_get_view( 'checkins' );
-   	$view->execute_display( 'default' );
-   	$results = $view->result;
-    return $results;
-}
-
 /**
  * Creates a node of type "Checkin", linked to a user account and a RFID reader node
  *
@@ -34,6 +26,7 @@ function create_checkin_node( $params ){
     $card_id = $params[ 'cardID' ];
     $reader_id = $params[ 'readerID' ];
     $checkin_time = $params[ 'timestamp' ];
+
     if( $checkin_time ){
         $checkin_time_pretty = date( $checkin_time_format, number_format( $checkin_time / 1000, 0, '.', '' ) );
     }else{
@@ -54,11 +47,19 @@ function create_checkin_node( $params ){
      * permission string must be lower case,
      * see http://api.drupal.org/api/drupal/modules--user--user.module/function/user_access/7#comment-12914
      */
-    if( user_access( strtolower( PERM_CREATE_CHECKIN ), $user_account ) ){
 
-    }else{
+    if( user_access( strtolower( PERM_CREATE_CHECKIN ), $user_account ) === FALSE ){
         return 'user not allowed to create checkin'; //<--- EXIT
     }
+
+    /*
+     * check if user has registered
+     */
+
+    $user_registered = (
+        isset( $user_account->field_user_registered )
+        && $user_account->field_user_registered[ $lang ][ 0 ][ 'value' ] == "1"
+    );
 
     /*
      * get reader node
@@ -89,13 +90,15 @@ function create_checkin_node( $params ){
     );
 
     $checkin_node->title = $user_account->name
-        . ' checked in with '
-        . $reader_node->title
-        . $checkin_time_pretty;
+        . ' checked in with ' . $reader_node->title
+        . ' at ' . $checkin_time_pretty;
 
     $checkin_node->field_checkin_time[ $lang ][ 0 ] = array(
         'value' => $checkin_time_pretty
     );
+
+    //published or not
+    $checkin_node->status= ( $user_registered ) ? "1" : "0";
 
     //save the mofo node
     $checkin_node = node_submit( $checkin_node );

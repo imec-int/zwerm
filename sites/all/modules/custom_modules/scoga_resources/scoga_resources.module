@@ -7,21 +7,16 @@
  * To change this template use File | Settings | File Templates.
  */
 
-const PERM_RETRIEVE_CHECKINS = 'retrieve checkin nodes list';
 const PERM_CREATE_CHECKIN = 'create checkin node';
 
 /**
- * Implements hook_perm().
+ * Implements hook_permission().
  */
 function scoga_resources_permission() {
     return array(
-        PERM_RETRIEVE_CHECKINS => array(
-            'title' => t('Retrieve "Checkin" nodes list'),
-            'description' => t('Retrieve a list of "Checkin" nodes'),
-        ),
-        PERM_CREATE_CHECKIN => array(
+         PERM_CREATE_CHECKIN => array(
             'title' => t('Create "Checkin" node'),
-            'description' => t('Create a node of content type "Checkin" through the REST service.'),
+            'description' => t('Create a node of content type "Checkin" through the REST service.<br/>'),
         ),
     );
 }
@@ -32,24 +27,6 @@ function scoga_resources_permission() {
 function scoga_resources_services_resources(){
     return array(
         'reader_checkin' => array(
-            'index' => array(
-                'help' => 'List of "Checkin"',
-                'file' => array(
-                    'file' => 'inc',
-                    'module' => 'scoga_resources'
-                ),
-                'callback' => 'retrieve_checkin_nodes_list',
-                'access arguments' => array( 'retrieve checkin nodes list' ),
-                'args' => array(
-                    array(
-                        'name' => 'cardID',
-                        'type' => 'string',
-                        'description' => 'The unique ID of the card',
-                        'source' => 'param',
-                        'optional' => TRUE,
-                    ),
-                ),
-            ),
             'create' => array(
                 'help' => 'Creates a node of content type "Checkin"',
                 'file' => array(
