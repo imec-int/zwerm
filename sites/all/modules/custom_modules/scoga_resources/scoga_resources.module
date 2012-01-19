@@ -7,16 +7,31 @@
  * To change this template use File | Settings | File Templates.
  */
 
-const PERM_CREATE_CHECKIN = 'create checkin node';
+const SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN = 'access create checkin';
+const SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN = 'execute create checkin';
+const SCOGA_PERM_REST_ACCESS_REGISTER_READER = 'access register rfid reader';
+const SCOGA_PERM_REST_EXECUTE_REGISTER_READER = 'execute register rfid reader';
 
 /**
  * Implements hook_permission().
  */
 function scoga_resources_permission() {
     return array(
-         PERM_CREATE_CHECKIN => array(
+        SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN => array(
+            'title' => t('Access "Checkin" creation service'),
+            'description' => t('Access to the checkin creation service.<br/><strong>SHOULD BE ALLOWED FOR ANONYMOUS!</strong>'),
+        ),
+        SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN => array(
             'title' => t('Create "Checkin" node'),
             'description' => t('Create a node of content type "Checkin" through the REST service.<br/>'),
+        ),
+        SCOGA_PERM_REST_ACCESS_REGISTER_READER => array(
+            'title' => t( 'Access register RFID reader service' ),
+            'description' => t( 'Access to the RFID reader registration service<br/><strong>SHOULD BE ALLOWED FOR ANONYMOUS!</strong>' ),
+        ),
+        SCOGA_PERM_REST_EXECUTE_REGISTER_READER => array(
+            'title' => t( 'Register RFID reader' ),
+            'description' => t( 'Register an RFID reader to be used with SCOGA' ),
         ),
     );
 }
@@ -33,8 +48,8 @@ function scoga_resources_services_resources(){
                     'file' => 'inc',
                     'module' => 'scoga_resources'
                 ),
-                'callback' => 'create_checkin_node',
-                'access arguments' => array( 'create checkin node' ),
+                'callback' => 'reader_checkin',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN ),
                 'args' => array(
                     array(
                         'name' => 'cardID',
@@ -61,5 +76,40 @@ function scoga_resources_services_resources(){
                 )
             )
         ),
+        'register_reader' => array(
+            'create' => array(
+                'help' => 'Register an RFID reader to be used with SCOGA',
+                'file' => array(
+                    'file' => 'inc',
+                    'module' => 'scoga_resources'
+                ),
+                'callback' => 'register_reader',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_REGISTER_READER ),
+                'args' => array(
+                    array(
+                        'name' => 'cardID',
+                        'type' => 'string',
+                        'description' => 'The unique ID of the card',
+                        'source' => 'data',
+                        'optional' => FALSE,
+                    ),
+                    array(
+                        'name' => 'readerID',
+                        'type' => 'string',
+                        'description' => 'The unique ID of the RFID reader',
+                        'source' => 'data',
+                        'optional' => FALSE,
+                    ),
+                    array(
+                        'name' => 'timestamp',
+                        'type' => 'int',
+                        'description' => 'The unix epoch timestamp of checkin',
+                        'source' => 'data',
+                        'optional' => TRUE,
+                        'default value' => -1
+                    ),
+                )
+            )
+        )
     );
 }

@@ -2,7 +2,7 @@
 name = Scoga service resources
 description = Service resource definitions for Scoga
 package = Scoga
-version = 7.x-1.1
+version = 7.x-1.2
 core = 7.x
 files[] = scoga_resources.module
 dependencies[] = scoga_checkin_feature
