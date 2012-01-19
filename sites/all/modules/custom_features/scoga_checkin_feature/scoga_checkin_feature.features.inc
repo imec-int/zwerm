@@ -22,7 +22,7 @@ function scoga_checkin_feature_node_info() {
     'checkin' => array(
       'name' => t('Checkin'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('An unpublished checkin is not counted and was created by an unregistered user.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
