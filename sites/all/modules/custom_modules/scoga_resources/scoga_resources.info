@@ -5,6 +5,7 @@ package = Scoga
 version = 7.x-1.2
 core = 7.x
 files[] = scoga_resources.module
+dependencies[] = scoga
 dependencies[] = scoga_checkin_feature
 dependencies[] = scoga_kliek_user_feature
 dependencies[] = scoga_rest_service

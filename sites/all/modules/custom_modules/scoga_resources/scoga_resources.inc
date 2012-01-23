@@ -9,9 +9,6 @@
 
 const SCOGA_TIME_FORMAT = 'H:i:s d/m/Y';
 const SCOGA_DEFAULT_LANG = LANGUAGE_NONE;
-const SCOGA_TEAM_NODETYPE = 'kliek_team';
-const SCOGA_CHECKIN_NODETYPE = 'checkin';
-const SCOGA_READER_NODETYPE = 'rfid_reader';
 
 /**
  * Creates a node of type "Checkin", linked to a user account and a RFID reader node
@@ -68,7 +65,7 @@ function reader_checkin( $params ){
  * @param $params
  */
 function register_reader( $params ){
-    watchdog('[SCOGA} register reader', serialize( $params ) );
+    watchdog('[SCOGA] register reader', serialize( $params ) );
 
     $lang = SCOGA_DEFAULT_LANG;
 
