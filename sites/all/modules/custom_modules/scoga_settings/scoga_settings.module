@@ -1,0 +1,26 @@
+<?php
+
+const PERM_SCOGA_ADMINISTER_SETTINGS = 'scoga administer settings';
+
+/**
+ * implement hook_menu()
+ */
+function scoga_settings_menu(){
+    $items = array();
+    $items[ 'admin/config/scoga' ] = array(
+        'title' => t('SCOGA general settings'),
+        'description' => t('General settings for SCOGA'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array( 'scoga_settings_form' ),
+        'access arguments' => array( PERM_SCOGA_ADMINISTER_SETTINGS ),
+        'type' => MENU_NORMAL_ITEM
+    );
+    return $items;
+}
+
+function scoga_settings_form( $form, &$form_state ){
+    $form[ 'scoga_settings_team_assignment' ] = array(
+        '#type' => 'textfield',
+        '#title' => t('Select the team to which new users will automatically be assigned')
+    );
+}
