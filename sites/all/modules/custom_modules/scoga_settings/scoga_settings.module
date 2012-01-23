@@ -1,6 +1,7 @@
 <?php
 
-const PERM_SCOGA_ADMINISTER_SETTINGS = 'scoga administer settings';
+const SCOGA_PERM_ADMINISTER_SETTINGS = 'scoga administer settings';
+const SCOGA_PLAYERACTION_CONTENTTYPEGROUP = 'player_action';
 
 /**
  * implement hook_menu()
@@ -8,19 +9,52 @@ const PERM_SCOGA_ADMINISTER_SETTINGS = 'scoga administer settings';
 function scoga_settings_menu(){
     $items = array();
     $items[ 'admin/config/scoga' ] = array(
-        'title' => t('SCOGA general settings'),
+        'title' => t('SCOGA settings'),
         'description' => t('General settings for SCOGA'),
+        'page callback' => 'system_admin_menu_block_page',
+        'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
+        'file' => 'system.admin.inc',
+        'file path' => drupal_get_path('module', 'system'),
+        'type' => MENU_NORMAL_ITEM,
+    );
+    $items[ 'admin/config/scoga/scoring' ] = array(
+        'title' => t( 'SCOGA scoring settings' ),
+        'description' => t( 'Scoring settings for SCOGA' ),
         'page callback' => 'drupal_get_form',
-        'page arguments' => array( 'scoga_settings_form' ),
-        'access arguments' => array( PERM_SCOGA_ADMINISTER_SETTINGS ),
-        'type' => MENU_NORMAL_ITEM
+        'page arguments' => array( 'scoga_settings_scoring_form' ),
+        'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
+        'type' => MENU_NORMAL_ITEM,
     );
     return $items;
 }
 
-function scoga_settings_form( $form, &$form_state ){
-    $form[ 'scoga_settings_team_assignment' ] = array(
-        '#type' => 'textfield',
-        '#title' => t('Select the team to which new users will automatically be assigned')
+function scoga_settings_scoring_form( $form, &$form_state ){
+
+    $group = new ContentTypeGroup( SCOGA_PLAYERACTION_CONTENTTYPEGROUP );
+    foreach( $group->typeList() as $type ){
+        $form_elem_name = 'scoga_settings_' . $type . '_score';
+        $form[ $form_elem_name ] = array(
+            '#type' => 'textfield',
+            '#title' => t('Scoring for "' ) . $type .'"',
+            '#description' => t('Defines the base score value of player action "' ) . $type . '"',
+            '#default_value' => variable_get( $form_elem_name, 1 ),
+            '#size' => 10,
+            '#required' => TRUE
+        );
+    }
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => t('Save settings'),
     );
+
+    return $form;
+}
+
+function scoga_settings_scoring_form_submit( $form, &$form_state ){
+    $group = new ContentTypeGroup( SCOGA_PLAYERACTION_CONTENTTYPEGROUP );
+    foreach( $group->typeList() as $type ){
+        $form_elem_name = 'scoga_settings_' . $type . '_score';
+        variable_set( $form_elem_name, $form_state['values'][$form_elem_name] );
+    }
+    drupal_set_message( t('The scoring settings have been saved.') );
 }

@@ -6,3 +6,4 @@ version = 7.x-1.0
 core = 7.x
 files[] = scoga_settings.module
 dependencies[] = scoga_kliek_team_feature
+dependencies[] = content_type_groups
