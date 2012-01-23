@@ -1,9 +1,9 @@
 ;Id$
-name = Scoga general settings
-description = General settings for SCOGA
+name = Scoga common
+description = Common consolidated functionality for SCOGA
 package = Scoga
 version = 7.x-1.0
 core = 7.x
-files[] = scoga_settings.module
+files[] = scoga.module
 dependencies[] = scoga_kliek_team_feature
 dependencies[] = content_type_groups

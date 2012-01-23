@@ -56,15 +56,9 @@ function reader_checkin( $params ){
     $reader_node = _retrieve_reader_node_by_reader_id( $reader_id );
 
     /*
-     * get team node
-     */
-    $team_nid = $user_account->field_team_reference[ $lang ][ 0 ];
-    $team_node = _retrieve_team_node_by_nid( $team_nid );
-
-    /*
      * create checkin node
      */
-    $checkin_node = _create_checkin_node( $lang, $user_account, $reader_node, $team_node, $checkin_time );
+    $checkin_node = _create_checkin_node( $lang, $user_account, $reader_node, $checkin_time );
 
     return $checkin_node;
 }
@@ -215,7 +209,7 @@ function _retrieve_reader_nids_by_reader_id( $reader_id ){
     return array_keys( $reader_entities[ $reader_entity_type ] );
 }
 
-function _create_checkin_node( $lang, $user_account, $reader_node, $team_node, $checkin_time ){
+function _create_checkin_node( $lang, $user_account, $reader_node, $checkin_time ){
     $checkin_time_formatted = date( SCOGA_TIME_FORMAT, $checkin_time );
 
     $user_registered = (

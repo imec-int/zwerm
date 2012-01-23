@@ -6,7 +6,7 @@ const SCOGA_PLAYERACTION_CONTENTTYPEGROUP = 'player_action';
 /**
  * implement hook_menu()
  */
-function scoga_settings_menu(){
+function scoga_menu(){
     $items = array();
     $items[ 'admin/config/scoga' ] = array(
         'title' => t('SCOGA settings'),
@@ -21,14 +21,14 @@ function scoga_settings_menu(){
         'title' => t( 'SCOGA scoring settings' ),
         'description' => t( 'Scoring settings for SCOGA' ),
         'page callback' => 'drupal_get_form',
-        'page arguments' => array( 'scoga_settings_scoring_form' ),
+        'page arguments' => array( 'scoga_scoring_form' ),
         'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
         'type' => MENU_NORMAL_ITEM,
     );
     return $items;
 }
 
-function scoga_settings_scoring_form( $form, &$form_state ){
+function scoga_scoring_form( $form, &$form_state ){
 
     $group = new ContentTypeGroup( SCOGA_PLAYERACTION_CONTENTTYPEGROUP );
     foreach( $group->typeList() as $type ){
@@ -50,7 +50,7 @@ function scoga_settings_scoring_form( $form, &$form_state ){
     return $form;
 }
 
-function scoga_settings_scoring_form_submit( $form, &$form_state ){
+function scoga_scoring_form_submit( $form, &$form_state ){
     $group = new ContentTypeGroup( SCOGA_PLAYERACTION_CONTENTTYPEGROUP );
     foreach( $group->typeList() as $type ){
         $form_elem_name = 'scoga_settings_' . $type . '_score';
