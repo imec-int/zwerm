@@ -9,6 +9,9 @@
 
 const SCOGA_TIME_FORMAT = 'H:i:s d/m/Y';
 const SCOGA_DEFAULT_LANG = LANGUAGE_NONE;
+const SCOGA_TEAM_NODETYPE = 'kliek_team';
+const SCOGA_CHECKIN_NODETYPE = 'checkin';
+const SCOGA_READER_NODETYPE = 'rfid_reader';
 
 /**
  * Creates a node of type "Checkin", linked to a user account and a RFID reader node
@@ -17,7 +20,7 @@ const SCOGA_DEFAULT_LANG = LANGUAGE_NONE;
  * @return stdClass|string
  */
 function reader_checkin( $params ){
-    watchdog('[SCOGA} reader checkin create', serialize( $params ) );
+    watchdog('[SCOGA] reader checkin create', serialize( $params ) );
 
     $lang = SCOGA_DEFAULT_LANG;
 
@@ -26,7 +29,8 @@ function reader_checkin( $params ){
      */
     $card_id = $params[ 'cardID' ];
     $reader_id = $params[ 'readerID' ];
-    $checkin_time_MS = $params[ 'timestamp' ];
+    //$checkin_time_MS = $params[ 'timestamp' ];
+    $checkin_time = time();
 
     /*
      * get user account
@@ -52,13 +56,15 @@ function reader_checkin( $params ){
     $reader_node = _retrieve_reader_node_by_reader_id( $reader_id );
 
     /*
+     * get team node
+     */
+    $team_nid = $user_account->field_team_reference[ $lang ][ 0 ];
+    $team_node = _retrieve_team_node_by_nid( $team_nid );
+
+    /*
      * create checkin node
      */
-    $checkin_node = _create_checkin_node( $lang, $user_account, $reader_node, $checkin_time_MS );
-
-    //save the mofo node
-    $checkin_node = node_submit( $checkin_node );
-    node_save( $checkin_node );
+    $checkin_node = _create_checkin_node( $lang, $user_account, $reader_node, $team_node, $checkin_time );
 
     return $checkin_node;
 }
@@ -77,8 +83,7 @@ function register_reader( $params ){
      */
     $card_id = $params[ 'cardID' ];
     $reader_id = $params[ 'readerID' ];
-    $checkin_timeMS = $params[ 'timestamp' ];
-    $checkin_timeSEC = _time_MS_to_SEC( $checkin_timeMS );
+    //$checkin_timeMS = $params[ 'timestamp' ];
 
     /*
       * retrieve user account coupled to card id
@@ -108,7 +113,7 @@ function register_reader( $params ){
  * @param $timeMS
  * @return int|string
  */
-function _time_MS_to_SEC( $timeMS ){
+function _time_MS_to_SEC( $timeMS = null ){
     if( $timeMS ){
         return number_format( $timeMS / 1000, 0, '.', '' );
     }
@@ -210,19 +215,16 @@ function _retrieve_reader_nids_by_reader_id( $reader_id ){
     return array_keys( $reader_entities[ $reader_entity_type ] );
 }
 
-function _create_checkin_node( $lang, $user_account, $reader_node, $checkin_time_MS ){
-    $checkin_time_SEC = _time_MS_to_SEC( $checkin_time_MS );
-    $checkin_time_formatted = date( SCOGA_TIME_FORMAT, $checkin_time_SEC );
+function _create_checkin_node( $lang, $user_account, $reader_node, $team_node, $checkin_time ){
+    $checkin_time_formatted = date( SCOGA_TIME_FORMAT, $checkin_time );
 
     $user_registered = (
         isset( $user_account->field_user_registered )
         && $user_account->field_user_registered[ $lang ][ 0 ][ 'value' ] == "1"
     );
 
-
-
     $checkin_node = new stdClass();
-    $checkin_node->type = 'checkin';
+    $checkin_node->type = SCOGA_CHECKIN_NODETYPE;
     node_object_prepare( $checkin_node );
 
     //required fields
@@ -240,23 +242,30 @@ function _create_checkin_node( $lang, $user_account, $reader_node, $checkin_time
         'nid' => $reader_node->nid
     );
 
+    //title
     $checkin_node->title = $user_account->name
         . ' checked in with ' . $reader_node->title
         . ' at ' . $checkin_time_formatted;
 
+    //checkin time
     $checkin_node->field_checkin_time[ $lang ][ 0 ] = array(
-        'value' => $checkin_time_SEC
+        'value' => $checkin_time
     );
 
     //published or not
     $checkin_node->status= ( $user_registered ) ? "1" : "0";
+
+    //save the mofo node
+    $checkin_node = node_submit( $checkin_node );
+    node_save( $checkin_node );
+
 
     return $checkin_node;
 }
 
 function _create_rfid_reader( $reader_id ){
     $reader_node = new stdClass();
-    $reader_node->type = 'rfid_reader';
+    $reader_node->type = SCOGA_READER_NODETYPE;
     node_object_prepare( $reader_node );
     $reader_node->language = LANGUAGE_NONE;
     $reader_node->title = 'RFID reader ' . $reader_id;
@@ -269,4 +278,15 @@ function _create_rfid_reader( $reader_id ){
     node_save( $reader_node );
 
     return $reader_node;
+}
+
+function _retrieve_team_node_by_nid( $nid ){
+
+    $team_node = node_load( $nid );
+    if( $team_node && $team_node->type == SCOGA_TEAM_NODETYPE ){
+        return $team_node;
+    }
+
+    return FALSE;
+
 }
