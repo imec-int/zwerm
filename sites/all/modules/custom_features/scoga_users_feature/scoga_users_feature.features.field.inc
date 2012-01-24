@@ -454,13 +454,9 @@ function scoga_users_feature_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'node_reference',
-        'settings' => array(
-          'autocomplete_match' => 'contains',
-          'autocomplete_path' => 'node_reference/autocomplete',
-          'size' => '60',
-        ),
-        'type' => 'node_reference_autocomplete',
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
         'weight' => '1',
       ),
     ),
