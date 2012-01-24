@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the SCOGA 'kliek team' feature feature.
- */
-
-include_once('scoga_kliek_team_feature.features.inc');
