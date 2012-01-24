@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SCOGA model feature feature.
+ */
+
+include_once('scoga_model_feature.features.inc');
