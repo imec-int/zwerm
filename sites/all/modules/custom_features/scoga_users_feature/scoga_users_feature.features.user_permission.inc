@@ -312,7 +312,8 @@ function scoga_users_feature_user_default_permissions() {
     'name' => 'view field_team_reference',
     'roles' => array(
       0 => 'administrator',
-      1 => 'authenticated user',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
@@ -362,7 +363,7 @@ function scoga_users_feature_user_default_permissions() {
     'name' => 'view own field_card_id',
     'roles' => array(
       0 => 'administrator',
-      1 => 'authenticated user',
+      1 => 'kliek user',
     ),
     'module' => 'field_permissions',
   );
@@ -381,7 +382,8 @@ function scoga_users_feature_user_default_permissions() {
     'name' => 'view own field_team_reference',
     'roles' => array(
       0 => 'administrator',
-      1 => 'authenticated user',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
