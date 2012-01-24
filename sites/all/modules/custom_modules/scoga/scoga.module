@@ -1,6 +1,6 @@
 <?php
 
-const SCOGA_PERM_ADMINISTER_SETTINGS = 'scoga administer settings';
+define( 'SCOGA_PERM_ADMINISTER_SETTINGS', 'scoga administer settings' );
 
 /**
  * implement hook_menu()

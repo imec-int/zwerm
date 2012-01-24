@@ -7,8 +7,8 @@
  * To change this template use File | Settings | File Templates.
  */
 
-const SCOGA_TIME_FORMAT = 'H:i:s d/m/Y';
-const SCOGA_DEFAULT_LANG = LANGUAGE_NONE;
+define( 'SCOGA_TIME_FORMAT', 'H:i:s d/m/Y' );
+define( 'SCOGA_DEFAULT_LANG', LANGUAGE_NONE );
 
 /**
  * Creates a node of type "Checkin", linked to a user account and a RFID reader node

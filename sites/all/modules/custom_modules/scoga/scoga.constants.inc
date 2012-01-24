@@ -8,8 +8,8 @@
  */
 
 
-const SCOGA_TEAM_NODETYPE = 'kliek_team';
-const SCOGA_CHECKIN_NODETYPE = 'checkin';
-const SCOGA_READER_NODETYPE = 'rfid_reader';
+define( 'SCOGA_TEAM_NODETYPE', 'kliek_team' );
+define( 'SCOGA_CHECKIN_NODETYPE', 'checkin' );
+define( 'SCOGA_READER_NODETYPE', 'rfid_reader' );
 
-const SCOGA_PLAYERACTION_CONTENTTYPEGROUP = 'player_action';
+define( 'SCOGA_PLAYERACTION_CONTENTTYPEGROUP', 'player_action' );

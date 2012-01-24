@@ -8,10 +8,10 @@
  */
 module_load_include( 'inc', 'scoga', 'scoga.constants' );
 
-const SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN = 'access create checkin';
-const SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN = 'execute create checkin';
-const SCOGA_PERM_REST_ACCESS_REGISTER_READER = 'access register rfid reader';
-const SCOGA_PERM_REST_EXECUTE_REGISTER_READER = 'execute register rfid reader';
+define( 'SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN', 'access create checkin' );
+define( 'SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN', 'execute create checkin' );
+define( 'SCOGA_PERM_REST_ACCESS_REGISTER_READER', 'access register rfid reader' );
+define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_READER', 'execute register rfid reader' );
 /**
  * Implements hook_permission().
  */
