@@ -9,6 +9,7 @@
 
 define( 'SCOGA_TIME_FORMAT', 'H:i:s d/m/Y' );
 define( 'SCOGA_DEFAULT_LANG', LANGUAGE_NONE );
+define( 'SCOGA_DEFAULT_TEAM', 196 );
 
 /**
  * Creates a node of type "Checkin", linked to a user account and a RFID reader node
@@ -101,6 +102,36 @@ function register_reader( $params ){
 }
 
 /**
+ * @param $params
+ */
+function register_card( $params ){
+    $lang = SCOGA_DEFAULT_LANG;
+
+    /*
+     * catch parameters
+     */
+    $card_id = $params[ 'cardID' ];
+    $reader_id = $params[ 'readerID' ];
+
+    /*
+     * check that the RFID reader IS registered
+     */
+    $reader_node = _retrieve_reader_node_by_reader_id( $reader_id );
+
+    if( $reader_node === FALSE ){
+        throw new Exception( 'RFID reader not registered' );
+    }
+
+    $uids = _retrieve_uids_by_card_id( $card_id );
+    if( $uids > 0 ){
+        throw new Exception( 'RFID card already registered' );
+    }
+
+    return _create_kliek_user( $card_id, SCOGA_DEFAULT_TEAM );
+
+}
+
+/**
  * @param $timeMS
  * @return int|string
  */
@@ -154,11 +185,14 @@ function _retrieve_uids_by_card_id( $card_id ){
  * @param $card_id
  * @return bool|stdClass
  */
-function _create_kliek_user( $card_id ){
+function _create_kliek_user( $card_id, $team_nid ){
     $user_profile = new stdClass();
     $user_profile->name = 'kliek user '. $card_id;
-    $user_profile->status = 1; //published
+    $user_profile->status = 0; //published
     $user_profile->mail = 'none';
+    $user_profile->field_team_reference[ SCOGA_DEFAULT_LANG ][ 0 ] = array(
+        'nid' => $team_nid
+    );
     $user_profile->roles = array(
         2 => 'authenticated user',
         4 => 'kliek user'
