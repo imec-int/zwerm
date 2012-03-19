@@ -5,5 +5,6 @@ package = Scoga
 version = 7.x-1.4
 core = 7.x
 files[] = scoga_resources.module
+files[] = scoga_resources.test
 dependencies[] = scoga
 dependencies[] = scoga_model_feature

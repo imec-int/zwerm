@@ -7,18 +7,15 @@
  * To change this template use File | Settings | File Templates.
  */
 
-define( 'SCOGA_TIME_FORMAT', 'H:i:s d/m/Y' );
-define( 'SCOGA_DEFAULT_LANG', LANGUAGE_NONE );
-define( 'SCOGA_DEFAULT_TEAM', 196 );
 
 /**
- * Creates a node of type "Checkin", linked to a user account and a RFID reader node
+ * Creates a node of type "RFID swipe", linked to a user account and a RFID reader node
  *
  * @param $params
  * @return stdClass|string
  */
-function reader_checkin( $params ){
-    watchdog('[SCOGA] reader checkin create', serialize( $params ) );
+function reader_swipe( $params ){
+    watchdog('[SCOGA] reader swipe create', serialize( $params ) );
 
     $lang = SCOGA_DEFAULT_LANG;
 
@@ -27,8 +24,6 @@ function reader_checkin( $params ){
      */
     $card_id = $params[ 'cardID' ];
     $reader_id = $params[ 'readerID' ];
-    //$checkin_time_MS = $params[ 'timestamp' ];
-    $checkin_time = time();
 
     /*
      * get user account
@@ -54,11 +49,11 @@ function reader_checkin( $params ){
     $reader_node = _retrieve_reader_node_by_reader_id( $reader_id );
 
     /*
-     * create checkin node
+     * create swipe node
      */
-    $checkin_node = _create_checkin_node( $lang, $user_account, $reader_node, $checkin_time );
+    $swipe_node = _create_swipe_node( $lang, $user_account, $reader_node );
 
-    return $checkin_node;
+    return $swipe_node;
 }
 
 /**
@@ -240,52 +235,47 @@ function _retrieve_reader_nids_by_reader_id( $reader_id ){
     return array_keys( $reader_entities[ $reader_entity_type ] );
 }
 
-function _create_checkin_node( $lang, $user_account, $reader_node, $checkin_time ){
-    $checkin_time_formatted = date( SCOGA_TIME_FORMAT, $checkin_time );
+function _create_swipe_node( $lang, $user_account, $reader_node ){
 
     $user_registered = (
         isset( $user_account->field_user_registered )
         && $user_account->field_user_registered[ $lang ][ 0 ][ 'value' ] == "1"
     );
 
-    $checkin_node = new stdClass();
-    $checkin_node->type = SCOGA_CHECKIN_NODETYPE;
-    node_object_prepare( $checkin_node );
+    $swipe_node = new stdClass();
+    $swipe_node->type = SCOGA_SWIPE_NODETYPE;
+    node_object_prepare( $swipe_node );
+
+    $checkin_time_formatted = date( SCOGA_TIME_FORMAT, $swipe_node->created );
 
     //required fields
-    $checkin_node->uid = $user_account->uid;
-    $checkin_node->language = $lang;
+    $swipe_node->uid = $user_account->uid;
+    $swipe_node->language = $lang;
 
     //optional fields
-    //user reference
-    $checkin_node->field_user_reference[ $lang ][ 0 ] = array(
-        'uid' => $user_account->uid
-    );
-
     //reader reference
-    $checkin_node->field_reader_reference[ $lang ][ 0 ] = array(
+    $swipe_node->field_reader_reference[ $lang ][ 0 ] = array(
         'nid' => $reader_node->nid
     );
 
     //title
-    $checkin_node->title = $user_account->name
+    $swipe_node->title = $user_account->name
         . ' checked in with ' . $reader_node->title
         . ' at ' . $checkin_time_formatted;
 
-    //checkin time
-    $checkin_node->field_checkin_time[ $lang ][ 0 ] = array(
-        'value' => $checkin_time
+    //published or not
+    $swipe_node->status= ( $user_registered ) ? "1" : "0";
+
+    $swipe_node->field_term_playeraction[ $lang ][ 0 ] = array(
+        'tid' => SCOGA_CHECKIN_TID
     );
 
-    //published or not
-    $checkin_node->status= ( $user_registered ) ? "1" : "0";
-
     //save the mofo node
-    $checkin_node = node_submit( $checkin_node );
-    node_save( $checkin_node );
+    $swipe_node = node_submit( $swipe_node );
+    node_save( $swipe_node );
 
 
-    return $checkin_node;
+    return $swipe_node;
 }
 
 function _create_rfid_reader( $reader_id ){

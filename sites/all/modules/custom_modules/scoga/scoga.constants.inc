@@ -8,8 +8,12 @@
  */
 
 
+define( 'SCOGA_TIME_FORMAT', 'H:i:s d/m/Y' );
+define( 'SCOGA_DEFAULT_LANG', LANGUAGE_NONE );
 define( 'SCOGA_TEAM_NODETYPE', 'kliek_team' );
-define( 'SCOGA_CHECKIN_NODETYPE', 'checkin' );
+define( 'SCOGA_SWIPE_NODETYPE', 'rfid_swipe' );
 define( 'SCOGA_READER_NODETYPE', 'rfid_reader' );
 
-define( 'SCOGA_PLAYERACTION_CONTENTTYPEGROUP', 'player_action' );
+define( 'SCOGA_PLAYERACTIONTYPE_VID', 3 );
+define( 'SCOGA_DEFAULT_TEAM', 196 );
+define( 'SCOGA_CHECKIN_TID', 1 );
