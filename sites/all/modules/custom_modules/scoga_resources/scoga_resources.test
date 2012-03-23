@@ -6,3 +6,17 @@
  * Time: 14:32
  * To change this template use File | Settings | File Templates.
  */
+module_load_include( 'inc', 'scoga_resources' );
+/**
+ * @file
+ */
+class ScogaResourcesTestCase extends DrupalWebTestCase{
+    public function getInfo(){
+        return array(
+            'name' => 'SCOGA REST service resources unit tests',
+            'description' => 'Tests the SCOGA REST service resources',
+            'group' => 'SCOGA',
+        );
+    }
+
+}

@@ -14,8 +14,8 @@
  * @param $params
  * @return stdClass|string
  */
-function reader_swipe( $params ){
-    watchdog('[SCOGA] reader swipe create', serialize( $params ) );
+function create_checkin( $params ){
+    watchdog('SCOGA', 'create checkin' );
 
     $lang = SCOGA_DEFAULT_LANG;
 
@@ -40,7 +40,17 @@ function reader_swipe( $params ){
      */
 
     if( user_access( strtolower( SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN ), $user_account ) === FALSE ){
-        throw new Exception( 'user not allowed to create checkin' );
+        _throw_fatal_error( 'user @uid not allowed to create checkin', array(
+            '@uid' => $user_account->uid,
+        ) );
+    }
+
+    $cooldown_tstamp = _get_cooldown_timestamp( $user_account->uid );
+    if( time() < $cooldown_tstamp ){
+        _throw_fatal_error( 'checkin not created for user with id @uid, will be cooled down on @cooldown_date', array(
+            '@uid' => $user_account->uid,
+            '@cooldown_date' => date( 'd/m/Y H:i:s', $cooldown_tstamp ),
+        ) );
     }
 
     /*
@@ -48,12 +58,18 @@ function reader_swipe( $params ){
      */
     $reader_node = _retrieve_reader_node_by_reader_id( $reader_id );
 
-    /*
-     * create swipe node
-     */
-    $swipe_node = _create_swipe_node( $lang, $user_account, $reader_node );
+    if( ! $reader_node ){
+        _throw_fatal_error( 'RFID reader with id @reader_id not found', array(
+            '@reader_id' => $reader_id,
+        ) );
+    }
 
-    return $swipe_node;
+    /*
+     * create checkin node
+     */
+    $checkin_node = _create_checkin_node( $lang, $user_account, $reader_node );
+
+    return $checkin_node;
 }
 
 /**
@@ -61,7 +77,6 @@ function reader_swipe( $params ){
  * @param $params
  */
 function register_reader( $params ){
-    watchdog('[SCOGA] register reader', serialize( $params ) );
 
     $lang = SCOGA_DEFAULT_LANG;
 
@@ -77,7 +92,7 @@ function register_reader( $params ){
       */
     $user_account = _retrieve_user_account_by_card_id( $card_id );
     if( user_access( strtolower( SCOGA_PERM_REST_EXECUTE_REGISTER_READER ), $user_account ) === FALSE ){
-        throw new Exception( 'user not allowed to register reader' );
+        _throw_fatal_error('user not allowed to register reader');
     }
 
 
@@ -87,10 +102,10 @@ function register_reader( $params ){
     $reader_node = _retrieve_reader_node_by_reader_id( $reader_id );
 
     if( $reader_node ){
-        throw new Exception( 'RFID reader already registered' );
+        _throw_fatal_error( 'RFID reader already registered' );
     }
 
-    $reader_node = _create_rfid_reader( $reader_id );
+    $reader_node = _create_rfid_reader( $reader_id, $user_account->uid );
 
     return $reader_node;
 
@@ -114,16 +129,46 @@ function register_card( $params ){
     $reader_node = _retrieve_reader_node_by_reader_id( $reader_id );
 
     if( $reader_node === FALSE ){
-        throw new Exception( 'RFID reader not registered' );
+        _throw_fatal_error( 'RFID reader not registered' );
     }
 
     $uids = _retrieve_uids_by_card_id( $card_id );
     if( $uids > 0 ){
-        throw new Exception( 'RFID card already registered' );
+        _throw_fatal_error( 'RFID card already registered' );
     }
 
     return _create_kliek_user( $card_id, SCOGA_DEFAULT_TEAM );
 
+}
+
+function _throw_fatal_error($message, $variables = NULL )
+{
+    watchdog('SCOGA', $message, $variables, WATCHDOG_ERROR);
+    throw new Exception($message);
+}
+
+function _get_cooldown_timestamp( $uid ){
+    $entity_type = 'node';
+    $query = new EntityFieldQuery();
+
+
+    //get last swipe
+    $result = $query
+        ->entityCondition( 'entity_type', $entity_type )
+        ->entityCondition( 'bundle', SCOGA_CHECKIN_NODETYPE )
+        ->propertyCondition( 'uid', $uid )
+        ->propertyOrderBy( 'created', 'DESC' )
+        ->range( 0, 1 )
+        ->execute();
+
+    $nids = array_keys($result[ $entity_type ]);
+    if( $nids ){
+        $cooldown_period = variable_get( 'scoga_settings_checkins_cooldown' );
+        $node = node_load( $nids[ 0 ] );
+        return intval( $node->created ) + intval( $cooldown_period );
+    }
+
+    return 0;
 }
 
 /**
@@ -151,7 +196,7 @@ function _retrieve_user_account_by_card_id( $card_id ){
         default : {
             // multiple matches
             //TODO determine what to do with multiple matches
-            throw new Exception( 'card registered multiple times' );
+            _throw_fatal_error( 'card registered multiple times' );
         }
     }
 }
@@ -201,6 +246,7 @@ function _create_kliek_user( $card_id, $team_nid ){
 
 function  _retrieve_reader_node_by_reader_id( $reader_id ){
     $reader_nids = _retrieve_reader_nids_by_reader_id( $reader_id );
+
 //
     switch( count( $reader_nids ) ){
         case 1 : {
@@ -212,7 +258,7 @@ function  _retrieve_reader_node_by_reader_id( $reader_id ){
             return FALSE;
         }
         default : {
-            return new Exception( 'RFID reader registered multiple times' );
+            _throw_fatal_error( 'RFID reader registered multiple times' );
         }
     }
 }
@@ -222,66 +268,64 @@ function  _retrieve_reader_node_by_reader_id( $reader_id ){
  * @return array
  */
 function _retrieve_reader_nids_by_reader_id( $reader_id ){
-    $reader_entity_type = 'node';
+    $entity_type = 'node';
     $reader_query = new EntityFieldQuery();
 
     //get reader node by RFID reader ID
     $reader_entities = $reader_query
-        ->entityCondition( 'entity_type', $reader_entity_type )
+        ->entityCondition( 'entity_type', $entity_type )
+        ->entityCondition( 'bundle', SCOGA_READER_NODETYPE )
         ->fieldCondition( 'field_reader_id', 'value', $reader_id, '=', 0 )
         ->execute();
 
     //possible multiple matches
-    return array_keys( $reader_entities[ $reader_entity_type ] );
+    return array_keys( $reader_entities[ $entity_type ] );
 }
 
-function _create_swipe_node( $lang, $user_account, $reader_node ){
+function _create_checkin_node( $lang, $user_account, $reader_node ){
 
     $user_registered = (
         isset( $user_account->field_user_registered )
         && $user_account->field_user_registered[ $lang ][ 0 ][ 'value' ] == "1"
     );
 
-    $swipe_node = new stdClass();
-    $swipe_node->type = SCOGA_SWIPE_NODETYPE;
-    node_object_prepare( $swipe_node );
+    $checkin_node = new stdClass();
+    $checkin_node->type = SCOGA_CHECKIN_NODETYPE;
+    node_object_prepare( $checkin_node );
 
-    $checkin_time_formatted = date( SCOGA_TIME_FORMAT, $swipe_node->created );
+    $checkin_time_formatted = date( SCOGA_TIME_FORMAT, $checkin_node->created );
 
     //required fields
-    $swipe_node->uid = $user_account->uid;
-    $swipe_node->language = $lang;
+    $checkin_node->uid = $user_account->uid;
+    $checkin_node->language = $lang;
 
     //optional fields
     //reader reference
-    $swipe_node->field_reader_reference[ $lang ][ 0 ] = array(
+    $checkin_node->field_reader_reference[ $lang ][ 0 ] = array(
         'nid' => $reader_node->nid
     );
 
     //title
-    $swipe_node->title = $user_account->name
+    $checkin_node->title = $user_account->name
         . ' checked in with ' . $reader_node->title
         . ' at ' . $checkin_time_formatted;
 
     //published or not
-    $swipe_node->status= ( $user_registered ) ? "1" : "0";
-
-    $swipe_node->field_term_playeraction[ $lang ][ 0 ] = array(
-        'tid' => SCOGA_CHECKIN_TID
-    );
+    $checkin_node->status= ( $user_registered ) ? "1" : "0";
 
     //save the mofo node
-    $swipe_node = node_submit( $swipe_node );
-    node_save( $swipe_node );
+    $checkin_node = node_submit( $checkin_node );
+    node_save( $checkin_node );
 
 
-    return $swipe_node;
+    return $checkin_node;
 }
 
-function _create_rfid_reader( $reader_id ){
+function _create_rfid_reader( $reader_id, $uid ){
     $reader_node = new stdClass();
     $reader_node->type = SCOGA_READER_NODETYPE;
     node_object_prepare( $reader_node );
+    $reader_node->uid = $uid;
     $reader_node->language = LANGUAGE_NONE;
     $reader_node->title = 'RFID reader ' . $reader_id;
     $reader_node->field_reader_id[ LANGUAGE_NONE ][ 0 ] = array(

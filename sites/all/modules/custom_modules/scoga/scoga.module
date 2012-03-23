@@ -18,27 +18,28 @@ function scoga_menu(){
         'file path' => drupal_get_path('module', 'system'),
         'type' => MENU_NORMAL_ITEM,
     );
-    $items[ 'admin/config/scoga/scoring' ] = array(
-        'title' => t( 'SCOGA scoring settings' ),
-        'description' => t( 'Scoring settings for SCOGA' ),
+    $items[ 'admin/config/scoga/points' ] = array(
+        'title' => t( 'SCOGA points settings' ),
+        'description' => t( 'Points settings for SCOGA' ),
         'page callback' => 'drupal_get_form',
-        'page arguments' => array( 'scoga_scoring_form' ),
+        'page arguments' => array( 'scoga_points_form' ),
         'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
         'type' => MENU_NORMAL_ITEM,
     );
     return $items;
 }
 
-function scoga_scoring_form( $form, &$form_state ){
+function scoga_points_form( $form, &$form_state ){
 
-    $terms = taxonomy_get_tree( SCOGA_PLAYERACTIONTYPE_VID, 0, NULL, TRUE );
+    $terms = _retrieve_terms_by_machinename( SCOGA_POINTS_VOCAB );
     foreach( $terms as $index => $term ){
-        $form_elem_name = 'scoga_settings_' . $term->name . '_score';
+        //cool down
+        $form_elem_name = 'scoga_settings_' . strtolower( $term->name )  . '_cooldown';
         $form[ $form_elem_name ] = array(
             '#type' => 'textfield',
-            '#title' => t('Scoring for "' ) . $term->name .'"',
-            '#description' => t('Defines the base score value of player action "' ) . $term->name . '"',
-            '#default_value' => variable_get( $form_elem_name, 1 ),
+            '#title' => t('Cooldown for "' ) . $term->name .'"',
+            '#description' => t('Define cooldown period for "' ) . $term->name . '" ' . t( 'in seconds, 0 for unlimited.'),
+            '#default_value' => variable_get( $form_elem_name, 0 ),
             '#size' => 10,
             '#required' => TRUE
         );
@@ -51,23 +52,12 @@ function scoga_scoring_form( $form, &$form_state ){
     return $form;
 }
 
-function scoga_scoring_form_submit( $form, &$form_state ){
-    $terms = taxonomy_get_tree( SCOGA_PLAYERACTIONTYPE_VID, 0, NULL, TRUE );
+function scoga_points_form_submit( $form, &$form_state ){
+    $terms = _retrieve_terms_by_machinename( SCOGA_POINTS_VOCAB );
     foreach( $terms as $index => $term ){
-        $form_elem_name = 'scoga_settings_' . $term->name . '_score';
+        //cooldown
+        $form_elem_name = 'scoga_settings_' . strtolower( $term->name ) . '_cooldown';
         variable_set( $form_elem_name, $form_state['values'][$form_elem_name] );
     }
-    drupal_set_message( t('The scoring settings have been saved.') );
-}
-
-/**
- * implements hook_node_presave
- * @param $node
- */
-
-function scoga_node_presave( $node ){
-
-    if( $node->status == '1' && property_exists( $node, 'field_term_playeraction' ) ){
-        scoga_save_scores_for_player_action( $node );
-    }
+    drupal_set_message( t('The SCOGA points settings have been saved.') );
 }

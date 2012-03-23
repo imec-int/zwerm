@@ -8,8 +8,8 @@
  */
 module_load_include( 'inc', 'scoga', 'scoga.constants' );
 
-define( 'SCOGA_PERM_REST_ACCESS_CREATE_SWIPE', 'access create swipe' );
-define( 'SCOGA_PERM_REST_EXECUTE_CREATE_SWIPE', 'execute create swipe' );
+define( 'SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN', 'access create checkin' );
+define( 'SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN', 'execute create checkin' );
 define( 'SCOGA_PERM_REST_ACCESS_REGISTER_READER', 'access register rfid reader' );
 define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_READER', 'execute register rfid reader' );
 define( 'SCOGA_PERM_REST_ACCESS_REGISTER_CARD', 'access register rfid card' );
@@ -20,13 +20,13 @@ define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_CARD', 'execute register rfid card' );
  */
 function scoga_resources_permission() {
     return array(
-        SCOGA_PERM_REST_ACCESS_CREATE_SWIPE => array(
-            'title' => t('Access "Swipe" creation service'),
+        SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN => array(
+            'title' => t('Access "Checkin" creation service'),
             'description' => t('Access to the checkin creation service.<br/><strong>SHOULD BE ALLOWED FOR ANONYMOUS!</strong>'),
         ),
-        SCOGA_PERM_REST_EXECUTE_CREATE_SWIPE => array(
-            'title' => t('Create "Swipe" node'),
-            'description' => t('Create a node of content type "RFID Swipe" through the REST service.<br/>'),
+        SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN => array(
+            'title' => t('Create "Checkin" node'),
+            'description' => t('Create a node of content type "Checkin" through the REST service.<br/>'),
         ),
         SCOGA_PERM_REST_ACCESS_REGISTER_READER => array(
             'title' => t( 'Access register RFID reader service' ),
@@ -52,15 +52,15 @@ function scoga_resources_permission() {
 */
 function scoga_resources_services_resources(){
     return array(
-        'reader_checkin' => array(
+        'checkin' => array(
             'create' => array(
                 'help' => 'Creates a node of content type "Checkin"',
                 'file' => array(
                     'file' => 'inc',
                     'module' => 'scoga_resources'
                 ),
-                'callback' => 'reader_swipe',
-                'access arguments' => array( SCOGA_PERM_REST_ACCESS_CREATE_SWIPE ),
+                'callback' => 'create_checkin',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN ),
                 'args' => array(
                     array(
                         'name' => 'cardID',
