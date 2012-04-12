@@ -8,6 +8,8 @@
  */
 
 define('SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA', 'access content');
+define('SCOGA_PERM_REST_ACCESS_TEAM_DATA', 'access content');
+define('SCOGA_PERM_REST_ACCESS_PLAYER_DATA', 'access content');
 
 
 /**
@@ -17,25 +19,108 @@ define('SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA', 'access content');
 function scoga_visualizer_services_resources()
 {
     return array(
-        'data_for_campaign' => array(
+        'scoga_campaign' => array(
             'index' => array(
                 'help' => 'Retrieves all data linked to a specific campaign',
                 'file' => array(
                     'file' => 'inc',
                     'module' => 'scoga_visualizer'
                 ),
-                'callback' => 'get_data_for_campaign',
+                'callback' => 'campaign_resource_index',
                 'access arguments' => array( SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA ),
                 'args' => array(
                     array(
-                        'name' => 'campaign_id',
+                        'name' => 'uuid',
                         'type' => 'string',
-                        'description' => 'The unique identifier of the campaign',
-                        'source' => array('param' => 'campaign_id'),
-                        'optional' => FALSE
-                    )
+                        'description' => 'The UUID of the campaign node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                )
+            ),
+        ),
+        'scoga_team' => array(
+            'index' => array(
+                'help' => 'Retrieves all data of a team',
+                'file' => array(
+                    'file' => 'inc',
+                    'module' => 'scoga_visualizer'
+                ),
+                'callback' => 'team_resource_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_TEAM_DATA ),
+                'args' => array(
+                    array(
+                        'name' => 'uuid',
+                        'description' => 'The UUID of the team node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                    array(
+                        'name' => 'nid',
+                        'description' => 'The nid of the team node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                )
+            ),
+        ),
+        'scoga_player' => array(
+            'index' => array(
+                'help' => 'Retrieves all data of a player',
+                'file' => array(
+                    'file' => 'inc',
+                    'module' => 'scoga_visualizer'
+                ),
+                'callback' => 'player_resource_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_PLAYER_DATA ),
+                'args' => array(
+                    array(
+                        'name' => 'uuid',
+                        'description' => 'The UUID of the player',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                    array(
+                        'name' => 'uid',
+                        'description' => 'The uid of the team node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
                 )
             ),
         ),
     );
+}
+
+function campaign_resource_index( $params ){
+
+    if( array_key_exists( 'uuid', $params ) ){
+        return scoga_get_output( $params[ 'uuid' ], '_get_campaign_by_UUID' );
+    }
+
+    if( array_key_exists( 'nid', $params ) ){
+        return scoga_get_output( $params[ 'nid' ], '_get_campaign_by_nid' );
+    }
+
+    return FALSE;
+}
+
+function team_resource_index( $params ){
+    if( array_key_exists( 'uuid', $params ) ){
+        return scoga_get_output( $params[ 'uuid' ], '_get_team_by_UUID' );
+    }
+
+    if( array_key_exists( 'nid', $params ) ){
+        return scoga_get_output( $params[ 'nid' ], '_get_team_by_nid' );
+    }
+}
+
+function player_resource_index( $params ){
+    if( array_key_exists( 'uuid', $params ) ){
+        return scoga_get_output( $params[ 'uuid' ], '_get_player_by_UUID' );
+    }
+
+    if( array_key_exists( 'uid', $params ) ){
+        return scoga_get_output( $params[ 'uid' ], '_get_player_by_uid' );
+    }
 }
