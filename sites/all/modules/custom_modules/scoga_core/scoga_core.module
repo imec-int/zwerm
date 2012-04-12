@@ -1,0 +1,11 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: creynder
+ * Date: 12/04/12
+ * Time: 10:19
+ * To change this template use File | Settings | File Templates.
+ */
+
+module_load_include( 'inc', 'scoga_core', 'scoga_core.constants' );
+module_load_include( 'inc', 'scoga_core', 'scoga_core.utils' );
