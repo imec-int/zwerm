@@ -1,0 +1,41 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: creynder
+ * Date: 11/04/12
+ * Time: 14:14
+ * To change this template use File | Settings | File Templates.
+ */
+
+define('SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA', 'access content');
+
+
+/**
+ * Implements hook_services_resources().
+ */
+
+function scoga_visualizer_services_resources()
+{
+    return array(
+        'data_for_campaign' => array(
+            'index' => array(
+                'help' => 'Retrieves all data linked to a specific campaign',
+                'file' => array(
+                    'file' => 'inc',
+                    'module' => 'scoga_visualizer'
+                ),
+                'callback' => 'get_data_for_campaign',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA ),
+                'args' => array(
+                    array(
+                        'name' => 'campaign_id',
+                        'type' => 'string',
+                        'description' => 'The unique identifier of the campaign',
+                        'source' => array('param' => 'campaign_id'),
+                        'optional' => FALSE
+                    )
+                )
+            ),
+        ),
+    );
+}
