@@ -29,10 +29,6 @@ function _get_campaigns_by_nids( $campaign_nids ){
 function _get_campaign_by_nid( $campaign_nid ){
     $campaign_node = node_load( $campaign_nid );
     if( $campaign_node ){
-        /*
-        $team_nids = _get_team_nids_by_campaign_nid( $campaign_nid );
-        return _create_campaign_object( $campaign_node, $team_nids );
-        */
         $team_objs = _get_teams_by_campaign_nid( $campaign_nid );
         $campaign_obj = _create_campaign_object( $campaign_node, $team_objs );
         $campaign_obj[ 'teams' ] = $team_objs;
@@ -43,18 +39,20 @@ function _get_campaign_by_nid( $campaign_nid ){
 
 
 function _create_campaign_object( $campaign_node ){
-    $lang = $campaign_node->language || 'und';
+    //dd( $campaign_node, 'campaign node');
+    $lang = 'und';
     $begin_time_str = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value' ];
     $begin_time_tstamp = strtotime( $begin_time_str );
     $end_time_str = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value2' ];
     $end_time_tstamp = strtotime( $end_time_str );
     $output = array(
-        'nid'           => $campaign_node->nid,
-        'title'         => $campaign_node->title,
-        'uuid'          => $campaign_node->uuid,
-        'begin_date'    => $begin_time_tstamp,
-        'end_date'      => $end_time_tstamp,
-        'teams'         => NULL,
+        'nid'               => $campaign_node->nid,
+        'title'             => $campaign_node->title,
+        'uuid'              => $campaign_node->uuid,
+        'begin_date'        => $begin_time_tstamp,
+        'end_date'          => $end_time_tstamp,
+        'teams'             => NULL,
+        'last_retrieved'    => time(),
     );
     return $output;
 }
@@ -126,11 +124,12 @@ function _get_team_by_nid( $team_nid ){
 }
 
 function _create_team_object( $team_node ){
-    $lang = $team_node->language || 'und';
+    $lang = 'und';
     $output = array(
         'nid'               => $team_node->nid,
         'uuid'              => $team_node->uuid,
         'title'             => $team_node->title,
+        'colour'            => $team_node->field_team_colour[ $lang ][ 0 ][ 'value' ],
         'total_points'      => NULL,
         'points_modifier'   => NULL,
         'players'           => NULL,
@@ -169,7 +168,9 @@ function _get_players_by_uids( $player_uids ){
 function _get_player_by_uid( $player_uid ){
     $player_profile = user_load( $player_uid );
     if( $player_profile ){
-        return _create_player_object( $player_profile );
+        $result = _create_player_object( $player_profile );
+        $result = _inject_player_points( $result );
+        return $result;
     }
 }
 
@@ -183,10 +184,86 @@ function _create_player_object( $player_profile ){
         'team_nid'      => $player_profile->field_user_team[ $lang ][ 0 ][ 'target_id' ],
         'firstname'     => $player_profile->field_user_firstname[ $lang ][ 0 ][ 'value' ],
         'surname'       => $player_profile->field_user_surname[ $lang ][ 0 ][ 'value' ],
-        'avatar_url'    => image_style_url( 'avatar_pinhead', $player_profile->picture->uri )
+        'avatar_url'    => image_style_url( 'avatar_pinhead', $player_profile->picture->uri ),
+        'points'        => 0,
     );
     return $output;
 }
+
+
+function _inject_player_points( $player ){
+
+    //TODO: use userpoints_service method and filter out the relevant point categories,
+    //now it returns ALL the user points
+    //use: userpoints_get_current_points
+    $query =
+        "SELECT points "
+        . "FROM {userpoints_total} "
+        . "WHERE uid = :target_uid"
+    ;
+    $rows = db_query( $query, array(':target_uid' => $player[ 'uid' ] ) );
+
+    foreach( $rows as $row ){
+        $player[ 'points' ] += $row->points;
+    }
+
+    return $player;
+}
+
+
+function _get_transactions_in_range( $begin_time = NULL, $end_time = NULL ){
+
+    if( $begin_time == NULL ){
+        $begin_time = 0;
+    }
+    if( $end_time == NULL ){
+        $end_time = time();
+    }
+
+    //dd( $begin_time, 'begin time');
+    //dd( $end_time, 'end time' );
+
+    $query  =
+        " SELECT txn_id, time_stamp "
+        . "FROM {userpoints_txn} "
+        . "WHERE tid = :tid "
+        . "AND time_stamp > :begin_time "
+        . "AND time_stamp <= :end_time"
+    ;
+    $rows = db_query( $query, array(
+        ':tid'          => SCOGA_SCORE_TID,
+        ':begin_time'   => $begin_time,
+        ':end_time'     => $end_time,
+    ) );
+
+    $options = array(
+        'link' => FALSE,
+        'truncate' => FALSE,
+        'skip_description' => FALSE,
+    );
+
+    $result = array();
+    foreach( $rows as $row ){
+        $transaction = userpoints_transaction_load( $row->txn_id );
+        $description = userpoints_create_description( $transaction, $options );
+        $result[] = _create_transaction_object( $transaction, $description );
+    }
+
+    return $result;
+}
+
+function _create_transaction_object( $transaction, $description ){
+    $output = array(
+        'txn_id'        => $transaction->txn_id,
+        'uid'           => $transaction->uid,
+        'points'        => $transaction->points,
+        'time_stamp'    => $transaction->time_stamp,
+        'description'   => $description,
+    );
+    return $output;
+}
+
+
 
 //POTENTIALLY USEFUL SHIZZLE
 

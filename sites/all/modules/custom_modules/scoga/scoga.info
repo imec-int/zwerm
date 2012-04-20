@@ -6,5 +6,5 @@ version = 7.x-1.0
 core = 7.x
 files[] = scoga.constants.inc
 files[] = scoga.module
-dependencies[] = content_type_groups
+dependencies[] = userpoints
 dependencies[] = scoga_model_feature

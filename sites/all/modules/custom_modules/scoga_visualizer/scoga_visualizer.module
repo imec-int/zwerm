@@ -10,6 +10,7 @@
 define('SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA', 'access content');
 define('SCOGA_PERM_REST_ACCESS_TEAM_DATA', 'access content');
 define('SCOGA_PERM_REST_ACCESS_PLAYER_DATA', 'access content');
+define('SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA', 'access content');
 
 
 /**
@@ -89,11 +90,42 @@ function scoga_visualizer_services_resources()
                 )
             ),
         ),
+        'scoga_transaction' => array(
+            'index' => array(
+                'help' => 'Retrieves all transactions between two timestamps',
+                'file' => array(
+                    'file' => 'inc',
+                    'module' => 'scoga_visualizer'
+                ),
+                'callback' => 'transaction_resource_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
+                'args' => array(
+                    array(
+                        'name' => 'campaign_uuid',
+                        'type' => 'string',
+                        'description' => 'The UUID of the campaign node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                    array(
+                        'name' => 'begin_time',
+                        'description' => 'The begintime (MS)',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                    array(
+                        'name' => 'end_time',
+                        'description' => 'The end time (MS), default now',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                )
+            ),
+        ),
     );
 }
 
 function campaign_resource_index( $params ){
-
     if( array_key_exists( 'uuid', $params ) ){
         return _get_campaigns_by_UUIDs( $params[ 'uuid' ] );
     }
@@ -123,4 +155,8 @@ function player_resource_index( $params ){
     if( array_key_exists( 'uid', $params ) ){
         return _get_players_by_uids( $params[ 'uid' ] );
     }
+}
+
+function transaction_resource_index( $params ){
+    return _get_transactions_in_range( $params[ 'begin_time' ], $params[ 'end_time' ] );
 }
