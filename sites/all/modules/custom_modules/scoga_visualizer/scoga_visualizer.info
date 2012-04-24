@@ -1,7 +1,0 @@
-;Id$
-name = Scoga visualizer service resources
-description = Service resource definitions for Scoga visualizer
-package = Scoga
-version = 7.x-1.0
-core = 7.x
-files[] = scoga_visualizer.module

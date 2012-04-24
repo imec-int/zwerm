@@ -37,3 +37,32 @@ function scoga_get_output( $param, $callback ){
 
     return FALSE;
 }
+
+
+function scoga_retrieve_terms_by_machinename( $machine_name )
+{
+    $vocab = taxonomy_vocabulary_machine_name_load( $machine_name );
+    $terms = taxonomy_get_tree($vocab->vid, 0, NULL, TRUE);
+    return $terms;
+}
+
+
+function scoga_throw_fatal_error($message, $variables = NULL )
+{
+    watchdog('SCOGA', $message, $variables, WATCHDOG_ERROR);
+    throw new Exception($message);
+}
+
+
+/**
+ * @param $timeMS
+ * @return int|string
+ */
+function scoga_time_MS_to_SEC( $timeMS = null ){
+    if( $timeMS ){
+        return number_format( $timeMS / 1000, 0, '.', '' );
+    }
+
+    return time();
+}
+

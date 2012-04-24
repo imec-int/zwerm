@@ -7,5 +7,167 @@
  * To change this template use File | Settings | File Templates.
  */
 
-module_load_include( 'inc', 'scoga_core', 'scoga_core.constants' );
-module_load_include( 'inc', 'scoga_core', 'scoga_core.utils' );
+module_load_include( 'constants.inc', 'scoga_core' );
+module_load_include( 'api.inc', 'scoga_core' );
+
+
+define('SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA', 'access content');
+define('SCOGA_PERM_REST_ACCESS_TEAM_DATA', 'access content');
+define('SCOGA_PERM_REST_ACCESS_PLAYER_DATA', 'access content');
+define('SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA', 'access content');
+
+
+
+/**
+ * Implements hook_services_resources().
+ */
+
+function scoga_core_services_resources()
+{
+    return array(
+        'scoga_campaign' => array(
+            'index' => array(
+                'help' => 'Retrieves all data linked to a specific campaign',
+                'file' => array(
+                    'type' => 'service.inc',
+                    'module' => 'scoga_core'
+                ),
+                'callback' => 'scoga_core_campaign_resource_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA ),
+                'args' => array(
+                    array(
+                        'name' => 'uuid',
+                        'type' => 'string',
+                        'description' => 'The UUID of the campaign node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                )
+            ),
+        ),
+        'scoga_team' => array(
+            'index' => array(
+                'help' => 'Retrieves all data of a team',
+                'file' => array(
+                    'file' => 'service.inc',
+                    'module' => 'scoga_core'
+                ),
+                'callback' => 'scoga_core_team_resource_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_TEAM_DATA ),
+                'args' => array(
+                    array(
+                        'name' => 'uuid',
+                        'description' => 'The UUID of the team node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                    array(
+                        'name' => 'nid',
+                        'description' => 'The nid of the team node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                )
+            ),
+        ),
+
+        'scoga_player' => array(
+            'index' => array(
+                'help' => 'Retrieves all data of a player',
+                'file' => array(
+                    'file' => 'service.inc',
+                    'module' => 'scoga_core'
+                ),
+                'callback' => 'scoga_core_player_resource_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_PLAYER_DATA ),
+                'args' => array(
+                    array(
+                        'name' => 'uuid',
+                        'description' => 'The UUID of the player',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                    array(
+                        'name' => 'uid',
+                        'description' => 'The uid of the team node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                )
+            ),
+        ),
+
+        'scoga_transaction' => array(
+            'index' => array(
+                'help' => 'Retrieves all transactions between two timestamps',
+                'file' => array(
+                    'file' => 'service.inc',
+                    'module' => 'scoga_core'
+                ),
+                'callback' => '_transaction_resource_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
+                'args' => array(
+                    array(
+                        'name' => 'campaign_uuid',
+                        'type' => 'string',
+                        'description' => 'The UUID of the campaign node',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                    array(
+                        'name' => 'begin_time',
+                        'description' => 'The begintime (MS)',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                    array(
+                        'name' => 'end_time',
+                        'description' => 'The end time (MS), default now',
+                        'source' => 'param',
+                        'optional' => TRUE
+                    ),
+                )
+            ),
+        ),
+
+    );
+}
+
+/**
+ * implement hook_menu()
+ */
+function scoga_core_menu(){
+    $items = array();
+    $items[ 'admin/config/scoga' ] = array(
+        'title' => t('SCOGA settings'),
+        'description' => t('General settings for SCOGA'),
+        'file' => 'scoga_core.admin.inc',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array( 'scoga_core_settings_form' ),
+        'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
+        'type' => MENU_NORMAL_ITEM,
+    );
+    /*
+    $items[ 'admin/config/scoga' ] = array(
+        'title' => t('SCOGA settings'),
+        'description' => t('General settings for SCOGA'),
+        'page callback' => 'system_admin_menu_block_page',
+        'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
+        'file' => 'system.admin.inc',
+        'file path' => drupal_get_path('module', 'system'),
+        'type' => MENU_NORMAL_ITEM,
+    );
+    $items[ 'admin/config/scoga/playeractions' ] = array(
+        'title' => t( 'SCOGA player action settings' ),
+        'description' => t( 'Playeraction settings for SCOGA' ),
+        'file' => 'scoga_core.admin.inc',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array( '_playeraction_settings_form' ),
+        'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
+        'type' => MENU_NORMAL_ITEM,
+    );
+    */
+    return $items;
+}
+
+
