@@ -56,6 +56,8 @@ function scoga_create_campaign_vo( $campaign_node ){
 
 
 function scoga_get_team_vos_by_campaign_nid( $campaign_nid ){
+    module_load_include( 'api.team.inc', 'scoga_core' );
+
     $query = new EntityFieldQuery();
     $entity_type = 'node';
     $result = $query
