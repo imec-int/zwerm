@@ -173,7 +173,17 @@ function scoga_check_combo_checkin( $user_account, $checkin_node ){
         return FALSE;
     }
 
-    if( intval( $prev_checkin->created + variable_get( SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME ) ) > $checkin_node->created ){
+    $previous = intval( $prev_checkin->created );
+    $timeframe = intval( variable_get( SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME ) );
+    $current = intval( $checkin_node->created );
+/*
+    watchdog( 'scoga_check_combo_checkin', 'previous: @previous, timeframe: @timeframe, current: @current', array(
+        '@previous' => $previous,
+        '@timeframe' => variable_get( SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME ),
+        '@current' => $checkin_node->created,
+    ));
+*/
+    if( $previous + $timeframe < $current ){
         //fail if too much time has passed between checkins
         watchdog( 'SCOGA RFID', 'combo checkin denied: too much time between checkins' );
         return FALSE;
@@ -187,8 +197,13 @@ function scoga_check_combo_checkin( $user_account, $checkin_node ){
         watchdog( 'SCOGA RFID', 'combo checkin denied: different teams' );
         return FALSE;
     }
-
-    user_relationships_request_relationship( $user_account->uid, $prev_user->uid, SCOGA_CHECKINPARTNER_RTID );
+/*
+    watchdog( 'SCOGA create relationship between @uid1 and @uid2', array(
+        '@uid1' => $user_account->uid,
+        '@uid2' => $prev_user->uid,
+    ));
+*/
+    user_relationships_request_relationship( $user_account->uid, $prev_user->uid, SCOGA_CHECKINPARTNER_RTID, TRUE );
     return TRUE;
 }
 
