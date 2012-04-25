@@ -29,7 +29,7 @@ function scoga_core_services_resources()
             'index' => array(
                 'help' => 'Retrieves all data linked to a specific campaign',
                 'file' => array(
-                    'type' => 'service.inc',
+                    'type' => 'services.inc',
                     'module' => 'scoga_core'
                 ),
                 'callback' => 'scoga_core_campaign_resource_index',
@@ -49,7 +49,7 @@ function scoga_core_services_resources()
             'index' => array(
                 'help' => 'Retrieves all data of a team',
                 'file' => array(
-                    'file' => 'service.inc',
+                    'file' => 'services.inc',
                     'module' => 'scoga_core'
                 ),
                 'callback' => 'scoga_core_team_resource_index',
@@ -75,7 +75,7 @@ function scoga_core_services_resources()
             'index' => array(
                 'help' => 'Retrieves all data of a player',
                 'file' => array(
-                    'file' => 'service.inc',
+                    'file' => 'services.inc',
                     'module' => 'scoga_core'
                 ),
                 'callback' => 'scoga_core_player_resource_index',
@@ -101,10 +101,10 @@ function scoga_core_services_resources()
             'index' => array(
                 'help' => 'Retrieves all transactions between two timestamps',
                 'file' => array(
-                    'file' => 'service.inc',
+                    'file' => 'services.inc',
                     'module' => 'scoga_core'
                 ),
-                'callback' => '_transaction_resource_index',
+                'callback' => 'scoga_core_transaction_resource_index',
                 'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
                 'args' => array(
                     array(
