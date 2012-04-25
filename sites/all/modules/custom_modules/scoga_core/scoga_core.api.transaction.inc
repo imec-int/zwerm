@@ -15,7 +15,7 @@ function scoga_get_transaction_vos_by_period( $begin_time = NULL, $end_time = NU
         $begin_time = 0;
     }
     if( $end_time == NULL ){
-        $end_time = time();
+        $end_time = time() + 1;
     }
 
     //dd( $begin_time, 'begin time');
@@ -25,8 +25,8 @@ function scoga_get_transaction_vos_by_period( $begin_time = NULL, $end_time = NU
         " SELECT txn_id, time_stamp "
         . "FROM {userpoints_txn} "
         . "WHERE tid = :tid "
-        . "AND time_stamp > :begin_time "
-        . "AND time_stamp <= :end_time"
+        . "AND time_stamp >= :begin_time "
+        . "AND time_stamp < :end_time"
     ;
     $rows = db_query( $query, array(
         ':tid'          => SCOGA_SCORE_TID,
