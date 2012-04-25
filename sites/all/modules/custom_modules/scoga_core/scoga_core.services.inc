@@ -46,5 +46,8 @@ function scoga_core_player_resource_index( $params ){
 
 function scoga_core_transaction_resource_index( $params ){
     module_load_include( 'api.transaction.inc', 'scoga_core' );
-    return scoga_get_transaction_vos_by_period( $params[ 'begin_time' ], $params[ 'end_time' ] );
+    $begin_time = ( array_key_exists( 'begin_time', $params ) ) ? $params[ 'begin_time' ] : NULL;
+    $end_time = ( array_key_exists( 'end_time', $params ) ) ? $params[ 'end_time' ] : NULL;
+
+    return scoga_get_transaction_vos_by_period( $begin_time, $end_time );
 }
