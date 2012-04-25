@@ -64,7 +64,8 @@ function scoga_get_team_vos_by_campaign_nid( $campaign_nid ){
         ->entityCondition( 'entity_type', $entity_type )
         ->entityCondition( 'bundle', SCOGA_CAMPAIGNTEAM_NODETYPE )
         ->fieldCondition( 'field_campaignteam_campaign', 'target_id', $campaign_nid, '=' )
-        ->execute();
+        ->execute()
+    ;
     $campaignteam_nids = array_keys($result[ $entity_type ]);
     $team_objs = array();
     foreach( $campaignteam_nids as $campaignteam_nid ){
@@ -91,9 +92,24 @@ function scoga_get_team_nids_by_campaign_nid( $campaign_nid ){
     $result = db_query( $query, array(':target_nid' => $campaign_nid) );
     $nids = array();
     foreach( $result as $row ){
-        $nids[] = $row->field_campaignteam_team_target_id;
+        $nids[ $row->field_campaignteam_team_target_id ] = $row->field_campaignteam_team_target_id;
     }
 
     return $nids;
 }
 
+function scoga_get_campaignteam_entity_by_team_nid( $team_nid ){
+    $query = new EntityFieldQuery();
+    $entity_type = 'node';
+    $result = $query
+        ->entityCondition( 'entity_type', $entity_type )
+        ->entityCondition( 'bundle', SCOGA_CAMPAIGNTEAM_NODETYPE )
+        ->fieldCondition( 'field_campaignteam_team', 'target_id', $team_nid, '=' )
+        ->execute()
+    ;
+    if( $result ){
+        $campaignteam_nids = array_keys($result[ $entity_type ]);
+        return node_load( $campaignteam_nids[ 0 ] );
+    }
+    return FALSE;
+}
