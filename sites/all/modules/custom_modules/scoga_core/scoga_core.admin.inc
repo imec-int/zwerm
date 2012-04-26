@@ -11,7 +11,7 @@
     function scoga_core_settings_form( $form, &$form_state ){
 
         //cool down
-        $form_elem_name = SCOGA_SETTINGS_CHECKIN_COOLDOWN;
+        $form_elem_name = SCOGA_SETTING_CHECKIN_COOLDOWN;
         $form[ $form_elem_name ] = array(
             '#type'          => 'textfield',
             '#title'         => t( 'Cooldown for "checkin"' ),
@@ -22,7 +22,7 @@
         );
 
         //combo time frame
-        $form_elem_name = SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME;
+        $form_elem_name = SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME;
         $form[ $form_elem_name ] = array(
             '#type'          => 'textfield',
             '#title'         => t( 'Timeframe for combo checkins' ),
@@ -33,13 +33,24 @@
         );
 
         //default player name
-        $form_elem_name = SCOGA_SETTINGS_DEFAULT_USERNAME;
+        $form_elem_name = SCOGA_SETTING_DEFAULT_USERNAME;
         $form[ $form_elem_name ] = array(
             '#type'          => 'textfield',
             '#title'         => t( 'Default username base' ),
             '#description'   => t( 'When creating new users through the services this value will be used in combination with a unique identifier to create the username' ),
             '#default_value' => variable_get( $form_elem_name, 'player' ),
             '#size'          => 20,
+            '#required'      => TRUE
+        );
+
+        //determinecampaign cron interval
+        $form_elem_name = SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL;
+        $form[ $form_elem_name ] = array(
+            '#type'          => 'textfield',
+            '#title'         => t( 'Determine campaign cron interval' ),
+            '#description'   => t( 'In seconds' ),
+            '#default_value' => variable_get( $form_elem_name, 60*60 ),
+            '#size'          => 10,
             '#required'      => TRUE
         );
 
@@ -54,9 +65,10 @@
     function scoga_core_settings_form_submit( $form, &$form_state ){
 
         $settings = array(
-            SCOGA_SETTINGS_CHECKIN_COOLDOWN,
-            SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME,
-            SCOGA_SETTINGS_DEFAULT_USERNAME,
+            SCOGA_SETTING_CHECKIN_COOLDOWN,
+            SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME,
+            SCOGA_SETTING_DEFAULT_USERNAME,
+            SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL
         );
 
         foreach( $settings as $form_elem_name ){

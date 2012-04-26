@@ -19,10 +19,12 @@
     define( 'SCOGA_READER_NODETYPE', 'nodetype_rfid_reader' );
     define( 'SCOGA_POINTS_VOCAB', 'userpoints' );
 
-    define( 'SCOGA_SETTINGS_CHECKIN_COOLDOWN', 'scoga_settings_checkin_cooldown' );
-    define( 'SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME', 'scoga_settings_combocheckin_timeframe' );
-    define( 'SCOGA_SETTINGS_DEFAULT_USERNAME', 'scoga_settings_default_username' );
-    define( 'SCOGA_SETTINGS_CURRENT_CAMPAIGN_NID', 'scoga_settings_current_campaign_nid' );
+    define( 'SCOGA_SETTING_CHECKIN_COOLDOWN', 'scoga_settings_checkin_cooldown' );
+    define( 'SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME', 'scoga_settings_combocheckin_timeframe' );
+    define( 'SCOGA_SETTING_DEFAULT_USERNAME', 'scoga_settings_default_username' );
+    define( 'SCOGA_SETTING_CURRENT_CAMPAIGN_NID', 'scoga_settings_current_campaign_nid' );
+    define( 'SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL', 'scoga_settings_determine_campaign_cron_interval' );
+    define( 'SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION', 'scoga_settings_determine_campaign_next_execution' );
 
     define( 'SCOGA_SCORE_TID', '4' );
     define( 'SCOGA_DEFAULT_TEAM', 26 );

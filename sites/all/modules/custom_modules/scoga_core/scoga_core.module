@@ -169,3 +169,10 @@
     }
 
 
+    /**
+     * implement hook_cron
+     */
+    function scoga_core_cron(){
+        module_load_include( 'cron.inc', 'scoga_core' );
+        scoga_cron_determine_current_campaign();
+    }
