@@ -32,7 +32,7 @@
     [approver_uid] => 0
      */
     function scoga_transfer_transaction_points_to_team( $transaction ){
-        if( $transaction->tid === SCOGA_SCORE_TID ){
+        if( $transaction->tid === userpoints_get_default_tid() ){
             module_load_include( 'api.campaign.inc', 'scoga_core' );
             $user_account = user_load( $transaction->uid );
             $team_nid = $user_account->field_user_team[ LANGUAGE_NONE ][ 0 ][ 'target_id' ];

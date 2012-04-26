@@ -60,7 +60,6 @@
         $player_profile = user_load( $player_uid );
         if( $player_profile ){
             $result = scoga_create_player_vo( $player_profile );
-            $result = _inject_player_points( $result );
             return $result;
         }
 
@@ -106,7 +105,6 @@
                 return FALSE;
             default :
                 // multiple matches
-                //TODO determine what to do with multiple matches
                 scoga_throw_fatal_error( 'card registered multiple times' );
         }
 
@@ -131,7 +129,7 @@
             'firstname'     => $player_entity->field_user_firstname[ $lang ][ 0 ][ 'value' ],
             'surname'       => $player_entity->field_user_surname[ $lang ][ 0 ][ 'value' ],
             'avatar_url'    => image_style_url( 'avatar_pinhead', $player_entity->picture->uri ),
-            'points'        => 0,
+            'points'        => userpoints_get_current_points( $player_entity->uid ),
         );
         return $output;
     }
@@ -147,6 +145,7 @@
     function scoga_create_player_entity( $card_id, $team_nid ){
         $lang = LANGUAGE_NONE;
         $user_profile = new stdClass();
+        //TODO: read default user name from settings???
         $user_profile->name = 'kliek user ' . $card_id;
         $user_profile->status = 1; //0->blocked, 1->active
         $user_profile->mail = 'none';
@@ -155,7 +154,7 @@
         );
         $user_profile->roles = array(
             2 => 'authenticated user',
-            4 => 'kliek user'
+            4 => 'player'
         );
         $user_profile->field_card_id[ $lang ][ 0 ] = array(
             'value' => $card_id
@@ -163,31 +162,5 @@
         $user_profile->is_new = TRUE;
 
         $user_account = user_save( $user_profile );
-        dd( $user_account );
         return $user_account;
-    }
-
-    /**
-     * @private
-     *
-     * @param $player_object
-     *
-     * @return array
-     */
-    function _inject_player_points( $player_object ){
-
-        //TODO: use userpoints_service method and filter out the relevant point categories,
-        //now it returns ALL the user points
-        //use: userpoints_get_current_points
-        $query =
-            "SELECT points "
-                . "FROM {userpoints_total} "
-                . "WHERE uid = :target_uid";
-        $rows = db_query( $query, array( ':target_uid' => $player_object[ 'uid' ] ) );
-
-        foreach( $rows as $row ){
-            $player_object[ 'points' ] += $row->points;
-        }
-
-        return $player_object;
     }

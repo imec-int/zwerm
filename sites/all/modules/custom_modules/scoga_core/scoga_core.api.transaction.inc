@@ -20,6 +20,7 @@
         //dd( $begin_time, 'begin time');
         //dd( $end_time, 'end time' );
 
+        //TODO: check if this can be rewritten to use the user_points methods
         $query =
             " SELECT txn_id, time_stamp "
                 . "FROM {userpoints_txn} "
@@ -27,7 +28,7 @@
                 . "AND time_stamp >= :begin_time "
                 . "AND time_stamp < :end_time";
         $rows = db_query( $query, array(
-            ':tid'          => SCOGA_SCORE_TID,
+            ':tid'          => userpoints_get_default_tid(),
             ':begin_time'   => $begin_time,
             ':end_time'     => $end_time,
         ) );
