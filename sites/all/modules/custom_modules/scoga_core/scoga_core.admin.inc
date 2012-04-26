@@ -32,6 +32,17 @@
             '#required'      => TRUE
         );
 
+        //default player name
+        $form_elem_name = SCOGA_SETTINGS_DEFAULT_USERNAME;
+        $form[ $form_elem_name ] = array(
+            '#type'          => 'textfield',
+            '#title'         => t( 'Default username base' ),
+            '#description'   => t( 'When creating new users through the services this value will be used in combination with a unique identifier to create the username' ),
+            '#default_value' => variable_get( $form_elem_name, 'player' ),
+            '#size'          => 20,
+            '#required'      => TRUE
+        );
+
         $form[ 'submit' ] = array(
             '#type'  => 'submit',
             '#value' => t( 'Save settings' ),
@@ -41,12 +52,16 @@
     }
 
     function scoga_core_settings_form_submit( $form, &$form_state ){
-        //cooldown
-        $form_elem_name = SCOGA_SETTINGS_CHECKIN_COOLDOWN;
-        variable_set( $form_elem_name, $form_state[ 'values' ][ $form_elem_name ] );
 
-        $form_elem_name = SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME;
-        variable_set( $form_elem_name, $form_state[ 'values' ][ $form_elem_name ] );
+        $settings = array(
+            SCOGA_SETTINGS_CHECKIN_COOLDOWN,
+            SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME,
+            SCOGA_SETTINGS_DEFAULT_USERNAME,
+        );
+
+        foreach( $settings as $form_elem_name ){
+            variable_set( $form_elem_name, $form_state[ 'values' ][ $form_elem_name ] );
+        }
 
         drupal_set_message( t( 'The SCOGA settings have been saved.' ) );
     }

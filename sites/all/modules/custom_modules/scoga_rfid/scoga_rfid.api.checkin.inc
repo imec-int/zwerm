@@ -96,9 +96,8 @@
         $nids = array_keys( $result[ $entity_type ] );
 
         if( $nids ){
-            $cooldown_period = variable_get( SCOGA_SETTINGS_CHECKIN_COOLDOWN );
             $node = node_load( $nids[ 0 ] );
-            return intval( $node->created ) + intval( $cooldown_period );
+            return intval( $node->created ) + scoga_get_checkin_cooldown();
         }
 
         return 0;
@@ -176,7 +175,7 @@
         }
 
         $previous = intval( $prev_checkin->created );
-        $timeframe = intval( variable_get( SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME ) );
+        $timeframe = scoga_get_combocheckin_timeframe();
         $current = intval( $checkin_node->created );
         /*
             watchdog( 'scoga_check_combo_checkin', 'previous: @previous, timeframe: @timeframe, current: @current', array(

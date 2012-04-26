@@ -20,6 +20,7 @@
 
     define( 'SCOGA_SETTINGS_CHECKIN_COOLDOWN', 'scoga_settings_checkin_cooldown' );
     define( 'SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME', 'scoga_settings_combocheckin_timeframe' );
+    define( 'SCOGA_SETTINGS_DEFAULT_USERNAME', 'scoga_settings_default_username' );
 
     define( 'SCOGA_SCORE_TID', '4' );
     define( 'SCOGA_DEFAULT_TEAM', 26 );

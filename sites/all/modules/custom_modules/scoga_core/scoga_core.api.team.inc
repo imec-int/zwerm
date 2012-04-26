@@ -44,9 +44,6 @@
             'uuid'              => $team_node->uuid,
             'title'             => $team_node->title,
             'colour'            => $team_node->field_team_colour[ $lang ][ 0 ][ 'value' ],
-            'total_points'      => NULL,
-            'points_modifier'   => NULL,
-            'players'           => NULL,
         );
 
         return $output;

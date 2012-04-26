@@ -48,6 +48,17 @@
         throw new Exception( $message );
     }
 
+    function scoga_get_default_username(){
+        return variable_get( SCOGA_SETTINGS_DEFAULT_USERNAME );
+    }
+
+    function scoga_get_checkin_cooldown(){
+        return intval( variable_get( SCOGA_SETTINGS_CHECKIN_COOLDOWN ) );
+    }
+
+    function scoga_get_combocheckin_timeframe(){
+        return intval( variable_get( SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME ) );
+    }
 
     /**
      * @param $timeMS

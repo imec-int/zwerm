@@ -145,8 +145,7 @@
     function scoga_create_player_entity( $card_id, $team_nid ){
         $lang = LANGUAGE_NONE;
         $user_profile = new stdClass();
-        //TODO: read default user name from settings???
-        $user_profile->name = 'kliek user ' . $card_id;
+        $user_profile->name = scoga_get_default_username() . ' ' . $card_id;
         $user_profile->status = 1; //0->blocked, 1->active
         $user_profile->mail = 'none';
         $user_profile->field_team_reference[ $lang ][ 0 ] = array(
