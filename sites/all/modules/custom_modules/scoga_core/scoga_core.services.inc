@@ -9,7 +9,7 @@
      * Invoked from services
      */
 
-    function scoga_core_campaign_resource_index( $params ){
+    function scoga_service_campaign_index( $params ){
         module_load_include( 'api.campaign.inc', 'scoga_core' );
         if( array_key_exists( 'uuid', $params ) ){
             return scoga_get_campaign_vos_by_UUIDs( $params[ 'uuid' ] );
@@ -22,7 +22,7 @@
         return FALSE;
     }
 
-    function scoga_core_team_resource_index( $params ){
+    function scoga_service_team_index( $params ){
         module_load_include( 'api.team.inc', 'scoga_core' );
         if( array_key_exists( 'uuid', $params ) ){
             return scoga_get_team_vos_by_UUIDs( $params[ 'uuid' ] );
@@ -35,7 +35,7 @@
         return NULL;
     }
 
-    function scoga_core_player_resource_index( $params ){
+    function scoga_service_player_index( $params ){
         module_load_include( 'api.player.inc', 'scoga_core' );
         if( array_key_exists( 'uuid', $params ) ){
             return scoga_get_player_vos_by_UUIDs( $params[ 'uuid' ] );
@@ -48,7 +48,7 @@
         return NULL;
     }
 
-    function scoga_core_transaction_resource_index( $params ){
+    function scoga_service_transaction_index( $params ){
         module_load_include( 'api.transaction.inc', 'scoga_core' );
         $begin_time = ( array_key_exists( 'begin_time', $params ) ) ? $params[ 'begin_time' ] : NULL;
         $end_time = ( array_key_exists( 'end_time', $params ) ) ? $params[ 'end_time' ] : NULL;

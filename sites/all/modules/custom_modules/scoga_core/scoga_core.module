@@ -30,7 +30,7 @@
                         'type'   => 'services.inc',
                         'module' => 'scoga_core'
                     ),
-                    'callback'         => 'scoga_core_campaign_resource_index',
+                    'callback'         => 'scoga_service_campaign_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA ),
                     'args'             => array(
                         array(
@@ -50,7 +50,7 @@
                         'file'   => 'services.inc',
                         'module' => 'scoga_core'
                     ),
-                    'callback'         => 'scoga_core_team_resource_index',
+                    'callback'         => 'scoga_service_team_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_TEAM_DATA ),
                     'args'             => array(
                         array(
@@ -76,7 +76,7 @@
                         'file'   => 'services.inc',
                         'module' => 'scoga_core'
                     ),
-                    'callback'         => 'scoga_core_player_resource_index',
+                    'callback'         => 'scoga_service_player_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_PLAYER_DATA ),
                     'args'             => array(
                         array(
@@ -102,7 +102,7 @@
                         'file'   => 'services.inc',
                         'module' => 'scoga_core'
                     ),
-                    'callback'         => 'scoga_core_transaction_resource_index',
+                    'callback'         => 'scoga_service_transaction_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
                     'args'             => array(
                         array(

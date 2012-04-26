@@ -8,7 +8,7 @@
      */
 
 
-    function scoga_rfid_checkin_resource_create( $params ){
+    function scoga_service_checkin_create( $params ){
         module_load_include( 'api.checkin.inc', 'scoga_rfid' );
 
         /*
@@ -20,7 +20,7 @@
         return scoga_register_checkin( $card_id, $reader_id );
     }
 
-    function scoga_rfid_reader_resource_create( $params ){
+    function scoga_service_reader_create( $params ){
         module_load_include( 'api.reader.inc', 'scoga_rfid' );
         /*
         * catch parameters
@@ -32,7 +32,7 @@
         return scoga_register_reader( $card_id, $reader_id );
     }
 
-    function scoga_rfid_card_resource_create( $params ){
+    function scoga_service_card_create( $params ){
         module_load_include( 'api.card.inc', 'scoga_rfid' );
         /*
         * catch parameters

@@ -52,7 +52,7 @@
                         'file'   => 'services.inc',
                         'module' => 'scoga_rfid',
                     ),
-                    'callback'         => 'scoga_rfid_checkin_resource_create',
+                    'callback'         => 'scoga_service_checkin_create',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN ),
                     'args'             => array(
                         array(
@@ -88,7 +88,7 @@
                         'file'   => 'services.inc',
                         'module' => 'scoga_rfid',
                     ),
-                    'callback'         => 'scoga_rfid_reader_resource_create',
+                    'callback'         => 'scoga_service_reader_create',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_REGISTER_READER ),
                     'args'             => array(
                         array(
@@ -123,7 +123,7 @@
                         'file'   => 'services.inc',
                         'module' => 'scoga_rfid',
                     ),
-                    'callback'         => 'scoga_rfid_card_resource_create',
+                    'callback'         => 'scoga_service_card_create',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_REGISTER_CARD ),
                     'args'             => array(
                         array(
