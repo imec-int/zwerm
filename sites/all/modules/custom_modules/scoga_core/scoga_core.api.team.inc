@@ -17,6 +17,7 @@
             return scoga_get_team_vo_by_nid( $team_nid );
         }
 
+        return NULL;
     }
 
     function scoga_get_team_vos_by_nids( $team_nids ){
@@ -32,6 +33,8 @@
             $team_obj[ 'players' ] = scoga_get_player_vos_by_uids( $player_uids );
             return $team_obj;
         }
+
+        return NULL;
     }
 
     function scoga_create_team_vo( $team_node ){

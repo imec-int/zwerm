@@ -17,7 +17,6 @@
 
         if( array_key_exists( 'nid', $params ) ){
             return scoga_get_campaign_vos_by_nids( $params[ 'nid' ] );
-            ;
         }
 
         return FALSE;
@@ -32,6 +31,8 @@
         if( array_key_exists( 'nid', $params ) ){
             return scoga_get_team_vos_by_nids( $params[ 'nid' ] );
         }
+
+        return NULL;
     }
 
     function scoga_core_player_resource_index( $params ){
@@ -43,6 +44,8 @@
         if( array_key_exists( 'uid', $params ) ){
             return scoga_get_player_vos_by_uids( $params[ 'uid' ] );
         }
+
+        return NULL;
     }
 
     function scoga_core_transaction_resource_index( $params ){

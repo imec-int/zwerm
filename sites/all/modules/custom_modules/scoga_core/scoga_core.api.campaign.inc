@@ -17,6 +17,8 @@
         if( $campaign_nid ){
             return scoga_get_campaign_vo_by_nid( $campaign_nid );
         }
+
+        return NULL;
     }
 
     function scoga_get_campaign_vos_by_nids( $campaign_nids ){
@@ -31,6 +33,8 @@
             $campaign_obj[ 'teams' ] = $team_objs;
             return $campaign_obj;
         }
+
+        return NULL;
     }
 
     function scoga_create_campaign_vo( $campaign_node ){
@@ -106,5 +110,5 @@
             $campaignteam_nids = array_keys( $result[ $entity_type ] );
             return node_load( $campaignteam_nids[ 0 ] );
         }
-        return FALSE;
+        return NULL;
     }

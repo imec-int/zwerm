@@ -25,7 +25,7 @@
     }
 
     /**
-     * @param $player_UUID UUID for the player entity
+     * @param $player_UUID String UUID for the player entity
      *
      * @return array
      */
@@ -34,6 +34,8 @@
         if( $player_uid ){
             return scoga_get_player_vo_by_uid( $player_uid );
         }
+
+        return NULL;
     }
 
     /**
@@ -61,12 +63,14 @@
             $result = _inject_player_points( $result );
             return $result;
         }
+
+        return NULL;
     }
 
     /**
      * retrieve user id's by card ID
      *
-     * @param $card_id unique card ID, has nothing to do with Drupal ID's [!]
+     * @param $card_id String unique card ID, has nothing to do with Drupal ID's [!]
      *
      * @return array of uid's
      */
@@ -88,7 +92,7 @@
     }
 
     /**
-     * @param $card_id unique card ID, has nothing to do with Drupal ID's [!]
+     * @param $card_id String unique card ID, has nothing to do with Drupal ID's [!]
      *
      * @return bool|mixed
      */
@@ -96,21 +100,17 @@
         $user_uids = scoga_get_player_uids_by_card_id( $card_id );
         switch( count( $user_uids ) ){
             case 1 :
-                {
                 //exactly one match, as it should
                 return user_load( $user_uids[ 0 ] );
-                }
             case 0 :
-                {
                 return FALSE;
-                }
             default :
-                {
                 // multiple matches
                 //TODO determine what to do with multiple matches
                 scoga_throw_fatal_error( 'card registered multiple times' );
-                }
         }
+
+        return NULL;
     }
 
     /**
@@ -140,7 +140,7 @@
     /**
      * create a player entity
      *
-     * @param $card_id unique card ID, has nothing to do with Drupal ID's [!]
+     * @param $card_id String unique card ID, has nothing to do with Drupal ID's [!]
      *
      * @return bool|stdClass
      */

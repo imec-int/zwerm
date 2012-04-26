@@ -31,11 +31,8 @@
                 $output[ ] = $callback( $payload );
             }
             return $output;
-        } else{
-            return $callback( $param );
         }
-
-        return FALSE;
+        return $callback( $param );
     }
 
 
@@ -46,8 +43,8 @@
     }
 
 
-    function scoga_throw_fatal_error( $message, $variables = NULL ){
-        watchdog( 'SCOGA', $message, $variables, WATCHDOG_ERROR );
+    function scoga_throw_fatal_error( $message ){
+        watchdog( 'SCOGA', $message, NULL, WATCHDOG_ERROR );
         throw new Exception( $message );
     }
 
