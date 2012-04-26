@@ -40,10 +40,8 @@
     function scoga_create_campaign_vo( $campaign_node ){
         //dd( $campaign_node, 'campaign node');
         $lang = LANGUAGE_NONE;
-        $begin_time_str = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value' ];
-        $begin_time_tstamp = strtotime( $begin_time_str );
-        $end_time_str = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value2' ];
-        $end_time_tstamp = strtotime( $end_time_str );
+        $begin_time_tstamp = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value' ];
+        $end_time_tstamp = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value2' ];
         $output = array(
             'nid'               => $campaign_node->nid,
             'title'             => $campaign_node->title,
@@ -111,4 +109,21 @@
             return node_load( $campaignteam_nids[ 0 ] );
         }
         return NULL;
+    }
+
+    function scoga_determine_current_campaign(){
+        $query = new EntityFieldQuery();
+        $entity_type = 'node';
+        $now = time();
+        $result = $query
+            ->entityCondition( 'entity_type', $entity_type )
+            ->entityCondition( 'bundle', SCOGA_CAMPAIGN_NODETYPE )
+            ->fieldCondition( 'field_campaign_period', 'value', $now, '<=' )
+            ->fieldCondition( 'field_campaign_period', 'value2', $now, '>' )
+            ->execute();
+
+        if( $result ){
+            $partial_node = reset( $result[ $entity_type ] );
+            scoga_set_current_campaign_nid( $partial_node->nid );
+        }
     }

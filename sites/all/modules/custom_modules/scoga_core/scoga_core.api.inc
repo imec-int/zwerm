@@ -60,6 +60,16 @@
         return intval( variable_get( SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME ) );
     }
 
+    function scoga_get_current_campaign_nid(){
+        return intval( variable_get( SCOGA_SETTINGS_CURRENT_CAMPAIGN_NID ) );
+    }
+
+    function scoga_set_current_campaign_nid( $campaign_nid ){
+        watchdog( 'SCOGA', 'set current campaign nid to @nid', array(
+           '@nid' => $campaign_nid
+        ));
+        variable_set( SCOGA_SETTINGS_CURRENT_CAMPAIGN_NID, $campaign_nid );
+    }
     /**
      * @param $timeMS
      *

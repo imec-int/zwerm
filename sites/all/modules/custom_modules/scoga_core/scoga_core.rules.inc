@@ -31,15 +31,14 @@
     [txn_id] => 178
     [approver_uid] => 0
      */
-    function scoga_transfer_transaction_points_to_team( $transaction ){
-        if( $transaction->tid === userpoints_get_default_tid() ){
-            module_load_include( 'api.campaign.inc', 'scoga_core' );
-            $user_account = user_load( $transaction->uid );
-            $team_nid = $user_account->field_user_team[ LANGUAGE_NONE ][ 0 ][ 'target_id' ];
-            $campaignteam_node = scoga_get_campaignteam_entity_by_team_nid( $team_nid );
-            if( $campaignteam_node ){
-                $campaignteam_node->field_campaignteam_totalpoints[ LANGUAGE_NONE ][ 0 ][ 'value' ] += $transaction->points;
-                node_save( $campaignteam_node );
-            }
-        }
+    function scoga_rule_transfer_transaction_points_to_team( $transaction ){
+        module_load_include( 'api.transaction.inc', 'scoga_core' );
+        scoga_transfer_transaction_points_to_team( $transaction );
     }
+
+
+    function scoga_rule_determine_current_campaign(){
+        module_load_include( 'api.campaign.inc', 'scoga_core' );
+        scoga_determine_current_campaign();
+    }
+
