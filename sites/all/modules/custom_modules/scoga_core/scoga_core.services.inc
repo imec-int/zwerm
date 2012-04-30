@@ -19,7 +19,7 @@
             return scoga_get_campaign_vos_by_nids( $params[ 'nid' ] );
         }
 
-        return FALSE;
+        return scoga_get_campaign_vo_by_nid( scoga_get_current_campaign_nid() );
     }
 
     function scoga_service_team_index( $params ){
@@ -32,7 +32,7 @@
             return scoga_get_team_vos_by_nids( $params[ 'nid' ] );
         }
 
-        return NULL;
+        return FALSE;
     }
 
     function scoga_service_player_index( $params ){
@@ -45,7 +45,7 @@
             return scoga_get_player_vos_by_uids( $params[ 'uid' ] );
         }
 
-        return NULL;
+        return FALSE;
     }
 
     function scoga_service_transaction_index( $params ){

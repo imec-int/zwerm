@@ -16,15 +16,18 @@
     function scoga_register_reader( $card_id, $reader_id ){
         module_load_include( 'api.player.inc', 'scoga_core' );
 
-        $lang = LANGUAGE_NONE;
-
         /*
         * retrieve user account coupled to card id
         */
         $user_account = scoga_get_player_entity_by_card_id( $card_id );
+
+        if( ! $user_account ){
+            throw new Exception( "card $card_id not registered" );
+        }
+
         $user_access = user_access( SCOGA_PERM_REST_EXECUTE_REGISTER_READER, $user_account );
         if( $user_access === FALSE ){
-            scoga_throw_fatal_error( 'user not allowed to register reader' );
+            throw new Exception( "user " . $user_account->uid . "not allowed to register reader" );
         }
 
 
@@ -34,7 +37,7 @@
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
 
         if( $reader_node ){
-            scoga_throw_fatal_error( 'RFID reader already registered' );
+            throw new Exception( 'RFID reader ' . $reader_id . ' already registered' );
         }
 
         $reader_node = scoga_create_reader_entity( $reader_id, $user_account->uid );
@@ -61,7 +64,7 @@
                 }
             default :
                 {
-                scoga_throw_fatal_error( 'RFID reader registered multiple times' );
+                scoga_throw_exception( 'RFID reader registered multiple times' );
                 }
         }
     }

@@ -9,7 +9,10 @@
 
     function scoga_cron_determine_current_campaign(){
         $now = time();
-        if( $now >= scoga_get_determinecampaign_next_execution() ){
+        $next_time = scoga_get_determinecampaign_next_execution();
+        dd( $now, 'now' );
+        dd( $next_time, 'next time' );
+        if( $now >= $next_time ){
             module_load_include( 'api.campaign.inc', 'scoga_core' );
             scoga_determine_current_campaign();
             $interval = scoga_get_determinecampaign_cron_interval();

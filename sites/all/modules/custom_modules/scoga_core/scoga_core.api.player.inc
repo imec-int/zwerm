@@ -8,12 +8,13 @@
      */
 
 
-    function scoga_get_player_uids_by_team_nid( $team_nid ){
+    function scoga_get_player_uids_by_team_nid( $team_nid, $negate = FALSE ){
         $query = new EntityFieldQuery();
         $entity_type = 'user';
+        $operator = ( $negate ) ? '!=' : '=';
         $result = $query
             ->entityCondition( 'entity_type', $entity_type )
-            ->fieldCondition( 'field_user_team', 'target_id', $team_nid, '=' )
+            ->fieldCondition( 'field_user_team', 'target_id', $team_nid, $operator )
             ->execute();
 
         $uids = array_keys( $result[ $entity_type ] );
@@ -35,7 +36,7 @@
             return scoga_get_player_vo_by_uid( $player_uid );
         }
 
-        return NULL;
+        return FALSE;
     }
 
     /**
@@ -63,7 +64,7 @@
             return $result;
         }
 
-        return NULL;
+        return FALSE;
     }
 
     /**
@@ -102,13 +103,13 @@
                 //exactly one match, as it should
                 return user_load( $user_uids[ 0 ] );
             case 0 :
-                return FALSE;
+                break;
             default :
                 // multiple matches
-                scoga_throw_fatal_error( 'card registered multiple times' );
+                throw new Exception( 'card registered multiple times' );
         }
 
-        return NULL;
+        return FALSE;
     }
 
     /**
@@ -119,15 +120,18 @@
      * @return array
      */
     function scoga_create_player_vo( $player_entity ){
-        $lang = LANGUAGE_NONE;
+        $registered_values = field_get_items( 'user', $player_entity, 'field_user_registered' );
+        $team_nid_values = field_get_items( 'user', $player_entity, 'field_user_team' );
+        $firstname_values =field_get_items( 'user', $player_entity, 'field_user_firstname' );
+        $surname_values = field_get_items( 'user', $player_entity, 'field_user_surname' );
         $output = array(
             'uid'           => $player_entity->uid,
             'username'      => $player_entity->name,
             'uuid'          => $player_entity->uuid,
-            'registered'    => $player_entity->field_user_registered[ $lang ][ 0 ][ 'value' ],
-            'team_nid'      => $player_entity->field_user_team[ $lang ][ 0 ][ 'target_id' ],
-            'firstname'     => $player_entity->field_user_firstname[ $lang ][ 0 ][ 'value' ],
-            'surname'       => $player_entity->field_user_surname[ $lang ][ 0 ][ 'value' ],
+            'registered'    => $registered_values[ 0 ][ 'value' ],
+            'team_nid'      => $team_nid_values[ 0 ][ 'target_id' ],
+            'firstname'     => $firstname_values[ 0 ][ 'value' ],
+            'surname'       => $surname_values[ 0 ][ 'value' ],
             'avatar_url'    => image_style_url( 'avatar_pinhead', $player_entity->picture->uri ),
             'points'        => userpoints_get_current_points( $player_entity->uid ),
         );

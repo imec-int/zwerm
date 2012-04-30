@@ -43,8 +43,8 @@
     }
 
 
-    function scoga_throw_fatal_error( $message ){
-        watchdog( 'SCOGA', $message, NULL, WATCHDOG_ERROR );
+    function scoga_throw_exception( $message, $severity = WATCHDOG_NOTICE ){
+        watchdog( 'SCOGA', $message, NULL, $severity );
         throw new Exception( $message );
     }
 

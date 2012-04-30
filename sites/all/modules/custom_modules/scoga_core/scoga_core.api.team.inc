@@ -17,7 +17,7 @@
             return scoga_get_team_vo_by_nid( $team_nid );
         }
 
-        return NULL;
+        return FALSE;
     }
 
     function scoga_get_team_vos_by_nids( $team_nids ){
@@ -34,16 +34,16 @@
             return $team_obj;
         }
 
-        return NULL;
+        return FALSE;
     }
 
     function scoga_create_team_vo( $team_node ){
-        $lang = LANGUAGE_NONE;
+        $colour_values =field_get_items( 'node', $team_node, 'field_team_colour' );
         $output = array(
             'nid'               => $team_node->nid,
             'uuid'              => $team_node->uuid,
             'title'             => $team_node->title,
-            'colour'            => $team_node->field_team_colour[ $lang ][ 0 ][ 'value' ],
+            'colour'            => $colour_values[ 0 ][ 'value' ],
         );
 
         return $output;

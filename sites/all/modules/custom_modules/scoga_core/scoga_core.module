@@ -10,13 +10,6 @@
     module_load_include( 'constants.inc', 'scoga_core' );
     module_load_include( 'api.inc', 'scoga_core' );
 
-
-    define( 'SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA', 'access content' );
-    define( 'SCOGA_PERM_REST_ACCESS_TEAM_DATA', 'access content' );
-    define( 'SCOGA_PERM_REST_ACCESS_PLAYER_DATA', 'access content' );
-    define( 'SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA', 'access content' );
-
-
     /**
      * Implements hook_services_resources().
      */
@@ -136,35 +129,23 @@
      */
     function scoga_core_menu(){
         $items = array();
-        $items[ 'admin/config/scoga' ] = array(
+        $items[ SCOGA_ADMIN_PAGE ] = array(
             'title'            => t( 'SCOGA settings' ),
             'description'      => t( 'General settings for SCOGA' ),
-            'file'             => 'scoga_core.admin.inc',
-            'page callback'    => 'drupal_get_form',
-            'page arguments'   => array( 'scoga_core_settings_form' ),
-            'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
-            'type'             => MENU_NORMAL_ITEM,
-        );
-        /*
-        $items[ 'admin/config/scoga' ] = array(
-            'title' => t('SCOGA settings'),
-            'description' => t('General settings for SCOGA'),
             'page callback' => 'system_admin_menu_block_page',
             'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
             'file' => 'system.admin.inc',
             'file path' => drupal_get_path('module', 'system'),
             'type' => MENU_NORMAL_ITEM,
         );
-        $items[ 'admin/config/scoga/playeractions' ] = array(
-            'title' => t( 'SCOGA player action settings' ),
-            'description' => t( 'Playeraction settings for SCOGA' ),
-            'file' => 'scoga_core.admin.inc',
-            'page callback' => 'drupal_get_form',
-            'page arguments' => array( '_playeraction_settings_form' ),
+        $items[ SCOGA_ADMIN_PAGE . '/core' ]=array(
+            'title'             => t( 'SCOGA core settings' ),
+            'type'             => MENU_NORMAL_ITEM,
+            'file'             => 'scoga_core.admin.inc',
+            'page callback'    => 'drupal_get_form',
+            'page arguments'   => array( 'scoga_core_settings_form' ),
             'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
-            'type' => MENU_NORMAL_ITEM,
         );
-        */
         return $items;
     }
 

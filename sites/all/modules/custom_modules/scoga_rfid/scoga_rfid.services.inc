@@ -16,8 +16,14 @@
         */
         $card_id = $params[ 'cardID' ];
         $reader_id = $params[ 'readerID' ];
-
-        return scoga_register_checkin( $card_id, $reader_id );
+        try{
+            $result = scoga_register_checkin( $card_id, $reader_id );
+        }catch ( Exception $e ){
+            $message = $e->getMessage();
+            watchdog( 'SCOGA', $message );
+            $result = $e->getMessage();
+        }
+        return $result;
     }
 
     function scoga_service_reader_create( $params ){
@@ -29,7 +35,15 @@
         $reader_id = $params[ 'readerID' ];
         //$checkin_timeMS = $params[ 'timestamp' ];
 
-        return scoga_register_reader( $card_id, $reader_id );
+        try{
+            $result = scoga_register_reader( $card_id, $reader_id );
+        }catch ( Exception $e ){
+            $message = $e->getMessage();
+            watchdog( 'SCOGA', $message );
+            $result = $e->getMessage();
+        }
+
+        return $result;
     }
 
     function scoga_service_card_create( $params ){
@@ -40,6 +54,14 @@
         $card_id = $params[ 'cardID' ];
         $reader_id = $params[ 'readerID' ];
 
-        return scoga_register_card( $card_id, $reader_id );
+        try{
+            $result = scoga_register_card( $card_id, $reader_id );
+        }catch ( Exception $e ){
+            $message = $e->getMessage();
+            watchdog( 'SCOGA', $message );
+            $result = $e->getMessage();
+        }
+
+        return $result;
     }
 

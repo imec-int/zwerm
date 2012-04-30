@@ -18,7 +18,7 @@
             return scoga_get_campaign_vo_by_nid( $campaign_nid );
         }
 
-        return NULL;
+        return FALSE;
     }
 
     function scoga_get_campaign_vos_by_nids( $campaign_nids ){
@@ -34,12 +34,11 @@
             return $campaign_obj;
         }
 
-        return NULL;
+        return FALSE;
     }
 
     function scoga_create_campaign_vo( $campaign_node ){
         //dd( $campaign_node, 'campaign node');
-        $lang = LANGUAGE_NONE;
         $begin_time_tstamp = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value' ];
         $end_time_tstamp = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value2' ];
         $output = array(
@@ -108,7 +107,7 @@
             $campaignteam_nids = array_keys( $result[ $entity_type ] );
             return node_load( $campaignteam_nids[ 0 ] );
         }
-        return NULL;
+        return FALSE;
     }
 
     function scoga_determine_current_campaign(){
@@ -125,5 +124,7 @@
         if( $result ){
             $partial_node = reset( $result[ $entity_type ] );
             scoga_set_current_campaign_nid( $partial_node->nid );
+        }else{
+            scoga_set_current_campaign_nid( 0 );
         }
     }

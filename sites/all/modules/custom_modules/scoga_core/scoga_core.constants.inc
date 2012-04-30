@@ -1,11 +1,11 @@
 <?php
-    /**
-     * Created by JetBrains PhpStorm.
-     * User: creynder
-     * Date: 12/04/12
-     * Time: 10:19
-     * To change this template use File | Settings | File Templates.
-     */
+/**
+ * Created by JetBrains PhpStorm.
+ * User: creynder
+ * Date: 27/04/12
+ * Time: 21:47
+ * To change this template use File | Settings | File Templates.
+ */
 
 
     define( 'SCOGA_PERM_ADMINISTER_SETTINGS', 'scoga administer settings' );
@@ -29,3 +29,10 @@
     define( 'SCOGA_SCORE_TID', '4' );
     define( 'SCOGA_DEFAULT_TEAM', 26 );
     define( 'SCOGA_CHECKINPARTNER_RTID', 1 );
+    define( 'SCOGA_ADMIN_PAGE', 'admin/config/scoga' );
+
+    define( 'SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA', 'access content' );
+    define( 'SCOGA_PERM_REST_ACCESS_TEAM_DATA', 'access content' );
+    define( 'SCOGA_PERM_REST_ACCESS_PLAYER_DATA', 'access content' );
+    define( 'SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA', 'access content' );
+

@@ -16,19 +16,22 @@
      * @return stdClass|string
      */
     function scoga_register_checkin( $card_id, $reader_id ){
+
+        $current_campaign_nid = scoga_get_current_campaign_nid();
+        if( ! $current_campaign_nid ){
+            throw new Exception( 'no campaign is running at the moment' );
+        }
+
         module_load_include( 'api.player.inc', 'scoga_core' );
         module_load_include( 'api.reader.inc', 'scoga_rfid' );
-
-        $lang = LANGUAGE_NONE;
 
         /*
         * get user account
         */
         $user_account = scoga_get_player_entity_by_card_id( $card_id );
-        if( $user_account === FALSE ){
-            scoga_throw_fatal_error( 'card @card_id not registered', array(
-                '@card_id' => $card_id,
-            ) );
+
+        if( ! $user_account ){
+            throw new Exception( "card $card_id not registered" );
         }
 
         /*
@@ -36,9 +39,7 @@
         */
 
         if( user_access( SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN, $user_account ) === FALSE ){
-            scoga_throw_fatal_error( 'user @uid not allowed to create checkin', array(
-                '@uid' => $user_account->uid,
-            ) );
+            throw new Exception( 'user ' . $user_account->uid . ' not allowed to create checkin' );
         }
 
         /*
@@ -48,26 +49,21 @@
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
 
         if( !$reader_node ){
-            scoga_throw_fatal_error( 'RFID reader with id @reader_id not found', array(
-                '@reader_id' => $reader_id,
-            ) );
+            throw new Exception( "RFID reader with id $reader_id not found" );
         }
 
 
         $cooldown_tstamp = scoga_get_cooldown_timestamp_by_player_uid( $user_account->uid );
 
         if( time() < $cooldown_tstamp ){
-            scoga_throw_fatal_error( 'checkin not created for user with id @uid, will be cooled down on @cooldown_date', array(
-                '@uid'           => $user_account->uid,
-                '@cooldown_date' => date( 'd/m/Y H:i:s', $cooldown_tstamp ),
-            ) );
+            throw new Exception( 'checkin not created for user with id '. $user_account->uid .', will be cooled down on ' . date( 'd/m/Y H:i:s', $cooldown_tstamp ) );
         }
 
 
         /*
         * create checkin node
         */
-        $checkin_node = scoga_create_checkin_entity( $lang, $user_account, $reader_node );
+        $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node );
 
         scoga_check_combo_checkin( $user_account, $checkin_node );
         return $checkin_node;
@@ -121,12 +117,10 @@
         return FALSE;
     }
 
-    function scoga_create_checkin_entity( $lang, $user_account, $reader_node ){
+    function scoga_create_checkin_entity( $user_account, $reader_node ){
 
-        $user_registered = (
-            isset( $user_account->field_user_registered )
-                && $user_account->field_user_registered[ $lang ][ 0 ][ 'value' ] == "1"
-        );
+        $user_registered_values = field_get_items( 'user', $user_account, 'field_user_registered' );
+        $user_registered_raw = ( $user_registered_values ) ? $user_registered_values[ 0 ][ 'value' ] : "0";
 
         $checkin_node = new stdClass();
         $checkin_node->type = SCOGA_CHECKIN_NODETYPE;
@@ -150,7 +144,7 @@
             . ' at ' . $checkin_time_formatted;
 
         //published or not
-        $checkin_node->status = ( $user_registered ) ? "1" : "0";
+        $checkin_node->status = ( $user_registered_raw ) ? "1" : "0";
 
         //save the mofo node
         $checkin_node = node_submit( $checkin_node );
@@ -168,6 +162,10 @@
      */
     function scoga_check_combo_checkin( $user_account, $checkin_node ){
         $prev_checkin = scoga_get_checkin_node_by_index( 1, 'DESC' );
+        if( ! $prev_checkin ){
+            //no previous checkin
+            return FALSE;
+        }
         if( $prev_checkin->uid === $user_account->uid ){
             //fail if it's the same user
             watchdog( 'SCOGA RFID', 'combo checkin denied: same user' );
@@ -191,9 +189,11 @@
         }
 
         $prev_user = user_load( $prev_checkin->uid );
-        $prev_team_nid = $prev_user->field_user_team[ LANGUAGE_NONE ][ 0 ][ 'target_id' ];
+        $prev_user_team_values = field_get_items( 'user', $prev_user, 'field_user_team');
+        $prev_team_nid = $prev_user_team_values[ 0 ][ 'target_id' ];
 
-        if( $prev_team_nid !== $user_account->field_user_team[ LANGUAGE_NONE ][ 0 ][ 'target_id' ] ){
+        $user_team_values = field_get_items( 'user', $user_account, 'field_user_team');
+        if( $prev_team_nid !== $user_team_values[ 0 ][ 'target_id' ] ){
             //fail if the previous checkin was made by a member of the other team
             watchdog( 'SCOGA RFID', 'combo checkin denied: different teams' );
             return FALSE;
