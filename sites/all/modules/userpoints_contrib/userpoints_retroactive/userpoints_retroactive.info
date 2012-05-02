@@ -1,0 +1,12 @@
+name = Userpoints Retroactive
+description = Calculate userpoints for nodes and comments created so far.
+package = Userpoints
+core = 6.x
+dependencies[] = userpoints
+
+; Information added by drupal.org packaging script on 2012-04-03
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "userpoints_contrib"
+datestamp = "1333414505"
+

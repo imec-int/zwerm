@@ -1,0 +1,206 @@
+<?php
+
+/**
+ * Implementation of hook_userpoints().
+ */
+function userpoints_flag_userpoints($op, $params = array()) {
+  switch ($op) {
+    case 'setting':
+    $form['flag'] = array(
+      '#type' => 'fieldset',
+      '#theme' => 'userpoints_flag_settings',
+      '#title' => t('Points for Flags'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+
+    // Load the category list.
+    $category_options = userpoints_get_categories();
+
+    foreach(flag_get_flags() as $flag) {
+      $form['flag']['userpoints_flag_flagger_'. $flag->name] = array(
+        '#type' => 'textfield',
+        '#default_value' => variable_get('userpoints_flag_flagger_'. $flag->name, 0),
+        '#size' => 5,
+        '#maxlength' => 5,
+      );
+
+      $form['flag']['userpoints_flag_flagger_category_'. $flag->name] = array(
+        '#type' => 'select',
+        '#options' => $category_options,
+        '#default_value' => variable_get('userpoints_flag_flagger_category_'. $flag->name, 0),
+      );
+
+      $form['flag']['userpoints_flag_author_'. $flag->name] = array(
+        '#type' => 'textfield',
+        '#default_value' => variable_get('userpoints_flag_author_'. $flag->name, 0),
+        '#size' => 5,
+        '#maxlength' => 5,
+      );
+
+      $form['flag']['userpoints_flag_author_category_'. $flag->name] = array(
+        '#type' => 'select',
+        '#options' => $category_options,
+        '#default_value' => variable_get('userpoints_flag_author_category_'. $flag->name, 0),
+      );
+
+      $form['flag']['userpoints_flag_daily_limit_'. $flag->name] = array(
+        '#type' => 'textfield',
+        '#default_value' => variable_get('userpoints_flag_daily_limit_'. $flag->name, 0),
+        '#size' => 5,
+      );
+
+      $form['flag']['userpoints_flag_moderate_'. $flag->name] = array(
+        '#type' => 'checkbox',
+        '#default_value' => variable_get('userpoints_flag_moderate_'. $flag->name, 0),
+      );
+    }
+
+    // Add some definitions at the bottom to help clarify what things mean.
+    $form['flag']['userpoints_flag_help'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Userpoints Flag Help'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+
+    $form['flag']['userpoints_flag_help']['info'] = array(
+      '#value' => '
+      <dl><dt>Flagger Points</dt><dd>These points are given to the user who is doing the flagging.</dd></dl>
+      <dl><dt>Flagger Category</dt><dd>This is the category to which "Flagger Points" are added.</dd></dl>
+      <dl><dt>Author/User Points</dt><dd>These points are given to the user who is either the author of the node or comment being flagged, or the user that is being flagged, depending on the flag type.</dd></dl>
+      <dl><dt>Author/User Category</dt><dd>This is the category to which "Author/User Points" are added.</dd></dl>
+      <dl><dt>Daily limit (flags)</dt><dd>This is the number of flags (not points) that a user may set within any twenty four hour period and still have points awarded.  If the user exceeds this number of flags the flag action will still be successful, but no points will be awarded to either the flagger or the author/user.</dd></dl>
+      <dl><dt>Moderate</dt><dd>Points will need to be approved by a moderator if this is selected.</dd></dl>',
+    );
+
+    return $form;
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function userpoints_flag_theme() {
+  return array(
+    'userpoints_flag_settings' => array('form' => NULL)
+  );
+}
+
+/**
+ * Theme the userpoints flag settings form.
+ */
+function theme_userpoints_flag_settings($form) {
+  $rows = array();
+  foreach (flag_get_flags() as $flag) {
+    $row = array(
+      $flag->title,
+      drupal_render($form['userpoints_flag_flagger_'. $flag->name]),
+      drupal_render($form['userpoints_flag_flagger_category_'. $flag->name]),
+      drupal_render($form['userpoints_flag_author_'. $flag->name]),
+      drupal_render($form['userpoints_flag_author_category_'. $flag->name]),
+      drupal_render($form['userpoints_flag_daily_limit_'. $flag->name]),
+      drupal_render($form['userpoints_flag_moderate_'. $flag->name]),
+    );
+    $rows[] = $row;
+  }
+
+  $header = array(
+    t('Flag type'),
+    t('Flagger !Points', userpoints_translation()),
+    t('Flagger Category'),
+    t('Author/User !Points', userpoints_translation()),
+    t('Author/User Category'),
+    t('Daily limit (flags)'),
+    t('Moderate')
+  );
+
+  $output = theme('table', $header, $rows);
+  $output .= drupal_render($form);
+
+  return $output;
+}
+
+/**
+ * Implementation of hook_flag().
+ */
+function userpoints_flag_flag($action, $flag, $content_id, $account) {
+  $flagger_points = variable_get('userpoints_flag_flagger_'. $flag->name, 0);
+  $author_points = variable_get('userpoints_flag_author_'. $flag->name, 0);
+
+  // Only do something if points have been assigned to this flag type.
+  if ($flagger_points != 0 || $author_points != 0) {
+
+    // Get the user id of the content author or flagged user.
+    switch ($flag->content_type) {
+      case 'node':
+        $author_uid = _userpoints_flag_get_node_author($content_id);
+        break;
+      case 'comment':
+        $author_uid = _userpoints_flag_get_comment_author($content_id);
+        break;
+      case 'user':
+        $author_uid = $content_id;
+        break;
+    }
+
+    // Don't give points if the flagger is the author.
+    if ($author_uid != $account->uid) {
+
+      // Don't give points to the flagger or author if the flagger has exceeded the daily flagging limit for this flag type.
+      $flag_limit = variable_get('userpoints_flag_daily_limit_'. $flag->name, 0);
+      if (($flag_limit == 0) || (_userpoints_flag_within_limit($account->uid, $flag->fid, $flag_limit))) {
+
+        // Give points to the flagger.
+        if ($flagger_points != 0) {
+          userpoints_userpointsapi(array(
+            'uid' => $account->uid,
+            'tid' => variable_get('userpoints_flag_flagger_category_'. $flag->name, 0),
+            'points' => ($action == 'flag' ? $flagger_points : -1 * $flagger_points),
+            'moderate' => variable_get('userpoints_flag_moderate_'. $flag->name, 0),
+            'entity_id' => $content_id,
+            'entity_type' => $flag->content_type,
+            'operation' => 'Flag '. $flag->title,
+            'description' => t('Flag: @content_type @content_id.',array('@content_type'=> $flag->content_type, '@content_id'=> $content_id)),
+          ));
+        }
+
+        // Give points to the author or flagged user.
+        if (($author_points != 0) && ($author_uid != 0)) {
+          userpoints_userpointsapi(array(
+            'uid' => $author_uid,
+            'tid' => variable_get('userpoints_flag_author_category_'. $flag->name, 0),
+            'points' => ($action == 'flag' ? $author_points : -1 * $author_points),
+            'moderate' => variable_get('userpoints_flag_moderate_'. $flag->name, 0),
+            'entity_id' => $content_id,
+            'entity_type' => $flag->content_type,
+            'operation' => 'Flag Author '. $flag->title,
+            'description' => t('Flag author: @content_type @content_id.',array('@content_type'=> $flag->content_type, '@content_id'=> $content_id)),
+          ));
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Get the user id of the author of a node.
+ */
+function _userpoints_flag_get_node_author($nid) {
+  return db_result(db_query_range("SELECT uid FROM {node} WHERE nid = %d", $nid, 0, 1));
+}
+
+/**
+ * Get the user id of the author of a comment.
+ */
+function _userpoints_flag_get_comment_author($cid) {
+  return db_result(db_query("SELECT uid FROM {comments} WHERE cid = %d", $cid));
+}
+
+/**
+ * Find out whether the flagger has flagged a particular flag type more than a set number of times in the last 24 hours.
+ */
+function _userpoints_flag_within_limit($uid, $flag_id, $flag_limit) {
+  $flag_count = db_result(db_query("SELECT COUNT(*) FROM {flag_content} WHERE uid = %d AND fid = %d AND timestamp > %d", $uid, $flag_id, time() - 86400));
+  return ($flag_count <= $flag_limit ? TRUE : FALSE);
+}
