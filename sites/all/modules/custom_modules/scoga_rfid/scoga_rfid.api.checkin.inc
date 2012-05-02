@@ -119,6 +119,8 @@
 
     function scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid ){
 
+        $lang = LANGUAGE_NONE;
+
         $user_registered_values = field_get_items( 'user', $user_account, 'field_user_registered' );
         $user_registered_raw = ( $user_registered_values ) ? $user_registered_values[ 0 ][ 'value' ] : "0";
 

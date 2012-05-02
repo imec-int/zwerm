@@ -6,9 +6,6 @@
      * Time: 14:20
      * To change this template use File | Settings | File Templates.
      */
-    define( 'SCOGA_WISHEDITEM_NODETYPE', 'nodetype_wished_item' );
-    define( 'SCOGA_SETTING_MAX_WISHITEM_CREDIT', 'scoga_setting_max_wishitem_credit' );
-    define( 'SCOGA_CREDITS_TID', '3' );
 
     module_load_include( 'api.inc', 'scoga_wishlist' );
 
@@ -41,9 +38,9 @@
      * @param $form_id
      */
     function scoga_wishlist_form_nodetype_wished_item_node_form_alter( &$form, $form_state, $form_id ){
-        global $user;
+        $uid = $form[ 'uid' ][ '#value' ];
 
-        $user_remaining_credits = userpoints_get_current_points( $user->uid, SCOGA_CREDITS_TID );
+        $user_remaining_credits = min( userpoints_get_current_points( $uid, SCOGA_CREDITS_TID ), scoga_get_max_wishitem_credits() );
 
         if( $user_remaining_credits > 0 ){
             $credits_select_data = array(

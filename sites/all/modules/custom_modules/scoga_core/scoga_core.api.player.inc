@@ -167,3 +167,64 @@
         $user_account = user_save( $user_profile );
         return $user_account;
     }
+
+    /**
+     * @param $uid
+     */
+    function scoga_award_default_credits_to_player( $uid ){
+        /*
+         *    if (int) assumed to be points for current user
+         *    Accepts an array of keyed variables and parameters
+         *    'points' => # of points (int) (required)
+         *    'moderate' => TRUE/FALSE
+         *    'uid' => $user->uid
+         *    'time_stamp' => unix time of the points assignment date
+         *    'operation' => 'published' 'moderated' etc.
+         *    'tid' => 'category ID'
+         *    'expirydate' => timestamp or 0, 0 = non-expiring; NULL = site default
+         *    'description' => 'description'
+         *    'reference' => reserved for module specific use
+         *    'display' => whether or not to display "points awarded" message
+         *    'txn_id' => Transaction ID of points, If present an UPDATE is performed
+         *    'entity_id' => ID of an entity in the Database. ex. $node->id or $user->uid
+         *    'entity_type' => string of the entity type. ex. 'node' or 'user' NOT 'node-content-custom'
+         */
+        $params = array(
+            'uid'           => $uid,
+            'points'        => scoga_get_default_credits(),
+            'tid'           => SCOGA_CREDITS_TID,
+            'operation'     => 'default credits',
+            'description'   => 'default credits awarded',
+            'moderate'      => FALSE,
+            'display'       => TRUE,
+        );
+        $result = userpoints_userpointsapi($params);
+
+    }
+
+    function scoga_award_default_credits_to_all_players(){
+        $uids = scoga_get_all_player_uids();
+        foreach( $uids as $player_uid ){
+            scoga_award_default_credits_to_player( $player_uid );
+        }
+    }
+
+    function scoga_get_all_player_uids(){
+        $uids = array();
+
+        $query = 'SELECT DISTINCT(r.uid)
+            FROM {users_roles} AS r
+            WHERE r.rid IN (:rids)'
+        ;
+        $result = db_query( $query, array( ':rids' => array( SCOGA_PLAYER_ROLE ) ) );
+
+        foreach( $result as $row ){
+            $uids[ ] = $row->uid;
+        }
+
+        return $uids;
+    }
+
+    function scoga_get_all_player_accounts(){
+        return user_load_multiple( scoga_get_all_player_uids() );
+    }

@@ -39,6 +39,7 @@
 
     function scoga_create_campaign_vo( $campaign_node ){
         //dd( $campaign_node, 'campaign node');
+        $lang = LANGUAGE_NONE;
         $begin_time_tstamp = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value' ];
         $end_time_tstamp = $campaign_node->field_campaign_period[ $lang ][ 0 ][ 'value2' ];
         $output = array(
@@ -95,13 +96,17 @@
         return $nids;
     }
 
-    function scoga_get_campaignteam_entity_by_team_nid( $team_nid ){
+    function scoga_get_campaignteam_entity_by_team_nid( $team_nid, $campaign_nid = NULL ){
+        if( $campaign_nid == NULL ){
+            $campaign_nid = scoga_get_current_campaign_nid();
+        }
         $query = new EntityFieldQuery();
         $entity_type = 'node';
         $result = $query
             ->entityCondition( 'entity_type', $entity_type )
             ->entityCondition( 'bundle', SCOGA_CAMPAIGNTEAM_NODETYPE )
             ->fieldCondition( 'field_campaignteam_team', 'target_id', $team_nid, '=' )
+            ->fieldCondition( 'field_campaignteam_campaign', 'target_id', $campaign_nid, '=' )
             ->execute();
         if( $result ){
             $campaignteam_nids = array_keys( $result[ $entity_type ] );
@@ -111,6 +116,7 @@
     }
 
     function scoga_determine_current_campaign(){
+        $current_nid = scoga_get_current_campaign_nid();
         $query = new EntityFieldQuery();
         $entity_type = 'node';
         $now = time();
@@ -123,8 +129,56 @@
 
         if( $result ){
             $partial_node = reset( $result[ $entity_type ] );
-            scoga_set_current_campaign_nid( $partial_node->nid );
+            $new_nid = $partial_node->nid;
         }else{
-            scoga_set_current_campaign_nid( 0 );
+            $new_nid = 0;
         }
+        if( $new_nid != $current_nid ){
+            scoga_set_current_campaign_nid( $new_nid );
+            watchdog( 'SCOGA', 'invoke scoga_core_current_campaign_changed');
+            module_invoke_all( 'scoga_current_campaign_changed', $new_nid, $current_nid );
+        }
+    }
+
+    function scoga_create_campaignteam_nodes_for_campaign( $campaign_node ){
+        module_load_include( 'api.team.inc', 'scoga_core' );
+        $team_nids = scoga_get_team_nids();
+        foreach( $team_nids as $team_nid ){
+            scoga_create_campaignteam_node( $campaign_node, node_load( $team_nid ) );
+        }
+    }
+
+    function scoga_create_campaignteam_node( $campaign_node, $team_node ){
+        $node = new stdClass();
+        $node->type = SCOGA_CAMPAIGNTEAM_NODETYPE;
+        node_object_prepare( $node );
+        $node->field_campaignteam_campaign[ LANGUAGE_NONE ][ 0 ]= array(
+            'target_id' => $campaign_node->nid,
+        );
+        $node->field_campaignteam_team[ LANGUAGE_NONE ][ 0 ]= array(
+            'target_id' => $team_node->nid,
+        );
+        $node->title = $campaign_node->title . ' - ' . $team_node->title;
+        $node->language = LANGUAGE_NONE;
+
+        node_save( $node );
+    }
+
+    function scoga_delete_campaignteam_nodes_for_campaign( $campaign_node ){
+        module_load_include( 'api.team.inc', 'scoga_core' );
+        $entity_type = 'node';
+        $query = new EntityFieldQuery();
+        $result = $query
+            ->entityCondition( 'entity_type', $entity_type )
+            ->entityCondition( 'bundle', SCOGA_CAMPAIGNTEAM_NODETYPE )
+            ->fieldCondition( 'field_campaignteam_campaign', 'target_id', $campaign_node->nid, '=' )
+            ->execute()
+        ;
+
+        $nids = array_keys( $result[ $entity_type ] );
+
+        foreach( $nids as $nid ){
+            node_delete( $nid );
+        }
+
     }

@@ -20,6 +20,11 @@
             '#required'      => TRUE
         );
 
+        $form[ 'submit' ] = array(
+            '#type'  => 'submit',
+            '#value' => t( 'Save settings' ),
+        );
+
         return $form;
     }
 

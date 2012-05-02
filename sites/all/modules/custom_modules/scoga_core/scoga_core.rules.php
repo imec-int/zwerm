@@ -36,9 +36,17 @@
         scoga_transfer_transaction_points_to_team( $transaction );
     }
 
-
     function scoga_rule_determine_current_campaign(){
         module_load_include( 'api.campaign.inc', 'scoga_core' );
         scoga_determine_current_campaign();
     }
 
+    function scoga_rule_create_campaignteam_nodes_for_campaign( $campaign_node ){
+        module_load_include( 'api.campaign.inc', 'scoga_core' );
+        scoga_create_campaignteam_nodes_for_campaign( $campaign_node );
+    }
+
+    function scoga_rule_delete_campaignteam_nodes_for_campaign( $campaign_node ){
+        module_load_include( 'api.campaign.inc', 'scoga_core' );
+        scoga_delete_campaignteam_nodes_for_campaign( $campaign_node );
+    }

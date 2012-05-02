@@ -49,3 +49,15 @@
         return $output;
     }
 
+    function scoga_get_team_nids(){
+        $entity_type = 'node';
+        $query = new EntityFieldQuery();
+        $result = $query
+            ->entityCondition( 'entity_type', $entity_type )
+            ->entityCondition( 'bundle', SCOGA_TEAM_NODETYPE )
+            ->execute()
+        ;
+        $nids = array_keys( $result[ $entity_type ] );
+
+        return $nids;
+    }

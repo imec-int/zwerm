@@ -60,10 +60,6 @@
         return intval( variable_get( SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME ) );
     }
 
-    function scoga_get_current_campaign_nid(){
-        return intval( variable_get( SCOGA_SETTING_CURRENT_CAMPAIGN_NID ) );
-    }
-
     function scoga_get_determinecampaign_cron_interval(){
         return intval( variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL ) );
     }
@@ -76,12 +72,22 @@
         variable_set( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION, $value );
     }
 
+    function scoga_get_current_campaign_nid(){
+        return intval( variable_get( SCOGA_SETTING_CURRENT_CAMPAIGN_NID ) );
+    }
+
     function scoga_set_current_campaign_nid( $campaign_nid ){
         watchdog( 'SCOGA', 'set current campaign nid to @nid', array(
            '@nid' => $campaign_nid
         ));
         variable_set( SCOGA_SETTING_CURRENT_CAMPAIGN_NID, $campaign_nid );
     }
+
+    function scoga_get_default_credits(){
+        return intval( variable_get( SCOGA_SETTING_DEFAULT_CREDITS ) );
+    }
+
+
     /**
      * @param $timeMS
      *

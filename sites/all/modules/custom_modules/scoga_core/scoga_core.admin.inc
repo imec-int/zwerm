@@ -43,6 +43,17 @@
             '#required'      => TRUE
         );
 
+        //default credits
+        $form_elem_name = SCOGA_SETTING_DEFAULT_CREDITS;
+        $form[ $form_elem_name ] = array(
+            '#type'          => 'textfield',
+            '#title'         => t( 'Default amount of credits awarded' ),
+            '#description'   => t( 'Default amount of credits awarded' ),
+            '#default_value' => variable_get( $form_elem_name, 10 ),
+            '#size'          => 4,
+            '#required'      => TRUE
+        );
+
         //determinecampaign cron interval
         $form_elem_name = SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL;
         $form[ $form_elem_name ] = array(
@@ -53,6 +64,7 @@
             '#size'          => 10,
             '#required'      => TRUE
         );
+
 
         $form[ 'submit' ] = array(
             '#type'  => 'submit',
@@ -68,7 +80,8 @@
             SCOGA_SETTING_CHECKIN_COOLDOWN,
             SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME,
             SCOGA_SETTING_DEFAULT_USERNAME,
-            SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL
+            SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL,
+            SCOGA_SETTING_DEFAULT_CREDITS,
         );
 
         foreach( $settings as $form_elem_name ){

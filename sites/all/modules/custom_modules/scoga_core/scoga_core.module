@@ -168,3 +168,28 @@
         $settings[ 'picture_upload' ]['#required' ] = 1;
         $form[ 'picture' ]= $settings;
     }
+
+
+    /**
+     * implements hook_scoga_current_campaign_changed
+     * @param $new_nid
+     * @param $old_nid
+     */
+    function scoga_core_scoga_current_campaign_changed( $new_nid, $old_nid ){
+        module_load_include( 'module', 'userpoints_reset' );
+        userpoints_reset_do();
+        watchdog( 'SCOGA', 'all user points reset due to campaign switch' );
+        module_load_include( 'api.player.inc', 'scoga_core' );
+        scoga_award_default_credits_to_all_players();
+    }
+
+    /**
+     * implements hook_user_insert
+     * @param $edit
+     * @param $account
+     * @param $category
+     */
+    function scoga_core_user_insert(&$edit, $account, $category){
+        module_load_include( 'api.player.inc', 'scoga_core' );
+        scoga_award_default_credits_to_player( $account->uid );
+    }
