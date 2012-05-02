@@ -157,3 +157,14 @@
         module_load_include( 'cron.inc', 'scoga_core' );
         scoga_cron_determine_current_campaign();
     }
+
+    /**
+     * TODO: extract contents to API method
+     *
+     * Implements hook_form_FORM_ID_alter().
+     */
+    function scoga_core_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+        $settings = $form[ 'picture' ];
+        $settings[ 'picture_upload' ]['#required' ] = 1;
+        $form[ 'picture' ]= $settings;
+    }

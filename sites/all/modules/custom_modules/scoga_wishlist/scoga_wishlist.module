@@ -32,16 +32,9 @@
         return $items;
     }
 
-    /**
-     * implements hook_form_alter
-     */
-    /*
-    function scoga_wishlist_form_alter( &$form, $form_state, $form_id ){
-        dsm( $form_id );
-    }
-    */
 
     /**
+     * TODO: extract contents to API method
      * implements hook_form_FORM_ID_alter
      * @param $form
      * @param $form_state
@@ -57,7 +50,8 @@
                 '_none' => '- Select a value -'
             );
             for( $i=0; $i < $user_remaining_credits; $i++ ){
-                $credits_select_data[] = $i+1;
+                $value = $i+1;
+                $credits_select_data[ $value ] = $value;
             }
         }else{
             $credits_select_data = array(
@@ -67,13 +61,19 @@
 
         $field_name = 'field_wisheditem_award';
         $award_element = $form[ $field_name ];
-
         $lang = $award_element[ '#language' ];
         $award_element[ $lang ][ '#options' ] = $credits_select_data;
         $form[ $field_name ] = $award_element;
 
+        $field_name = 'field_wisheditem_campaign';
+        $campaign_element = $form[ $field_name ];
+        $lang = $campaign_element[ '#language' ];
+        $campaign_element[ $lang ][ '#default_value' ] = scoga_get_current_campaign_nid();
+        $form[ $field_name ] = $campaign_element;
+
     }
     /**
+     * TODO: extract contents to API method
      * implements hook_form_FORM_ID_alter
      *
      * @param $form

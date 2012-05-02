@@ -63,7 +63,7 @@
         /*
         * create checkin node
         */
-        $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node );
+        $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid );
 
         scoga_check_combo_checkin( $user_account, $checkin_node );
         return $checkin_node;
@@ -117,7 +117,7 @@
         return FALSE;
     }
 
-    function scoga_create_checkin_entity( $user_account, $reader_node ){
+    function scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid ){
 
         $user_registered_values = field_get_items( 'user', $user_account, 'field_user_registered' );
         $user_registered_raw = ( $user_registered_values ) ? $user_registered_values[ 0 ][ 'value' ] : "0";
@@ -134,8 +134,12 @@
 
         //optional fields
         //reader reference
-        $checkin_node->field_reader_reference[ $lang ][ 0 ] = array(
-            'nid' => $reader_node->nid
+        $checkin_node->field_checkin_reader[ $lang ][ 0 ] = array(
+            'target_id' => $reader_node->nid
+        );
+
+        $checkin_node->field_checkin_campaign[ $lang ][ 0 ]= array(
+            'target_id' => $current_campaign_nid
         );
 
         //title
