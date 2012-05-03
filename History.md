@@ -1,5 +1,12 @@
 
-n.n.n / 2012-05-03 
+0.4.1 / 2012-05-03 
+==================
+
+  * changed hardcoded credits tid references to UUID lookup
+  * moved RFID specific constant to right module;
+  * added changelog
+
+0.4.0 / 2012-05-03 
 ==================
 
   * bunch of changes
