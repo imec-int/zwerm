@@ -26,6 +26,7 @@
     define( 'SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL', 'scoga_settings_determine_campaign_cron_interval' );
     define( 'SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION', 'scoga_settings_determine_campaign_next_execution' );
     define( 'SCOGA_SETTING_DEFAULT_CREDITS', 'scoga_settings_default_credits' );
+    define( 'SCOGA_SETTING_CURRENT_TEAM', 'scoga_settings_current_team' );
 
     define( 'SCOGA_DEFAULT_TEAM', 26 );
     define( 'SCOGA_CHECKINPARTNER_RTID', 1 );

@@ -31,6 +31,6 @@
 
 
         //TODO: default team should be set through admin UI
-        return scoga_create_player_entity( $card_id, SCOGA_DEFAULT_TEAM );
+        return scoga_create_player_entity( $card_id, scoga_get_next_team() );
 
     }

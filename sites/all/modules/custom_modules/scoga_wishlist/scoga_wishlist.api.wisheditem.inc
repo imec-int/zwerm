@@ -24,3 +24,31 @@
         return array_keys( $result[ $entity_type ] );
 
     }
+
+    function scoga_deduct_credits_for_wisheditem( $node ){
+        //[!] negative value
+        $award_field = field_get_items( 'node', $node, 'field_wisheditem_award' );
+        $award = - intval( $award_field[ 0 ][ 'value' ] );
+        $params = array(
+            'uid'           => $node->uid,
+            'points'        => $award,
+            'tid'           => SCOGA_CREDITS_TID,
+            'operation'     => 'remove',
+            'description'   => 'deduct credits for wished item',
+            'moderate'      => FALSE,
+            'display'       => TRUE,
+        );
+        $result = userpoints_userpointsapi($params);
+    }
+
+    function scoga_set_wisheditem_state( $wisheditem_node, $state ){
+        $wisheditem_node->field_wisheditem_state[ LANGUAGE_NONE ][ 0 ][ 'value' ] = $state;
+        node_save( $wisheditem_node );
+    }
+
+    function scoga_set_campaign_of_wisheditem( $wisheditem_node, $campaign_nid = NULL ){
+        if( $campaign_nid == NULL ){
+            $campaign_nid = scoga_get_current_campaign_nid();
+        }
+        $wisheditem_node->field_wisheditem_campaign[ LANGUAGE_NONE ][ 0 ][ 'target_id' ] = $campaign_nid;
+    }

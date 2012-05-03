@@ -61,3 +61,17 @@
 
         return $nids;
     }
+
+    function scoga_get_next_team(){
+        $nids = scoga_get_team_nids();
+        $index = array_search( scoga_get_current_team_nid(), $nids );
+        if( $index  >= count( $nids ) - 1 || $index == FALSE ){
+            $index = 0;
+        }else{
+            $index++;
+        }
+        $new_nid = $nids[ $index ];
+        scoga_set_current_team_nid( $new_nid );
+        return $new_nid;
+
+    }

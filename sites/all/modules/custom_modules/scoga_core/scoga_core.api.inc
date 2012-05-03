@@ -87,6 +87,14 @@
         return intval( variable_get( SCOGA_SETTING_DEFAULT_CREDITS ) );
     }
 
+    function scoga_get_current_team_nid(){
+        return variable_get( SCOGA_SETTING_CURRENT_TEAM );
+    }
+
+    function scoga_set_current_team_nid( $value ){
+        variable_set( SCOGA_SETTING_CURRENT_TEAM, $value );
+    }
+
 
     /**
      * @param $timeMS

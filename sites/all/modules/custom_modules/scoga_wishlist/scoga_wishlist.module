@@ -138,3 +138,35 @@
         //dsm( $form[ 'title' ] );
         $form[ 'title' ][ '#value' ] = 'wish fullfilled ' . $user->uid . ' ' . time();
     }
+
+
+    /**
+     * implements hook_node_insert
+     * @param $node
+     */
+    function scoga_wishlist_node_insert($node){
+        switch( $node->type ){
+            case SCOGA_WISHEDITEM_NODETYPE :
+                module_load_include( 'api.wisheditem.inc', 'scoga_wishlist' );
+                scoga_deduct_credits_for_wisheditem( $node );
+                scoga_set_campaign_of_wisheditem( $node );
+                break;
+            case SCOGA_WISHFULFILLED_NODETYPE:
+                module_load_include( 'api.wisheditem.inc', 'scoga_wishlist' );
+                module_load_include( 'api.wishfulfilled.inc', 'scoga_wishlist' );
+                $wisheditem_node = scoga_award_wishfulfilled_to_player( $node );
+                scoga_set_wisheditem_state( $wisheditem_node, 'fulfilled' );
+                break;
+        }
+    }
+
+    /**
+     * TODO: implement, deleted points should be readded to user
+     * implements hook_node_delete
+     * @param $node
+     */
+    function scoga_wishlist_node_delete( $node ){
+        if( $node->type == SCOGA_WISHEDITEM_NODETYPE ){
+
+        }
+    }

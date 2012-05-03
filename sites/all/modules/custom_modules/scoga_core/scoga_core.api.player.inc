@@ -151,21 +151,25 @@
         $user_profile = new stdClass();
         $user_profile->name = scoga_get_default_username() . ' ' . $card_id;
         $user_profile->status = 1; //0->blocked, 1->active
-        $user_profile->mail = 'none';
-        $user_profile->field_team_reference[ $lang ][ 0 ] = array(
-            'nid' => $team_nid
-        );
+        $user_profile->mail = '';
         $user_profile->roles = array(
             2 => 'authenticated user',
-            4 => 'player'
+            SCOGA_PLAYER_ROLE => 'player'
         );
         $user_profile->field_card_id[ $lang ][ 0 ] = array(
             'value' => $card_id
         );
         $user_profile->is_new = TRUE;
+        scoga_set_team_of_player_account( $user_profile, $team_nid );
 
         $user_account = user_save( $user_profile );
         return $user_account;
+    }
+
+    function scoga_set_team_of_player_account( $account, $team_nid ){
+        $account->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
+            'target_id' => $team_nid
+        );
     }
 
     /**
