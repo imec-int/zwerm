@@ -32,7 +32,7 @@
         $params = array(
             'uid'           => $node->uid,
             'points'        => $award,
-            'tid'           => SCOGA_CREDITS_TID,
+            'tid'           => scoga_get_credits_tid(),
             'operation'     => 'remove',
             'description'   => 'deduct credits for wished item',
             'moderate'      => FALSE,

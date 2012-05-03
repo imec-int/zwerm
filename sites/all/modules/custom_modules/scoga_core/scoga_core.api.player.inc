@@ -196,7 +196,7 @@
         $params = array(
             'uid'           => $uid,
             'points'        => scoga_get_default_credits(),
-            'tid'           => SCOGA_CREDITS_TID,
+            'tid'           => scoga_get_credits_tid(),
             'operation'     => 'default credits',
             'description'   => 'default credits awarded',
             'moderate'      => FALSE,

@@ -133,3 +133,20 @@
         $a = ( $time + $seconds ) / $seconds;
         return intval( $a ) * $seconds;
     }
+
+    function scoga_get_credits_tid(){
+        $query =
+            " SELECT tid "
+                . "FROM {taxonomy_term_data} "
+                . "WHERE uuid = :uuid "
+        ;
+        $rows = db_query( $query, array(
+            ':uuid'          => SCOGA_CREDITS_UUID,
+        ) );
+
+        foreach( $rows as $row ){
+            return $row->tid;
+        }
+
+        return FALSE;
+    }
