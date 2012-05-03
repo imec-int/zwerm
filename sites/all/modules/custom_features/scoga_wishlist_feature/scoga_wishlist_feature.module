@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SCOGA Wishlist feature feature.
+ */
+
+include_once 'scoga_wishlist_feature.features.inc';
