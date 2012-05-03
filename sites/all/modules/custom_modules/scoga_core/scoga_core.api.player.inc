@@ -138,6 +138,12 @@
         return $output;
     }
 
+    function scoga_get_next_player_id(){
+        $next_id = variable_get( SCOGA_SETTING_NEXT_PLAYER_ID, 1 ) + 1;
+        variable_set( SCOGA_SETTING_NEXT_PLAYER_ID, $next_id );
+        return $next_id;
+    }
+
 
     /**
      * create a player entity
@@ -148,8 +154,9 @@
      */
     function scoga_create_player_entity( $card_id, $team_nid ){
         $lang = LANGUAGE_NONE;
+        $player_id = scoga_get_next_player_id();
         $user_profile = new stdClass();
-        $user_profile->name = scoga_get_default_username() . ' ' . $card_id;
+        $user_profile->name = scoga_get_default_username() . $player_id;
         $user_profile->status = 1; //0->blocked, 1->active
         $user_profile->mail = '';
         $user_profile->roles = array(
@@ -159,17 +166,23 @@
         $user_profile->field_card_id[ $lang ][ 0 ] = array(
             'value' => $card_id
         );
+        $user_profile->field_user_firstname[ $lang ][ 0 ] = array(
+            'value' => scoga_get_default_username()
+        );
+        $user_profile->field_user_surname[ $lang ][ 0 ] = array(
+            'value' => $player_id
+        );
+        $user_profile->field_user_registered[ $lang ][ 0 ] = array(
+            'value' => 1
+        );
+        $user_profile->pass = substr( $card_id, -4, 4 );
+        dd( $user_profile->pass, 'password' );
         $user_profile->is_new = TRUE;
-        scoga_set_team_of_player_account( $user_profile, $team_nid );
-
-        $user_account = user_save( $user_profile );
-        return $user_account;
-    }
-
-    function scoga_set_team_of_player_account( $account, $team_nid ){
-        $account->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
+        $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
             'target_id' => $team_nid
         );
+        $user_account = user_save( $user_profile );
+        return $user_account;
     }
 
     /**

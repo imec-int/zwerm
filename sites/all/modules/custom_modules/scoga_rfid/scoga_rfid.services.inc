@@ -47,6 +47,7 @@
     }
 
     function scoga_service_card_create( $params ){
+        watchdog( 'SCOGA', 'scoga_service_card_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.card.inc', 'scoga_rfid' );
         /*
         * catch parameters

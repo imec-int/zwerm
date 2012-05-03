@@ -27,7 +27,7 @@
 
         $user_access = user_access( SCOGA_PERM_REST_EXECUTE_REGISTER_READER, $user_account );
         if( $user_access === FALSE ){
-            throw new Exception( "user " . $user_account->uid . "not allowed to register reader" );
+            throw new Exception( "user " . $user_account->uid . " not allowed to register reader" );
         }
 
 

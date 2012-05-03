@@ -27,6 +27,7 @@
     define( 'SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION', 'scoga_settings_determine_campaign_next_execution' );
     define( 'SCOGA_SETTING_DEFAULT_CREDITS', 'scoga_settings_default_credits' );
     define( 'SCOGA_SETTING_CURRENT_TEAM', 'scoga_settings_current_team' );
+    define( 'SCOGA_SETTING_NEXT_PLAYER_ID', 'scoga_settings_next_player_id');
 
     define( 'SCOGA_ADMIN_PAGE', 'admin/config/scoga' );
     define( 'SCOGA_CREDITS_UUID', 'f3538084-2198-5064-cd37-8b0b39ba32b4' );

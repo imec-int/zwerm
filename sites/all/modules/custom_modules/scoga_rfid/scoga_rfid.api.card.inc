@@ -12,8 +12,10 @@
      * @param $params
      */
     function scoga_register_card( $card_id, $reader_id ){
+        watchdog( 'SCOGA', 'scoga_register_card: @card_id, @reader_id', array( '@card_id' => $card_id, '@reader_id' => $reader_id ), WATCHDOG_DEBUG );
         module_load_include( 'api.reader.inc', 'scoga_rfid' );
         module_load_include( 'api.player.inc', 'scoga_core' );
+        module_load_include( 'api.team.inc', 'scoga_core' );
 
         /*
         * check that the RFID reader IS registered
@@ -29,8 +31,7 @@
             scoga_throw_exception( 'RFID card already registered' );
         }
 
-
-        //TODO: default team should be set through admin UI
-        return scoga_create_player_entity( $card_id, scoga_get_next_team() );
+        $result = scoga_create_player_entity( $card_id, scoga_get_next_team() );
+        return $result;
 
     }
