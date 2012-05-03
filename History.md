@@ -1,4 +1,13 @@
 
+0.4.2 / 2012-05-03 
+==================
+
+  * updated core feature
+  * added pages feature
+  * added wishlist feature
+  * added RFID feature
+  * added core feature
+
 0.4.1 / 2012-05-03 
 ==================
 
