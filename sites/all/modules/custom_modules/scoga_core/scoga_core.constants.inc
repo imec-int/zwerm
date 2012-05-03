@@ -28,8 +28,6 @@
     define( 'SCOGA_SETTING_DEFAULT_CREDITS', 'scoga_settings_default_credits' );
     define( 'SCOGA_SETTING_CURRENT_TEAM', 'scoga_settings_current_team' );
 
-    define( 'SCOGA_DEFAULT_TEAM', 26 );
-    define( 'SCOGA_CHECKINPARTNER_RTID', 1 );
     define( 'SCOGA_ADMIN_PAGE', 'admin/config/scoga' );
     define( 'SCOGA_CREDITS_TID', '3' );
     define( 'SCOGA_PLAYER_ROLE', 4 );
