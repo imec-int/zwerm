@@ -1,4 +1,11 @@
 
+0.4.3 / 2012-05-03 
+==================
+
+  * added automatic username and password generation for user creation
+  * Merge branch 'updatecore' into staging
+  * updated core to v7.14
+
 0.4.2 / 2012-05-03 
 ==================
 
