@@ -1,4 +1,9 @@
 
+0.4.5 / 2012-05-04 
+==================
+
+  * removed incorrect required picture field upon user registration
+
 0.4.4 / 2012-05-04 
 ==================
 
