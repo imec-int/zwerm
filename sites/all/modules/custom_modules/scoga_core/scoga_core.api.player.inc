@@ -125,6 +125,7 @@
         $team_nid_values = field_get_items( 'user', $player_entity, 'field_user_team' );
         $firstname_values =field_get_items( 'user', $player_entity, 'field_user_firstname' );
         $surname_values = field_get_items( 'user', $player_entity, 'field_user_surname' );
+        $image = ( $player_entity->picture ) ? $player_entity->picture->uri : '';
         $output = array(
             'uid'           => $player_entity->uid,
             'username'      => $player_entity->name,

@@ -161,12 +161,13 @@
     }
 
     /**
-     * @param $user_account creator the checkin node
-     * @param $checkin_node newly created 'checkin' node
+     * @param $user_account stdClass creator the checkin node
+     * @param $checkin_node stdClass newly created 'checkin' node
      *
      * @return bool
      */
     function scoga_check_combo_checkin( $user_account, $checkin_node ){
+
         $prev_checkin = scoga_get_checkin_node_by_index( 1, 'DESC' );
         if( ! $prev_checkin ){
             //no previous checkin
