@@ -1,4 +1,13 @@
 
+0.4.6 / 2012-05-06 
+==================
+
+  * added markdown feture
+  * added contact feature
+  * updated scoga_core_feature to v1.3
+  * added module_filter module
+  * added markdown module
+
 0.4.5 / 2012-05-04 
 ==================
 
