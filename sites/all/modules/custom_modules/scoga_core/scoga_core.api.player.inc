@@ -134,7 +134,7 @@
             'team_nid'      => $team_nid_values[ 0 ][ 'target_id' ],
             'firstname'     => $firstname_values[ 0 ][ 'value' ],
             'surname'       => $surname_values[ 0 ][ 'value' ],
-            'avatar_url'    => image_style_url( 'avatar_pinhead', $player_entity->picture->uri ),
+            'avatar_url'    => image_style_url( 'avatar_pinhead', $image ),
             'points'        => userpoints_get_current_points( $player_entity->uid ),
         );
         return $output;
