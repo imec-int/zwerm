@@ -7,6 +7,7 @@
      * To change this template use File | Settings | File Templates.
      */
 
+    require_once 'includes/password.inc';
 
     function scoga_get_player_uids_by_team_nid( $team_nid, $negate = FALSE ){
         $query = new EntityFieldQuery();
@@ -175,8 +176,7 @@
         $user_profile->field_user_registered[ $lang ][ 0 ] = array(
             'value' => 1
         );
-        $user_profile->pass = substr( $card_id, -4, 4 );
-        dd( $user_profile->pass, 'password' );
+        $user_profile->pass = user_hash_password( substr( $card_id, -4, 4 ) );
         $user_profile->is_new = TRUE;
         $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
             'target_id' => $team_nid
