@@ -1,5 +1,11 @@
 
-n.n.n / 2012-05-06 
+0.4.9 / 2012-05-07 
+==================
+
+  * fixed issue with points not being transferred to team
+  * fixed bug with empty user images
+
+0.4.8 / 2012-05-06 
 ==================
 
   * check for empty user image
