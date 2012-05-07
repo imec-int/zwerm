@@ -1,4 +1,9 @@
 
+0.4.10 / 2012-05-07 
+==================
+
+  * fixed incorrect transaction retrieval by using last transaction id instead of begintime
+
 0.4.9 / 2012-05-07 
 ==================
 
