@@ -7,6 +7,34 @@
      * To change this template use File | Settings | File Templates.
      */
 
+    function scoga_get_transaction_vos_by_txnid( $last_txnid ){
+        $query =
+            " SELECT txn_id, time_stamp "
+                . "FROM {userpoints_txn} "
+                . "WHERE tid = :tid "
+                . "AND txn_id > :txnid "
+        ;
+
+        $rows = db_query( $query, array(
+            ':tid'          => userpoints_get_default_tid(),
+            ':txnid'        => $last_txnid,
+        ) );
+
+        $options = array(
+            'link'             => FALSE,
+            'truncate'         => FALSE,
+            'skip_description' => FALSE,
+        );
+
+        $result = array();
+        foreach( $rows as $row ){
+            $transaction = userpoints_transaction_load( $row->txn_id );
+            $description = userpoints_create_description( $transaction, $options );
+            $result[ ] = scoga_create_transaction_vo( $transaction, $description );
+        }
+
+        return $result;
+    }
 
     function scoga_get_transaction_vos_by_period( $begin_time = NULL, $end_time = NULL ){
 

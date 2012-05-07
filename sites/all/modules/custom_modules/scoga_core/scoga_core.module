@@ -106,14 +106,8 @@
                             'optional'    => TRUE
                         ),
                         array(
-                            'name'        => 'begin_time',
-                            'description' => 'The begintime (MS)',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                        array(
-                            'name'        => 'end_time',
-                            'description' => 'The end time (MS), default now',
+                            'name'        => 'last_txnid',
+                            'description' => 'Transaction ID',
                             'source'      => 'param',
                             'optional'    => TRUE
                         ),
