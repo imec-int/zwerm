@@ -1,4 +1,9 @@
 
+0.4.13 / 2012-05-08 
+==================
+
+  * moved scoga_aggregates feature to scoga package
+
 0.4.12 / 2012-05-08 
 ==================
 
