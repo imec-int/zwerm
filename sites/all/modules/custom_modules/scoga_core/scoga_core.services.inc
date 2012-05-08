@@ -9,16 +9,17 @@
      * Invoked from services
      */
 
-    function scoga_service_campaign_index( $params ){
+    function scoga_service_campaign_index( $params = NULL ){
         module_load_include( 'api.campaign.inc', 'scoga_core' );
-        if( array_key_exists( 'uuid', $params ) ){
-            return scoga_get_campaign_vos_by_UUIDs( $params[ 'uuid' ] );
-        }
+        if( $params ){
+            if( array_key_exists( 'uuid', $params ) ){
+                return scoga_get_campaign_vos_by_UUIDs( $params[ 'uuid' ] );
+            }
 
-        if( array_key_exists( 'nid', $params ) ){
-            return scoga_get_campaign_vos_by_nids( $params[ 'nid' ] );
+            if( array_key_exists( 'nid', $params ) ){
+                return scoga_get_campaign_vos_by_nids( $params[ 'nid' ] );
+            }
         }
-
         return scoga_get_campaign_vo_by_nid( scoga_get_current_campaign_nid() );
     }
 

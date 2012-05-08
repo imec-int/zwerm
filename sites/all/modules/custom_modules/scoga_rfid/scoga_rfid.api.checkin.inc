@@ -8,6 +8,11 @@
      */
 
 
+    function _throw_exception( $msg, $title, $uid ){
+        scoga_create_message_entity( $msg, $title, $uid );
+        throw new Exception( $msg );
+    }
+
     /**
      * Creates a node of type "checkin", linked to a user account and a RFID reader node
      *
@@ -17,13 +22,14 @@
      */
     function scoga_register_checkin( $card_id, $reader_id ){
 
-        $current_campaign_nid = scoga_get_current_campaign_nid();
-        if( ! $current_campaign_nid ){
-            throw new Exception( 'no campaign is running at the moment' );
-        }
-
         module_load_include( 'api.player.inc', 'scoga_core' );
         module_load_include( 'api.reader.inc', 'scoga_rfid' );
+        module_load_include( 'api.message.inc', 'scoga_aggregated' );
+
+        $current_campaign_nid = scoga_get_current_campaign_nid();
+        if( ! $current_campaign_nid ){
+            _throw_exception( 'no campaign is running at the moment', 'Action failed', 0 );
+        }
 
         /*
         * get user account
@@ -31,7 +37,7 @@
         $user_account = scoga_get_player_entity_by_card_id( $card_id );
 
         if( ! $user_account ){
-            throw new Exception( "card $card_id not registered" );
+            _throw_exception( "card $card_id not registered", 'Action failed', 0 );
         }
 
         /*
@@ -39,7 +45,7 @@
         */
 
         if( user_access( SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN, $user_account ) === FALSE ){
-            throw new Exception( 'user ' . $user_account->uid . ' not allowed to create checkin' );
+            _throw_exception( 'user ' . $user_account->uid . ' not allowed to create checkin', 'Action failed', $user_account->uid );
         }
 
         /*
@@ -49,14 +55,14 @@
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
 
         if( !$reader_node ){
-            throw new Exception( "RFID reader with id $reader_id not found" );
+            _throw_exception( "RFID reader with id $reader_id not found", 'Action failed', $user_account->uid );
         }
 
 
         $cooldown_tstamp = scoga_get_cooldown_timestamp_by_player_uid( $user_account->uid );
 
         if( time() < $cooldown_tstamp ){
-            throw new Exception( 'checkin not created for user with id '. $user_account->uid .', will be cooled down on ' . date( 'd/m/Y H:i:s', $cooldown_tstamp ) );
+            _throw_exception( 'checkin not created for user with id '. $user_account->uid .', needs to cool down', 'Action failed', $user_account->uid );
         }
 
 
