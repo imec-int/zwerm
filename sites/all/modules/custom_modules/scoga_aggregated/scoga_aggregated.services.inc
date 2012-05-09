@@ -9,6 +9,7 @@
     module_load_include( 'api.message.inc', 'scoga_aggregated' );
 
     function scoga_service_overview_index(){
+        watchdog( 'SCOGA', 'scoga_service_overview_index', NULL, WATCHDOG_DEBUG );
         module_load_include( 'services.inc', 'scoga_core' );
         $output = array();
         $output[ 'campaign' ] = scoga_service_campaign_index();
@@ -17,6 +18,7 @@
     }
 
     function scoga_service_message_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_message_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         $last_nid = ( array_key_exists( 'last_nid', $params ) )
             ? $params[ 'last_nid' ]
             : NULL

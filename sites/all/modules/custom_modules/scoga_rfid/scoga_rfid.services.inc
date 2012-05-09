@@ -9,6 +9,7 @@
 
 
     function scoga_service_checkin_create( $params ){
+        watchdog( 'SCOGA', 'scoga_service_checkin_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.checkin.inc', 'scoga_rfid' );
 
         /*
@@ -27,6 +28,7 @@
     }
 
     function scoga_service_reader_create( $params ){
+        watchdog( 'SCOGA', 'scoga_service_reader_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.reader.inc', 'scoga_rfid' );
         /*
         * catch parameters

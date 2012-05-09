@@ -10,6 +10,7 @@
      */
 
     function scoga_service_campaign_index( $params = NULL ){
+        watchdog( 'SCOGA', 'scoga_service_campaign_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.campaign.inc', 'scoga_core' );
         if( $params ){
             if( array_key_exists( 'uuid', $params ) ){
@@ -24,6 +25,7 @@
     }
 
     function scoga_service_team_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_team_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.team.inc', 'scoga_core' );
         if( array_key_exists( 'uuid', $params ) ){
             return scoga_get_team_vos_by_UUIDs( $params[ 'uuid' ] );
@@ -37,6 +39,7 @@
     }
 
     function scoga_service_player_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_player_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.player.inc', 'scoga_core' );
         if( array_key_exists( 'uuid', $params ) ){
             return scoga_get_player_vos_by_UUIDs( $params[ 'uuid' ] );
@@ -50,6 +53,7 @@
     }
 
     function scoga_service_transaction_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_transaction_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.transaction.inc', 'scoga_core' );
         $last_txnid = ( array_key_exists( 'last_txnid', $params ) ) ? $params[ 'last_txnid' ] : '0';
         return scoga_get_transaction_vos_by_txnid( $last_txnid );
