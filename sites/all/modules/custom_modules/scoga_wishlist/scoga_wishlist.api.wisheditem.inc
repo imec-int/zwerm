@@ -25,16 +25,16 @@
 
     }
 
-    function scoga_deduct_credits_for_wisheditem( $node ){
+    function scoga_sync_credits_for_wisheditem( $node, $old_award_value = 0 ){
         //[!] negative value
         $award_field = field_get_items( 'node', $node, 'field_wisheditem_award' );
-        $award = - intval( $award_field[ 0 ][ 'value' ] );
+        $award = $old_award_value - intval( $award_field[ 0 ][ 'value' ] );
         $params = array(
             'uid'           => $node->uid,
             'points'        => $award,
             'tid'           => scoga_get_credits_tid(),
-            'operation'     => 'remove',
-            'description'   => 'deduct credits for wished item',
+            'operation'     => 'sync',
+            'description'   => 'sync credits for wished item',
             'moderate'      => FALSE,
             'display'       => TRUE,
         );

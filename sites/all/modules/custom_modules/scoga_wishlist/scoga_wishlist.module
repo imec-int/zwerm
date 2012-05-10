@@ -38,9 +38,19 @@
      * @param $form_id
      */
     function scoga_wishlist_form_nodetype_wished_item_node_form_alter( &$form, $form_state, $form_id ){
+
+        dsm( $form );
+
         $uid = $form[ 'uid' ][ '#value' ];
 
-        $user_remaining_credits = min( userpoints_get_current_points( $uid, scoga_get_credits_tid() ), scoga_get_max_wishitem_credits() );
+        $field_name = 'field_wisheditem_award';
+        $award_element = $form[ $field_name ];
+        $lang = $award_element[ '#language' ];
+        $assigned_credits_values = $award_element[ $lang ][ '#default_value' ];
+        $assigned_credits = ( count( $assigned_credits_values ) > 0 )
+            ? $assigned_credits_values[ 0 ]
+            : 0;
+        $user_remaining_credits = min( userpoints_get_current_points( $uid, scoga_get_credits_tid() ) + $assigned_credits, scoga_get_max_wishitem_credits() );
 
         if( $user_remaining_credits > 0 ){
             $credits_select_data = array(
@@ -56,19 +66,19 @@
             );
         }
 
-        $field_name = 'field_wisheditem_award';
-        $award_element = $form[ $field_name ];
-        $lang = $award_element[ '#language' ];
         $award_element[ $lang ][ '#options' ] = $credits_select_data;
         $form[ $field_name ] = $award_element;
+        if (empty($form['nid']['#value'])) {
+            //only with new nodes
 
-        $field_name = 'field_wisheditem_campaign';
-        $campaign_element = $form[ $field_name ];
-        $lang = $campaign_element[ '#language' ];
-        $campaign_element[ $lang ][ '#default_value' ] = scoga_get_current_campaign_nid();
-        $form[ $field_name ] = $campaign_element;
-
+            $field_name = 'field_wisheditem_campaign';
+            $campaign_element = $form[ $field_name ];
+            $lang = $campaign_element[ '#language' ];
+            $campaign_element[ $lang ][ '#default_value' ] = scoga_get_current_campaign_nid();
+            $form[ $field_name ] = $campaign_element;
+        }
     }
+
     /**
      * TODO: extract contents to API method
      * implements hook_form_FORM_ID_alter
@@ -141,6 +151,7 @@
 
 
     /**
+     * TODO: refactor to meths
      * implements hook_node_insert
      * @param $node
      */
@@ -148,7 +159,7 @@
         switch( $node->type ){
             case SCOGA_WISHEDITEM_NODETYPE :
                 module_load_include( 'api.wisheditem.inc', 'scoga_wishlist' );
-                scoga_deduct_credits_for_wisheditem( $node );
+                scoga_sync_credits_for_wisheditem( $node );
                 scoga_set_campaign_of_wisheditem( $node );
                 break;
             case SCOGA_WISHFULFILLED_NODETYPE:
@@ -161,12 +172,33 @@
     }
 
     /**
-     * TODO: implement, deleted points should be readded to user
+     * TODO: refactor to meths
+     * implements hook_node_update
+     * @param $node
+     */
+    function scoga_wishlist_node_update( $node ){
+        //dsm( $node );
+        switch( $node->type ){
+            case SCOGA_WISHEDITEM_NODETYPE :
+                module_load_include( 'api.wisheditem.inc', 'scoga_wishlist' );
+                $original_node = $node->original;
+                $old_award_values = field_get_items( 'node', $original_node, 'field_wisheditem_award' );
+                $old_award = intval( $old_award_values[ 0 ][ 'value' ] );
+                scoga_sync_credits_for_wisheditem( $node, $old_award );
+                break;
+        }
+    }
+
+    /**
+     * TODO: implement, deleted points should be readded to user, refactor refactor
      * implements hook_node_delete
      * @param $node
      */
     function scoga_wishlist_node_delete( $node ){
         if( $node->type == SCOGA_WISHEDITEM_NODETYPE ){
-
+            module_load_include( 'api.wisheditem.inc', 'scoga_wishlist' );
+            $old_award_values = field_get_items( 'node', $node, 'field_wisheditem_award' );
+            $old_award = $old_award_values[ 0 ][ 'value' ];
+            scoga_sync_credits_for_wisheditem( $node, intval( $old_award ) * 2 );
         }
     }
