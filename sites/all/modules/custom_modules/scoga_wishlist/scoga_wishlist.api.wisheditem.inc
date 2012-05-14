@@ -82,6 +82,7 @@
             foreach( $nids as $nid ){
                 $node = node_load( $nid );
                 scoga_set_wisheditem_state( $node, 'failed' );
+                $node->status = '0';
                 node_save( $node );
             }
         }
