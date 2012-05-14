@@ -39,6 +39,17 @@
             'display'       => TRUE,
         );
         $result = userpoints_userpointsapi($params);
+
+        $award = - $award;
+        $params = array(
+            'uid'           => $node->uid,
+            'points'        => $award,
+            'operation'     => 'sync',
+            'description'   => 'sync score for wished item',
+            'moderate'      => FALSE,
+            'display'       => TRUE,
+        );
+        $result = userpoints_userpointsapi($params);
     }
 
     function scoga_set_wisheditem_state( $wisheditem_node, $state ){
@@ -70,8 +81,7 @@
             $nids = array_keys( $result[ $entity_type ] );
             foreach( $nids as $nid ){
                 $node = node_load( $nid );
-                $lang = $node->language;
-                $node->field_wisheditem_state[ $lang ][ 0 ][ 'value' ] = 'failed';
+                scoga_set_wisheditem_state( $node, 'failed' );
                 node_save( $node );
             }
         }
