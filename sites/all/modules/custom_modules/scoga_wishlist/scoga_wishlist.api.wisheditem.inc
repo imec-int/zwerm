@@ -50,5 +50,29 @@
         if( $campaign_nid == NULL ){
             $campaign_nid = scoga_get_current_campaign_nid();
         }
+        //field_attach_insert( 'node', $wisheditem_node );
         $wisheditem_node->field_wisheditem_campaign[ LANGUAGE_NONE ][ 0 ][ 'target_id' ] = $campaign_nid;
+    }
+
+    function scoga_close_all_open_wisheditems(){
+        //TEMPORARY FIX
+        //TODO: should filter wished items for current campaign
+        $entity_type = 'node';
+        $query = new EntityFieldQuery();
+        $result = $query
+            ->entityCondition( 'entity_type', $entity_type )
+            ->entityCondition( 'bundle', SCOGA_WISHEDITEM_NODETYPE )
+            ->fieldCondition( 'field_wisheditem_state', 'value', 'open', '=')
+            ->execute()
+        ;
+
+        if( $result && array_key_exists( $entity_type, $result ) ){
+            $nids = array_keys( $result[ $entity_type ] );
+            foreach( $nids as $nid ){
+                $node = node_load( $nid );
+                $lang = $node->language;
+                $node->field_wisheditem_state[ $lang ][ 0 ][ 'value' ] = 'failed';
+                node_save( $node );
+            }
+        }
     }

@@ -39,8 +39,6 @@
      */
     function scoga_wishlist_form_nodetype_wished_item_node_form_alter( &$form, $form_state, $form_id ){
 
-        dsm( $form );
-
         $uid = $form[ 'uid' ][ '#value' ];
 
         $field_name = 'field_wisheditem_award';
@@ -68,15 +66,7 @@
 
         $award_element[ $lang ][ '#options' ] = $credits_select_data;
         $form[ $field_name ] = $award_element;
-        if (empty($form['nid']['#value'])) {
-            //only with new nodes
 
-            $field_name = 'field_wisheditem_campaign';
-            $campaign_element = $form[ $field_name ];
-            $lang = $campaign_element[ '#language' ];
-            $campaign_element[ $lang ][ '#default_value' ] = scoga_get_current_campaign_nid();
-            $form[ $field_name ] = $campaign_element;
-        }
     }
 
     /**
@@ -160,7 +150,6 @@
             case SCOGA_WISHEDITEM_NODETYPE :
                 module_load_include( 'api.wisheditem.inc', 'scoga_wishlist' );
                 scoga_sync_credits_for_wisheditem( $node );
-                scoga_set_campaign_of_wisheditem( $node );
                 break;
             case SCOGA_WISHFULFILLED_NODETYPE:
                 module_load_include( 'api.wisheditem.inc', 'scoga_wishlist' );
@@ -201,4 +190,14 @@
             $old_award = $old_award_values[ 0 ][ 'value' ];
             scoga_sync_credits_for_wisheditem( $node, intval( $old_award ) * 2 );
         }
+    }
+
+    /**
+     * implements hook_scoga_current_campaign_changed
+     * @param $new_nid
+     * @param $old_nid
+     */
+    function scoga_wishlist_scoga_current_campaign_changed( $new_nid, $old_nid ){
+        module_load_include( 'api.wisheditem.inc', 'scoga_wishlist' );
+        scoga_close_all_open_wisheditems();
     }
