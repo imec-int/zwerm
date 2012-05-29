@@ -1,4 +1,10 @@
 
+0.4.18 / 2012-05-29 
+==================
+
+  * fixed #60, fixed #70
+  * unpublish wished items from previous current campaigns
+
 0.4.17 / 2012-05-14 
 ==================
 
