@@ -73,7 +73,7 @@
     }
 
     function scoga_get_current_campaign_nid(){
-        return intval( variable_get( SCOGA_SETTING_CURRENT_CAMPAIGN_NID ) );
+        return intval( variable_get( SCOGA_SETTING_CURRENT_CAMPAIGN_NID, 0 ) );
     }
 
     function scoga_set_current_campaign_nid( $campaign_nid ){
