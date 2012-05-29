@@ -246,3 +246,28 @@
     function scoga_get_all_player_accounts(){
         return user_load_multiple( scoga_get_all_player_uids() );
     }
+
+    function scoga_assign_random_teams_to_players(){
+        module_load_include( 'api.team.inc', 'scoga_core' );
+        $team_nids = scoga_get_team_nids();
+        $team_count = count( $team_nids );
+        $player_uids = scoga_get_all_player_uids();
+
+        //[!] not a typical for-loop, but a counter is needed
+        for( $i=0; count( $player_uids ) > 0; $i++ ){
+            $player_index = rand( 0, count( $player_uids ) - 1 );
+            $values = array_splice( $player_uids, $player_index, 1 );
+            $uid = $values[ 0 ];
+            $team_index = $i % $team_count;
+            $team_nid = $team_nids[ $team_index ];
+            $account = user_load( $uid );
+            $account->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
+                'target_id' => $team_nid
+            );
+            user_save( $account );
+        }
+    }
+
+    function scoga_reset_user_relationships(){
+        db_query('TRUNCATE {user_relationships}');
+    }

@@ -163,6 +163,10 @@
         watchdog( 'SCOGA', 'all user points reset due to campaign switch' );
         module_load_include( 'api.player.inc', 'scoga_core' );
         scoga_award_default_credits_to_all_players();
+        watchdog( 'SCOGA', 'all teams randomized' );
+        scoga_assign_random_teams_to_players();
+        watchdog( 'SCOGA', 'all user relationships deleted' );
+        scoga_reset_user_relationships();
     }
 
     /**
