@@ -1,4 +1,11 @@
 
+0.4.19 / 2012-05-30 
+==================
+
+  * added strongarm module
+  * fixed #73
+  * added manual override to scoga_cron_determine_current_campaign
+
 0.4.18 / 2012-05-29 
 ==================
 
