@@ -32,8 +32,6 @@
         }
         $nids = scoga_get_message_nids_after_nid( $nid );
 
-        dd( $nids, 'nids' );
-
         $output = array();
         if( $nids ){
             foreach( $nids as $message_nid ){
