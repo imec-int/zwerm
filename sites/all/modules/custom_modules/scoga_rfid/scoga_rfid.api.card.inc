@@ -12,7 +12,7 @@
      * @param $params
      */
     function scoga_register_card( $card_id, $reader_id ){
-        watchdog( 'SCOGA', 'scoga_register_card: @card_id, @reader_id', array( '@card_id' => $card_id, '@reader_id' => $reader_id ), WATCHDOG_DEBUG );
+        watchdog( 'SCOGA', 'scoga_register_card: @card_id, @reader_id', array( '@card_id' => $card_id, '@reader_id' => $reader_id ), WATCHDOG_NOTICE );
         module_load_include( 'api.reader.inc', 'scoga_rfid' );
         module_load_include( 'api.player.inc', 'scoga_core' );
         module_load_include( 'api.team.inc', 'scoga_core' );

@@ -9,7 +9,7 @@
 
 
     function scoga_service_checkin_create( $params ){
-        watchdog( 'SCOGA', 'scoga_service_checkin_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
+        watchdog( 'SCOGA', 'scoga_service_checkin_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_INFO );
         module_load_include( 'api.checkin.inc', 'scoga_rfid' );
 
         /*
@@ -28,7 +28,7 @@
     }
 
     function scoga_service_reader_create( $params ){
-        watchdog( 'SCOGA', 'scoga_service_reader_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
+        watchdog( 'SCOGA', 'scoga_service_reader_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
         module_load_include( 'api.reader.inc', 'scoga_rfid' );
         /*
         * catch parameters
@@ -49,7 +49,7 @@
     }
 
     function scoga_service_card_create( $params ){
-        watchdog( 'SCOGA', 'scoga_service_card_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
+        watchdog( 'SCOGA', 'scoga_service_card_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
         module_load_include( 'api.card.inc', 'scoga_rfid' );
         /*
         * catch parameters

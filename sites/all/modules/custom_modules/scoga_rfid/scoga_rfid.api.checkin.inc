@@ -181,7 +181,7 @@
         }
         if( $prev_checkin->uid === $user_account->uid ){
             //fail if it's the same user
-            watchdog( 'SCOGA RFID', 'combo checkin denied: same user' );
+            watchdog( 'SCOGA RFID', 'combo checkin denied: same user', array(), WATCHDOG_INFO );
             return FALSE;
         }
 
@@ -197,7 +197,7 @@
         */
         if( $previous + $timeframe < $current ){
             //fail if too much time has passed between checkins
-            watchdog( 'SCOGA RFID', 'combo checkin denied: too much time between checkins' );
+            watchdog( 'SCOGA RFID', 'combo checkin denied: too much time between checkins', array(), WATCHDOG_INFO );
             return FALSE;
         }
 
@@ -208,7 +208,7 @@
         $user_team_values = field_get_items( 'user', $user_account, 'field_user_team');
         if( $prev_team_nid !== $user_team_values[ 0 ][ 'target_id' ] ){
             //fail if the previous checkin was made by a member of the other team
-            watchdog( 'SCOGA RFID', 'combo checkin denied: different teams' );
+            watchdog( 'SCOGA RFID', 'combo checkin denied: different teams', array(), WATCHDOG_INFO );
             return FALSE;
         }
         /*

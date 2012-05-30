@@ -8,7 +8,7 @@
  */
 
     function scoga_cron_determine_current_campaign( $override = FALSE ){
-        watchdog( 'SCOGA', 'scoga_cron_determine_current_campaign' );
+        watchdog( 'SCOGA', 'scoga_cron_determine_current_campaign', array(), WATCHDOG_INFO );
         $now = time();
         $next_time = scoga_get_determinecampaign_next_execution();
         if( $override || $now >= $next_time ){

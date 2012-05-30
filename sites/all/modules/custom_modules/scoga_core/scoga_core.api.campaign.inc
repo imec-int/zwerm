@@ -135,7 +135,7 @@
         }
         if( $new_nid != $current_nid ){
             scoga_set_current_campaign_nid( $new_nid );
-            watchdog( 'SCOGA', 'invoke scoga_core_current_campaign_changed');
+            watchdog( 'SCOGA', 'invoke scoga_core_current_campaign_changed', array(), WATCHDOG_INFO );
             module_invoke_all( 'scoga_current_campaign_changed', $new_nid, $current_nid );
         }
     }
