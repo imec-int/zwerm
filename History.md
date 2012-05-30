@@ -1,4 +1,11 @@
 
+0.4.20 / 2012-05-30 
+==================
+
+  * repriotized watchdog calls
+  * removed dd call
+  * removed deploy module
+
 0.4.19 / 2012-05-30 
 ==================
 
