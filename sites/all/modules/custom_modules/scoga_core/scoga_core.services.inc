@@ -9,7 +9,7 @@
      * Invoked from services
      */
 
-    function scoga_service_campaign_index( $params = NULL ){
+    function scoga_service_campaign_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_campaign_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.campaign.inc', 'scoga_core' );
         if( $params ){
