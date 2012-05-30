@@ -21,7 +21,11 @@
             ->execute()
         ;
 
-        return array_keys( $result[ $entity_type ] );
+        if( array_key_exists( $entity_type, $result ) ){
+            return array_keys( $result[ $entity_type ] );
+        }
+
+        return array();
 
     }
 
