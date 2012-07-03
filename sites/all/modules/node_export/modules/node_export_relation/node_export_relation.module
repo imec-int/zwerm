@@ -32,21 +32,30 @@ function node_export_relation_node_export_alter(&$nodes, $format) {
 
   if (module_exists('node_reference')) {
     module_load_include('inc', 'node_export_relation', 'node_export_relation.node_reference');
-    $keyed_nodes = array();
-    foreach ($nodes as $node) {
-      $keyed_nodes[$node->nid] = $node;
+    if (variable_get('node_export_node_reference_auto_inc', TRUE)) {
+      $keyed_nodes = array();
+      foreach ($nodes as $node) {
+        $keyed_nodes[$node->nid] = $node;
+      }
+      // Keyed nodes are important for preventing same node loaded again via references.
+      foreach (array_keys($keyed_nodes) as $nid) {
+        node_export_relation_node_reference_load($keyed_nodes, $nid);
+      }
+      $nodes = array_values($keyed_nodes);
     }
-    // Keyed nodes are important for preventing same node loaded again via references.
-    foreach (array_keys($keyed_nodes) as $nid) {
-      node_export_relation_node_reference_load($keyed_nodes, $nid);
-    }
-    $nodes = array_values($keyed_nodes);
   }
 
   if (module_exists('og')) {
     module_load_include('inc', 'node_export_relation', 'node_export_relation.og');
     // Go through nodes and set UUIDs for their groups.
     node_export_relation_og_set_group_uuids($nodes);
+  }
+
+  if (module_exists('taxonomy')) {
+    module_load_include('inc', 'node_export_relation', 'node_export_relation.taxonomy');
+    foreach ($nodes as $node) {
+      node_export_relation_taxonomy_build_term_reference($node);
+    }
   }
 
 }
@@ -68,6 +77,14 @@ function node_export_relation_node_export_import_alter(&$nodes, $format) {
     // Now go through the groupes and switch back the UUIDS to actual ids.
     node_export_relation_og_set_group_nids($nodes);
   }
+
+  if (module_exists('taxonomy')) {
+    module_load_include('inc', 'node_export_relation', 'node_export_relation.taxonomy');
+    foreach ($nodes as $node) {
+      node_export_relation_taxonomy_restore_term_reference($node);
+    }
+  }
+
 }
 
 /**

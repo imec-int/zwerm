@@ -1,6 +1,7 @@
 name = Entity Reference View Widget
 description = Provides a complex widget that embeds a view for selecting items.
 core = 7.x
+package = Fields
 dependencies[] = entityreference
 dependencies[] = entity
 dependencies[] = views
@@ -8,9 +9,9 @@ dependencies[] = views
 files[] = views/entityreference_view_widget_plugin_display.inc
 files[] = views/entityreference_view_widget_plugin_exposed_form.inc
 
-; Information added by drupal.org packaging script on 2012-02-23
-version = "7.x-1.x-dev"
+; Information added by drupal.org packaging script on 2012-05-29
+version = "7.x-1.0-alpha2+0-dev"
 core = "7.x"
 project = "entityreference_view_widget"
-datestamp = "1329956647"
+datestamp = "1338250372"
 

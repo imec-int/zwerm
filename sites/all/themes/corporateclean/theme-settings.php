@@ -45,6 +45,12 @@ function corporateclean_form_system_theme_settings_alter(&$form, &$form_state) {
 	'#default_value' => theme_get_setting('slideshow_display','corporateclean'),
   );
   
+  $form['mtt_settings']['slideshow']['slideshow_js'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Include slideshow javascript code'),
+	'#default_value' => theme_get_setting('slideshow_js','corporateclean'),
+  );
+  
   $form['mtt_settings']['slideshow']['slideshow_effect'] = array(
     '#type' => 'select',
     '#title' => t('Effects'),
