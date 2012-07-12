@@ -31,6 +31,8 @@ projects[ds][version] = "1.5"
 
 projects[entity][version] = "1.0-rc3"
 
+projects[entity_translation][version] = "1.0-alpha2"
+
 projects[entityreference][version] = "1.0-rc3"
 
 projects[entityreference_view_widget][version] = "1.0-alpha2+0-dev"
@@ -123,9 +125,9 @@ projects[security_review][version] = "1.0"
 
 projects[subform][version] = "1.0-alpha1"
 
-projects[token][version] = "1.1"
+projects[title][version] = "1.0-alpha3"
 
-projects[translation_overview][version] = "2.0-beta1"
+projects[token][version] = "1.1"
 
 projects[user_relationships][version] = "1.0-alpha4"
 
@@ -170,5 +172,4 @@ projects[scoga_rfid][type] = "module"
 projects[scoga_wishlist][download][type] = ""
 projects[scoga_wishlist][download][url] = ""
 projects[scoga_wishlist][type] = "module"
-
 
