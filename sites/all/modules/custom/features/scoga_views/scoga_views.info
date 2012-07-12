@@ -1,0 +1,16 @@
+name = SCOGA views
+core = 7.x
+package = SCOGA
+version = 7.x-1.0
+project = scoga_views
+dependencies[] = ctools
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = assignments_for_current_user
+features[views_view][] = content_of_current_user
+features[views_view][] = view_team_members_of_current_user
+features[views_view][] = view_transactions
+features[views_view][] = view_users_by_team
+features[views_view][] = view_wishlist_by_team
+features[views_view][] = view_wishlist_for_user
