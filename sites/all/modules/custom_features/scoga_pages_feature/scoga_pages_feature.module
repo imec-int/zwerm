@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the SCOGA pages feature feature.
- */
-
-include_once 'scoga_pages_feature.features.inc';

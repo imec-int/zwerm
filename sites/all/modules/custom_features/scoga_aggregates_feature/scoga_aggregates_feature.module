@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the SCOGA aggregates feature feature.
- */
-
-include_once 'scoga_aggregates_feature.features.inc';
