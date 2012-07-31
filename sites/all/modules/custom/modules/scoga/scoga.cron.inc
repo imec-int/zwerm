@@ -12,7 +12,7 @@
         $now = time();
         $next_time = scoga_get_determinecampaign_next_execution();
         if( $override || $now >= $next_time ){
-            module_load_include( 'api.campaign.inc', 'scoga_core' );
+            module_load_include( 'api.campaign.inc', 'scoga' );
             scoga_determine_current_campaign();
             $interval = scoga_get_determinecampaign_cron_interval();
             //we want to do this _at_ the hour or minute or ...

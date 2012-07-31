@@ -1,8 +1,0 @@
-;Id$
-name = Scoga RFID
-description = Enables all RFID methods
-package = Scoga
-version = 7.x-1.0
-core = 7.x
-files[] = scoga_rfid.rules.inc
-dependencies[] = scoga_core

@@ -25,7 +25,7 @@
     }
 
     function scoga_get_team_vo_by_nid( $team_nid ){
-        module_load_include( 'api.player.inc', 'scoga_core' );
+        module_load_include( 'api.player.inc', 'scoga' );
         $team_node = node_load( $team_nid );
         if( $team_node ){
             $player_uids = scoga_get_player_uids_by_team_nid( $team_nid );

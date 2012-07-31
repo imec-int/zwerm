@@ -1,9 +1,0 @@
-;Id$
-name = Scoga aggregated
-description = Various methods and services for SCOGA data
-package = Scoga
-version = 7.x-1.0
-core = 7.x
-files[] = scoga_aggregated.api.service.inc
-dependencies[] = services
-dependencies[] = scoga_core

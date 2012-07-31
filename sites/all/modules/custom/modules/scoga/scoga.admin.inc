@@ -8,7 +8,7 @@
      */
 
 
-    function scoga_core_settings_form( $form, &$form_state ){
+    function scoga_settings_form( $form, &$form_state ){
 
         //cool down
         $form_elem_name = SCOGA_SETTING_CHECKIN_COOLDOWN;
@@ -66,6 +66,16 @@
         );
 
 
+        $form_elem_name = SCOGA_SETTING_MAX_WISHITEM_CREDIT;
+        $form[ $form_elem_name ] = array(
+            '#type'          => 'textfield',
+            '#title'         => t( 'Max credit value for wished items' ),
+            '#description'   => t( 'Maximum credit value for wished items' ),
+            '#default_value' => variable_get( $form_elem_name, 10 ),
+            '#size'          => 4,
+            '#required'      => TRUE
+        );
+        
         $form[ 'submit' ] = array(
             '#type'  => 'submit',
             '#value' => t( 'Save settings' ),
@@ -74,7 +84,7 @@
         return $form;
     }
 
-    function scoga_core_settings_form_submit( $form, &$form_state ){
+    function scoga_settings_form_submit( $form, &$form_state ){
 
         $settings = array(
             SCOGA_SETTING_CHECKIN_COOLDOWN,
@@ -82,6 +92,7 @@
             SCOGA_SETTING_DEFAULT_USERNAME,
             SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL,
             SCOGA_SETTING_DEFAULT_CREDITS,
+            SCOGA_SETTING_MAX_WISHITEM_CREDIT,
         );
 
         foreach( $settings as $form_elem_name ){
