@@ -12,7 +12,7 @@
         userpoints_reset_do();
         watchdog( 'SCOGA', 'all user points reset due to campaign switch', array(), WATCHDOG_INFO );
 
-        module_load_include( 'api.player.inc', 'scoga' );
+        module_load_include( 'api.player.inc', 'scoga', 'api' );
         scoga_award_default_credits_to_all_players();
         watchdog( 'SCOGA', 'all players default credits awarded', array(), WATCHDOG_INFO );
 
@@ -22,7 +22,7 @@
         scoga_reset_user_relationships();
         watchdog( 'SCOGA', 'all user relationships deleted', array(), WATCHDOG_INFO );
 
-        module_load_include( 'api.wisheditem.inc', 'scoga' );
+        module_load_include( 'api.wisheditem.inc', 'scoga', 'api' );
         scoga_close_all_open_wisheditems();
         watchdog( 'SCOGA', 'all wished items closed', array(), WATCHDOG_INFO );
     }

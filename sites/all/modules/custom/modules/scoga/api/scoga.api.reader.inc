@@ -14,7 +14,7 @@
      * @param $params
      */
     function scoga_register_reader( $card_id, $reader_id ){
-        module_load_include( 'api.player.inc', 'scoga' );
+        module_load_include( 'api.player.inc', 'scoga', 'api' );
 
         /*
         * retrieve user account coupled to card id

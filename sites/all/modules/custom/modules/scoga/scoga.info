@@ -4,7 +4,6 @@ description = SCOGA
 package = Scoga
 version = 7.x-1.0
 core = 7.x
-files[] = scoga.rules.inc
 files[] = scoga.api.php
 dependencies[] = services
 dependencies[] = userpoints

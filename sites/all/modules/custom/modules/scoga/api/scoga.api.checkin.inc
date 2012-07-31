@@ -22,9 +22,9 @@
      */
     function scoga_register_checkin( $card_id, $reader_id ){
 
-        module_load_include( 'api.player.inc', 'scoga' );
-        module_load_include( 'api.reader.inc', 'scoga' );
-        module_load_include( 'api.message.inc', 'scoga' );
+        module_load_include( 'api.player.inc', 'scoga', 'api' );
+        module_load_include( 'api.reader.inc', 'scoga', 'api' );
+        module_load_include( 'api.message.inc', 'scoga', 'api' );
 
         $current_campaign_nid = scoga_get_current_campaign_nid();
         if( ! $current_campaign_nid ){

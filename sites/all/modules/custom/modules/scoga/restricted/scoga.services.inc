@@ -276,7 +276,7 @@
 
     function scoga_service_campaign_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_campaign_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
-        module_load_include( 'api.campaign.inc', 'scoga' );
+        module_load_include( 'api.campaign.inc', 'scoga', 'api' );
         if( $params ){
             if( array_key_exists( 'uuid', $params ) ){
                 return scoga_get_campaign_vos_by_UUIDs( $params[ 'uuid' ] );
@@ -291,7 +291,7 @@
 
     function scoga_service_team_index( $params ){
         watchdog( 'SCOGA', 'scoga_service_team_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
-        module_load_include( 'api.team.inc', 'scoga' );
+        module_load_include( 'api.team.inc', 'scoga', 'api' );
         if( array_key_exists( 'uuid', $params ) ){
             return scoga_get_team_vos_by_UUIDs( $params[ 'uuid' ] );
         }
@@ -305,7 +305,7 @@
 
     function scoga_service_player_index( $params ){
         watchdog( 'SCOGA', 'scoga_service_player_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
-        module_load_include( 'api.player.inc', 'scoga' );
+        module_load_include( 'api.player.inc', 'scoga', 'api' );
         if( array_key_exists( 'uuid', $params ) ){
             return scoga_get_player_vos_by_UUIDs( $params[ 'uuid' ] );
         }
@@ -319,14 +319,14 @@
 
     function scoga_service_transaction_index( $params ){
         watchdog( 'SCOGA', 'scoga_service_transaction_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
-        module_load_include( 'api.transaction.inc', 'scoga' );
+        module_load_include( 'api.transaction.inc', 'scoga', 'api' );
         $last_txnid = ( array_key_exists( 'last_txnid', $params ) ) ? $params[ 'last_txnid' ] : '0';
         return scoga_get_transaction_vos_by_txnid( $last_txnid );
     }
 
     function scoga_service_overview_index(){
         watchdog( 'SCOGA', 'scoga_service_overview_index', NULL, WATCHDOG_INFO );
-    	module_load_include( 'api.message.inc', 'scoga' );
+    	module_load_include( 'api.message.inc', 'scoga', 'api' );
         $output = array();
         $output[ 'campaign' ] = scoga_service_campaign_index();
         $output[ 'last_message_nid' ] = scoga_get_last_message_nid();
@@ -335,7 +335,7 @@
 
     function scoga_service_message_index( $params ){
         watchdog( 'SCOGA', 'scoga_service_message_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
-    	module_load_include( 'api.message.inc', 'scoga' );
+    	module_load_include( 'api.message.inc', 'scoga', 'api' );
         $last_nid = ( array_key_exists( 'last_nid', $params ) )
             ? $params[ 'last_nid' ]
             : NULL
@@ -346,7 +346,7 @@
 
     function scoga_service_checkin_create( $params ){
         watchdog( 'SCOGA', 'scoga_service_checkin_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_INFO );
-        module_load_include( 'api.checkin.inc', 'scoga' );
+        module_load_include( 'api.checkin.inc', 'scoga', 'api' );
 
         /*
         * catch parameters
@@ -365,7 +365,7 @@
 
     function scoga_service_reader_create( $params ){
         watchdog( 'SCOGA', 'scoga_service_reader_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
-        module_load_include( 'api.reader.inc', 'scoga' );
+        module_load_include( 'api.reader.inc', 'scoga', 'api' );
         /*
         * catch parameters
         */
@@ -386,7 +386,7 @@
 
     function scoga_service_card_create( $params ){
         watchdog( 'SCOGA', 'scoga_service_card_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
-        module_load_include( 'api.card.inc', 'scoga' );
+        module_load_include( 'api.card.inc', 'scoga', 'api' );
         /*
         * catch parameters
         */
