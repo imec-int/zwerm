@@ -49,6 +49,47 @@
         throw new Exception( $message );
     }
 
+
+    /**
+     * @param $timeMS
+     *
+     * @return int|string
+     */
+    function scoga_time_MS_to_SEC( $timeMS = NULL ){
+        if( $timeMS ){
+            return number_format( $timeMS / 1000, 0, '.', '' );
+        }
+
+        return time();
+    }
+
+
+    /**
+     * returns the time at the next unit
+     *
+     * example 1:
+     * $time = 1335443816; //Thu, 26 Apr 2012 12:36:56 GMT
+     * //we want to know the next hour at the hour
+     * $new_time = scoga_add_seconds_till_next_unit( $time, 60 * 60 );
+     * //$new_time is 1335448800 (Thu, 26 Apr 2012 14:00:00 GMT)
+     *
+     * example 2:
+     * $time = 1335443816; //Thu, 26 Apr 2012 12:36:56 GMT
+     * //we want to know the next minute at the minute
+     * $new_time = scoga_add_seconds_till_next_unit( $time, 60 );
+     * //$new_time is 1335443820 (Thu, 26 Apr 2012 12:37:00 GMT)
+     *
+     * @param $time int Unix time stamp
+     * @param $seconds int seconds
+     * @return int Unix timestamp
+     */
+    function scoga_add_seconds_till_next_unit( $time, $seconds ){
+        $a = ( $time + $seconds ) / $seconds;
+        return intval( $a ) * $seconds;
+    }
+
+    //--( ACCESSORS )--//
+
     function scoga_get_default_username(){
         return variable_get( SCOGA_SETTING_DEFAULT_USERNAME );
     }
@@ -94,45 +135,6 @@
 
     function scoga_set_current_team_nid( $value ){
         variable_set( SCOGA_SETTING_CURRENT_TEAM, $value );
-    }
-
-
-    /**
-     * @param $timeMS
-     *
-     * @return int|string
-     */
-    function scoga_time_MS_to_SEC( $timeMS = NULL ){
-        if( $timeMS ){
-            return number_format( $timeMS / 1000, 0, '.', '' );
-        }
-
-        return time();
-    }
-
-
-    /**
-     * returns the time at the next unit
-     *
-     * example 1:
-     * $time = 1335443816; //Thu, 26 Apr 2012 12:36:56 GMT
-     * //we want to know the next hour at the hour
-     * $new_time = scoga_add_seconds_till_next_unit( $time, 60 * 60 );
-     * //$new_time is 1335448800 (Thu, 26 Apr 2012 14:00:00 GMT)
-     *
-     * example 2:
-     * $time = 1335443816; //Thu, 26 Apr 2012 12:36:56 GMT
-     * //we want to know the next minute at the minute
-     * $new_time = scoga_add_seconds_till_next_unit( $time, 60 );
-     * //$new_time is 1335443820 (Thu, 26 Apr 2012 12:37:00 GMT)
-     *
-     * @param $time int Unix time stamp
-     * @param $seconds int seconds
-     * @return int Unix timestamp
-     */
-    function scoga_add_seconds_till_next_unit( $time, $seconds ){
-        $a = ( $time + $seconds ) / $seconds;
-        return intval( $a ) * $seconds;
     }
 
     function scoga_get_credits_tid(){

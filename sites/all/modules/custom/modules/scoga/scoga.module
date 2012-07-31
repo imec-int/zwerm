@@ -13,6 +13,20 @@
 
 
     /**
+     * implements hook_install
+     */
+    function scoga_install(){
+        module_load_include( 'install.inc', 'scoga' );
+    }
+
+    /**
+     * implements hook_uninstall
+     */
+    function scoga_uninstall(){
+        module_load_include( 'install.inc', 'scoga' );
+    }
+
+    /**
      * Implements hook_services_resources().
      */
 
@@ -23,7 +37,7 @@
                     'help'             => 'Retrieves all data linked to a specific campaign',
                     'file'             => array(
                         'type'   => 'services.inc',
-                        'module' => 'scoga_core'
+                        'module' => 'scoga'
                     ),
                     'callback'         => 'scoga_service_campaign_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA ),
@@ -43,7 +57,7 @@
                     'help'             => 'Retrieves all data of a team',
                     'file'             => array(
                         'file'   => 'services.inc',
-                        'module' => 'scoga_core'
+                        'module' => 'scoga'
                     ),
                     'callback'         => 'scoga_service_team_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_TEAM_DATA ),
@@ -69,7 +83,7 @@
                     'help'             => 'Retrieves all data of a player',
                     'file'             => array(
                         'file'   => 'services.inc',
-                        'module' => 'scoga_core'
+                        'module' => 'scoga'
                     ),
                     'callback'         => 'scoga_service_player_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_PLAYER_DATA ),
@@ -95,7 +109,7 @@
                     'help'             => 'Retrieves all transactions between two timestamps',
                     'file'             => array(
                         'file'   => 'services.inc',
-                        'module' => 'scoga_core'
+                        'module' => 'scoga'
                     ),
                     'callback'         => 'scoga_service_transaction_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
@@ -122,7 +136,7 @@
                     'help'             => 'Retrieves a snapshot of the SCOGA state',
                     'file'             => array(
                         'type'   => 'services.inc',
-                        'module' => 'scoga_aggregated'
+                        'module' => 'scoga'
                     ),
                     'callback'         => 'scoga_service_overview_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_OVERVIEW_DATA ),
@@ -134,7 +148,7 @@
                     'help'             => 'Retrieves all messages',
                     'file'             => array(
                         'type'   => 'services.inc',
-                        'module' => 'scoga_aggregated'
+                        'module' => 'scoga'
                     ),
                     'callback'         => 'scoga_service_message_index',
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_MESSAGES_DATA ),
@@ -289,8 +303,8 @@
      * @param $old_nid
      */
     function scoga_scoga_current_campaign_changed( $new_nid, $old_nid ){
-        module_load_include( 'module', 'userpoints_reset' );
 
+        module_load_include( 'module', 'userpoints_reset' );
         userpoints_reset_do();
         watchdog( 'SCOGA', 'all user points reset due to campaign switch', array(), WATCHDOG_INFO );
 
@@ -307,6 +321,7 @@
         module_load_include( 'api.wisheditem.inc', 'scoga' );
         scoga_close_all_open_wisheditems();
         watchdog( 'SCOGA', 'all wished items closed', array(), WATCHDOG_INFO );
+        
     }
 
     /**
