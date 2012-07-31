@@ -8,6 +8,10 @@
  * Time: 12:24
  *
  */
+    function scoga_handle_cron(){
+        scoga_cron_determine_current_campaign();
+    }
+
 
     /**
      * called by cron job. Execution frequency is equal to or less than cron job frequency.

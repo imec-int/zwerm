@@ -17,6 +17,7 @@
      */
     function scoga_install(){
         module_load_include( 'install.inc', 'scoga' );
+        return scoga_handle_install();
     }
 
     /**
@@ -24,6 +25,7 @@
      */
     function scoga_uninstall(){
         module_load_include( 'install.inc', 'scoga' );
+        return scoga_handle_uninstall();
     }
 
     /**
@@ -31,261 +33,16 @@
      */
 
     function scoga_services_resources(){
-        return array(
-            'scoga_campaign'    => array(
-                'index' => array(
-                    'help'             => 'Retrieves all data linked to a specific campaign',
-                    'file'             => array(
-                        'type'   => 'services.inc',
-                        'module' => 'scoga'
-                    ),
-                    'callback'         => 'scoga_service_campaign_index',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA ),
-                    'args'             => array(
-                        array(
-                            'name'        => 'uuid',
-                            'type'        => 'string',
-                            'description' => 'The UUID of the campaign node',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                    )
-                ),
-            ),
-            'scoga_team'        => array(
-                'index' => array(
-                    'help'             => 'Retrieves all data of a team',
-                    'file'             => array(
-                        'file'   => 'services.inc',
-                        'module' => 'scoga'
-                    ),
-                    'callback'         => 'scoga_service_team_index',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_TEAM_DATA ),
-                    'args'             => array(
-                        array(
-                            'name'        => 'uuid',
-                            'description' => 'The UUID of the team node',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                        array(
-                            'name'        => 'nid',
-                            'description' => 'The nid of the team node',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                    )
-                ),
-            ),
-
-            'scoga_player'      => array(
-                'index' => array(
-                    'help'             => 'Retrieves all data of a player',
-                    'file'             => array(
-                        'file'   => 'services.inc',
-                        'module' => 'scoga'
-                    ),
-                    'callback'         => 'scoga_service_player_index',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_PLAYER_DATA ),
-                    'args'             => array(
-                        array(
-                            'name'        => 'uuid',
-                            'description' => 'The UUID of the player',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                        array(
-                            'name'        => 'uid',
-                            'description' => 'The uid of the team node',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                    )
-                ),
-            ),
-
-            'scoga_transaction' => array(
-                'index' => array(
-                    'help'             => 'Retrieves all transactions between two timestamps',
-                    'file'             => array(
-                        'file'   => 'services.inc',
-                        'module' => 'scoga'
-                    ),
-                    'callback'         => 'scoga_service_transaction_index',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
-                    'args'             => array(
-                        array(
-                            'name'        => 'campaign_uuid',
-                            'type'        => 'string',
-                            'description' => 'The UUID of the campaign node',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                        array(
-                            'name'        => 'last_txnid',
-                            'description' => 'Transaction ID',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                    )
-                ),
-            ),
-
-            'scoga_overview'    => array(
-                'index' => array(
-                    'help'             => 'Retrieves a snapshot of the SCOGA state',
-                    'file'             => array(
-                        'type'   => 'services.inc',
-                        'module' => 'scoga'
-                    ),
-                    'callback'         => 'scoga_service_overview_index',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_OVERVIEW_DATA ),
-                ),
-            ),
-
-            'scoga_message'    => array(
-                'index' => array(
-                    'help'             => 'Retrieves all messages',
-                    'file'             => array(
-                        'type'   => 'services.inc',
-                        'module' => 'scoga'
-                    ),
-                    'callback'         => 'scoga_service_message_index',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_MESSAGES_DATA ),
-                    'args'             => array(
-                        array(
-                            'name'        => 'last_nid',
-                            'type'        => 'string',
-                            'description' => 'Messages with a nid higher than last_nid will be retrieved',
-                            'source'      => 'param',
-                            'optional'    => TRUE
-                        ),
-                    )
-                ),
-            ),
-            'scoga_checkin' => array(
-                'create' => array(
-                    'help'             => 'Creates a node of content type "Checkin"',
-                    'file'             => array(
-                        'file'   => 'services.inc',
-                        'module' => 'scoga',
-                    ),
-                    'callback'         => 'scoga_service_checkin_create',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN ),
-                    'args'             => array(
-                        array(
-                            'name'        => 'cardID',
-                            'type'        => 'string',
-                            'description' => 'The unique ID of the card',
-                            'source'      => 'data',
-                            'optional'    => FALSE,
-                        ),
-                        array(
-                            'name'        => 'readerID',
-                            'type'        => 'string',
-                            'description' => 'The unique ID of the RFID reader',
-                            'source'      => 'data',
-                            'optional'    => FALSE,
-                        ),
-                        array(
-                            'name'          => 'timestamp',
-                            'type'          => 'int',
-                            'description'   => 'The unix epoch timestamp of checkin',
-                            'source'        => 'data',
-                            'optional'      => TRUE,
-                            'default value' => -1
-                        ),
-                    )
-                )
-            ),
-
-            'scoga_reader'  => array(
-                'create' => array(
-                    'help'             => 'Register an RFID reader to be used with SCOGA',
-                    'file'             => array(
-                        'file'   => 'services.inc',
-                        'module' => 'scoga',
-                    ),
-                    'callback'         => 'scoga_service_reader_create',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_REGISTER_READER ),
-                    'args'             => array(
-                        array(
-                            'name'        => 'cardID',
-                            'type'        => 'string',
-                            'description' => 'The unique ID of the card',
-                            'source'      => 'data',
-                            'optional'    => FALSE,
-                        ),
-                        array(
-                            'name'        => 'readerID',
-                            'type'        => 'string',
-                            'description' => 'The unique ID of the RFID reader',
-                            'source'      => 'data',
-                            'optional'    => FALSE,
-                        ),
-                        array(
-                            'name'          => 'timestamp',
-                            'type'          => 'int',
-                            'description'   => 'The unix epoch timestamp of checkin',
-                            'source'        => 'data',
-                            'optional'      => TRUE,
-                            'default value' => -1
-                        ),
-                    )
-                )
-            ),
-            'scoga_card'    => array(
-                'create' => array(
-                    'help'             => 'Register an RFID card to be used with SCOGA',
-                    'file'             => array(
-                        'file'   => 'services.inc',
-                        'module' => 'scoga',
-                    ),
-                    'callback'         => 'scoga_service_card_create',
-                    'access arguments' => array( SCOGA_PERM_REST_ACCESS_REGISTER_CARD ),
-                    'args'             => array(
-                        array(
-                            'name'        => 'cardID',
-                            'type'        => 'string',
-                            'description' => 'The unique ID of the card',
-                            'source'      => 'data',
-                            'optional'    => FALSE,
-                        ),
-                        array(
-                            'name'        => 'readerID',
-                            'type'        => 'string',
-                            'description' => 'The unique ID of the RFID reader',
-                            'source'      => 'data',
-                            'optional'    => FALSE,
-                        ),
-                    )
-                )
-            ),
-        );
+        module_load_include( 'services.inc', 'scoga' );
+        return scoga_handle_services_resources();
     }
 
     /**
      * implement hook_menu()
      */
     function scoga_menu(){
-        $items = array();
-        $items[ SCOGA_ADMIN_PAGE ] = array(
-            'title'            => t( 'SCOGA settings' ),
-            'description'      => t( 'General settings for SCOGA' ),
-            'page callback' => 'system_admin_menu_block_page',
-            'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
-            'file' => 'system.admin.inc',
-            'file path' => drupal_get_path('module', 'system'),
-            'type' => MENU_NORMAL_ITEM,
-        );
-        $items[ SCOGA_ADMIN_PAGE . '/core' ]=array(
-            'title'             => t( 'SCOGA core settings' ),
-            'type'             => MENU_NORMAL_ITEM,
-            'file'             => 'scoga.admin.inc',
-            'page callback'    => 'drupal_get_form',
-            'page arguments'   => array( 'scoga_settings_form' ),
-            'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
-        );
+        module_load_include( 'menu.inc', 'scoga' );
+        return scoga_handle_menu();
     }
 
 
@@ -294,7 +51,7 @@
      */
     function scoga_cron(){
         module_load_include( 'cron.inc', 'scoga' );
-        scoga_cron_determine_current_campaign();
+        return scoga_handle_cron();
     }
 
     /**
@@ -303,26 +60,10 @@
      * @param $old_nid
      */
     function scoga_scoga_current_campaign_changed( $new_nid, $old_nid ){
-
-        module_load_include( 'module', 'userpoints_reset' );
-        userpoints_reset_do();
-        watchdog( 'SCOGA', 'all user points reset due to campaign switch', array(), WATCHDOG_INFO );
-
-        module_load_include( 'api.player.inc', 'scoga' );
-        scoga_award_default_credits_to_all_players();
-        watchdog( 'SCOGA', 'all players default credits awarded', array(), WATCHDOG_INFO );
-
-        scoga_assign_random_teams_to_players();
-        watchdog( 'SCOGA', 'all teams randomized', array(), WATCHDOG_INFO );
-
-        scoga_reset_user_relationships();
-        watchdog( 'SCOGA', 'all user relationships deleted', array(), WATCHDOG_INFO );
-
-        module_load_include( 'api.wisheditem.inc', 'scoga' );
-        scoga_close_all_open_wisheditems();
-        watchdog( 'SCOGA', 'all wished items closed', array(), WATCHDOG_INFO );
-        
+        module_load_include( 'scoga.inc', 'scoga' );
+        scoga_handle_scoga_current_campaign_changed();
     }
+
 
     /**
      * implements hook_user_insert
@@ -331,73 +72,33 @@
      * @param $category
      */
     function scoga_user_insert(&$edit, $account, $category){
-        module_load_include( 'api.player.inc', 'scoga' );
-        scoga_award_default_credits_to_player( $account->uid );
+        module_load_include( 'user.inc', 'scoga' );
+        scoga_handle_user_insert( $account );
     }
-
 
 
     /**
      * Implements hook_permission().
      */
     function scoga_permission(){
-        return array(
-            SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN  => array(
-                'title'       => t( 'Create "Checkin" node' ),
-                'description' => t( 'Create a node of content type "Checkin" through the REST service.<br/>' ),
-            ),
-            SCOGA_PERM_REST_EXECUTE_REGISTER_READER => array(
-                'title'       => t( 'Register RFID reader' ),
-                'description' => t( 'Register an RFID reader to be used with SCOGA' ),
-            ),
-            SCOGA_PERM_REST_EXECUTE_REGISTER_CARD   => array(
-                'title'       => t( 'Register RFID card' ),
-                'description' => t( 'Register an RFID card to be used with SCOGA' ),
-            ),
-        );
+        module_load_include( 'permission.inc', 'scoga' );
+        return scoga_handle_permission();
     }
 
     /**
-     * TODO: extract contents to API method
      * implements hook_form_FORM_ID_alter
      * @param $form
      * @param $form_state
      * @param $form_id
      */
     function scoga_form_nodetype_wished_item_node_form_alter( &$form, $form_state, $form_id ){
-
-        $uid = $form[ 'uid' ][ '#value' ];
-
-        $field_name = 'field_wisheditem_award';
-        $award_element = $form[ $field_name ];
-        $lang = $award_element[ '#language' ];
-        $assigned_credits_values = $award_element[ $lang ][ '#default_value' ];
-        $assigned_credits = ( count( $assigned_credits_values ) > 0 )
-            ? $assigned_credits_values[ 0 ]
-            : 0;
-        $user_remaining_credits = min( userpoints_get_current_points( $uid, scoga_get_credits_tid() ) + $assigned_credits, scoga_get_max_wishitem_credits() );
-
-        if( $user_remaining_credits > 0 ){
-            $credits_select_data = array(
-                '_none' => '- Select a value -'
-            );
-            for( $i=0; $i < $user_remaining_credits; $i++ ){
-                $value = $i+1;
-                $credits_select_data[ $value ] = $value;
-            }
-        }else{
-            $credits_select_data = array(
-                '_none' => '- NOT ENOUGH CREDITS -'
-            );
-        }
-
-        $award_element[ $lang ][ '#options' ] = $credits_select_data;
-        $form[ $field_name ] = $award_element;
-
+        module_load_include( 'form.inc', 'scoga' );
+        scoga_handle_form_nodetype_wished_item_node_form_alter( $form, $form_state, $form_id );
     }
 
+
+
     /**
-     * TODO: extract contents to API method
      * implements hook_form_FORM_ID_alter
      *
      * @param $form
@@ -405,116 +106,35 @@
      * @param $form_id
      */
     function scoga_form_nodetype_wish_fulfilled_node_form_alter( &$form, $form_state, $form_id ){
-        global $user;
-
-        $user_profile = user_load( $user->uid );
-        module_load_include( 'api.wisheditem.inc', 'scoga' );
-        module_load_include( 'api.player.inc', 'scoga' );
-
-        /*
-         * wished item
-         *
-         */
-        $wisheditem_nids = scoga_get_wisheditem_nids_for_uid( $user_profile->uid );
-
-        $wishlist_select_data = array(
-            '_none' => '- Select a value -'
-        );
-        foreach( $wisheditem_nids as $nid ){
-            $wisheditem_node = node_load( $nid );
-            $wishlist_select_data[ $nid ] = $wisheditem_node->title;
-        }
-
-        //TODO: OPTIMIZE THIS, it simply overwrites a list of ALL wished items
-        $wisheditem_element = $form[ 'field_wishfulfilled_wisheditem' ];
-        $lang = $wisheditem_element[ '#language' ];
-        $wisheditem_element[ $lang ][ '#options' ] = $wishlist_select_data;
-        $form[ 'field_wishfulfilled_wisheditem' ] = $wisheditem_element;
-
-
-        /*
-         * fulfiller
-         */
-        $user_team_values = field_get_items( 'user', $user_profile, 'field_user_team' );
-        $team_nid = ( $user_team_values ) ? $user_team_values[ 0 ][ 'target_id' ] : 0;
-
-        $player_uids = scoga_get_player_uids_by_team_nid( $team_nid, TRUE ); //TRUE->negates
-
-        $player_select_data = array(
-            '_none' => '- Select a value -'
-        );
-        foreach( $player_uids as $uid ){
-            $player_profile = user_load( $uid );
-            $player_select_data[ $uid ] = $player_profile->name;
-        }
-
-        //TODO: OPTIMIZE THIS, it simply overwrites a list of ALL users
-
-        $fulfiller_element = $form[ 'field_wishfulfilled_fulfiller' ];
-        $lang = $fulfiller_element[ '#language' ];
-        $fulfiller_element[ $lang ][ '#options' ] = $player_select_data;
-        $form[ 'field_wishfulfilled_fulfiller' ] = $fulfiller_element;
-
-        /*
-         * title
-         */
-        $form[ 'title' ][ '#required' ] = FALSE;
-        //hide the title field
-        $form[ 'title' ][ '#access' ] = FALSE;
-
-        //dsm( $form[ 'title' ] );
-        $form[ 'title' ][ '#value' ] = 'wish fullfilled ' . $user->uid . ' ' . time();
+        module_load_include( 'form.inc', 'scoga' );
+        scoga_handle_form_nodetype_wish_fulfilled_node_form_alter( $form, $form_state, $form_id );
     }
 
-
     /**
-     * TODO: refactor to meths
      * implements hook_node_insert
      * @param $node
      */
     function scoga_node_insert($node){
-        switch( $node->type ){
-            case SCOGA_WISHEDITEM_NODETYPE :
-                module_load_include( 'api.wisheditem.inc', 'scoga' );
-                scoga_sync_credits_for_wisheditem( $node );
-                break;
-            case SCOGA_WISHFULFILLED_NODETYPE:
-                module_load_include( 'api.wisheditem.inc', 'scoga' );
-                module_load_include( 'api.wishfulfilled.inc', 'scoga' );
-                $wisheditem_node = scoga_award_wishfulfilled_to_player( $node );
-                scoga_set_wisheditem_state( $wisheditem_node, 'fulfilled' );
-                break;
-        }
+        module_load_include( 'node.inc', 'scoga' );
+        scoga_handle_node_insert( $node );
     }
 
+
     /**
-     * TODO: refactor to meths
      * implements hook_node_update
      * @param $node
      */
     function scoga_node_update( $node ){
-        //dsm( $node );
-        switch( $node->type ){
-            case SCOGA_WISHEDITEM_NODETYPE :
-                module_load_include( 'api.wisheditem.inc', 'scoga' );
-                $original_node = $node->original;
-                $old_award_values = field_get_items( 'node', $original_node, 'field_wisheditem_award' );
-                $old_award = intval( $old_award_values[ 0 ][ 'value' ] );
-                scoga_sync_credits_for_wisheditem( $node, $old_award );
-                break;
-        }
+        module_load_include( 'node.inc', 'scoga' );
+        scoga_handle_node_update( $node );
     }
 
     /**
-     * TODO: implement, deleted points should be readded to user, refactor refactor
      * implements hook_node_delete
      * @param $node
      */
     function scoga_node_delete( $node ){
-        if( $node->type == SCOGA_WISHEDITEM_NODETYPE ){
-            module_load_include( 'api.wisheditem.inc', 'scoga' );
-            $old_award_values = field_get_items( 'node', $node, 'field_wisheditem_award' );
-            $old_award = $old_award_values[ 0 ][ 'value' ];
-            scoga_sync_credits_for_wisheditem( $node, intval( $old_award ) * 2 );
-        }
+        module_load_include( 'node.inc', 'scoga' );
+        scoga_handle_node_delete( $node );
     }
+

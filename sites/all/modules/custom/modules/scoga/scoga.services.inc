@@ -9,6 +9,271 @@
      *
      */
 
+    function scoga_handle_services_resources(){
+        return array(
+            'scoga_campaign'    => scoga_outline_services_campaign(),
+            'scoga_team'        => scoga_outline_services_team(),
+            'scoga_player'      => scoga_outline_services_player(),
+            'scoga_transaction' => scoga_outline_services_transaction(),
+            'scoga_overview'    => scoga_outline_services_overview(),
+            'scoga_message'     => scoga_outline_services_message(),
+            'scoga_checkin'     => scoga_outline_services_checkin(),
+            'scoga_reader'      => scoga_outline_services_reader(),
+            'scoga_card'        => scoga_outline_services_card(),
+        );
+    }
+
+    function scoga_outline_services_card(){
+        return array(
+            'create' => array(
+                'help'             => 'Register an RFID card to be used with SCOGA',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga',
+                ),
+                'callback'         => 'scoga_service_card_create',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_REGISTER_CARD ),
+                'args'             => array(
+                    array(
+                        'name'        => 'cardID',
+                        'type'        => 'string',
+                        'description' => 'The unique ID of the card',
+                        'source'      => 'data',
+                        'optional'    => FALSE,
+                    ),
+                    array(
+                        'name'        => 'readerID',
+                        'type'        => 'string',
+                        'description' => 'The unique ID of the RFID reader',
+                        'source'      => 'data',
+                        'optional'    => FALSE,
+                    ),
+                )
+            )
+        );
+    }
+
+    function scoga_outline_services_reader(){
+        return array(
+            'create' => array(
+                'help'             => 'Register an RFID reader to be used with SCOGA',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga',
+                ),
+                'callback'         => 'scoga_service_reader_create',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_REGISTER_READER ),
+                'args'             => array(
+                    array(
+                        'name'        => 'cardID',
+                        'type'        => 'string',
+                        'description' => 'The unique ID of the card',
+                        'source'      => 'data',
+                        'optional'    => FALSE,
+                    ),
+                    array(
+                        'name'        => 'readerID',
+                        'type'        => 'string',
+                        'description' => 'The unique ID of the RFID reader',
+                        'source'      => 'data',
+                        'optional'    => FALSE,
+                    ),
+                    array(
+                        'name'          => 'timestamp',
+                        'type'          => 'int',
+                        'description'   => 'The unix epoch timestamp of checkin',
+                        'source'        => 'data',
+                        'optional'      => TRUE,
+                        'default value' => -1
+                    ),
+                )
+            )
+        );
+    }
+
+    function scoga_outline_services_checkin(){
+        return array(
+            'create' => array(
+                'help'             => 'Creates a node of content type "Checkin"',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga',
+                ),
+                'callback'         => 'scoga_service_checkin_create',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN ),
+                'args'             => array(
+                    array(
+                        'name'        => 'cardID',
+                        'type'        => 'string',
+                        'description' => 'The unique ID of the card',
+                        'source'      => 'data',
+                        'optional'    => FALSE,
+                    ),
+                    array(
+                        'name'        => 'readerID',
+                        'type'        => 'string',
+                        'description' => 'The unique ID of the RFID reader',
+                        'source'      => 'data',
+                        'optional'    => FALSE,
+                    ),
+                    array(
+                        'name'          => 'timestamp',
+                        'type'          => 'int',
+                        'description'   => 'The unix epoch timestamp of checkin',
+                        'source'        => 'data',
+                        'optional'      => TRUE,
+                        'default value' => -1
+                    ),
+                )
+            )
+        );
+    }
+
+    function scoga_outline_services_message(){
+        return array(
+            'index' => array(
+                'help'             => 'Retrieves all messages',
+                'file'             => array(
+                    'type'   => 'services.inc',
+                    'module' => 'scoga'
+                ),
+                'callback'         => 'scoga_service_message_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_MESSAGES_DATA ),
+                'args'             => array(
+                    array(
+                        'name'        => 'last_nid',
+                        'type'        => 'string',
+                        'description' => 'Messages with a nid higher than last_nid will be retrieved',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                )
+            ),
+        );
+    }
+
+    function scoga_outline_services_overview(){
+        return array(
+            'index' => array(
+                'help'             => 'Retrieves a snapshot of the SCOGA state',
+                'file'             => array(
+                    'type'   => 'services.inc',
+                    'module' => 'scoga'
+                ),
+                'callback'         => 'scoga_service_overview_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_OVERVIEW_DATA ),
+            ),
+        );
+    }
+
+    function scoga_outline_services_transaction(){
+        return array(
+            'index' => array(
+                'help'             => 'Retrieves all transactions between two timestamps',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga'
+                ),
+                'callback'         => 'scoga_service_transaction_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
+                'args'             => array(
+                    array(
+                        'name'        => 'campaign_uuid',
+                        'type'        => 'string',
+                        'description' => 'The UUID of the campaign node',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                    array(
+                        'name'        => 'last_txnid',
+                        'description' => 'Transaction ID',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                )
+            ),
+        );
+    }
+
+    function scoga_outline_services_player(){
+        return array(
+            'index' => array(
+                'help'             => 'Retrieves all data of a player',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga'
+                ),
+                'callback'         => 'scoga_service_player_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_PLAYER_DATA ),
+                'args'             => array(
+                    array(
+                        'name'        => 'uuid',
+                        'description' => 'The UUID of the player',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                    array(
+                        'name'        => 'uid',
+                        'description' => 'The uid of the team node',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                )
+            ),
+        );
+    }
+
+    function scoga_outline_services_team(){
+        return array(
+            'index' => array(
+                'help'             => 'Retrieves all data of a team',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga'
+                ),
+                'callback'         => 'scoga_service_team_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_TEAM_DATA ),
+                'args'             => array(
+                    array(
+                        'name'        => 'uuid',
+                        'description' => 'The UUID of the team node',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                    array(
+                        'name'        => 'nid',
+                        'description' => 'The nid of the team node',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                )
+            ),
+        );
+    }
+
+    function scoga_outline_services_campaign(){
+        return array(
+            'index' => array(
+                'help'             => 'Retrieves all data linked to a specific campaign',
+                'file'             => array(
+                    'type'   => 'services.inc',
+                    'module' => 'scoga'
+                ),
+                'callback'         => 'scoga_service_campaign_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA ),
+                'args'             => array(
+                    array(
+                        'name'        => 'uuid',
+                        'type'        => 'string',
+                        'description' => 'The UUID of the campaign node',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                )
+            ),
+        );
+    }
+
     function scoga_service_campaign_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_campaign_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.campaign.inc', 'scoga' );
