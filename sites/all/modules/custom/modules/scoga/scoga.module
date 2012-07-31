@@ -8,15 +8,15 @@
      */
 
 
-    module_load_include( 'api.constants.inc', 'scoga', 'api' );
-    module_load_include( 'api.inc', 'scoga', 'api' );
+    module_load_include( 'scoga.api.constants.inc', 'scoga', 'api/' );
+    module_load_include( 'scoga.api.inc', 'scoga', 'api/' );
 
 
     /**
      * implements hook_install
      */
     function scoga_install(){
-        module_load_include( 'install.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.install.inc', 'scoga', 'restricted/' );
         return scoga_handle_install();
     }
 
@@ -24,7 +24,7 @@
      * implements hook_uninstall
      */
     function scoga_uninstall(){
-        module_load_include( 'install.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.install.inc', 'scoga', 'restricted/' );
         return scoga_handle_uninstall();
     }
 
@@ -33,7 +33,7 @@
      */
 
     function scoga_services_resources(){
-        module_load_include( 'services.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.services.inc', 'scoga', 'restricted/' );
         return scoga_handle_services_resources();
     }
 
@@ -41,7 +41,7 @@
      * implement hook_menu()
      */
     function scoga_menu(){
-        module_load_include( 'menu.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.menu.inc', 'scoga', 'restricted/' );
         return scoga_handle_menu();
     }
 
@@ -50,7 +50,7 @@
      * implement hook_cron
      */
     function scoga_cron(){
-        module_load_include( 'cron.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.cron.inc', 'scoga', 'restricted/' );
         return scoga_handle_cron();
     }
 
@@ -60,7 +60,7 @@
      * @param $old_nid
      */
     function scoga_scoga_current_campaign_changed( $new_nid, $old_nid ){
-        module_load_include( 'scoga.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.scoga.inc', 'scoga', 'restricted/' );
         scoga_handle_scoga_current_campaign_changed();
     }
 
@@ -72,7 +72,7 @@
      * @param $category
      */
     function scoga_user_insert(&$edit, $account, $category){
-        module_load_include( 'user.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.user.inc', 'scoga', 'restricted/' );
         scoga_handle_user_insert( $account );
     }
 
@@ -81,7 +81,7 @@
      * Implements hook_permission().
      */
     function scoga_permission(){
-        module_load_include( 'permission.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.permission.inc', 'scoga', 'restricted/' );
         return scoga_handle_permission();
     }
 
@@ -92,7 +92,7 @@
      * @param $form_id
      */
     function scoga_form_nodetype_wished_item_node_form_alter( &$form, $form_state, $form_id ){
-        module_load_include( 'form.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.form.inc', 'scoga', 'restricted/' );
         scoga_handle_form_nodetype_wished_item_node_form_alter( $form, $form_state, $form_id );
     }
 
@@ -106,7 +106,7 @@
      * @param $form_id
      */
     function scoga_form_nodetype_wish_fulfilled_node_form_alter( &$form, $form_state, $form_id ){
-        module_load_include( 'form.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.form.inc', 'scoga', 'restricted/' );
         scoga_handle_form_nodetype_wish_fulfilled_node_form_alter( $form, $form_state, $form_id );
     }
 
@@ -115,7 +115,7 @@
      * @param $node
      */
     function scoga_node_insert($node){
-        module_load_include( 'node.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.node.inc', 'scoga', 'restricted/' );
         scoga_handle_node_insert( $node );
     }
 
@@ -125,7 +125,7 @@
      * @param $node
      */
     function scoga_node_update( $node ){
-        module_load_include( 'node.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.node.inc', 'scoga', 'restricted/' );
         scoga_handle_node_update( $node );
     }
 
@@ -134,7 +134,7 @@
      * @param $node
      */
     function scoga_node_delete( $node ){
-        module_load_include( 'node.inc', 'scoga', 'restricted' );
+        module_load_include( 'scoga.node.inc', 'scoga', 'restricted/' );
         scoga_handle_node_delete( $node );
     }
 

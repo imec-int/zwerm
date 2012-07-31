@@ -248,7 +248,7 @@
     }
 
     function scoga_assign_random_teams_to_players(){
-        module_load_include( 'api.team.inc', 'scoga', 'api' );
+        module_load_include( 'scoga.api.team.inc', 'scoga', 'api/' );
         $team_nids = scoga_get_team_nids();
         $team_count = count( $team_nids );
         $player_uids = scoga_get_all_player_uids();

@@ -90,7 +90,7 @@
 
     function scoga_transfer_transaction_points_to_team( $transaction ){
         if( intval( $transaction->tid ) === userpoints_get_default_tid() ){
-            module_load_include( 'api.campaign.inc', 'scoga', 'api' );
+            module_load_include( 'scoga.api.campaign.inc', 'scoga', 'api/' );
             $user_account = user_load( $transaction->uid );
             $team_nid_values = field_get_items( 'user', $user_account, 'field_user_team' );
             $team_nid = $team_nid_values[ 0 ][ 'target_id' ];

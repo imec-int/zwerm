@@ -56,7 +56,7 @@
 
 
     function scoga_get_team_vos_by_campaign_nid( $campaign_nid ){
-        module_load_include( 'api.team.inc', 'scoga', 'api' );
+        module_load_include( 'scoga.api.team.inc', 'scoga', 'api/' );
 
         $query = new EntityFieldQuery();
         $entity_type = 'node';
@@ -141,7 +141,7 @@
     }
 
     function scoga_create_campaignteam_nodes_for_campaign( $campaign_node ){
-        module_load_include( 'api.team.inc', 'scoga', 'api' );
+        module_load_include( 'scoga.api.team.inc', 'scoga', 'api/' );
         $team_nids = scoga_get_team_nids();
         foreach( $team_nids as $team_nid ){
             scoga_create_campaignteam_node( $campaign_node, node_load( $team_nid ) );
@@ -165,7 +165,7 @@
     }
 
     function scoga_delete_campaignteam_nodes_for_campaign( $campaign_node ){
-        module_load_include( 'api.team.inc', 'scoga', 'api' );
+        module_load_include( 'scoga.api.team.inc', 'scoga', 'api/' );
         $entity_type = 'node';
         $query = new EntityFieldQuery();
         $result = $query

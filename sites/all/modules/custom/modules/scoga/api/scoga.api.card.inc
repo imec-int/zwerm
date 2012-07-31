@@ -13,9 +13,9 @@
      */
     function scoga_register_card( $card_id, $reader_id ){
         watchdog( 'SCOGA', 'scoga_register_card: @card_id, @reader_id', array( '@card_id' => $card_id, '@reader_id' => $reader_id ), WATCHDOG_NOTICE );
-        module_load_include( 'api.reader.inc', 'scoga', 'api' );
-        module_load_include( 'api.player.inc', 'scoga', 'api' );
-        module_load_include( 'api.team.inc', 'scoga', 'api' );
+        module_load_include( 'scoga.api.reader.inc', 'scoga', 'api/' );
+        module_load_include( 'scoga.api.player.inc', 'scoga', 'api/' );
+        module_load_include( 'scoga.api.team.inc', 'scoga', 'api/' );
 
         /*
         * check that the RFID reader IS registered
