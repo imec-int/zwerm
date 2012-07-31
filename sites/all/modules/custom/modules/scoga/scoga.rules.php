@@ -1,6 +1,9 @@
 <?php
     /**
-     * Created by JetBrains PhpStorm.
+     * Invoked from rules, i.e. rule handlers
+     * rule wiring happens in the rules themselves, i.e. hard-coded includes
+     *
+     *
      * User: creynder
      * Date: 25/04/12
      * Time: 11:23
@@ -8,8 +11,6 @@
      */
 
     /**
-     * called from rule
-     *
      * @param $transaction
      * stdClass Object
     (

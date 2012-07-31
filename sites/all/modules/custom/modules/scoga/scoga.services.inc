@@ -1,12 +1,12 @@
 <?php
     /**
-     * Created by JetBrains PhpStorm.
+     * Invoked from services, i.e. service handlers
+     * Service handler wiring happens in scoga.module#scoga_services_resources
+     *
      * User: creynder
      * Date: 20/04/12
      * Time: 14:41
-     * To change this template use File | Settings | File Templates.
      *
-     * Invoked from services
      */
 
     function scoga_service_campaign_index( $params = array() ){
@@ -58,7 +58,7 @@
         $last_txnid = ( array_key_exists( 'last_txnid', $params ) ) ? $params[ 'last_txnid' ] : '0';
         return scoga_get_transaction_vos_by_txnid( $last_txnid );
     }
-    
+
     function scoga_service_overview_index(){
         watchdog( 'SCOGA', 'scoga_service_overview_index', NULL, WATCHDOG_INFO );
     	module_load_include( 'api.message.inc', 'scoga' );
@@ -76,9 +76,9 @@
             : NULL
         ;
         return scoga_get_message_vos_after_nid( $last_nid );
-    } 
-    
-    
+    }
+
+
     function scoga_service_checkin_create( $params ){
         watchdog( 'SCOGA', 'scoga_service_checkin_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_INFO );
         module_load_include( 'api.checkin.inc', 'scoga' );

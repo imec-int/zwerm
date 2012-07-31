@@ -1,6 +1,7 @@
 <?php
     /**
-     * Created by JetBrains PhpStorm.
+     * Defines settings pages. Called from scoga_module#scoga_menu
+     *
      * User: creynder
      * Date: 20/04/12
      * Time: 15:04
@@ -75,7 +76,7 @@
             '#size'          => 4,
             '#required'      => TRUE
         );
-        
+
         $form[ 'submit' ] = array(
             '#type'  => 'submit',
             '#value' => t( 'Save settings' ),

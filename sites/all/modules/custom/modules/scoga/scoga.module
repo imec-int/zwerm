@@ -6,22 +6,10 @@
      * Time: 10:19
      * To change this template use File | Settings | File Templates.
      */
-    define( 'SCOGA_PERM_REST_ACCESS_OVERVIEW_DATA', 'access content' );
-    define( 'SCOGA_PERM_REST_ACCESS_MESSAGES_DATA', 'access content' );
-    define( 'SCOGA_MESSAGES_NODETYPE', 'nodetype_logmessages' );
-    define( 'SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN', 'access content' );
-    define( 'SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN', 'REST create checkin' );
-    define( 'SCOGA_PERM_REST_ACCESS_REGISTER_READER', 'access content' );
-    define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_READER', 'REST register rfid reader' );
-    define( 'SCOGA_PERM_REST_ACCESS_REGISTER_CARD', 'access content' );
-    define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_CARD', 'REST register rfid card' );
-    define( 'SCOGA_CHECKINPARTNER_RTID', 1 );
-
 
 
     module_load_include( 'api.constants.inc', 'scoga' );
     module_load_include( 'api.inc', 'scoga' );
-    module_load_include( 'rules.inc', 'scoga' ); //TODO: necessary?
 
 
     /**
@@ -140,7 +128,7 @@
                     'access arguments' => array( SCOGA_PERM_REST_ACCESS_OVERVIEW_DATA ),
                 ),
             ),
-            
+
             'scoga_message'    => array(
                 'index' => array(
                     'help'             => 'Retrieves all messages',
@@ -331,7 +319,7 @@
         module_load_include( 'api.player.inc', 'scoga' );
         scoga_award_default_credits_to_player( $account->uid );
     }
-    
+
 
 
     /**
