@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * scoga_rules.rules_defaults.inc
+ * scoga_rules_feature.rules_defaults.inc
  */
 
 /**
  * Implements hook_default_rules_configuration().
  */
-function scoga_rules_default_rules_configuration() {
+function scoga_rules_feature_default_rules_configuration() {
   $items = array();
   $items['rules_award_default_credits'] = entity_import('rules_config', '{ "rules_award_default_credits" : {
       "LABEL" : "Award default credits",

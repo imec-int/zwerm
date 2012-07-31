@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * scoga_views.views_default.inc
+ * scoga_views_feature.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function scoga_views_views_default_views() {
+function scoga_views_feature_views_default_views() {
   $export = array();
 
   $view = new view;

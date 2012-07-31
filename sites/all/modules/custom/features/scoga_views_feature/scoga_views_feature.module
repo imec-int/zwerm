@@ -4,4 +4,4 @@
  * Code for the SCOGA views feature.
  */
 
-include_once 'scoga_views.features.inc';
+include_once 'scoga_views_feature.features.inc';

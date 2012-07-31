@@ -1,8 +1,8 @@
-name = SCOGA rules
+name = SCOGA rules feature
 core = 7.x
 package = SCOGA
 version = 7.x-1.0
-project = scoga_rules
+project = scoga_rules_feature
 dependencies[] = comment
 dependencies[] = entity
 dependencies[] = php

@@ -1,8 +1,8 @@
-name = SCOGA views
+name = SCOGA views feature
 core = 7.x
 package = SCOGA
 version = 7.x-1.0
-project = scoga_views
+project = scoga_views_feature
 dependencies[] = ctools
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
