@@ -8,6 +8,14 @@
      * To change this template use File | Settings | File Templates.
      */
 
+
+    function scoga_validate_uint( $variable ){
+        $value = $variable[ 'value' ];
+        if( ! is_numeric( $value ) || $value < 0 ){
+            return t( 'The value is not an unsigned integer' );
+        }
+    }
+
     function scoga_get_eid_by_uuid( $uuid, $entity_type = 'node' ){
         $query = new EntityFieldQuery();
         $result = $query
@@ -95,19 +103,19 @@
     }
 
     function scoga_get_checkin_cooldown(){
-        return intval( variable_get( SCOGA_SETTING_CHECKIN_COOLDOWN ) );
+        return variable_get( SCOGA_SETTING_CHECKIN_COOLDOWN );
     }
 
     function scoga_get_combocheckin_timeframe(){
-        return intval( variable_get( SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME ) );
+        return variable_get( SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME );
     }
 
     function scoga_get_determinecampaign_cron_interval(){
-        return intval( variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL ) );
+        return variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL );
     }
 
     function scoga_get_determinecampaign_next_execution(){
-        return intval( variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION ) );
+        return variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION );
     }
 
     function scoga_set_determinecampaign_next_execution( $value ){
@@ -115,7 +123,7 @@
     }
 
     function scoga_get_current_campaign_nid(){
-        return intval( variable_get( SCOGA_SETTING_CURRENT_CAMPAIGN_NID, 0 ) );
+        return variable_get( SCOGA_SETTING_CURRENT_CAMPAIGN_NID );
     }
 
     function scoga_set_current_campaign_nid( $campaign_nid ){
@@ -126,16 +134,16 @@
     }
 
     function scoga_get_default_credits(){
-        return intval( variable_get( SCOGA_SETTING_DEFAULT_CREDITS ) );
+        return variable_get( SCOGA_SETTING_DEFAULT_CREDITS );
     }
 
-    function scoga_get_current_team_nid(){
-        return variable_get( SCOGA_SETTING_CURRENT_TEAM );
-    }
-
-    function scoga_set_current_team_nid( $value ){
-        variable_set( SCOGA_SETTING_CURRENT_TEAM, $value );
-    }
+//    function scoga_get_current_team_nid(){
+//        return variable_get( SCOGA_SETTING_CURRENT_TEAM );
+//    }
+//
+//    function scoga_set_current_team_nid( $value ){
+//        variable_set( SCOGA_SETTING_CURRENT_TEAM, $value );
+//    }
 
     function scoga_get_credits_tid(){
         $query =

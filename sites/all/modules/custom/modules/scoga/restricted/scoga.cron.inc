@@ -29,7 +29,7 @@
 
             //do the magic
 
-            module_load_include( 'scoga.api.campaign.inc', 'scoga', 'api/' );
+            module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
             scoga_determine_current_campaign();
 
             //calculate and set the new execution time

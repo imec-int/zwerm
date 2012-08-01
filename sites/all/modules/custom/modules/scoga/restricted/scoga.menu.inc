@@ -8,29 +8,30 @@
      * To change this template use File | Settings | File Templates.
      */
 
+//    function scoga_handle_menu(){
+//        $items = array();
+//        $items[ SCOGA_ADMIN_PAGE ] = array(
+//            'title'            => t( 'SCOGA settings' ),
+//            'description'      => t( 'General settings for SCOGA' ),
+//            'page callback'    => 'system_admin_menu_block_page',
+//            'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
+//            'file'             => 'system.admin.inc',
+//            'file path'        => drupal_get_path( 'module', 'system' ),
+//            'type'             => MENU_NORMAL_ITEM,
+//        );
+//        $items[ SCOGA_ADMIN_PAGE . '/core' ] = array(
+//            'title'             => t( 'SCOGA core settings' ),
+//            'type'              => MENU_NORMAL_ITEM,
+//            'file'              => 'menu.inc',
+//            'page callback'     => 'drupal_get_form',
+//            'page arguments'    => array( 'scoga_settings_form' ),
+//            'access arguments'  => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
+//        );
+//        return $items;
+//    }
 
-    function scoga_handle_menu(){
-        $items = array();
-        $items[ SCOGA_ADMIN_PAGE ] = array(
-            'title'            => t( 'SCOGA settings' ),
-            'description'      => t( 'General settings for SCOGA' ),
-            'page callback'    => 'system_admin_menu_block_page',
-            'access arguments' => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
-            'file'             => 'system.admin.inc',
-            'file path'        => drupal_get_path( 'module', 'system' ),
-            'type'             => MENU_NORMAL_ITEM,
-        );
-        $items[ SCOGA_ADMIN_PAGE . '/core' ] = array(
-            'title'             => t( 'SCOGA core settings' ),
-            'type'              => MENU_NORMAL_ITEM,
-            'file'              => 'scoga.menu.inc',
-            'page callback'     => 'drupal_get_form',
-            'page arguments'    => array( 'scoga_settings_form' ),
-            'access arguments'  => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
-        );
-        return $items;
-    }
 
+/*
     function scoga_settings_form( $form, &$form_state ){
 
         //cool down
@@ -124,3 +125,5 @@
 
         drupal_set_message( t( 'The SCOGA settings have been saved.' ) );
     }
+
+*/

@@ -48,5 +48,7 @@
     define( 'SCOGA_PLAYER_ROLE',            4 );
     define( 'SCOGA_CHECKINPARTNER_RTID',    1 );
     define( 'SCOGA_TIME_FORMAT',            'H:i:s d/m/Y' );
+    define( 'SCOGA_VARIABLE_GROUP_NAME',    'scoga' );
+
 
 

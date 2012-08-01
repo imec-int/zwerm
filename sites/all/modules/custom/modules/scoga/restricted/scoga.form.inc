@@ -41,8 +41,8 @@
         global $user;
 
         $user_profile = user_load( $user->uid );
-        module_load_include( 'scoga.api.wisheditem.inc', 'scoga', 'api/' );
-        module_load_include( 'scoga.api.player.inc', 'scoga', 'api/' );
+        module_load_include( 'api.wisheditem.inc', 'scoga', 'api/scoga' );
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
 
         /*
          * wished item
