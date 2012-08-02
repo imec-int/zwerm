@@ -61,12 +61,6 @@ function scoga_feature_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -144,12 +138,6 @@ function scoga_feature_field_default_fields() {
           'weight' => -1,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -246,12 +234,6 @@ function scoga_feature_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'module' => 'taxonomy',
@@ -325,12 +307,6 @@ function scoga_feature_field_default_fields() {
           'weight' => 0,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -427,12 +403,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -516,12 +486,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'weight' => 0,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -629,12 +593,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -705,12 +663,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'weight' => 4,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -815,12 +767,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -891,12 +837,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'weight' => 3,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -1001,12 +941,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1102,12 +1036,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1178,12 +1106,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'weight' => 0,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -1267,12 +1189,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1347,12 +1263,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'weight' => 0,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -1440,12 +1350,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1519,12 +1423,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'weight' => 0,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -1611,12 +1509,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'weight' => 1,
         ),
         'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'notifications' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -1718,12 +1610,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1819,12 +1705,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => 0,
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1906,12 +1786,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '0',
-        ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -2033,12 +1907,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'list_default',
           'weight' => '0',
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'inline',
           'module' => 'list',
@@ -2154,12 +2022,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'type' => 'hidden',
           'weight' => '0',
         ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2259,12 +2121,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           ),
           'type' => 'image',
           'weight' => '2',
-        ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -2374,12 +2230,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '3',
-        ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
