@@ -47,7 +47,6 @@
     define( 'SCOGA_ADMIN_PAGE',             'admin/config/scoga' );
     define( 'SCOGA_CREDITS_UUID',           'f3538084-2198-5064-cd37-8b0b39ba32b4' );
     define( 'SCOGA_PLAYER_ROLE',            4 );
-    define( 'SCOGA_CHECKINPARTNER_RTID',    1 );
     define( 'SCOGA_TIME_FORMAT',            'H:i:s d/m/Y' );
     define( 'SCOGA_VARIABLE_GROUP_NAME',    'scoga' );
 
