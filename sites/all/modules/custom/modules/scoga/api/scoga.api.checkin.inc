@@ -221,3 +221,13 @@
         return TRUE;
     }
 
+    function scoga_create_combocheckin_relationship( $iteration ){
+        $iteration_param = array( '@iteration' => $iteration );
+        $relationship_type = new StdClass;
+        $relationship_type->name = t( '@iteration checkin partner', $iteration_param );
+        $relationship_type->plural_name = t( '@iteration checkin partners', $iteration_param );
+        $relationship_type->is_oneway = FALSE;
+        $relationship_type->requires_approval = FALSE;
+        $relationship_type->expires_val = 0;
+        user_relationships_type_save( $relationship_type );
+    }

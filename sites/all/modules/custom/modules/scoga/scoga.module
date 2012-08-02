@@ -54,17 +54,17 @@
 //        module_load_include( 'cron.inc', 'scoga', 'restricted/scoga' );
 //        return scoga_handle_cron();
 //    }
-//
-//    /**
-//     * implements hook_scoga_current_campaign_changed
-//     * @param $new_nid
-//     * @param $old_nid
-//     */
-//    function scoga_scoga_current_campaign_changed( $new_nid, $old_nid ){
-//        module_load_include( 'scoga.inc', 'scoga', 'restricted/scoga' );
-//        scoga_handle_scoga_current_campaign_changed();
-//    }
-//
+
+    /**
+     * implements hook_scoga_current_campaign_changed
+     * @param $new_nid
+     * @param $old_nid
+     */
+    function scoga_scoga_current_campaign_changed( $new_nid, $old_nid ){
+        module_load_include( 'scoga.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_scoga_current_campaign_changed( $new_nid, $current_nid );
+    }
+
 //
 //    /**
 //     * implements hook_user_insert
