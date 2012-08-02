@@ -33,21 +33,32 @@
     [approver_uid] => 0
      */
     function scoga_rule_transfer_transaction_points_to_team( $transaction ){
-        module_load_include( 'rule.inc', 'scoga', 'restricted/scoga' );
-        scoga_handle_rule_transfer_transaction_points_to_team( $transaction );
+        module_load_include( 'api.transaction.inc', 'scoga', 'api/scoga' );
+        scoga_transfer_transaction_points_to_team( $transaction );
     }
 
     function scoga_rule_determine_current_campaign(){
-        module_load_include( 'rule.inc', 'scoga', 'restricted/scoga' );
-        scoga_handle_rule_determine_current_campaign();
+        module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+        scoga_determine_current_campaign();
     }
 
     function scoga_rule_create_campaignteam_nodes_for_campaign( $campaign_node ){
-        module_load_include( 'rule.inc', 'scoga', 'restricted/scoga' );
-        scoga_handle_rule_create_campaignteam_nodes_for_campaign( $campaign_node );
+        module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+        scoga_create_campaignteam_nodes_for_campaign( $campaign_node );
     }
 
     function scoga_rule_delete_campaignteam_nodes_for_campaign( $campaign_node ){
-        module_load_include( 'rule.inc', 'scoga', 'restricted/scoga' );
-        scoga_handle_rule_delete_campaignteam_nodes_for_campaign( $campaign_node );
+        module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+        scoga_delete_campaignteam_nodes_for_campaign( $campaign_node );
+    }
+
+    function scoga_rule_log_user_points( $transaction ){
+        module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
+        $options = array(
+                    'link'             => FALSE,
+                    'truncate'         => FALSE,
+                    'skip_description' => FALSE,
+        );
+        $description = userpoints_create_description( $transaction, $options );
+        scoga_create_message_entity( $description, t( 'Points transaction' ), $transaction->uid, $transaction->points );
     }
