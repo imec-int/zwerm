@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * scoga_views_feature.views_default.inc
+ * scoga_feature.views_default.inc
  */
 
 /**
@@ -530,7 +530,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: User: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -554,7 +554,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
-  /* Field: User: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -691,7 +691,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: User: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -715,7 +715,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
-  /* Field: User: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -740,7 +740,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_surname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 0;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: User: Team (field_user_team) */
+  /* Contextual filter: Gebruiker: Team (field_user_team) */
   $handler->display->display_options['arguments']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
   $handler->display->display_options['arguments']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['arguments']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
@@ -837,7 +837,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: User: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -861,7 +861,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
-  /* Field: User: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -1053,7 +1053,7 @@ return $static->fieldCounter;';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: User: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -1077,7 +1077,7 @@ return $static->fieldCounter;';
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
-  /* Field: User: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -1101,7 +1101,7 @@ return $static->fieldCounter;';
   $handler->display->display_options['fields']['field_user_surname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 0;
-  /* Field: User: Team */
+  /* Field: Gebruiker: Team */
   $handler->display->display_options['fields']['field_user_team']['id'] = 'field_user_team';
   $handler->display->display_options['fields']['field_user_team']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['fields']['field_user_team']['field'] = 'field_user_team';
@@ -1291,6 +1291,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('Team members of current user'),
     t('Players by team'),
     t('Leaderboard'),
+    t('Rank'),
     t('Team'),
     t('Entity Reference View Widget'),
   );

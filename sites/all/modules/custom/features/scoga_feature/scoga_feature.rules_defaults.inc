@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * scoga_rules_feature.rules_defaults.inc
+ * scoga_feature.rules_defaults.inc
  */
 
 /**
