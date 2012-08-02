@@ -24,6 +24,7 @@
     define( 'SCOGA_SETTING_CURRENT_TEAM',                       'scoga_settings_current_team' );
     define( 'SCOGA_SETTING_NEXT_PLAYER_ID',                     'scoga_settings_next_player_id');
     define( 'SCOGA_SETTING_MAX_WISHITEM_CREDIT',                'scoga_setting_max_wishitem_credit' );
+    define( 'SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID',          'scoga_setting_current_combocheckin_rtid' );
 
     //--( PERMISSIONS )--//
 

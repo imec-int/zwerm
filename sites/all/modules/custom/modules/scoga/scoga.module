@@ -62,7 +62,7 @@
      */
     function scoga_scoga_current_campaign_changed( $new_nid, $old_nid ){
         module_load_include( 'scoga.inc', 'scoga', 'restricted/scoga' );
-        scoga_handle_scoga_current_campaign_changed( $new_nid, $current_nid );
+        scoga_handle_scoga_current_campaign_changed( $new_nid, $old_nid );
     }
 
 //

@@ -217,11 +217,17 @@
                 '@uid2' => $prev_user->uid,
             ));
         */
-        user_relationships_request_relationship( $user_account->uid, $prev_user->uid, SCOGA_CHECKINPARTNER_RTID, TRUE );
+        user_relationships_request_relationship(
+            $user_account->uid,
+            $prev_user->uid,
+            scoga_get_current_combocheckin_rtid(),
+            TRUE
+        );
         return TRUE;
     }
 
-    function scoga_create_combocheckin_relationship( $iteration ){
+    function scoga_create_combocheckin_relationship_type( $iteration ){
+        //TODO: load user_relationship module??
         $iteration_param = array( '@iteration' => $iteration );
         $relationship_type = new StdClass;
         $relationship_type->name = t( '@iteration checkin partner', $iteration_param );
@@ -230,4 +236,12 @@
         $relationship_type->requires_approval = FALSE;
         $relationship_type->expires_val = 0;
         user_relationships_type_save( $relationship_type );
+
+        //horrible I know, but there's no other way, since the above function doesn't return the rtid
+        //(and yes, I went down the rabbit hole, nothing to find there either, it uses drupal_write_record which
+        //doesn't return the id)
+        //TODO: definitely replace this when drekkigendries has discovered proper DB CRUD practices
+        $relationship_type = user_relationships_type_load( array('name' => $relationship_type->name ) );
+
+        return $relationship_type;
     }

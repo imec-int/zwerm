@@ -133,6 +133,14 @@
         variable_set( SCOGA_SETTING_CURRENT_CAMPAIGN_NID, $campaign_nid );
     }
 
+    function scoga_get_current_combocheckin_rtid(){
+        return variable_get( SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID );
+    }
+
+    function scoga_set_current_combocheckin_rtid( $value ){
+        variable_set( SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID, $value );
+    }
+
     function scoga_get_default_credits(){
         return variable_get( SCOGA_SETTING_DEFAULT_CREDITS );
     }

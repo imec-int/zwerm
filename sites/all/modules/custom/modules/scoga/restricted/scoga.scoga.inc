@@ -21,7 +21,8 @@
 
         module_load_include( 'api.checkin.inc', 'scoga', 'api/scoga' );
         $campaign_node = node_load( $new_nid );
-        scoga_create_combocheckin_relationship( $campaign_node->title );
+        $relationship_type = scoga_create_combocheckin_relationship_type( $campaign_node->title );
+        scoga_set_current_combocheckin_rtid( $relationship_type->rtid );
         watchdog( 'SCOGA', 'created new combo checkin relationship', array(), WATCHDOG_INFO );
 
 //        scoga_assign_random_teams_to_players();
