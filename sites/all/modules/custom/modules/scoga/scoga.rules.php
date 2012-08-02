@@ -62,3 +62,8 @@
         $description = userpoints_create_description( $transaction, $options );
         scoga_create_message_entity( $description, t( 'Points transaction' ), $transaction->uid, $transaction->points );
     }
+
+    function scoga_rule_close_wisheditems(){
+        module_load_include( 'api.wisheditem.inc', 'scoga', 'api/scoga' );
+        scoga_close_all_open_wisheditems();
+     }

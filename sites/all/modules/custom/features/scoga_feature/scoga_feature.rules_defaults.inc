@@ -115,7 +115,7 @@ function scoga_feature_default_rules_configuration() {
       "PLUGIN" : "rule",
       "REQUIRES" : [ "php", "rules" ],
       "DO" : [
-        { "php_eval" : { "code" : "        module_load_include( \\u0027api.wisheditem.inc\\u0027, \\u0027scoga_wishlist\\u0027 );\\r\\n        scoga_close_all_open_wisheditems();\\r\\n" } }
+        { "php_eval" : { "code" : "        module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\n        scoga_rule_close_wisheditems();" } }
       ]
     }
   }');
@@ -168,7 +168,7 @@ function scoga_feature_default_rules_configuration() {
       "PLUGIN" : "rule",
       "REQUIRES" : [ "php", "rules" ],
       "DO" : [
-        { "php_eval" : { "code" : " module_load_include( \\u0027rules.php\\u0027, \\u0027scoga_core\\u0027 );\\r\\nscoga_rule_determine_current_campaign( TRUE );\\r\\n" } }
+        { "php_eval" : { "code" : " module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_determine_current_campaign( TRUE );\\r\\n" } }
       ]
     }
   }');
