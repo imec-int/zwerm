@@ -7,7 +7,7 @@
 /**
  * Implements hook_default_rules_configuration().
  */
-function scoga_rules_feature_default_rules_configuration() {
+function scoga_feature_default_rules_configuration() {
   $items = array();
   $items['rules_award_default_credits'] = entity_import('rules_config', '{ "rules_award_default_credits" : {
       "LABEL" : "Award default credits",
@@ -183,6 +183,7 @@ function scoga_rules_feature_default_rules_configuration() {
       "DO" : [
         { "privatemsg_rules_new" : {
             "recipient" : [ "comment:node:author" ],
+            "author" : [ "comment:author" ],
             "subject" : "User [comment:name] commented on your item \\u0022[comment:node:title]\\u0022",
             "body" : "User [comment:name] commented on your item \\u0022[comment:node:title]\\u0022,\\r\\ngoto [comment:node]\\r\\n"
           }

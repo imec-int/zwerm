@@ -7,7 +7,7 @@
 /**
  * Implements hook_views_default_views().
  */
-function scoga_views_feature_views_default_views() {
+function scoga_feature_views_default_views() {
   $export = array();
 
   $view = new view;
@@ -1191,7 +1191,7 @@ if ($static->userPosition == 0)
 {
    global $user;
    $results = $view->result;
-   for ($i = 0; $i <= count($results); $i++) 
+   for ($i = 0; $i <= count($results); $i++)
    {
       $result = $results[$i];
       $user_name = $result->users_name;
@@ -1209,7 +1209,7 @@ else
 	$static->counter = $static->counter+1;
 	$numberOnLeaderboard =$static->counter;
 	$loggedInUserPosition = $static->userPosition;
-	
+
 	//if $static->userPosition ==1 , this means that user was not in $view result and has no points
 	//in that case, only show top 10 results
 	if ($static->userPosition == 1)
@@ -1224,12 +1224,12 @@ else
 		//print top 3 players
 		//don\'t print the users between top 3 and 3 positions above $static->userPosition
 		//don\'t print the users starting from 3 positions under $static->userPosition
-		if ((2<$numberOnLeaderboard && $numberOnLeaderboard<$loggedInUserPosition-4) || 
+		if ((2<$numberOnLeaderboard && $numberOnLeaderboard<$loggedInUserPosition-4) ||
 			($numberOnLeaderboard>$loggedInUserPosition+2))
 		{
 			return true;
 		}
-	
+
 		else
 		{
 			$row->counter = $numberOnLeaderboard ;
