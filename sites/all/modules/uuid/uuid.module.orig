@@ -110,6 +110,21 @@ function uuid_hook_info() {
   return array_fill_keys($hook_names, array('group' => 'uuid'));
 }
 
+/**
+ * Helper function that returns a schema field definition for UUID fields.
+ *
+ * @see uuid_schema_alter()
+ * @see uuid_install()
+ */
+function uuid_schema_field_definition() {
+  return array(
+    'type' => 'char',
+    'length' => 36,
+    'not null' => TRUE,
+    'default' => '',
+    'description' => 'The Universally Unique Identifier.',
+  );
+}
 
 /**
  * Implementation of hook_views_api().
@@ -188,7 +203,7 @@ function uuid_features_api() {
       'name' => t('UUID entities'),
       'default_hook' => 'uuid_default_entities',
       'default_file' => FEATURES_DEFAULTS_INCLUDED,
-      'feature_source' => TRUE,
+      'features_source' => TRUE,
       'file' => drupal_get_path('module', 'uuid') .'/uuid.features.inc',
     ),
     'uuid_menu_links' => array(
