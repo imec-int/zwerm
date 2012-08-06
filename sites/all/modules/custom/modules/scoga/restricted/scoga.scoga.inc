@@ -13,17 +13,20 @@
 //        userpoints_reset_do();
 //        watchdog( 'SCOGA', 'all user points reset due to campaign switch', array(), WATCHDOG_INFO );
 
-
+        $campaign_node = node_load( $new_nid );
 
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         scoga_award_default_credits_to_all_players();
         watchdog( 'SCOGA', 'all players default credits awarded', array(), WATCHDOG_INFO );
 
         module_load_include( 'api.checkin.inc', 'scoga', 'api/scoga' );
-        $campaign_node = node_load( $new_nid );
         $relationship_type = scoga_create_combocheckin_relationship_type( $campaign_node->title );
         scoga_set_current_combocheckin_rtid( $relationship_type->rtid );
         watchdog( 'SCOGA', 'created new combo checkin relationship', array(), WATCHDOG_INFO );
+
+        $userpoints_category = scoga_create_userpoints_category( $campaign_node->title );
+        scoga_set_current_userpoints_category_tid( $userpoints_category->tid );
+        watchdog( 'SCOGA', 'created new user points category @name', array( '@name' => $userpoints_category->name ), WATCHDOG_INFO );
 
 //        scoga_assign_random_teams_to_players();
 //        watchdog( 'SCOGA', 'all teams randomized', array(), WATCHDOG_INFO );

@@ -16,7 +16,7 @@
         ;
 
         $rows = db_query( $query, array(
-            ':tid'          => userpoints_get_default_tid(),
+            ':tid'          => scoga_get_current_userpoints_category_tid(),
             ':txnid'        => $last_txnid,
         ) );
 
@@ -56,7 +56,7 @@
                 . "AND time_stamp >= :begin_time "
                 . "AND time_stamp < :end_time";
         $rows = db_query( $query, array(
-            ':tid'          => userpoints_get_default_tid(),
+            ':tid'          => scoga_get_current_userpoints_category_tid(),
             ':begin_time'   => $begin_time,
             ':end_time'     => $end_time,
         ) );
@@ -89,7 +89,7 @@
     }
 
     function scoga_transfer_transaction_points_to_team( $transaction ){
-        if( intval( $transaction->tid ) === userpoints_get_default_tid() ){
+        if( intval( $transaction->tid ) === scoga_get_current_userpoints_category_tid() ){
             module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
             $user_account = user_load( $transaction->uid );
             $team_nid_values = field_get_items( 'user', $user_account, 'field_user_team' );
@@ -100,4 +100,9 @@
                 node_save( $campaignteam_node );
             }
         }
+    }
+
+    function scoga_create_userpoints_category( $iteration ){
+        $points_vid = scoga_get_userpoints_vid();
+
     }

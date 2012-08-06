@@ -11,6 +11,16 @@
     //N.B. all default settings are handled through the variable module, see scoga.variable.inc
 
     function scoga_handle_install(){
+        $vid = scoga_get_userpoints_vid();
+
+        //create credits term
+        $credits_term = scoga_create_term( $vid, t( 'Credits' ) );
+        scoga_set_credits_tid( $credits_term->tid );
+
+        //create score term
+
+        //TODO: create score term
+        $score_term = scoga_create_term( $vid, t( 'Score' ) );
 
     }
 

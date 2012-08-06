@@ -8,7 +8,26 @@
      * To change this template use File | Settings | File Templates.
      */
 
+    /**
+     * @param $vid
+     * @param $term_name
+     *
+     * @return stdClass
+     */
+    function scoga_create_term( $vid, $term_name ){
+        $term = new stdClass();
+        $term->vid = $vid;
+        $term->name = $term_name;
 
+        taxonomy_term_save( $term );
+        return $term;
+    }
+
+    /**
+     * @param $variable
+     *
+     * @return array|null|string
+     */
     function scoga_validate_uint( $variable ){
         $value = $variable[ 'value' ];
         if( ! is_numeric( $value ) || $value < 0 ){
@@ -16,6 +35,12 @@
         }
     }
 
+    /**
+     * @param        $uuid
+     * @param string $entity_type
+     *
+     * @return bool
+     */
     function scoga_get_eid_by_uuid( $uuid, $entity_type = 'node' ){
         $query = new EntityFieldQuery();
         $result = $query
@@ -33,6 +58,12 @@
     }
 
 
+    /**
+     * @param $param
+     * @param $callback
+     *
+     * @return array
+     */
     function scoga_get_output( $param, $callback ){
         if( is_array( $param ) ){
             $output = array();
@@ -44,14 +75,23 @@
         return $callback( $param );
     }
 
-
+    /**
+     * @param $machine_name
+     *
+     * @return array
+     */
     function scoga_retrieve_terms_by_machinename( $machine_name ){
         $vocab = taxonomy_vocabulary_machine_name_load( $machine_name );
         $terms = taxonomy_get_tree( $vocab->vid, 0, NULL, TRUE );
         return $terms;
     }
 
-
+    /**
+     * @param     $message
+     * @param int $severity
+     *
+     * @throws Exception
+     */
     function scoga_throw_exception( $message, $severity = WATCHDOG_NOTICE ){
         watchdog( 'SCOGA', $message, NULL, $severity );
         throw new Exception( $message );
@@ -98,34 +138,50 @@
 
     //--( ACCESSORS )--//
 
+    /**
+     * @return string
+     */
     function scoga_get_default_username(){
         return variable_get( SCOGA_SETTING_DEFAULT_USERNAME );
     }
 
+    /**
+     * @return int
+     */
     function scoga_get_checkin_cooldown(){
         return variable_get( SCOGA_SETTING_CHECKIN_COOLDOWN );
     }
 
+    /**
+     * @return int
+     */
     function scoga_get_combocheckin_timeframe(){
         return variable_get( SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME );
     }
 
+    /**
+     * @return int
+     */
     function scoga_get_determinecampaign_cron_interval(){
         return variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL );
     }
 
+    /**
+     * @return int
+     */
     function scoga_get_determinecampaign_next_execution(){
         return variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION );
     }
-
     function scoga_set_determinecampaign_next_execution( $value ){
         variable_set( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION, $value );
     }
 
+    /**
+     * @return int
+     */
     function scoga_get_current_campaign_nid(){
         return variable_get( SCOGA_SETTING_CURRENT_CAMPAIGN_NID );
     }
-
     function scoga_set_current_campaign_nid( $campaign_nid ){
         watchdog( 'SCOGA', 'set current campaign nid to @nid', array(
            '@nid' => $campaign_nid
@@ -133,17 +189,41 @@
         variable_set( SCOGA_SETTING_CURRENT_CAMPAIGN_NID, $campaign_nid );
     }
 
+    /**
+     * @return int
+     */
     function scoga_get_current_combocheckin_rtid(){
         return variable_get( SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID );
     }
-
     function scoga_set_current_combocheckin_rtid( $value ){
         variable_set( SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID, $value );
     }
 
+    /**
+     * @param $value
+     */
+    function scoga_set_current_userpoints_category_tid( $value ){
+        //from userpoints module
+        variable_set( USERPOINTS_CATEGORY_DEFAULT_TID, $value );
+    }
+    function scoga_get_current_userpoints_category_tid(){
+        return userpoints_get_default_tid();
+    }
+
+    /**
+     * @return int
+     */
     function scoga_get_default_credits(){
         return variable_get( SCOGA_SETTING_DEFAULT_CREDITS );
     }
+
+    /**
+     * @return bool|null
+     */
+    function scoga_get_userpoints_vid(){
+        return userpoints_get_vid();
+    }
+
 
 //    function scoga_get_current_team_nid(){
 //        return variable_get( SCOGA_SETTING_CURRENT_TEAM );
@@ -153,23 +233,34 @@
 //        variable_set( SCOGA_SETTING_CURRENT_TEAM, $value );
 //    }
 
+
+    /**
+     * @return int
+     */
+    //TODO: check if this was added to the settings admin page
     function scoga_get_credits_tid(){
-        $query =
-            " SELECT tid "
-                . "FROM {taxonomy_term_data} "
-                . "WHERE uuid = :uuid "
-        ;
-        $rows = db_query( $query, array(
-            ':uuid'          => SCOGA_CREDITS_UUID,
-        ) );
-
-        foreach( $rows as $row ){
-            return $row->tid;
-        }
-
-        return FALSE;
+        return SCOGA_SETTING_CREDITS_TID;
+    }
+    function scoga_set_credits_tid( $value ) {
+        variable_set( SCOGA_SETTING_CREDITS_TID, $value );
     }
 
+    /**
+     * @return int
+     */
+    //TODO: check if this was added to the settings admin page
+    function scoga_get_score_tid(){
+        return SCOGA_SETTING_SCORE_TID;
+    }
+    function scoga_set_score_tid( $value ){
+        variable_set( SCOGA_SETTING_SCORE_TID, $value );
+    }
+
+    /**
+     * @return int
+     */
+    //TODO: check if this was added to the settings admin page, then remove default value here
     function scoga_get_max_wishitem_credits(){
         return intval( variable_get( SCOGA_SETTING_MAX_WISHITEM_CREDIT, 10 ) );
     }
+
