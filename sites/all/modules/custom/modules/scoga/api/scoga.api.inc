@@ -23,39 +23,55 @@
         return $term;
     }
 
+
+//    /**
+//     * @param $machine_name
+//     *
+//     * @return array
+//     */
+//    function scoga_retrieve_terms_by_machinename( $machine_name ){
+//        $vocab = taxonomy_vocabulary_machine_name_load( $machine_name );
+//        $terms = taxonomy_get_tree( $vocab->vid, 0, NULL, TRUE );
+//        return $terms;
+//    }
+
+
     /**
+     *
      * @param $variable
      *
      * @return array|null|string
      */
     function scoga_validate_uint( $variable ){
         $value = $variable[ 'value' ];
-        if( ! is_numeric( $value ) || $value < 0 ){
+        if( ( ! is_numeric( $value ) ) || $value < 0 ){
             return t( 'The value is not an unsigned integer' );
         }
     }
 
-    /**
-     * @param        $uuid
-     * @param string $entity_type
-     *
-     * @return bool
-     */
-    function scoga_get_eid_by_uuid( $uuid, $entity_type = 'node' ){
-        $query = new EntityFieldQuery();
-        $result = $query
-            ->entityCondition( 'entity_type', $entity_type )
-            ->propertyCondition( 'uuid', $uuid )
-            ->range( 0, 1 )
-            ->execute();
-
-        $eids = array_keys( $result[ $entity_type ] );
-        if( $eids ){
-            return $eids[ 0 ];
-        }
-
-        return FALSE;
-    }
+//    /**
+//     *
+//     *
+//     * @param        $uuid
+//     * @param string $entity_type
+//     *
+//     * @return bool
+//     */
+//    function scoga_get_eid_by_uuid( $uuid, $entity_type = 'node' ){
+//        $query = new EntityFieldQuery();
+//        $result = $query
+//            ->entityCondition( 'entity_type', $entity_type )
+//            ->propertyCondition( 'uuid', $uuid )
+//            ->range( 0, 1 )
+//            ->execute();
+//
+//        $eids = array_keys( $result[ $entity_type ] );
+//        if( $eids ){
+//            return $eids[ 0 ];
+//        }
+//
+//        return FALSE;
+//    }
 
 
     /**
@@ -73,17 +89,6 @@
             return $output;
         }
         return $callback( $param );
-    }
-
-    /**
-     * @param $machine_name
-     *
-     * @return array
-     */
-    function scoga_retrieve_terms_by_machinename( $machine_name ){
-        $vocab = taxonomy_vocabulary_machine_name_load( $machine_name );
-        $terms = taxonomy_get_tree( $vocab->vid, 0, NULL, TRUE );
-        return $terms;
     }
 
     /**
@@ -119,7 +124,7 @@
      * $time = 1335443816; //Thu, 26 Apr 2012 12:36:56 GMT
      * //we want to know the next hour at the hour
      * $new_time = scoga_add_seconds_till_next_unit( $time, 60 * 60 );
-     * //$new_time is 1335448800 (Thu, 26 Apr 2012 14:00:00 GMT)
+     * //$new_time is 1335445200 (Thu, 26 Apr 2012 13:00:00 GMT)
      *
      * example 2:
      * $time = 1335443816; //Thu, 26 Apr 2012 12:36:56 GMT

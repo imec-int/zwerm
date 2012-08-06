@@ -1,0 +1,7 @@
+name = "SCOGA tests module"
+description = "Test module for SCOGA"
+core = 7.x
+package = SCOGA
+dependencies[] = scoga
+files[] = api/scoga.api.test
+;files[] = api/scoga.api.campaign.test

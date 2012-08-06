@@ -1,0 +1,16 @@
+<?php
+    /**
+     * Camille Reynders, http://www.creynders.be
+     * 06/08/12 - 10:56
+     */
+    class ScogaAPICampaignTest extends DrupalWebTestCase {
+        public function setUp() {
+        }
+        public function getInfo(){
+            return array(
+                'name'        => 'SCOGA Campaigns API test',
+                'description' => 'Test SCOGA campaigns API',
+                'group'       => 'SCOGA',
+            );
+        }
+    }

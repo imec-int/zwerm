@@ -1,0 +1,70 @@
+<?php
+    /**
+     * Camille Reynders, http://www.creynders.be
+     * 06/08/12 - 10:48
+     */
+    class ScogaAPITest extends DrupalWebTestCase {
+        public function setUp() {
+            parent::setUp( 'scoga' );
+        }
+
+        public function getInfo(){
+            return array(
+                'name' => 'SCOGA API test',
+                'description' => 'Test global SCOGA API functionality',
+                'group' => 'SCOGA',
+            );
+        }
+
+        private function createVocabulary(){
+            $machine_name ='test_vocab';
+
+            $vocabulary = new stdClass();
+            $vocabulary->name = 'test vocab';
+            $vocabulary->machine_name = $machine_name;
+            taxonomy_vocabulary_save( $vocabulary );
+
+            return taxonomy_vocabulary_machine_name_load( $machine_name);
+        }
+
+        public function test_scoga_create_term(){
+            $vocabulary = $this->createVocabulary();
+
+            $name = 'test term';
+            $saved_term = scoga_create_term( $vocabulary->vid, $name );
+
+            //assert it returns correct object
+
+            $this->assertIdentical( $saved_term->name, $name );
+            $this->assertNotNull( $saved_term->tid, 'tid should be auto-populated' );
+
+            //assert it was correctly saved into DB
+
+            $loaded_term = taxonomy_term_load( $saved_term->tid );
+            $this->assertIdentical( $saved_term->name, $loaded_term->name );
+            $this->assertIdentical( $saved_term->tid, $loaded_term->tid );
+
+        }
+
+        public function test_scoga_validate_uint(){
+            $variable = array();
+            $error_message = 'The value is not an unsigned integer';
+
+            $variable[ 'value' ] = -1;
+            $this->assertIdentical( scoga_validate_uint( $variable ), $error_message, 'should return error for negative values' );
+
+            $variable[ 'value' ] = 'foo';
+            $this->assertIdentical( scoga_validate_uint( $variable ), $error_message, 'should return error for alhabetic values' );
+
+            $variable[ 'value' ] = 1;
+            $this->assertNull( scoga_validate_uint( $variable ), 'should return null for unsinged integers' );
+        }
+
+        public function test_scoga_add_seconds_till_next_unit(){
+            $new_time = scoga_add_seconds_till_next_unit( 1335443816, 60 * 60 );
+            $this->assertIdentical( 1335445200, $new_time, 'should return next full hour' );
+
+            $new_time = scoga_add_seconds_till_next_unit( 1335443816, 60 );
+            $this->assertIdentical( 1335443820, $new_time, 'should return next full minute' );
+        }
+    }
