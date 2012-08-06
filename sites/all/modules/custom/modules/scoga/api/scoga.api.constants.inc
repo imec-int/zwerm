@@ -17,16 +17,17 @@
     define( 'SCOGA_SETTING_CHECKIN_COOLDOWN',                   'scoga_settings_checkin_cooldown' );
     define( 'SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME',             'scoga_settings_combocheckin_timeframe' );
     define( 'SCOGA_SETTING_DEFAULT_USERNAME',                   'scoga_settings_default_username' );
-    define( 'SCOGA_SETTING_CURRENT_CAMPAIGN_NID',               'scoga_settings_current_campaign_nid' );
-    define( 'SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL',    'scoga_settings_determine_campaign_cron_interval' );
-    define( 'SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION',   'scoga_settings_determine_campaign_next_execution' );
     define( 'SCOGA_SETTING_DEFAULT_CREDITS',                    'scoga_settings_default_credits' );
-    define( 'SCOGA_SETTING_CURRENT_TEAM',                       'scoga_settings_current_team' );
-    define( 'SCOGA_SETTING_NEXT_PLAYER_ID',                     'scoga_settings_next_player_id');
+    define( 'SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL',    'scoga_settings_determine_campaign_cron_interval' );
     define( 'SCOGA_SETTING_MAX_WISHITEM_CREDIT',                'scoga_setting_max_wishitem_credit' );
+
     define( 'SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID',          'scoga_setting_current_combocheckin_rtid' );
     define( 'SCOGA_SETTING_CREDITS_TID',                        'scoga_setting_credits_tid' );
     define( 'SCOGA_SETTING_SCORE_TID',                          'scoga_setting_score_tid' );
+    define( 'SCOGA_SETTING_CURRENT_TEAM',                       'scoga_settings_current_team' );
+    define( 'SCOGA_SETTING_NEXT_PLAYER_ID',                     'scoga_settings_next_player_id');
+    define( 'SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION',   'scoga_settings_determine_campaign_next_execution' );
+    define( 'SCOGA_SETTING_CURRENT_CAMPAIGN_NID',               'scoga_settings_current_campaign_nid' );
 
     //--( PERMISSIONS )--//
 

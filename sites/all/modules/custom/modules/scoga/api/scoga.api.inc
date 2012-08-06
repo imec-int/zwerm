@@ -237,7 +237,6 @@
     /**
      * @return int
      */
-    //TODO: check if this was added to the settings admin page
     function scoga_get_credits_tid(){
         return SCOGA_SETTING_CREDITS_TID;
     }
@@ -248,7 +247,6 @@
     /**
      * @return int
      */
-    //TODO: check if this was added to the settings admin page
     function scoga_get_score_tid(){
         return SCOGA_SETTING_SCORE_TID;
     }
@@ -259,7 +257,6 @@
     /**
      * @return int
      */
-    //TODO: check if this was added to the settings admin page, then remove default value here
     function scoga_get_max_wishitem_credits(){
         return intval( variable_get( SCOGA_SETTING_MAX_WISHITEM_CREDIT, 10 ) );
     }
