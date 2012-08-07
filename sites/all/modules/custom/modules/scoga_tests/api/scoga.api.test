@@ -1,19 +1,25 @@
 <?php
 
 
+
+    /* ***********************************************************************************************/
+    /* THIS TEST RUNS ON LIVE DATA -- testing otherwise impossible due to ridiculous execution times */
+    /* DO NOT ENABLE ON PRODUCTION SITE                                                              */
+    /* ***********************************************************************************************/
+
+
+
     /**
+     * THIS TEST RUNS ON LIVE DATA -- testing otherwise impossible due to ridiculous execution times
+     * DO NOT ENABLE ON PRODUCTION SITE
+     *
      * Camille Reynders, http://www.creynders.be
      * 06/08/12 - 10:48
      */
-    class ScogaAPITest extends DrupalWebTestCase {
+    class ScogaAPITest extends FunctionalTest {
 
         const TEST_NODETYPE = 'test_nodetype';
-
-        public function setUp() {
-            parent::setUp( 'scoga' );
-
-//            $this->createTestNodeType();
-        }
+        const TEST_VOCABULARY = 'test_vocab';
 
         public function getInfo(){
             return array(
@@ -23,6 +29,11 @@
             );
         }
 
+        public function setUp() {
+            parent::setUp( 'scoga' );
+        }
+
+
         private function createTestNodeType(){
             $name = self::TEST_NODETYPE;
             $settings = array(
@@ -30,6 +41,10 @@
                 'name' => $name,
             );
             return $this->drupalCreateContentType( $settings );
+        }
+
+        private function deleteTestNodeType(){
+            node_type_delete( self::TEST_NODETYPE );
         }
 
         private function createTestNode( $title = 'test node' ){
@@ -41,19 +56,23 @@
             return $this->drupalCreateNode( $node_options );
         }
 
-        private function createVocabulary(){
-            $machine_name ='test_vocab';
+        private function createTestVocabulary(){
+            $machine_name = self::TEST_VOCABULARY;
 
             $vocabulary = new stdClass();
-            $vocabulary->name = 'test vocab';
+            $vocabulary->name = $machine_name;
             $vocabulary->machine_name = $machine_name;
             taxonomy_vocabulary_save( $vocabulary );
 
             return taxonomy_vocabulary_machine_name_load( $machine_name);
         }
 
+        private function deleteTestVocabulary( $vid ){
+            taxonomy_vocabulary_delete( $vid );
+        }
+
         public function test_scoga_create_term(){
-            $vocabulary = $this->createVocabulary();
+            $vocabulary = $this->createTestVocabulary();
 
             $name = 'test term';
             $saved_term = scoga_create_term( $vocabulary->vid, $name );
@@ -68,6 +87,9 @@
             $loaded_term = taxonomy_term_load( $saved_term->tid );
             $this->assertIdentical( $saved_term->name, $loaded_term->name );
             $this->assertIdentical( $saved_term->tid, $loaded_term->tid );
+
+            //clean up
+            $this->deleteTestVocabulary( $vocabulary->vid );
 
         }
 
@@ -125,17 +147,22 @@
         public function test_get_field_value(){
             $body = 'Lorem ipsum';
 
+            //setup
             $this->createTestNodeType();
-            $created_node = $this->createTestNode();
-            $this->verbose( var_export( $created_node, TRUE ) );
+
+            //node created and retrieved with default
+            $created_node = $this->createTestNode( 'test_get_field_value node 1' );
             scoga_set_field_value( $created_node, 'body', $body );
             node_save( $created_node );
 
             $loaded_node = node_load( $created_node->nid );
             $value = scoga_get_field_value( $loaded_node, 'body' );
-            $this->verbose( var_export( $value, TRUE ) );
 
             $this->assertIdentical( $body, $value );
+
+            //teardown
+            node_delete( $created_node->nid );
+            $this->deleteTestNodeType();
 
         }
 

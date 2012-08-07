@@ -47,9 +47,7 @@
             'langcode'      => LANGUAGE_NONE,
             'delta'         => 0,
         );
-        $entity->{$field_name}[ $options[ 'langcode' ] ][ $options[ 'delta' ] ] = array(
-            $options[ 'field_column' ] => $value
-        );
+        $entity->{$field_name}[ $options[ 'langcode' ] ][ $options[ 'delta' ] ][ $options[ 'field_column' ] ] = $value;
         return $entity;
     }
 

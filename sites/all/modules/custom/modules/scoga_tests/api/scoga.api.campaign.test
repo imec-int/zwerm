@@ -3,16 +3,20 @@
      * Camille Reynders, http://www.creynders.be
      * 06/08/12 - 10:56
      */
-    class ScogaAPICampaignTest extends DrupalWebTestCase {
-        public function setUp() {
-            parent::setUp( 'scoga' );
-        }
+
+    module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+
+    class ScogaAPICampaignTest extends FunctionalTest {
         public function getInfo(){
             return array(
                 'name'        => 'SCOGA Campaigns API test',
                 'description' => 'Test SCOGA campaigns API',
                 'group'       => 'SCOGA',
             );
+        }
+
+        public function setUp() {
+            parent::setUp( 'scoga' );
         }
 
         private function createCampaignNode(){
@@ -25,14 +29,42 @@
             return $node;
         }
 
-//        public function test_scoga_create_campaign_vo(){
-//            module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
-//
-//            $node = $this->createCampaignNode();
-//            $this->verbose( 'Node created: ' . var_export( $node, TRUE ) );
-//            $vo = scoga_create_campaign_vo( $node );
-//            $this->verbose( 'VO created: ' . var_export( $vo, TRUE ) );
-//
-//            $this->assertNotNull( $vo );
-//        }
+        public function test_scoga_create_campaign_vo(){
+
+            //setup
+
+            $created_node = $this->createCampaignNode();
+            scoga_set_field_value( $created_node, 'field_campaign_period', 1344339900, array( 'field_column' => 'value' ));
+            scoga_set_field_value( $created_node, 'field_campaign_period', 1344771900, array( 'field_column' => 'value2' ) );
+            node_save( $created_node );
+
+            //tests
+            $vo = scoga_create_campaign_vo( $created_node );
+            $this->assertNotNull( $vo, 'should not be null' );
+            $this->assertTrue( $vo instanceof Campaign, 'should be of type Campaign' );
+            $this->assertIdentical( $vo->nid, $created_node->nid );
+            $this->assertIdentical( $vo->title, $created_node->title );
+
+            //teardown
+            node_delete( $created_node->nid );
+        }
+
+        public function test_scoga_get_campaign_vo_by_nid(){
+
+            //setup
+            $created_node = $this->createCampaignNode();
+            scoga_set_field_value( $created_node, 'field_campaign_period', 1344339900, array( 'field_column' => 'value' ));
+            scoga_set_field_value( $created_node, 'field_campaign_period', 1344771900, array( 'field_column' => 'value2' ) );
+            node_save( $created_node );
+
+            //tests
+            $vo = scoga_get_campaign_vo_by_nid( $created_node->nid );
+            $this->assertNotNull( $vo, 'should not be null' );
+            $this->assertTrue( $vo instanceof Campaign, 'should be of type Campaign' );
+            $this->assertIdentical( $vo->nid, $created_node->nid );
+            $this->assertIdentical( $vo->title, $created_node->title );
+
+            //teardown
+            node_delete( $created_node->nid );
+        }
     }
