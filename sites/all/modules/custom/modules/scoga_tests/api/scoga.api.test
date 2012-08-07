@@ -1,9 +1,14 @@
 <?php
+
+
     /**
      * Camille Reynders, http://www.creynders.be
      * 06/08/12 - 10:48
      */
     class ScogaAPITest extends DrupalWebTestCase {
+
+        const TEST_NODETYPE = 'test_nodetype';
+
         public function setUp() {
             parent::setUp( 'scoga' );
 
@@ -18,23 +23,23 @@
             );
         }
 
-//        private function createTestNodeType(){
-//            $name = 'test nodetype';
-//            $settings = array(
-//                'type' => $name,
-//                'name' => $name,
-//            );
-//            $this->drupalCreateContentType( $settings );
-//        }
+        private function createTestNodeType(){
+            $name = self::TEST_NODETYPE;
+            $settings = array(
+                'type' => $name,
+                'name' => $name,
+            );
+            return $this->drupalCreateContentType( $settings );
+        }
 
-//        private function createTestNode(){
-//            $node_options = array(
-//                'type' => 'page',
-//                'title' => 'test node'
-//            );
-//
-//            return $this->drupalCreateNode( $node_options );
-//        }
+        private function createTestNode( $title = 'test node' ){
+            $node_options = array(
+                'type' => self::TEST_NODETYPE,
+                'title' => $title
+            );
+
+            return $this->drupalCreateNode( $node_options );
+        }
 
         private function createVocabulary(){
             $machine_name ='test_vocab';
@@ -117,7 +122,22 @@
 
         }
 
-//        public function test_get_field_value(){
-//
-//        }
+        public function test_get_field_value(){
+            $body = 'Lorem ipsum';
+
+            $this->createTestNodeType();
+            $created_node = $this->createTestNode();
+            $this->verbose( var_export( $created_node, TRUE ) );
+            scoga_set_field_value( $created_node, 'body', $body );
+            node_save( $created_node );
+
+            $loaded_node = node_load( $created_node->nid );
+            $value = scoga_get_field_value( $loaded_node, 'body' );
+            $this->verbose( var_export( $value, TRUE ) );
+
+            $this->assertIdentical( $body, $value );
+
+        }
+
+
     }

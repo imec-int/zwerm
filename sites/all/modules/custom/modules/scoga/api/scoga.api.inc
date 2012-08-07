@@ -19,28 +19,16 @@
      * @return mixed
      */
     function scoga_get_field_value(  $entity, $field_name, $options = array() ){
-        //$field_column = 'value', $entity_type = 'node', $langcode = NULL
-        $field_column = isset( $options[ 'field_column' ] )
-            ? $options[ 'field_column' ]
-            : 'value'
-        ;
-        $langcode = isset( $options[ 'langcode' ] )
-            ? $options[ 'langcode' ]
-            : LANGUAGE_NONE
-        ;
-        $delta = isset( $options[ 'delta' ] )
-            ? $options[ 'delta' ]
-            : 0
-        ;
-        $entity_type = isset( $options[ 'entity_type' ] )
-            ? $options[ 'entity_type' ]
-            : 'node'
-        ;
-
-        $values = field_get_items( $entity_type, $entity, $field_name, $langcode );
+        $options += array(
+            'field_column'  => 'value',
+            'langcode'      => LANGUAGE_NONE,
+            'delta'         => 0,
+            'entity_type'   => 'node',
+        );
+        $values = field_get_items( $options[ 'entity_type' ], $entity, $field_name, $options[ 'langcode' ] );
 
         if( $values ){
-            return $values[ $delta ][ $field_column ];
+            return $values[ $options[ 'delta' ] ][ $options[ 'field_column' ] ];
         }
     }
 
@@ -54,20 +42,13 @@
      * @param array $options
      */
     function scoga_set_field_value( $entity, $field_name, $value, $options = array() ){
-        $field_column = isset( $options[ 'field_column' ] )
-            ? $options[ 'field_column' ]
-            : 'value'
-        ;
-        $langcode = isset( $options[ 'langcode' ] )
-            ? $options[ 'langcode' ]
-            : LANGUAGE_NONE
-        ;
-        $delta = isset( $options[ 'delta' ] )
-            ? $options[ 'delta' ]
-            : 0
-        ;
-        $entity->{$field_name}[ $langcode ][ $delta ] = array(
-            $field_column => $value
+        $options += array(
+            'field_column'  => 'value',
+            'langcode'      => LANGUAGE_NONE,
+            'delta'         => 0,
+        );
+        $entity->{$field_name}[ $options[ 'langcode' ] ][ $options[ 'delta' ] ] = array(
+            $options[ 'field_column' ] => $value
         );
         return $entity;
     }
