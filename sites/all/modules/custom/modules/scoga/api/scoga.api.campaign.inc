@@ -8,18 +8,18 @@
      */
 
 
-    function scoga_get_campaign_vos_by_UUIDs( $campaign_UUIDs ){
-        return scoga_get_output( $campaign_UUIDs, 'scoga_get_campaign_vo_by_UUID' );
-    }
-
-    function scoga_get_campaign_vo_by_UUID( $campaign_UUID ){
-        $campaign_nid = scoga_get_eid_by_uuid( $campaign_UUID );
-        if( $campaign_nid ){
-            return scoga_get_campaign_vo_by_nid( $campaign_nid );
-        }
-
-        return FALSE;
-    }
+//    function scoga_get_campaign_vos_by_UUIDs( $campaign_UUIDs ){
+//        return scoga_get_output( $campaign_UUIDs, 'scoga_get_campaign_vo_by_UUID' );
+//    }
+//
+//    function scoga_get_campaign_vo_by_UUID( $campaign_UUID ){
+//        $campaign_nid = scoga_get_eid_by_uuid( $campaign_UUID );
+//        if( $campaign_nid ){
+//            return scoga_get_campaign_vo_by_nid( $campaign_nid );
+//        }
+//
+//        return FALSE;
+//    }
 
     function scoga_get_campaign_vos_by_nids( $campaign_nids ){
         return scoga_get_output( $campaign_nids, 'scoga_get_campaign_vo_by_nid' );

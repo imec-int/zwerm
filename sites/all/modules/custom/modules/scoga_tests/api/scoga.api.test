@@ -6,6 +6,8 @@
     class ScogaAPITest extends DrupalWebTestCase {
         public function setUp() {
             parent::setUp( 'scoga' );
+
+//            $this->createTestNodeType();
         }
 
         public function getInfo(){
@@ -15,6 +17,24 @@
                 'group' => 'SCOGA',
             );
         }
+
+//        private function createTestNodeType(){
+//            $name = 'test nodetype';
+//            $settings = array(
+//                'type' => $name,
+//                'name' => $name,
+//            );
+//            $this->drupalCreateContentType( $settings );
+//        }
+
+//        private function createTestNode(){
+//            $node_options = array(
+//                'type' => 'page',
+//                'title' => 'test node'
+//            );
+//
+//            return $this->drupalCreateNode( $node_options );
+//        }
 
         private function createVocabulary(){
             $machine_name ='test_vocab';
@@ -67,4 +87,37 @@
             $new_time = scoga_add_seconds_till_next_unit( 1335443816, 60 );
             $this->assertIdentical( 1335443820, $new_time, 'should return next full minute' );
         }
+
+        public function test_set_field_value(){
+
+            //w/o options
+            $node = scoga_set_field_value( new stdClass(), 'test_field', 'foo' );
+            $this->assertIdentical( $node->test_field[ LANGUAGE_NONE ][ 0 ][ 'value' ], 'foo' );
+
+            //for different column
+            $options = array(
+                'field_column' => 'foo_column',
+            );
+            $node = scoga_set_field_value( new stdClass(), 'test_field', 'foo', $options );
+            $this->assertIdentical( $node->test_field[ LANGUAGE_NONE ][ 0 ][ $options[ 'field_column' ] ], 'foo' );
+
+            //for different language
+            $options = array(
+                'langcode' => 'NL',
+            );
+            $node = scoga_set_field_value( new stdClass(), 'test_field', 'foo', $options );
+            $this->assertIdentical( $node->test_field[ $options[ 'langcode' ] ][ 0 ][ 'value' ], 'foo' );
+
+            //for different delta
+            $options = array(
+                'delta' => 99,
+            );
+            $node = scoga_set_field_value( new stdClass(), 'test_field', 'foo', $options );
+            $this->assertIdentical( $node->test_field[ LANGUAGE_NONE ][ $options[ 'delta' ] ][ 'value' ], 'foo' );
+
+        }
+
+//        public function test_get_field_value(){
+//
+//        }
     }

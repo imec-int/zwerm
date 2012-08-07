@@ -9,6 +9,70 @@
      */
 
     /**
+     * Syntactic sugar for retrieving a value from a field.
+     * Retrieves from following structure:
+     * <code>$entity->{$field_name}[ $langcode ][ $delta ][ $field_column ]</code>
+     * @param      $entity
+     * @param      $field_name
+     * @param array $options
+     *
+     * @return mixed
+     */
+    function scoga_get_field_value(  $entity, $field_name, $options = array() ){
+        //$field_column = 'value', $entity_type = 'node', $langcode = NULL
+        $field_column = isset( $options[ 'field_column' ] )
+            ? $options[ 'field_column' ]
+            : 'value'
+        ;
+        $langcode = isset( $options[ 'langcode' ] )
+            ? $options[ 'langcode' ]
+            : LANGUAGE_NONE
+        ;
+        $delta = isset( $options[ 'delta' ] )
+            ? $options[ 'delta' ]
+            : 0
+        ;
+        $entity_type = isset( $options[ 'entity_type' ] )
+            ? $options[ 'entity_type' ]
+            : 'node'
+        ;
+
+        $values = field_get_items( $entity_type, $entity, $field_name, $langcode );
+
+        if( $values ){
+            return $values[ $delta ][ $field_column ];
+        }
+    }
+
+    /**
+     * Doesn't access the real entity system. Is a simple object formatting function.
+     * Stores value in
+     * <code>$entity->{$field_name}[ $langcode ][ $delta ][ $field_column ]</code>
+     * @param      $entity
+     * @param      $field_name
+     * @param      $value
+     * @param array $options
+     */
+    function scoga_set_field_value( $entity, $field_name, $value, $options = array() ){
+        $field_column = isset( $options[ 'field_column' ] )
+            ? $options[ 'field_column' ]
+            : 'value'
+        ;
+        $langcode = isset( $options[ 'langcode' ] )
+            ? $options[ 'langcode' ]
+            : LANGUAGE_NONE
+        ;
+        $delta = isset( $options[ 'delta' ] )
+            ? $options[ 'delta' ]
+            : 0
+        ;
+        $entity->{$field_name}[ $langcode ][ $delta ] = array(
+            $field_column => $value
+        );
+        return $entity;
+    }
+
+    /**
      * @param $vid
      * @param $term_name
      *

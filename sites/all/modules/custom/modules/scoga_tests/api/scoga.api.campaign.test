@@ -5,6 +5,7 @@
      */
     class ScogaAPICampaignTest extends DrupalWebTestCase {
         public function setUp() {
+            parent::setUp( 'scoga' );
         }
         public function getInfo(){
             return array(
@@ -13,4 +14,25 @@
                 'group'       => 'SCOGA',
             );
         }
+
+        private function createCampaignNode(){
+            $node_options = array(
+                'type' => SCOGA_CAMPAIGN_NODETYPE,
+                'title' => $this->randomName( 32 ),
+            );
+            $node = $this->drupalCreateNode( $node_options );
+
+            return $node;
+        }
+
+//        public function test_scoga_create_campaign_vo(){
+//            module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+//
+//            $node = $this->createCampaignNode();
+//            $this->verbose( 'Node created: ' . var_export( $node, TRUE ) );
+//            $vo = scoga_create_campaign_vo( $node );
+//            $this->verbose( 'VO created: ' . var_export( $vo, TRUE ) );
+//
+//            $this->assertNotNull( $vo );
+//        }
     }
