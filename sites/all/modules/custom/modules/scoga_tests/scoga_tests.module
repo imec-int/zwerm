@@ -6,5 +6,5 @@
  */
 
     function scoga_tests_node_insert( $node ){
-        dd( $node, 'NODE CREATED !!' );
+        //dd( $node, 'NODE CREATED !!' );
     }

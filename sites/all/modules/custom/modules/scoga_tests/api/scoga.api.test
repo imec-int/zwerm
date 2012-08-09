@@ -1,6 +1,6 @@
 <?php
 
-
+    module_load_include('test', 'simpletest_clone');
 
     /* ***********************************************************************************************/
     /* THIS TEST RUNS ON LIVE DATA -- testing otherwise impossible due to ridiculous execution times */
@@ -10,13 +10,11 @@
 
 
     /**
-     * THIS TEST RUNS ON LIVE DATA -- testing otherwise impossible due to ridiculous execution times
-     * DO NOT ENABLE ON PRODUCTION SITE
      *
      * Camille Reynders, http://www.creynders.be
      * 06/08/12 - 10:48
      */
-    class ScogaAPITest extends FunctionalTest {
+    class ScogaAPITest extends UnitTest{
 
         const TEST_NODETYPE = 'test_nodetype';
         const TEST_VOCABULARY = 'test_vocab';

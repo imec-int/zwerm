@@ -67,4 +67,33 @@
             //teardown
             node_delete( $created_node->nid );
         }
+
+        public function test_scoga_get_campaign_for_time(){
+
+            $now = time();
+
+            //setup
+            $created_node = $this->createCampaignNode();
+
+            //should return nid if found
+            scoga_set_field_value( $created_node, 'field_campaign_period', $now - ( 60 * 60 ), array( 'field_column' => 'value' ));
+            scoga_set_field_value( $created_node, 'field_campaign_period', $now + ( 60 * 60 ), array( 'field_column' => 'value2' ) );
+            node_save( $created_node );
+            $nid = scoga_get_campaign_nid_for_time( $now );
+
+            $this->assertNotNull( $nid );
+            $this->assertIdentical( $created_node->nid, $nid );
+
+            //should return -1 if no nodes found
+            scoga_set_field_value( $created_node, 'field_campaign_period', $now - ( 60 * 60 ), array( 'field_column' => 'value' ));
+            scoga_set_field_value( $created_node, 'field_campaign_period', $now - ( 60 * 1 ), array( 'field_column' => 'value2' ) );
+            node_save( $created_node );
+            $nid = scoga_get_campaign_nid_for_time( $now );
+
+            $this->assertNotNull( $nid );
+            $this->assertTrue( $nid < 0 );
+
+            //teardown
+            node_delete( $created_node->nid );
+        }
     }
