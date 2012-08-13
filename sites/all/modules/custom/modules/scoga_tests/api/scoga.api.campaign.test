@@ -6,7 +6,7 @@
 
     module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
 
-    class ScogaAPICampaignTest extends FunctionalTest {
+    class ScogaAPICampaignTestCase extends UnitTestCase {
         public function getInfo(){
             return array(
                 'name'        => 'SCOGA Campaigns API test',
@@ -16,7 +16,7 @@
         }
 
         public function setUp() {
-            parent::setUp( 'scoga' );
+            parent::setUp( array( 'scoga', 'scoga_feature' ) );
         }
 
         private function createCampaignNode(){
@@ -53,11 +53,11 @@
 
             //setup
             $created_node = $this->createCampaignNode();
+
+            //test it should return a campaing VO with correct values
             scoga_set_field_value( $created_node, 'field_campaign_period', 1344339900, array( 'field_column' => 'value' ));
             scoga_set_field_value( $created_node, 'field_campaign_period', 1344771900, array( 'field_column' => 'value2' ) );
             node_save( $created_node );
-
-            //tests
             $vo = scoga_get_campaign_vo_by_nid( $created_node->nid );
             $this->assertNotNull( $vo, 'should not be null' );
             $this->assertTrue( $vo instanceof Campaign, 'should be of type Campaign' );
@@ -69,6 +69,7 @@
         }
 
         public function test_scoga_get_campaign_for_time(){
+            $this->verbose( 'test_scoga_get_campaign_for_time' );
 
             $now = time();
 

@@ -3,7 +3,7 @@
      * Camille Reynders, http://www.creynders.be
      * 07/08/12 - 14:50
      */
-    class FunctionalTest extends DrupalWebTestCase{
+    class FunctionalTestCase extends DrupalWebTestCase{
         public function setUp( $modulename ) {
             $this->setup = TRUE;
         }

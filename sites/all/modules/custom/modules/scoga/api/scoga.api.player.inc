@@ -9,6 +9,17 @@
 
     require_once 'includes/password.inc';
 
+    class Player{
+        public $uid = '-1';
+        public $username = '';
+        public $registered;
+        public $team_nid;
+        public $firstname;
+        public $surname;
+        public $avatar_url;
+        public $points;
+    }
+
     function scoga_get_player_uids_by_team_nid( $team_nid, $negate = FALSE ){
         $query = new EntityFieldQuery();
         $entity_type = 'user';
@@ -22,23 +33,23 @@
         return $uids;
     }
 
-    function scoga_get_player_vos_by_UUIDs( $player_UUIDs ){
-        return scoga_get_output( $player_UUIDs, 'scoga_get_player_vo_by_UUID' );
-    }
-
-    /**
-     * @param $player_UUID String UUID for the player entity
-     *
-     * @return array
-     */
-    function scoga_get_player_vo_by_UUID( $player_UUID ){
-        $player_uid = scoga_get_eid_by_uuid( $player_UUID, 'user' );
-        if( $player_uid ){
-            return scoga_get_player_vo_by_uid( $player_uid );
-        }
-
-        return FALSE;
-    }
+//    function scoga_get_player_vos_by_UUIDs( $player_UUIDs ){
+//        return scoga_get_output( $player_UUIDs, 'scoga_get_player_vo_by_UUID' );
+//    }
+//
+//    /**
+//     * @param $player_UUID String UUID for the player entity
+//     *
+//     * @return array
+//     */
+//    function scoga_get_player_vo_by_UUID( $player_UUID ){
+//        $player_uid = scoga_get_eid_by_uuid( $player_UUID, 'user' );
+//        if( $player_uid ){
+//            return scoga_get_player_vo_by_uid( $player_uid );
+//        }
+//
+//        return FALSE;
+//    }
 
     /**
      * retrieve a list of player VO's
@@ -121,22 +132,25 @@
      * @return array
      */
     function scoga_create_player_vo( $player_entity ){
-        $registered_values = field_get_items( 'user', $player_entity, 'field_user_registered' );
-        $team_nid_values = field_get_items( 'user', $player_entity, 'field_user_team' );
-        $firstname_values =field_get_items( 'user', $player_entity, 'field_user_firstname' );
-        $surname_values = field_get_items( 'user', $player_entity, 'field_user_surname' );
-        $image = ( $player_entity->picture ) ? $player_entity->picture->uri : '';
-        $output = array(
-            'uid'           => $player_entity->uid,
-            'username'      => $player_entity->name,
-            'uuid'          => $player_entity->uuid,
-            'registered'    => $registered_values[ 0 ][ 'value' ],
-            'team_nid'      => $team_nid_values[ 0 ][ 'target_id' ],
-            'firstname'     => $firstname_values[ 0 ][ 'value' ],
-            'surname'       => $surname_values[ 0 ][ 'value' ],
-            'avatar_url'    => image_style_url( 'avatar_pinhead', $image ),
-            'points'        => userpoints_get_current_points( $player_entity->uid ),
-        );
+        $registered_values  = field_get_items( 'user', $player_entity, 'field_user_registered' );
+        $team_nid_values    = field_get_items( 'user', $player_entity, 'field_user_team' );
+        $firstname_values   = field_get_items( 'user', $player_entity, 'field_user_firstname' );
+        $surname_values     = field_get_items( 'user', $player_entity, 'field_user_surname' );
+
+        $image = ( $player_entity->picture )
+            ? $player_entity->picture->uri
+            : '';
+
+        $output = new Player();
+        $output->avatar_url     = image_style_url( 'avatar_pinhead', $image );
+        $output->firstname      = $firstname_values[ 0 ][ 'value' ];
+        $output->points         = userpoints_get_current_points( $player_entity->uid );
+        $output->registered     = $registered_values[ 0 ][ 'value' ];
+        $output->surname        = $surname_values[ 0 ][ 'value' ];
+        $output->team_nid       = $team_nid_values[ 0 ][ 'target_id' ];
+        $output->username       = $player_entity->name;
+        $output->uid            = $player_entity->uid;
+
         return $output;
     }
 
@@ -165,23 +179,18 @@
             2 => 'authenticated user',
             SCOGA_PLAYER_ROLE => 'player'
         );
-        $user_profile->field_card_id[ $lang ][ 0 ] = array(
-            'value' => $card_id
-        );
-        $user_profile->field_user_firstname[ $lang ][ 0 ] = array(
-            'value' => scoga_get_default_username()
-        );
-        $user_profile->field_user_surname[ $lang ][ 0 ] = array(
-            'value' => $player_id
-        );
-        $user_profile->field_user_registered[ $lang ][ 0 ] = array(
-            'value' => 1
-        );
         $user_profile->pass = user_hash_password( substr( $card_id, -4, 4 ) );
         $user_profile->is_new = TRUE;
+
+        scoga_set_field_value( $user_profile, 'field_card_id', $card_id );
+        scoga_set_field_value( $user_profile, 'field_user_firstname', scoga_get_default_username() );
+        scoga_set_field_value( $user_profile, 'field_user_surname', $player_id );
+        scoga_set_field_value( $user_profile, 'field_user_registered', 1 );
+
         $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
             'target_id' => $team_nid
         );
+
         $user_account = user_save( $user_profile );
         return $user_account;
     }
@@ -247,26 +256,26 @@
         return user_load_multiple( scoga_get_all_player_uids() );
     }
 
-    function scoga_assign_random_teams_to_players(){
-        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
-        $team_nids = scoga_get_team_nids();
-        $team_count = count( $team_nids );
-        $player_uids = scoga_get_all_player_uids();
-
-        //[!] not a typical for-loop, but a counter is needed
-        for( $i=0; count( $player_uids ) > 0; $i++ ){
-            $player_index = rand( 0, count( $player_uids ) - 1 );
-            $values = array_splice( $player_uids, $player_index, 1 );
-            $uid = $values[ 0 ];
-            $team_index = $i % $team_count;
-            $team_nid = $team_nids[ $team_index ];
-            $account = user_load( $uid );
-            $account->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
-                'target_id' => $team_nid
-            );
-            user_save( $account );
-        }
-    }
+//    function scoga_assign_random_teams_to_players(){
+//        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+//        $team_nids = scoga_get_team_nids();
+//        $team_count = count( $team_nids );
+//        $player_uids = scoga_get_all_player_uids();
+//
+//        //[!] not a typical for-loop, but a counter is needed
+//        for( $i=0; count( $player_uids ) > 0; $i++ ){
+//            $player_index = rand( 0, count( $player_uids ) - 1 );
+//            $values = array_splice( $player_uids, $player_index, 1 );
+//            $uid = $values[ 0 ];
+//            $team_index = $i % $team_count;
+//            $team_nid = $team_nids[ $team_index ];
+//            $account = user_load( $uid );
+//            $account->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
+//                'target_id' => $team_nid
+//            );
+//            user_save( $account );
+//        }
+//    }
 
     function scoga_reset_user_relationships(){
         db_query('TRUNCATE {user_relationships}');

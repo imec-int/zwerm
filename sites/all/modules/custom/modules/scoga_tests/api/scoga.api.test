@@ -14,7 +14,7 @@
      * Camille Reynders, http://www.creynders.be
      * 06/08/12 - 10:48
      */
-    class ScogaAPITest extends UnitTest{
+    class ScogaAPITestCase extends UnitTestCase{
 
         const TEST_NODETYPE = 'test_nodetype';
         const TEST_VOCABULARY = 'test_vocab';

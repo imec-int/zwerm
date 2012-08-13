@@ -82,9 +82,15 @@
      * @return int
      */
     function scoga_get_cooldown_timestamp_by_player_uid( $uid ){
+        $checkin_time = scoga_get_last_checkintime_of_player( $uid );
+        return ( $checkin_time )
+            ? $checkin_time + scoga_get_checkin_cooldown()
+            : 0;
+    }
+
+    function scoga_get_last_checkintime_of_player( $uid ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
-
 
         //get last swipe
         $result = $query
@@ -96,16 +102,16 @@
             ->execute();
 
         $nids = array_keys( $result[ $entity_type ] );
-
         if( $nids ){
             $node = node_load( $nids[ 0 ] );
-            return intval( $node->created ) + scoga_get_checkin_cooldown();
+            return intval( $node->created );
         }
 
-        return 0;
+        return FALSE;
     }
 
-    function scoga_get_checkin_node_by_index( $from, $order = 'DESC' ){
+
+    function scoga_get_checkin_node_by_index( $index, $order = 'DESC' ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
         //get last checkin
@@ -113,7 +119,7 @@
             ->entityCondition( 'entity_type', $entity_type )
             ->entityCondition( 'bundle', SCOGA_CHECKIN_NODETYPE )
             ->propertyOrderBy( 'created', $order )
-            ->range( $from, 1 )
+            ->range( $index, 1 )
             ->execute();
 
         $nids = array_keys( $result[ $entity_type ] );
@@ -127,8 +133,7 @@
 
         $lang = LANGUAGE_NONE;
 
-        $user_registered_values = field_get_items( 'user', $user_account, 'field_user_registered' );
-        $user_registered_raw = ( $user_registered_values ) ? $user_registered_values[ 0 ][ 'value' ] : "0";
+        $user_registered_raw = scoga_get_field_value( $user_account, 'field_user_registered', array( 'entity_type' => 'user' ) ) ;
 
         $checkin_node = new stdClass();
         $checkin_node->type = SCOGA_CHECKIN_NODETYPE;
@@ -138,7 +143,6 @@
 
         //required fields
         $checkin_node->uid = $user_account->uid;
-        $checkin_node->language = $lang;
 
         //optional fields
         //reader reference
@@ -151,9 +155,12 @@
         );
 
         //title
-        $checkin_node->title = $user_account->name
-            . ' checked in with ' . $reader_node->title
-            . ' at ' . $checkin_time_formatted;
+        $title_params = array(
+            '@user' => $user_account->name,
+            '@reader' => $reader_node->title,
+            '@time' => $checkin_time_formatted,
+        );
+        $checkin_node->title = t( '@user checked in with @reader at @time', $title_params );
 
         //published or not
         $checkin_node->status = ( $user_registered_raw ) ? "1" : "0";
@@ -226,22 +233,24 @@
         return TRUE;
     }
 
-    function scoga_create_combocheckin_relationship_type( $iteration ){
+    /**
+     * depends on user_relationship, saves and loads a user relationship
+     * @param $prefix
+     *
+     * @return bool|StdClass
+     */
+    function scoga_create_combocheckin_relationship_type( $prefix ){
         //TODO: load user_relationship module??
-        $iteration_param = array( '@iteration' => $iteration );
+        $params = array( '@prefix' => $prefix );
         $relationship_type = new StdClass;
-        $relationship_type->name = t( '@iteration checkin partner', $iteration_param );
-        $relationship_type->plural_name = t( '@iteration checkin partners', $iteration_param );
+        $relationship_type->name = t( '@prefix checkin partner', $params );
+        $relationship_type->plural_name = t( '@prefix checkin partners', $params );
         $relationship_type->is_oneway = FALSE;
         $relationship_type->requires_approval = FALSE;
         $relationship_type->expires_val = 0;
-        user_relationships_type_save( $relationship_type );
 
-        //horrible I know, but there's no other way, since the above function doesn't return the rtid
-        //(and yes, I went down the rabbit hole, nothing to find there either, it uses drupal_write_record which
-        //doesn't return the id)
-        //TODO: definitely replace this when drekkigendries has discovered proper DB CRUD practices
-        $relationship_type = user_relationships_type_load( array('name' => $relationship_type->name ) );
+        //$relationship_type is updated by reference
+        user_relationships_type_save( $relationship_type );
 
         return $relationship_type;
     }
