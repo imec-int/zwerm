@@ -21,7 +21,7 @@
         */
         $user_account = scoga_get_player_entity_by_card_id( $card_id );
 
-        if( ! $user_account ){
+        if( !$user_account ){
             throw new Exception( "card $card_id not registered" );
         }
 
@@ -47,6 +47,11 @@
     }
 
 
+    /**
+     * @param $reader_id
+     *
+     * @return bool|mixed
+     */
     function  scoga_get_reader_entity_by_reader_id( $reader_id ){
         $reader_nids = scoga_get_reader_nids_by_reader_id( $reader_id );
 
@@ -93,6 +98,12 @@
     }
 
 
+    /**
+     * @param $reader_id
+     * @param $uid
+     *
+     * @return stdClass
+     */
     function scoga_create_reader_entity( $reader_id, $uid ){
         $reader_node = new stdClass();
         $reader_node->type = SCOGA_READER_NODETYPE;

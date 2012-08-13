@@ -9,7 +9,10 @@
 
 
     /**
-     * @param $params
+     * @param $card_id
+     * @param $reader_id
+     *
+     * @return bool|stdClass
      */
     function scoga_register_card( $card_id, $reader_id ){
         watchdog( 'SCOGA', 'scoga_register_card: @card_id, @reader_id', array( '@card_id' => $card_id, '@reader_id' => $reader_id ), WATCHDOG_NOTICE );

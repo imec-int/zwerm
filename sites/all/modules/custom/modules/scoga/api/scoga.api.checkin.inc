@@ -16,9 +16,10 @@
     /**
      * Creates a node of type "checkin", linked to a user account and a RFID reader node
      *
-     * @param $params
+     * @param $card_id
+     * @param $reader_id
      *
-     * @return stdClass|string
+     * @return stdClass
      */
     function scoga_register_checkin( $card_id, $reader_id ){
 
@@ -88,7 +89,11 @@
             : 0;
     }
 
-    function scoga_get_last_checkintime_of_player( $uid ){
+    /**
+     * @param $uid
+     *
+     * @return bool|int
+     */function scoga_get_last_checkintime_of_player( $uid ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
 
@@ -108,10 +113,14 @@
         }
 
         return FALSE;
-    }
+}
 
 
-    function scoga_get_checkin_node_by_index( $index, $order = 'DESC' ){
+    /**
+     * @param        $index
+     * @param string $order
+     * @return bool|mixed
+     */function scoga_get_checkin_node_by_index( $index, $order = 'DESC' ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
         //get last checkin
@@ -127,9 +136,14 @@
             return node_load( $nids[ 0 ] );
         }
         return FALSE;
-    }
+}
 
-    function scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid ){
+    /**
+     * @param $user_account
+     * @param $reader_node
+     * @param $current_campaign_nid
+     * @return stdClass
+     */function scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid ){
 
         $lang = LANGUAGE_NONE;
 

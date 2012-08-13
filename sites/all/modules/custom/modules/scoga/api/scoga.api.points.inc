@@ -7,13 +7,25 @@
      * To change this template use File | Settings | File Templates.
      */
 
+    class PointsTransaction {
+        public $txn_id;
+        public $uid;
+        public $points;
+        public $time_stamp;
+        public $description;
+    }
+
+    /**
+     * @param $last_txnid
+     *
+     * @return array
+     */
     function scoga_get_transaction_vos_by_txnid( $last_txnid ){
         $query =
             " SELECT txn_id, time_stamp "
                 . "FROM {userpoints_txn} "
                 . "WHERE tid = :tid "
-                . "AND txn_id > :txnid "
-        ;
+                . "AND txn_id > :txnid ";
 
         $rows = db_query( $query, array(
             ':tid'          => scoga_get_current_userpoints_category_tid(),
@@ -36,6 +48,12 @@
         return $result;
     }
 
+    /**
+     * @param null $begin_time
+     * @param null $end_time
+     *
+     * @return array
+     */
     function scoga_get_transaction_vos_by_period( $begin_time = NULL, $end_time = NULL ){
 
         if( $begin_time == NULL ){
@@ -77,17 +95,25 @@
         return $result;
     }
 
+    /**
+     * @param $transaction
+     * @param $description
+     *
+     * @return PointsTransaction
+     */
     function scoga_create_transaction_vo( $transaction, $description ){
-        $output = array(
-            'txn_id'        => $transaction->txn_id,
-            'uid'           => $transaction->uid,
-            'points'        => $transaction->points,
-            'time_stamp'    => $transaction->time_stamp,
-            'description'   => $description,
-        );
+        $output = new PointsTransaction();
+        $output->txn_id = $transaction->txn_id;
+        $output->uid = $transaction->uid;
+        $output->points = $transaction->points;
+        $output->description = $transaction->description;
+        $output->description = $description;
         return $output;
     }
 
+    /**
+     * @param $transaction
+     */
     function scoga_transfer_transaction_points_to_team( $transaction ){
         if( intval( $transaction->tid ) === scoga_get_current_userpoints_category_tid() ){
             module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
@@ -102,7 +128,9 @@
         }
     }
 
+    /**
+     * @param $iteration
+     */
     function scoga_create_userpoints_category( $iteration ){
         $points_vid = scoga_get_userpoints_vid();
-
     }
