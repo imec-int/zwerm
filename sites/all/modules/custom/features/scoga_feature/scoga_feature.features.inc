@@ -98,6 +98,14 @@ function scoga_feature_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'noedtype_event_asssignment' => array(
+      'name' => t('Event Asssignment'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
   );
   return $items;
 }

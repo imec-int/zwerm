@@ -69,6 +69,13 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_noedtype_event_asssignment';
+  $strongarm->value = 0;
+  $export['comment_anonymous_noedtype_event_asssignment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_article';
   $strongarm->value = '2';
   $export['comment_article'] = $strongarm;
@@ -132,6 +139,13 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_noedtype_event_asssignment';
+  $strongarm->value = 1;
+  $export['comment_default_mode_noedtype_event_asssignment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_article';
   $strongarm->value = '50';
   $export['comment_default_per_page_article'] = $strongarm;
@@ -184,6 +198,13 @@ function scoga_feature_strongarm() {
   $strongarm->name = 'comment_default_per_page_nodetype_wish_fulfilled';
   $strongarm->value = '50';
   $export['comment_default_per_page_nodetype_wish_fulfilled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_noedtype_event_asssignment';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_noedtype_event_asssignment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -244,6 +265,13 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_noedtype_event_asssignment';
+  $strongarm->value = 1;
+  $export['comment_form_location_noedtype_event_asssignment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_nodetype_campaign';
   $strongarm->value = '2';
   $export['comment_nodetype_campaign'] = $strongarm;
@@ -289,6 +317,13 @@ function scoga_feature_strongarm() {
   $strongarm->name = 'comment_nodetype_wish_fulfilled';
   $strongarm->value = '1';
   $export['comment_nodetype_wish_fulfilled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_noedtype_event_asssignment';
+  $strongarm->value = '2';
+  $export['comment_noedtype_event_asssignment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -349,6 +384,13 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_noedtype_event_asssignment';
+  $strongarm->value = '1';
+  $export['comment_preview_noedtype_event_asssignment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_article';
   $strongarm->value = 1;
   $export['comment_subject_field_article'] = $strongarm;
@@ -405,9 +447,23 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_noedtype_event_asssignment';
+  $strongarm->value = 1;
+  $export['comment_subject_field_noedtype_event_asssignment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_article';
   $strongarm->value = '0';
   $export['language_content_type_article'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_noedtype_event_asssignment';
+  $strongarm->value = '0';
+  $export['language_content_type_noedtype_event_asssignment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -484,6 +540,15 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_noedtype_event_asssignment';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_noedtype_event_asssignment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_article';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_article'] = $strongarm;
@@ -536,6 +601,13 @@ function scoga_feature_strongarm() {
   $strongarm->name = 'menu_parent_nodetype_wish_fulfilled';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_nodetype_wish_fulfilled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_noedtype_event_asssignment';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_noedtype_event_asssignment'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -620,6 +692,16 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_noedtype_event_asssignment';
+  $strongarm->value = array(
+    0 => 'status',
+    1 => 'promote',
+  );
+  $export['node_options_noedtype_event_asssignment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_article';
   $strongarm->value = '1';
   $export['node_preview_article'] = $strongarm;
@@ -676,6 +758,13 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_noedtype_event_asssignment';
+  $strongarm->value = '1';
+  $export['node_preview_noedtype_event_asssignment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_article';
   $strongarm->value = 1;
   $export['node_submitted_article'] = $strongarm;
@@ -728,6 +817,13 @@ function scoga_feature_strongarm() {
   $strongarm->name = 'node_submitted_nodetype_wish_fulfilled';
   $strongarm->value = 1;
   $export['node_submitted_nodetype_wish_fulfilled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_noedtype_event_asssignment';
+  $strongarm->value = 1;
+  $export['node_submitted_noedtype_event_asssignment'] = $strongarm;
 
   return $export;
 }
