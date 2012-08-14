@@ -26,14 +26,17 @@
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
 
         if( $reader_node === FALSE ){
+            //TODO: return result object
             scoga_throw_exception( 'RFID reader not registered' );
         }
 
         $uids = scoga_get_player_uids_by_card_id( $card_id );
         if( $uids ){
+            //TODO: return result object
             scoga_throw_exception( 'RFID card already registered' );
         }
 
+        //TODO: replace scoga_get_next_team
         $result = scoga_create_player_entity( $card_id, scoga_get_next_team() );
         return $result;
 

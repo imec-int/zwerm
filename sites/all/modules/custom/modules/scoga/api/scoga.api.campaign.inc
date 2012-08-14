@@ -12,7 +12,6 @@
         public $begin_date;
     }
 
-
 //    function scoga_get_campaign_vos_by_UUIDs( $campaign_UUIDs ){
 //        return scoga_get_output( $campaign_UUIDs, 'scoga_get_campaign_vo_by_UUID' );
 //    }

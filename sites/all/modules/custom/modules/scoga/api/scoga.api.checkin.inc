@@ -1,19 +1,21 @@
 <?php
     /**
-     * Created by JetBrains PhpStorm.
      * User: creynder
      * Date: 20/04/12
      * Time: 14:49
-     * To change this template use File | Settings | File Templates.
      */
 
-
-    function _throw_exception( $msg, $title, $uid ){
-        scoga_create_message_entity( $msg, $title, $uid );
-        throw new Exception( $msg );
+    class CheckinCreationResult{
+        public $uid;
+        public $result;
+        public $message;
+        public $variables;
     }
 
+
     /**
+     * TODO: extract, refactor, optimize
+     *
      * Creates a node of type "checkin", linked to a user account and a RFID reader node
      *
      * @param $card_id
@@ -23,59 +25,142 @@
      */
     function scoga_register_checkin( $card_id, $reader_id ){
 
-        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
-        module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
-        module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
+        $output = new CheckinCreationResult();
 
         $current_campaign_nid = scoga_get_current_campaign_nid();
-        if( ! $current_campaign_nid ){
-            _throw_exception( 'no campaign is running at the moment', 'Action failed', 0 );
+        if( !$current_campaign_nid ){
+            $output->message = 'no campaign is running at the moment';
+            return $output;
         }
 
         /*
         * get user account
         */
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         $user_account = scoga_get_player_entity_by_card_id( $card_id );
-
-        if( ! $user_account ){
-            _throw_exception( "card $card_id not registered", 'Action failed', 0 );
+        if( !$user_account ){
+            $output->message = "card @card_id not registered";
+            $output->message = array( '@card_id', $card_id );
+            return $output;
         }
+
+
+        $output->uid = $user_account->uid;
 
         /*
         * check if user has correct permissions
         */
 
         if( user_access( SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN, $user_account ) === FALSE ){
-            _throw_exception( 'user ' . $user_account->uid . ' not allowed to create checkin', 'Action failed', $user_account->uid );
+            $output->message = 'user @uid not allowed to create checkin';
+            $output->variables = array( '@uid', $user_account->uid );
+            return $output;
         }
+
 
         /*
         * get reader node by reader ID, this is NOT a nid,
         * this is the unique ID of the reader as hardcoded
         */
+        module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
 
         if( !$reader_node ){
-            _throw_exception( "RFID reader with id $reader_id not found", 'Action failed', $user_account->uid );
+            $output->message = "invalid RFID reader with id @reader_id";
+            $output->variables = array( '@reader_id', $reader_id );
+            return $output;
         }
-
-
-        $cooldown_tstamp = scoga_get_cooldown_timestamp_by_player_uid( $user_account->uid );
-
-        if( time() < $cooldown_tstamp ){
-            _throw_exception( 'checkin not created for user with id '. $user_account->uid .', needs to cool down', 'Action failed', $user_account->uid );
-        }
-
 
         /*
         * create checkin node
         */
         $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid );
+        //TODO: reward points if cooled down, do it in hook
 
-        scoga_check_combo_checkin( $user_account, $checkin_node );
-        return $checkin_node;
+        $is_combo = scoga_evaluate_checkin_node_for_combo( $checkin_node->created, $reader_node->nid, $user_account, $current_campaign_nid );
+
+        $output->result = $checkin_node;
+        $output->message = ( $is_combo ) ? 'combo checkin' : 'checkin';
+
+        return $output;
     }
 
+    function scoga_evaluate_checkin_node_for_combo( $new_time, $new_reader_nid, $user_account, $new_campaign_nid ){
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
+        $new_team_nid = scoga_get_eid_from_field( $user_account, 'field_user_team',array( 'entity_type'  => 'user' ) );
+        $new_player_uid = $user_account->uid;
+
+        $index = 0;
+        $at_least_one_combo = FALSE;
+        while( $old_checkin_node = scoga_get_checkin_node_by_index( $index++, 'DESC' ) ){
+
+            //sequence of checks is of importance, both for optimal performance
+            //but also logic
+            //continue -> the old checkin should be ignored, for instance because it was made at a different reader.
+            //people should be able to checkin at the various hollow trees at the same time, without interrupting each others
+            //combo checkin chains
+            //break -> no more combo legible checkins possible
+
+            //should be during same campaign
+            $old_campaign_nid = scoga_get_eid_from_field( $old_checkin_node, 'field_checkin_campaign' );
+            if( $old_campaign_nid != $new_campaign_nid ){
+                break;
+            }
+
+            //should be same reader
+            $old_reader_nid = scoga_get_eid_from_field( $old_checkin_node, 'field_checkin_reader' );
+            if( $old_reader_nid != $new_reader_nid ){
+                continue;
+            }
+
+            //should be within time frame
+            $old_time = $old_checkin_node->created;
+            if( $old_time + scoga_get_combocheckin_timeframe() < $new_time ){
+                break;
+            }
+
+
+            $old_user_account = user_load( $old_checkin_node->uid );
+
+            //should not be same player
+            $old_player_uid = $old_user_account->uid;
+            if( $old_player_uid == $new_player_uid ){
+                continue;
+            }
+
+            //should be from same team (since we already know the checkin occurs at same reader, otherwise we wouldn't have gotten here)
+            $old_team_nid = scoga_get_eid_from_field( $old_user_account, 'field_user_team',array( 'entity_type'  => 'user' ) );
+            if( $old_team_nid != $new_team_nid ){
+                break;
+            }
+
+            //if we made it here, the checkin is valid
+            $is_combo = scoga_award_combocheckin_if_new_partners( $user_account->uid, $old_checkin_node->uid );
+            $at_least_one_combo = $at_least_one_combo || $is_combo;
+        };
+        return $at_least_one_combo;
+    }
+
+    function scoga_award_combocheckin_if_new_partners( $requester_uid, $requestee_uid ){
+        return user_relationships_request_relationship(
+            $requester_uid,
+            $requestee_uid,
+            scoga_get_current_combocheckin_rtid(),
+            TRUE
+        );
+    }
+
+    /**
+     * @param      $user_account
+     * @param null $time defaults to current timestamp
+     *
+     * @return bool
+     */
+    function scoga_player_has_cooled_down( $user_account, $time = NULL ){
+        isset( $time ) || $time = time();
+        $cooldown_tstamp = scoga_get_cooldown_timestamp_by_player_uid( $user_account->uid );
+        return $time >= $cooldown_tstamp;
+    }
 
     /**
      * @param $uid
@@ -93,7 +178,8 @@
      * @param $uid
      *
      * @return bool|int
-     */function scoga_get_last_checkintime_of_player( $uid ){
+     */
+    function scoga_get_last_checkintime_of_player( $uid ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
 
@@ -113,14 +199,15 @@
         }
 
         return FALSE;
-}
+    }
 
 
     /**
-     * @param        $index
-     * @param string $order
+     * @param int $index 0-based
+     *
      * @return bool|mixed
-     */function scoga_get_checkin_node_by_index( $index, $order = 'DESC' ){
+     */
+    function scoga_get_checkin_node_by_index( int $index, $order = 'ASC' ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
         //get last checkin
@@ -136,18 +223,20 @@
             return node_load( $nids[ 0 ] );
         }
         return FALSE;
-}
+    }
 
     /**
      * @param $user_account
      * @param $reader_node
      * @param $current_campaign_nid
+     *
      * @return stdClass
-     */function scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid ){
+     */
+    function scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid ){
 
         $lang = LANGUAGE_NONE;
 
-        $user_registered_raw = scoga_get_field_value( $user_account, 'field_user_registered', array( 'entity_type' => 'user' ) ) ;
+        $user_registered_raw = scoga_get_field_value( $user_account, 'field_user_registered', array( 'entity_type' => 'user' ) );
 
         $checkin_node = new stdClass();
         $checkin_node->type = SCOGA_CHECKIN_NODETYPE;
@@ -160,19 +249,14 @@
 
         //optional fields
         //reader reference
-        $checkin_node->field_checkin_reader[ $lang ][ 0 ] = array(
-            'target_id' => $reader_node->nid
-        );
-
-        $checkin_node->field_checkin_campaign[ $lang ][ 0 ]= array(
-            'target_id' => $current_campaign_nid
-        );
+        scoga_set_eid_in_field( $checkin_node, 'field_checkin_reader', $reader_node->nid );
+        scoga_set_eid_in_field( $checkin_node, 'field_checkin_campaign', $current_campaign_nid );
 
         //title
         $title_params = array(
-            '@user' => $user_account->name,
+            '@user'   => $user_account->name,
             '@reader' => $reader_node->title,
-            '@time' => $checkin_time_formatted,
+            '@time'   => $checkin_time_formatted,
         );
         $checkin_node->title = t( '@user checked in with @reader at @time', $title_params );
 
@@ -187,68 +271,10 @@
         return $checkin_node;
     }
 
-    /**
-     * @param $user_account stdClass creator the checkin node
-     * @param $checkin_node stdClass newly created 'checkin' node
-     *
-     * @return bool
-     */
-    function scoga_check_combo_checkin( $user_account, $checkin_node ){
-
-        $prev_checkin = scoga_get_checkin_node_by_index( 1, 'DESC' );
-        if( ! $prev_checkin ){
-            //no previous checkin
-            return FALSE;
-        }
-        if( $prev_checkin->uid === $user_account->uid ){
-            //fail if it's the same user
-            watchdog( 'SCOGA RFID', 'combo checkin denied: same user', array(), WATCHDOG_INFO );
-            return FALSE;
-        }
-
-        $previous = intval( $prev_checkin->created );
-        $timeframe = scoga_get_combocheckin_timeframe();
-        $current = intval( $checkin_node->created );
-        /*
-            watchdog( 'scoga_check_combo_checkin', 'previous: @previous, timeframe: @timeframe, current: @current', array(
-                '@previous' => $previous,
-                '@timeframe' => variable_get( SCOGA_SETTINGS_COMBOCHECKIN_TIMEFRAME ),
-                '@current' => $checkin_node->created,
-            ));
-        */
-        if( $previous + $timeframe < $current ){
-            //fail if too much time has passed between checkins
-            watchdog( 'SCOGA RFID', 'combo checkin denied: too much time between checkins', array(), WATCHDOG_INFO );
-            return FALSE;
-        }
-
-        $prev_user = user_load( $prev_checkin->uid );
-        $prev_user_team_values = field_get_items( 'user', $prev_user, 'field_user_team');
-        $prev_team_nid = $prev_user_team_values[ 0 ][ 'target_id' ];
-
-        $user_team_values = field_get_items( 'user', $user_account, 'field_user_team');
-        if( $prev_team_nid !== $user_team_values[ 0 ][ 'target_id' ] ){
-            //fail if the previous checkin was made by a member of the other team
-            watchdog( 'SCOGA RFID', 'combo checkin denied: different teams', array(), WATCHDOG_INFO );
-            return FALSE;
-        }
-        /*
-            watchdog( 'SCOGA create relationship between @uid1 and @uid2', array(
-                '@uid1' => $user_account->uid,
-                '@uid2' => $prev_user->uid,
-            ));
-        */
-        user_relationships_request_relationship(
-            $user_account->uid,
-            $prev_user->uid,
-            scoga_get_current_combocheckin_rtid(),
-            TRUE
-        );
-        return TRUE;
-    }
 
     /**
      * depends on user_relationship, saves and loads a user relationship
+     *
      * @param $prefix
      *
      * @return bool|StdClass

@@ -7,7 +7,6 @@
      * To change this template use File | Settings | File Templates.
      */
 
-
     /**
      * attempts to create a RFID reader node
      *
@@ -55,22 +54,14 @@
     function  scoga_get_reader_entity_by_reader_id( $reader_id ){
         $reader_nids = scoga_get_reader_nids_by_reader_id( $reader_id );
 
-//
         switch( count( $reader_nids ) ){
             case 1 :
-                {
                 //exactly one match, as it should
                 return node_load( $reader_nids[ 0 ] );
-                break;
-                }
             case 0 :
-                {
                 return FALSE;
-                }
             default :
-                {
-                scoga_throw_exception( 'RFID reader registered multiple times' );
-                }
+                throw new Exception( 'RFID reader registered multiple times' );
         }
     }
 

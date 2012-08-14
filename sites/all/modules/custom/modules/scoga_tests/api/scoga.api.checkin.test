@@ -55,17 +55,20 @@
         }
 
         public function test_scoga_get_checkin_node_by_index(){
-            //setup
-            $index = 3;
-            $list = $this->createCheckinNodesList();
-            $created_node = $list[ 'nodes' ][ $index ];
+            $num_of_nodes = 5;
+            $index = 1;
 
-            //test it should work DESC
+            //setup
+            $list = $this->createCheckinNodesList( $num_of_nodes );
+
+            //test it should work with positive indices
             $loaded_node = scoga_get_checkin_node_by_index( $index );
+            $created_node = $list[ 'nodes' ][ $index ];
             $this->assertEqual( $created_node->nid, $loaded_node->nid );
 
-            //test it should work ASC
-            $loaded_node = scoga_get_checkin_node_by_index( $index, 'ASC' );
+            //test it should work with DESC too
+           $loaded_node = scoga_get_checkin_node_by_index( $index, 'DESC' );
+            $created_node = $list[ 'nodes' ][ ( $num_of_nodes -1 ) - $index ];
             $this->assertEqual( $created_node->nid, $loaded_node->nid );
 
             //teradwon

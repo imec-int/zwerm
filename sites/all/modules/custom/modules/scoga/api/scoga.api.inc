@@ -33,7 +33,7 @@
     }
 
     /**
-     * Doesn't access the real entity system. Is a simple object formatting function.
+     * Doesn't access the entity system. Is a simple object formatting function.
      * Stores value in
      * <code>$entity->{$field_name}[ $langcode ][ $delta ][ $field_column ]</code>
      * @param      $entity
@@ -50,6 +50,20 @@
         $entity->{$field_name}[ $options[ 'langcode' ] ][ $options[ 'delta' ] ][ $options[ 'field_column' ] ] = $value;
         return $entity;
     }
+
+    function scoga_get_eid_from_field( $entity, $field_name, $options = array() ){
+        $options = array( 'field_column' => 'target_id' ) + $options;
+        //do not use += since we want to make sure that field_column gets the right value
+
+        return scoga_get_field_value( $entity, $field_name, $options );
+    }
+
+    function scoga_set_eid_in_field( $entity, $field_name, $eid, $options = array() ){
+        $options = array( 'field_column' => 'target_id' ) + $options;
+
+        scoga_set_field_value( $entity, $field_name, $eid, $options );
+    }
+
 
     /**
      * @param $vid
@@ -133,18 +147,6 @@
         }
         return $callback( $param );
     }
-
-    /**
-     * @param     $message
-     * @param int $severity
-     *
-     * @throws Exception
-     */
-    function scoga_throw_exception( $message, $severity = WATCHDOG_NOTICE ){
-        watchdog( 'SCOGA', $message, NULL, $severity );
-        throw new Exception( $message );
-    }
-
 
     /**
      * @param $timeMS
