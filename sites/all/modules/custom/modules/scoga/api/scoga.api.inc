@@ -8,6 +8,15 @@
      * To change this template use File | Settings | File Templates.
      */
 
+
+    class Result{
+        public $uid;
+        public $result;
+        public $message;
+        public $variables;
+    }
+
+
     /**
      * Syntactic sugar for retrieving a value from a field.
      * Retrieves from following structure:

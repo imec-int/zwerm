@@ -1,11 +1,11 @@
 <?php
-/**
- *
- * User: creynder
- * Date: 31/07/12
- * Time: 14:47
- * To change this template use File | Settings | File Templates.
- */
+    /**
+     *
+     * User: creynder
+     * Date: 31/07/12
+     * Time: 14:47
+     * To change this template use File | Settings | File Templates.
+     */
 
 
     //N.B. all default settings are handled through the variable module, see scoga.variable.inc
@@ -19,11 +19,12 @@
 
         //create score term
 
-        //TODO: create score term
         $score_term = scoga_create_term( $vid, t( 'Score' ) );
+        scoga_set_score_tid( $score_term->tid );
 
     }
 
     function scoga_handle_uninstall(){
-
+        taxonomy_term_delete( scoga_get_score_tid() );
+        taxonomy_term_delete( scoga_get_credits_tid() );
     }

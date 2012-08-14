@@ -5,17 +5,8 @@
      * Time: 14:49
      */
 
-    class CheckinCreationResult{
-        public $uid;
-        public $result;
-        public $message;
-        public $variables;
-    }
-
 
     /**
-     * TODO: extract, refactor, optimize
-     *
      * Creates a node of type "checkin", linked to a user account and a RFID reader node
      *
      * @param $card_id
@@ -25,7 +16,7 @@
      */
     function scoga_register_checkin( $card_id, $reader_id ){
 
-        $output = new CheckinCreationResult();
+        $output = new Result();
 
         $current_campaign_nid = scoga_get_current_campaign_nid();
         if( !$current_campaign_nid ){

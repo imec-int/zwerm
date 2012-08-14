@@ -68,10 +68,13 @@
         /*
          * fulfiller
          */
-        $user_team_values = field_get_items( 'user', $user_profile, 'field_user_team' );
-        $team_nid = ( $user_team_values ) ? $user_team_values[ 0 ][ 'target_id' ] : 0;
 
-        $player_uids = scoga_get_player_uids_by_team_nid( $team_nid, TRUE ); //TRUE->negates
+        $team_nid = scoga_get_eid_from_field( $user_profile, 'field_user_team', array( 'entity_type' => 'user' ) );
+        if( ! $team_nid ){
+            $team_nid = -1;
+        }
+
+        $player_uids = scoga_get_player_uids_by_team_nid( $team_nid, TRUE ); //TRUE->excludes
 
         $player_select_data = array(
             '_none' => '- Select a value -'

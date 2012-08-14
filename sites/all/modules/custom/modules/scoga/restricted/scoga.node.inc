@@ -28,8 +28,7 @@
             case SCOGA_WISHEDITEM_NODETYPE :
                 module_load_include( 'api.wishlist.inc', 'scoga', 'api/scoga' );
                 $original_node = $node->original;
-                $old_award_values = field_get_items( 'node', $original_node, 'field_wisheditem_award' );
-                $old_award = intval( $old_award_values[ 0 ][ 'value' ] );
+                $old_award = intval( scoga_get_field_value( $original_node, 'field_wisheditem_award' ) );
                 scoga_sync_credits_for_wisheditem( $node, $old_award );
                 break;
         }
@@ -38,8 +37,7 @@
     function scoga_handle_node_delete( $node ){
         if( $node->type == SCOGA_WISHEDITEM_NODETYPE ){
             module_load_include( 'api.wishlist.inc', 'scoga', 'api/scoga' );
-            $old_award_values = field_get_items( 'node', $node, 'field_wisheditem_award' );
-            $old_award = $old_award_values[ 0 ][ 'value' ];
+            $old_award = scoga_get_field_value( $node, 'field_wisheditem_award' );
             scoga_sync_credits_for_wisheditem( $node, intval( $old_award ) * 2 );
         }
     }

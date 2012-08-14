@@ -24,19 +24,22 @@
     }
 
     /**
+     * returns all players that belong to the team with nid <code>team_nid</code>
+     * unless if <code>exclude</code> is TRUE, then it returns all players that do NOT belong to that team
      * @param      $team_nid
-     * @param bool $negate
+     * @param bool $exclude
      *
      * @return array
      */
-    function scoga_get_player_uids_by_team_nid( $team_nid, $negate = FALSE ){
+    function scoga_get_player_uids_by_team_nid( $team_nid, $exclude = FALSE ){
         $query = new EntityFieldQuery();
         $entity_type = 'user';
-        $operator = ( $negate ) ? '!=' : '=';
+        $operator = ( $exclude ) ? '!=' : '=';
         $result = $query
             ->entityCondition( 'entity_type', $entity_type )
             ->fieldCondition( 'field_user_team', 'target_id', $team_nid, $operator )
             ->execute();
+
 
         $uids = array_keys( $result[ $entity_type ] );
         return $uids;
@@ -142,10 +145,13 @@
      * @return array
      */
     function scoga_create_player_vo( $player_entity ){
-        $registered_values = field_get_items( 'user', $player_entity, 'field_user_registered' );
-        $team_nid_values = field_get_items( 'user', $player_entity, 'field_user_team' );
-        $firstname_values = field_get_items( 'user', $player_entity, 'field_user_firstname' );
-        $surname_values = field_get_items( 'user', $player_entity, 'field_user_surname' );
+        $options = array(
+            'entity_type' => 'user',
+        );
+        $is_registered = scoga_get_field_value( $player_entity, 'field_user_registered', $options );
+        $team_nid = scoga_get_eid_from_field( $player_entity, 'field_user_team', $options );
+        $firstname = scoga_get_field_value( $player_entity, 'field_user_firstname', $options );
+        $surname = scoga_get_field_value( $player_entity, 'field_user_surname', $options );
 
         $image = ( $player_entity->picture )
             ? $player_entity->picture->uri
@@ -153,11 +159,11 @@
 
         $output = new Player();
         $output->avatar_url = image_style_url( 'avatar_pinhead', $image );
-        $output->firstname = $firstname_values[ 0 ][ 'value' ];
+        $output->firstname = $firstname;
         $output->points = userpoints_get_current_points( $player_entity->uid );
-        $output->registered = $registered_values[ 0 ][ 'value' ];
-        $output->surname = $surname_values[ 0 ][ 'value' ];
-        $output->team_nid = $team_nid_values[ 0 ][ 'target_id' ];
+        $output->registered = $is_registered;
+        $output->surname = $surname;
+        $output->team_nid = $team_nid;
         $output->username = $player_entity->name;
         $output->uid = $player_entity->uid;
 
@@ -182,7 +188,7 @@
      *
      * @return bool|stdClass
      */
-    function scoga_create_player_entity( $card_id, $team_nid ){
+    function scoga_create_player_entity( $card_id, $team_nid = NULL ){
         $lang = LANGUAGE_NONE;
         $player_id = scoga_get_next_player_id();
         $user_profile = new stdClass();
@@ -201,9 +207,7 @@
         scoga_set_field_value( $user_profile, 'field_user_surname', $player_id );
         scoga_set_field_value( $user_profile, 'field_user_registered', 1 );
 
-        $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ] = array(
-            'target_id' => $team_nid
-        );
+        scoga_set_eid_in_field( $user_profile, 'field_user_team', $team_nid, array( 'entity_type' => 'user' ) );
 
         $user_account = user_save( $user_profile );
         return $user_account;

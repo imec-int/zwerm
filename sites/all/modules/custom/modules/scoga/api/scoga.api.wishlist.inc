@@ -34,8 +34,7 @@
      */
     function scoga_sync_credits_for_wisheditem( $node, $old_award_value = 0 ){
         //[!] negative value
-        $award_field = field_get_items( 'node', $node, 'field_wisheditem_award' );
-        $award = $old_award_value - intval( $award_field[ 0 ][ 'value' ] );
+        $award = $old_award_value - intval( scoga_get_field_value( $node, 'field_wisheditem_award' ) );
         $params = array(
             'uid'           => $node->uid,
             'points'        => $award,
@@ -77,7 +76,7 @@
             $campaign_nid = scoga_get_current_campaign_nid();
         }
         //field_attach_insert( 'node', $wisheditem_node );
-        $wisheditem_node->field_wisheditem_campaign[ LANGUAGE_NONE ][ 0 ][ 'target_id' ] = $campaign_nid;
+        scoga_set_eid_in_field( $wisheditem_node, 'field_wisheditem_campaign', $campaign_nid );
     }
 
     /**
@@ -111,14 +110,11 @@
      * @return bool|mixed
      */
     function scoga_award_wishfulfilled_to_player( $wishfulfilled_node ){
-        $wisheditem_value = field_get_items( 'node', $wishfulfilled_node, 'field_wishfulfilled_wisheditem' );
-        $wisheditem_nid = $wisheditem_value[ 0 ][ 'target_id' ];
-        $wisheditem_node = node_load( $wisheditem_nid );
-        $receiver_value = field_get_items( 'node', $wishfulfilled_node, 'field_wishfulfilled_fulfiller' );
-        $receiver_uid = $receiver_value[ 0 ][ 'target_id' ];
+        $wisheditem_nid = scoga_get_eid_from_field( $wishfulfilled_node, 'field_wishfulfilled_wisheditem' );
+        $receiver_uid = scoga_get_eid_from_field( $wishfulfilled_node, 'field_wishfulfilled_fulfiller' );
 
-        $award_field = field_get_items( 'node', $wisheditem_node, 'field_wisheditem_award' );
-        $award = intval( $award_field[ 0 ][ 'value' ] );
+        $wisheditem_node = node_load( $wisheditem_nid );
+        $award = intval( scoga_get_field_value( $wisheditem_node, 'field_wisheditem_award' ) );
         $params = array(
             'uid'           => $receiver_uid,
             'points'        => $award,

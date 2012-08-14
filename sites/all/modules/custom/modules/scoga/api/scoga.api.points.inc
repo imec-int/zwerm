@@ -118,11 +118,12 @@
         if( intval( $transaction->tid ) === scoga_get_current_userpoints_category_tid() ){
             module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
             $user_account = user_load( $transaction->uid );
-            $team_nid_values = field_get_items( 'user', $user_account, 'field_user_team' );
-            $team_nid = $team_nid_values[ 0 ][ 'target_id' ];
+            $team_nid = scoga_get_eid_from_field( $user_account, 'field_user_team', array( 'entity_type' => 'user' ) );
             $campaignteam_node = scoga_get_campaignteam_entity_by_team_nid( $team_nid );
             if( $campaignteam_node ){
-                $campaignteam_node->field_campaignteam_totalpoints[ LANGUAGE_NONE ][ 0 ][ 'value' ] += $transaction->points;
+                $field_name = 'field_campaignteam_totalpoints';
+                $total_points = scoga_get_field_value( $campaignteam_node, $field_name );
+                scoga_set_field_value( $campaignteam_node, $field_name, $total_points + $transaction->points );
                 node_save( $campaignteam_node );
             }
         }

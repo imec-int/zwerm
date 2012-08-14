@@ -1,10 +1,8 @@
 <?php
     /**
-     * Created by JetBrains PhpStorm.
      * User: creynder
      * Date: 20/04/12
      * Time: 14:49
-     * To change this template use File | Settings | File Templates.
      */
 
 
@@ -16,28 +14,32 @@
      */
     function scoga_register_card( $card_id, $reader_id ){
         watchdog( 'SCOGA', 'scoga_register_card: @card_id, @reader_id', array( '@card_id' => $card_id, '@reader_id' => $reader_id ), WATCHDOG_NOTICE );
-        module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
-        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
-        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+
+        $result = new Result();
+
 
         /*
         * check that the RFID reader IS registered
         */
+        module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
-
         if( $reader_node === FALSE ){
-            //TODO: return result object
-            scoga_throw_exception( 'RFID reader not registered' );
+            $result->message = 'RFID reader with id @reader_id not registered';
+            $result->variables = array( '@reader_id' => $reader_id );
+            return $result;
         }
 
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         $uids = scoga_get_player_uids_by_card_id( $card_id );
         if( $uids ){
-            //TODO: return result object
-            scoga_throw_exception( 'RFID card already registered' );
+            $result->message = 'RFID card with id @card_id already registered';
+            $result->variables = array( '@card_id' => $card_id );
+            return $result;
+
         }
 
-        //TODO: replace scoga_get_next_team
-        $result = scoga_create_player_entity( $card_id, scoga_get_next_team() );
+        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+        $result = scoga_create_player_entity( $card_id );
         return $result;
 
     }

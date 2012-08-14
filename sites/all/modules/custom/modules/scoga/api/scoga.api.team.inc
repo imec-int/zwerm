@@ -122,12 +122,8 @@
         $node = new stdClass();
         $node->type = SCOGA_CAMPAIGNTEAM_NODETYPE;
         node_object_prepare( $node );
-        $node->field_campaignteam_campaign[ LANGUAGE_NONE ][ 0 ]= array(
-            'target_id' => $campaign_node->nid,
-        );
-        $node->field_campaignteam_team[ LANGUAGE_NONE ][ 0 ]= array(
-            'target_id' => $team_node->nid,
-        );
+        scoga_set_eid_in_field( $node, 'field_campaignteam_campaign', $campaign_node->nid );
+        scoga_set_eid_in_field( $node, 'field_campaignteam_team', $team_node->nid );
         $node->title = $campaign_node->title . ' - ' . $team_node->title;
         $node->language = LANGUAGE_NONE;
 
@@ -157,10 +153,11 @@
         foreach( $campaignteam_nids as $campaignteam_nid ){
             $campaignteam_node = node_load( $campaignteam_nid );
             $lang = $campaignteam_node->language;
-            $team_nid = $campaignteam_node->field_campaignteam_team[ $lang ][ 0 ][ 'target_id' ];
+            $team_nid = scoga_get_eid_from_field( $campaignteam_node, 'field_campaignteam_team' );
             $team_obj = scoga_get_team_vo_by_nid( $team_nid );
-            $team_obj->total_points = $campaignteam_node->field_campaignteam_totalpoints[ $lang ][ 0 ][ 'value' ];
-            $team_obj->points_modifier = $campaignteam_node->field_campaignteam_modifier[ $lang ][ 0 ][ 'value' ];
+            $team_obj->total_points = scoga_get_field_value( $campaignteam_node, 'field_campaignteam_totalpoints' );
+            $team_obj->points_modifier = scoga_get_field_value( $campaignteam_node, 'field_campaignteam_modifier' );
+
             $team_objs[ ] = $team_obj;
         }
         return $team_objs;
