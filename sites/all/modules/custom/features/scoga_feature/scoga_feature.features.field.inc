@@ -1377,6 +1377,99 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
     ),
   );
 
+  // Exported field: 'node-nodetype_rfid_reader-field_rfidreader_team'.
+  $fields['node-nodetype_rfid_reader-field_rfidreader_team'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_rfidreader_team',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 1,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'body:value',
+            'property' => 'title',
+            'type' => 'property',
+          ),
+          'target_bundles' => array(),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'nodetype_rfid_reader',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Optionally an RFID reader can be coupled to a Team, otherwise it\'s possible to have combo checkins when two team members checkin at different hollow trees. This should obviously be avoided.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => 2,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_rfidreader_team',
+      'label' => 'Team',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '5',
+      ),
+    ),
+  );
+
   // Exported field: 'node-nodetype_team-body'.
   $fields['node-nodetype_team-body'] = array(
     'field_config' => array(
@@ -2281,6 +2374,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Fulfiller');
   t('HEX');
   t('Image');
+  t('Optionally an RFID reader can be coupled to a Team, otherwise it\'s possible to have combo checkins when two team members checkin at different hollow trees. This should obviously be avoided.');
   t('Participating team');
   t('Points');
   t('Points modifier');
@@ -2289,6 +2383,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Reward');
   t('State');
   t('Tags');
+  t('Team');
   t('Team colour');
   t('Total points');
   t('Upload an image to go with this article.');
