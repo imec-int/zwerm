@@ -22,6 +22,88 @@ function scoga_feature_views_api() {
 }
 
 /**
+ * Implements hook_flag_default_flags().
+ */
+function scoga_feature_flag_default_flags() {
+  $flags = array();
+  // Exported flag: "Unredeemed wish".
+  $flags['flag_unredeemed_wish'] = array(
+    'content_type' => 'node',
+    'title' => 'Unredeemed wish',
+    'global' => '1',
+    'types' => array(
+      0 => 'nodetype_wished_item',
+    ),
+    'flag_short' => 'Wish unredeemed',
+    'flag_long' => 'Flag this wish as having been solved, but unredeemed',
+    'flag_message' => 'This wish has been flagged as "unredeemed"',
+    'unflag_short' => 'Wish not unredeemed',
+    'unflag_long' => 'Flag this wish as not being unredeemed',
+    'unflag_message' => 'This wish has been unflagged as "unredeemed"',
+    'unflag_denied_text' => '',
+    'link_type' => 'toggle',
+    'roles' => array(
+      'flag' => array(
+        0 => '4',
+        1 => '3',
+      ),
+      'unflag' => array(
+        0 => '4',
+        1 => '3',
+      ),
+    ),
+    'show_on_page' => 1,
+    'show_on_teaser' => 1,
+    'show_on_form' => 0,
+    'access_author' => '',
+    'i18n' => 0,
+    'api_version' => 2,
+    'module' => 'scoga_feature',
+    'locked' => array(
+      0 => 'name',
+    ),
+  );
+  // Exported flag: "Unsolvable wish".
+  $flags['flag_unsolvable_wish'] = array(
+    'content_type' => 'node',
+    'title' => 'Unsolvable wish',
+    'global' => '1',
+    'types' => array(
+      0 => 'nodetype_wished_item',
+    ),
+    'flag_short' => 'Unsolvable wish',
+    'flag_long' => 'Flag this wish as being unsolvable',
+    'flag_message' => 'This wish has been flagged as "unsolvable"',
+    'unflag_short' => 'Solvable wish',
+    'unflag_long' => 'Unflag this wish as being unsolvable ',
+    'unflag_message' => 'This wish has been unflagged as "unsolvable"',
+    'unflag_denied_text' => '',
+    'link_type' => 'toggle',
+    'roles' => array(
+      'flag' => array(
+        0 => '4',
+        1 => '3',
+      ),
+      'unflag' => array(
+        0 => '4',
+        1 => '3',
+      ),
+    ),
+    'show_on_page' => 1,
+    'show_on_teaser' => 1,
+    'show_on_form' => 0,
+    'access_author' => '',
+    'i18n' => 0,
+    'api_version' => 2,
+    'module' => 'scoga_feature',
+    'locked' => array(
+      0 => 'name',
+    ),
+  );
+  return $flags;
+}
+
+/**
  * Implements hook_node_info().
  */
 function scoga_feature_node_info() {
