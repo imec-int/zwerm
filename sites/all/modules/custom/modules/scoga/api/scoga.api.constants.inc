@@ -20,6 +20,7 @@
     define( 'SCOGA_SETTING_DEFAULT_CREDITS',                    'scoga_settings_default_credits' );
     define( 'SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL',    'scoga_settings_determine_campaign_cron_interval' );
     define( 'SCOGA_SETTING_MAX_WISHITEM_CREDIT',                'scoga_setting_max_wishitem_credit' );
+    define( 'SCOGA_SETTING_REWARD_ANSWER_POLL',                 'scoga_setting_reward_answer_poll' );
 
     define( 'SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID',          'scoga_setting_current_combocheckin_rtid' );
     define( 'SCOGA_SETTING_CREDITS_TID',                        'scoga_setting_credits_tid' );

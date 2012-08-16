@@ -93,6 +93,15 @@
             'required'          => TRUE
         );
 
+        $variables[ SCOGA_SETTING_REWARD_ANSWER_POLL ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for answering a poll' ),
+            'description'       => t( 'Reward points amount for answering a poll' ),
+            'default'           => 5,
+            'required'          => TRUE
+        );
+
         return $variables;
 
     }
