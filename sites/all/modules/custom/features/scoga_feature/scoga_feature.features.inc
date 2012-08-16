@@ -58,6 +58,14 @@ function scoga_feature_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'nodetype_event' => array(
+      'name' => t('Event'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'nodetype_logmessages' => array(
       'name' => t('Logmessages'),
       'base' => 'node_content',
@@ -92,14 +100,6 @@ function scoga_feature_node_info() {
     ),
     'nodetype_wished_item' => array(
       'name' => t('Wished Item'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'noedtype_event_asssignment' => array(
-      'name' => t('Event Asssignment'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

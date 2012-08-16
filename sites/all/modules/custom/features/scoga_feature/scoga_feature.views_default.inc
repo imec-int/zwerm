@@ -40,7 +40,7 @@ function scoga_feature_views_default_views() {
   );
   $handler->display->display_options['row_options']['hide_empty'] = 1;
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_assignment_participants_target_id']['id'] = 'field_assignment_participants_target_id';
   $handler->display->display_options['relationships']['field_assignment_participants_target_id']['table'] = 'field_data_field_assignment_participants';
   $handler->display->display_options['relationships']['field_assignment_participants_target_id']['field'] = 'field_assignment_participants_target_id';
@@ -62,7 +62,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Field: Content: Participants */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_assignment_participants']['id'] = 'field_assignment_participants';
   $handler->display->display_options['fields']['field_assignment_participants']['table'] = 'field_data_field_assignment_participants';
   $handler->display->display_options['fields']['field_assignment_participants']['field'] = 'field_assignment_participants';
@@ -84,15 +84,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['field_assignment_participants']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_assignment_participants']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_assignment_participants']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_assignment_participants']['settings'] = array(
-    'link' => 1,
-  );
-  $handler->display->display_options['fields']['field_assignment_participants']['group_rows'] = 1;
-  $handler->display->display_options['fields']['field_assignment_participants']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_assignment_participants']['delta_reversed'] = 0;
-  $handler->display->display_options['fields']['field_assignment_participants']['delta_first_last'] = 0;
-  $handler->display->display_options['fields']['field_assignment_participants']['field_api_classes'] = 0;
-  /* Field: Content: Time Period */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_assignment_period']['id'] = 'field_assignment_period';
   $handler->display->display_options['fields']['field_assignment_period']['table'] = 'field_data_field_assignment_period';
   $handler->display->display_options['fields']['field_assignment_period']['field'] = 'field_assignment_period';
@@ -115,22 +107,13 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['field_assignment_period']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_assignment_period']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_assignment_period']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_assignment_period']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'value2',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'show',
-  );
-  $handler->display->display_options['fields']['field_assignment_period']['field_api_classes'] = 0;
-  /* Sort criterion: Content: Time Period - end date (field_assignment_period:value2) */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['field_assignment_period_value2']['id'] = 'field_assignment_period_value2';
   $handler->display->display_options['sorts']['field_assignment_period_value2']['table'] = 'field_data_field_assignment_period';
   $handler->display->display_options['sorts']['field_assignment_period_value2']['field'] = 'field_assignment_period_value2';
   $handler->display->display_options['sorts']['field_assignment_period_value2']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_assignment_period_value2']['expose']['label'] = 'End time';
-  /* Sort criterion: Content: Points award (field_assignment_awardpoints) */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['field_assignment_awardpoints_value']['id'] = 'field_assignment_awardpoints_value';
   $handler->display->display_options['sorts']['field_assignment_awardpoints_value']['table'] = 'field_data_field_assignment_awardpoints';
   $handler->display->display_options['sorts']['field_assignment_awardpoints_value']['field'] = 'field_assignment_awardpoints_value';
@@ -176,7 +159,7 @@ function scoga_feature_views_default_views() {
     t('- All -'),
     t('Offset'),
     t('User entity referenced from field_assignment_participants'),
-    t('Participants'),
+    t('Broken handler field_data_field_assignment_participants.field_assignment_participants'),
     t('End time'),
     t('Page'),
   );
