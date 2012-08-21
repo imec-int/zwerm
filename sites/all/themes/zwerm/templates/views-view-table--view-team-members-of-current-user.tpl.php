@@ -18,8 +18,8 @@
  */
 ?>
 <?php
+    //This variable was set in the views_php filter in the leaderboard view display
     $userLeaderboardPosition = variable_get('userLeaderboardPosition');
-
 ?>
 <table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
     <?php if (!empty($title)) : ?>
@@ -38,18 +38,29 @@
     <?php endif; ?>
     <tbody>
     <?php
+        print($userLeaderboardPosition);
         $i=0;
         foreach ($rows as $row_count => $row): ?>
-    <?php if ($i != $userLeaderboardPosition): ?>
-        <tr class="<?php print implode(' ', $row_classes[$row_count]); ?>">
-            <?php foreach ($row as $field => $content): ?>
-            <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
-                <?php print $content; ?>
-            </td>
-            <?php endforeach; ?>
-        </tr>
-        <?php endif; ?>
-        <?php $i = $i+1; ?>
+
+            <?php if ($i == $userLeaderboardPosition): ?>
+                <?php print('test'); ?>
+                <tr class="<?php print implode(' ', $row_classes[$row_count]); ?>">
+                    <?php foreach ($row as $field => $content): ?>
+                    <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
+                        <?php print '...'; ?>
+                    </td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php else: ?>
+                <tr class="<?php print implode(' ', $row_classes[$row_count]); ?>">
+                    <?php foreach ($row as $field => $content): ?>
+                    <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
+                        <?php print $content; ?>
+                    </td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endif; ?>
+            <?php $i = $i+1; ?>
         <?php endforeach; ?>
     </tbody>
 </table>
