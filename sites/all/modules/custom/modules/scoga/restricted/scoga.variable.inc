@@ -102,6 +102,15 @@
             'required'          => TRUE
         );
 
+        $variables[ SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The current user relationship type ID' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 5,
+            'required'          => TRUE
+        );
+
         return $variables;
 
     }
