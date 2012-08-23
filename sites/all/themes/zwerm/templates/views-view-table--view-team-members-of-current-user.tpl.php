@@ -38,13 +38,14 @@
     <?php endif; ?>
     <tbody>
     <?php
-        print($userLeaderboardPosition);
         $i=0;
+        print $userLeaderboardPosition;
         foreach ($rows as $row_count => $row): ?>
+            <?php  $playerRank = $row['php']; ?>
+            <?php if ($playerRank == $userLeaderboardPosition-2): ?>
 
-            <?php if ($i == $userLeaderboardPosition): ?>
-                <?php print('test'); ?>
                 <tr class="<?php print implode(' ', $row_classes[$row_count]); ?>">
+                    <!-- print the different elements in the row-->
                     <?php foreach ($row as $field => $content): ?>
                     <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
                         <?php print '...'; ?>
@@ -53,6 +54,7 @@
                 </tr>
             <?php else: ?>
                 <tr class="<?php print implode(' ', $row_classes[$row_count]); ?>">
+                    <!-- print the different elements in the row-->
                     <?php foreach ($row as $field => $content): ?>
                     <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
                         <?php print $content; ?>
