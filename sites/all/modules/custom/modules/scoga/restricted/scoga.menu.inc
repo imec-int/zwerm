@@ -8,8 +8,8 @@
      * To change this template use File | Settings | File Templates.
      */
 
-//    function scoga_handle_menu(){
-//        $items = array();
+    function scoga_handle_menu(){
+        $items = array();
 //        $items[ SCOGA_ADMIN_PAGE ] = array(
 //            'title'            => t( 'SCOGA settings' ),
 //            'description'      => t( 'General settings for SCOGA' ),
@@ -27,8 +27,16 @@
 //            'page arguments'    => array( 'scoga_settings_form' ),
 //            'access arguments'  => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
 //        );
-//        return $items;
-//    }
+        $items[ SCOGA_NOT_PARTNER_PAGE ] = array(
+            'title'             => t( 'Overview of SCOGA users that are not a checkin partner of logged in user' ),
+            'type'              => MENU_NORMAL_ITEM,
+            'file'              => 'restricted/scoga.page.inc',
+            'page callback'     => 'scoga_get_list_of_not_checkin_parnters',
+            //'page arguments'    => array( 'scoga_settings_form' ),
+            'access arguments'  => array( SCOGA_PAGE_ACCESS_NOT_CHECKIN_PARTNER ),
+        );
+        return $items;
+    }
 
 
 /*

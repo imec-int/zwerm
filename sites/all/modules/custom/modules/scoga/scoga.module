@@ -41,10 +41,10 @@
 //     * implement hook_menu()
 //     */
 //    /*
-//    function scoga_menu(){
-//        module_load_include( 'menu.inc', 'scoga', 'restricted/scoga' );
-//        return scoga_handle_menu();
-//    }
+    function scoga_menu(){
+        module_load_include( 'menu.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_menu();
+    }
 //    */
 //
 //    /**
@@ -166,3 +166,21 @@
         module_load_include( 'variable.inc', 'scoga', 'restricted/scoga' );
         return scoga_handle_variable_type_info();
     }
+
+    /**
+     * implements hook_theme
+     * @param $existing
+     * @param $type
+     * @param $theme
+     * @param $path
+     * @return array
+    */
+    function scoga_theme($existing, $type, $theme, $path)
+    {
+        module_load_include( 'theme.inc', 'scoga', 'restricted/scoga' );
+        return scoga_theme_info($existing, $type, $theme, $path);
+    }
+
+
+
+

@@ -40,6 +40,7 @@
     define( 'SCOGA_PERM_REST_ACCESS_OVERVIEW_DATA',     'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_MESSAGES_DATA',     'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN',    'access content' );
+    define( 'SCOGA_PAGE_ACCESS_NOT_CHECKIN_PARTNER',    'access content' );
     define( 'SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN',   'REST create checkin' );
     define( 'SCOGA_PERM_REST_ACCESS_REGISTER_READER',   'access content' );
     define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_READER',  'REST register rfid reader' );
@@ -49,10 +50,12 @@
     //--( VALUES )--//
 
     define( 'SCOGA_ADMIN_PAGE',             'admin/config/scoga' );
+    define( 'SCOGA_NOT_PARTNER_PAGE',             'not_partner' );
     define( 'SCOGA_CREDITS_UUID',           'f3538084-2198-5064-cd37-8b0b39ba32b4' );
     define( 'SCOGA_PLAYER_ROLE',            4 );
     define( 'SCOGA_TIME_FORMAT',            'H:i:s d/m/Y' );
     define( 'SCOGA_VARIABLE_GROUP_NAME',    'scoga' );
+
 
 
 
