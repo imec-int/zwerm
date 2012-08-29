@@ -26,14 +26,11 @@
 
         //substract both arrays
         $no_checkin_users = array_diff ($active_users,$checkin_partners);
-        //var_dump($no_checkin_users);
-        /*foreach ($no_checkin_users as $user)
-        {
-            print($user.'<br/>');
-        } */
 
         //theme the output
         $output= $no_checkin_users;
-        print theme('no_checkin',array('content' => $output));
+        $output = theme('no_checkin',array('content' => $output));
+        return $output;
+
     }
 ?>
