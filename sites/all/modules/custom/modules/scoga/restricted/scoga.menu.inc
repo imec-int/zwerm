@@ -33,7 +33,6 @@
             'type'              => MENU_NORMAL_ITEM,
             'file'              => 'restricted/scoga.page.inc',
             'page callback'     => 'scoga_get_list_of_not_checkin_parnters',
-            //'page arguments'    => array( 'scoga_settings_form' ),
             'access arguments'  => array( SCOGA_PAGE_ACCESS_NOT_CHECKIN_PARTNER ),
         );
         return $items;

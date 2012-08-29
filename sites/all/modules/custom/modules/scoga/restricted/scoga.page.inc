@@ -31,11 +31,6 @@
         $result = db_query($query);
         foreach ($result as $row)
         {
-            //$user_details = array();
-            //$user_details[]= $row->users_name;
-            //$user_details['uid']= $row->uid;
-            //print ($row->uid."</br>");
-            //$user_details = '<a href="user/"'.$row->uid.'>'. $row->users_name . '</a>';
             $checkin_partner_names[] = $row->users_name;
             $checkin_partner_uids[] = $row->uid;
         }
