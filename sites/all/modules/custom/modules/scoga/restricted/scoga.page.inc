@@ -2,34 +2,50 @@
     function scoga_get_list_of_not_checkin_parnters()
     {
         //get all the active users & store all the active users in an array
-        $active_users = array();
-        $query = "SELECT DISTINCT users.name AS users_name, users.uid AS uid FROM users users WHERE (( (users.status <> '0') ))";
+        $active_user_names = array();
+        $active_user_uids = array();
+        $query = "SELECT DISTINCT
+                  users.name AS users_name,
+                  users.uid AS uid
+                  FROM {users} users
+                  WHERE (( (users.status <> '0') ))";
         $result = db_query($query);
         foreach ($result as $row)
         {
-            $active_users[] = $row->users_name;
+            $active_user_names[] = $row->users_name;
+            $active_user_uids[] = $row->uid;
         }
         //get all the users that the logged-in user has checked in with & store all the checkin partners in an array
         global $user;
-        $checkin_partners = array();
-        $query = "SELECT DISTINCT users.name AS
-                  users_name, users.uid AS uid FROM {users} users
-                  LEFT JOIN {user_relationships} user_relationships ON users.uid = user_relationships.requestee_id
+        $checkin_partner_names = array();
+        $checkin_partner_uids = array();
+        $query = "SELECT DISTINCT
+                  users.name AS users_name,
+                  users.uid AS uid
+                  FROM {users} users
+                  LEFT JOIN {user_relationships} user_relationships
+                  ON users.uid = user_relationships.requestee_id
                   WHERE (( (users.status <> '0')
                   AND ((user_relationships.requester_id = ".$user->uid."
                   OR user_relationships.requestee_id = ".$user->uid.")) ))";
         $result = db_query($query);
         foreach ($result as $row)
         {
-            $checkin_partners[] = $row->users_name;
+            //$user_details = array();
+            //$user_details[]= $row->users_name;
+            //$user_details['uid']= $row->uid;
+            //print ($row->uid."</br>");
+            //$user_details = '<a href="user/"'.$row->uid.'>'. $row->users_name . '</a>';
+            $checkin_partner_names[] = $row->users_name;
+            $checkin_partner_uids[] = $row->uid;
         }
 
         //substract both arrays
-        $no_checkin_users = array_diff ($active_users,$checkin_partners);
+        $no_checkin_users_names = array_diff ($active_user_names,$checkin_partner_names);
+        $no_checkin_users_uids = array_diff ( $active_user_uids, $checkin_partner_uids);
 
         //theme the output
-        $output= $no_checkin_users;
-        $output = theme('no_checkin',array('content' => $output));
+        $output = theme('no_checkin',array('names' => $no_checkin_users_names,'uids' => $no_checkin_users_uids));
         return $output;
 
     }

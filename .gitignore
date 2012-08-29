@@ -13,4 +13,5 @@ sites/*/private
 #Ignore osX specific files 
 .DS_Store
 .idea
+gitPush
 
