@@ -3081,7 +3081,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 13,
+          'weight' => '13',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3093,7 +3093,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'user',
