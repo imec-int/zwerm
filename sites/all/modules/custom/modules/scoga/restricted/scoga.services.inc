@@ -11,15 +11,38 @@
 
     function scoga_handle_services_resources(){
         return array(
-            'scoga_campaign'    => scoga_outline_services_campaign(),
-            'scoga_team'        => scoga_outline_services_team(),
-            'scoga_player'      => scoga_outline_services_player(),
-            'scoga_transaction' => scoga_outline_services_transaction(),
-            'scoga_overview'    => scoga_outline_services_overview(),
-            'scoga_message'     => scoga_outline_services_message(),
-            'scoga_checkin'     => scoga_outline_services_checkin(),
-            'scoga_reader'      => scoga_outline_services_reader(),
-            'scoga_card'        => scoga_outline_services_card(),
+//            'scoga_campaign'    => scoga_outline_services_campaign(),
+//            'scoga_team'        => scoga_outline_services_team(),
+//            'scoga_player'      => scoga_outline_services_player(),
+//            'scoga_transaction' => scoga_outline_services_transaction(),
+//            'scoga_overview'    => scoga_outline_services_overview(),
+//            'scoga_message'     => scoga_outline_services_message(),
+//            'scoga_checkin'     => scoga_outline_services_checkin(),
+//            'scoga_reader'      => scoga_outline_services_reader(),
+//            'scoga_card'        => scoga_outline_services_card(),
+            'scoga_sync'        => scoga_outline_services_sync(),
+        );
+    }
+
+    function scoga_outline_services_sync(){
+        return array(
+            'index' => array(
+                'help'             => 'Retrieve syncing info',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga',
+                ),
+                'callback'         => 'scoga_service_sync_index',
+                'args'             => array(
+                    array(
+                        'name'        => 'messageID',
+                        'type'        => 'string',
+                        'description' => 'The ID of the message previously retrieved',
+                        'source'      => 'param',
+                        'optional'    => TRUE,
+                    ),
+                )
+            )
         );
     }
 
@@ -274,6 +297,20 @@
         );
     }
 
+    /**
+     * @param array $params
+     *
+     * @return SyncData
+     */
+    function scoga_service_sync_index( $params = array() ){
+        watchdog( 'SCOGA', 'scoga_service_sync_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
+        module_load_include( 'api.sync.inc', 'scoga', 'api/scoga' );
+        if( $params && array_key_exists( 'messageID', $params ) ){
+            return scoga_get_sync_vo( $params[ 'messageID' ] );
+        }
+        return scoga_get_sync_vo();
+    }
+
     function scoga_service_campaign_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_campaign_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
@@ -358,7 +395,7 @@
         }catch ( Exception $e ){
             $message = $e->getMessage();
             watchdog( 'SCOGA', $message );
-            $result = $e->getMessage();
+            $result = $message;
         }
         return $result;
     }
@@ -378,7 +415,7 @@
         }catch ( Exception $e ){
             $message = $e->getMessage();
             watchdog( 'SCOGA', $message );
-            $result = $e->getMessage();
+            $result = $message;
         }
 
         return $result;
@@ -398,7 +435,7 @@
         }catch ( Exception $e ){
             $message = $e->getMessage();
             watchdog( 'SCOGA', $message );
-            $result = $e->getMessage();
+            $result = $message;
         }
 
         return $result;

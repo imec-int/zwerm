@@ -16,6 +16,9 @@
         public $code;
     }
 
+    function scoga_get_current_time(){
+        return time();
+    }
 
     /**
      * Syntactic sugar for retrieving a value from a field.
