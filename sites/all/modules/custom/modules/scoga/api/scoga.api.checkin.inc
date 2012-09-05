@@ -5,7 +5,6 @@
      * Time: 14:49
      */
 
-
     /**
      * Creates a node of type "checkin", linked to a user account and a RFID reader node
      *
@@ -20,7 +19,8 @@
 
         $current_campaign_nid = scoga_get_current_campaign_nid();
         if( !$current_campaign_nid ){
-            $output->message = 'no campaign is running at the moment';
+            $output->message = t( 'no campaign is running at the moment' );
+            $output->code = CODE_NO_CAMPAIGN;
             return $output;
         }
 
@@ -30,8 +30,8 @@
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         $user_account = scoga_get_player_entity_by_card_id( $card_id );
         if( !$user_account ){
-            $output->message = "card @card_id not registered";
-            $output->message = array( '@card_id', $card_id );
+            $output->message = t( "card @card_id not registered", array( '@card_id', $card_id ) );
+            $output->code = CODE_CARD_NOT_REGISTERED;
             return $output;
         }
 
@@ -43,8 +43,8 @@
         */
 
         if( user_access( SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN, $user_account ) === FALSE ){
-            $output->message = 'user @uid not allowed to create checkin';
-            $output->variables = array( '@uid', $user_account->uid );
+            $output->message = t( 'user @uid not allowed to create checkin', array( '@uid', $user_account->uid ) );
+            $output->code = CODE_NOT_ALLOWED;
             return $output;
         }
 
@@ -57,8 +57,8 @@
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
 
         if( !$reader_node ){
-            $output->message = "invalid RFID reader with id @reader_id";
-            $output->variables = array( '@reader_id', $reader_id );
+            $output->message = t( "invalid RFID reader with id @reader_id", array( '@reader_id', $reader_id ) );
+            $output->code = CODE_INVALID_READER;
             return $output;
         }
 
@@ -66,12 +66,23 @@
         * create checkin node
         */
         $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid );
-        //TODO: reward points if cooled down, do it in hook
 
         $is_combo = scoga_evaluate_checkin_node_for_combo( $checkin_node->created, $reader_node->nid, $user_account, $current_campaign_nid );
 
         $output->result = $checkin_node;
-        $output->message = ( $is_combo ) ? 'combo checkin' : 'checkin';
+        if( $is_combo ){
+            $output->message =  t( 'combo checkin' );
+            $output->code = CODE_COMBO_SUCCESS;
+        }else{
+            if( scoga_player_has_cooled_down( $user_account ) ){
+                //TODO: reward points
+                $output->message =  t( 'checkin' );
+                $output->code = CODE_CHECKIN_SUCCESS;
+            }else{
+                $output->message =  t( 'Player needs to cool down' );
+                $output->code = CODE_PLAYER_NEEDS_COOLDOWN;
+            }
+        }
 
         return $output;
     }

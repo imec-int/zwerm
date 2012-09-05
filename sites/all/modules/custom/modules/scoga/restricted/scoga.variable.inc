@@ -107,7 +107,7 @@
             'type'              => 'number',
             'title'             => t( 'The current user relationship type ID' ),
             'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
-            'default'           => 5,
+            'default'           => 0,
             'required'          => TRUE
         );
 

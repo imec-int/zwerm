@@ -13,7 +13,7 @@
         public $uid;
         public $result;
         public $message;
-        public $variables;
+        public $code;
     }
 
 
