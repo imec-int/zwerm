@@ -10,7 +10,6 @@
      */
 
     function scoga_handle_services_resources(){
-//            'scoga_campaign'    => scoga_outline_services_campaign(),
 //            'scoga_team'        => scoga_outline_services_team(),
 //            'scoga_player'      => scoga_outline_services_player(),
 //            'scoga_transaction' => scoga_outline_services_transaction(),
@@ -20,6 +19,7 @@
 //            'scoga_reader'      => scoga_outline_services_reader(),
 //            'scoga_card'        => scoga_outline_services_card(),
         return array(
+            'scoga_campaigns'    => scoga_outline_services_campaigns(),
             'scoga_sync'        => scoga_outline_services_sync(),
         );
     }
@@ -275,21 +275,20 @@
         );
     }
 
-    function scoga_outline_services_campaign(){
+    function scoga_outline_services_campaigns(){
         return array(
             'index' => array(
-                'help'             => 'Retrieves all data linked to a specific campaign',
+                'help'             => 'Retrieves all campaigns or a specific one',
                 'file'             => array(
                     'type'   => 'services.inc',
                     'module' => 'scoga'
                 ),
-                'callback'         => 'scoga_service_campaign_index',
+                'callback'         => 'scoga_service_campaigns_index',
                 'access arguments' => array( SCOGA_PERM_REST_ACCESS_CAMPAIGN_DATA ),
                 'args'             => array(
                     array(
-                        'name'        => 'uuid',
-                        'type'        => 'string',
-                        'description' => 'The UUID of the campaign node',
+                        'name'        => 'nid',
+                        'description' => 'The nid of the campaign node',
                         'source'      => 'param',
                         'optional'    => TRUE
                     ),
@@ -312,19 +311,15 @@
         return scoga_get_sync_vo();
     }
 
-    function scoga_service_campaign_index( $params = array() ){
-        watchdog( 'SCOGA', 'scoga_service_campaign_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
+    function scoga_service_campaigns_index( $params = array() ){
+        watchdog( 'SCOGA', 'scoga_service_campaigns_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
         if( $params ){
-//            if( array_key_exists( 'uuid', $params ) ){
-//                return scoga_get_campaign_vos_by_UUIDs( $params[ 'uuid' ] );
-//            }
-
             if( array_key_exists( 'nid', $params ) ){
-                return scoga_get_campaign_vos_by_nids( $params[ 'nid' ] );
+                return scoga_get_campaign_vo_by_nid( $params[ 'nid' ] );
             }
         }
-        return scoga_get_campaign_vo_by_nid( scoga_get_current_campaign_nid() );
+        return scoga_get_campaign_vos();
     }
 
     function scoga_service_team_index( $params ){
