@@ -8,11 +8,11 @@
        $formatted_name = l($name,'user/'.$uids[$element_position ]);
        $formatted_names[] = $formatted_name;
     }
-    $rows = array_chunk ( $formatted_names , 5 );
+    /*$rows = array_chunk ( $formatted_names , 5 );
     $table_variables = array(
         'rows' => $rows
     );
-    //print theme('table',$table_variables);
+    print theme('table',$table_variables);*/
     $variables = array();
     $variables ['items'] =  $formatted_names;
     print theme('item_list',$variables);
