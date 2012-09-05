@@ -10,7 +10,6 @@
      */
 
     function scoga_handle_services_resources(){
-        return array(
 //            'scoga_campaign'    => scoga_outline_services_campaign(),
 //            'scoga_team'        => scoga_outline_services_team(),
 //            'scoga_player'      => scoga_outline_services_player(),
@@ -20,6 +19,7 @@
 //            'scoga_checkin'     => scoga_outline_services_checkin(),
 //            'scoga_reader'      => scoga_outline_services_reader(),
 //            'scoga_card'        => scoga_outline_services_card(),
+        return array(
             'scoga_sync'        => scoga_outline_services_sync(),
         );
     }
@@ -33,6 +33,7 @@
                     'module' => 'scoga',
                 ),
                 'callback'         => 'scoga_service_sync_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_SYNC ),
                 'args'             => array(
                     array(
                         'name'        => 'messageID',

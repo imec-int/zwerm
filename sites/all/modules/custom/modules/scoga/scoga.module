@@ -10,6 +10,7 @@
 
     module_load_include( 'api.constants.inc', 'scoga', 'api/scoga' );
     module_load_include( 'api.inc', 'scoga', 'api/scoga' );
+    module_load_include( 'services.inc', 'scoga', 'restricted/scoga' ); // DO NOT REMOVE: otherwise service resources go to schrödinger state: i.e. they exist and do not exist at the same time
 
 //
 //    /**
@@ -28,15 +29,15 @@
 //        return scoga_handle_uninstall();
 //    }
 //
-//    /**
-//     * Implements hook_services_resources().
-//     */
-//
-//    function scoga_services_resources(){
-//        module_load_include( 'services.inc', 'scoga', 'restricted/scoga' );
-//        return scoga_handle_services_resources();
-//    }
-//
+    /**
+     * Implements hook_services_resources().
+     */
+
+    function scoga_services_resources(){
+        module_load_include( 'services.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_services_resources();
+    }
+
 //    /**
 //     * implement hook_menu()
 //     */
@@ -180,7 +181,5 @@
         module_load_include( 'theme.inc', 'scoga', 'restricted/scoga' );
         return scoga_theme_info($existing, $type, $theme, $path);
     }
-
-
 
 
