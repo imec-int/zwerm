@@ -12,5 +12,8 @@
     $table_variables = array(
         'rows' => $rows
     );
-    print theme('table',$table_variables);
+    //print theme('table',$table_variables);
+    $variables = array();
+    $variables ['items'] =  $formatted_names;
+    print theme('item_list',$variables);
 ?>

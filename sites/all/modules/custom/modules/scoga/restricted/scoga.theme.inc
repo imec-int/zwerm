@@ -1,5 +1,4 @@
 <?php
-
 function scoga_theme_info($existing, $type, $theme, $path)
 {
     return array(

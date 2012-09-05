@@ -46,6 +46,8 @@ body {
  */
 
 #header {
+  background-color: $color;
+
 }
 
 #logo { /* Wrapping link for logo */
@@ -212,6 +214,7 @@ span.field-label { /* The inline field label used by the Fences module */
  */
 
 .region-sidebar-first {
+  background-color: $color;
 }
 
 /*

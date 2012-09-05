@@ -2,104 +2,163 @@
  * @file
  * Block Styling
  */
-
-
-.block { /* Block wrapper */
+/* line 9, ../sass/blocks.scss */
+.block {
+  /* Block wrapper */
   margin-bottom: 1.5em;
 }
-
-.block.first { /* The first block in the region */
+/* line 12, ../sass/blocks.scss */
+.block.first {
+  /* The first block in the region */
+}
+/* line 15, ../sass/blocks.scss */
+.block.last {
+  /* The last block in the region */
+}
+/* line 18, ../sass/blocks.scss */
+.block.odd {
+  /* Zebra striping for each block in the region */
+}
+/* line 21, ../sass/blocks.scss */
+.block.even {
+  /* Zebra striping for each block in the region */
+}
+/* line 24, ../sass/blocks.scss */
+.block h2.block-title {
+  /* Block title */
 }
 
-.block.last { /* The last block in the region */
+/* line 29, ../sass/blocks.scss */
+#block-aggregator-category-1 {
+  /* Block for the latest news items in the first category */
 }
 
-.block.odd { /* Zebra striping for each block in the region */
+/* line 32, ../sass/blocks.scss */
+#block-aggregator-feed-1 {
+  /* Block for the latest news items in the first feed */
 }
 
-.block.even { /* Zebra striping for each block in the region */
+/* line 35, ../sass/blocks.scss */
+#block-block-1 {
+  /* First block created with "Add block" link */
 }
 
-h2.block-title { /* Block title */
+/* line 38, ../sass/blocks.scss */
+#block-blog-recent {
+  /* "Recent blog posts" block */
 }
 
-#block-aggregator-category-1 { /* Block for the latest news items in the first category */
+/* line 41, ../sass/blocks.scss */
+#block-book-navigation {
+  /* "Book navigation" block for the current book's table of contents */
 }
 
-#block-aggregator-feed-1 { /* Block for the latest news items in the first feed */
+/* line 44, ../sass/blocks.scss */
+#block-comment-recent {
+  /* "Recent comments" block */
 }
 
-#block-block-1 { /* First block created with "Add block" link */
+/* line 47, ../sass/blocks.scss */
+#block-forum-active {
+  /* "Active forum topics" block */
 }
 
-#block-blog-recent { /* "Recent blog posts" block */
+/* line 50, ../sass/blocks.scss */
+#block-forum-new {
+  /* "New forum topics" block */
 }
 
-#block-book-navigation { /* "Book navigation" block for the current book's table of contents */
+/* line 53, ../sass/blocks.scss */
+#block-locale-language {
+  /* Language switcher block */
 }
 
-#block-comment-recent { /* "Recent comments" block */
+/* line 56, ../sass/blocks.scss */
+#block-menu-menu-NAME {
+  /* Custom menu block */
 }
 
-#block-forum-active { /* "Active forum topics" block */
+/* line 59, ../sass/blocks.scss */
+#block-node-recent {
+  /* "Recent content" block */
 }
 
-#block-forum-new { /* "New forum topics" block */
+/* line 62, ../sass/blocks.scss */
+#block-node-syndicate {
+  /* "Syndicate" block for primary RSS feed; see also page.css's .feed-icon */
 }
 
-#block-locale-language { /* Language switcher block */
+/* line 65, ../sass/blocks.scss */
+#block-poll-recent {
+  /* "Most recent poll" block */
 }
 
-#block-menu-menu-NAME { /* Custom menu block */
+/* line 68, ../sass/blocks.scss */
+#block-profile-author-information {
+  /* "Author information" block for the profile of the page's author */
 }
 
-#block-node-recent { /* "Recent content" block */
+/* line 71, ../sass/blocks.scss */
+#block-search-form {
+  /* "Search form" block */
 }
 
-#block-node-syndicate { /* "Syndicate" block for primary RSS feed; see also page.css's .feed-icon */
+/* line 74, ../sass/blocks.scss */
+#block-shortcut-shortcuts {
+  /* "Shortcuts" block */
 }
 
-#block-poll-recent { /* "Most recent poll" block */
+/* line 77, ../sass/blocks.scss */
+#block-statistics-popular {
+  /* "Popular content" block */
 }
 
-#block-profile-author-information { /* "Author information" block for the profile of the page's author */
+/* line 80, ../sass/blocks.scss */
+#block-system-main-menu {
+  /* "Main menu" block */
 }
 
-#block-search-form { /* "Search form" block */
+/* line 83, ../sass/blocks.scss */
+#block-system-management {
+  /* "Management" block for Drupal management menu */
 }
 
-#block-shortcut-shortcuts { /* "Shortcuts" block */
+/* line 86, ../sass/blocks.scss */
+#block-system-navigation {
+  /* "Navigation" block for Drupal navigation menu */
 }
 
-#block-statistics-popular { /* "Popular content" block */
+/* line 89, ../sass/blocks.scss */
+#block-system-user-menu {
+  /* "User menu" block for Drupal user menu */
 }
 
-#block-system-main-menu { /* "Main menu" block */
+/* line 92, ../sass/blocks.scss */
+#block-system-help {
+  /* "System help" block */
 }
 
-#block-system-management { /* "Management" block for Drupal management menu */
+/* line 95, ../sass/blocks.scss */
+#block-system-main {
+  /* "Main page content" block */
 }
 
-#block-system-navigation { /* "Navigation" block for Drupal navigation menu */
+/* line 98, ../sass/blocks.scss */
+#block-system-powered-by {
+  /* "Powered by Drupal" block */
 }
 
-#block-system-user-menu { /* "User menu" block for Drupal user menu */
+/* line 101, ../sass/blocks.scss */
+#block-user-login {
+  /* "User login form" block */
 }
 
-#block-system-help { /* "System help" block */
+/* line 104, ../sass/blocks.scss */
+#block-user-new {
+  /* "Who's new" block for a list of the newest users */
 }
 
-#block-system-main { /* "Main page content" block */
-}
-
-#block-system-powered-by { /* "Powered by Drupal" block */
-}
-
-#block-user-login { /* "User login form" block */
-}
-
-#block-user-new { /* "Who's new" block for a list of the newest users */
-}
-
-#block-user-online { /* "Who's online" block for a list of the online users */
+/* line 107, ../sass/blocks.scss */
+#block-user-online {
+  /* "Who's online" block for a list of the online users */
 }
