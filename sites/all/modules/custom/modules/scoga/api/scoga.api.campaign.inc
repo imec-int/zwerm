@@ -69,7 +69,7 @@
             return scoga_create_campaign_vo( $campaign_node );
         }
 
-        return NULL;
+        return FALSE;
     }
 
     /**
