@@ -111,6 +111,15 @@
             'required'          => TRUE
         );
 
+        $variables[ SCOGA_SETTING_CURRENT_CAMPAIGN_NID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The current campaign' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
         return $variables;
 
     }
