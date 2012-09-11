@@ -47,6 +47,8 @@ base theme  = zen
 stylesheets[all][] = system.menus.css
 
 ; Then we add our own stylesheets.
+
+stylesheets[all][] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.css
 stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/wireframes.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
@@ -61,7 +63,8 @@ stylesheets[all][] = css/comments.css
 stylesheets[all][] = css/forms.css
 stylesheets[all][] = css/fields.css
 stylesheets[all][] = css/print.css
-;stylesheets[all][] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.css
+
+;stylesheets[all][] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.css
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
 ; Instead, Zen now adds conditional-comment-included classes to the html
@@ -78,7 +81,8 @@ stylesheets[all][] = css/print.css
 ; Optionally add some JavaScripts to your theme.
 
 ;scripts[] = js/script.js
-;scripts[] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.js
+scripts[] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.js
+;scripts[] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.js
 
 
 

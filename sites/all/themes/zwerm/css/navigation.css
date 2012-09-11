@@ -68,16 +68,29 @@ li a.active {
   /* A simple method to get navigation links to appear in one line. */
   float: left;
   /* LTR */
-  padding: 0 10px 0 0;
-  /* LTR */
   list-style-type: none;
   list-style-image: none;
+}
+/* line 74, ../sass/navigation.scss */
+#navigation li {
+  display: block;
+  height: 133px;
+  width: 150px;
+  border-color: black;
+  padding: 0 0px 0 0;
+  background-image: url(../images/sparrow_button_large.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90px;
+  text-align: center;
+  line-height: 250px;
+  box-align: center;
 }
 
 /*
  * Main menu and Secondary menu links
  */
-/* line 84, ../sass/navigation.scss */
+/* line 102, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
