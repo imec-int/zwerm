@@ -1569,81 +1569,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
     ),
   );
 
-  // Exported field: 'node-nodetype_logmessages-field_logmessages_points'.
-  $fields['node-nodetype_logmessages-field_logmessages_points'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_logmessages_points',
-      'field_permissions' => array(
-        'type' => '0',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'number',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'number_integer',
-    ),
-    'field_instance' => array(
-      'bundle' => 'nodetype_logmessages',
-      'default_value' => array(
-        0 => array(
-          'value' => '0',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => 1,
-        ),
-        'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_logmessages_points',
-      'label' => 'Points',
-      'required' => 1,
-      'settings' => array(
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '32',
-      ),
-    ),
-  );
-
   // Exported field: 'node-nodetype_rfid_reader-body'.
   $fields['node-nodetype_rfid_reader-body'] = array(
     'field_config' => array(
@@ -2788,6 +2713,88 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
     ),
   );
 
+  // Exported field: 'node-page-body'.
+  $fields['node-page-body'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(
+        0 => 'node',
+      ),
+      'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_with_summary',
+    ),
+    'field_instance' => array(
+      'bundle' => 'page',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'body',
+      'label' => 'Body',
+      'required' => FALSE,
+      'settings' => array(
+        'display_summary' => TRUE,
+        'text_processing' => 1,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'rows' => 20,
+          'summary_rows' => 5,
+        ),
+        'type' => 'text_textarea_with_summary',
+        'weight' => -4,
+      ),
+    ),
+  );
+
   // Exported field: 'node-poll-field_poll_reward'.
   $fields['node-poll-field_poll_reward'] = array(
     'field_config' => array(
@@ -3472,7 +3479,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Location');
   t('Optionally an RFID reader can be coupled to a Team, otherwise it\'s possible to have combo checkins when two team members checkin at different hollow trees. This should obviously be avoided.');
   t('Participating team');
-  t('Points');
   t('Points modifier');
   t('RFID Reader');
   t('Reader ID');
