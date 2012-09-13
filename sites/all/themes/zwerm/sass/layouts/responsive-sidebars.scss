@@ -12,7 +12,7 @@
 @import "base";
 
 
-// We are going to create a 980px wide, 5 column grid with 20px gutters between
+// We are going to create a 980px wide, 5 column gri  d with 20px gutters between
 // columns (applied as 10px of left/right padding on each column).
 $zen-column-count:  5;
 $zen-gutter-width:  20px;
@@ -61,6 +61,7 @@ $zen-auto-include-item-base: false;
 .region-sidebar-second,
 #footer {
   @include zen-grid-item-base();
+
 }
 
 /*
@@ -94,7 +95,7 @@ $zen-auto-include-item-base: false;
   /*
    * Use 3 grid columns for smaller screens.
    */
-  $zen-column-count: 3;
+  $zen-column-count: 5;
 
   /*
    * The layout when there is only one sidebar, the left one.
@@ -102,7 +103,7 @@ $zen-auto-include-item-base: false;
 
   .sidebar-first {
     #content { /* Span 2 columns, starting in 2nd column from left. */
-      @include zen-grid-item(2, 2);
+      @include zen-grid-item(3, 2);
     }
 
     .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
@@ -171,7 +172,7 @@ $zen-auto-include-item-base: false;
 
   .sidebar-first {
     #content { /* Span 4 columns, starting in 2nd column from left. */
-      @include zen-grid-item(4, 2);
+      @include zen-grid-item(3, 2);
     }
 
     .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
