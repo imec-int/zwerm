@@ -47,6 +47,7 @@
     define( 'SCOGA_PERM_REST_ACCESS_REGISTER_CARD',     'access content' );
     define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_CARD',    'REST register rfid card' );
     define( 'SCOGA_PERM_REST_ACCESS_SYNC',              'access content' );
+    define( 'SCOGA_PERM_REST_ACCESS_RELATIONSHIPS',     'access content' );
 
     //--( VALUES )--//
 
