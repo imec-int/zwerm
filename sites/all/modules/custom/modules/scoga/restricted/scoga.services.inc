@@ -13,7 +13,6 @@
 //            'scoga_player'      => scoga_outline_services_player(),
 //            'scoga_transaction' => scoga_outline_services_transaction(),
 //            'scoga_overview'    => scoga_outline_services_overview(),
-//            'scoga_message'     => scoga_outline_services_message(),
 //            'scoga_checkin'     => scoga_outline_services_checkin(),
 //            'scoga_reader'      => scoga_outline_services_reader(),
 //            'scoga_card'        => scoga_outline_services_card(),
@@ -21,6 +20,22 @@
             'scoga_teams'        => scoga_outline_services_teams(),
             'scoga_campaigns'    => scoga_outline_services_campaigns(),
             'scoga_sync'        => scoga_outline_services_sync(),
+            'scoga_messages'     => scoga_outline_services_messages(),
+            'scoga_network'     => scoga_outline_services_network(),
+        );
+    }
+
+    function scoga_outline_services_network(){
+        return array(
+            'index' => array(
+                'help'             => 'Retrieve network',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga',
+                ),
+                'callback'         => 'scoga_service_network_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_RELATIONSHIPS ),
+            )
         );
     }
 
@@ -153,7 +168,7 @@
         );
     }
 
-    function scoga_outline_services_message(){
+    function scoga_outline_services_messages(){
         return array(
             'index' => array(
                 'help'             => 'Retrieves all messages',
@@ -161,7 +176,7 @@
                     'type'   => 'services.inc',
                     'module' => 'scoga'
                 ),
-                'callback'         => 'scoga_service_message_index',
+                'callback'         => 'scoga_service_messages_index',
                 'access arguments' => array( SCOGA_PERM_REST_ACCESS_MESSAGES_DATA ),
                 'args'             => array(
                     array(
@@ -291,6 +306,12 @@
         );
     }
 
+    function scoga_service_network_index( $params = array() ){
+        watchdog( 'SCOGA', 'scoga_service_network_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
+        module_load_include( 'api.network.inc', 'scoga', 'api/scoga' );
+        return scoga_create_network_vo();
+    }
+
     /**
      * @param array $params
      *
@@ -347,17 +368,17 @@
         return scoga_get_transaction_vos_by_txnid( $last_txnid );
     }
 
-    function scoga_service_overview_index(){
-        watchdog( 'SCOGA', 'scoga_service_overview_index', NULL, WATCHDOG_INFO );
-    	module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
-        $output = array();
-        $output[ 'campaign' ] = scoga_service_campaign_index();
-        $output[ 'last_message_nid' ] = scoga_get_last_message_nid();
-        return $output;
-    }
-
-    function scoga_service_message_index( $params ){
-        watchdog( 'SCOGA', 'scoga_service_message_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
+//    function scoga_service_overview_index(){
+//        watchdog( 'SCOGA', 'scoga_service_overview_index', NULL, WATCHDOG_INFO );
+//    	module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
+//        $output = array();
+//        $output[ 'campaign' ] = scoga_service_campaign_index();
+//        $output[ 'last_message_nid' ] = scoga_get_last_message_nid();
+//        return $output;
+//    }
+//
+    function scoga_service_messages_index( $params ){
+        watchdog( 'SCOGA', 'scoga_services_message_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
     	module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
         $last_nid = ( array_key_exists( 'last_nid', $params ) )
             ? $params[ 'last_nid' ]
