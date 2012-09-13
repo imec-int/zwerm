@@ -10,11 +10,16 @@
     class Message {
         public $nid;
         public $uid;
-        public $points;
         public $timestamp;
         public $description;
         public $title;
 
+    }
+
+    function scoga_get_messages_vos(){
+        $nids = scoga_get_message_nids();
+        $vos = scoga_get_messages_vos_by_nids( $nids );
+        return $vos;
     }
 
     /**
@@ -72,7 +77,6 @@
         $output = new Message();
         $output->nid = $message_node->nid;
         $output->uid = $message_node->uid;
-        $output->points = scoga_get_field_value( $message_node, 'field_logmessages_points' );
         $output->description = scoga_get_field_value( $message_node, 'body' );
         $output->timestamp = $message_node->created;
         $output->title = $message_node->title;
@@ -94,6 +98,7 @@
         $query
             ->entityCondition( 'entity_type', $entity_type )
             ->entityCondition( 'bundle', SCOGA_MESSAGES_NODETYPE )
+            ->propertyCondition( 'status', '1', '=' )
             ->propertyCondition( 'nid', $nid, '>' )
             ->propertyOrderBy( 'nid' );
         $result = $query->execute();
@@ -107,22 +112,36 @@
 
     }
 
+    function scoga_get_message_nids(){
+        $entity_type = 'node';
+        $query = new EntityFieldQuery();
+        $query
+            ->entityCondition( 'entity_type', $entity_type )
+            ->entityCondition( 'bundle', SCOGA_MESSAGES_NODETYPE )
+            ->propertyCondition( 'status', '1', '=' )
+            ->propertyOrderBy( 'nid' );
+        $result = $query->execute();
+
+
+        if( $result && array_key_exists( $entity_type, $result ) ){
+            return array_keys( $result[ $entity_type ] );
+        }
+
+        return array();
+    }
+
     /**
      * @param     $message
      * @param     $title
      * @param     $uid
-     * @param int $points
      *
      * @return stdClass
      */
-    function scoga_create_message_entity( $message, $title, $uid, $points = 0 ){
+    function scoga_create_message_entity( $message, $title, $uid ){
         $lang = LANGUAGE_NONE;
         $node = new stdClass();
         $node->type = SCOGA_MESSAGES_NODETYPE;
         node_object_prepare( $node );
-        $node->field_logmessages_points[ $lang ][ 0 ] = array(
-            'value' => $points
-        );
         $node->body[ $lang ][ 0 ] = array(
             'value' => $message
         );
@@ -133,4 +152,8 @@
         $node = node_submit( $node );
         node_save( $node );
         return $node;
+    }
+
+    function scoga_get_messages_vos_by_nids( $nids ){
+        return scoga_get_output( $nids, 'scoga_get_message_vo_by_nid' );
     }
