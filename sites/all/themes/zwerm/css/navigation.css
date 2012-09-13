@@ -76,9 +76,8 @@ li a.active {
   display: block;
   height: 133px;
   width: 150px;
-  border-color: black;
   padding: 0 0px 0 0;
-  background-image: url(../images/sparrow_button_large.png);
+  background-image: url("../images/sparrow_button.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90px;
@@ -90,7 +89,7 @@ li a.active {
 /*
  * Main menu and Secondary menu links
  */
-/* line 102, ../sass/navigation.scss */
+/* line 99, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */

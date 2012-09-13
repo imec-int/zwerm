@@ -74,6 +74,7 @@
   #navigation {
     position: absolute;
     top: 0;
+      box-align:center;
     /* Move the navbar up inside #main's padding. */
     height: 3em;
     width: 100%;

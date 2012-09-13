@@ -52,6 +52,7 @@ if (count($links) > 0) {
             && (empty($link['language']) || $link['language']->language == $language_url->language)) {
             $class[] = 'active';
         }
+
         $output .= '<li' . drupal_attributes(array('class' => $class)) . '>';
 
         if (isset($link['href'])) {
@@ -75,6 +76,19 @@ if (count($links) > 0) {
     }
 
     $output .= '</ul>';
+    /*
+    $output .= '<table>';
+    $output .= '<tr>';
+    foreach ($links as $key => $link)
+    {
+        $output .= '<td>
+                    <img src="'.base_path().path_to_theme().'/images/sparrow_button.jpg" >
+                    <a href='.$link['href'].'>'.$link['title'].'</a>
+                    </td>';
+    }
+    $output .= '</tr>';
+    $output .= '</table>';   */
+
 }
 print $output;
 ?>
