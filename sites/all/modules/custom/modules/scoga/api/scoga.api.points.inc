@@ -133,5 +133,19 @@
      * @param $iteration
      */
     function scoga_create_userpoints_category( $iteration ){
-        $points_vid = scoga_get_userpoints_vid();
+        $name = $iteration . ' score';
+        $userpoints_vid = scoga_get_userpoints_vid();
+        $score_tid = scoga_get_score_tid();
+        $score_children = taxonomy_get_children( $score_tid );
+        foreach( $score_children as $score_child_term ){
+            if( $score_child_term->name == $iteration ){
+                return FALSE;
+            }
+        }
+        $term = new stdClass();
+        $term->vid = $userpoints_vid;
+        $term->name = $iteration;
+        $term->parent = $score_tid;
+        taxonomy_term_save( $term );
+        return $term;
     }
