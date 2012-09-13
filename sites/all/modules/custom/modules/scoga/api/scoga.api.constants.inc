@@ -56,6 +56,19 @@
     define( 'SCOGA_TIME_FORMAT',            'H:i:s d/m/Y' );
     define( 'SCOGA_VARIABLE_GROUP_NAME',    'scoga' );
 
+    //--( RESPONSE CODES )--//
+    define( 'CODE_NO_CAMPAIGN',             1010 );
+    define( 'CODE_CARD_NOT_REGISTERED',     1020 );
+    define( 'CODE_NOT_ALLOWED',             1030 );
+    define( 'CODE_INVALID_READER',          1040 );
+    define( 'CODE_PLAYER_NEEDS_COOLDOWN',   1050 );
+    define( 'CODE_CHECKIN_SUCCESS',         1060 );
+    define( 'CODE_COMBO_SUCCESS',           1070 );
+    define( 'CODE_READER_UNREGISTERED',     2010 );
+    define( 'CODE_CARD_MULTIPLE',         2020 );
+    define( 'CODE_CARD_REGISTRATION_SUCCESS', 2030 );
+
+
 
 
 

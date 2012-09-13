@@ -24,22 +24,23 @@
         module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
         if( $reader_node === FALSE ){
-            $result->message = 'RFID reader with id @reader_id not registered';
-            $result->variables = array( '@reader_id' => $reader_id );
+            $result->message = t( 'RFID reader with id @reader_id not registered', array( '@reader_id' => $reader_id ) );
+            $result->code = CODE_READER_UNREGISTERED;
             return $result;
         }
 
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         $uids = scoga_get_player_uids_by_card_id( $card_id );
         if( $uids ){
-            $result->message = 'RFID card with id @card_id already registered';
-            $result->variables = array( '@card_id' => $card_id );
+            $result->message = t( 'RFID card with id @card_id already registered', array( '@card_id' => $card_id ) );
+            $result->code = CODE_CARD_MULTIPLE;
             return $result;
 
         }
 
         module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
-        $result = scoga_create_player_entity( $card_id );
+        $result->result = scoga_create_player_entity( $card_id );
+        $result->code = CODE_CARD_REGISTRATION_SUCCESS;
         return $result;
 
     }
