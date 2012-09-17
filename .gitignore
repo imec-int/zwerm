@@ -16,4 +16,5 @@ sites/*/private
 gitPush
 
 #Theme-related
-sites/all/themes/zwerm/.sass-cache
+*/.sass-cache/*
+sites/all/themes/zwerm/.sass-cache/

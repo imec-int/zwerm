@@ -45,7 +45,9 @@ li a.active {
  */
 
 #navigation {
-  /* overflow: hidden; */ /* Sometimes you want to prevent overlapping with main div. */
+   //overflow: hidden; //Sometimes you want to prevent overlapping with main div. */
+  display:block;
+  float:none;
 
   .block {
     margin-bottom: 0;
@@ -94,6 +96,10 @@ li a.active {
  */
 
 #main-menu {
+  display:block;
+  //box-align:center;
+  //margin-top: 35px;
+
 }
 
 #secondary-menu {

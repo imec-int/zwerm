@@ -1,0 +1,6 @@
+/* line 2, ../sass/not-checkin.scss */
+#not-checkin-list {
+  display: inline-block;
+  float: none;
+  overflow: hidden;
+}
