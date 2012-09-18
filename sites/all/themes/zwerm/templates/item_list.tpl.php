@@ -1,8 +1,6 @@
 <?php
 /**
- * User: tanguycoenen
- * Date: 05/09/12
- * Time: 21:40
+ * Formats $items as an html list
  */
     print ('<div id="not-checkin-list" class="clearfix">');
         print ('<ul>');

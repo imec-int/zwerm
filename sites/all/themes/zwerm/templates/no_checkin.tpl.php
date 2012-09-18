@@ -1,4 +1,8 @@
 <?php
+    /*
+     * Bundles the $names and $uids as a list and sends this to item_list.tpl.php
+     * for formatting as an item list
+     */
     $names = $variables['names'];
     $uids = $variables['uids'];
     $formatted_names = array();
@@ -8,11 +12,6 @@
        $formatted_name = l($name,'user/'.$uids[$element_position ]);
        $formatted_names[] = $formatted_name;
     }
-    /*$rows = array_chunk ( $formatted_names , 5 );
-    $table_variables = array(
-        'rows' => $rows
-    );
-    print theme('table',$table_variables);*/
     $variables = array();
     $variables ['items'] =  $formatted_names;
     print theme('item_list',$variables);

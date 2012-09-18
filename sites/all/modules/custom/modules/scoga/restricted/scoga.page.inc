@@ -47,6 +47,10 @@
 
     function scoga_overview_of_assignments_to_get_point()
     {
-        print('test');
+        $assignment_titles = array();
+        $assignment_titles[] = 'test1';
+        $assignment_titles[] = 'test2';
+        $output = theme('get_points',array(assignment_titles => $assignment_titles));
+        return $output;
     }
 ?>
