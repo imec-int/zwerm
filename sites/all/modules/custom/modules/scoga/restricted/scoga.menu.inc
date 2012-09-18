@@ -29,11 +29,19 @@
 //        );
         $items[ SCOGA_NOT_PARTNER_PAGE ] = array(
             'title'             => t( 'Players not checked in with' ),
-            'description'             => t( 'Overview of SCOGA users that are not a checkin partner of logged in user' ),
+            'description'       => t( 'Overview of SCOGA users that are not a checkin partner of logged in user' ),
             'type'              => MENU_NORMAL_ITEM,
             'file'              => 'restricted/scoga.page.inc',
             'page callback'     => 'scoga_get_list_of_not_checkin_parnters',
-            'access arguments'  => array( SCOGA_PAGE_ACCESS_NOT_CHECKIN_PARTNER ),
+            'access arguments'  => array( SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER ),
+        );
+        $items[ SCOGA_GET_POINTS_PAGE ] = array(
+            'title'             => t( 'Get points' ),
+            'description'       => t( 'Overview of the Scoga assignments the player can perform to get points' ),
+            'type'              => MENU_NORMAL_ITEM,
+            'file'              => 'restricted/scoga.page.inc',
+            'page callback'     => 'scoga_overview_of_assignments_to_get_point',
+            'access arguments'  => array( SCOGA_PERM_PAGE_ACCESS_GET_POINTS ),
         );
         return $items;
     }

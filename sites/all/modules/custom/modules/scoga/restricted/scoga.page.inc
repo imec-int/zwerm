@@ -44,4 +44,9 @@
         return $output;
 
     }
+
+    function scoga_overview_of_assignments_to_get_point()
+    {
+        print('test');
+    }
 ?>

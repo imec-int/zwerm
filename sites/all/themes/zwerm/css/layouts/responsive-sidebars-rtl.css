@@ -202,11 +202,11 @@
    */
   /* line 172, ../../sass/layouts/responsive-sidebars.scss */
   #header {
-    /* Span 1 columns, starting in 2nd column from left. */
+    /* Span 1 columns, starting in 4nd column from left. */
     float: right;
     width: 20%;
-    margin-right: 60%;
-    margin-left: -80%;
+    margin-right: 40%;
+    margin-left: -60%;
   }
 
   /* line 178, ../../sass/layouts/responsive-sidebars.scss */
