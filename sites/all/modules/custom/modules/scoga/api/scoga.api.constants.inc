@@ -23,6 +23,7 @@
     define( 'SCOGA_SETTING_REWARD_ANSWER_POLL',                 'scoga_setting_reward_answer_poll' );
 
     define( 'SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID',          'scoga_setting_current_combocheckin_rtid' );
+    define( 'SCOGA_SETTING_CHECKIN_EXPLANATION_NID',            'scoga_setting_checkin_explanation_nid' );
     define( 'SCOGA_SETTING_CREDITS_TID',                        'scoga_setting_credits_tid' );
     define( 'SCOGA_SETTING_SCORE_TID',                          'scoga_setting_score_tid' );
     define( 'SCOGA_SETTING_CURRENT_TEAM',                       'scoga_settings_current_team' );

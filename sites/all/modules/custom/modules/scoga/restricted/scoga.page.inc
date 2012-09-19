@@ -48,9 +48,13 @@
     function scoga_overview_of_assignments_to_get_point()
     {
         $assignment_titles = array();
-        $assignment_titles[] = 'test1';
-        $assignment_titles[] = 'test2';
-        $output = theme('get_points',array(assignment_titles => $assignment_titles));
+        $assignment_paths = array();
+        //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
+        $checkin_explanation_nid = variable_get(SCOGA_SETTING_CHECKIN_EXPLANATION_NID);
+        $checkin_explanation_node = node_load($checkin_explanation_nid);
+        $assignment_titles[] = $checkin_explanation_node->title;
+        $assignment_paths[] = 'node/'.$checkin_explanation_node->nid;
+        $output = theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
     }
 ?>

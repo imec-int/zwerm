@@ -44,7 +44,7 @@
             'required'      => TRUE,
         );
 
-        //cmobocheckin timeframe
+        //combocheckin timeframe
         $variables[ SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME ] = array(
             'group'         => SCOGA_VARIABLE_GROUP_NAME,
             'type'          => 'uint',
@@ -107,6 +107,15 @@
             'type'              => 'number',
             'title'             => t( 'The current user relationship type ID' ),
             'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_CHECKIN_EXPLANATION_NID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The node id of the combo checkin explanation page' ),
+            'description'       => t( 'The node id of the page containing the explanation on how to do combo checkins' ),
             'default'           => 0,
             'required'          => TRUE
         );
