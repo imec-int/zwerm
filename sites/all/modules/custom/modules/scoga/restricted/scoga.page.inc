@@ -1,4 +1,7 @@
 <?php
+    /*
+     * Construct the list of /not_checkin
+     */
     function scoga_get_list_of_not_checkin_parnters()
     {
         //get all the active users & store all the active users in an array
@@ -44,7 +47,9 @@
         return $output;
 
     }
-
+    /*
+     * Construct the list of /get_points
+     */
     function scoga_overview_of_assignments_to_get_point()
     {
         $assignment_titles = array();
@@ -58,10 +63,26 @@
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';
         //todo : add link to active geo challenges
-        //todo : add link to active questions
-
-        //todo : ass link to active posted wishes
+        //add links to active events
+        _scoga_add_content_type_to_output('nodetype_event','Event',&$assignment_titles,&$assignment_paths);
+        //add links to active questions
+        _scoga_add_content_type_to_output('poll','Question',&$assignment_titles,&$assignment_paths);
+        //add links to active wishes
+        _scoga_add_content_type_to_output('nodetype_wished_item','Wish',&$assignment_titles,&$assignment_paths);
         $output = theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
+    }
+
+    /*
+     * Load node of a given content type and adds it to the output
+     */
+    function _scoga_add_content_type_to_output($content_type,$label,$titles,$paths)
+    {
+        $poll_nodes = node_load_multiple(array(), array('type' => $content_type));
+        foreach($poll_nodes as $poll_node)
+        {
+            $titles[] = $label.': '.$poll_node->title;
+            $paths[] = 'node/'.$poll_node->nid;
+        }
     }
 ?>
