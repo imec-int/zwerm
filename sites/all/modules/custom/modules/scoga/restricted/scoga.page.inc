@@ -54,6 +54,13 @@
         $checkin_explanation_node = node_load($checkin_explanation_nid);
         $assignment_titles[] = $checkin_explanation_node->title;
         $assignment_paths[] = 'node/'.$checkin_explanation_node->nid;
+        //add link to wish creation page to output
+        $assignment_titles[] = t ('Make a wish');
+        $assignment_paths[] = 'node/add/nodetype-wished-item';
+        //todo : add link to active geo challenges
+        //todo : add link to active questions
+
+        //todo : ass link to active posted wishes
         $output = theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
     }
