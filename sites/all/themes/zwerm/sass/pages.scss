@@ -53,8 +53,11 @@ body {
   border-width : 1px;
   border-left-style: solid;
   border-right-style: solid;
-  border-top-style : solid;
-
+  border-bottom-style : solid;
+  #team_name
+  {
+    text-align: center;
+  }
 
 }
 
@@ -293,25 +296,4 @@ span.field-label { /* The inline field label used by the Fences module */
   }
 }
 
-/*
- * JQuery mobile overrides
- */
 
-/*
-
-.ui-content .ui-listview {
-  margin:0px;
-}
-
-.ui-body-c, .ui-dialog.ui-overlay-c
-{
-  background-image:none;
-  background: white;
-}
-
-.ui-body-c .ui-link:visited {
-  color: #ffffff; */
-/*{c-body-link-visited}*//*
-;
-}
-*/
