@@ -55,10 +55,11 @@
         $assignment_titles = array();
         $assignment_paths = array();
         //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
-        $checkin_explanation_nid = variable_get(SCOGA_SETTING_CHECKIN_EXPLANATION_NID);
-        $checkin_explanation_node = node_load($checkin_explanation_nid);
-        $assignment_titles[] = $checkin_explanation_node->title;
-        $assignment_paths[] = 'node/'.$checkin_explanation_node->nid;
+        //$checkin_explanation_nid = variable_get(SCOGA_SETTING_CHECKIN_EXPLANATION_NID);
+        //$checkin_explanation_node = node_load($checkin_explanation_nid);
+        //$assignment_titles[] = $checkin_explanation_node->title;
+        $assignment_titles[] = 'Check-in : find new partners';
+        $assignment_paths[] = SCOGA_NOT_PARTNER_PAGE;
         //add link to wish creation page to output
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';

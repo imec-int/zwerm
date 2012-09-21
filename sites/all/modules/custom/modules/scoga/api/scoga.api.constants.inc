@@ -49,6 +49,8 @@
     define( 'SCOGA_PERM_REST_ACCESS_SYNC',              'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_RELATIONSHIPS',     'access content' );
     define( 'SCOGA_PAGE_ACCESS_NOT_CHECKIN_PARTNER',    'access content' );
+    define( 'SCOGA_PERM_PAGE_ACCESS_GET_POINTS',        'access content' );
+    define( 'SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER', 'access content');
 
 
 //--( VALUES )--//
