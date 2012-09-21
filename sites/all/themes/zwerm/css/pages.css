@@ -297,12 +297,16 @@ span.field-label {
 }
 /* line 274, ../sass/pages.scss */
 #select_list a:link {
+  /*color: #000000;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;   */
   color: #000000;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-/* line 281, ../sass/pages.scss */
+/* line 282, ../sass/pages.scss */
 #select_list a:visited {
   color: #000000;
   text-decoration: none;

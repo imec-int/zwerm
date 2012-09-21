@@ -272,17 +272,15 @@ span.field-label { /* The inline field label used by the Fences module */
   }
 
   a:link {
-    color: #000000;
+    /*color: #000000;
     text-decoration: none;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    font-weight: bold;   */
+    @include hyperlink-style;
   }
 
   a:visited {
-    color: #000000;
-    text-decoration: none;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    @include hyperlink-style;
   }
 }
 
