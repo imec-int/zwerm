@@ -79,6 +79,13 @@ $zen-auto-include-item-base: false;
  */
 
 @media all and (min-width: 480px) {
+  $zen-column-count: 2;
+
+
+  #header{ /* Span 1 columns, starting in 4nd column from left. */
+    @include zen-grid-item(1, 1);
+  }
+
   #main {
     padding-top: 3em; /* Move all the children of #main down to make room. */
     position: relative;
@@ -95,15 +102,18 @@ $zen-auto-include-item-base: false;
   /*
    * Use 3 grid columns for smaller screens.
    */
-  $zen-column-count: 5;
+  $zen-column-count: 3;
 
   /*
    * The layout when there is only one sidebar, the left one.
    */
 
+  #header{ /* Span 1 columns, starting in 4nd column from left. */
+    @include zen-grid-item(3, 1);
+}
   .sidebar-first {
     #content { /* Span 2 columns, starting in 2nd column from left. */
-      @include zen-grid-item(3, 2);
+      @include zen-grid-item(3, 1);
     }
 
     .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
@@ -170,7 +180,7 @@ $zen-auto-include-item-base: false;
    * The layout when there is only one sidebar, the left one.
    */
     #header{ /* Span 1 columns, starting in 4nd column from left. */
-      @include zen-grid-item(1, 3);
+      @include zen-grid-item(5, 1);
       //@include zen-clear();
 
     }
@@ -181,7 +191,7 @@ $zen-auto-include-item-base: false;
     }
 
     #navigation{ /* Span 3 columns, starting in 2nd column from left. */
-      @include zen-grid-item(3, 2);
+      //@include zen-grid-item(3, 2);
 }
 
   .sidebar-first {

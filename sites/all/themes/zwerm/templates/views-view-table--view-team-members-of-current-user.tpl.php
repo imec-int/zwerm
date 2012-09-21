@@ -39,7 +39,6 @@
     <tbody>
     <?php
         $i=0;
-        print $userLeaderboardPosition;
         foreach ($rows as $row_count => $row): ?>
             <?php  $playerRank = $row['php']; ?>
             <?php if ($playerRank == $userLeaderboardPosition-2): ?>
