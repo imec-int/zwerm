@@ -2,7 +2,7 @@
 /**
  * Formats $items as an html list
  */
-    print ('<div id="not-checkin-list" class="clearfix">');
+    print ('<div id="select_list" class="clearfix">');
         print ('<ul>');
             $items = $variables['items'];
             foreach ($items as $item)

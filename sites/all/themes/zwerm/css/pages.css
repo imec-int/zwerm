@@ -217,6 +217,7 @@ ul.inline {
 }
 /* line 194, ../sass/pages.scss */
 ul.inline li {
+  display: inline;
   list-style-type: none;
   padding: 0 1em 0 0;
   /* LTR */
@@ -274,21 +275,60 @@ span.field-label {
 }
 
 /*
- * JQuery mobile overrides
+ * The Zwerm list style, mobile optimized
  */
-/* line 256, ../sass/pages.scss */
-.ui-content .ui-listview {
-  margin: 0px;
+/* line 257, ../sass/pages.scss */
+#select_list li {
+  display: block;
+  height: 50px;
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+/* line 263, ../sass/pages.scss */
+#select_list ul {
+  display: block;
+  border-top-style: solid;
+  border-width: 1px;
+  padding: 0 0 0 0;
+}
+/* line 269, ../sass/pages.scss */
+#select_list a {
+  line-height: 3em;
+}
+/* line 274, ../sass/pages.scss */
+#select_list a:link {
+  color: #000000;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+/* line 281, ../sass/pages.scss */
+#select_list a:visited {
+  color: #000000;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
-/* line 261, ../sass/pages.scss */
-.ui-body-c, .ui-dialog.ui-overlay-c {
-  background-image: none;
+/*
+ * JQuery mobile overrides
+ */
+/*
+
+.ui-content .ui-listview {
+  margin:0px;
+}
+
+.ui-body-c, .ui-dialog.ui-overlay-c
+{
+  background-image:none;
   background: white;
 }
 
-/* line 266, ../sass/pages.scss */
 .ui-body-c .ui-link:visited {
-  color: #ffffff;
-  /*{c-body-link-visited}*/
+  color: #ffffff; */
+/*{c-body-link-visited}*/
+                         /*
+;
 }
+*/
