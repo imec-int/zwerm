@@ -83,12 +83,28 @@ $zen-auto-include-item-base: false;
 
   #header{ /* Span 1 columns, starting in 4nd column from left. */
     @include zen-grid-item(2, 1);
+    @include zen-clear();
+    #logo {
+      width : 25%;
+      @include zen-clear();
+    }
   }
+
+
 
   #main {
     //padding-top: 3em; /* Move all the children of #main down to make room. */
-    position: relative;
+    @include zen-clear();
+    //position: relative;
+
+    #content {
+      @include zen-clear();
+    }
+    #logo {
+      display : none;
+    }
   }
+
 
   #navigation {
     .not-front-page
@@ -111,6 +127,9 @@ $zen-auto-include-item-base: false;
   #header{ /* Span 1 columns, starting in 4nd column from left. */
     @include zen-grid-item(3, 1);
     @include zen-clear();
+    #logo {
+      display : none;
+    }
   }
 
 
@@ -189,22 +208,29 @@ $zen-auto-include-item-base: false;
    * The layout when there is only one sidebar, the left one.
    */
     #header{ /* Span 5 columns, starting in 1st column from left. */
-      @include zen-grid-item(3, 2);
+      @include zen-grid-item(5, 1);
+      #logo {
+        display : none;
+      }
     }
+
+
+    #navigation{ /* Span 3 columns, starting in 2nd column from left. */
+      @include zen-clear();
+      @include zen-grid-item(3, 2);
+     // margin-left:auto;
+     // margin-right:auto;
+    }
+
 
     #main{ /* Span 3 columns, starting in 2nd column from left. */
       @include zen-grid-item(5, 1);
       @include zen-clear();
     }
 
-    #navigation{ /* Span 3 columns, starting in 2nd column from left. */
-      @include zen-grid-item(3, 2);
-    }
-
     #content {
       @include zen-clear();
-      @include zen-grid-item(3, 2);
-    }
+      @include zen-grid-item(5, 1);    }
 
     .sidebar-first {
       #content { /* Span 1 columns, starting in 4th column from left. */

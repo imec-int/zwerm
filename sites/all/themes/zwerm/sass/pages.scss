@@ -50,6 +50,11 @@ body {
 #header {
   //background-color: $color;
   float:none;
+  border-width : 1px;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-top-style : solid;
+
 
 }
 
@@ -102,6 +107,10 @@ body {
  */
 
 #main {
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width : 1px;
+
 }
 
 /*

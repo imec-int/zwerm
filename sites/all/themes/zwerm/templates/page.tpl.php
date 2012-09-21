@@ -69,14 +69,19 @@
  * @see template_process()
  */
 ?>
+<?php
+    // to allow main menu to disappear on responsive resize
+    if(!drupal_is_front_page()) $front_page_class ='class = "not-front-page"';
+?>
 
 <div id="page">
 
     <header id="header" role="banner">
 
         <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
         <?php endif; ?>
+        <?php print('yey'); ?>
 
         <?php if ($site_name || $site_slogan): ?>
         <hgroup id="name-and-slogan">
@@ -113,10 +118,10 @@
     </header>
 
     <div id="main">
-        <?php
-            // to allow main menu to disappear on responsive resize
-            if(!drupal_is_front_page()) $front_page_class ='class = "not-front-page"';
-        ?>
+        <?php if ($logo): ?>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+        <?php endif; ?>
+
         <div id="navigation">
 
             <?php if ($main_menu): ?>
