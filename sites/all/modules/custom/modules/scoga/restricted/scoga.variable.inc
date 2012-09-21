@@ -44,7 +44,7 @@
             'required'      => TRUE,
         );
 
-        //combocheckin timeframe
+        //cmobocheckin timeframe
         $variables[ SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME ] = array(
             'group'         => SCOGA_VARIABLE_GROUP_NAME,
             'type'          => 'uint',
@@ -120,6 +120,32 @@
             'required'          => TRUE
         );
 
+        $variables[ SCOGA_SETTING_CURRENT_CAMPAIGN_NID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The current campaign' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_CREDITS_TID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Credits TID' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_SCORE_TID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Score TID' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
         return $variables;
 
     }

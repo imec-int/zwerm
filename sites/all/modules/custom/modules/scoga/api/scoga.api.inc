@@ -16,6 +16,9 @@
         public $code;
     }
 
+    function scoga_get_current_time(){
+        return time();
+    }
 
     /**
      * Syntactic sugar for retrieving a value from a field.
@@ -297,7 +300,7 @@
      * @return int
      */
     function scoga_get_credits_tid(){
-        return SCOGA_SETTING_CREDITS_TID;
+        return variable_get( SCOGA_SETTING_CREDITS_TID );
     }
     function scoga_set_credits_tid( $value ) {
         variable_set( SCOGA_SETTING_CREDITS_TID, $value );
@@ -307,7 +310,7 @@
      * @return int
      */
     function scoga_get_score_tid(){
-        return SCOGA_SETTING_SCORE_TID;
+        return variable_get( SCOGA_SETTING_SCORE_TID );
     }
     function scoga_set_score_tid( $value ){
         variable_set( SCOGA_SETTING_SCORE_TID, $value );

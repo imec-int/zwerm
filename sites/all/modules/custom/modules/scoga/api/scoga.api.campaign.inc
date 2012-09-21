@@ -26,6 +26,30 @@
 //    }
 
     /**
+     * @return array
+     */
+    function scoga_get_campaign_vos(){
+        $nids = scoga_get_campaign_nids();
+        $vos = scoga_get_campaign_vos_by_nids( $nids );
+        return $vos;
+    }
+
+    function scoga_get_campaign_nids(){
+        $entity_type = 'node';
+        $query = new EntityFieldQuery();
+        $result = $query
+            ->entityCondition( 'entity_type', $entity_type )
+            ->entityCondition( 'bundle', SCOGA_CAMPAIGN_NODETYPE )
+            ->execute()
+        ;
+        if( isset( $result[ $entity_type ] )){
+            return array_keys( $result[ $entity_type ] );
+        }
+
+        return array();
+    }
+
+    /**
      * @param string|array $campaign_nids
      *
      * @return array
@@ -37,7 +61,7 @@
     /**
      * @param $campaign_nid
      *
-     * @return bool|Campaign
+     * @return Campaign
      */
     function scoga_get_campaign_vo_by_nid( $campaign_nid ){
         $campaign_node = node_load( $campaign_nid );

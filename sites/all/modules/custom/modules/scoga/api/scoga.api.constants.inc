@@ -46,11 +46,12 @@
     define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_READER',  'REST register rfid reader' );
     define( 'SCOGA_PERM_REST_ACCESS_REGISTER_CARD',     'access content' );
     define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_CARD',    'REST register rfid card' );
-    define( 'SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER',    'access content' );
-    define( 'SCOGA_PERM_PAGE_ACCESS_GET_POINTS',    'access content' );
+    define( 'SCOGA_PERM_REST_ACCESS_SYNC',              'access content' );
+    define( 'SCOGA_PERM_REST_ACCESS_RELATIONSHIPS',     'access content' );
+    define( 'SCOGA_PAGE_ACCESS_NOT_CHECKIN_PARTNER',    'access content' );
 
 
-    //--( VALUES )--//
+//--( VALUES )--//
 
     define( 'SCOGA_ADMIN_PAGE',             'admin/config/scoga' );
     define( 'SCOGA_NOT_PARTNER_PAGE',             'not_partner' );

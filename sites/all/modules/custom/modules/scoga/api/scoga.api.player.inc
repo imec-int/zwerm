@@ -45,6 +45,12 @@
         return $uids;
     }
 
+    function scoga_get_player_vos_by_team_nid( $team_nid, $exclude = FALSE ){
+        $uids = scoga_get_player_uids_by_team_nid( $team_nid, $exclude );
+        $vos = scoga_get_player_vos_by_uids( $uids );
+        return $vos;
+    }
+
 //    function scoga_get_player_vos_by_UUIDs( $player_UUIDs ){
 //        return scoga_get_output( $player_UUIDs, 'scoga_get_player_vo_by_UUID' );
 //    }

@@ -11,7 +11,7 @@
      * @param $card_id
      * @param $reader_id
      *
-     * @return stdClass
+     * @return Result
      */
     function scoga_register_checkin( $card_id, $reader_id ){
 

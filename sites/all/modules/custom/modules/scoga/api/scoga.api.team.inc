@@ -13,8 +13,9 @@
         public $nid;
         public $title;
         public $colour;
-        public $total_points;
-        public $points_modifier;
+        public $total_points = 0;
+        public $points_modifier = 0;
+        public $players;
 
     }
 
@@ -36,6 +37,13 @@
 //        return FALSE;
 //    }
 
+    function scoga_get_team_vos(){
+        $nids = scoga_get_team_nids();
+        $vos = scoga_get_team_vos_by_nids( $nids );
+        return $vos;
+
+    }
+
     /**
      * @param $team_nids
      *
@@ -51,7 +59,6 @@
      * @return bool|Team
      */
     function scoga_get_team_vo_by_nid( $team_nid ){
-        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         $team_node = node_load( $team_nid );
         if( $team_node ){
             $team_obj = scoga_create_team_vo( $team_node );
@@ -67,10 +74,12 @@
      * @return Team
      */
     function scoga_create_team_vo( $team_node ){
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         $output = new Team();
         $output->nid = $team_node->nid;
         $output->colour = scoga_get_field_value( $team_node, 'field_team_colour' );
         $output->title = $team_node->title;
+        $output->players = scoga_get_player_vos_by_team_nid( $team_node->nid );
         return $output;
     }
 
@@ -85,7 +94,12 @@
             ->entityCondition( 'bundle', SCOGA_TEAM_NODETYPE )
             ->execute()
         ;
-        $nids = array_keys( $result[ $entity_type ] );
+
+        if( array_key_exists( $entity_type, $result ) ){
+            $nids = array_keys( $result[ $entity_type ] );
+        }else{
+            $nids = array();
+        }
 
         return $nids;
     }
