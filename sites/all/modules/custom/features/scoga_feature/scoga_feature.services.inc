@@ -40,37 +40,65 @@ function scoga_feature_default_services_endpoint() {
     ),
   );
   $endpoint->resources = array(
-    'scoga_teams' => array(
+    'scoga_overview' => array(
       'operations' => array(
         'index' => array(
           'enabled' => 1,
         ),
       ),
     ),
-    'scoga_campaigns' => array(
+    'scoga_message' => array(
       'operations' => array(
         'index' => array(
           'enabled' => 1,
         ),
       ),
     ),
-    'scoga_sync' => array(
+    'scoga_campaign' => array(
       'operations' => array(
         'index' => array(
           'enabled' => 1,
         ),
       ),
     ),
-    'scoga_messages' => array(
+    'scoga_team' => array(
       'operations' => array(
         'index' => array(
           'enabled' => 1,
         ),
       ),
     ),
-    'scoga_network' => array(
+    'scoga_player' => array(
       'operations' => array(
         'index' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
+    'scoga_transaction' => array(
+      'operations' => array(
+        'index' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
+    'scoga_checkin' => array(
+      'operations' => array(
+        'create' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
+    'scoga_reader' => array(
+      'operations' => array(
+        'create' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
+    'scoga_card' => array(
+      'operations' => array(
+        'create' => array(
           'enabled' => 1,
         ),
       ),
