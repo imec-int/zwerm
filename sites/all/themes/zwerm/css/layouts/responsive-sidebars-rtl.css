@@ -67,23 +67,21 @@
  * Navigation bar
  */
 @media all and (max-width: 480px) {
-  /* line 85, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 84, ../../sass/layouts/responsive-sidebars.scss */
   #header {
     /* Span 1 columns, starting in 4nd column from left. */
     float: right;
-    width: 50%;
+    width: 100%;
     margin-right: 0%;
-    margin-left: -50%;
+    margin-left: -100%;
   }
 
-  /* line 89, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 88, ../../sass/layouts/responsive-sidebars.scss */
   #main {
-    padding-top: 3em;
-    /* Move all the children of #main down to make room. */
     position: relative;
   }
 
-  /* line 96, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 95, ../../sass/layouts/responsive-sidebars.scss */
   #navigation .not-front-page {
     display: none;
   }
@@ -95,7 +93,7 @@
   /*
    * The layout when there is only one sidebar, the left one.
    */
-  /* line 112, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 111, ../../sass/layouts/responsive-sidebars.scss */
   #header {
     /* Span 1 columns, starting in 4nd column from left. */
     float: right;
@@ -105,7 +103,7 @@
     clear: right;
   }
 
-  /* line 119, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 118, ../../sass/layouts/responsive-sidebars.scss */
   .no-sidebars #content {
     clear: right;
     float: right;
@@ -114,7 +112,7 @@
     margin-left: -100%;
   }
 
-  /* line 124, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 123, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     /* Span 2 columns, starting in 2nd column from left. */
     float: right;
@@ -122,7 +120,7 @@
     margin-right: 0%;
     margin-left: -100%;
   }
-  /* line 127, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 126, ../../sass/layouts/responsive-sidebars.scss */
   #content .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
     float: right;
@@ -145,7 +143,7 @@
   /*
    * The layout when there is only one sidebar, the left one.
    */
-  /* line 192, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 191, ../../sass/layouts/responsive-sidebars.scss */
   #header {
     /* Span 5 columns, starting in 1st column from left. */
     float: right;
@@ -154,7 +152,7 @@
     margin-left: -80%;
   }
 
-  /* line 196, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 195, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 3 columns, starting in 2nd column from left. */
     float: right;
@@ -164,7 +162,7 @@
     clear: right;
   }
 
-  /* line 201, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 200, ../../sass/layouts/responsive-sidebars.scss */
   #navigation {
     /* Span 3 columns, starting in 2nd column from left. */
     float: right;
@@ -173,7 +171,7 @@
     margin-left: -80%;
   }
 
-  /* line 205, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 204, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     clear: right;
     float: right;
@@ -182,7 +180,7 @@
     margin-left: -80%;
   }
 
-  /* line 211, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 210, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first #content {
     /* Span 1 columns, starting in 4th column from left. */
     float: right;
@@ -190,7 +188,7 @@
     margin-right: 0%;
     margin-left: -100%;
   }
-  /* line 215, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 214, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
     float: right;

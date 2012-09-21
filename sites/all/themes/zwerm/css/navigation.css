@@ -85,16 +85,30 @@ li a.active {
   line-height: 250px;
   box-align: center;
 }
+/* line 89, ../sass/navigation.scss */
+#navigation li a:link {
+  color: #000000;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+/* line 96, ../sass/navigation.scss */
+#navigation li a:visited {
+  color: #000000;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
 
 /*
  * Main menu and Secondary menu links
  */
-/* line 98, ../sass/navigation.scss */
+/* line 114, ../sass/navigation.scss */
 #main-menu {
   display: block;
 }
 
-/* line 105, ../sass/navigation.scss */
+/* line 121, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */

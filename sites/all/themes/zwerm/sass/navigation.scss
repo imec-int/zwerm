@@ -85,7 +85,23 @@ li a.active {
     text-align:center;
     line-height:250px;
     box-align:center;
+
+    a:link {
+      color: #000000;
+      text-decoration: none;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
+    a:visited {
+      color: #000000;
+      text-decoration: none;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
   }
+
+
 }
 
 .region-navigation {
