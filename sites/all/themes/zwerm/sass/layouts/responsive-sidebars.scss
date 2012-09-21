@@ -132,6 +132,15 @@ $zen-auto-include-item-base: false;
     }
   }
 
+  #navigation
+  {
+    @include zen-clear();
+  }
+
+  #content
+  {
+    @include zen-clear();
+  }
 
   .no-sidebars {
     #content {
