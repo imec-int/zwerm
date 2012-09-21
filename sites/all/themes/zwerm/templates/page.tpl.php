@@ -113,34 +113,36 @@
     </header>
 
     <div id="main">
-        <?php if (drupal_is_front_page()): ?>
-            <div id="navigation">
+        <?php
+            // to allow main menu to disappear on responsive resize
+            if(!drupal_is_front_page()) $front_page_class ='class = "not-front-page"';
+        ?>
+        <div id="navigation">
 
-                <?php if ($main_menu): ?>
-                <nav id="main-menu" role="navigation">
-                    <?php
-                    // This code snippet is hard to modify. We recommend turning off the
-                    // "Main menu" on your sub-theme's settings form, deleting this PHP
-                    // code block, and, instead, using the "Menu block" module.
-                    // @see http://drupal.org/project/menu_block
-                    print theme('links__system_main_menu', array(
-                        'links' => $main_menu,
-                        'attributes' => array(
-                            'class' => array('links', 'inline', 'clearfix'),
-                        ),
-                        'heading' => array(
-                            'text' => t('Main menu'),
-                            'level' => 'h2',
-                            'class' => array('element-invisible'),
-                        ),
-                    )); ?>
-                </nav>
-                <?php endif; ?>
+            <?php if ($main_menu): ?>
+            <nav id="main-menu" <?php print($front_page_class) ?> role="navigation">
+                <?php
+                // This code snippet is hard to modify. We recommend turning off the
+                // "Main menu" on your sub-theme's settings form, deleting this PHP
+                // code block, and, instead, using the "Menu block" module.
+                // @see http://drupal.org/project/menu_block
+                print theme('links__system_main_menu', array(
+                    'links' => $main_menu,
+                    'attributes' => array(
+                        'class' => array('links', 'inline', 'clearfix'),
+                    ),
+                    'heading' => array(
+                        'text' => t('Main menu'),
+                        'level' => 'h2',
+                        'class' => array('element-invisible'),
+                    ),
+                )); ?>
+            </nav>
+            <?php endif; ?>
 
-                <?php print render($page['navigation']); ?>
+            <?php print render($page['navigation']); ?>
 
-            </div><!-- /#navigation -->
-        <?php endif; ?>
+        </div><!-- /#navigation -->
 
         <div id="content" class="column" role="main">
             <?php print render($page['highlighted']); ?>
