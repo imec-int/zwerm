@@ -47,6 +47,7 @@ body {
 /* line 58, ../sass/pages.scss */
 #header #team_name {
   text-align: center;
+  line-height: 36px;
 }
 
 /* line 65, ../sass/pages.scss */

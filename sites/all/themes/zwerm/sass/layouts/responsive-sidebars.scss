@@ -130,6 +130,7 @@ $zen-auto-include-item-base: false;
     #logo {
       display : none;
     }
+    display:none;
   }
 
   #navigation
@@ -217,10 +218,11 @@ $zen-auto-include-item-base: false;
    * The layout when there is only one sidebar, the left one.
    */
     #header{ /* Span 5 columns, starting in 1st column from left. */
-      @include zen-grid-item(5, 1);
-      #logo {
-        display : none;
-      }
+      //@include zen-grid-item(5, 1);
+      //#logo {
+      //  display : none;
+      //}
+      display:none;
     }
 
 
