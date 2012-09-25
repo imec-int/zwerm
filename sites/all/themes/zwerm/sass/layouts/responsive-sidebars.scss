@@ -106,6 +106,10 @@ $zen-auto-include-item-base: false;
       display:none;
     }
   }
+
+  #footer {
+    @include zen-grid-item(2, 1);
+  }
 }
 
 @media all and (min-width: 630px) {
@@ -131,6 +135,8 @@ $zen-auto-include-item-base: false;
     #main{ /* Span 3 columns, starting in 2nd column from left. */
       @include zen-grid-item(5, 1);
       @include zen-clear();
+      //needed for floating footer
+      height : 100%;
     }
 
     #content {
@@ -138,14 +144,18 @@ $zen-auto-include-item-base: false;
       @include zen-grid-item(3, 2);    }
 
     .sidebar-first {
-      #content { /* Span 1 columns, starting in 4th column from left. */
-      @include zen-grid-item(5, 1);
+        #content { /* Span 1 columns, starting in 4th column from left. */
+        @include zen-grid-item(5, 1);
+      }
+
+      .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+        @include zen-grid-item(1, 1);
+      }
     }
 
-    .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
-      @include zen-grid-item(1, 1);
+    #footer {
+      @include zen-grid-item(3, 2);
     }
-  }
 
 
 

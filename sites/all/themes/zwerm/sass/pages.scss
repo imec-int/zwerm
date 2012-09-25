@@ -12,13 +12,15 @@
 $header-color : #FF0000;
 
 /*
- * Body
+ * foot
  */
 
 body {
   margin: 0;
   padding: 0;
   background-color: white;
+  //needed for floating footer
+  height : 100%;
 }
 
 #page {
@@ -286,14 +288,49 @@ span.field-label { /* The inline field label used by the Fences module */
   }
 
   a:link {
-    /*color: #000000;
-    text-decoration: none;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-weight: bold;   */
     @include hyperlink-style;
   }
 
   a:visited {
+    @include hyperlink-style;
+  }
+}
+
+#footer {
+  //needed for footer to remain at bottom
+  height: 330px;
+  position: relative;
+}
+
+//needed for footer to remain at bottom
+.clearfooter {
+  height: 160px;
+  clear: both;
+}
+
+#block-menu-menu-footer {
+  .block-title {
+    display:none;
+  }
+  li {
+    display:block;
+    height : 50px;
+    //border-bottom-style: solid;
+    //border-width:1px;
+  }
+  ul {
+    display:block;
+    border-top-style: solid;
+    border-width:1px;
+    padding: 0 0 0 0;
+  }
+  .first {
+    float : left
+  }
+  .last {
+    float : right;
+  }
+  a {
     @include hyperlink-style;
   }
 }

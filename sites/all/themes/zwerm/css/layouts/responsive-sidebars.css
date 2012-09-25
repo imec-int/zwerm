@@ -92,6 +92,14 @@
   #navigation .not-front-page {
     display: none;
   }
+
+  /* line 110, ../../sass/layouts/responsive-sidebars.scss */
+  #footer {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+  }
 }
 @media all and (min-width: 630px) {
   /*
@@ -100,13 +108,13 @@
   /*
    * The layout when there is only one sidebar, the left one.
    */
-  /* line 120, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 124, ../../sass/layouts/responsive-sidebars.scss */
   #header {
     /* Span 5 columns, starting in 1st column from left. */
     display: none;
   }
 
-  /* line 125, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 129, ../../sass/layouts/responsive-sidebars.scss */
   #navigation {
     /* Span 3 columns, starting in 2nd column from left. */
     clear: left;
@@ -116,7 +124,7 @@
     margin-right: -80%;
   }
 
-  /* line 131, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 135, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 3 columns, starting in 2nd column from left. */
     float: left;
@@ -124,9 +132,10 @@
     margin-left: 0%;
     margin-right: -100%;
     clear: left;
+    height: 100%;
   }
 
-  /* line 136, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 142, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     clear: left;
     float: left;
@@ -135,7 +144,7 @@
     margin-right: -80%;
   }
 
-  /* line 141, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 147, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first #content {
     /* Span 1 columns, starting in 4th column from left. */
     float: left;
@@ -143,12 +152,20 @@
     margin-left: 0%;
     margin-right: -100%;
   }
-  /* line 145, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 151, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
     float: left;
     width: 20%;
     margin-left: 0%;
     margin-right: -20%;
+  }
+
+  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
+  #footer {
+    float: left;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: -80%;
   }
 }

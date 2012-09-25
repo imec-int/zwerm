@@ -185,7 +185,7 @@
         <?php endif; ?>
 
     </div><!-- /#main -->
-
+    <div class="clearfooter"></div>
     <?php print render($page['footer']); ?>
 
 
