@@ -83,7 +83,7 @@
              </a>
         <?php endif; ?>
         <div id="team_name">
-            <?php print('yey'); ?>
+            <?php print('Team Name'); ?>
         </div>
         <?php if ($site_name || $site_slogan): ?>
         <hgroup id="name-and-slogan">
