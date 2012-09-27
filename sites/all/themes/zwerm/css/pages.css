@@ -332,36 +332,50 @@ span.field-label {
 
 /* line 306, ../sass/pages.scss */
 .clearfooter {
-  height: 160px;
+  height: 60px;
   clear: both;
 }
 
 /* line 312, ../sass/pages.scss */
+#clearnav {
+  height: 60px;
+  clear: both;
+}
+
+/* line 318, ../sass/pages.scss */
 #block-menu-menu-footer .block-title {
   display: none;
 }
-/* line 315, ../sass/pages.scss */
+/* line 321, ../sass/pages.scss */
 #block-menu-menu-footer li {
   display: block;
   height: 50px;
 }
-/* line 321, ../sass/pages.scss */
+/* line 325, ../sass/pages.scss */
 #block-menu-menu-footer ul {
   display: block;
   border-top-style: solid;
   border-width: 1px;
   padding: 0 0 0 0;
 }
-/* line 327, ../sass/pages.scss */
+/* line 331, ../sass/pages.scss */
 #block-menu-menu-footer .first {
   float: left;
 }
-/* line 330, ../sass/pages.scss */
+/* line 334, ../sass/pages.scss */
 #block-menu-menu-footer .last {
   float: right;
 }
-/* line 333, ../sass/pages.scss */
+/* line 337, ../sass/pages.scss */
 #block-menu-menu-footer a {
+  color: #000000;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+/* line 342, ../sass/pages.scss */
+a {
   color: #000000;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;

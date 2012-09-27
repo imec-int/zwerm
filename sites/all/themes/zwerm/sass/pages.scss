@@ -304,7 +304,13 @@ span.field-label { /* The inline field label used by the Fences module */
 
 //needed for footer to remain at bottom
 .clearfooter {
-  height: 160px;
+  height: 60px;
+  clear: both;
+}
+
+//division between navigation and content
+#clearnav {
+  height: 60px;
   clear: both;
 }
 
@@ -315,9 +321,7 @@ span.field-label { /* The inline field label used by the Fences module */
   li {
     display:block;
     height : 50px;
-    //border-bottom-style: solid;
-    //border-width:1px;
-  }
+    }
   ul {
     display:block;
     border-top-style: solid;
@@ -333,6 +337,10 @@ span.field-label { /* The inline field label used by the Fences module */
   a {
     @include hyperlink-style;
   }
+}
+
+a {
+  @include hyperlink-style;
 }
 
 

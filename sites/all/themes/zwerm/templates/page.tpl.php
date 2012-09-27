@@ -72,6 +72,7 @@
 <?php
     // to allow main menu to disappear on responsive resize
     if(!drupal_is_front_page()) $front_page_class ='class = "not-front-page"';
+    else $front_page_class ="";
 ?>
 
 <div id="page">
@@ -150,7 +151,7 @@
             <?php print render($page['navigation']); ?>
 
         </div><!-- /#navigation -->
-
+        <div id="clearnav"></div>
         <div id="content" class="column" role="main">
             <?php print render($page['highlighted']); ?>
             <?php print $breadcrumb; ?>

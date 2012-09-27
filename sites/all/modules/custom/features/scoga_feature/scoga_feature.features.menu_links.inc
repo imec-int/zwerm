@@ -15,7 +15,7 @@ function scoga_feature_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'get_points',
     'router_path' => 'get_points',
-    'link_title' => 'Get points',
+    'link_title' => 'Play',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -51,7 +51,7 @@ function scoga_feature_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'messages',
     'router_path' => 'messages',
-    'link_title' => 'Messages',
+    'link_title' => 'Messages     ',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -102,8 +102,8 @@ function scoga_feature_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Get points');
-  t('Messages');
+  t('Messages     ');
+  t('Play');
   t('Score');
   t('Teams');
   t('The game');
