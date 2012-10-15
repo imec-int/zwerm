@@ -9,7 +9,9 @@
 
 @import "base";
 
-$header-color : #FF0000;
+$header-color : #000000;
+$team-blue-color : #79B1BD;
+$footer-color : #333333;
 
 /*
  * foot
@@ -53,14 +55,15 @@ body {
   //background-color: $color;
   float:none;
   border-width : 1px;
-  //border-left-style: solid;
-  //border-right-style: solid;
+  background-color: $header-color;
   border-bottom-style : solid;
   #team_name
   {
     text-align: center;
     line-height: 36px;
+    color: #FFFFFF;
   }
+
 
 }
 
@@ -117,7 +120,7 @@ body {
   //border-left-style: solid;
   //border-right-style: solid;
   border-width : 1px;
-
+  background-color: $team-blue-color;
 }
 
 /*
@@ -300,18 +303,22 @@ span.field-label { /* The inline field label used by the Fences module */
   //needed for footer to remain at bottom
   height: 330px;
   position: relative;
+  background-color: $footer-color;
 }
 
 //needed for footer to remain at bottom
 .clearfooter {
-  height: 60px;
+  height: 6px;
   clear: both;
+  background-color: $team-blue-color;
+
 }
 
 //division between navigation and content
 #clearnav {
   height: 60px;
   clear: both;
+  background-color: $team-blue-color;
 }
 
 #block-menu-menu-footer {
