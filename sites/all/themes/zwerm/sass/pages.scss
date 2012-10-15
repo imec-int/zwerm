@@ -57,6 +57,7 @@ body {
   border-width : 1px;
   background-color: $header-color;
   border-bottom-style : solid;
+  position: fixed;
   #team_name
   {
     text-align: center;
@@ -255,12 +256,6 @@ span.field-label { /* The inline field label used by the Fences module */
 .region-sidebar-second {
 }
 
-/*
- * Footer
- */
-
-#footer {
-}
 
 /*
  * Page bottom
@@ -302,11 +297,8 @@ span.field-label { /* The inline field label used by the Fences module */
 
 #footer {
   //needed for footer to remain at bottom
-  //height: 330px;
-  //position: relative;
   background-color: $footer-color;
   bottom: 0;
-  //height: 50px;
   left: 0;
   position: fixed;
   right: 0;
