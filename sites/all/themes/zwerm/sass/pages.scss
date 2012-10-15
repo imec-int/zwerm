@@ -121,6 +121,7 @@ body {
   //border-right-style: solid;
   border-width : 1px;
   background-color: $team-blue-color;
+  //padding-bottom: 100px;
 }
 
 /*
@@ -301,24 +302,30 @@ span.field-label { /* The inline field label used by the Fences module */
 
 #footer {
   //needed for footer to remain at bottom
-  height: 330px;
-  position: relative;
+  //height: 330px;
+  //position: relative;
   background-color: $footer-color;
+  bottom: 0;
+  //height: 50px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  width : 100%
 }
 
 //needed for footer to remain at bottom
 .clearfooter {
-  height: 6px;
-  clear: both;
-  background-color: $team-blue-color;
+  //height: 6px;
+  //clear: both;
+  //background-color: $team-blue-color;
 
 }
 
 //division between navigation and content
 #clearnav {
-  height: 60px;
-  clear: both;
-  background-color: $team-blue-color;
+  //height: 60px;
+  //clear: both;
+  //background-color: $team-blue-color;
 }
 
 #block-menu-menu-footer {
@@ -331,7 +338,6 @@ span.field-label { /* The inline field label used by the Fences module */
     }
   ul {
     display:block;
-    border-top-style: solid;
     border-width:1px;
     padding: 0 0 0 0;
   }
