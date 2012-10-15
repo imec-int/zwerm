@@ -188,7 +188,6 @@
     </div><!-- /#main -->
     <div class="clearfooter"></div>
 
-    <div id="ios5fix" style="position: absolute; left: 0; top: 0; width: 100%; height: 101%;"></div>
     <?php print render($page['footer']); ?>
 
 

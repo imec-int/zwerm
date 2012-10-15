@@ -12,6 +12,7 @@
 $header-color : #000000;
 $team-blue-color : #79B1BD;
 $footer-color : #333333;
+$header-height : 70px;
 
 /*
  * foot
@@ -52,30 +53,34 @@ body {
  */
 
 #header {
-  //background-color: $color;
-  float:none;
+  //float:none;
   border-width : 1px;
   background-color: $header-color;
   border-bottom-style : solid;
   position: fixed;
+  height : $header-height;
   #team_name
   {
     text-align: center;
-    line-height: 36px;
     color: #FFFFFF;
+    display:inline-block;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
   }
 
 
 }
 
 #logo { /* Wrapping link for logo */
-  float: left; /* LTR */
+  //float: left; /* LTR */
   margin: 0;
   padding: 0;
+  padding-top:20px;
 
   img {
     vertical-align: bottom;
-    width : 235px;
+    width : 45px;
   }
 }
 
@@ -118,11 +123,9 @@ body {
  */
 
 #main {
-  //border-left-style: solid;
-  //border-right-style: solid;
   border-width : 1px;
   background-color: $team-blue-color;
-  //padding-bottom: 100px;
+  padding-top : $header-height;
 }
 
 /*
