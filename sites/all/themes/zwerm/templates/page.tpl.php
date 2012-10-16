@@ -78,16 +78,24 @@
 <div id="page">
 
     <header id="header" role="banner">
-        <?php if ($logo): ?>
-             <div id="logo">
-                 <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-                     <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-                 </a>
-             </div>
-        <?php endif; ?>
-        <div id="menu_container"><div id="menu_text">Menu</div></div>
-        <div id="team_name">
-            <?php print('Team Name'); ?>
+        <div id="header_align">
+            <?php if ($logo): ?>
+                 <div id="home_nav">
+                     <div id="home_logo">
+                         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
+                             <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                         </a>
+                     </div>
+                     <div id="home_text">Home</div>
+                 </div>
+            <?php endif; ?>
+            <div id="menu_container">
+                <div id="menu_icon"><img src="<?php print(path_to_theme()); ?>/images/menu_icon.png"/> </div>
+                <div id="menu_text">Menu</div>
+            </div>
+            <div id="team_name">
+                <?php print('Team Name'); ?>
+            </div>
         </div>
         <?php if ($site_name || $site_slogan): ?>
         <hgroup id="name-and-slogan">
