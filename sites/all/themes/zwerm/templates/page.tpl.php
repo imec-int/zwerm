@@ -93,8 +93,8 @@
                 <div id="menu_icon"><img src="<?php print(path_to_theme()); ?>/images/menu_icon.png"/> </div>
                 <div id="menu_text">Menu</div>
             </div>
-            <div id="team_name">
-                <?php print('Team Name'); ?>
+            <div id="zwerm_logo_text">
+               <img src="<?php print(path_to_theme()); ?>/images/zwerm_logo_text.png"/>
             </div>
         </div>
         <?php if ($site_name || $site_slogan): ?>
