@@ -59,6 +59,7 @@ body {
   border-bottom-style : solid;
   position: fixed;
   height : $header-height;
+  width : 100%;
   #team_name
   {
     text-align: center;
@@ -66,7 +67,18 @@ body {
     display:inline-block;
     margin-left:auto;
     margin-right:auto;
-    width:100%;
+    width:33%;
+    margin:0 auto;
+  }
+  #menu_container
+  {
+    color: #FFFFFF;
+    width:33%;
+    float:right;
+  }
+  #menu_text
+  {
+    float:right;
   }
 
 
@@ -74,9 +86,11 @@ body {
 
 #logo { /* Wrapping link for logo */
   //float: left; /* LTR */
-  margin: 0;
-  padding: 0;
-  padding-top:20px;
+  //margin: 0;
+  //padding: 0;
+  //padding-top:20px;
+  float:left;
+  width:33%;
 
   img {
     vertical-align: bottom;

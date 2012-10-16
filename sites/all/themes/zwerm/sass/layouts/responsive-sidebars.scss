@@ -80,13 +80,11 @@ $zen-auto-include-item-base: false;
   $zen-column-count: 2;
 
   #header{ /* Span 1 columns, starting in 4nd column from left. */
-    @include zen-grid-item(2, 1);
+    /*@include zen-grid-item(2, 1);
     @include zen-clear();
     #logo {
-      //width : 25%;
-      //@include zen-clear();
       display:inline-block;
-    }
+    } */
   }
 
   #main {
