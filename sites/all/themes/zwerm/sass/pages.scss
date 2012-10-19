@@ -26,7 +26,14 @@ body {
   height : 100%;
 }
 
+.js
+{
+  height:100%;
+}
+
 #page {
+  display:block;
+  height:100%;
 }
 
 /*
@@ -153,9 +160,9 @@ body {
  */
 
 #main {
-  border-width : 1px;
+  display:block;
+  height:100%;
   background-color: $team-blue-color;
-  padding-top : $header-height;
 }
 
 /*
@@ -163,6 +170,7 @@ body {
  */
 
 #content {
+  padding-top: $header-height;
 }
 
 .region-highlighted {

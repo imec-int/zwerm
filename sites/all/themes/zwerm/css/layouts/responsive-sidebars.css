@@ -69,14 +69,6 @@
     } */
   }
 
-  /* line 90, ../../sass/layouts/responsive-sidebars.scss */
-  #main {
-    clear: left;
-  }
-  /* line 95, ../../sass/layouts/responsive-sidebars.scss */
-  #main #content {
-    clear: left;
-  }
   /* line 98, ../../sass/layouts/responsive-sidebars.scss */
   #main #logo {
     display: none;
@@ -85,14 +77,6 @@
   /* line 106, ../../sass/layouts/responsive-sidebars.scss */
   #navigation .not-front-page {
     display: none;
-  }
-
-  /* line 111, ../../sass/layouts/responsive-sidebars.scss */
-  #footer {
-    float: left;
-    width: 100%;
-    margin-left: 0%;
-    margin-right: -100%;
   }
 }
 @media all and (min-width: 630px) {

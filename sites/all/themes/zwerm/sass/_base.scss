@@ -27,7 +27,6 @@ $legacy-support-for-ie6: false;
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: true;
 
-
 //
 // Font faces, stacks and sizes.
 //
@@ -98,3 +97,12 @@ $indent-amount: 30px;
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 
 @import "custom";           // Import our custom mixins last.
+
+//
+// Zwerm-specific
+//
+
+$header-color : #000000;
+$team-blue-color : #79B1BD;
+$footer-color : #333333;
+$header-height : 70px;

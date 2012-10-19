@@ -48,7 +48,13 @@ li a.active {
    //overflow: hidden; //Sometimes you want to prevent overlapping with main div. */
   display:block;
   float:none;
-
+  width:390px;
+  //height:100%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top : 30%;
+  //margin-bottom: 10%;
+  padding-top : $header-height; //otherwise footer will overlap content in #main
   .block {
     margin-bottom: 0;
   }
@@ -75,15 +81,18 @@ li a.active {
   li
   {
     display: block;
-    height: 133px;
-    width:118px;
+    height: 100px;
+    width:100px;
     padding: 0 0px 0 0;
-    background-image: url('../images/sparrow_button.jpg');
+    //background-image: url('../images/sparrow_button.jpg');
+    background-color: #84B7C2;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 90px;
+    //background-size: 90px;
+    padding: 5px;
+    margin: 5px;
     text-align:center;
-    line-height:250px;
+    line-height:182px;
     box-align:center;
 
     a:link {
@@ -112,10 +121,8 @@ li a.active {
  */
 
 #main-menu {
-  display:block;
-  //box-align:center;
-  //margin-top: 35px;
-
+  width:390px;
+  margin-left:2%;
 }
 
 #secondary-menu {

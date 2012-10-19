@@ -135,33 +135,34 @@
         <?php if ($logo): ?>
             <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
         <?php endif; ?>
+        <?php if(drupal_is_front_page()):     ?>
+            <div id="navigation">
 
-        <div id="navigation">
+                <?php if ($main_menu): ?>
+                <nav id="main-menu" <?php print($front_page_class) ?> role="navigation">
+                    <?php
+                    // This code snippet is hard to modify. We recommend turning off the
+                    // "Main menu" on your sub-theme's settings form, deleting this PHP
+                    // code block, and, instead, using the "Menu block" module.
+                    // @see http://drupal.org/project/menu_block
+                    print theme('links__system_main_menu', array(
+                        'links' => $main_menu,
+                        'attributes' => array(
+                            'class' => array('links', 'inline', 'clearfix'),
+                        ),
+                        'heading' => array(
+                            'text' => t('Main menu'),
+                            'level' => 'h2',
+                            'class' => array('element-invisible'),
+                        ),
+                    )); ?>
+                </nav>
+                <?php endif; ?>
 
-            <?php if ($main_menu): ?>
-            <nav id="main-menu" <?php print($front_page_class) ?> role="navigation">
-                <?php
-                // This code snippet is hard to modify. We recommend turning off the
-                // "Main menu" on your sub-theme's settings form, deleting this PHP
-                // code block, and, instead, using the "Menu block" module.
-                // @see http://drupal.org/project/menu_block
-                print theme('links__system_main_menu', array(
-                    'links' => $main_menu,
-                    'attributes' => array(
-                        'class' => array('links', 'inline', 'clearfix'),
-                    ),
-                    'heading' => array(
-                        'text' => t('Main menu'),
-                        'level' => 'h2',
-                        'class' => array('element-invisible'),
-                    ),
-                )); ?>
-            </nav>
-            <?php endif; ?>
+                <?php print render($page['navigation']); ?>
 
-            <?php print render($page['navigation']); ?>
-
-        </div><!-- /#navigation -->
+            </div><!-- /#navigation -->
+        <?php endif; ?> <!-- if(!drupal_is_front_page()) -->
         <div id="clearnav"></div>
         <div id="content" class="column" role="main">
             <?php print render($page['highlighted']); ?>
@@ -197,7 +198,7 @@
         <?php endif; ?>
 
     </div><!-- /#main -->
-    <div class="clearfooter"></div>
+    <!--<div class="clearfooter"></div>     -->
 
     <?php print render($page['footer']); ?>
 
