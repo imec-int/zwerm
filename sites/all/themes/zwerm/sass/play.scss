@@ -28,7 +28,6 @@
       height:$li-height;
       background-color:white;
       margin-bottom: 3px;
-      //white-space: nowrap;
     }
 
     li:after
@@ -39,7 +38,6 @@
       padding-top:17px;
       padding-right:25px;
       font-size: large;
-      //white-space: nowrap;
     }
 
     a
@@ -60,6 +58,11 @@
       {
         line-height: 3.8em;
       }
+    }
+
+    .selectedItem
+    {
+      background-color: $green-marking-color;
     }
 
     #main-content
