@@ -13,9 +13,9 @@
     color : white;
     font-family: arial;
     font-size: large;
-    height : 50px;
+    height : $li-height;
     padding-left : 40%;
-    line-height: 3em;
+    line-height: 3.4em;
   }
 
   #content
@@ -25,10 +25,10 @@
 
     li
     {
-      height:50px;
+      height:$li-height;
       background-color:white;
-      margin-bottom: 2px;
-      white-space: nowrap;
+      margin-bottom: 3px;
+      //white-space: nowrap;
     }
 
     li:after
@@ -36,16 +36,17 @@
       content:">";
       display:inline;
       float:right;
-      padding-top:11px;
+      padding-top:17px;
       padding-right:25px;
       font-size: large;
-      white-space: nowrap;
+      //white-space: nowrap;
     }
 
     a
     {
       color:black;
       margin-left: 25px;
+      margin-top: 10px;
     }
 
     #select_list
@@ -55,6 +56,15 @@
         margin-top:2px;
         white-space: nowrap;
       }
+      a
+      {
+        line-height: 3.8em;
+      }
+    }
+
+    #main-content
+    {
+      display: none;
     }
   }
 
