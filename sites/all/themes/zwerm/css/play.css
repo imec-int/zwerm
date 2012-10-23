@@ -7,23 +7,24 @@
   background-color: #333333;
   color: white;
   font-family: arial;
-  font-size: large;
+  font-size: x-large;
   height: 60px;
   padding-left: 40%;
-  line-height: 3.4em;
+  line-height: 2.6em;
+  letter-spacing: 2px;
 }
-/* line 22, ../sass/play.scss */
+/* line 23, ../sass/play.scss */
 .page-get-points #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 27, ../sass/play.scss */
+/* line 28, ../sass/play.scss */
 .page-get-points #content li {
   height: 60px;
   background-color: white;
   margin-bottom: 3px;
 }
-/* line 34, ../sass/play.scss */
+/* line 35, ../sass/play.scss */
 .page-get-points #content li:after {
   content: ">";
   display: inline;
@@ -32,26 +33,26 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 44, ../sass/play.scss */
+/* line 45, ../sass/play.scss */
 .page-get-points #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 53, ../sass/play.scss */
+/* line 54, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
   white-space: nowrap;
 }
-/* line 58, ../sass/play.scss */
+/* line 59, ../sass/play.scss */
 .page-get-points #content #select_list a {
   line-height: 3.8em;
 }
-/* line 64, ../sass/play.scss */
+/* line 65, ../sass/play.scss */
 .page-get-points #content .selectedItem {
   background-color: #7fb083;
 }
-/* line 69, ../sass/play.scss */
+/* line 70, ../sass/play.scss */
 .page-get-points #content #main-content {
   display: none;
 }
