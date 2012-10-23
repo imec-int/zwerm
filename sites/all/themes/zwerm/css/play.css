@@ -22,13 +22,25 @@
   height: 50px;
   background-color: white;
   margin-bottom: 2px;
+  white-space: nowrap;
 }
-/* line 34, ../sass/play.scss */
+/* line 35, ../sass/play.scss */
+.page-get-points #content li:after {
+  content: ">";
+  display: inline;
+  float: right;
+  padding-top: 11px;
+  padding-right: 25px;
+  font-size: large;
+  white-space: nowrap;
+}
+/* line 46, ../sass/play.scss */
 .page-get-points #content a {
   color: black;
   margin-left: 25px;
 }
-/* line 42, ../sass/play.scss */
+/* line 54, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
+  white-space: nowrap;
 }

@@ -8,6 +8,11 @@
     $assignment_links = array();
     foreach ($assignment_titles as $title)
     {
+        $title_crop_treshold = 30;
+        if (strlen($title)>$title_crop_treshold)
+        {
+            $title = substr($title,0,$title_crop_treshold).'...';
+        }
         $path = $assignment_paths[$i];
         $assignment_link = l($title,$path);
         $assignment_links[] = $assignment_link;

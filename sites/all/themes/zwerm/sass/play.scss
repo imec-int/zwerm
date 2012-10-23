@@ -28,6 +28,18 @@
       height:50px;
       background-color:white;
       margin-bottom: 2px;
+      white-space: nowrap;
+    }
+
+    li:after
+    {
+      content:">";
+      display:inline;
+      float:right;
+      padding-top:11px;
+      padding-right:25px;
+      font-size: large;
+      white-space: nowrap;
     }
 
     a
@@ -41,6 +53,7 @@
       ul
       {
         margin-top:2px;
+        white-space: nowrap;
       }
     }
   }
