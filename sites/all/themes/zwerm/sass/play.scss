@@ -12,9 +12,38 @@
     background-color: $footer-color;
     color : white;
     font-family: arial;
-    font-size: medium;
+    font-size: large;
     height : 50px;
     padding-left : 40%;
     line-height: 3em;
   }
+
+  #content
+  {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    li
+    {
+      height:50px;
+      background-color:white;
+      margin-bottom: 2px;
+    }
+
+    a
+    {
+      color:black;
+      margin-left: 25px;
+    }
+
+    #select_list
+    {
+      ul
+      {
+        margin-top:2px;
+      }
+    }
+  }
+
+
 }

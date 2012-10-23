@@ -7,8 +7,28 @@
   background-color: #333333;
   color: white;
   font-family: arial;
-  font-size: medium;
+  font-size: large;
   height: 50px;
   padding-left: 40%;
   line-height: 3em;
+}
+/* line 22, ../sass/play.scss */
+.page-get-points #content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 27, ../sass/play.scss */
+.page-get-points #content li {
+  height: 50px;
+  background-color: white;
+  margin-bottom: 2px;
+}
+/* line 34, ../sass/play.scss */
+.page-get-points #content a {
+  color: black;
+  margin-left: 25px;
+}
+/* line 42, ../sass/play.scss */
+.page-get-points #content #select_list ul {
+  margin-top: 2px;
 }
