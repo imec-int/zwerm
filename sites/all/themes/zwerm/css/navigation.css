@@ -45,11 +45,11 @@ li a.active {
   margin-top: 30%;
   padding-top: 70px;
 }
-/* line 58, ../sass/navigation.scss */
+/* line 59, ../sass/navigation.scss */
 #navigation .block {
   margin-bottom: 0;
 }
-/* line 63, ../sass/navigation.scss */
+/* line 64, ../sass/navigation.scss */
 #navigation .block-menu .block-title,
 #navigation .block-menu-block .block-title {
   position: absolute !important;
@@ -58,7 +58,7 @@ li a.active {
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
 }
-/* line 68, ../sass/navigation.scss */
+/* line 69, ../sass/navigation.scss */
 #navigation ul.links,
 #navigation ul.menu {
   /* Menu block links */
@@ -67,7 +67,7 @@ li a.active {
   text-align: left;
   /* LTR */
 }
-/* line 73, ../sass/navigation.scss */
+/* line 74, ../sass/navigation.scss */
 #navigation ul.links li,
 #navigation ul.menu li {
   /* A simple method to get navigation links to appear in one line. */
@@ -76,7 +76,47 @@ li a.active {
   list-style-type: none;
   list-style-image: none;
 }
-/* line 82, ../sass/navigation.scss */
+/* line 86, ../sass/navigation.scss */
+#navigation #Info {
+  background-image: url(../images/info.png);
+  background-size: 50%;
+  background-position-x: 50%;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+}
+/* line 92, ../sass/navigation.scss */
+#navigation #Spe el {
+  background-image: url(../images/spelen.png);
+  background-size: 50%;
+  background-position-x: 50%;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+}
+/* line 98, ../sass/navigation.scss */
+#navigation #Teams {
+  background-image: url(../images/teams.png);
+  background-size: 50%;
+  background-position-x: 50%;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+}
+/* line 104, ../sass/navigation.scss */
+#navigation #Score {
+  background-image: url(../images/score.png);
+  background-size: 50%;
+  background-position-x: 50%;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+}
+/* line 110, ../sass/navigation.scss */
+#navigation #Berichten {
+  background-image: url(../images/berichten.png);
+  background-size: 50%;
+  background-position-x: 50%;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+}
+/* line 118, ../sass/navigation.scss */
 #navigation li {
   display: block;
   height: 100px;
@@ -88,34 +128,35 @@ li a.active {
   padding: 5px;
   margin: 5px;
   text-align: center;
-  line-height: 182px;
+  line-height: 188px;
   box-align: center;
 }
-/* line 98, ../sass/navigation.scss */
+/* line 132, ../sass/navigation.scss */
 #navigation li a:link {
-  color: #000000;
+  color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-/* line 105, ../sass/navigation.scss */
+/* line 139, ../sass/navigation.scss */
 #navigation li a:visited {
-  color: #000000;
+  color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
+  padding-bottom: 5px;
 }
 
 /*
  * Main menu and Secondary menu links
  */
-/* line 123, ../sass/navigation.scss */
+/* line 158, ../sass/navigation.scss */
 #main-menu {
   width: 390px;
   margin-left: 2%;
 }
 
-/* line 128, ../sass/navigation.scss */
+/* line 163, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */

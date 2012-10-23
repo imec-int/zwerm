@@ -54,6 +54,7 @@ li a.active {
   margin-right:auto;
   margin-top : 30%;
   //margin-bottom: 10%;
+
   padding-top : $header-height; //otherwise footer will overlap content in #main
   .block {
     margin-bottom: 0;
@@ -73,10 +74,45 @@ li a.active {
     li { /* A simple method to get navigation links to appear in one line. */
       float: left; /* LTR */
       //padding: 0 10px 0 0; /* LTR */
+      //background-image : url(../images/het_spel.png);
+      //background-size: 50%;
+      //background-position: 50%;
       list-style-type: none;
       list-style-image: none;
     }
   }
+
+  #Info
+  {
+    background-image : url(../images/info.png);
+    @include nav-image-style();
+  }
+
+  #Spe  el
+  {
+    background-image : url(../images/spelen.png);
+    @include nav-image-style();
+  }
+
+  #Teams
+  {
+    background-image : url(../images/teams.png);
+    @include nav-image-style();
+  }
+
+  #Score
+  {
+    background-image : url(../images/score.png);
+    @include nav-image-style();
+  }
+
+  #Berichten
+  {
+    background-image : url(../images/berichten.png);
+    @include nav-image-style();
+  }
+
+
 
   li
   {
@@ -84,29 +120,28 @@ li a.active {
     height: 100px;
     width:100px;
     padding: 0 0px 0 0;
-    //background-image: url('../images/sparrow_button.jpg');
     background-color: #84B7C2;
     background-repeat: no-repeat;
     background-position: center;
-    //background-size: 90px;
     padding: 5px;
     margin: 5px;
     text-align:center;
-    line-height:182px;
+    line-height:188px;
     box-align:center;
 
     a:link {
-      color: #000000;
+      color: #FFFFFF;
       text-decoration: none;
       font-family: Verdana, Arial, Helvetica, sans-serif;
       font-weight: bold;
     }
 
     a:visited {
-      color: #000000;
+      color: #FFFFFF;
       text-decoration: none;
       font-family: Verdana, Arial, Helvetica, sans-serif;
       font-weight: bold;
+      padding-bottom: 5px;
     }
   }
 

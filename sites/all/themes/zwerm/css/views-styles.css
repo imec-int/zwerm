@@ -53,3 +53,23 @@
   -o-border-radius: 0 0 7px 7px;
   border-radius: 0 0 7px 7px;
 }
+
+/* line 49, ../sass/views-styles.scss */
+tr.team_red {
+  background-color: #dc6058;
+}
+
+/* line 54, ../sass/views-styles.scss */
+tr.team_blue {
+  background-color: #79b1bd;
+}
+
+/* line 59, ../sass/views-styles.scss */
+.view-view-team-members-of-current-user {
+  display: inline-block;
+}
+
+/* line 66, ../sass/views-styles.scss */
+.page-leaderboard #main {
+  background-color: #000000;
+}

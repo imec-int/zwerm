@@ -64,4 +64,11 @@
   font-weight: bold;
 }
 
+@mixin nav-image-style {
+  background-size: 50%;
+  background-position-x: 50%;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+}
+
 

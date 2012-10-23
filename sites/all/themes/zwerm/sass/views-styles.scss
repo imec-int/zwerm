@@ -43,3 +43,30 @@
     }
   }
 }
+
+
+tr.team_red
+{
+  background-color: $team-red-color;
+}
+
+tr.team_blue
+{
+  background-color:$team-blue-color;
+}
+
+.view-view-team-members-of-current-user
+{
+  display:inline-block;
+}
+
+.page-leaderboard
+{
+  #main
+  {
+    background-color: #000000;
+  }
+}
+
+
+
