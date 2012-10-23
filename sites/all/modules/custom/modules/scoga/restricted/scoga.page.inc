@@ -55,9 +55,6 @@
         $assignment_titles = array();
         $assignment_paths = array();
         //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
-        //$checkin_explanation_nid = variable_get(SCOGA_SETTING_CHECKIN_EXPLANATION_NID);
-        //$checkin_explanation_node = node_load($checkin_explanation_nid);
-        //$assignment_titles[] = $checkin_explanation_node->title;
         $assignment_titles[] = 'Check-in : find new partners';
         $assignment_paths[] = SCOGA_NOT_PARTNER_PAGE;
         //add link to wish creation page to output
@@ -71,6 +68,15 @@
         //add links to active wishes
         _scoga_add_content_type_to_output('nodetype_wished_item','Wish',&$assignment_titles,&$assignment_paths);
         $output = theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
+        return $output;
+    }
+
+    /*
+     * Adds a div to the title
+     */
+    function scoga_overview_of_assignments_title()
+    {
+        $output = "<div class='play_title'>".t(Play)."</div>";
         return $output;
     }
 

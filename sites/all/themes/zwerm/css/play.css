@@ -1,0 +1,14 @@
+/* line 6, ../sass/play.scss */
+.page-get-points #main {
+  background-color: #000000;
+}
+/* line 11, ../sass/play.scss */
+.page-get-points #page-title {
+  background-color: #333333;
+  color: white;
+  font-family: arial;
+  font-size: medium;
+  height: 50px;
+  padding-left: 40%;
+  line-height: 3em;
+}
