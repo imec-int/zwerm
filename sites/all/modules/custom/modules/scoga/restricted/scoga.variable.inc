@@ -102,6 +102,24 @@
             'required'          => TRUE
         );
 
+        $variables[ SCOGA_SETTING_REWARD_RFID_CHECKIN ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for checkin' ),
+            'description'       => t( 'Reward points amount for checkin' ),
+            'default'           => 1,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_REWARD_COMBO_CHECKIN ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for combo checkin' ),
+            'description'       => t( 'Reward points amount for combo checkin' ),
+            'default'           => 5,
+            'required'          => TRUE
+        );
+
         $variables[ SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID ] = array(
             'group'             => SCOGA_VARIABLE_GROUP_NAME,
             'type'              => 'number',

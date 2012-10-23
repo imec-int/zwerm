@@ -21,6 +21,8 @@
     define( 'SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL',    'scoga_settings_determine_campaign_cron_interval' );
     define( 'SCOGA_SETTING_MAX_WISHITEM_CREDIT',                'scoga_setting_max_wishitem_credit' );
     define( 'SCOGA_SETTING_REWARD_ANSWER_POLL',                 'scoga_setting_reward_answer_poll' );
+    define( 'SCOGA_SETTING_REWARD_RFID_CHECKIN',                 'scoga_setting_reward_rfid_checkin' );
+    define( 'SCOGA_SETTING_REWARD_COMBO_CHECKIN',                 'scoga_setting_reward_combo_checkin' );
 
     define( 'SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID',          'scoga_setting_current_combocheckin_rtid' );
     define( 'SCOGA_SETTING_CHECKIN_EXPLANATION_NID',            'scoga_setting_checkin_explanation_nid' );
@@ -62,6 +64,7 @@
     define( 'SCOGA_PLAYER_ROLE',            4 );
     define( 'SCOGA_TIME_FORMAT',            'H:i:s d/m/Y' );
     define( 'SCOGA_VARIABLE_GROUP_NAME',    'scoga' );
+    define( 'SCOGA_SALT',                   '97zw3rM&:*');
 
     //--( RESPONSE CODES )--//
     define( 'CODE_NO_CAMPAIGN',             1010 );
