@@ -62,9 +62,59 @@ tr.team_blue
 
 .page-leaderboard
 {
+  #content
+  {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   #main
   {
     background-color: #000000;
+  }
+
+  /*table
+  {
+    //border-collapse:separate;
+    border-collapse: separate;
+    border-spacing:5px;
+  } */
+
+  .view
+  {
+    width:100%;
+  }
+
+  tr
+  {
+    height:$li-height;
+    color:#ffffff;
+    //border-width: 3px;
+    border-bottom-width: 5px;
+    border-bottom-color: #000000;
+
+  }
+
+  td
+  {
+    margin-bottom: 2px;
+    //border-bottom-color: #000000;
+  }
+
+  .views-field-field-user-team
+  {
+    display:none;
+  }
+
+  .views-field-name
+  {
+    display:none;
+  }
+
+  .views-field-php
+  {
+    font-family: Romina;
+    font-size: x-large;
   }
 }
 

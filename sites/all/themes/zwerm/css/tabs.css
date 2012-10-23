@@ -7,6 +7,11 @@
  * Compare this with default CSS found in the system module's stylesheet (a copy
  * of which is in drupal7-reference.css.)
  */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /*
  * Basic positioning styles shared by primary and secondary tabs.
  */

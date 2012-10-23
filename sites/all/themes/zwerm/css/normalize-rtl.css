@@ -1,4 +1,9 @@
 /* normalize-rtl.css - RTL language extension of normalize.scss. */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /* =============================================================================
    Lists
    ========================================================================== */

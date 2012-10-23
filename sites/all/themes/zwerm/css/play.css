@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /* line 6, ../sass/play.scss */
 .page-get-points #main {
   background-color: #000000;

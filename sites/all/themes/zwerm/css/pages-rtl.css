@@ -2,6 +2,11 @@
  * @file
  * RTL companion for the pages.css file.
  */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /*
  * Header
  */

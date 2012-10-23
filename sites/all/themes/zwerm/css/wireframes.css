@@ -4,6 +4,11 @@
  *
  * Add wireframes to the basic layout elements.
  */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /* line 19, ../sass/wireframes.scss */
 .with-wireframes #header,
 .with-wireframes #main,

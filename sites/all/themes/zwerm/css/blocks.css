@@ -2,6 +2,11 @@
  * @file
  * Block Styling
  */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /* line 9, ../sass/blocks.scss */
 .block {
   /* Block wrapper */
