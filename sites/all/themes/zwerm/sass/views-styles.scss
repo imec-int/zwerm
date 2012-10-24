@@ -48,22 +48,34 @@
 tr.team_red
 {
   background-color: $team-red-color;
+
+  td.loggedInUser
+  {
+    color:$team-red-color;
+  }
 }
 
 tr.team_blue
 {
   background-color:$team-blue-color;
+
+  td.loggedInUser
+  {
+    color:$team-blue-color;
+  }
 }
 
-tr.loggedInUser
+.loggedInUser
 {
   background-color:#ffffff;
-  td
-  {
-    color : black;
-  }
-
 }
+
+.team_blue>td, .loggedInUser>td
+{
+  //color:$team-blue-color;
+}
+
+
 
 .view-view-team-members-of-current-user
 {

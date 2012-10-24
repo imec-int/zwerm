@@ -63,27 +63,31 @@
 tr.team_red {
   background-color: #dc6058;
 }
-
-/* line 54, ../sass/views-styles.scss */
-tr.team_blue {
-  background-color: #79b1bd;
+/* line 53, ../sass/views-styles.scss */
+tr.team_red td.loggedInUser {
+  color: #dc6058;
 }
 
 /* line 59, ../sass/views-styles.scss */
-tr.loggedInUser {
-  background-color: #ffffff;
+tr.team_blue {
+  background-color: #79b1bd;
 }
-/* line 62, ../sass/views-styles.scss */
-tr.loggedInUser td {
-  color: black;
+/* line 63, ../sass/views-styles.scss */
+tr.team_blue td.loggedInUser {
+  color: #79b1bd;
 }
 
 /* line 69, ../sass/views-styles.scss */
+.loggedInUser {
+  background-color: #ffffff;
+}
+
+/* line 81, ../sass/views-styles.scss */
 .view-view-team-members-of-current-user {
   display: inline-block;
 }
 
-/* line 74, ../sass/views-styles.scss */
+/* line 86, ../sass/views-styles.scss */
 .page-leaderboard {
   /*table
   {
@@ -92,44 +96,44 @@ tr.loggedInUser td {
     border-spacing:5px;
   } */
 }
-/* line 76, ../sass/views-styles.scss */
+/* line 88, ../sass/views-styles.scss */
 .page-leaderboard #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 82, ../sass/views-styles.scss */
+/* line 94, ../sass/views-styles.scss */
 .page-leaderboard #main {
   background-color: #000000;
 }
-/* line 94, ../sass/views-styles.scss */
+/* line 106, ../sass/views-styles.scss */
 .page-leaderboard .view {
   width: 100%;
 }
-/* line 99, ../sass/views-styles.scss */
+/* line 111, ../sass/views-styles.scss */
 .page-leaderboard tr {
   height: 60px;
   color: #ffffff;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
 }
-/* line 109, ../sass/views-styles.scss */
+/* line 121, ../sass/views-styles.scss */
 .page-leaderboard td {
   margin-bottom: 2px;
 }
-/* line 115, ../sass/views-styles.scss */
+/* line 127, ../sass/views-styles.scss */
 .page-leaderboard .views-field-field-user-team {
   display: none;
 }
-/* line 120, ../sass/views-styles.scss */
+/* line 132, ../sass/views-styles.scss */
 .page-leaderboard .views-field-name {
   display: none;
 }
-/* line 125, ../sass/views-styles.scss */
+/* line 137, ../sass/views-styles.scss */
 .page-leaderboard .views-field-php {
   font-family: Romina;
   font-size: x-large;
 }
-/* line 131, ../sass/views-styles.scss */
+/* line 143, ../sass/views-styles.scss */
 .page-leaderboard .leaderboard_separator {
   height: 10px;
   background-color: black;
@@ -143,7 +147,7 @@ tr.loggedInUser td {
       display:none;
     } */
 }
-/* line 136, ../sass/views-styles.scss */
+/* line 148, ../sass/views-styles.scss */
 .page-leaderboard .leaderboard_separator td {
   width: 100%;
   height: 10px;
