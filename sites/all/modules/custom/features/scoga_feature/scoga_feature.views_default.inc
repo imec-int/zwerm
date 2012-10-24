@@ -630,6 +630,7 @@ function scoga_feature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -695,6 +696,11 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
+  /* Relationship: User relationships: RTID */
+  $handler->display->display_options['relationships']['rtid']['id'] = 'rtid';
+  $handler->display->display_options['relationships']['rtid']['table'] = 'user_relationships';
+  $handler->display->display_options['relationships']['rtid']['field'] = 'rtid';
+  $handler->display->display_options['relationships']['rtid']['required'] = 0;
   /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -1129,31 +1135,23 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'picture' => 'picture',
-    'name' => 'name',
+    'php' => 'php',
     'field_user_firstname' => 'field_user_firstname',
     'field_user_surname' => 'field_user_firstname',
-    'points' => 'points',
     'field_user_team' => 'field_user_team',
+    'points_1' => 'points_1',
+    'name' => 'name',
+    'created' => 'created',
   );
-  $handler->display->display_options['style_options']['default'] = 'points';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
-    'picture' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-center',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'name' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
+    'php' => array(
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_user_firstname' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => 'views-align-left',
       'separator' => ' ',
@@ -1166,24 +1164,38 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
       'separator' => '',
       'empty_column' => 0,
     ),
-    'points' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'desc',
-      'align' => 'views-align-right',
+    'field_user_team' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_user_team' => array(
-      'sortable' => 1,
+    'points_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-left',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['override'] = 1;
+  $handler->display->display_options['style_options']['override'] = 0;
   $handler->display->display_options['style_options']['sticky'] = 0;
-  $handler->display->display_options['style_options']['empty_table'] = 0;
+  $handler->display->display_options['style_options']['empty_table'] = 1;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -1325,6 +1337,7 @@ return $reformattedNr;
   $handler->display->display_options['fields']['points_1']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points_1']['format_plural'] = 0;
+  $handler->display->display_options['fields']['points_1']['suffix'] = ' punten';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -1351,6 +1364,36 @@ return $reformattedNr;
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
+  /* Field: COUNT(User relationship types: Type) */
+  $handler->display->display_options['fields']['is_oneway']['id'] = 'is_oneway';
+  $handler->display->display_options['fields']['is_oneway']['table'] = 'user_relationship_types';
+  $handler->display->display_options['fields']['is_oneway']['field'] = 'is_oneway';
+  $handler->display->display_options['fields']['is_oneway']['relationship'] = 'rtid';
+  $handler->display->display_options['fields']['is_oneway']['group_type'] = 'count';
+  $handler->display->display_options['fields']['is_oneway']['label'] = '';
+  $handler->display->display_options['fields']['is_oneway']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['is_oneway']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['is_oneway']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['element_type'] = 'div';
+  $handler->display->display_options['fields']['is_oneway']['element_class'] = 'relations';
+  $handler->display->display_options['fields']['is_oneway']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['is_oneway']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['is_oneway']['separator'] = '.';
+  $handler->display->display_options['fields']['is_oneway']['format_plural'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['suffix'] = ' connecties';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Userpoints: Current points in category */
   $handler->display->display_options['sorts']['points']['id'] = 'points';
@@ -1484,6 +1527,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('- All -'),
     t('Offset'),
     t('Content entity referenced from field_user_team'),
+    t('rtid'),
     t('Username'),
     t('Name'),
     t('Points'),
@@ -1494,6 +1538,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('Players by team'),
     t('Leaderboard'),
     t('Rank'),
+    t(' punten'),
     t('Naam'),
     t('Entity Reference View Widget'),
   );

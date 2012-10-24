@@ -78,7 +78,7 @@ tr.team_blue td.loggedInUser {
 }
 
 /* line 69, ../sass/views-styles.scss */
-.loggedInUser {
+tr.loggedInUser {
   background-color: #ffffff;
 }
 
@@ -139,22 +139,29 @@ tr.team_blue td.loggedInUser {
 .page-leaderboard .field-name-field-user-firstname {
   display: inline-block;
 }
-/* line 147, ../sass/views-styles.scss */
+/* line 145, ../sass/views-styles.scss */
 .page-leaderboard .field-name-field-user-surname {
   display: inline-block;
   padding-left: 4px;
 }
-/* line 155, ../sass/views-styles.scss */
+/* line 153, ../sass/views-styles.scss */
 .page-leaderboard td.views-field-field-user-firstname {
   display: block;
   height: 10px;
   position: relative;
   top: 11px;
 }
-/* line 163, ../sass/views-styles.scss */
+/* line 161, ../sass/views-styles.scss */
 .page-leaderboard td.points {
   display: inline;
   height: 10px;
   position: relative;
   top: 18px;
+}
+/* line 169, ../sass/views-styles.scss */
+.page-leaderboard td.relations {
+  display: inline-block;
+  position: relative;
+  top: -7px;
+  left: 120px;
 }

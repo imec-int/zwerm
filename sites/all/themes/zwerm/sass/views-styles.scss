@@ -65,7 +65,7 @@ tr.team_blue
   }
 }
 
-.loggedInUser
+tr.loggedInUser
 {
   background-color:#ffffff;
 }
@@ -139,8 +139,6 @@ tr.team_blue
   .field-name-field-user-firstname
   {
     display:inline-block;
-    //float:left;
-    //height:20%;
   }
 
   .field-name-field-user-surname
@@ -165,6 +163,14 @@ tr.team_blue
     height:10px;
     position:relative;
     top:18px;
+  }
+
+  td.relations
+  {
+    display: inline-block;
+    position:relative;
+    top:-7px;
+    left:120px;
   }
 }
 
