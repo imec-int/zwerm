@@ -32,6 +32,7 @@
     <?php
         $i=0;
         foreach ($rows as $row_count => $row): ?>
+            <?php //dsm($row['name']); ?>
             <?php $playerRank = $row['php']; ?>
             <?php if ($playerRank == $userLeaderboardPosition-2): ?>
                 <tr class="leaderboard_separator <?php print implode(' ', $row_classes[$row_count]); ?>">
@@ -42,7 +43,7 @@
                 <?php if ($playerRank == $userLeaderboardPosition+1): ?>
                     <?php $loggedInUserClass = 'loggedInUser';?>    <!-- sets class when loggedIn user is being displayed-->
                 <?php endif; ?>
-                <tr class="<?php print (implode(' ', $row_classes[$row_count]). ' team_'.$row['field_user_team'] .' '.$loggedInUserClass); ?>">
+                <tr onmousedown='li_mousedown(<?php print("\"user/".$row['uid']."\"")?>,this);'  class="<?php print (implode(' ', $row_classes[$row_count]). ' team_'.$row['field_user_team'] .' '.$loggedInUserClass); ?>">
                     <?php if ($playerRank == $userLeaderboardPosition+1): ?>
                     <?php endif; ?>
                     <!-- print the different elements in the row-->

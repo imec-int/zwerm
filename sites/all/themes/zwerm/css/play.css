@@ -54,10 +54,6 @@
   line-height: 3.8em;
 }
 /* line 65, ../sass/play.scss */
-.page-get-points #content .selectedItem {
-  background-color: #7fb083;
-}
-/* line 70, ../sass/play.scss */
 .page-get-points #content #main-content {
   display: none;
 }

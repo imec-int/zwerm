@@ -64,6 +64,7 @@ body {
   position: fixed;
   height : $header-height;
   width : 100%;
+  z-index:20;
   #header_align
   {
     padding-top: 20px;
@@ -387,5 +388,11 @@ span.field-label { /* The inline field label used by the Fences module */
 a {
   @include hyperlink-style;
 }
+
+.selectedItem
+{
+  background-color: $green-marking-color;
+}
+
 
 

@@ -132,6 +132,7 @@
     </header>
 
     <div id="main">
+
         <?php if ($logo): ?>
             <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
         <?php endif; ?>
@@ -180,9 +181,9 @@
             <?php endif; ?>
             <?php print render($page['content']); ?>
             <?php //print $feed_icons; ?>
-            <?php if (!drupal_is_front_page()): ?>
+            <?php //if (!drupal_is_front_page()): ?>
                 <?php print $messages; ?>
-            <?php endif; ?>
+            <?php //endif; ?>
         </div><!-- /#content -->
         <?php
         // Render the sidebars to see if there's anything in them.

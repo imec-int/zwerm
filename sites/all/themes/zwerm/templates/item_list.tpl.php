@@ -10,9 +10,7 @@
             foreach ($items as $item)
             {
                 $path = $paths[$i];
-                //print("<li onmousedown='this.className=\"selectedItem\"' onmousedown='this.className=\"selectedItem\"'>".$item."</li>");
                 print("<li onmousedown=\"li_mousedown('".$path."',this);\">".$item."</li>");
-                //print("<li onmousedown='document.li_mousedown()'>".$item."</li>");
             }
         print ('</ul>');
     print ('</div>');

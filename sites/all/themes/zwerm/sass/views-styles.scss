@@ -91,6 +91,7 @@ tr.loggedInUser
   .view
   {
     width:100%;
+    margin-top: -24px;
   }
 
   tr
@@ -171,6 +172,16 @@ tr.loggedInUser
     position:relative;
     top:-7px;
     left:120px;
+  }
+
+  td.name
+  {
+    display:none;
+  }
+
+  td.uid
+  {
+    display:none;
   }
 }
 
