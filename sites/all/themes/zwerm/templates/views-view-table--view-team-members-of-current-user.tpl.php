@@ -33,21 +33,16 @@
         $i=0;
         foreach ($rows as $row_count => $row): ?>
             <?php $playerRank = $row['php']; ?>
-
-
             <?php if ($playerRank == $userLeaderboardPosition-2): ?>
-
-                <tr class="<?php print implode(' ', $row_classes[$row_count]); ?>">
-                    <!-- print the different elements in the row-->
-                    <?php foreach ($row as $field => $content): ?>
-                    <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?>
-                        <?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
-                        <?php print '...'; ?>
-                    </td>
-                    <?php endforeach; ?>
+                <tr class="leaderboard_separator <?php print implode(' ', $row_classes[$row_count]); ?>">
+                   <td colspan="3">...</td>
                 </tr>
             <?php else: ?>
-                <tr class="<?php print (implode(' ', $row_classes[$row_count]). ' team_'.$row['field_user_team']); ?>">
+                <?php $loggedInUserClass = ''; ?>
+                <?php if ($playerRank == $userLeaderboardPosition+1): ?>
+                    <?php $loggedInUserClass = 'loggedInUser';?>    <!-- sets class when loggedIn user is being displayed-->
+                <?php endif; ?>
+                <tr class="<?php print (implode(' ', $row_classes[$row_count]). ' team_'.$row['field_user_team'] .' '.$loggedInUserClass); ?>">
                     <!-- print the different elements in the row-->
                     <?php foreach ($row as $field => $content): ?>
                         <td <?php if ($field_classes[$field][$row_count])
