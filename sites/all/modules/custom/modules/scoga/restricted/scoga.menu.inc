@@ -36,7 +36,7 @@
             'access arguments'  => array( SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER ),
         );
         $items[ SCOGA_GET_POINTS_PAGE ] = array(
-            'title'             => Play,
+            'title'             => 'Play',
             'description'       => t( 'Overview of the Scoga assignments the player can perform to get points' ),
             'type'              => MENU_NORMAL_ITEM,
             'file'              => 'restricted/scoga.page.inc',

@@ -70,13 +70,6 @@ tr.team_blue
   background-color:#ffffff;
 }
 
-.team_blue>td, .loggedInUser>td
-{
-  //color:$team-blue-color;
-}
-
-
-
 .view-view-team-members-of-current-user
 {
   display:inline-block;
@@ -95,13 +88,6 @@ tr.team_blue
     background-color: #000000;
   }
 
-  /*table
-  {
-    //border-collapse:separate;
-    border-collapse: separate;
-    border-spacing:5px;
-  } */
-
   .view
   {
     width:100%;
@@ -111,7 +97,6 @@ tr.team_blue
   {
     height:$li-height;
     color:#ffffff;
-    //border-width: 3px;
     border-bottom-width: 3px;
     border-bottom-color: #000000;
 
@@ -120,7 +105,6 @@ tr.team_blue
   td
   {
     margin-bottom: 2px;
-    //border-bottom-color: #000000;
   }
 
   .views-field-field-user-team
@@ -137,6 +121,7 @@ tr.team_blue
   {
     font-family: Romina;
     font-size: x-large;
+    padding-left: 10px;
   }
 
   .leaderboard_separator
@@ -149,17 +134,37 @@ tr.team_blue
       width:100%;
       height:10px;
     }
-    /*.views-field-field-user-firstname
-    {
-      display:none;
-    }
+  }
 
-    .views-field-points-1
-    {
-      display:none;
-    } */
+  .field-name-field-user-firstname
+  {
+    display:inline-block;
+    //float:left;
+    //height:20%;
+  }
 
+  .field-name-field-user-surname
+  {
+    display:inline-block;
+    padding-left: 4px;
 
+  }
+
+  //alignment of player name, points and connections in tr
+  td.views-field-field-user-firstname
+  {
+    display: block;
+    height:10px;
+    position:relative;
+    top:11px;
+  }
+
+  td.points
+  {
+    display: inline;
+    height:10px;
+    position:relative;
+    top:18px;
   }
 }
 
