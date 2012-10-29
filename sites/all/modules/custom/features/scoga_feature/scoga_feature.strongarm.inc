@@ -48,13 +48,6 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_nodetype_logmessages';
-  $strongarm->value = 0;
-  $export['comment_anonymous_nodetype_logmessages'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_nodetype_rfid_reader';
   $strongarm->value = 0;
   $export['comment_anonymous_nodetype_rfid_reader'] = $strongarm;
@@ -125,13 +118,6 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_nodetype_logmessages';
-  $strongarm->value = 1;
-  $export['comment_default_mode_nodetype_logmessages'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_nodetype_rfid_reader';
   $strongarm->value = 1;
   $export['comment_default_mode_nodetype_rfid_reader'] = $strongarm;
@@ -191,13 +177,6 @@ function scoga_feature_strongarm() {
   $strongarm->name = 'comment_default_per_page_nodetype_event';
   $strongarm->value = '50';
   $export['comment_default_per_page_nodetype_event'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_nodetype_logmessages';
-  $strongarm->value = '50';
-  $export['comment_default_per_page_nodetype_logmessages'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -265,13 +244,6 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_nodetype_logmessages';
-  $strongarm->value = 1;
-  $export['comment_form_location_nodetype_logmessages'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_nodetype_rfid_reader';
   $strongarm->value = 1;
   $export['comment_form_location_nodetype_rfid_reader'] = $strongarm;
@@ -322,15 +294,8 @@ function scoga_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_nodetype_event';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['comment_nodetype_event'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_nodetype_logmessages';
-  $strongarm->value = '2';
-  $export['comment_nodetype_logmessages'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -398,13 +363,6 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_nodetype_logmessages';
-  $strongarm->value = '1';
-  $export['comment_preview_nodetype_logmessages'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_nodetype_rfid_reader';
   $strongarm->value = '1';
   $export['comment_preview_nodetype_rfid_reader'] = $strongarm;
@@ -468,13 +426,6 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_nodetype_logmessages';
-  $strongarm->value = 1;
-  $export['comment_subject_field_nodetype_logmessages'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_nodetype_rfid_reader';
   $strongarm->value = 1;
   $export['comment_subject_field_nodetype_rfid_reader'] = $strongarm;
@@ -510,65 +461,9 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_nodetype_campaign';
-  $strongarm->value = '0';
-  $export['language_content_type_nodetype_campaign'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_nodetype_campaign_team';
-  $strongarm->value = '0';
-  $export['language_content_type_nodetype_campaign_team'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_nodetype_checkin';
-  $strongarm->value = '0';
-  $export['language_content_type_nodetype_checkin'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_nodetype_event';
   $strongarm->value = '0';
   $export['language_content_type_nodetype_event'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_nodetype_logmessages';
-  $strongarm->value = '0';
-  $export['language_content_type_nodetype_logmessages'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_nodetype_rfid_reader';
-  $strongarm->value = '0';
-  $export['language_content_type_nodetype_rfid_reader'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_nodetype_team';
-  $strongarm->value = '0';
-  $export['language_content_type_nodetype_team'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_nodetype_wished_item';
-  $strongarm->value = '0';
-  $export['language_content_type_nodetype_wished_item'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_nodetype_wish_fulfilled';
-  $strongarm->value = '0';
-  $export['language_content_type_nodetype_wish_fulfilled'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -614,15 +509,6 @@ function scoga_feature_strongarm() {
     0 => 'main-menu',
   );
   $export['menu_options_nodetype_event'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_nodetype_logmessages';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
-  $export['menu_options_nodetype_logmessages'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -694,13 +580,6 @@ function scoga_feature_strongarm() {
   $strongarm->name = 'menu_parent_nodetype_event';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_nodetype_event'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_nodetype_logmessages';
-  $strongarm->value = 'main-menu:0';
-  $export['menu_parent_nodetype_logmessages'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -783,16 +662,6 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_nodetype_logmessages';
-  $strongarm->value = array(
-    0 => 'status',
-    1 => 'promote',
-  );
-  $export['node_options_nodetype_logmessages'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_nodetype_rfid_reader';
   $strongarm->value = array(
     0 => 'status',
@@ -868,13 +737,6 @@ function scoga_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_nodetype_logmessages';
-  $strongarm->value = '1';
-  $export['node_preview_nodetype_logmessages'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_nodetype_rfid_reader';
   $strongarm->value = '1';
   $export['node_preview_nodetype_rfid_reader'] = $strongarm;
@@ -934,13 +796,6 @@ function scoga_feature_strongarm() {
   $strongarm->name = 'node_submitted_nodetype_event';
   $strongarm->value = 1;
   $export['node_submitted_nodetype_event'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_nodetype_logmessages';
-  $strongarm->value = 1;
-  $export['node_submitted_nodetype_logmessages'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

@@ -41,12 +41,12 @@
     /**
      * implement hook_menu()
      */
-    /*
+
     function scoga_menu(){
         module_load_include( 'menu.inc', 'scoga', 'restricted/scoga' );
         return scoga_handle_menu();
     }
-    */
+
 
     /**
      * implement hook_cron
