@@ -86,10 +86,10 @@
     function _scoga_add_content_type_to_output($content_type,$label,$titles,$paths)
     {
         $nodes = node_load_multiple(array(), array('type' => $content_type));
-        foreach($nodes as $node)
+        foreach($nodes as $node_item)
         {
-            $titles[] = $label.': '.$node->title;
-            $paths[] = 'node/'.$node->nid;
+            $titles[] = $label.': '.$node_item->title;
+            $paths[] = 'node/'.$node_item->nid;
         }
     }
 ?>
