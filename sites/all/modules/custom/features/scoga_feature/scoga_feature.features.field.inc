@@ -1103,7 +1103,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1186,7 +1186,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
             'use_widget_handlers' => 1,
           ),
           'type' => 'addressfield_default',
-          'weight' => 4,
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1278,7 +1278,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
             'multiple_to' => '',
           ),
           'type' => 'date_default',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1349,13 +1349,10 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
 [!] <strong>Preferably provide an address.</strong>',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'geofield',
-          'settings' => array(
-            'data' => 'full',
-          ),
-          'type' => 'geofield_wkt',
-          'weight' => 3,
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1472,7 +1469,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
