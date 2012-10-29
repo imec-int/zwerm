@@ -122,8 +122,8 @@ function scoga_feature_image_default_styles() {
     'name' => 'avatar_pinhead',
     'effects' => array(
       4 => array(
-        'label' => 'Schalen en bijsnijden',
-        'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
         'effect callback' => 'image_scale_and_crop_effect',
         'dimensions callback' => 'image_resize_dimensions',
         'form callback' => 'image_resize_form',
@@ -158,7 +158,7 @@ function scoga_feature_node_info() {
     'nodetype_campaign' => array(
       'name' => t('Campaign'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Describes the campaign and defines from when to when it will run. '),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -166,7 +166,8 @@ function scoga_feature_node_info() {
     'nodetype_campaign_team' => array(
       'name' => t('Campaign Team'),
       'base' => 'node_content',
-      'description' => t('Assigns a specific team to a specific campaign, this is a separate node type, to allow for specific settings per team per campaign, like the points modifier and the total points'),
+      'description' => t('Allows for storing the campaign-specific data for a team, i.e. the total team score for a specific campaign.
+NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -174,7 +175,7 @@ function scoga_feature_node_info() {
     'nodetype_checkin' => array(
       'name' => t('Checkin'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A \'checkin\' node stores information about a checkin (attempt). When a user attempts a checkin a \'checkin\' node is created. If the checkin was valid, the node is published, otherwise not. (For instance because the player needs to cool down). It also stores the type of checkin: combo | single'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -182,23 +183,25 @@ function scoga_feature_node_info() {
     'nodetype_event' => array(
       'name' => t('Event'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Describes an event assignment with location and date. '),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
     ),
     'nodetype_logmessages' => array(
-      'name' => t('Logmessages'),
+      'name' => t('Service message'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Service messages are only consumed by service resources. They are created by the system only, for instance when a campaign change occurs.
+A syndication of service messages is used by service resource consumers.
+NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_rfid_reader' => array(
       'name' => t('RFID reader'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Stores information about an RFID reader. These nodes are optionally linked to a team, to allow for team-specific scoring mechanisms. (Eg. the RFID readers in the trees)'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -206,7 +209,7 @@ function scoga_feature_node_info() {
     'nodetype_team' => array(
       'name' => t('Team'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A team node stores information about a team. The score is separately stored (see the _campaign team_ node type) to allow for storing team scores per campaign.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -214,7 +217,7 @@ function scoga_feature_node_info() {
     'nodetype_wish_fulfilled' => array(
       'name' => t('Wish fulfilled'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Created when a wish is granted and stores which player grants whose wish'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -222,7 +225,7 @@ function scoga_feature_node_info() {
     'nodetype_wished_item' => array(
       'name' => t('Wished Item'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Describes a wished item'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

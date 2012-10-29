@@ -9,6 +9,8 @@
         public $new_relationships;
         public $users_points;
         public $others_points;
+        public $cardID;
+        public $expires;
         public $nid;
     }
 
@@ -73,23 +75,25 @@
         * create checkin node
         */
         $users_points = array();
+        $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid );
         if( scoga_player_has_cooled_down( $user_account ) ){
             $output->message =  t( 'checkin' );
             $output->code = CODE_CHECKIN_SUCCESS;
             module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
             $transaction_node = scoga_award_points_to_user( $user_account->uid, scoga_get_rfidcheckin_reward(), $output->message );
             $users_points[] = scoga_create_transaction_vo( $transaction_node );
+            $checkin_node->status=1;
         }else{
             $output->message =  t( 'Player needs to cool down' );
             $output->code = CODE_PLAYER_NEEDS_COOLDOWN;
         }
 
-        $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid );
 
         $relationships_list = scoga_evaluate_checkin_node_for_combo( $checkin_node->created, $reader_node->nid, $user_account, $current_campaign_nid );
 
         $checkin_vo = new Checkin();
         $checkin_vo->nid = $checkin_node->nid;
+        $checkin_vo->cardID = $card_id;
 
         $others_points = array();
 
@@ -102,11 +106,16 @@
                 $transaction_node = scoga_award_points_to_user( $relationship_vo->requestee_id , scoga_get_combocheckin_reward(), $output->message );
                 $others_points[] = scoga_create_transaction_vo( $transaction_node );
             }
+            $checkin_node->type = 'combo';
+            $checkin_node->status=1;
         }
+
+        node_save( $checkin_node );
 
         $checkin_vo->users_points = $users_points;
         $checkin_vo->others_points = $others_points;
         $checkin_vo->new_relationships = $relationships_list;
+        $checkin_vo->expires = time() + scoga_get_combocheckin_timeframe();
         $output->result = $checkin_vo;
         return $output;
     }
@@ -239,6 +248,8 @@
             ->entityCondition( 'entity_type', $entity_type )
             ->entityCondition( 'bundle', SCOGA_CHECKIN_NODETYPE )
             ->propertyCondition( 'uid', $uid )
+            ->propertyCondition( 'status', 1 )
+            ->fieldCondition( 'field_checkin_type', 'value', 'single', '=')
             ->propertyOrderBy( 'created', 'DESC' )
             ->range( 0, 1 )
             ->execute();
@@ -310,6 +321,8 @@
             '@time'   => $checkin_time_formatted,
         );
         $checkin_node->title = t( '@user checked in with @reader at @time', $title_params );
+
+        $checkin_node->status = 0; //NOT PUBLISHED BY DEFAULT
 
         //save the mofo node
         $checkin_node = node_submit( $checkin_node );

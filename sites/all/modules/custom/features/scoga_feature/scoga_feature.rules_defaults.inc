@@ -80,7 +80,6 @@ function scoga_feature_default_rules_configuration() {
   $items['rules_create_campaignteam_nodes_for_campaign'] = entity_import('rules_config', '{ "rules_create_campaignteam_nodes_for_campaign" : {
       "LABEL" : "Create campaignteam nodes for campaign",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "REQUIRES" : [ "rules", "php" ],
       "ON" : [ "node_insert" ],
       "IF" : [
@@ -91,7 +90,24 @@ function scoga_feature_default_rules_configuration() {
         }
       ],
       "DO" : [
-        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_create_campaignteam_nodes_for_campaign( $node );" } }
+        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_create_campaignteam_nodes_for_campaign( $node );" } }
+      ]
+    }
+  }');
+  $items['rules_delete_campaignteam_nodes_for_campaign'] = entity_import('rules_config', '{ "rules_delete_campaignteam_nodes_for_campaign" : {
+      "LABEL" : "Delete campaignteam nodes for campaign",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules", "php" ],
+      "ON" : [ "node_delete" ],
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "nodetype_campaign" : "nodetype_campaign" } }
+          }
+        }
+      ],
+      "DO" : [
+        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_delete_campaignteam_nodes_for_campaign( $node );" } }
       ]
     }
   }');
@@ -105,7 +121,7 @@ function scoga_feature_default_rules_configuration() {
         { "data_is" : { "data" : [ "userpoints-transaction:tid" ], "value" : "4" } }
       ],
       "DO" : [
-        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_log_user_points( $userpoints_transaction );\\u000D\\u000A" } }
+        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_log_user_points( $userpoints_transaction );\\r\\n" } }
       ]
     }
   }');
@@ -132,7 +148,7 @@ function scoga_feature_default_rules_configuration() {
             "tid" : "3",
             "entity" : [ "node" ],
             "description" : "Deducted for creating wished item",
-            "operation" : "Remove",
+            "operation" : "Reserve",
             "display" : 1,
             "moderate" : "moderated"
           }
@@ -143,9 +159,10 @@ function scoga_feature_default_rules_configuration() {
   $items['rules_rule_determine_current_campaign'] = entity_import('rules_config', '{ "rules_rule_determine_current_campaign" : {
       "LABEL" : "Determine current campaign",
       "PLUGIN" : "rule",
+      "TAGS" : [ "DEVEL" ],
       "REQUIRES" : [ "php", "rules" ],
       "DO" : [
-        { "php_eval" : { "code" : " module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_determine_current_campaign( TRUE );\\u000D\\u000A" } }
+        { "php_eval" : { "code" : " module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_determine_current_campaign( TRUE );\\r\\n" } }
       ]
     }
   }');
@@ -163,7 +180,7 @@ function scoga_feature_default_rules_configuration() {
             "recipient" : [ "comment:node:author" ],
             "author" : [ "comment:author" ],
             "subject" : "User [comment:name] commented on your item \\u0022[comment:node:title]\\u0022",
-            "body" : "User [comment:name] commented on your item \\u0022[comment:node:title]\\u0022,\\u000D\\u000Agoto [comment:node]\\u000D\\u000A"
+            "body" : "User [comment:name] commented on your item \\u0022[comment:node:title]\\u0022,\\r\\ngoto [comment:node]\\r\\n"
           }
         }
       ]
@@ -172,11 +189,56 @@ function scoga_feature_default_rules_configuration() {
   $items['rules_rule_transfer_points_to_team'] = entity_import('rules_config', '{ "rules_rule_transfer_points_to_team" : {
       "LABEL" : "Transfer points to team",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "REQUIRES" : [ "php", "rules", "userpoints_rules" ],
       "ON" : [ "userpoints_event_points_awarded_after" ],
       "DO" : [
-        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_transfer_transaction_points_to_team( $userpoints_transaction );" } }
+        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_transfer_transaction_points_to_team( $userpoints_transaction );" } }
+      ]
+    }
+  }');
+  $items['rules_set_player_active_after_checking_in'] = entity_import('rules_config', '{ "rules_set_player_active_after_checking_in" : {
+      "LABEL" : "Set player active after checking in",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "node_insert" ],
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "nodetype_checkin" : "nodetype_checkin" } }
+          }
+        },
+        { "user_has_role" : { "account" : [ "node:author" ], "roles" : { "value" : { "4" : "4" } } } },
+        { "data_is" : { "data" : [ "node:author:field-user-active" ], "value" : 0 } }
+      ],
+      "DO" : [
+        { "data_set" : { "data" : [ "node:author:field-user-active" ], "value" : 1 } }
+      ]
+    }
+  }');
+  $items['rules_set_player_active_after_logging_in'] = entity_import('rules_config', '{ "rules_set_player_active_after_logging_in" : {
+      "LABEL" : "Set player active after logging in",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "user_login" ],
+      "IF" : [
+        { "user_has_role" : { "account" : [ "account" ], "roles" : { "value" : { "4" : "4" } } } },
+        { "data_is" : { "data" : [ "site:current-user:field-user-active" ], "value" : 0 } }
+      ],
+      "DO" : [
+        { "data_set" : { "data" : [ "account:field-user-active" ], "value" : 1 } }
+      ]
+    }
+  }');
+  $items['rules_set_player_registered_after_saving_profile'] = entity_import('rules_config', '{ "rules_set_player_registered_after_saving_profile" : {
+      "LABEL" : "Set player registered after saving profile",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "user_update" ],
+      "IF" : [
+        { "data_is" : { "data" : [ "account-unchanged:field-user-registered" ], "value" : 0 } }
+      ],
+      "DO" : [
+        { "data_set" : { "data" : [ "account:field-user-registered" ], "value" : 1 } }
       ]
     }
   }');

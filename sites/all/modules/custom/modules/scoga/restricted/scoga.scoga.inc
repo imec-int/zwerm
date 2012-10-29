@@ -34,8 +34,8 @@
 //        scoga_reset_user_relationships();
 //        watchdog( 'SCOGA', 'all user relationships deleted', array(), WATCHDOG_INFO );
 
-//        module_load_include( 'api.wisheditem.inc', 'scoga', 'api/scoga' );
-//        scoga_close_all_open_wisheditems();
-//        watchdog( 'SCOGA', 'all wished items closed', array(), WATCHDOG_INFO );
+        module_load_include( 'api.wishedlist.inc', 'scoga', 'api/scoga' );
+        scoga_close_all_open_wisheditems();
+        watchdog( 'SCOGA', 'all wished items closed', array(), WATCHDOG_INFO );
     }
 

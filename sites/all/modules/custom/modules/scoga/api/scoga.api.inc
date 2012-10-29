@@ -320,7 +320,7 @@
      * @return int
      */
     function scoga_get_max_wishitem_credits(){
-        return intval( variable_get_value( SCOGA_SETTING_MAX_WISHITEM_CREDIT, 10 ) );
+        return intval( variable_get_value( SCOGA_SETTING_MAX_WISHITEM_CREDIT ) );
     }
 
     function scoga_get_combocheckin_reward(){

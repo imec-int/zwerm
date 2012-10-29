@@ -12,23 +12,23 @@
     module_load_include( 'api.inc', 'scoga', 'api/scoga' );
     module_load_include( 'services.inc', 'scoga', 'restricted/scoga' ); // DO NOT REMOVE: otherwise service resources go to schrödinger state: i.e. they exist and do not exist at the same time
 
-//
-//    /**
-//     * implements hook_install
-//     */
-//    function scoga_install(){
-//        module_load_include( 'install.inc', 'scoga', 'restricted/scoga' );
-//        return scoga_handle_install();
-//    }
-//
-//    /**
-//     * implements hook_uninstall
-//     */
-//    function scoga_uninstall(){
-//        module_load_include( 'install.inc', 'scoga', 'restricted/scoga' );
-//        return scoga_handle_uninstall();
-//    }
-//
+
+    /**
+     * implements hook_install
+     */
+    function scoga_install(){
+        module_load_include( 'install.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_install();
+    }
+
+    /**
+     * implements hook_uninstall
+     */
+    function scoga_uninstall(){
+        module_load_include( 'install.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_uninstall();
+    }
+
     /**
      * Implements hook_services_resources().
      */
@@ -38,23 +38,23 @@
         return scoga_handle_services_resources();
     }
 
-//    /**
-//     * implement hook_menu()
-//     */
-//    /*
+    /**
+     * implement hook_menu()
+     */
+    /*
     function scoga_menu(){
         module_load_include( 'menu.inc', 'scoga', 'restricted/scoga' );
         return scoga_handle_menu();
     }
-//    */
-//
-//    /**
-//     * implement hook_cron
-//     */
-//    function scoga_cron(){
-//        module_load_include( 'cron.inc', 'scoga', 'restricted/scoga' );
-//        return scoga_handle_cron();
-//    }
+    */
+
+    /**
+     * implement hook_cron
+     */
+    function scoga_cron(){
+        module_load_include( 'cron.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_cron();
+    }
 
     /**
      * implements hook_scoga_current_campaign_changed
@@ -66,7 +66,7 @@
         scoga_handle_scoga_current_campaign_changed( $new_nid, $old_nid );
     }
 
-//
+
 //    /**
 //     * implements hook_user_insert
 //     * @param $edit
@@ -77,68 +77,68 @@
 //        module_load_include( 'user.inc', 'scoga', 'restricted/scoga' );
 //        scoga_handle_user_insert( $account );
 //    }
-//
-//
-//    /**
-//     * Implements hook_permission().
-//     */
-//    function scoga_permission(){
-//        module_load_include( 'permission.inc', 'scoga', 'restricted/scoga' );
-//        return scoga_handle_permission();
-//    }
-//
-//    /**
-//     * implements hook_form_FORM_ID_alter
-//     * @param $form
-//     * @param $form_state
-//     * @param $form_id
-//     */
-//    function scoga_form_nodetype_wished_item_node_form_alter( &$form, $form_state, $form_id ){
-//        module_load_include( 'form.inc', 'scoga', 'restricted/scoga' );
-//        scoga_handle_form_nodetype_wished_item_node_form_alter( $form, $form_state, $form_id );
-//    }
-//
-//
-//
-//    /**
-//     * implements hook_form_FORM_ID_alter
-//     *
-//     * @param $form
-//     * @param $form_state
-//     * @param $form_id
-//     */
-//    function scoga_form_nodetype_wish_fulfilled_node_form_alter( &$form, $form_state, $form_id ){
-//        module_load_include( 'form.inc', 'scoga', 'restricted/scoga' );
-//        scoga_handle_form_nodetype_wish_fulfilled_node_form_alter( $form, $form_state, $form_id );
-//    }
-//
-//    /**
-//     * implements hook_node_insert
-//     * @param $node
-//     */
-//    function scoga_node_insert($node){
-//        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
-//        scoga_handle_node_insert( $node );
-//    }
-//
-//
-//    /**
-//     * implements hook_node_update
-//     * @param $node
-//     */
-//    function scoga_node_update( $node ){
-//        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
-//        scoga_handle_node_update( $node );
-//    }
-//
-//    /**
-//     * implements hook_node_delete
-//     * @param $node
-//     */
-//    function scoga_node_delete( $node ){
-//        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
-//        scoga_handle_node_delete( $node );
-//    }
+
+
+    /**
+     * Implements hook_permission().
+     */
+    function scoga_permission(){
+        module_load_include( 'permission.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_permission();
+    }
+
+    /**
+     * implements hook_form_FORM_ID_alter
+     * @param $form
+     * @param $form_state
+     * @param $form_id
+     */
+    function scoga_form_nodetype_wished_item_node_form_alter( &$form, $form_state, $form_id ){
+        module_load_include( 'form.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_form_nodetype_wished_item_node_form_alter( $form, $form_state, $form_id );
+    }
+
+
+
+    /**
+     * implements hook_form_FORM_ID_alter
+     *
+     * @param $form
+     * @param $form_state
+     * @param $form_id
+     */
+    function scoga_form_nodetype_wish_fulfilled_node_form_alter( &$form, $form_state, $form_id ){
+        module_load_include( 'form.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_form_nodetype_wish_fulfilled_node_form_alter( $form, $form_state, $form_id );
+    }
+
+    /**
+     * implements hook_node_insert
+     * @param $node
+     */
+    function scoga_node_insert($node){
+        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_node_insert( $node );
+    }
+
+
+    /**
+     * implements hook_node_update
+     * @param $node
+     */
+    function scoga_node_update( $node ){
+        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_node_update( $node );
+    }
+
+    /**
+     * implements hook_node_delete
+     * @param $node
+     */
+    function scoga_node_delete( $node ){
+        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_node_delete( $node );
+    }
 
     /**
      * implements hook_variable_group_info

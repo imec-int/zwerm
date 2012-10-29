@@ -114,7 +114,7 @@
      */
     function scoga_transfer_transaction_points_to_team( $transaction ){
         if( intval( $transaction->tid ) === scoga_get_current_userpoints_category_tid() ){
-            module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+            module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
             $user_account = user_load( $transaction->uid );
             $team_nid = scoga_get_eid_from_field( $user_account, 'field_user_team', array( 'entity_type' => 'user' ) );
             $campaignteam_node = scoga_get_campaignteam_entity_by_team_nid( $team_nid );

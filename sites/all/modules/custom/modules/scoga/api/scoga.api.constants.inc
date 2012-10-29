@@ -23,6 +23,7 @@
     define( 'SCOGA_SETTING_REWARD_ANSWER_POLL',                 'scoga_setting_reward_answer_poll' );
     define( 'SCOGA_SETTING_REWARD_RFID_CHECKIN',                 'scoga_setting_reward_rfid_checkin' );
     define( 'SCOGA_SETTING_REWARD_COMBO_CHECKIN',                 'scoga_setting_reward_combo_checkin' );
+    define( 'SCOGA_SETTING_REWARD_COMPLETE_PROFILE',            'scoga_setting_reward_complete_profile' );
 
     define( 'SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID',          'scoga_setting_current_combocheckin_rtid' );
     define( 'SCOGA_SETTING_CHECKIN_EXPLANATION_NID',            'scoga_setting_checkin_explanation_nid' );
