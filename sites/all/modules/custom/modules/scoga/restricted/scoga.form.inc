@@ -17,7 +17,10 @@
         $assigned_credits = ( count( $assigned_credits_values ) > 0 )
             ? $assigned_credits_values[ 0 ]
             : 0;
-        $user_remaining_credits = min( userpoints_get_current_points( $uid, scoga_get_credits_tid() ) + $assigned_credits, scoga_get_max_wishitem_credits() );
+
+        $current_points = userpoints_get_current_points( $uid, scoga_get_credits_tid() );
+        $max_wishitem_credits = scoga_get_max_wishitem_credits();
+        $user_remaining_credits = min( $current_points + $assigned_credits, $max_wishitem_credits );
 
         if( $user_remaining_credits > 0 ){
             $credits_select_data = array(
@@ -41,7 +44,7 @@
         global $user;
 
         $user_profile = user_load( $user->uid );
-        module_load_include( 'api.wisheditem.inc', 'scoga', 'api/scoga' );
+        module_load_include( 'api.wishlist.inc', 'scoga', 'api/scoga' );
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
 
         /*

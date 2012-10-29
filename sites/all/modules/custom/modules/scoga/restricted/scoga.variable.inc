@@ -74,6 +74,15 @@
             'required'          => TRUE
         );
 
+        $variables[ SCOGA_SETTING_MAX_WISHITEM_CREDIT ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Max credit value for wished items' ),
+            'description'       => t( 'Maximum credit value for wished items' ),
+            'default'           => 10,
+            'required'          => TRUE
+        );
+
         //determinecampaign cron interval
         $variables[ SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL ] = array(
             'group'             => SCOGA_VARIABLE_GROUP_NAME,
@@ -84,21 +93,39 @@
             'required'          => TRUE
         );
 
-        $variables[ SCOGA_SETTING_MAX_WISHITEM_CREDIT ] = array(
-            'group'             => SCOGA_VARIABLE_GROUP_NAME,
-            'type'              => 'number',
-            'title'             => t( 'Max credit value for wished items' ),
-            'description'       => t( 'Maximum credit value for wished items' ),
-            'default'           => 10,
-            'required'          => TRUE
-        );
-
         $variables[ SCOGA_SETTING_REWARD_ANSWER_POLL ] = array(
             'group'             => SCOGA_VARIABLE_GROUP_NAME,
             'type'              => 'number',
             'title'             => t( 'Reward points amount for answering a poll' ),
             'description'       => t( 'Reward points amount for answering a poll' ),
             'default'           => 5,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_REWARD_RFID_CHECKIN ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for checkin' ),
+            'description'       => t( 'Reward points amount for checkin' ),
+            'default'           => 1,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_REWARD_COMBO_CHECKIN ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for combo checkin' ),
+            'description'       => t( 'Reward points amount for combo checkin' ),
+            'default'           => 5,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_REWARD_COMPLETE_PROFILE ]= array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for completing your profile' ),
+            'description'       => t( 'Reward points amount for completing your profile' ),
+            'default'           => 10,
             'required'          => TRUE
         );
 

@@ -41,8 +41,7 @@
         $result = array();
         foreach( $rows as $row ){
             $transaction = userpoints_transaction_load( $row->txn_id );
-            $description = userpoints_create_description( $transaction, $options );
-            $result[ ] = scoga_create_transaction_vo( $transaction, $description );
+            $result[ ] = scoga_create_transaction_vo( $transaction );
         }
 
         return $result;
@@ -88,26 +87,25 @@
         $result = array();
         foreach( $rows as $row ){
             $transaction = userpoints_transaction_load( $row->txn_id );
-            $description = userpoints_create_description( $transaction, $options );
-            $result[ ] = scoga_create_transaction_vo( $transaction, $description );
+            $result[ ] = scoga_create_transaction_vo( $transaction );
         }
 
         return $result;
     }
 
     /**
-     * @param $transaction
-     * @param $description
+     * @param $transaction array
      *
      * @return PointsTransaction
      */
-    function scoga_create_transaction_vo( $transaction, $description ){
+    function scoga_create_transaction_vo( $transaction ){
         $output = new PointsTransaction();
-        $output->txn_id = $transaction->txn_id;
-        $output->uid = $transaction->uid;
-        $output->points = $transaction->points;
-        $output->description = $transaction->description;
-        $output->description = $description;
+        $output->txn_id = $transaction['txn_id'];
+        $output->uid = $transaction['uid'];
+        $output->points = $transaction['points'];
+        $output->description = $transaction['description'];
+        $output->time_stamp = $transaction['time_stamp'];
+
         return $output;
     }
 
@@ -116,7 +114,7 @@
      */
     function scoga_transfer_transaction_points_to_team( $transaction ){
         if( intval( $transaction->tid ) === scoga_get_current_userpoints_category_tid() ){
-            module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+            module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
             $user_account = user_load( $transaction->uid );
             $team_nid = scoga_get_eid_from_field( $user_account, 'field_user_team', array( 'entity_type' => 'user' ) );
             $campaignteam_node = scoga_get_campaignteam_entity_by_team_nid( $team_nid );
@@ -149,3 +147,23 @@
         taxonomy_term_save( $term );
         return $term;
     }
+
+    function scoga_award_points_to_user( $uid, $points, $reason ){
+        $params = array(
+            'uid'           => $uid,
+            'points'        => $points,
+            'tid'           => scoga_get_current_userpoints_category_tid(),
+            'operation'     => $reason,
+            'description'   => $reason,
+            'moderate'      => FALSE,
+            'display'       => TRUE,
+        );
+        dd( $params, 'params' );
+        $temp = userpoints_userpointsapi( $params );
+        dd( $temp );
+        if( $temp[ 'status' ] ){
+            return $temp[ 'transaction' ];
+        }
+        return FALSE;
+    }
+

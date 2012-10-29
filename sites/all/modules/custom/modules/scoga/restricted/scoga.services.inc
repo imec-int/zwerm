@@ -13,7 +13,6 @@
 //            'scoga_player'      => scoga_outline_services_player(),
 //            'scoga_transaction' => scoga_outline_services_transaction(),
 //            'scoga_overview'    => scoga_outline_services_overview(),
-//            'scoga_checkin'     => scoga_outline_services_checkin(),
 //            'scoga_reader'      => scoga_outline_services_reader(),
 //            'scoga_card'        => scoga_outline_services_card(),
         return array(
@@ -22,6 +21,7 @@
             'scoga_sync'        => scoga_outline_services_sync(),
             'scoga_messages'     => scoga_outline_services_messages(),
             'scoga_network'     => scoga_outline_services_network(),
+            'scoga_checkin'     => scoga_outline_services_checkin(),
         );
     }
 
@@ -156,13 +156,21 @@
                         'optional'    => FALSE,
                     ),
                     array(
-                        'name'          => 'timestamp',
+                        'name'          => 'time',
                         'type'          => 'int',
                         'description'   => 'The unix epoch timestamp of checkin',
                         'source'        => 'data',
                         'optional'      => TRUE,
                         'default value' => -1
                     ),
+                    array(
+                        'name'          => 's',
+                        'type'          => 'string',
+                        'source'        => 'data',
+                        'optional'      => TRUE,
+                        'default value' => -1
+                    ),
+
                 )
             )
         );
@@ -397,7 +405,13 @@
         */
         $card_id = $params[ 'cardID' ];
         $reader_id = $params[ 'readerID' ];
+        $remote_signature = $params[ 's' ];
+        $timestamp = $params[ 'time' ];
         try{
+            $unenc_signature = $timestamp . $reader_id . SCOGA_SALT. $card_id;
+            if( hash( 'sha256', $unenc_signature ) != $remote_signature ){
+                throw new ErrorException( 'incorrect signature' );
+            }
             $result = scoga_register_checkin( $card_id, $reader_id );
         }catch ( Exception $e ){
             $message = $e->getMessage();

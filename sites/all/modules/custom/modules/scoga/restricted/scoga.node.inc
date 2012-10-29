@@ -13,6 +13,8 @@
             case SCOGA_WISHEDITEM_NODETYPE :
                 module_load_include( 'api.wishlist.inc', 'scoga', 'api/scoga' );
                 scoga_sync_credits_for_wisheditem( $node );
+                scoga_set_campaign_of_wisheditem( $node );
+                field_attach_update('node', $node); //makes sure the changes to the node data stick
                 break;
             case SCOGA_WISHFULFILLED_NODETYPE:
                 module_load_include( 'api.wishlist.inc', 'scoga', 'api/scoga' );
