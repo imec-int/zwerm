@@ -158,7 +158,7 @@ body {
 }
 
 /* line 161, ../sass/pages.scss */
-#type_page {
+#type_page, #type_nodetype_event {
   height: 100%;
   background-color: white;
 }
