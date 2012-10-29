@@ -2,6 +2,11 @@
  * @file
  * RTL companion for the tabs.css file.
  */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /* line 11, ../sass/tabs-rtl.scss */
 ul.primary li,
 ul.secondary li {

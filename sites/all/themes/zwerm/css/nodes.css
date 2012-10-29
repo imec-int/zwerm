@@ -4,6 +4,11 @@
  *
  * Style anything that isn't in the $content variable.
  */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /* line 11, ../sass/nodes.scss */
 .node {
   /* Node wrapper */

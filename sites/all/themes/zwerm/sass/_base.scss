@@ -27,7 +27,6 @@ $legacy-support-for-ie6: false;
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: true;
 
-
 //
 // Font faces, stacks and sizes.
 //
@@ -77,7 +76,6 @@ $base-font-family: $verdana; // The font family set on the html element.
 $font-body:        $verdana;
 $font-monospace:   $courier;
 
-
 //
 // Colors, etc.
 //
@@ -98,3 +96,23 @@ $indent-amount: 30px;
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 
 @import "custom";           // Import our custom mixins last.
+
+//
+// Zwerm-specific
+//
+
+$header-height : 70px;
+$li-height : 60px;
+
+$header-color : #000000;
+$team-blue-color : #79B1BD;
+$footer-color : #333333;
+$team-blue-color : #79b1bd;
+$team-red-color : #dc6058;
+$green-marking-color : #7fb083;
+
+
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}

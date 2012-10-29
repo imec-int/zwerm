@@ -1447,6 +1447,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_event_location',
       'label' => 'Location',
       'required' => 0,
@@ -1460,9 +1461,25 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'geofield',
-        'settings' => array(),
-        'type' => 'geofield_latlon',
+        'module' => 'geocoder',
+        'settings' => array(
+          'delta_handling' => 'default',
+          'geocoder_field' => 'field_event_address',
+          'geocoder_handler' => 'google',
+          'handler_settings' => array(
+            'google' => array(
+              'all_results' => 0,
+              'geometry_type' => 'point',
+              'reject_results' => array(
+                'APPROXIMATE' => 0,
+                'GEOMETRIC_CENTER' => 0,
+                'RANGE_INTERPOLATED' => 0,
+                'ROOFTOP' => 0,
+              ),
+            ),
+          ),
+        ),
+        'type' => 'geocoder',
         'weight' => '7',
       ),
     ),

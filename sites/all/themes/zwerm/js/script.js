@@ -12,7 +12,11 @@
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
-
-
 })(jQuery, Drupal, this, this.document);
+
+function li_mousedown(url,element)
+{
+    element.className="selectedItem";
+    document.location = url;
+}
 

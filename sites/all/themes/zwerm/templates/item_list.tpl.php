@@ -5,9 +5,12 @@
     print ('<div id="select_list" class="clearfix">');
         print ('<ul>');
             $items = $variables['items'];
+            $paths = $variables['assignment_paths'];
+            $i = 0;
             foreach ($items as $item)
             {
-                print('<li>'.$item.'</li>');
+                $path = $paths[$i];
+                print("<li onmousedown=\"li_mousedown('".$path."',this);\">".$item."</li>");
             }
         print ('</ul>');
     print ('</div>');

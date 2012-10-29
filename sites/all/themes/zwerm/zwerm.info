@@ -64,6 +64,7 @@ stylesheets[all][] = css/forms.css
 stylesheets[all][] = css/fields.css
 stylesheets[all][] = css/print.css
 stylesheets[all][] = css/not-checkin.css
+stylesheets[all][] = css/play.css
 
 ;stylesheets[all][] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.css
 
@@ -81,7 +82,7 @@ stylesheets[all][] = css/not-checkin.css
 
 ; Optionally add some JavaScripts to your theme.
 
-;scripts[] = js/footer.js
+scripts[] = js/script.js
 ;scripts[] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.js
 ;scripts[] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.js
 

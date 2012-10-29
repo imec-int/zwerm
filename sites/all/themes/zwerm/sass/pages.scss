@@ -9,10 +9,8 @@
 
 @import "base";
 
-$header-color : #000000;
-$team-blue-color : #79B1BD;
-$footer-color : #333333;
-$header-height : 70px;
+//$header-color : #000000;
+//$team-blue-color : #79B1BD;
 
 /*
  * foot
@@ -21,12 +19,21 @@ $header-height : 70px;
 body {
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: $team-blue-color;
   //needed for floating footer
   height : 100%;
 }
 
+.js
+{
+  height:100%;
+  width:100%;
+}
+
 #page {
+  display:block;
+  height:100%;
+  width:100%;
 }
 
 /*
@@ -57,6 +64,7 @@ body {
   position: fixed;
   height : $header-height;
   width : 100%;
+  z-index:20;
   #header_align
   {
     padding-top: 20px;
@@ -148,14 +156,23 @@ body {
   clear: both; /* Clear the logo */
 }
 
+
+#type_page
+{
+  height:100%;
+  background-color: white;
+}
+
+
 /*
  * Main (container for everything else)
  */
 
 #main {
-  border-width : 1px;
+  display:block;
+  height:100%;
+  width:100%;
   background-color: $team-blue-color;
-  padding-top : $header-height;
 }
 
 /*
@@ -163,6 +180,7 @@ body {
  */
 
 #content {
+  padding-top: $header-height;
 }
 
 .region-highlighted {
@@ -188,7 +206,6 @@ h2.title, /* Comment section heading */
 h2.comment-form, /* Comment form heading */
 h3.title { /* Comment title */
   margin: 0;
-
 }
 
 tr.even { /* Some tables have rows marked even or odd. */
@@ -380,5 +397,11 @@ span.field-label { /* The inline field label used by the Fences module */
 a {
   @include hyperlink-style;
 }
+
+.selectedItem
+{
+  background-color: $green-marking-color;
+}
+
 
 

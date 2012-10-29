@@ -9,6 +9,11 @@
    Also: @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
          @see http://snook.ca/archives/html_and_css/no_css_reset/
    ========================================================================== */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */

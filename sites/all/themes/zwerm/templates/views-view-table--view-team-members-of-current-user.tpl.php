@@ -21,43 +21,40 @@
     //This variable was set in the views_php filter in the leaderboard view display
     $userLeaderboardPosition = variable_get('userLeaderboardPosition');
 ?>
-<table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
+<table <?php if ($classes) { print 'class="'. $classes . '" '; } ?>
+    <?php print $attributes; ?>>
     <?php if (!empty($title)) : ?>
-    <caption><?php print $title; ?></caption>
+        <caption><?php print $title; ?></caption>
     <?php endif; ?>
     <?php if (!empty($header)) : ?>
-    <thead>
-    <tr>
-        <?php foreach ($header as $field => $label): ?>
-        <th <?php if ($header_classes[$field]) { print 'class="'. $header_classes[$field] . '" '; } ?>>
-            <?php print $label; ?>
-        </th>
-        <?php endforeach; ?>
-    </tr>
-    </thead>
     <?php endif; ?>
     <tbody>
     <?php
         $i=0;
         foreach ($rows as $row_count => $row): ?>
-            <?php  $playerRank = $row['php']; ?>
+            <?php //dsm($row['name']); ?>
+            <?php $playerRank = $row['php']; ?>
             <?php if ($playerRank == $userLeaderboardPosition-2): ?>
-
-                <tr class="<?php print implode(' ', $row_classes[$row_count]); ?>">
-                    <!-- print the different elements in the row-->
-                    <?php foreach ($row as $field => $content): ?>
-                    <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
-                        <?php print '...'; ?>
-                    </td>
-                    <?php endforeach; ?>
+                <tr class="leaderboard_separator <?php print implode(' ', $row_classes[$row_count]); ?>">
+                   <td colspan="3">...</td>
                 </tr>
             <?php else: ?>
-                <tr class="<?php print implode(' ', $row_classes[$row_count]); ?>">
+                <?php $loggedInUserClass = ''; ?>
+                <?php if ($playerRank == $userLeaderboardPosition+1): ?>
+                    <?php $loggedInUserClass = 'loggedInUser';?>    <!-- sets class when loggedIn user is being displayed-->
+                <?php endif; ?>
+                <tr onmousedown='li_mousedown(<?php print("\"user/".$row['uid']."\"")?>,this);'  class="<?php print (implode(' ', $row_classes[$row_count]). ' team_'.$row['field_user_team'] .' '.$loggedInUserClass); ?>">
+                    <?php if ($playerRank == $userLeaderboardPosition+1): ?>
+                    <?php endif; ?>
                     <!-- print the different elements in the row-->
                     <?php foreach ($row as $field => $content): ?>
-                    <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
-                        <?php print $content; ?>
-                    </td>
+                        <td <?php if ($field_classes[$field][$row_count])
+                        {
+                            print 'class="'. $field_classes[$field][$row_count] .' '.$loggedInUserClass.'" ';
+                        } ?>
+                            <?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
+                            <?php print $content; ?>
+                        </td>
                     <?php endforeach; ?>
                 </tr>
             <?php endif; ?>

@@ -13,26 +13,6 @@ $output = '';
 
 if (count($links) > 0) {
     $output = '';
-
-    // Treat the heading first if it is present to prepend it to the
-    // list of links.
-    /*if (!empty($heading)) {
-        if (is_string($heading)) {
-            // Prepare the array that will be used when the passed heading
-            // is a string.
-            $heading = array(
-                'text' => $heading,
-                // Set the default level of the heading.
-                'level' => 'h2',
-            );
-        }
-        $output .= '<' . $heading['level'];
-        if (!empty($heading['class'])) {
-            $output .= drupal_attributes(array('class' => $heading['class']));
-        }
-        $output .= '>' . check_plain($heading['text']) . '</' . $heading['level'] . '>';
-    } */
-
     $output .= '<ul' . drupal_attributes($attributes) . '>';
 
     $num_links = count($links);
@@ -52,9 +32,8 @@ if (count($links) > 0) {
             && (empty($link['language']) || $link['language']->language == $language_url->language)) {
             $class[] = 'active';
         }
-
-        $output .= '<li' . drupal_attributes(array('class' => $class)) . '>';
-
+        $output .= '<li' . drupal_attributes(array('class' => $class)) . ' onmousedown="li_mousedown(\' ' . $link['href'] . '\',this)">';
+        $output .= '<div id="'.$link['title'].'">'; // for hooking up the correct images in the css to the nav items
         if (isset($link['href'])) {
             // Pass in $link as $options, they share the same keys.
             $output .= l($link['title'], $link['href'], $link);
@@ -72,7 +51,9 @@ if (count($links) > 0) {
         }
 
         $i++;
+        $output .= "</div>\n";
         $output .= "</li>\n";
+
     }
 
     $output .= '</ul>';

@@ -630,6 +630,7 @@ function scoga_feature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -695,6 +696,11 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
+  /* Relationship: User relationships: RTID */
+  $handler->display->display_options['relationships']['rtid']['id'] = 'rtid';
+  $handler->display->display_options['relationships']['rtid']['table'] = 'user_relationships';
+  $handler->display->display_options['relationships']['rtid']['field'] = 'rtid';
+  $handler->display->display_options['relationships']['rtid']['required'] = 0;
   /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -1120,7 +1126,6 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   /* Display: Leaderboard */
   $handler = $view->new_display('page', 'Leaderboard', 'page_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Leaderboard';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
@@ -1130,31 +1135,23 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'picture' => 'picture',
-    'name' => 'name',
+    'php' => 'php',
     'field_user_firstname' => 'field_user_firstname',
     'field_user_surname' => 'field_user_firstname',
-    'points' => 'points',
     'field_user_team' => 'field_user_team',
+    'points_1' => 'points_1',
+    'name' => 'name',
+    'created' => 'created',
   );
-  $handler->display->display_options['style_options']['default'] = 'points';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
-    'picture' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-center',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'name' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
+    'php' => array(
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_user_firstname' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => 'views-align-left',
       'separator' => ' ',
@@ -1167,24 +1164,38 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
       'separator' => '',
       'empty_column' => 0,
     ),
-    'points' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'desc',
-      'align' => 'views-align-right',
+    'field_user_team' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_user_team' => array(
-      'sortable' => 1,
+    'points_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-left',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['override'] = 1;
+  $handler->display->display_options['style_options']['override'] = 0;
   $handler->display->display_options['style_options']['sticky'] = 0;
-  $handler->display->display_options['style_options']['empty_table'] = 0;
+  $handler->display->display_options['style_options']['empty_table'] = 1;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -1193,7 +1204,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Rank';
+  $handler->display->display_options['fields']['php']['label'] = '';
   $handler->display->display_options['fields']['php']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['php']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['php']['alter']['absolute'] = 0;
@@ -1207,7 +1218,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['php']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['php']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['php']['hide_empty'] = 0;
   $handler->display->display_options['fields']['php']['empty_zero'] = 0;
@@ -1215,67 +1226,22 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['php']['use_php_setup'] = 1;
   $handler->display->display_options['fields']['php']['php_setup'] = '$static->fieldCounter = 0;';
   $handler->display->display_options['fields']['php']['php_value'] = '$static->fieldCounter = $static->fieldCounter+1;
-return $static->fieldCounter;';
+//rewrite nr format : 1 becomes 001
+$reformattedNr = $static->fieldCounter;
+$reformattedNr = $reformattedNr +1000;
+$reformattedNr = substr($reformattedNr,1,strlen($reformattedNr));
+return $reformattedNr;
+';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Field: User: Picture */
-  $handler->display->display_options['fields']['picture']['id'] = 'picture';
-  $handler->display->display_options['fields']['picture']['table'] = 'users';
-  $handler->display->display_options['fields']['picture']['field'] = 'picture';
-  $handler->display->display_options['fields']['picture']['label'] = '';
-  $handler->display->display_options['fields']['picture']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['picture']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['picture']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['picture']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['picture']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['picture']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['picture']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['picture']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = 1;
-  $handler->display->display_options['fields']['picture']['image_style'] = 'avatar_pinhead';
-  /* Field: User: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'users';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = 'Username';
-  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['name']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['name']['element_label_colon'] = 0;
-  $handler->display->display_options['fields']['name']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['name']['link_to_user'] = 1;
-  $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
-  $handler->display->display_options['fields']['name']['format_username'] = 1;
   /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
-  $handler->display->display_options['fields']['field_user_firstname']['label'] = 'Name';
+  $handler->display->display_options['fields']['field_user_firstname']['label'] = '';
   $handler->display->display_options['fields']['field_user_firstname']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_user_firstname']['alter']['path'] = '$user->uid';
   $handler->display->display_options['fields']['field_user_firstname']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['replace_spaces'] = 0;
@@ -1287,12 +1253,12 @@ return $static->fieldCounter;';
   $handler->display->display_options['fields']['field_user_firstname']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_user_firstname']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['field_user_firstname']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_user_firstname']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
+  $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 1;
   /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
@@ -1311,16 +1277,19 @@ return $static->fieldCounter;';
   $handler->display->display_options['fields']['field_user_surname']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_user_surname']['element_type'] = '0';
   $handler->display->display_options['fields']['field_user_surname']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_user_surname']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_user_surname']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_user_surname']['element_default_classes'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 0;
+  $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 1;
   /* Field: Gebruiker: Team */
   $handler->display->display_options['fields']['field_user_team']['id'] = 'field_user_team';
   $handler->display->display_options['fields']['field_user_team']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['fields']['field_user_team']['field'] = 'field_user_team';
+  $handler->display->display_options['fields']['field_user_team']['label'] = '';
   $handler->display->display_options['fields']['field_user_team']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_user_team']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_user_team']['alter']['absolute'] = 0;
@@ -1334,20 +1303,20 @@ return $static->fieldCounter;';
   $handler->display->display_options['fields']['field_user_team']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_user_team']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_user_team']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_user_team']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_user_team']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_user_team']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_user_team']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_team']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_team']['settings'] = array(
-    'link' => 1,
+    'link' => 0,
   );
   $handler->display->display_options['fields']['field_user_team']['field_api_classes'] = 0;
   /* Field: Userpoints: Current points in category */
   $handler->display->display_options['fields']['points_1']['id'] = 'points_1';
   $handler->display->display_options['fields']['points_1']['table'] = 'userpoints';
   $handler->display->display_options['fields']['points_1']['field'] = 'points';
-  $handler->display->display_options['fields']['points_1']['label'] = 'Points';
+  $handler->display->display_options['fields']['points_1']['label'] = '';
   $handler->display->display_options['fields']['points_1']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['points_1']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['points_1']['alter']['absolute'] = 0;
@@ -1361,12 +1330,99 @@ return $static->fieldCounter;';
   $handler->display->display_options['fields']['points_1']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['points_1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['points_1']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['points_1']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['points_1']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['points_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['points_1']['element_class'] = 'points';
+  $handler->display->display_options['fields']['points_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['points_1']['element_default_classes'] = 0;
   $handler->display->display_options['fields']['points_1']['hide_empty'] = 0;
   $handler->display->display_options['fields']['points_1']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points_1']['format_plural'] = 0;
+  $handler->display->display_options['fields']['points_1']['suffix'] = ' punten';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['name']['element_type'] = '0';
+  $handler->display->display_options['fields']['name']['element_class'] = 'name';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['name']['link_to_user'] = 0;
+  $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
+  $handler->display->display_options['fields']['name']['format_username'] = 1;
+  /* Field: COUNT(User relationship types: Type) */
+  $handler->display->display_options['fields']['is_oneway']['id'] = 'is_oneway';
+  $handler->display->display_options['fields']['is_oneway']['table'] = 'user_relationship_types';
+  $handler->display->display_options['fields']['is_oneway']['field'] = 'is_oneway';
+  $handler->display->display_options['fields']['is_oneway']['relationship'] = 'rtid';
+  $handler->display->display_options['fields']['is_oneway']['group_type'] = 'count';
+  $handler->display->display_options['fields']['is_oneway']['label'] = '';
+  $handler->display->display_options['fields']['is_oneway']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['is_oneway']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['is_oneway']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['element_type'] = 'div';
+  $handler->display->display_options['fields']['is_oneway']['element_class'] = 'relations';
+  $handler->display->display_options['fields']['is_oneway']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['is_oneway']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['is_oneway']['separator'] = '.';
+  $handler->display->display_options['fields']['is_oneway']['format_plural'] = 0;
+  $handler->display->display_options['fields']['is_oneway']['suffix'] = ' connecties';
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['uid']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['uid']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['uid']['element_type'] = '0';
+  $handler->display->display_options['fields']['uid']['element_class'] = 'uid';
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['uid']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['uid']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['uid']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Userpoints: Current points in category */
   $handler->display->display_options['sorts']['points']['id'] = 'points';
@@ -1500,6 +1556,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('- All -'),
     t('Offset'),
     t('Content entity referenced from field_user_team'),
+    t('rtid'),
     t('Username'),
     t('Name'),
     t('Points'),
@@ -1509,8 +1566,8 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('Team members of current user'),
     t('Players by team'),
     t('Leaderboard'),
-    t('Rank'),
-    t('Team'),
+    t('$user->uid'),
+    t(' punten'),
     t('Entity Reference View Widget'),
   );
   $export['view_team_members_of_current_user'] = $view;

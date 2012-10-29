@@ -8,6 +8,11 @@
  *
  * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
  */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /*
  * Center the page.
  */

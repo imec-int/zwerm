@@ -63,3 +63,11 @@
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
+
+@mixin nav-image-style {
+  background-position-x: 50%;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+}
+
+

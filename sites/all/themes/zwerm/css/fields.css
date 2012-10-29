@@ -10,6 +10,11 @@
  *
  * http://drupal.org/project/fences
  */
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
 /*
  * Field wrappers when the Fences module is enabled.
  */

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/play.scss */
+.page-get-points #main {
+  background-color: #000000;
+}
+/* line 11, ../sass/play.scss */
+.page-get-points #page-title {
+  background-color: #333333;
+  color: white;
+  font-family: arial;
+  font-size: x-large;
+  height: 60px;
+  padding-left: 40%;
+  line-height: 2.6em;
+  letter-spacing: 2px;
+}
+/* line 23, ../sass/play.scss */
+.page-get-points #content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 28, ../sass/play.scss */
+.page-get-points #content li {
+  height: 60px;
+  background-color: white;
+  margin-bottom: 3px;
+}
+/* line 35, ../sass/play.scss */
+.page-get-points #content li:after {
+  content: ">";
+  display: inline;
+  float: right;
+  padding-top: 17px;
+  padding-right: 25px;
+  font-size: large;
+}
+/* line 45, ../sass/play.scss */
+.page-get-points #content a {
+  color: black;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+/* line 54, ../sass/play.scss */
+.page-get-points #content #select_list ul {
+  margin-top: 2px;
+  white-space: nowrap;
+}
+/* line 59, ../sass/play.scss */
+.page-get-points #content #select_list a {
+  line-height: 3.8em;
+}
+/* line 65, ../sass/play.scss */
+.page-get-points #content #main-content {
+  display: none;
+}
