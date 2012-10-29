@@ -86,30 +86,36 @@ li a.active {
   {
     background-image : url(../images/info.png);
     @include nav-image-style();
+    background-size: 50%;
   }
 
-  #Spe  el
+
+  #Speel
   {
     background-image : url(../images/spelen.png);
     @include nav-image-style();
+    background-size: 60%;
   }
 
   #Teams
   {
     background-image : url(../images/teams.png);
     @include nav-image-style();
+    background-size: 70%;
   }
 
   #Score
   {
     background-image : url(../images/score.png);
     @include nav-image-style();
+    background-size: 70%;
   }
 
   #Berichten
   {
     background-image : url(../images/berichten.png);
     @include nav-image-style();
+    background-size: 80%;
   }
 
 

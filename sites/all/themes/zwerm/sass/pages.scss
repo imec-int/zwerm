@@ -9,10 +9,8 @@
 
 @import "base";
 
-$header-color : #000000;
-$team-blue-color : #79B1BD;
-$footer-color : #333333;
-$header-height : 70px;
+//$header-color : #000000;
+//$team-blue-color : #79B1BD;
 
 /*
  * foot
@@ -21,7 +19,7 @@ $header-height : 70px;
 body {
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: $team-blue-color;
   //needed for floating footer
   height : 100%;
 }
@@ -29,11 +27,13 @@ body {
 .js
 {
   height:100%;
+  width:100%;
 }
 
 #page {
   display:block;
   height:100%;
+  width:100%;
 }
 
 /*
@@ -163,6 +163,7 @@ body {
 #main {
   display:block;
   height:100%;
+  width:100%;
   background-color: $team-blue-color;
 }
 
