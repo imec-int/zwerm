@@ -82,13 +82,18 @@ li a.active {
     }
   }
 
+  //changes color of the selected item on mousedown
+  .selectedItem
+  {
+    background-color: $green-marking-color;
+  }
+
   #Info
   {
     background-image : url(../images/info.png);
     @include nav-image-style();
     background-size: 50%;
   }
-
 
   #Speel
   {

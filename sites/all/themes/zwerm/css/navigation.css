@@ -81,7 +81,11 @@ li a.active {
   list-style-type: none;
   list-style-image: none;
 }
-/* line 86, ../sass/navigation.scss */
+/* line 87, ../sass/navigation.scss */
+#navigation .selectedItem {
+  background-color: #7fb083;
+}
+/* line 92, ../sass/navigation.scss */
 #navigation #Info {
   background-image: url(../images/info.png);
   background-position-x: 50%;
@@ -89,7 +93,7 @@ li a.active {
   background-repeat: no-repeat;
   background-size: 50%;
 }
-/* line 94, ../sass/navigation.scss */
+/* line 99, ../sass/navigation.scss */
 #navigation #Speel {
   background-image: url(../images/spelen.png);
   background-position-x: 50%;
@@ -97,7 +101,7 @@ li a.active {
   background-repeat: no-repeat;
   background-size: 60%;
 }
-/* line 101, ../sass/navigation.scss */
+/* line 106, ../sass/navigation.scss */
 #navigation #Teams {
   background-image: url(../images/teams.png);
   background-position-x: 50%;
@@ -105,7 +109,7 @@ li a.active {
   background-repeat: no-repeat;
   background-size: 70%;
 }
-/* line 108, ../sass/navigation.scss */
+/* line 113, ../sass/navigation.scss */
 #navigation #Score {
   background-image: url(../images/score.png);
   background-position-x: 50%;
@@ -113,7 +117,7 @@ li a.active {
   background-repeat: no-repeat;
   background-size: 70%;
 }
-/* line 115, ../sass/navigation.scss */
+/* line 120, ../sass/navigation.scss */
 #navigation #Berichten {
   background-image: url(../images/berichten.png);
   background-position-x: 50%;
@@ -121,7 +125,7 @@ li a.active {
   background-repeat: no-repeat;
   background-size: 80%;
 }
-/* line 124, ../sass/navigation.scss */
+/* line 129, ../sass/navigation.scss */
 #navigation li {
   display: block;
   height: 100px;
@@ -136,14 +140,14 @@ li a.active {
   line-height: 188px;
   box-align: center;
 }
-/* line 138, ../sass/navigation.scss */
+/* line 143, ../sass/navigation.scss */
 #navigation li a:link {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-/* line 145, ../sass/navigation.scss */
+/* line 150, ../sass/navigation.scss */
 #navigation li a:visited {
   color: #FFFFFF;
   text-decoration: none;
@@ -155,13 +159,13 @@ li a.active {
 /*
  * Main menu and Secondary menu links
  */
-/* line 164, ../sass/navigation.scss */
+/* line 169, ../sass/navigation.scss */
 #main-menu {
   width: 390px;
   margin-left: 2%;
 }
 
-/* line 169, ../sass/navigation.scss */
+/* line 174, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
