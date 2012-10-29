@@ -85,11 +85,11 @@
      */
     function _scoga_add_content_type_to_output($content_type,$label,$titles,$paths)
     {
-        $poll_nodes = node_load_multiple(array(), array('type' => $content_type));
-        foreach($poll_nodes as $poll_node)
+        $nodes = node_load_multiple(array(), array('type' => $content_type));
+        foreach($nodes as $node)
         {
-            $titles[] = $label.': '.$poll_node->title;
-            $paths[] = 'node/'.$poll_node->nid;
+            $titles[] = $label.': '.$node->title;
+            $paths[] = 'node/'.$node->nid;
         }
     }
 ?>

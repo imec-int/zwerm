@@ -90,11 +90,12 @@
                  </div>
             <?php endif; ?>
             <div id="menu_container">
-                <div id="menu_icon"><img src="<?php print(path_to_theme()); ?>/images/menu_icon.png"/> </div>
+                <div id="menu_icon"><img src="<?php print(base_path().path_to_theme()); ?>/images/menu_icon.png"/> </div>
                 <div id="menu_text">Menu</div>
             </div>
             <div id="zwerm_logo_text">
-               <img src="<?php print(path_to_theme()); ?>/images/zwerm_logo_text.png"/>
+               <?php dsm(path_to_theme()); ?>
+               <img src="<?php print(base_path().path_to_theme()); ?>/images/zwerm_logo_text.png"/>
             </div>
         </div>
         <?php if ($site_name || $site_slogan): ?>
