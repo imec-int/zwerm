@@ -181,9 +181,9 @@
             <?php endif; ?>
             <?php print render($page['content']); ?>
             <?php //print $feed_icons; ?>
-            <?php //if (!drupal_is_front_page()): ?>
+            <?php if (!drupal_is_front_page()): ?>
                 <?php print $messages; ?>
-            <?php //endif; ?>
+            <?php endif; ?>
         </div><!-- /#content -->
         <?php
         // Render the sidebars to see if there's anything in them.

@@ -1204,7 +1204,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Rank';
+  $handler->display->display_options['fields']['php']['label'] = '';
   $handler->display->display_options['fields']['php']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['php']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['php']['alter']['absolute'] = 0;
@@ -1218,7 +1218,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['php']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['php']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['php']['hide_empty'] = 0;
   $handler->display->display_options['fields']['php']['empty_zero'] = 0;
@@ -1566,7 +1566,6 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('Team members of current user'),
     t('Players by team'),
     t('Leaderboard'),
-    t('Rank'),
     t('$user->uid'),
     t(' punten'),
     t('Entity Reference View Widget'),

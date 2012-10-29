@@ -13,6 +13,7 @@ dependencies[] = entity
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = flag
+dependencies[] = geocoder
 dependencies[] = geofield
 dependencies[] = image
 dependencies[] = list

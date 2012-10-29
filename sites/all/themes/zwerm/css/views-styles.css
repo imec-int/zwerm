@@ -167,10 +167,14 @@ tr.loggedInUser {
   left: 120px;
 }
 /* line 178, ../sass/views-styles.scss */
-.page-leaderboard td.name {
+.page-leaderboard th {
   display: none;
 }
 /* line 183, ../sass/views-styles.scss */
+.page-leaderboard td.name {
+  display: none;
+}
+/* line 188, ../sass/views-styles.scss */
 .page-leaderboard td.uid {
   display: none;
 }

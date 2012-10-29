@@ -8,7 +8,7 @@
     $assignment_links = array();
     foreach ($assignment_titles as $title)
     {
-        $title_crop_treshold = 30;
+        $title_crop_treshold = 20;
         if (strlen($title)>$title_crop_treshold)
         {
             $title = substr($title,0,$title_crop_treshold).'...';

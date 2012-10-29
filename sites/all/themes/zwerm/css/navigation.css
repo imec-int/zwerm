@@ -84,44 +84,44 @@ li a.active {
 /* line 86, ../sass/navigation.scss */
 #navigation #Info {
   background-image: url(../images/info.png);
-  background-size: 50%;
   background-position-x: 50%;
   background-position-y: 20px;
   background-repeat: no-repeat;
+  background-size: 50%;
 }
-/* line 92, ../sass/navigation.scss */
-#navigation #Spe el {
+/* line 94, ../sass/navigation.scss */
+#navigation #Speel {
   background-image: url(../images/spelen.png);
-  background-size: 50%;
   background-position-x: 50%;
   background-position-y: 20px;
   background-repeat: no-repeat;
+  background-size: 60%;
 }
-/* line 98, ../sass/navigation.scss */
+/* line 101, ../sass/navigation.scss */
 #navigation #Teams {
   background-image: url(../images/teams.png);
-  background-size: 50%;
   background-position-x: 50%;
   background-position-y: 20px;
   background-repeat: no-repeat;
+  background-size: 70%;
 }
-/* line 104, ../sass/navigation.scss */
+/* line 108, ../sass/navigation.scss */
 #navigation #Score {
   background-image: url(../images/score.png);
-  background-size: 50%;
   background-position-x: 50%;
   background-position-y: 20px;
   background-repeat: no-repeat;
+  background-size: 70%;
 }
-/* line 110, ../sass/navigation.scss */
+/* line 115, ../sass/navigation.scss */
 #navigation #Berichten {
   background-image: url(../images/berichten.png);
-  background-size: 50%;
   background-position-x: 50%;
   background-position-y: 20px;
   background-repeat: no-repeat;
+  background-size: 80%;
 }
-/* line 118, ../sass/navigation.scss */
+/* line 124, ../sass/navigation.scss */
 #navigation li {
   display: block;
   height: 100px;
@@ -136,14 +136,14 @@ li a.active {
   line-height: 188px;
   box-align: center;
 }
-/* line 132, ../sass/navigation.scss */
+/* line 138, ../sass/navigation.scss */
 #navigation li a:link {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-/* line 139, ../sass/navigation.scss */
+/* line 145, ../sass/navigation.scss */
 #navigation li a:visited {
   color: #FFFFFF;
   text-decoration: none;
@@ -155,13 +155,13 @@ li a.active {
 /*
  * Main menu and Secondary menu links
  */
-/* line 158, ../sass/navigation.scss */
+/* line 164, ../sass/navigation.scss */
 #main-menu {
   width: 390px;
   margin-left: 2%;
 }
 
-/* line 163, ../sass/navigation.scss */
+/* line 169, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
