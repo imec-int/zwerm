@@ -60,13 +60,13 @@ body {
 #header {
   background-color: black;
   position: fixed;
-  height: 70px;
+  height: 40px;
   width: 100%;
   z-index: 20;
 }
 /* line 68, ../sass/pages.scss */
 #header #header_align {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 /* line 72, ../sass/pages.scss */
 #header #home_nav {
@@ -178,7 +178,7 @@ body {
  */
 /* line 181, ../sass/pages.scss */
 #content {
-  padding-top: 70px;
+  padding-top: 40px;
 }
 
 /* line 188, ../sass/pages.scss */
