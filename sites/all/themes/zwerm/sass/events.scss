@@ -1,4 +1,14 @@
-p.submitted
+@import "base";
+
+body.node-type-nodetype-event
 {
-  display: none;
+  p.submitted
+  {
+    display: none;
+  }
+
+  h1
+  {
+    font-family: Romina;
+  }
 }

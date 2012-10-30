@@ -1,4 +1,13 @@
-/* line 2, ../sass/events.scss */
-p.submitted {
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/events.scss */
+body.node-type-nodetype-event p.submitted {
   display: none;
+}
+/* line 11, ../sass/events.scss */
+body.node-type-nodetype-event h1 {
+  font-family: Romina;
 }
