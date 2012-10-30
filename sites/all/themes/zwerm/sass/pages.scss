@@ -351,7 +351,8 @@ span.field-label { /* The inline field label used by the Fences module */
   left: 0;
   position: fixed;
   right: 0;
-  width : 100%
+  width : 100%;
+  padding-top: 10px;
 }
 
 //needed for footer to remain at bottom

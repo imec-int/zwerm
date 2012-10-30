@@ -44,6 +44,10 @@ function scoga_feature_openlayers_maps() {
         'zoomWorldIcon' => 0,
         'panIcons' => 1,
       ),
+      'openlayers_behavior_zoomtolayer' => array(
+        'zoomtolayer' => 'event_map_overlay_openlayers_1',
+        'point_zoom_level' => '15',
+      ),
     ),
     'default_layer' => 'mapquest_osm',
     'layers' => array(
