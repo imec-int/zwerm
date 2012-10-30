@@ -17,7 +17,7 @@ function scoga_feature_openlayers_maps() {
   $openlayers_maps->title = 'Event Formatter Map';
   $openlayers_maps->description = 'A Map Used for Geofield Output for the Event content type';
   $openlayers_maps->data = array(
-    'width' => '300px',
+    'width' => 'auto',
     'height' => '400px',
     'image_path' => 'sites/all/modules/openlayers/themes/default_dark/img/',
     'css_path' => 'sites/all/modules/openlayers/themes/default_dark/style.css',
@@ -48,27 +48,27 @@ function scoga_feature_openlayers_maps() {
     'default_layer' => 'mapquest_osm',
     'layers' => array(
       'mapquest_osm' => 'mapquest_osm',
-      'event_map_overlay_openlayers_1' => 'event_map_overlay_openlayers_1',
       'geofield_formatter' => 'geofield_formatter',
+      'event_map_overlay_openlayers_1' => 'event_map_overlay_openlayers_1',
     ),
     'layer_weight' => array(
-      'event_map_overlay_openlayers_1' => '0',
       'geofield_formatter' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'openlayers_geojson_picture_this' => '0',
     ),
     'layer_styles' => array(
       'openlayers_geojson_picture_this' => '0',
-      'geofield_formatter' => '0',
       'event_map_overlay_openlayers_1' => 'default_marker_black',
+      'geofield_formatter' => '0',
     ),
     'layer_styles_select' => array(
       'openlayers_geojson_picture_this' => '0',
-      'geofield_formatter' => '0',
       'event_map_overlay_openlayers_1' => 'default_marker_black',
+      'geofield_formatter' => '0',
     ),
     'layer_activated' => array(
-      'geofield_formatter' => 'geofield_formatter',
       'event_map_overlay_openlayers_1' => 'event_map_overlay_openlayers_1',
+      'geofield_formatter' => 'geofield_formatter',
       'openlayers_geojson_picture_this' => 0,
     ),
     'layer_switcher' => array(
