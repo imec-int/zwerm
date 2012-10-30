@@ -11,6 +11,7 @@
             {
                 $path = $paths[$i];
                 print("<li onmousedown=\"li_mousedown('".$path."',this);\">".$item."</li>");
+                $i++;
             }
         print ('</ul>');
     print ('</div>');
