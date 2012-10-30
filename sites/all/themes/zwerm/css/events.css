@@ -11,3 +11,16 @@ body.node-type-nodetype-event p.submitted {
 body.node-type-nodetype-event h1 {
   font-family: Romina;
 }
+/* line 16, ../sass/events.scss */
+body.node-type-nodetype-event .field-name-field-event-address {
+  font-size: x-large;
+  margin-bottom: 30px;
+}
+/* line 22, ../sass/events.scss */
+body.node-type-nodetype-event .field-name-field-event-date {
+  margin-top: 5px;
+}
+/* line 27, ../sass/events.scss */
+body.node-type-nodetype-event span.locality {
+  margin-left: -17px;
+}
