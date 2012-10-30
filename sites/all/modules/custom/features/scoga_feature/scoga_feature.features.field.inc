@@ -1177,7 +1177,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'addressfield',
           'settings' => array(
             'format_handlers' => array(
@@ -1268,7 +1268,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'date',
           'settings' => array(
             'format_type' => 'long',
@@ -1350,11 +1350,8 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'geofield',
-          'settings' => array(
-            'data' => 'full',
-          ),
-          'type' => 'geofield_wkt',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '3',
         ),
         'entityreference_view_widget' => array(
@@ -1466,7 +1463,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'entityreference',
           'settings' => array(
             'link' => FALSE,

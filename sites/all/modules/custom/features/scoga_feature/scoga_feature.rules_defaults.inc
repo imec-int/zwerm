@@ -91,7 +91,7 @@ function scoga_feature_default_rules_configuration() {
         }
       ],
       "DO" : [
-        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_create_campaignteam_nodes_for_campaign( $node );" } }
+        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_create_campaignteam_nodes_for_campaign( $node );" } }
       ]
     }
   }');
@@ -109,7 +109,7 @@ function scoga_feature_default_rules_configuration() {
         }
       ],
       "DO" : [
-        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_delete_campaignteam_nodes_for_campaign( $node );" } }
+        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_delete_campaignteam_nodes_for_campaign( $node );" } }
       ]
     }
   }');
@@ -123,7 +123,7 @@ function scoga_feature_default_rules_configuration() {
         { "data_is" : { "data" : [ "userpoints-transaction:tid" ], "value" : "4" } }
       ],
       "DO" : [
-        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_log_user_points( $userpoints_transaction );\\r\\n" } }
+        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_log_user_points( $userpoints_transaction );\\u000D\\u000A" } }
       ]
     }
   }');
@@ -143,7 +143,7 @@ function scoga_feature_default_rules_configuration() {
       "DO" : [
         { "userpoints_action_grant_points" : {
             "user" : [ "node:author" ],
-            "points" : { "select" : "node:field-wisheditem-award" },
+            "points" : [ "node:field-wisheditem-award" ],
             "tid" : "3",
             "entity" : [ "node" ],
             "description" : "Deducted for creating wished item",
@@ -160,7 +160,7 @@ function scoga_feature_default_rules_configuration() {
       "PLUGIN" : "rule",
       "REQUIRES" : [ "php", "rules" ],
       "DO" : [
-        { "php_eval" : { "code" : " module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_determine_current_campaign( TRUE );\\r\\n" } }
+        { "php_eval" : { "code" : " module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_determine_current_campaign( TRUE );\\u000D\\u000A" } }
       ]
     }
   }');
@@ -178,7 +178,7 @@ function scoga_feature_default_rules_configuration() {
             "recipient" : [ "comment:node:author" ],
             "author" : [ "comment:author" ],
             "subject" : "User [comment:name] commented on your item \\u0022[comment:node:title]\\u0022",
-            "body" : "User [comment:name] commented on your item \\u0022[comment:node:title]\\u0022,\\r\\ngoto [comment:node]\\r\\n"
+            "body" : "User [comment:name] commented on your item \\u0022[comment:node:title]\\u0022,\\u000D\\u000Agoto [comment:node]\\u000D\\u000A"
           }
         }
       ]
@@ -191,7 +191,7 @@ function scoga_feature_default_rules_configuration() {
       "REQUIRES" : [ "php", "rules", "userpoints_rules" ],
       "ON" : [ "userpoints_event_points_awarded_after" ],
       "DO" : [
-        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\r\\nscoga_rule_transfer_transaction_points_to_team( $userpoints_transaction );" } }
+        { "php_eval" : { "code" : "module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_transfer_transaction_points_to_team( $userpoints_transaction );" } }
       ]
     }
   }');

@@ -17,7 +17,7 @@ function scoga_feature_openlayers_maps() {
   $openlayers_maps->title = 'Event Formatter Map';
   $openlayers_maps->description = 'A Map Used for Geofield Output for the Event content type';
   $openlayers_maps->data = array(
-    'width' => '600px',
+    'width' => '300px',
     'height' => '400px',
     'image_path' => 'sites/all/modules/openlayers/themes/default_dark/img/',
     'css_path' => 'sites/all/modules/openlayers/themes/default_dark/style.css',
@@ -25,8 +25,8 @@ function scoga_feature_openlayers_maps() {
     'hide_empty_map' => 0,
     'center' => array(
       'initial' => array(
-        'centerpoint' => '3.8891815361534, 51.08280843083',
-        'zoom' => '8',
+        'centerpoint' => '3.7127289120034, 51.052374937679',
+        'zoom' => '14',
       ),
       'restrict' => array(
         'restrictextent' => 0,
@@ -48,27 +48,27 @@ function scoga_feature_openlayers_maps() {
     'default_layer' => 'mapquest_osm',
     'layers' => array(
       'mapquest_osm' => 'mapquest_osm',
-      'geofield_formatter' => 'geofield_formatter',
       'event_map_overlay_openlayers_1' => 'event_map_overlay_openlayers_1',
+      'geofield_formatter' => 'geofield_formatter',
     ),
     'layer_weight' => array(
-      'geofield_formatter' => '0',
       'event_map_overlay_openlayers_1' => '0',
+      'geofield_formatter' => '0',
       'openlayers_geojson_picture_this' => '0',
     ),
     'layer_styles' => array(
       'openlayers_geojson_picture_this' => '0',
-      'event_map_overlay_openlayers_1' => 'default_marker_black',
       'geofield_formatter' => '0',
+      'event_map_overlay_openlayers_1' => 'default_marker_black',
     ),
     'layer_styles_select' => array(
       'openlayers_geojson_picture_this' => '0',
-      'event_map_overlay_openlayers_1' => 'default_marker_black',
       'geofield_formatter' => '0',
+      'event_map_overlay_openlayers_1' => 'default_marker_black',
     ),
     'layer_activated' => array(
-      'event_map_overlay_openlayers_1' => 'event_map_overlay_openlayers_1',
       'geofield_formatter' => 'geofield_formatter',
+      'event_map_overlay_openlayers_1' => 'event_map_overlay_openlayers_1',
       'openlayers_geojson_picture_this' => 0,
     ),
     'layer_switcher' => array(
