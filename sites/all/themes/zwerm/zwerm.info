@@ -65,6 +65,7 @@ stylesheets[all][] = css/fields.css
 stylesheets[all][] = css/print.css
 stylesheets[all][] = css/not-checkin.css
 stylesheets[all][] = css/play.css
+stylesheets[all][] = css/events.css
 
 ;stylesheets[all][] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.css
 
