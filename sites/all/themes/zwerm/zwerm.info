@@ -51,7 +51,6 @@ stylesheets[all][] = system.menus.css
 ;stylesheets[all][] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.css
 stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/wireframes.css
-stylesheets[all][] = css/layouts/responsive-sidebars.css
 stylesheets[all][] = css/page-backgrounds.css
 stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/pages.css
@@ -66,6 +65,7 @@ stylesheets[all][] = css/print.css
 stylesheets[all][] = css/not-checkin.css
 stylesheets[all][] = css/play.css
 stylesheets[all][] = css/events.css
+stylesheets[all][] = css/layouts/responsive-sidebars.css
 
 ;stylesheets[all][] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.css
 

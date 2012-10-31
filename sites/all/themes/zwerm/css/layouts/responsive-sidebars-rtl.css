@@ -115,14 +115,16 @@
     /* Span 3 columns, starting in 2nd column from left. */
     clear: right;
     float: right;
-    width: 60%;
-    margin-right: 20%;
-    margin-left: -80%;
+    width: 50%;
+    margin-right: 16.66667%;
+    margin-left: -66.66667%;
+    display: none;
   }
 
-  /* line 142, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 143, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 3 columns, starting in 2nd column from left. */
+    background-color: black;
     float: right;
     width: 100%;
     margin-right: 0%;
@@ -131,37 +133,28 @@
     height: 100%;
   }
 
-  /* line 149, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 152, ../../sass/layouts/responsive-sidebars.scss */
   #content {
-    clear: right;
     float: right;
-    width: 60%;
-    margin-right: 20%;
-    margin-left: -80%;
+    width: 66.66667%;
+    margin-right: 0%;
+    margin-left: -66.66667%;
   }
 
-  /* line 154, ../../sass/layouts/responsive-sidebars.scss */
-  .sidebar-first #content {
-    /* Span 1 columns, starting in 4th column from left. */
-    float: right;
-    width: 100%;
-    margin-right: 0%;
-    margin-left: -100%;
-  }
   /* line 158, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
     float: right;
-    width: 20%;
-    margin-right: 0%;
-    margin-left: -20%;
+    width: 33.33333%;
+    margin-right: 66.66667%;
+    margin-left: -100%;
   }
 
-  /* line 163, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 165, ../../sass/layouts/responsive-sidebars.scss */
   #footer {
     float: right;
-    width: 100%;
+    width: 83.33333%;
     margin-right: 0%;
-    margin-left: -100%;
+    margin-left: -83.33333%;
   }
 }
