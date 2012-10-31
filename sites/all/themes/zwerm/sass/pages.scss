@@ -403,7 +403,16 @@ a {
   background-color: $green-marking-color;
 }
 
-@media all and (min-width: $start_of_large_viewport) {
+@media all and (max-width: $end_of_small_viewport)
+{
+  #block-block-3
+  {
+    display:none;
+  }
+}
+
+@media all and (min-width: $start_of_large_viewport)
+{
   #header{
     background-image: url(../images/zwerm_logo_black_background.png);
     background-size: 10%;
@@ -422,6 +431,17 @@ a {
   #home_nav , #menu_container , #menu_text , #zwerm_logo_text
   {
     display:none;
+  }
+
+  .region-sidebar-first
+  {
+    padding-top: $header-height;
+  }
+
+  #footer
+  {
+    background-color: $green-marking-color;
+    height : $header-height * 4;
   }
 }
 
