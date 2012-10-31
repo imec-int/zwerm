@@ -439,3 +439,27 @@ a {
 .selectedItem {
   background-color: #7fb083;
 }
+
+@media all and (min-width: 630px) {
+  /* line 407, ../sass/pages.scss */
+  #header {
+    background-image: url(../images/zwerm_logo_black_background.png);
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+    display: block;
+  }
+
+  /* line 416, ../sass/pages.scss */
+  #type_page, #type_nodetype_event {
+    height: 100%;
+    background-color: black;
+    padding-top: 40px;
+  }
+
+  /* line 423, ../sass/pages.scss */
+  #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
+    display: none;
+  }
+}

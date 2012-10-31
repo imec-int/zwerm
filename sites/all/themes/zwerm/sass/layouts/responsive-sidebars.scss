@@ -76,7 +76,7 @@ $zen-auto-include-item-base: false;
   @include zen-grid-container();
 }
 
-@media all and (max-width: 629px) {
+@media all and (max-width: $end_of_small_viewport) {
   $zen-column-count: 2;
 
   #header{ /* Span 1 columns, starting in 4nd column from left. */
@@ -114,12 +114,20 @@ $zen-auto-include-item-base: false;
     }
   }
 
+  .sidebar-first {
+    //display:none;
+    .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+
+      @include zen-grid-item(2, 5);
+    }
+  }
+
   #footer {
    // @include zen-grid-item(2, 1);
   }
 }
 
-@media all and (min-width: 630px) {
+@media all and (min-width: $start_of_large_viewport) {
   /*
    * Use 5 grid columns for larger screens.
    */
@@ -128,10 +136,6 @@ $zen-auto-include-item-base: false;
   /*
    * The layout when there is only one sidebar, the left one.
    */
-    #header{ /* Span 5 columns, starting in 1st column from left. */
-      display:none;
-    }
-
 
     #navigation{ /* Span 3 columns, starting in 2nd column from left. */
       @include zen-clear();
@@ -145,8 +149,8 @@ $zen-auto-include-item-base: false;
       @include zen-grid-item(6, 1);
       @include zen-clear();
       //needed for floating footer
-      height : 100%;
-
+      height : 175%;
+      color:white;
     }
 
     #content {
@@ -163,6 +167,6 @@ $zen-auto-include-item-base: false;
 
 
     #footer {
-          @include zen-grid-item(5, 1);
+          @include zen-grid-item(6, 1);
     }
 }

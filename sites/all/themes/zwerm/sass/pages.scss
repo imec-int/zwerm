@@ -403,6 +403,28 @@ a {
   background-color: $green-marking-color;
 }
 
+@media all and (min-width: $start_of_large_viewport) {
+  #header{
+    background-image: url(../images/zwerm_logo_black_background.png);
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height : $header-height * 2;
+    display:block;
+  }
+
+  #type_page, #type_nodetype_event {
+    height: 100%;
+    background-color: black;
+    padding-top:$header-height;
+  }
+
+  #home_nav , #menu_container , #menu_text , #zwerm_logo_text
+  {
+    display:none;
+  }
+}
+
 
 
 

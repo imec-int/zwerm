@@ -137,19 +137,17 @@
         {
             $type = 'type_'.$node->type;
 
-            if (isset($node->field_event_team))
+            /*if (isset($node->field_event_team))
                 var_dump ($node->field_event_team);
-                $team = $node->field_event_team;
+                $team = $node->field_event_team;     */
         }
 
 
     ?>
     <div id="main" class="<?php print($type)?>">
-        <div id="<?php print($type)?>" class="<?php print($team[0]);?>" >
+        <div id="<?php print($type)?>" class="<?php //print($team[0]);?>" >
 
-            <?php if ($logo): ?>
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
-            <?php endif; ?>
+
             <?php if(drupal_is_front_page()):     ?>
                 <div id="navigation">
 

@@ -5,12 +5,19 @@
     print ('<div id="select_list" class="clearfix">');
         print ('<ul>');
             $items = $variables['items'];
-            $paths = $variables['assignment_paths'];
+            $paths = '';
+            if(isset($variables['assignment_paths']))
+            {
+                $paths = $variables['assignment_paths'];
+            }
             $i = 0;
             foreach ($items as $item)
             {
-                $path = $paths[$i];
-                print("<li onmousedown=\"li_mousedown('".$path."',this);\">".$item."</li>");
+                if ($paths != '')
+                {
+                    $path = $paths[$i];
+                     print("<li onmousedown=\"li_mousedown('".$path."',this);\">".$item."</li>");
+                }
                 $i++;
             }
         print ('</ul>');
