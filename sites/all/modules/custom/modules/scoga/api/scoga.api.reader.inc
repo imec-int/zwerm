@@ -1,11 +1,12 @@
 <?php
-    /**
-     * Created by JetBrains PhpStorm.
-     * User: creynder
-     * Date: 20/04/12
-     * Time: 14:48
-     * To change this template use File | Settings | File Templates.
-     */
+
+    class Reader{
+        public $nid;
+        public $name;
+        public $team_nid;
+        public $reader_id;
+        public $enabled;
+    }
 
     /**
      * attempts to create a RFID reader node
@@ -111,4 +112,32 @@
         node_save( $reader_node );
 
         return $reader_node;
+    }
+
+    /**
+     * @param $reader_entity
+     *
+     * @return Reader
+     */
+    function scoga_create_reader_vo( $reader_entity ){
+        $options = array(
+            'entity_type' => 'node',
+        );
+        $output = new Reader();
+        $output->enabled = $reader_entity->status;
+        $output->name = $reader_entity->title;
+        $output->nid = $reader_entity->nid;
+        $output->reader_id = scoga_get_field_value( $reader_entity, 'field_rfidreader_id', $options);
+        $options[ 'field_column' ] = 'target_id';
+        $output->team_nid = scoga_get_field_value( $reader_entity, 'field_rfidreader_team', $options );
+        return $output;
+    }
+
+    function scoga_get_reader_vo_by_reader_id( $reader_id ){
+        $entity = scoga_get_reader_entity_by_reader_id( $reader_id );
+        if( $entity ){
+            return scoga_create_reader_vo( $entity );
+        }
+
+        return FALSE;
     }

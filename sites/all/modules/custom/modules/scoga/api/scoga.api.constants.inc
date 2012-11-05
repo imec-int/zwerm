@@ -45,6 +45,7 @@
     define( 'SCOGA_PERM_REST_ACCESS_MESSAGES_DATA',     'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_CREATE_CHECKIN',    'access content' );
     define( 'SCOGA_PERM_REST_EXECUTE_CREATE_CHECKIN',   'REST create checkin' );
+    define( 'SCOGA_PERM_REST_ACCESS_READER_DATA',       'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_REGISTER_READER',   'access content' );
     define( 'SCOGA_PERM_REST_EXECUTE_REGISTER_READER',  'REST register rfid reader' );
     define( 'SCOGA_PERM_REST_ACCESS_REGISTER_CARD',     'access content' );

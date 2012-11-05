@@ -94,6 +94,24 @@
 
     function scoga_outline_services_reader(){
         return array(
+            'index' => array(
+                'help'             => 'Retrieve reader info',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga',
+                ),
+                'callback'         => 'scoga_service_reader_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_READER_DATA ),
+                'args'             => array(
+                    array(
+                        'name'        => 'readerID',
+                        'type'        => 'string',
+                        'description' => 'The ID of the reader',
+                        'source'      => 'param',
+                        'optional'    => false,
+                    ),
+                )
+            ),
             'create' => array(
                 'help'             => 'Register an RFID reader to be used with SCOGA',
                 'file'             => array(
@@ -419,6 +437,17 @@
             $result = $message;
         }
         return $result;
+    }
+
+    function scoga_service_reader_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_reader_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
+        module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
+        /*
+        * catch parameters
+        */
+        $reader_id = $params[ 'readerID' ];
+
+        return scoga_get_reader_vo_by_reader_id( $reader_id );
     }
 
     function scoga_service_reader_create( $params ){
