@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 4, ../sass/score-nav.scss */
+#score_nav_bar {
+  background-color: #333333;
+  width: 100%;
+}
+/* line 9, ../sass/score-nav.scss */
+#score_nav_bar li {
+  font-size: x-small;
+  background-color: #333333;
+  padding-right: 1px;
+  list-style-type: none;
+  display: block;
+  float: left;
+  height: 50px;
+  width: 30%;
+  margin-left: 3px;
+}
+/* line 21, ../sass/score-nav.scss */
+#score_nav_bar li a {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 99%;
+}
+/* line 29, ../sass/score-nav.scss */
+#score_nav_bar li a.active {
+  color: white;
+}
