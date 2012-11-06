@@ -16,8 +16,8 @@
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1px;
-    padding-right: 1px;
+    padding-left: 2%;
+    padding-right: 2%;
   }
 
   li
@@ -35,7 +35,7 @@
 
     a
     {
-      color:white;
+      color:$score-navbar-non-active-link-color;
       display:block;
       //margin-left: auto;
       //margin-right: auto;
@@ -43,6 +43,11 @@
       width:99%;
       padding-top: 13px;
 
+    }
+
+    a.active
+    {
+      color:white;
     }
 
   }
