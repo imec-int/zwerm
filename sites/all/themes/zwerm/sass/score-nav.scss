@@ -4,30 +4,45 @@
 {
   background-color: $footer-color;
   width:100%;
+  float: left;
+  height:$score-navbar-height;
+  margin-top: 30px;
+
+
+  ul
+  {
+    width:99%;
+    height: $score-navbar-height;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1px;
+    padding-right: 1px;
+  }
 
   li
   {
-    font-size: x-small;
-    background-color: $footer-color;
-    padding-right: 1px;
+    font-size: small;
+    background-color: $score-navbar-color ;
+    //padding-right: 1px;
     list-style-type: none;
     display:block;
     float:left;
     height:50px;
-    width:30%;
-    margin-left:3px;
+    width:32%;
+    margin-left: 1px;
+    margin-right: 1px;
 
     a
     {
-      display:block;
-      margin-left: auto;
-      margin-right: auto;
-      width:99%;
-    }
-
-    a.active
-    {
       color:white;
+      display:block;
+      //margin-left: auto;
+      //margin-right: auto;
+      text-align:center;
+      width:99%;
+      padding-top: 13px;
+
     }
 
   }

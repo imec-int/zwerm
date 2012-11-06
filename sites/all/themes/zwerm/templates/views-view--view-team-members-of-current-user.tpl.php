@@ -59,11 +59,11 @@
     </div>
     <?php endif; ?>
     <div id='score_nav_bar'>
-    <?php print theme('links', array('links' => menu_navigation_links('menu-score-navigation-bar'),
-                'attributes' => array('class'=> array('links', 'menu-score-navigation-bar')) ));?>
+    <?php print theme('links',
+                        array('links' => menu_navigation_links('menu-score-navigation-bar'),
+                              'attributes' => array('class'=> array('links', 'menu-score-navigation-bar')) ));
+    ?>
     </div>
-    <?php //print theme('menu-score-navigation-bar');?>
-
     <?php if ($rows): ?>
     <div class="view-content">
         <?php print $rows; ?>
