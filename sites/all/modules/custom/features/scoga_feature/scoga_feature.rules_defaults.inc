@@ -80,7 +80,6 @@ function scoga_feature_default_rules_configuration() {
   $items['rules_create_campaignteam_nodes_for_campaign'] = entity_import('rules_config', '{ "rules_create_campaignteam_nodes_for_campaign" : {
       "LABEL" : "Create campaignteam nodes for campaign",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "REQUIRES" : [ "rules", "php" ],
       "ON" : [ "node_insert" ],
       "IF" : [
@@ -98,7 +97,6 @@ function scoga_feature_default_rules_configuration() {
   $items['rules_delete_campaignteam_nodes_for_campaign'] = entity_import('rules_config', '{ "rules_delete_campaignteam_nodes_for_campaign" : {
       "LABEL" : "Delete campaignteam nodes for campaign",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "REQUIRES" : [ "rules", "php" ],
       "ON" : [ "node_delete" ],
       "IF" : [
@@ -131,7 +129,7 @@ function scoga_feature_default_rules_configuration() {
       "LABEL" : "Reserve credits after wishitem creation",
       "PLUGIN" : "reaction rule",
       "ACTIVE" : false,
-      "REQUIRES" : [ "rules", "userpoints_rules" ],
+      "REQUIRES" : [ "rules", "php", "userpoints_rules" ],
       "ON" : [ "node_insert" ],
       "IF" : [
         { "node_is_of_type" : {
@@ -143,7 +141,10 @@ function scoga_feature_default_rules_configuration() {
       "DO" : [
         { "userpoints_action_grant_points" : {
             "user" : [ "node:author" ],
-            "points" : [ "node:field-wisheditem-award" ],
+            "points" : {
+              "select" : "node:field-wisheditem-award",
+              "php" : { "code" : "return - $value;" }
+            },
             "tid" : "3",
             "entity" : [ "node" ],
             "description" : "Deducted for creating wished item",
@@ -158,6 +159,7 @@ function scoga_feature_default_rules_configuration() {
   $items['rules_rule_determine_current_campaign'] = entity_import('rules_config', '{ "rules_rule_determine_current_campaign" : {
       "LABEL" : "Determine current campaign",
       "PLUGIN" : "rule",
+      "TAGS" : [ "DEVEL" ],
       "REQUIRES" : [ "php", "rules" ],
       "DO" : [
         { "php_eval" : { "code" : " module_load_include( \\u0027rules.php\\u0027, \\u0027scoga\\u0027 );\\u000D\\u000Ascoga_rule_determine_current_campaign( TRUE );\\u000D\\u000A" } }
@@ -187,7 +189,6 @@ function scoga_feature_default_rules_configuration() {
   $items['rules_rule_transfer_points_to_team'] = entity_import('rules_config', '{ "rules_rule_transfer_points_to_team" : {
       "LABEL" : "Transfer points to team",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "REQUIRES" : [ "php", "rules", "userpoints_rules" ],
       "ON" : [ "userpoints_event_points_awarded_after" ],
       "DO" : [
