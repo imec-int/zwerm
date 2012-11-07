@@ -460,12 +460,6 @@ function scoga_feature_views_default_views() {
   $translatables['event_content_type_map'] = array(
     t('Master'),
     t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Page'),
     t('Block'),
   );
   $export['event_content_type_map'] = $view;
@@ -1046,6 +1040,7 @@ else return 0;';
     t('<a href=\'players-by-team/[title] \'>Bekijk actieve leden</a>'),
     t('Extended team view'),
     t('Page'),
+    t('more'),
   );
   $export['team_overview'] = $view;
 
@@ -1133,6 +1128,7 @@ else return 0;';
     t('- All -'),
     t('Offset'),
     t('Page'),
+    t('more'),
     t('Feed'),
     t('Front page feed'),
   );
@@ -2084,6 +2080,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t(','),
     t('All'),
     t('Team members of current user'),
+    t('more'),
     t('Players by team'),
     t('Leaderboard'),
     t('$user->uid'),

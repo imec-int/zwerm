@@ -13,7 +13,6 @@
 //            'scoga_player'      => scoga_outline_services_player(),
 //            'scoga_transaction' => scoga_outline_services_transaction(),
 //            'scoga_overview'    => scoga_outline_services_overview(),
-//            'scoga_reader'      => scoga_outline_services_reader(),
 //            'scoga_card'        => scoga_outline_services_card(),
         return array(
             'scoga_teams'        => scoga_outline_services_teams(),
@@ -22,6 +21,8 @@
             'scoga_messages'     => scoga_outline_services_messages(),
             'scoga_network'     => scoga_outline_services_network(),
             'scoga_checkin'     => scoga_outline_services_checkin(),
+            'scoga_reader'      => scoga_outline_services_reader(),
+            'scoga_pages'       =>  scoga_outline_services_pages(),
         );
     }
 
@@ -94,6 +95,24 @@
 
     function scoga_outline_services_reader(){
         return array(
+            'index' => array(
+                'help'             => 'Retrieve reader info',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga',
+                ),
+                'callback'         => 'scoga_service_reader_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_READER_DATA ),
+                'args'             => array(
+                    array(
+                        'name'        => 'readerID',
+                        'type'        => 'string',
+                        'description' => 'The ID of the reader',
+                        'source'      => 'param',
+                        'optional'    => false,
+                    ),
+                )
+            ),
             'create' => array(
                 'help'             => 'Register an RFID reader to be used with SCOGA',
                 'file'             => array(
@@ -314,6 +333,28 @@
         );
     }
 
+    function scoga_outline_services_pages() {
+        return array(
+            'index' => array(
+                'help'             => 'Retrieves all pages or a specific one',
+                'file'             => array(
+                    'type'   => 'services.inc',
+                    'module' => 'scoga'
+                ),
+                'callback'         => 'scoga_service_pages_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_PAGES_DATA ),
+                'args'             => array(
+                    array(
+                        'name'        => 'machine_name',
+                        'description' => 'The machine name of the page node',
+                        'source'      => 'param',
+                        'optional'    => TRUE
+                    ),
+                )
+            ),
+        );
+    }
+
     function scoga_service_network_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_network_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.network.inc', 'scoga', 'api/scoga' );
@@ -421,6 +462,17 @@
         return $result;
     }
 
+    function scoga_service_reader_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_reader_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
+        module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
+        /*
+        * catch parameters
+        */
+        $reader_id = $params[ 'readerID' ];
+
+        return scoga_get_reader_vo_by_reader_id( $reader_id );
+    }
+
     function scoga_service_reader_create( $params ){
         watchdog( 'SCOGA', 'scoga_service_reader_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
         module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
@@ -462,3 +514,18 @@
         return $result;
     }
 
+
+    function scoga_service_pages_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_pages_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
+        module_load_include( 'api.page.inc', 'scoga', 'api/scoga' );
+        /*
+        * catch parameters
+        */
+
+        if( $params ){
+            if( array_key_exists( 'machine_name', $params ) ){
+                return scoga_get_page_vo_by_machine_name( $params[ 'machine_name' ] );
+            }
+        }
+        return scoga_get_page_vos();
+    }

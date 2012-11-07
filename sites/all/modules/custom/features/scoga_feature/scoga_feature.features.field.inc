@@ -1641,16 +1641,17 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       'entity_type' => 'node',
       'field_name' => 'body',
       'label' => 'Body',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
-        'display_summary' => TRUE,
-        'text_processing' => 1,
+        'display_summary' => 0,
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 20,
+          'rows' => '20',
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
@@ -1985,6 +1986,168 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
         'settings' => array(),
         'type' => 'options_select',
         'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-nodetype_service_page-body'.
+  $fields['node-nodetype_service_page-body'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(
+        0 => 'node',
+      ),
+      'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_with_summary',
+    ),
+    'field_instance' => array(
+      'bundle' => 'nodetype_service_page',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'body',
+      'label' => 'Body',
+      'required' => 1,
+      'settings' => array(
+        'display_summary' => 0,
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '20',
+          'summary_rows' => 5,
+        ),
+        'type' => 'text_textarea_with_summary',
+        'weight' => '4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-nodetype_service_page-field_servicepage_machine_name'.
+  $fields['node-nodetype_service_page-field_servicepage_machine_name'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_servicepage_machine_name',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'nodetype_service_page',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Unique machine name used to retrieve the page through the services.
+DO NOT MODIFY ONCE SET!',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 1,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_servicepage_machine_name',
+      'label' => 'Machine name',
+      'required' => 1,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => 0,
       ),
     ),
   );
@@ -3345,7 +3508,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 13,
+          'weight' => '13',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3734,9 +3897,9 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('HEX');
   t('Image');
   t('Location');
+  t('Machine name');
   t('Optionally an RFID reader can be coupled to a Team, otherwise it\'s possible to have combo checkins when two team members checkin at different hollow trees. This should obviously be avoided.');
   t('Participating team');
-  t('Points');
   t('Points modifier');
   t('RFID Reader');
   t('Reader ID');
@@ -3751,6 +3914,8 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
 [!] <strong>Preferably provide an address.</strong>');
   t('Total points');
   t('Type');
+  t('Unique machine name used to retrieve the page through the services.
+DO NOT MODIFY ONCE SET!');
   t('Upload an image to go with this article.');
   t('Will be overwritten by the system, DO NOT EDIT MANUALLY');
   t('Wished item');

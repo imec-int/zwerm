@@ -77,7 +77,7 @@
         $output = new Message();
         $output->nid = $message_node->nid;
         $output->uid = $message_node->uid;
-        $output->description = scoga_get_field_value( $message_node, 'body' );
+        $output->description = check_markup( scoga_get_field_value( $message_node, 'body' ), FLASH_HTML_FORMAT, '', TRUE );
         $output->timestamp = $message_node->created;
         $output->title = $message_node->title;
 
