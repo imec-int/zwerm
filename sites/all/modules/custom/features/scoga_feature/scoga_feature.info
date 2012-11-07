@@ -55,6 +55,7 @@ features[field][] = node-nodetype_event-field_event_date
 features[field][] = node-nodetype_event-field_event_location
 features[field][] = node-nodetype_event-field_event_team
 features[field][] = node-nodetype_logmessages-body
+features[field][] = node-nodetype_logmessages-field_logmessages_points
 features[field][] = node-nodetype_rfid_reader-body
 features[field][] = node-nodetype_rfid_reader-field_rfidreader_id
 features[field][] = node-nodetype_rfid_reader-field_rfidreader_team

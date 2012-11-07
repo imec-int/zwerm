@@ -1659,6 +1659,81 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
     ),
   );
 
+  // Exported field: 'node-nodetype_logmessages-field_logmessages_points'.
+  $fields['node-nodetype_logmessages-field_logmessages_points'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_logmessages_points',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'number',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'number_integer',
+    ),
+    'field_instance' => array(
+      'bundle' => 'nodetype_logmessages',
+      'default_value' => array(
+        0 => array(
+          'value' => '0',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => 1,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_logmessages_points',
+      'label' => 'Points',
+      'required' => 1,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '32',
+      ),
+    ),
+  );
+
   // Exported field: 'node-nodetype_rfid_reader-body'.
   $fields['node-nodetype_rfid_reader-body'] = array(
     'field_config' => array(
@@ -2086,6 +2161,9 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_team_image',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -2137,21 +2215,23 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_team_image',
       'label' => 'Image',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
         'file_directory' => '',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
-        'max_resolution' => '',
+        'max_resolution' => '150x150',
         'min_resolution' => '',
         'title_field' => 0,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'image',
         'settings' => array(
           'preview_image_style' => 'thumbnail',

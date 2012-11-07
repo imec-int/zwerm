@@ -617,7 +617,6 @@ else return 0;';
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Teams';
   $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -711,7 +710,40 @@ else return 0;';
   $handler->display->display_options['fields']['body']['hide_empty'] = 0;
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['body']['type'] = 'text_plain';
   $handler->display->display_options['fields']['body']['field_api_classes'] = 1;
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
+  $handler->display->display_options['fields']['field_team_image']['table'] = 'field_data_field_team_image';
+  $handler->display->display_options['fields']['field_team_image']['field'] = 'field_team_image';
+  $handler->display->display_options['fields']['field_team_image']['label'] = '';
+  $handler->display->display_options['fields']['field_team_image']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_team_image']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_team_image']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_team_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_team_image']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_team_image']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_team_image']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_team_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_team_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_team_image']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_team_image']['field_api_classes'] = 1;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -741,7 +773,6 @@ else return 0;';
   $handler->display->display_options['path'] = 'team-overview';
   $translatables['team_overview'] = array(
     t('Master'),
-    t('Teams'),
     t('more'),
     t('Apply'),
     t('Reset'),
