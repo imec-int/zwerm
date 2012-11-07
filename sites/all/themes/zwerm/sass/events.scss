@@ -10,12 +10,26 @@ body.node-type-nodetype-event
   h1
   {
     font-family: Romina;
+    padding-top:$pages-title-top-padding;
+    text-align: center;
+  }
+
+  .field-type-datestamp
+  {
+    text-align: center;
+  }
+
+  .field-name-field-event-team
+  {
+    display:none;
   }
 
   .field-name-field-event-address
   {
     font-size:x-large;
     margin-bottom:30px;
+    line-height: 1.5em;
+
   }
 
   .field-name-field-event-date

@@ -403,6 +403,16 @@ a {
   background-color: $green-marking-color;
 }
 
+#type_page
+{
+  h1
+  {
+    font-family: romina;
+    text-align: center;
+    padding-top: $pages-title-top-padding;
+  }
+}
+
 @media all and (max-width: $end_of_small_viewport)
 {
   #block-block-3
@@ -426,6 +436,8 @@ a {
     height: 100%;
     background-color: black;
     padding-top:$header-height;
+
+
   }
 
   #home_nav , #menu_container , #menu_text , #zwerm_logo_text

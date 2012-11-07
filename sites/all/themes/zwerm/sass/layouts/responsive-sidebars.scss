@@ -42,8 +42,8 @@ $zen-auto-include-item-base: false;
 
 #page,
 .region-bottom {
-  /* For screen sizes larger than 1200px, prevent excessively long lines of text
-     by setting a max-width. */
+/* For screen sizes larger than 1200px, prevent excessively long lines of text
+by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
   //max-width: 1200px;
@@ -77,94 +77,145 @@ $zen-auto-include-item-base: false;
 }
 
 @media all and (max-width: $end_of_small_viewport) {
-  $zen-column-count: 2;
+$zen-column-count: 2;
 
-  #header{ /* Span 1 columns, starting in 4nd column from left. */
-    /*@include zen-grid-item(2, 1);
-    @include zen-clear();
-    #logo {
-      display:inline-block;
-    } */
-  }
+#header{ /* Span 1 columns, starting in 4nd column from left. */
+/*@include zen-grid-item(2, 1);
+@include zen-clear();
+#logo {
+ display:inline-block;
+} */
+}
 
-  #main {
-    //padding-top: 3em; /* Move all the children of #main down to make room. */
+#main {
+  //padding-top: 3em; /* Move all the children of #main down to make room. */
+  //@include zen-clear();
+  //position: relative;
+
+  #content {
     //@include zen-clear();
-    //position: relative;
-
-    #content {
-      //@include zen-clear();
-    }
-    #logo {
-      display : none;
-    }
   }
-  table
+  #logo {
+    display : none;
+  }
+}
+
+table
+{
+  @include zen-grid-item(2, 1);
+  @include zen-clear();
+
+}
+
+
+#navigation {
+  .not-front-page
   {
-    @include zen-grid-item(2, 1);
-    @include zen-clear();
-
-  }
-
-
-  #navigation {
-    .not-front-page
-    {
-      display:none;
-    }
-  }
-
-  .sidebar-first {
-    //display:none;
-    .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
-
-      @include zen-grid-item(2, 5);
-    }
-  }
-
-  #footer {
-   // @include zen-grid-item(2, 1);
+    display:none;
   }
 }
 
-@media all and (min-width: $start_of_large_viewport) {
-  /*
-   * Use 5 grid columns for larger screens.
-   */
-  $zen-column-count: 6;
-  //v v v v v
-  /*
-   * The layout when there is only one sidebar, the left one.
-   */
+.sidebar-first {
+  //display:none;
+  .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
 
-    #navigation{ /* Span 3 columns, starting in 2nd column from left. */
-      @include zen-clear();
-      @include zen-grid-item(3, 2);
-      display:none;
-    }
-
-
-    #main{ /* Span 3 columns, starting in 2nd column from left. */
-      background-color : black;
-      @include zen-grid-item(6, 1);
-      @include zen-clear();
-      //needed for floating footer
-      height : 175%;
-      color:white;
-    }
-
-    #content {
-      @include zen-grid-item(4, 1);
-    }
-
-    .sidebar-first {
-
-      .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
-          @include zen-grid-item(2, 5);
-      }
-    }
-
-    #footer {
-          @include zen-grid-item(6, 1);
-    }
+    @include zen-grid-item(2, 5);
+  }
 }
+
+#footer {
+  // @include zen-grid-item(2, 1);
+}
+  }
+
+@media all and (min-width: $start_of_large_viewport) and (max-width:979px) {
+/*
+* Use 5 grid columns for larger screens.
+*/
+$zen-column-count: 6;
+//v v v v v
+/*
+* The layout when there is only one sidebar, the left one.
+*/
+
+#navigation{ /* Span 3 columns, starting in 2nd column from left. */
+  @include zen-clear();
+  @include zen-grid-item(3, 2);
+  display:none;
+}
+
+
+#main{ /* Span 3 columns, starting in 2nd column from left. */
+  background-color : black;
+  @include zen-grid-item(6, 1);
+  @include zen-clear();
+  //needed for floating footer
+  height : 175%;
+  //width: 980px;
+  color:white;
+}
+
+#content {
+  @include zen-grid-item(4, 1);
+}
+
+.sidebar-first {
+
+  .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+    @include zen-grid-item(2, 5);
+  }
+}
+
+#footer {
+  @include zen-grid-item(6, 1);
+}
+  }
+
+
+@media all and (min-width:980px) {
+/*
+* Use 5 grid columns for larger screens.
+*/
+$zen-column-count: 6;
+//v v v v v
+/*
+* The layout when there is only one sidebar, the left one.
+*/
+
+#navigation{ /* Span 3 columns, starting in 2nd column from left. */
+  @include zen-clear();
+  @include zen-grid-item(3, 2);
+  display:none;
+}
+
+
+#main{
+  background-color : black;
+  @include zen-grid-item(4, 2);
+  @include zen-clear();
+  //needed for floating footer
+  height : 175%;
+  width: 980px;
+  color:white;
+}
+
+#content {
+  @include zen-grid-item(3, 2);
+}
+
+.sidebar-first {
+
+  .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+    @include zen-grid-item(1, 5);
+  }
+}
+
+#footer {
+  @include zen-grid-item(6, 1);
+}
+
+#page
+{
+  background-color: black;
+}
+  }

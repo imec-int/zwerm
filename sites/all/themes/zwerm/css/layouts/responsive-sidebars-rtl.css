@@ -24,7 +24,7 @@
 #page,
 .region-bottom {
   /* For screen sizes larger than 1200px, prevent excessively long lines of text
-     by setting a max-width. */
+  by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
 }
@@ -74,7 +74,7 @@
     /*@include zen-grid-item(2, 1);
     @include zen-clear();
     #logo {
-      display:inline-block;
+     display:inline-block;
     } */
   }
 
@@ -83,7 +83,7 @@
     display: none;
   }
 
-  /* line 103, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 104, ../../sass/layouts/responsive-sidebars.scss */
   table {
     float: right;
     width: 100%;
@@ -92,12 +92,12 @@
     clear: right;
   }
 
-  /* line 112, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 113, ../../sass/layouts/responsive-sidebars.scss */
   #navigation .not-front-page {
     display: none;
   }
 
-  /* line 119, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 120, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
     float: right;
@@ -106,14 +106,14 @@
     margin-left: -300%;
   }
 }
-@media all and (min-width: 630px) {
+@media all and (min-width: 630px) and (max-width: 979px) {
   /*
-   * Use 5 grid columns for larger screens.
-   */
+  * Use 5 grid columns for larger screens.
+  */
   /*
-   * The layout when there is only one sidebar, the left one.
-   */
-  /* line 140, ../../sass/layouts/responsive-sidebars.scss */
+  * The layout when there is only one sidebar, the left one.
+  */
+  /* line 141, ../../sass/layouts/responsive-sidebars.scss */
   #navigation {
     /* Span 3 columns, starting in 2nd column from left. */
     clear: right;
@@ -124,7 +124,7 @@
     display: none;
   }
 
-  /* line 147, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 148, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 3 columns, starting in 2nd column from left. */
     background-color: black;
@@ -137,7 +137,7 @@
     color: white;
   }
 
-  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 158, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     float: right;
     width: 66.66667%;
@@ -145,7 +145,7 @@
     margin-left: -66.66667%;
   }
 
-  /* line 162, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 164, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
     float: right;
@@ -154,11 +154,72 @@
     margin-left: -100%;
   }
 
-  /* line 167, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 169, ../../sass/layouts/responsive-sidebars.scss */
   #footer {
     float: right;
     width: 100%;
     margin-right: 0%;
     margin-left: -100%;
+  }
+}
+@media all and (min-width: 980px) {
+  /*
+  * Use 5 grid columns for larger screens.
+  */
+  /*
+  * The layout when there is only one sidebar, the left one.
+  */
+  /* line 185, ../../sass/layouts/responsive-sidebars.scss */
+  #navigation {
+    /* Span 3 columns, starting in 2nd column from left. */
+    clear: right;
+    float: right;
+    width: 50%;
+    margin-right: 16.66667%;
+    margin-left: -66.66667%;
+    display: none;
+  }
+
+  /* line 192, ../../sass/layouts/responsive-sidebars.scss */
+  #main {
+    background-color: black;
+    float: right;
+    width: 66.66667%;
+    margin-right: 16.66667%;
+    margin-left: -83.33333%;
+    clear: right;
+    height: 175%;
+    width: 980px;
+    color: white;
+  }
+
+  /* line 202, ../../sass/layouts/responsive-sidebars.scss */
+  #content {
+    float: right;
+    width: 50%;
+    margin-right: 16.66667%;
+    margin-left: -66.66667%;
+  }
+
+  /* line 208, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-first .region-sidebar-first {
+    /* Span 1 column, starting in 1st column from left. */
+    float: right;
+    width: 16.66667%;
+    margin-right: 66.66667%;
+    margin-left: -83.33333%;
+  }
+
+  /* line 213, ../../sass/layouts/responsive-sidebars.scss */
+  #footer {
+    float: right;
+    width: 100%;
+    margin-right: 0%;
+    margin-left: -100%;
+  }
+
+  /* line 218, ../../sass/layouts/responsive-sidebars.scss */
+  #page {
+    background-color: black;
   }
 }
