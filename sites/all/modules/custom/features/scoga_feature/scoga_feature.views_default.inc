@@ -606,6 +606,246 @@ else return 0;';
   $export['event_map_overlay'] = $view;
 
   $view = new view;
+  $view->name = 'players_by_team';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'Players by team';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Players by team';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = 0;
+  $handler->display->display_options['row_options']['default_field_elements'] = 1;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
+  $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
+  $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
+  $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['name']['link_to_user'] = 1;
+  $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
+  /* Field: Gebruiker: Team */
+  $handler->display->display_options['fields']['field_user_team']['id'] = 'field_user_team';
+  $handler->display->display_options['fields']['field_user_team']['table'] = 'field_data_field_user_team';
+  $handler->display->display_options['fields']['field_user_team']['field'] = 'field_user_team';
+  $handler->display->display_options['fields']['field_user_team']['label'] = '';
+  $handler->display->display_options['fields']['field_user_team']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_user_team']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_user_team']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_user_team']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_team']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_user_team']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_user_team']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_user_team']['field_api_classes'] = 1;
+  /* Sort criterion: User: Created date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'users';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Title */
+  $handler->display->display_options['arguments']['title']['id'] = 'title';
+  $handler->display->display_options['arguments']['title']['table'] = 'node';
+  $handler->display->display_options['arguments']['title']['field'] = 'title';
+  $handler->display->display_options['arguments']['title']['relationship'] = 'field_user_team_target_id';
+  $handler->display->display_options['arguments']['title']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['title']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['title']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['title']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['title']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['title']['glossary'] = 0;
+  $handler->display->display_options['arguments']['title']['limit'] = '0';
+  $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
+  $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'players-by-team';
+  $translatables['players_by_team'] = array(
+    t('Master'),
+    t('Players by team'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('Content entity referenced from field_user_team'),
+    t('All'),
+    t('Page'),
+  );
+  $export['players_by_team'] = $view;
+
+  $view = new view;
+  $view->name = 'players_no_checkin';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'Players no checkin';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Players you haven\'t checked in with before';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '5';
+  $handler->display->display_options['style_options']['fill_single_line'] = 1;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['name']['link_to_user'] = 1;
+  $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
+  $handler->display->display_options['fields']['name']['format_username'] = 1;
+  /* Sort criterion: User: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'users';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  /* Contextual filter: User relationships: Requester user */
+  $handler->display->display_options['arguments']['requester_id']['id'] = 'requester_id';
+  $handler->display->display_options['arguments']['requester_id']['table'] = 'user_relationships';
+  $handler->display->display_options['arguments']['requester_id']['field'] = 'requester_id';
+  $handler->display->display_options['arguments']['requester_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['requester_id']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['requester_id']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['requester_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['requester_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['requester_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['requester_id']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['requester_id']['not'] = 1;
+  /* Contextual filter: User relationships: Requestee user */
+  $handler->display->display_options['arguments']['requestee_id']['id'] = 'requestee_id';
+  $handler->display->display_options['arguments']['requestee_id']['table'] = 'user_relationships';
+  $handler->display->display_options['arguments']['requestee_id']['field'] = 'requestee_id';
+  $handler->display->display_options['arguments']['requestee_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['requestee_id']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['requestee_id']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['requestee_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['requestee_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['requestee_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['requestee_id']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['requestee_id']['not'] = 1;
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'players-no-checkin';
+
+  /* Display: Spike */
+  $handler = $view->new_display('page', 'Spike', 'page_1');
+  $handler->display->display_options['path'] = 'players_no_checkin_spike';
+  $translatables['players_no_checkin'] = array(
+    t('Master'),
+    t('Players you haven\'t checked in with before'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('All'),
+    t('Page'),
+    t('Spike'),
+  );
+  $export['players_no_checkin'] = $view;
+
+  $view = new view;
   $view->name = 'team_overview';
   $view->description = '';
   $view->tag = 'default';
@@ -617,7 +857,6 @@ else return 0;';
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -721,7 +960,7 @@ else return 0;';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href=\'node/3\'>Bekijk actieve leden</a>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href=\'players-by-team/[title] \'>Bekijk actieve leden</a>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
@@ -804,7 +1043,7 @@ else return 0;';
     t('Asc'),
     t('Desc'),
     t('Inhoud entity referenced from field_campaignteam_team'),
-    t('<a href=\'node/3\'>Bekijk actieve leden</a>'),
+    t('<a href=\'players-by-team/[title] \'>Bekijk actieve leden</a>'),
     t('Extended team view'),
     t('Page'),
   );
