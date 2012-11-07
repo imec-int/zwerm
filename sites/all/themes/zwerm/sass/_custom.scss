@@ -70,4 +70,20 @@
   background-repeat: no-repeat;
 }
 
+@mixin team-members-button {
+  margin-top: 10px;
+  display:block;
+  width: 50%;
+  float: left;
+  border-radius: 4px;
+  text-align: center;
+
+  a
+  {
+    //font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+    font-weight:normal;
+  }
+}
+
+
 

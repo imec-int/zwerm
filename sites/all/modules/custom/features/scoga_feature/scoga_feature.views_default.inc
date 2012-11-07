@@ -635,83 +635,6 @@ else return 0;';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['field'] = 'field_campaignteam_team_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['label'] = 'Inhoud entity referenced from field_campaignteam_team';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['required'] = 0;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Field: Content: Total points */
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['id'] = 'field_campaignteam_totalpoints';
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['table'] = 'field_data_field_campaignteam_totalpoints';
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['field'] = 'field_campaignteam_totalpoints';
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['relationship'] = 'field_campaignteam_team_target_id';
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['label'] = '';
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['element_default_classes'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['empty'] = 'No points yet';
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_campaignteam_totalpoints']['field_api_classes'] = 1;
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['body']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['body']['element_type'] = '0';
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['body']['element_default_classes'] = 0;
-  $handler->display->display_options['fields']['body']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['body']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['body']['type'] = 'text_plain';
-  $handler->display->display_options['fields']['body']['field_api_classes'] = 1;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
   $handler->display->display_options['fields']['field_team_image']['table'] = 'field_data_field_team_image';
@@ -744,6 +667,107 @@ else return 0;';
   );
   $handler->display->display_options['fields']['field_team_image']['group_column'] = 'entity_id';
   $handler->display->display_options['fields']['field_team_image']['field_api_classes'] = 1;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 0;
+  /* Field: Content: Team colour */
+  $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['label'] = '';
+  $handler->display->display_options['fields']['field_team_colour']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_team_colour']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 0;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href=\'node/3\'>Bekijk actieve leden</a>';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_class'] = 'color-[field_team_colour] ';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 0;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['body']['element_type'] = '0';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['body']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['body']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['body']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['body']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['body']['field_api_classes'] = 1;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -780,7 +804,7 @@ else return 0;';
     t('Asc'),
     t('Desc'),
     t('Inhoud entity referenced from field_campaignteam_team'),
-    t('No points yet'),
+    t('<a href=\'node/3\'>Bekijk actieve leden</a>'),
     t('Extended team view'),
     t('Page'),
   );

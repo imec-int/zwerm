@@ -1,0 +1,52 @@
+@import "base";
+
+
+.page-team-overview-extended
+{
+  #main
+  {
+    background-color: white;
+  }
+
+  .views-field-title
+  {
+    font-family: Romina;
+    font-size: xx-large;
+  }
+
+  .views-field-nothing
+  {
+    display:block;
+  }
+
+  .field-name-field-team-image
+  {
+    display: inline;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .field-type-text-with-summary
+  {
+    padding-top: 123px;
+  }
+
+  .views-row
+  {
+    padding-top:35px;
+    padding-left:25px;
+  }
+
+  .color-79b1bd
+  {
+    background-color: #79b1bd;
+    @include team-members-button;
+  }
+
+  .color-dc6058
+  {
+    background-color: #dc6058;
+    @include team-members-button;
+  }
+
+}
