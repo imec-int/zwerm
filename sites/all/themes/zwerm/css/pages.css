@@ -444,7 +444,7 @@ a {
 #type_page h1 {
   font-family: romina;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 45px;
 }
 
 @media all and (max-width: 629px) {
