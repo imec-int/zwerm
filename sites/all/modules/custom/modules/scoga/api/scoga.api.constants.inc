@@ -11,6 +11,7 @@
     define( 'SCOGA_MESSAGES_NODETYPE',          'nodetype_logmessages' );
     define( 'SCOGA_WISHEDITEM_NODETYPE',        'nodetype_wished_item' );
     define( 'SCOGA_WISHFULFILLED_NODETYPE',     'nodetype_wish_fulfilled' );
+    define( 'SCOGA_PAGE_NODETYPE',              'nodetype_service_page');
 
     //--( SETTINGS )--//
 
@@ -55,6 +56,7 @@
     define( 'SCOGA_PAGE_ACCESS_NOT_CHECKIN_PARTNER',    'access content' );
     define( 'SCOGA_PERM_PAGE_ACCESS_GET_POINTS',        'access content' );
     define( 'SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER', 'access content');
+    define( 'SCOGA_PERM_REST_ACCESS_PAGES_DATA',        'access content' );
 
 
 //--( VALUES )--//
@@ -67,6 +69,7 @@
     define( 'SCOGA_TIME_FORMAT',            'H:i:s d/m/Y' );
     define( 'SCOGA_VARIABLE_GROUP_NAME',    'scoga' );
     define( 'SCOGA_SALT',                   '97zw3rM&:*');
+    define( 'FLASH_HTML_FORMAT',            'flash_html');
 
     //--( RESPONSE CODES )--//
     define( 'CODE_NO_CAMPAIGN',             1010 );
@@ -79,6 +82,7 @@
     define( 'CODE_READER_UNREGISTERED',     2010 );
     define( 'CODE_CARD_MULTIPLE',         2020 );
     define( 'CODE_CARD_REGISTRATION_SUCCESS', 2030 );
+
 
 
 

@@ -82,6 +82,23 @@ function scoga_feature_default_services_endpoint() {
         ),
       ),
     ),
+    'scoga_reader' => array(
+      'operations' => array(
+        'index' => array(
+          'enabled' => 1,
+        ),
+        'create' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
+    'scoga_pages' => array(
+      'operations' => array(
+        'index' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
     'node' => array(
       'operations' => array(
         'retrieve' => array(
