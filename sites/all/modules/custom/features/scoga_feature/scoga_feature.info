@@ -43,7 +43,6 @@ features[field][] = node-nodetype_campaign-body
 features[field][] = node-nodetype_campaign-field_campaign_period
 features[field][] = node-nodetype_campaign_team-body
 features[field][] = node-nodetype_campaign_team-field_campaignteam_campaign
-features[field][] = node-nodetype_campaign_team-field_campaignteam_modifier
 features[field][] = node-nodetype_campaign_team-field_campaignteam_team
 features[field][] = node-nodetype_campaign_team-field_campaignteam_totalpoints
 features[field][] = node-nodetype_checkin-field_checkin_campaign

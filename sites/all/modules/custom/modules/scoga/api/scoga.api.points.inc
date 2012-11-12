@@ -158,9 +158,7 @@
             'moderate'      => FALSE,
             'display'       => TRUE,
         );
-        dd( $params, 'params' );
         $temp = userpoints_userpointsapi( $params );
-        dd( $temp );
         if( $temp[ 'status' ] ){
             return $temp[ 'transaction' ];
         }

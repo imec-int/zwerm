@@ -420,8 +420,6 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'openlayers_map';
-  $handler->display->display_options['style_options']['map'] = 'event_formatter_map';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -460,6 +458,12 @@ function scoga_feature_views_default_views() {
   $translatables['event_content_type_map'] = array(
     t('Master'),
     t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Page'),
     t('Block'),
   );
   $export['event_content_type_map'] = $view;
@@ -482,20 +486,6 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'openlayers_data';
-  $handler->display->display_options['style_options']['data_source'] = array(
-    'value' => 'wkt',
-    'other_lat' => 'title',
-    'other_lon' => 'field_event_location',
-    'wkt' => 'field_event_location',
-    'other_top' => 'title',
-    'other_right' => 'title',
-    'other_bottom' => 'title',
-    'other_left' => 'title',
-    'name_field' => 'title',
-    'description_field' => '',
-  );
-  $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -580,9 +570,6 @@ else return 0;';
 
   /* Display: OpenLayers Data Overlay */
   $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_1');
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
   $translatables['event_map_overlay'] = array(
     t('Master'),
     t('more'),
@@ -1040,7 +1027,6 @@ else return 0;';
     t('<a href=\'players-by-team/[title] \'>Bekijk actieve leden</a>'),
     t('Extended team view'),
     t('Page'),
-    t('more'),
   );
   $export['team_overview'] = $view;
 
@@ -1128,7 +1114,6 @@ else return 0;';
     t('- All -'),
     t('Offset'),
     t('Page'),
-    t('more'),
     t('Feed'),
     t('Front page feed'),
   );
@@ -2080,7 +2065,6 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t(','),
     t('All'),
     t('Team members of current user'),
-    t('more'),
     t('Players by team'),
     t('Leaderboard'),
     t('$user->uid'),

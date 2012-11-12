@@ -24,7 +24,7 @@
     }
 
     /**
-     * returns all players that belong to the team with nid <code>team_nid</code>
+     * returns all ACTIVE players that belong to the team with nid <code>team_nid</code>
      * unless if <code>exclude</code> is TRUE, then it returns all players that do NOT belong to that team
      * @param      $team_nid
      * @param bool $exclude
@@ -38,6 +38,7 @@
         $result = $query
             ->entityCondition( 'entity_type', $entity_type )
             ->fieldCondition( 'field_user_team', 'target_id', $team_nid, $operator )
+            ->fieldCondition( 'field_user_active', 'value', 1, '=' )
             ->execute();
 
 

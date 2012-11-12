@@ -14,7 +14,6 @@
         public $title;
         public $colour;
         public $total_points = 0;
-        public $points_modifier = 0;
         public $players;
 
     }
@@ -133,12 +132,13 @@
      * @param $team_node
      */
     function scoga_create_campaignteam_entity( $campaign_node, $team_node ){
+        $date = strftime( '%Y%m%d', time() );
         $node = new stdClass();
         $node->type = SCOGA_CAMPAIGNTEAM_NODETYPE;
         node_object_prepare( $node );
         scoga_set_eid_in_field( $node, 'field_campaignteam_campaign', $campaign_node->nid );
         scoga_set_eid_in_field( $node, 'field_campaignteam_team', $team_node->nid );
-        $node->title = $campaign_node->title . ' - ' . $team_node->title;
+        $node->title = $campaign_node->title . ' - ' . $team_node->title . ' - ' . $date;
         $node->language = LANGUAGE_NONE;
 
         node_save( $node );
@@ -170,7 +170,6 @@
             $team_nid = scoga_get_eid_from_field( $campaignteam_node, 'field_campaignteam_team' );
             $team_obj = scoga_get_team_vo_by_nid( $team_nid );
             $team_obj->total_points = scoga_get_field_value( $campaignteam_node, 'field_campaignteam_totalpoints' );
-            $team_obj->points_modifier = scoga_get_field_value( $campaignteam_node, 'field_campaignteam_modifier' );
 
             $team_objs[ ] = $team_obj;
         }
