@@ -28,14 +28,12 @@
         scoga_set_current_userpoints_category_tid( $userpoints_category->tid );
         watchdog( 'SCOGA', 'created new user points category @name', array( '@name' => $userpoints_category->name ), WATCHDOG_INFO );
 
-//        scoga_assign_random_teams_to_players();
-//        watchdog( 'SCOGA', 'all teams randomized', array(), WATCHDOG_INFO );
-
-//        scoga_reset_user_relationships();
-//        watchdog( 'SCOGA', 'all user relationships deleted', array(), WATCHDOG_INFO );
-
         module_load_include( 'api.wishedlist.inc', 'scoga', 'api/scoga' );
         scoga_close_all_open_wisheditems();
         watchdog( 'SCOGA', 'all wished items closed', array(), WATCHDOG_INFO );
+
+        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+        scoga_create_campaignteam_entities_for_campaign( $campaign_node );
+        watchdog( 'SCOGA', 'created new campaigntteam entities for new campaign', array(), WATCHDOG_INFO );
     }
 

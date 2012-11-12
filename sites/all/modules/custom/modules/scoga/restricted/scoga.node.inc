@@ -21,10 +21,6 @@
                 $wisheditem_node = scoga_award_wishfulfilled_to_player( $node );
                 scoga_set_wisheditem_state( $wisheditem_node, 'fulfilled' );
                 break;
-            case SCOGA_CAMPAIGN_NODETYPE:
-                module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
-                scoga_create_campaignteam_entities_for_campaign( $node );
-                break;
         }
     }
 
