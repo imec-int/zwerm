@@ -3508,7 +3508,7 @@ DO NOT MODIFY ONCE SET!',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '13',
+          'weight' => 13,
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3900,6 +3900,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Machine name');
   t('Optionally an RFID reader can be coupled to a Team, otherwise it\'s possible to have combo checkins when two team members checkin at different hollow trees. This should obviously be avoided.');
   t('Participating team');
+  t('Points');
   t('Points modifier');
   t('RFID Reader');
   t('Reader ID');
