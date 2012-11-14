@@ -420,6 +420,8 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'openlayers_map';
+  $handler->display->display_options['style_options']['map'] = 'event_formatter_map';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -486,6 +488,20 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'openlayers_data';
+  $handler->display->display_options['style_options']['data_source'] = array(
+    'value' => 'wkt',
+    'other_lat' => 'title',
+    'other_lon' => 'field_event_location',
+    'wkt' => 'field_event_location',
+    'other_top' => 'title',
+    'other_right' => 'title',
+    'other_bottom' => 'title',
+    'other_left' => 'title',
+    'name_field' => 'title',
+    'description_field' => '',
+  );
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -570,6 +586,9 @@ else return 0;';
 
   /* Display: OpenLayers Data Overlay */
   $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
   $translatables['event_map_overlay'] = array(
     t('Master'),
     t('more'),
@@ -1695,17 +1714,27 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['row_class'] = 'color.[field_team_colour]';
   $handler->display->display_options['style_options']['columns'] = array(
+    'field_team_colour' => 'field_team_colour',
     'php' => 'php',
     'field_user_firstname' => 'field_user_firstname',
     'field_user_surname' => 'field_user_firstname',
     'field_user_team' => 'field_user_team',
     'points_1' => 'points_1',
     'name' => 'name',
-    'created' => 'created',
+    'is_oneway' => 'is_oneway',
+    'uid' => 'uid',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'field_team_colour' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'php' => array(
       'align' => '',
       'separator' => '',
@@ -1746,7 +1775,14 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
       'separator' => '',
       'empty_column' => 0,
     ),
-    'created' => array(
+    'is_oneway' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'uid' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -1761,6 +1797,34 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Team colour */
+  $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['relationship'] = 'field_user_team_target_id';
+  $handler->display->display_options['fields']['field_team_colour']['label'] = '';
+  $handler->display->display_options['fields']['field_team_colour']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_team_colour']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_team_colour']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_team_colour']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
   /* Field: Global: PHP */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
