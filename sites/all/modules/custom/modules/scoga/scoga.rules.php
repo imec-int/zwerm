@@ -38,8 +38,8 @@
     }
 
     function scoga_rule_determine_current_campaign(){
-//        module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
-//        scoga_determine_current_campaign();
+        module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+        scoga_determine_current_campaign();
     }
 
     function scoga_rule_create_campaignteam_nodes_for_campaign( $campaign_node ){

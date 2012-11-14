@@ -393,7 +393,7 @@
             return scoga_get_team_vos_by_nids( $params[ 'nid' ] );
         }
 
-        return scoga_get_team_vos();
+        return scoga_get_team_vos_by_campaign_nid( scoga_get_current_campaign_nid() );
     }
 
     function scoga_service_player_index( $params ){

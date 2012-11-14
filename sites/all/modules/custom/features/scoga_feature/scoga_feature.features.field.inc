@@ -1,4 +1,4 @@
-<?php
+o<?php
 /**
  * @file
  * scoga_feature.features.field.inc
@@ -613,85 +613,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
         'settings' => array(),
         'type' => 'options_select',
         'weight' => '1',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-nodetype_campaign_team-field_campaignteam_modifier'.
-  $fields['node-nodetype_campaign_team-field_campaignteam_modifier'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_campaignteam_modifier',
-      'field_permissions' => array(
-        'type' => '0',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'number',
-      'settings' => array(
-        'decimal_separator' => '.',
-        'precision' => '10',
-        'scale' => '2',
-      ),
-      'translatable' => '0',
-      'type' => 'number_decimal',
-    ),
-    'field_instance' => array(
-      'bundle' => 'nodetype_campaign_team',
-      'default_value' => array(
-        0 => array(
-          'value' => '1',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 2,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_decimal',
-          'weight' => 4,
-        ),
-        'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_campaignteam_modifier',
-      'label' => 'Points modifier',
-      'required' => 1,
-      'settings' => array(
-        'max' => '',
-        'min' => '1',
-        'prefix' => '',
-        'suffix' => '',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '4',
       ),
     ),
   );
@@ -3508,7 +3429,7 @@ DO NOT MODIFY ONCE SET!',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 13,
+          'weight' => '13',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3901,7 +3822,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Optionally an RFID reader can be coupled to a Team, otherwise it\'s possible to have combo checkins when two team members checkin at different hollow trees. This should obviously be avoided.');
   t('Participating team');
   t('Points');
-  t('Points modifier');
   t('RFID Reader');
   t('Reader ID');
   t('Registered user');
