@@ -5,5 +5,17 @@
   #page-title
   {
     @include page-title;
+    margin-bottom: 30px;
+  }
+  thead
+  {
+    display:none;
+  }
+
+  img
+  {
+    height: 60%;
+    display: block;
+    margin-left: 5px;
   }
 }
