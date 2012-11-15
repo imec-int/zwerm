@@ -182,3 +182,8 @@ tr.loggedInUser {
 .page-leaderboard td.uid, .page-team-players td.uid {
   display: none;
 }
+/* line 198, ../sass/views-styles.scss */
+.page-leaderboard tr.loggedInUser, .page-team-players tr.loggedInUser {
+  background-color: #ffffff;
+  color: #000000;
+}
