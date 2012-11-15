@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/messages.scss */
+.page-messages #main {
+  background-color: white;
+}
