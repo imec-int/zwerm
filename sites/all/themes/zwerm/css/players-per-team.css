@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/players-per-team.scss */
+.page-team-players #page-title {
+  background-color: #333333;
+  color: white;
+  font-family: arial;
+  font-size: x-large;
+  text-align: center;
+  height: 60px;
+  line-height: 2.6em;
+  letter-spacing: 2px;
+}

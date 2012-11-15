@@ -1,0 +1,9 @@
+@import "base";
+
+.page-team-players
+{
+  #page-title
+  {
+    @include page-title;
+  }
+}
