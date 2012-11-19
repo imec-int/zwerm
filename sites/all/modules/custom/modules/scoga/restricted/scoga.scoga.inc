@@ -24,11 +24,12 @@
         scoga_set_current_combocheckin_rtid( $relationship_type->rtid );
         watchdog( 'SCOGA', 'created new combo checkin relationship', array(), WATCHDOG_INFO );
 
+        module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
         $userpoints_category = scoga_create_userpoints_category( $campaign_node->title );
         scoga_set_current_userpoints_category_tid( $userpoints_category->tid );
         watchdog( 'SCOGA', 'created new user points category @name', array( '@name' => $userpoints_category->name ), WATCHDOG_INFO );
 
-        module_load_include( 'api.wishedlist.inc', 'scoga', 'api/scoga' );
+        module_load_include( 'api.wishlist.inc', 'scoga', 'api/scoga' );
         scoga_close_all_open_wisheditems();
         watchdog( 'SCOGA', 'all wished items closed', array(), WATCHDOG_INFO );
 
