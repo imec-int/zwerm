@@ -17,6 +17,10 @@
   float: left;
   height:$score-navbar-height;
   margin-top: 30px;
+  display: block;
+  padding-left: 5%;
+  padding-right: 5%;
+  line-height: 0.8em;
 
 
   ul
@@ -39,9 +43,11 @@
     display:block;
     float:left;
     height:50px;
-    width:32%;
+    width:20%;
     margin-left: 1px;
     margin-right: 1px;
+
+
 
     a
     {

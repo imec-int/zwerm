@@ -19,8 +19,12 @@
   float: left;
   height: 60px;
   margin-top: 30px;
+  display: block;
+  padding-left: 5%;
+  padding-right: 5%;
+  line-height: 0.8em;
 }
-/* line 23, ../sass/tabs.scss */
+/* line 27, ../sass/tabs.scss */
 .tabs ul {
   width: 99%;
   height: 60px;
@@ -30,7 +34,7 @@
   padding-left: 2%;
   padding-right: 2%;
 }
-/* line 34, ../sass/tabs.scss */
+/* line 38, ../sass/tabs.scss */
 .tabs li {
   font-size: small;
   background-color: #484848;
@@ -38,11 +42,11 @@
   display: block;
   float: left;
   height: 50px;
-  width: 32%;
+  width: 20%;
   margin-left: 1px;
   margin-right: 1px;
 }
-/* line 47, ../sass/tabs.scss */
+/* line 53, ../sass/tabs.scss */
 .tabs li a {
   color: gray;
   display: block;
@@ -51,7 +55,7 @@
   padding-top: 13px;
   font-size: x-small;
 }
-/* line 59, ../sass/tabs.scss */
+/* line 65, ../sass/tabs.scss */
 .tabs li a.active {
   color: white;
 }

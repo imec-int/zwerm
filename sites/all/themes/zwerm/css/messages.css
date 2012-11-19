@@ -5,5 +5,11 @@
 
 /* line 6, ../sass/messages.scss */
 .page-messages #main {
-  background-color: white;
+  background-color: #eeeeee;
+}
+/* line 11, ../sass/messages.scss */
+.page-messages h1 {
+  font-family: Romina;
+  padding-top: 45px;
+  text-align: center;
 }
