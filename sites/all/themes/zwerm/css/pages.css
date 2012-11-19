@@ -227,6 +227,7 @@ div.messages {
   /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
   margin: 1.5em 0;
   /* Drupal core uses "6px 0" margin */
+  display: inline-block;
 }
 /* line 221, ../sass/pages.scss */
 div.messages ul {
@@ -396,30 +397,40 @@ span.field-label {
   padding-top: 10px;
 }
 
-/* line 374, ../sass/pages.scss */
+/* line 373, ../sass/pages.scss */
+tr.color79b1bd {
+  background-color: #79b1bd;
+}
+
+/* line 377, ../sass/pages.scss */
+tr.colordc6058 {
+  background-color: #dc6058;
+}
+
+/* line 383, ../sass/pages.scss */
 #block-menu-menu-footer .block-title {
   display: none;
 }
-/* line 377, ../sass/pages.scss */
+/* line 386, ../sass/pages.scss */
 #block-menu-menu-footer li {
   display: block;
   height: 50px;
 }
-/* line 381, ../sass/pages.scss */
+/* line 390, ../sass/pages.scss */
 #block-menu-menu-footer ul {
   display: block;
   border-width: 1px;
   padding: 0 0 0 0;
 }
-/* line 386, ../sass/pages.scss */
+/* line 395, ../sass/pages.scss */
 #block-menu-menu-footer .first {
   float: left;
 }
-/* line 389, ../sass/pages.scss */
+/* line 398, ../sass/pages.scss */
 #block-menu-menu-footer .last {
   float: right;
 }
-/* line 392, ../sass/pages.scss */
+/* line 401, ../sass/pages.scss */
 #block-menu-menu-footer a {
   color: #FFFFFF;
   text-decoration: none;
@@ -427,7 +438,7 @@ span.field-label {
   font-weight: bold;
 }
 
-/* line 397, ../sass/pages.scss */
+/* line 406, ../sass/pages.scss */
 a {
   color: #FFFFFF;
   text-decoration: none;
@@ -435,12 +446,12 @@ a {
   font-weight: bold;
 }
 
-/* line 402, ../sass/pages.scss */
+/* line 411, ../sass/pages.scss */
 .selectedItem {
   background-color: #7fb083;
 }
 
-/* line 409, ../sass/pages.scss */
+/* line 418, ../sass/pages.scss */
 #type_page h1 {
   font-family: romina;
   text-align: center;
@@ -448,13 +459,13 @@ a {
 }
 
 @media all and (max-width: 629px) {
-  /* line 419, ../sass/pages.scss */
+  /* line 428, ../sass/pages.scss */
   #block-block-3 {
     display: none;
   }
 }
 @media all and (min-width: 630px) {
-  /* line 426, ../sass/pages.scss */
+  /* line 435, ../sass/pages.scss */
   #header {
     background-image: url(../images/zwerm_logo_black_background.png);
     background-size: 10%;
@@ -464,24 +475,24 @@ a {
     display: block;
   }
 
-  /* line 435, ../sass/pages.scss */
+  /* line 444, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
     background-color: black;
     padding-top: 40px;
   }
 
-  /* line 444, ../sass/pages.scss */
+  /* line 453, ../sass/pages.scss */
   #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
     display: none;
   }
 
-  /* line 449, ../sass/pages.scss */
+  /* line 458, ../sass/pages.scss */
   .region-sidebar-first {
     padding-top: 40px;
   }
 
-  /* line 454, ../sass/pages.scss */
+  /* line 463, ../sass/pages.scss */
   #footer {
     background-color: #7fb083;
     height: 160px;

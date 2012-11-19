@@ -58,6 +58,7 @@ stylesheets[all][] = css/team-view.css
 stylesheets[all][] = css/blocks.css
 stylesheets[all][] = css/navigation.css
 stylesheets[all][] = css/views-styles.css
+stylesheets[all][] = css/players-per-team.css
 stylesheets[all][] = css/nodes.css
 stylesheets[all][] = css/comments.css
 stylesheets[all][] = css/forms.css
@@ -66,6 +67,7 @@ stylesheets[all][] = css/print.css
 stylesheets[all][] = css/not-checkin.css
 stylesheets[all][] = css/play.css
 stylesheets[all][] = css/events.css
+stylesheets[all][] = css/messages.css
 stylesheets[all][] = css/score-nav.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
 

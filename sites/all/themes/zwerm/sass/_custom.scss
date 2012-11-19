@@ -85,5 +85,16 @@
   }
 }
 
+@mixin page-title {
+  background-color: $footer-color;
+  color : white;
+  font-family: arial;
+  font-size: x-large;
+  text-align: center;
+  height : $li-height;
+  line-height: 2.6em;
+  letter-spacing:2px;
+}
+
 
 

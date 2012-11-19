@@ -4,35 +4,35 @@
 }
 
 /* line 7, ../sass/team-view.scss */
-.page-team-overview-extended #main {
+.page-team #main {
   background-color: white;
 }
 /* line 12, ../sass/team-view.scss */
-.page-team-overview-extended .views-field-title {
+.page-team .views-field-title {
   font-family: Romina;
   font-size: xx-large;
 }
 /* line 18, ../sass/team-view.scss */
-.page-team-overview-extended .views-field-nothing {
+.page-team .views-field-nothing {
   display: block;
 }
 /* line 23, ../sass/team-view.scss */
-.page-team-overview-extended .field-name-field-team-image {
+.page-team .field-name-field-team-image {
   display: inline;
   float: left;
   margin-right: 20px;
 }
 /* line 30, ../sass/team-view.scss */
-.page-team-overview-extended .field-type-text-with-summary {
+.page-team .field-type-text-with-summary {
   padding-top: 123px;
 }
 /* line 35, ../sass/team-view.scss */
-.page-team-overview-extended .views-row {
+.page-team .views-row {
   padding-top: 35px;
   padding-left: 25px;
 }
 /* line 41, ../sass/team-view.scss */
-.page-team-overview-extended .color-79b1bd {
+.page-team .color-79b1bd {
   background-color: #79b1bd;
   margin-top: 10px;
   display: block;
@@ -42,11 +42,11 @@
   text-align: center;
 }
 /* line 82, ../sass/_custom.scss */
-.page-team-overview-extended .color-79b1bd a {
+.page-team .color-79b1bd a {
   font-weight: normal;
 }
 /* line 47, ../sass/team-view.scss */
-.page-team-overview-extended .color-dc6058 {
+.page-team .color-dc6058 {
   background-color: #dc6058;
   margin-top: 10px;
   display: block;
@@ -56,6 +56,6 @@
   text-align: center;
 }
 /* line 82, ../sass/_custom.scss */
-.page-team-overview-extended .color-dc6058 a {
+.page-team .color-dc6058 a {
   font-weight: normal;
 }

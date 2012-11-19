@@ -9,14 +9,7 @@
 
   #page-title
   {
-    background-color: $footer-color;
-    color : white;
-    font-family: arial;
-    font-size: x-large;
-    height : $li-height;
-    padding-left : 40%;
-    line-height: 2.6em;
-    letter-spacing:2px;
+    @include page-title;
   }
 
   #content

@@ -217,7 +217,7 @@ tr.odd {
 
 div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
   margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
-
+  display: inline-block;
   ul {
     margin-top: 0;
     margin-bottom: 0;
@@ -369,6 +369,15 @@ span.field-label { /* The inline field label used by the Fences module */
   //clear: both;
   //background-color: $team-blue-color;
 }
+
+tr.color79b1bd {
+    background-color: #79b1bd;
+}
+
+tr.colordc6058 {
+    background-color: #dc6058;
+}
+
 
 #block-menu-menu-footer {
   .block-title {

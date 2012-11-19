@@ -32,7 +32,6 @@
     <?php
         $i=0;
         foreach ($rows as $row_count => $row): ?>
-            <?php //dsm($row['name']); ?>
             <?php $playerRank = $row['php']; ?>
             <?php if ($playerRank == $userLeaderboardPosition-2): ?>
                 <tr class="leaderboard_separator <?php print implode(' ', $row_classes[$row_count]); ?>">
