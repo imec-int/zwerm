@@ -9,9 +9,7 @@
 
   h1
   {
-    font-family: Romina;
-    padding-top:$pages-title-top-padding;
-    text-align: center;
+    display:none;
   }
 
   .action-links
@@ -19,6 +17,8 @@
     a
     {
       color:black;
+      margin-left: -28px;
+
     }
   }
 
@@ -28,5 +28,10 @@
     {
       color:black;
     }
+  }
+
+  li:nth-child(3),li:nth-child(4)
+  {
+    display:none;
   }
 }

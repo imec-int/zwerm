@@ -9,15 +9,18 @@
 }
 /* line 11, ../sass/messages.scss */
 .page-messages h1 {
-  font-family: Romina;
-  padding-top: 45px;
-  text-align: center;
+  display: none;
 }
-/* line 20, ../sass/messages.scss */
+/* line 18, ../sass/messages.scss */
 .page-messages .action-links a {
   color: black;
+  margin-left: -28px;
 }
 /* line 28, ../sass/messages.scss */
 .page-messages th a, .page-messages td a {
   color: black;
+}
+/* line 34, ../sass/messages.scss */
+.page-messages li:nth-child(3), .page-messages li:nth-child(4) {
+  display: none;
 }
