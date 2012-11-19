@@ -136,8 +136,8 @@
         $score_tid = scoga_get_score_tid();
         $score_children = taxonomy_get_children( $score_tid );
         foreach( $score_children as $score_child_term ){
-            if( $score_child_term->name == $iteration ){
-                return FALSE;
+            if( $score_child_term->name == $name ){
+                return $score_child_term;
             }
         }
         $term = new stdClass();

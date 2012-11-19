@@ -13,7 +13,7 @@
         public $nid;
         public $title;
         public $colour;
-        public $total_points = 0;
+        public $total_points;
         public $players;
 
     }
@@ -87,8 +87,12 @@
         }
 
         $result = $query->execute();
-        $campaignteam_nids = array_keys( $result[ $entity_type ] );
-        return $campaignteam_nids;
+        if( array_key_exists( $entity_type, $result ) ){
+            $campaignteam_nids = array_keys( $result[ $entity_type ] );
+            return $campaignteam_nids;
+        }
+
+        return array();
     }
 
 
