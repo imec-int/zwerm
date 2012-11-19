@@ -13,4 +13,20 @@
     padding-top:$pages-title-top-padding;
     text-align: center;
   }
+
+  .action-links
+  {
+    a
+    {
+      color:black;
+    }
+  }
+
+  th, td
+  {
+    a
+    {
+      color:black;
+    }
+  }
 }

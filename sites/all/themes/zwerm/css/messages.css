@@ -13,3 +13,11 @@
   padding-top: 45px;
   text-align: center;
 }
+/* line 20, ../sass/messages.scss */
+.page-messages .action-links a {
+  color: black;
+}
+/* line 28, ../sass/messages.scss */
+.page-messages th a, .page-messages td a {
+  color: black;
+}
