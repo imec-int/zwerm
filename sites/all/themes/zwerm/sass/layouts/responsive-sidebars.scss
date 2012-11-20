@@ -107,6 +107,13 @@ table
 
 }
 
+.messages
+{
+  @include zen-clear();
+  @include zen-grid-item(1, 1);
+  display: block;
+}
+
 
 #navigation {
   .not-front-page
