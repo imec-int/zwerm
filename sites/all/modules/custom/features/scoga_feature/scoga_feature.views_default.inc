@@ -2771,6 +2771,13 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['relationships']['uid']['table'] = 'userpoints_txn';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = 0;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
+  $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
+  $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
+  $handler->display->display_options['relationships']['field_user_team_target_id']['relationship'] = 'uid';
+  $handler->display->display_options['relationships']['field_user_team_target_id']['label'] = 'Inhoud entity referenced from field_user_team';
+  $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
   /* Field: Userpoints Transactions: Points */
   $handler->display->display_options['fields']['points']['id'] = 'points';
   $handler->display->display_options['fields']['points']['table'] = 'userpoints_txn';
@@ -3044,14 +3051,24 @@ return true;*/';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['row_class'] = 'color[field_team_colour] ';
   $handler->display->display_options['style_options']['columns'] = array(
+    'field_team_colour' => 'field_team_colour',
     'points' => 'points',
     'name' => 'name',
     'time_stamp' => 'time_stamp',
     'description' => 'description',
+    'tid_1' => 'tid_1',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'field_team_colour' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'points' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
@@ -3076,6 +3093,13 @@ return true;*/';
       'separator' => '',
       'empty_column' => 0,
     ),
+    'tid_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
@@ -3084,6 +3108,34 @@ return true;*/';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Team colour */
+  $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
+  $handler->display->display_options['fields']['field_team_colour']['relationship'] = 'field_user_team_target_id';
+  $handler->display->display_options['fields']['field_team_colour']['label'] = '';
+  $handler->display->display_options['fields']['field_team_colour']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_team_colour']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_team_colour']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_team_colour']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
   /* Field: Userpoints Transactions: Points */
   $handler->display->display_options['fields']['points']['id'] = 'points';
   $handler->display->display_options['fields']['points']['table'] = 'userpoints_txn';
@@ -3158,7 +3210,7 @@ return true;*/';
   $handler->display->display_options['fields']['time_stamp']['hide_empty'] = 0;
   $handler->display->display_options['fields']['time_stamp']['empty_zero'] = 0;
   $handler->display->display_options['fields']['time_stamp']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['time_stamp']['date_format'] = 'time ago';
+  $handler->display->display_options['fields']['time_stamp']['date_format'] = 'raw time ago';
   /* Field: Userpoints Transactions: Description */
   $handler->display->display_options['fields']['description']['id'] = 'description';
   $handler->display->display_options['fields']['description']['table'] = 'userpoints_txn';
@@ -3236,6 +3288,7 @@ return true;
     t('Oplopend'),
     t('Aflopend'),
     t('Users'),
+    t('Inhoud entity referenced from field_user_team'),
     t('.'),
     t(','),
     t('Recent points block'),
