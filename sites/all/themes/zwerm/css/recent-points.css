@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/recent-points.scss */
+.page-points-in-campaign #main {
+  background-color: #eeeeee;
+}
+/* line 10, ../sass/recent-points.scss */
+.page-points-in-campaign h1 {
+  font-family: Romina;
+  padding-top: 45px;
+  text-align: center;
+}

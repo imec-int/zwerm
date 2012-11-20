@@ -56,6 +56,7 @@ stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/messages-new.css
 stylesheets[all][] = css/team-view.css
+stylesheets[all][] = css/recent-points.css
 stylesheets[all][] = css/blocks.css
 stylesheets[all][] = css/navigation.css
 stylesheets[all][] = css/views-styles.css
