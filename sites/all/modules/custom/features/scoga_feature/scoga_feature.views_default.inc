@@ -3040,7 +3040,6 @@ return true;*/';
   /* Display: Points in current campaign page */
   $handler = $view->new_display('page_with_page_title', 'Points in current campaign page', 'page_with_page_title_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Recent gescoorde puntent';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -3187,30 +3186,6 @@ return true;*/';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: Userpoints Transactions: Timestamp */
-  $handler->display->display_options['fields']['time_stamp']['id'] = 'time_stamp';
-  $handler->display->display_options['fields']['time_stamp']['table'] = 'userpoints_txn';
-  $handler->display->display_options['fields']['time_stamp']['field'] = 'time_stamp';
-  $handler->display->display_options['fields']['time_stamp']['label'] = '';
-  $handler->display->display_options['fields']['time_stamp']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['time_stamp']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['time_stamp']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['time_stamp']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['time_stamp']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['time_stamp']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['time_stamp']['date_format'] = 'raw time ago';
   /* Field: Userpoints Transactions: Description */
   $handler->display->display_options['fields']['description']['id'] = 'description';
   $handler->display->display_options['fields']['description']['table'] = 'userpoints_txn';
@@ -3259,6 +3234,30 @@ return true;*/';
   $handler->display->display_options['fields']['tid_1']['empty_zero'] = 0;
   $handler->display->display_options['fields']['tid_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['tid_1']['format_plural'] = 0;
+  /* Field: Userpoints Transactions: Timestamp */
+  $handler->display->display_options['fields']['time_stamp']['id'] = 'time_stamp';
+  $handler->display->display_options['fields']['time_stamp']['table'] = 'userpoints_txn';
+  $handler->display->display_options['fields']['time_stamp']['field'] = 'time_stamp';
+  $handler->display->display_options['fields']['time_stamp']['label'] = '';
+  $handler->display->display_options['fields']['time_stamp']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['time_stamp']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['time_stamp']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['time_stamp']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['time_stamp']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['time_stamp']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['time_stamp']['date_format'] = 'short';
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: transaction belongs to current userpoints category */
   $handler->display->display_options['filters']['php']['id'] = 'php';
@@ -3300,7 +3299,6 @@ return true;
     t('Offset'),
     t('Description'),
     t('Points in current campaign page'),
-    t('Recent gescoorde puntent'),
   );
   $export['view_transactions'] = $view;
 

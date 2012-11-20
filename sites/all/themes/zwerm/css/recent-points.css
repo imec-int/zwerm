@@ -7,9 +7,26 @@
 .page-points-in-campaign #main {
   background-color: #eeeeee;
 }
-/* line 10, ../sass/recent-points.scss */
-.page-points-in-campaign h1 {
+/* line 11, ../sass/recent-points.scss */
+.page-points-in-campaign thead {
+  display: none;
+}
+/* line 16, ../sass/recent-points.scss */
+.page-points-in-campaign #score_nav_bar {
+  margin-top: 6px;
+}
+/* line 21, ../sass/recent-points.scss */
+.page-points-in-campaign .views-field-points {
   font-family: Romina;
-  padding-top: 45px;
-  text-align: center;
+  font-size: x-large;
+  padding-right: 10px;
+}
+/* line 29, ../sass/recent-points.scss */
+.page-points-in-campaign .views-field-time-stamp, .page-points-in-campaign .views-field-description, .page-points-in-campaign .views-field-name {
+  font-size: small;
+  line-break: normal;
+}
+/* line 35, ../sass/recent-points.scss */
+.page-points-in-campaign .views-field-name {
+  display: inline;
 }

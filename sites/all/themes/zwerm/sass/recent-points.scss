@@ -6,10 +6,35 @@
   {
     background-color: $white-background-color;
   }
-  h1
+
+  thead
+  {
+    display: none;
+  }
+
+  #score_nav_bar
+  {
+    margin-top: 6px;
+  }
+
+  .views-field-points
   {
     font-family: Romina;
-    padding-top:$pages-title-top-padding;
-    text-align: center;
+    font-size: x-large;
+    //padding-left: 10px;
+    padding-right:10px;
   }
+
+  .views-field-time-stamp, .views-field-description, .views-field-name
+  {
+    font-size: small;
+    line-break: normal;
+  }
+
+  .views-field-name
+  {
+    display:inline;
+  }
+
+
 }
