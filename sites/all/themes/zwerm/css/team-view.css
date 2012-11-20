@@ -4,35 +4,31 @@
 }
 
 /* line 7, ../sass/team-view.scss */
-.page-team #main {
-  background-color: white;
+.page-team #main, .page-team3 #main {
+  background-color: #eeeeee;
 }
 /* line 12, ../sass/team-view.scss */
-.page-team .views-field-title {
+.page-team .views-field-title, .page-team .views-field-title-1, .page-team3 .views-field-title, .page-team3 .views-field-title-1 {
   font-family: Romina;
   font-size: xx-large;
 }
 /* line 18, ../sass/team-view.scss */
-.page-team .views-field-nothing {
+.page-team .views-field-nothing, .page-team3 .views-field-nothing {
   display: block;
 }
 /* line 23, ../sass/team-view.scss */
-.page-team .field-name-field-team-image {
+.page-team .field-name-field-team-image, .page-team3 .field-name-field-team-image {
   display: inline;
   float: left;
   margin-right: 20px;
 }
 /* line 30, ../sass/team-view.scss */
-.page-team .field-type-text-with-summary {
-  padding-top: 123px;
-}
-/* line 35, ../sass/team-view.scss */
-.page-team .views-row {
+.page-team .views-row, .page-team3 .views-row {
   padding-top: 35px;
   padding-left: 25px;
 }
-/* line 41, ../sass/team-view.scss */
-.page-team .color-79b1bd {
+/* line 36, ../sass/team-view.scss */
+.page-team .color-79b1bd, .page-team3 .color-79b1bd {
   background-color: #79b1bd;
   margin-top: 10px;
   display: block;
@@ -41,12 +37,12 @@
   border-radius: 4px;
   text-align: center;
 }
-/* line 82, ../sass/_custom.scss */
-.page-team .color-79b1bd a {
+/* line 82, /Users/tanguycoenen/Dropbox/dev/scoga_2/sites/all/themes/zwerm/sass/_custom.scss */
+.page-team .color-79b1bd a, .page-team3 .color-79b1bd a {
   font-weight: normal;
 }
-/* line 47, ../sass/team-view.scss */
-.page-team .color-dc6058 {
+/* line 42, ../sass/team-view.scss */
+.page-team .color-dc6058, .page-team3 .color-dc6058 {
   background-color: #dc6058;
   margin-top: 10px;
   display: block;
@@ -55,7 +51,21 @@
   border-radius: 4px;
   text-align: center;
 }
-/* line 82, ../sass/_custom.scss */
-.page-team .color-dc6058 a {
+/* line 82, /Users/tanguycoenen/Dropbox/dev/scoga_2/sites/all/themes/zwerm/sass/_custom.scss */
+.page-team .color-dc6058 a, .page-team3 .color-dc6058 a {
   font-weight: normal;
+}
+/* line 48, ../sass/team-view.scss */
+.page-team .points, .page-team3 .points {
+  color: #aaaaaa;
+}
+
+/* line 57, ../sass/team-view.scss */
+.page-team .field-type-text-with-summary {
+  padding-top: 123px;
+}
+
+/* line 65, ../sass/team-view.scss */
+.page-team3 .field-type-text-with-summary {
+  padding-top: 28px;
 }

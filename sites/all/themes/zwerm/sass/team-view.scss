@@ -1,14 +1,14 @@
 @import "base";
 
 
-.page-team
+.page-team, .page-team3
 {
   #main
   {
-    background-color: white;
+    background-color: $white-background-color;
   }
 
-  .views-field-title
+  .views-field-title, .views-field-title-1
   {
     font-family: Romina;
     font-size: xx-large;
@@ -24,11 +24,6 @@
     display: inline;
     float: left;
     margin-right: 20px;
-  }
-
-  .field-type-text-with-summary
-  {
-    padding-top: 123px;
   }
 
   .views-row
@@ -49,4 +44,25 @@
     @include team-members-button;
   }
 
+  .points
+  {
+    color:$team-overview-score-color;
+  }
+
 }
+
+.page-team
+{
+  .field-type-text-with-summary
+  {
+    padding-top: 123px;
+  }
+}
+
+.page-team3
+ {
+   .field-type-text-with-summary
+   {
+     padding-top: 28px;
+   }
+ }
