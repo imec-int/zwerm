@@ -25,8 +25,9 @@
 .page-points-in-campaign .views-field-time-stamp, .page-points-in-campaign .views-field-description, .page-points-in-campaign .views-field-name {
   font-size: small;
   line-break: normal;
+  display: block;
 }
-/* line 36, ../sass/recent-points.scss */
+/* line 37, ../sass/recent-points.scss */
 .page-points-in-campaign .views-field-name {
-  display: inline;
+  display: block;
 }
