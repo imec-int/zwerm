@@ -28,3 +28,7 @@
 .page-messages li:nth-child(3), .page-messages li:nth-child(4) {
   display: none;
 }
+/* line 43, ../sass/messages.scss */
+.page-messages #edit-operation {
+  display: none;
+}

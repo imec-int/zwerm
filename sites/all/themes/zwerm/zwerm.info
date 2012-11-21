@@ -56,6 +56,7 @@ stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/wish.css
 stylesheets[all][] = css/messages-new.css
+stylesheets[all][] = css/user.css
 stylesheets[all][] = css/frontpage.css
 stylesheets[all][] = css/team-view.css
 stylesheets[all][] = css/blocks.css

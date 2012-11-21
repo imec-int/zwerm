@@ -383,14 +383,12 @@ span.field-label {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
 }
 /* line 350, ../sass/pages.scss */
 #select_list a:visited {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
 }
 
 /* line 355, ../sass/pages.scss */
@@ -445,7 +443,6 @@ tr.colordc6058 {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
 }
 
 /* line 417, ../sass/pages.scss */
@@ -453,7 +450,6 @@ a {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
 }
 
 /* line 422, ../sass/pages.scss */

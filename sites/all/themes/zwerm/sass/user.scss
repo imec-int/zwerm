@@ -1,0 +1,23 @@
+@import "base";
+
+.page-user
+{
+  .tabs, #select_list, h3, dl
+  {
+    display: none;
+  }
+
+  a
+  {
+   color: black;
+  }
+
+  .user-picture
+  {
+    float: left;
+  }
+
+  .privatemsg-send-link.privatemsg-send-link-profile {
+    display: inline-block;
+  }
+}

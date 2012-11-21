@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/user.scss */
+.page-user .tabs, .page-user #select_list, .page-user h3, .page-user dl {
+  display: none;
+}
+/* line 11, ../sass/user.scss */
+.page-user a {
+  color: black;
+}
+/* line 16, ../sass/user.scss */
+.page-user .user-picture {
+  float: left;
+}
+/* line 20, ../sass/user.scss */
+.page-user .privatemsg-send-link.privatemsg-send-link-profile {
+  display: inline-block;
+}
