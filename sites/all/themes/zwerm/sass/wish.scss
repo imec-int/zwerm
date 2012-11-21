@@ -1,6 +1,6 @@
 @import "base";
 
-.page-node-add-nodetype-wished-item
+.page-node-add-nodetype-wished-item,.node-type-nodetype-wished-item
 {
   background-color: $white-background-color;
 
@@ -22,5 +22,10 @@
   #edit-preview
   {
     display: none;
+  }
+
+  .username
+  {
+    color:black;
   }
 }

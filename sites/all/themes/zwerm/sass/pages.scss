@@ -364,6 +364,7 @@ span.field-label { /* The inline field label used by the Fences module */
   right: 0;
   width : 100%;
   padding-top: 10px;
+  height:45px;
 }
 
 //needed for footer to remain at bottom
@@ -404,10 +405,12 @@ tr.colordc6058 {
     padding: 0 0 0 0;
   }
   .first {
-    float : left
+    float : left;
+    margin-top: -22px;
   }
   .last {
     float : right;
+    margin-top: -22px;
   }
   a {
     @include hyperlink-style;
