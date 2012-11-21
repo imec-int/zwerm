@@ -5,7 +5,7 @@
 
 /* line 6, ../sass/recent-points.scss */
 .page-points-in-campaign #main {
-  background-color: #eeeeee;
+  background-color: black;
 }
 /* line 11, ../sass/recent-points.scss */
 .page-points-in-campaign thead {
@@ -15,18 +15,18 @@
 .page-points-in-campaign #score_nav_bar {
   margin-top: 6px;
 }
-/* line 21, ../sass/recent-points.scss */
+/* line 22, ../sass/recent-points.scss */
 .page-points-in-campaign .views-field-points {
   font-family: Romina;
   font-size: x-large;
   padding-right: 10px;
 }
-/* line 29, ../sass/recent-points.scss */
+/* line 30, ../sass/recent-points.scss */
 .page-points-in-campaign .views-field-time-stamp, .page-points-in-campaign .views-field-description, .page-points-in-campaign .views-field-name {
   font-size: small;
   line-break: normal;
 }
-/* line 35, ../sass/recent-points.scss */
+/* line 36, ../sass/recent-points.scss */
 .page-points-in-campaign .views-field-name {
   display: inline;
 }

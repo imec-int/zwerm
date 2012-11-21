@@ -4,7 +4,7 @@
 {
   #main
   {
-    background-color: $white-background-color;
+    background-color: black;
   }
 
   thead
@@ -15,6 +15,7 @@
   #score_nav_bar
   {
     margin-top: 6px;
+    //padding-top: 6px;
   }
 
   .views-field-points
