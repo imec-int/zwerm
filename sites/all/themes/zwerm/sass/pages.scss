@@ -171,7 +171,18 @@ body {
   display:block;
   height:100%;
   width:100%;
-  background-color: $team-blue-color;
+
+  input
+  {
+    width:100%;
+  }
+
+  h1
+  {
+    font-family: Romina;
+    //padding-top:$pages-title-top-padding;
+    text-align: center;
+  }
 }
 
 /*

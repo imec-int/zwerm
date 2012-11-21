@@ -3,7 +3,7 @@
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
 }
 
-/* line 4, ../sass/messages-new.scss */
-#edit-cancel {
-  color: black;
+/* line 4, ../sass/frontpage.scss */
+.page-frontpage {
+  background-color: #79b1bd;
 }

@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 4, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item {
+  background-color: #eeeeee;
+}
+/* line 8, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-edit-link {
+  display: none;
+}
+/* line 13, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .filter-wrapper {
+  display: none;
+}
+/* line 18, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .wysiwyg-toggle-wrapper {
+  display: none;
+}
+/* line 23, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-preview {
+  display: none;
+}
