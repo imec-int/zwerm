@@ -155,13 +155,10 @@ body {
   clear: both; /* Clear the logo */
 }
 
-
-#type_page,  #type_nodetype_event
+.page-node
 {
-  height:100%;
   background-color: #eeeeee;
 }
-
 
 /*
  * Main (container for everything else)

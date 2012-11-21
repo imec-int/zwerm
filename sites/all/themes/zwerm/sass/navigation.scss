@@ -7,16 +7,22 @@
 
 
 @media all and (max-width: 400px) {
-  li
+  #navigation
   {
-    width:78px;
+    li
+    {
+      width:78px;
+    }
   }
 }
 
 @media all and (min-width: 401px) {
-  li
+  #navigation
   {
-    width:100px;
+    li
+    {
+      width:100px;
+    }
   }
 }
 
@@ -130,7 +136,7 @@ li a.active {
     background-size: 70%;
   }
 
-  #Berichten
+  #Inbox
   {
     background-image : url(../images/berichten.png);
     @include nav-image-style();
