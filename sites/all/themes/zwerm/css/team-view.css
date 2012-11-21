@@ -3,69 +3,92 @@
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
 }
 
-/* line 7, ../sass/team-view.scss */
-.page-team #main, .page-team3 #main {
+@media all and (max-width: 481px) {
+  /* line 5, ../sass/team-view.scss */
+  .page-team3 .views-field-title-1 {
+    font-family: Romina;
+    font-size: x-large;
+  }
+
+  /*.color-79b1bd
+  {
+    font-size: x-small;
+    width: 108px;
+  }
+
+  .color-dc6058
+  {
+    font-size: x-small;
+    width: 108px;
+  }     */
+}
+@media all and (min-width: 482px) {
+  /* line 25, ../sass/team-view.scss */
+  .views-field-title, .views-field-title-1 {
+    font-family: Romina;
+    font-size: xx-large;
+  }
+}
+/* line 32, ../sass/team-view.scss */
+.page-team, .page-team3 {
   background-color: #eeeeee;
 }
-/* line 12, ../sass/team-view.scss */
-.page-team .views-field-title, .page-team .views-field-title-1, .page-team3 .views-field-title, .page-team3 .views-field-title-1 {
-  font-family: Romina;
-  font-size: xx-large;
-}
-/* line 18, ../sass/team-view.scss */
+/* line 42, ../sass/team-view.scss */
 .page-team .views-field-nothing, .page-team3 .views-field-nothing {
   display: block;
 }
-/* line 23, ../sass/team-view.scss */
+/* line 47, ../sass/team-view.scss */
 .page-team .field-name-field-team-image, .page-team3 .field-name-field-team-image {
   display: inline;
   float: left;
   margin-right: 20px;
 }
-/* line 30, ../sass/team-view.scss */
+/* line 54, ../sass/team-view.scss */
 .page-team .views-row, .page-team3 .views-row {
   padding-top: 35px;
   padding-left: 25px;
 }
-/* line 36, ../sass/team-view.scss */
+/* line 60, ../sass/team-view.scss */
 .page-team .color-79b1bd, .page-team3 .color-79b1bd {
   background-color: #79b1bd;
   margin-top: 10px;
   display: block;
-  width: 50%;
+  width: 38%;
   float: left;
   border-radius: 4px;
   text-align: center;
+  font-size: x-small;
 }
-/* line 82, /Users/tanguycoenen/Dropbox/dev/scoga_2/sites/all/themes/zwerm/sass/_custom.scss */
+/* line 83, ../sass/_custom.scss */
 .page-team .color-79b1bd a, .page-team3 .color-79b1bd a {
   font-weight: normal;
 }
-/* line 42, ../sass/team-view.scss */
+/* line 66, ../sass/team-view.scss */
 .page-team .color-dc6058, .page-team3 .color-dc6058 {
   background-color: #dc6058;
   margin-top: 10px;
   display: block;
-  width: 50%;
+  width: 38%;
   float: left;
   border-radius: 4px;
   text-align: center;
+  font-size: x-small;
 }
-/* line 82, /Users/tanguycoenen/Dropbox/dev/scoga_2/sites/all/themes/zwerm/sass/_custom.scss */
+/* line 83, ../sass/_custom.scss */
 .page-team .color-dc6058 a, .page-team3 .color-dc6058 a {
   font-weight: normal;
 }
-/* line 48, ../sass/team-view.scss */
+/* line 72, ../sass/team-view.scss */
 .page-team .points, .page-team3 .points {
   color: #aaaaaa;
 }
 
-/* line 57, ../sass/team-view.scss */
+/* line 80, ../sass/team-view.scss */
 .page-team .field-type-text-with-summary {
   padding-top: 123px;
 }
 
-/* line 65, ../sass/team-view.scss */
+/* line 88, ../sass/team-view.scss */
 .page-team3 .field-type-text-with-summary {
   padding-top: 28px;
 }
