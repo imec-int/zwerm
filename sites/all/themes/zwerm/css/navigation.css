@@ -56,7 +56,7 @@ li a.active {
 #navigation {
   display: block;
   float: none;
-  width: 390px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
@@ -172,7 +172,7 @@ li a.active {
  */
 /* line 186, ../sass/navigation.scss */
 #main-menu {
-  width: 390px;
+  width: 100%;
   margin-left: 2%;
 }
 
