@@ -1,6 +1,64 @@
-#not-checkin-list
+@import "base";
+
+.page-not-partner
 {
-  display:inline-block;
-  float:none;
-  overflow: hidden;
+  //display:inline-block;
+  //float:none;
+  //overflow: hidden;
+  #select_list
+  {
+    a
+    {
+      color:black;
+    }
+  }
+
+  #content
+  {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    li
+    {
+      height:$li-height;
+      background-color:white;
+      margin-bottom: 3px;
+    }
+
+    li:after
+    {
+      content:">";
+      display:inline;
+      float:right;
+      padding-top:17px;
+      padding-right:25px;
+      font-size: large;
+    }
+
+    a
+    {
+      color:black;
+      margin-left: 25px;
+      margin-top: 10px;
+    }
+
+    #select_list
+    {
+      ul
+      {
+        margin-top:2px;
+        white-space: nowrap;
+      }
+      a
+      {
+        line-height: 3.8em;
+      }
+    }
+
+    #main-content
+    {
+      display: none;
+    }
+  }
 }
+

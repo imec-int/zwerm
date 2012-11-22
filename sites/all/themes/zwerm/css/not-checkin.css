@@ -1,6 +1,48 @@
-/* line 2, ../sass/not-checkin.scss */
-#not-checkin-list {
-  display: inline-block;
-  float: none;
-  overflow: hidden;
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 11, ../sass/not-checkin.scss */
+.page-not-partner #select_list a {
+  color: black;
+}
+/* line 17, ../sass/not-checkin.scss */
+.page-not-partner #content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 22, ../sass/not-checkin.scss */
+.page-not-partner #content li {
+  height: 60px;
+  background-color: white;
+  margin-bottom: 3px;
+}
+/* line 29, ../sass/not-checkin.scss */
+.page-not-partner #content li:after {
+  content: ">";
+  display: inline;
+  float: right;
+  padding-top: 17px;
+  padding-right: 25px;
+  font-size: large;
+}
+/* line 39, ../sass/not-checkin.scss */
+.page-not-partner #content a {
+  color: black;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+/* line 48, ../sass/not-checkin.scss */
+.page-not-partner #content #select_list ul {
+  margin-top: 2px;
+  white-space: nowrap;
+}
+/* line 53, ../sass/not-checkin.scss */
+.page-not-partner #content #select_list a {
+  line-height: 3.8em;
+}
+/* line 59, ../sass/not-checkin.scss */
+.page-not-partner #content #main-content {
+  display: none;
 }
