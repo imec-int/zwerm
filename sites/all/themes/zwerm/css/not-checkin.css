@@ -3,22 +3,41 @@
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
 }
 
-/* line 11, ../sass/not-checkin.scss */
+/* line 4, ../sass/not-checkin.scss */
+.page-not-partner {
+  background-color: black;
+}
+/* line 9, ../sass/not-checkin.scss */
 .page-not-partner #select_list a {
   color: black;
 }
-/* line 17, ../sass/not-checkin.scss */
+/* line 15, ../sass/not-checkin.scss */
+.page-not-partner h1 {
+  color: white;
+}
+/* line 22, ../sass/not-checkin.scss */
 .page-not-partner #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 22, ../sass/not-checkin.scss */
+/* line 27, ../sass/not-checkin.scss */
+.page-not-partner #content #page-title {
+  background-color: #333333;
+  color: white;
+  font-family: arial;
+  font-size: x-large;
+  text-align: center;
+  height: 60px;
+  line-height: 2.6em;
+  letter-spacing: 2px;
+}
+/* line 32, ../sass/not-checkin.scss */
 .page-not-partner #content li {
   height: 60px;
   background-color: white;
   margin-bottom: 3px;
 }
-/* line 29, ../sass/not-checkin.scss */
+/* line 39, ../sass/not-checkin.scss */
 .page-not-partner #content li:after {
   content: ">";
   display: inline;
@@ -27,22 +46,22 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 39, ../sass/not-checkin.scss */
+/* line 49, ../sass/not-checkin.scss */
 .page-not-partner #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 48, ../sass/not-checkin.scss */
+/* line 58, ../sass/not-checkin.scss */
 .page-not-partner #content #select_list ul {
   margin-top: 2px;
   white-space: nowrap;
 }
-/* line 53, ../sass/not-checkin.scss */
+/* line 63, ../sass/not-checkin.scss */
 .page-not-partner #content #select_list a {
   line-height: 3.8em;
 }
-/* line 59, ../sass/not-checkin.scss */
+/* line 69, ../sass/not-checkin.scss */
 .page-not-partner #content #main-content {
   display: none;
 }

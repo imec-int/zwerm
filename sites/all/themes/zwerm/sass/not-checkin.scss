@@ -2,9 +2,7 @@
 
 .page-not-partner
 {
-  //display:inline-block;
-  //float:none;
-  //overflow: hidden;
+  background-color:black;
   #select_list
   {
     a
@@ -13,10 +11,22 @@
     }
   }
 
+  h1
+  {
+    color:white;
+  }
+
+
+
   #content
   {
     padding-left: 0px;
     padding-right: 0px;
+
+    #page-title
+    {
+      @include page-title;
+    }
 
     li
     {
