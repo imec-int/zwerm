@@ -194,7 +194,7 @@
                 <?php print render($page['content']); ?>
                 <?php //print $feed_icons; ?>
                 <?php if (!drupal_is_front_page()): ?>
-                    <?php print $messages; ?>
+                    <?php //print $messages; ?>
                 <?php endif; ?>
             </div><!-- /#content -->
             <?php

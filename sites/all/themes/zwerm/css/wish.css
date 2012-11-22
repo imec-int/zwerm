@@ -27,3 +27,7 @@
 .page-node-add-nodetype-wished-item .username, .node-type-nodetype-wished-item .username {
   color: black;
 }
+/* line 32, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-body, .node-type-nodetype-wished-item #edit-body {
+  width: 101%;
+}

@@ -154,14 +154,14 @@ tr.loggedInUser {
   display: block;
   height: 10px;
   position: relative;
-  top: 11px;
+  top: 7px;
 }
 /* line 167, ../sass/views-styles.scss */
 .page-leaderboard td.points, .page-team-players td.points, .page-points-in-campaign td.points {
-  display: inline;
+  display: inline-block;
   height: 10px;
   position: relative;
-  top: 18px;
+  top: 7px;
 }
 /* line 175, ../sass/views-styles.scss */
 .page-leaderboard td.relations, .page-team-players td.relations, .page-points-in-campaign td.relations {
