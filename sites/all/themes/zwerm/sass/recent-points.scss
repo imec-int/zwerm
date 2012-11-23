@@ -12,12 +12,6 @@
     display: none;
   }
 
-  #score_nav_bar
-  {
-    margin-top: 6px;
-    //padding-top: 6px;
-  }
-
   .views-field-points
   {
     font-family: Romina;
@@ -36,6 +30,10 @@
   .views-field-name
   {
     display:block;
+  }
+
+  #select_list {
+    //display: none;
   }
 
 
