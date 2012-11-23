@@ -31,10 +31,6 @@ body.node-type-nodetype-event .field-name-field-event-address {
 body.node-type-nodetype-event .field-name-field-event-date {
   margin-top: 5px;
 }
-/* line 41, ../sass/events.scss */
-body.node-type-nodetype-event span.locality {
-  margin-left: -17px;
-}
 /* line 46, ../sass/events.scss */
 body.node-type-nodetype-event #block-views-event-content-type-map-block-1 {
   margin-bottom: 10px;

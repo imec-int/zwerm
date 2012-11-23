@@ -1,0 +1,35 @@
+@import "base";
+
+.page-node-add-nodetype-wished-item,.node-type-nodetype-wished-item
+{
+  background-color: $white-background-color;
+
+  .field-edit-link
+  {
+    display:none;
+  }
+
+  .filter-wrapper
+  {
+    display: none;
+  }
+
+  .wysiwyg-toggle-wrapper
+  {
+    display: none;
+  }
+
+  #edit-preview
+  {
+    display: none;
+  }
+
+  .username
+  {
+    color:black;
+  }
+
+  #edit-body {
+    width: 101%;
+  }
+}

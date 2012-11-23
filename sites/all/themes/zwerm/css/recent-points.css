@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/recent-points.scss */
+.page-points-in-campaign #main {
+  background-color: black;
+}
+/* line 11, ../sass/recent-points.scss */
+.page-points-in-campaign thead {
+  display: none;
+}
+/* line 16, ../sass/recent-points.scss */
+.page-points-in-campaign #score_nav_bar {
+  margin-top: 6px;
+}
+/* line 22, ../sass/recent-points.scss */
+.page-points-in-campaign .views-field-points {
+  font-family: Romina;
+  font-size: x-large;
+  padding-right: 10px;
+}
+/* line 30, ../sass/recent-points.scss */
+.page-points-in-campaign .views-field-time-stamp, .page-points-in-campaign .views-field-description, .page-points-in-campaign .views-field-name {
+  font-size: small;
+  line-break: normal;
+  display: block;
+}
+/* line 37, ../sass/recent-points.scss */
+.page-points-in-campaign .views-field-name {
+  display: block;
+}

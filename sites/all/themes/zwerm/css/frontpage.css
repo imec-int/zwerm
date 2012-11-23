@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 4, ../sass/frontpage.scss */
+.page-frontpage {
+  background-color: #79b1bd;
+}

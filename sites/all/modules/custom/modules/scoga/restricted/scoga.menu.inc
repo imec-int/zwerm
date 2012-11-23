@@ -28,7 +28,7 @@
 //            'access arguments'  => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
 //        );
         $items[ SCOGA_NOT_PARTNER_PAGE ] = array(
-            'title'             => t( 'Players not checked in with' ),
+            'title'             => t( 'Players you have not checked in with' ),
             'description'       => t( 'Overview of SCOGA users that are not a checkin partner of logged in user' ),
             'type'              => MENU_NORMAL_ITEM,
             'file'              => 'restricted/scoga.page.inc',

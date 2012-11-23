@@ -16,7 +16,12 @@
   width:100%;
   float: left;
   height:$score-navbar-height;
-  margin-top: 30px;
+  margin-top: 0px;
+  margin-left: -10px;
+  display: block;
+  padding-left: 5%;
+  padding-right: 5%;
+  line-height: 0.8em;
 
 
   ul
@@ -39,7 +44,8 @@
     display:block;
     float:left;
     height:50px;
-    width:32%;
+    width:45%;
+    margin-top: 5px;
     margin-left: 1px;
     margin-right: 1px;
 
@@ -49,17 +55,14 @@
       display:block;
       text-align:center;
       width:99%;
-      padding-top: 13px;
-      font-size: x-small;
-
-
+      padding-top: 20px;
+      //font-size: large;
     }
 
     a.active
     {
       color:white;
     }
-
   }
 
 

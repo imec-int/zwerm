@@ -1,0 +1,42 @@
+@import "base";
+
+.page-points-in-campaign
+{
+  #main
+  {
+    background-color: black;
+  }
+
+  thead
+  {
+    display: none;
+  }
+
+  #score_nav_bar
+  {
+    margin-top: 6px;
+    //padding-top: 6px;
+  }
+
+  .views-field-points
+  {
+    font-family: Romina;
+    font-size: x-large;
+    //padding-left: 10px;
+    padding-right:10px;
+  }
+
+  .views-field-time-stamp, .views-field-description, .views-field-name
+  {
+    font-size: small;
+    line-break: normal;
+    display:block;
+  }
+
+  .views-field-name
+  {
+    display:block;
+  }
+
+
+}

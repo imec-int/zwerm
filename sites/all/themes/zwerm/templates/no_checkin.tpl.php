@@ -6,13 +6,15 @@
     $names = $variables['names'];
     $uids = $variables['uids'];
     $formatted_names = array();
-    foreach($names as $name)
+    $uids_reordered = array();
+    $i=0;
+    foreach($names as $key => $name)
     {
        $element_position = array_search($name, $names);
        $formatted_name = l($name,'user/'.$uids[$element_position ]);
-       $formatted_names[] = $formatted_name;
+       $formatted_names[$key] = $formatted_name;
+       $i=$i+1;
     }
-    $variables = array();
     $variables ['items'] =  $formatted_names;
     print theme('item_list',$variables);
 ?>

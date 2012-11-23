@@ -4,6 +4,43 @@
 {
   #main
   {
-    background-color: white;
+    background-color: $white-background-color;
+  }
+
+  h1
+  {
+    display:none;
+  }
+
+  .action-links
+  {
+    li
+    {
+      list-style-type: none;
+    }
+    a
+    {
+      color:black;
+      margin-left: -28px;
+
+    }
+  }
+
+  th, td
+  {
+    a
+    {
+      color:black;
+    }
+  }
+
+  li:nth-child(3),li:nth-child(4)
+  {
+    display:none;
+  }
+
+  #edit-operation
+  {
+    display:none;
   }
 }

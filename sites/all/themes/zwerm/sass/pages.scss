@@ -155,13 +155,10 @@ body {
   clear: both; /* Clear the logo */
 }
 
-
-#type_page,  #type_nodetype_event
+.page-node
 {
-  height:100%;
-  background-color: white;
+  background-color: #eeeeee;
 }
-
 
 /*
  * Main (container for everything else)
@@ -171,7 +168,18 @@ body {
   display:block;
   height:100%;
   width:100%;
-  background-color: $team-blue-color;
+
+  input
+  {
+    width:100%;
+  }
+
+  h1
+  {
+    font-family: Romina;
+    //padding-top:$pages-title-top-padding;
+    text-align: center;
+  }
 }
 
 /*
@@ -353,6 +361,7 @@ span.field-label { /* The inline field label used by the Fences module */
   right: 0;
   width : 100%;
   padding-top: 10px;
+  height:45px;
 }
 
 //needed for footer to remain at bottom
@@ -393,10 +402,12 @@ tr.colordc6058 {
     padding: 0 0 0 0;
   }
   .first {
-    float : left
+    float : left;
+    margin-top: -22px;
   }
   .last {
     float : right;
+    margin-top: -22px;
   }
   a {
     @include hyperlink-style;

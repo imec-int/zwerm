@@ -61,7 +61,7 @@
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  //font-weight: bold;
 }
 
 @mixin nav-image-style {
@@ -73,10 +73,11 @@
 @mixin team-members-button {
   margin-top: 10px;
   display:block;
-  width: 50%;
+  width: 38%;
   float: left;
   border-radius: 4px;
   text-align: center;
+  font-size: x-small;
 
   a
   {

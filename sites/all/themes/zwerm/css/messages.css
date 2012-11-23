@@ -5,5 +5,30 @@
 
 /* line 6, ../sass/messages.scss */
 .page-messages #main {
-  background-color: white;
+  background-color: #eeeeee;
+}
+/* line 11, ../sass/messages.scss */
+.page-messages h1 {
+  display: none;
+}
+/* line 18, ../sass/messages.scss */
+.page-messages .action-links li {
+  list-style-type: none;
+}
+/* line 22, ../sass/messages.scss */
+.page-messages .action-links a {
+  color: black;
+  margin-left: -28px;
+}
+/* line 32, ../sass/messages.scss */
+.page-messages th a, .page-messages td a {
+  color: black;
+}
+/* line 38, ../sass/messages.scss */
+.page-messages li:nth-child(3), .page-messages li:nth-child(4) {
+  display: none;
+}
+/* line 43, ../sass/messages.scss */
+.page-messages #edit-operation {
+  display: none;
 }
