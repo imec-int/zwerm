@@ -110,18 +110,32 @@
     }
 
     /**
-     * @param $transaction
+     * @param array $transaction
+     *    'points' => # of points (int) (required)
+     *    'moderate' => TRUE/FALSE
+     *    'uid' => $user->uid
+     *    'time_stamp' => unix time of the points assignment date
+     *    'operation' => 'published' 'moderated' etc.
+     *    'tid' => 'category ID'
+     *    'expirydate' => timestamp or 0, 0 = non-expiring; NULL = site default
+     *    'description' => 'description'
+     *    'reference' => reserved for module specific use
+     *    'display' => whether or not to display "points awarded" message
+     *    'txn_id' => Transaction ID of points, If present an UPDATE is performed
+     *    'entity_id' => ID of an entity in the Database. ex. $node->id or $user->uid
+     *    'entity_type' => string of the entity type. ex. 'node' or 'user' NOT 'node-content-custom'
      */
     function scoga_transfer_transaction_points_to_team( $transaction ){
-        if( intval( $transaction->tid ) === scoga_get_current_userpoints_category_tid() ){
+
+        if( intval( $transaction[ 'tid' ] ) === scoga_get_current_userpoints_category_tid() ){
             module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
-            $user_account = user_load( $transaction->uid );
+            $user_account = user_load( $transaction[ 'uid' ] );
             $team_nid = scoga_get_eid_from_field( $user_account, 'field_user_team', array( 'entity_type' => 'user' ) );
-            $campaignteam_node = scoga_get_campaignteam_entity_by_team_nid( $team_nid );
+            $campaignteam_node = scoga_get_latest_campaignteam_entity( scoga_get_current_campaign_nid(), $team_nid );
             if( $campaignteam_node ){
                 $field_name = 'field_campaignteam_totalpoints';
                 $total_points = scoga_get_field_value( $campaignteam_node, $field_name );
-                scoga_set_field_value( $campaignteam_node, $field_name, $total_points + $transaction->points );
+                scoga_set_field_value( $campaignteam_node, $field_name, $total_points + $transaction[ 'points' ] );
                 node_save( $campaignteam_node );
             }
         }
@@ -148,6 +162,14 @@
         return $term;
     }
 
+    /**
+     * @param $uid
+     * @param $points
+     * @param $reason
+     *
+     * @return array
+     */
+
     function scoga_award_points_to_user( $uid, $points, $reason ){
         $params = array(
             'uid'           => $uid,
@@ -162,6 +184,6 @@
         if( $temp[ 'status' ] ){
             return $temp[ 'transaction' ];
         }
-        return FALSE;
+        return array();
     }
 
