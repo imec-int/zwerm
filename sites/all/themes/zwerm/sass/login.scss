@@ -1,13 +1,15 @@
 @import "base";
 
-.page-user
+.page-user.not-logged-in
 {
 
    background-color:$footer-color;
    background-image : url(../images/zwerm_logo.png);
    background-size: 100%;
    background-repeat: no-repeat;
-   h1,.form-required,.description, #header, #footer
+
+   h1,.form-required,.description, #header, #footer,  a[href*="register"],
+   .active
    {
      display:none;
    }
@@ -59,12 +61,38 @@
      background-color: $green-marking-color;
      color:white;
      border-radius: 4px;
+     position: relative;
+     top:40px;
    }
 
    #edit-actions
    {
      width:97%;
      margin-left: 3%;
+   }
+
+   a[href*="password"]
+   {
+     display:block;
+     color:red;
+     position: absolute;
+     top: 320px;
+     left: 7%;
+   }
+
+   .tabs
+   {
+     display:block;
+     background-color: transparent;
+     li
+     {
+       background-color: transparent;
+       width:100%;
+       a
+       {
+         text-align:left;
+       }
+     }
    }
 
 
