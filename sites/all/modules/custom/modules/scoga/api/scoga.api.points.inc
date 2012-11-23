@@ -148,6 +148,14 @@
         return $term;
     }
 
+    /**
+     * @param $uid
+     * @param $points
+     * @param $reason
+     *
+     * @return array
+     */
+
     function scoga_award_points_to_user( $uid, $points, $reason ){
         $params = array(
             'uid'           => $uid,
@@ -162,6 +170,6 @@
         if( $temp[ 'status' ] ){
             return $temp[ 'transaction' ];
         }
-        return FALSE;
+        return array();
     }
 
