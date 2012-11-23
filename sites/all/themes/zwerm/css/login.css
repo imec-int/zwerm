@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
 }
 /* line 10, ../sass/login.scss */
-.page-user h1, .page-user .form-required, .page-user .description {
+.page-user h1, .page-user .form-required, .page-user .description, .page-user #header, .page-user #footer {
   display: none;
 }
 /* line 17, ../sass/login.scss */
