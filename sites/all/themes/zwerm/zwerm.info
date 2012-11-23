@@ -54,6 +54,7 @@ stylesheets[all][] = css/wireframes.css
 stylesheets[all][] = css/page-backgrounds.css
 stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/not-checkin.css
+stylesheets[all][] = css/login.css
 stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/wish.css
 stylesheets[all][] = css/messages-new.css
