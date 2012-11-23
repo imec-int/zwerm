@@ -30,8 +30,29 @@
     function scoga_create_campaignteam_entities_for_campaign( $campaign_node ){
         $team_nids = scoga_get_team_nids();
         foreach( $team_nids as $team_nid ){
-            scoga_create_campaignteam_entity( $campaign_node, node_load( $team_nid ) );
+            $score = 0;
+            $latest_campaignteam_node = scoga_get_latest_campaignteam_entity( $campaign_node->nid, $team_nid );
+            if( $latest_campaignteam_node ){
+                $score = scoga_get_field_value( $latest_campaignteam_node, 'field_campaignteam_totalpoints' );
+            }
+            scoga_create_campaignteam_entity( $campaign_node, node_load( $team_nid ), $score );
         }
+    }
+
+    /**
+     * @param $campaign_nid
+     * @param $team_nid
+     *
+     * @return bool|mixed
+     */
+    function scoga_get_latest_campaignteam_entity( $campaign_nid, $team_nid ){
+        $previous_campaignteam_nids = scoga_get_campaignteam_nids_by_references( $campaign_nid, $team_nid );
+        if( count( $previous_campaignteam_nids ) > 0 ){
+            $latest_campaignteam_nid = $previous_campaignteam_nids[ 0 ];
+            return node_load( $latest_campaignteam_nid );
+        }
+
+        return FALSE;
     }
 
     /**
@@ -39,13 +60,14 @@
      * @param $campaign_node
      * @param $team_node
      */
-    function scoga_create_campaignteam_entity( $campaign_node, $team_node ){
+    function scoga_create_campaignteam_entity( $campaign_node, $team_node, $score = 0 ){
         $date = strftime( '%Y%m%d', time() );
         $node = new stdClass();
         $node->type = SCOGA_CAMPAIGNTEAM_NODETYPE;
         node_object_prepare( $node );
         scoga_set_eid_in_field( $node, 'field_campaignteam_campaign', $campaign_node->nid );
         scoga_set_eid_in_field( $node, 'field_campaignteam_team', $team_node->nid );
+        scoga_set_field_value( $node, 'field_campaignteam_totalpoints', $score );
         $node->title = $campaign_node->title . ' - ' . $team_node->title . ' - ' . $date;
         $node->language = LANGUAGE_NONE;
 
@@ -72,6 +94,7 @@
      * @return array
      */
     function scoga_get_campaignteam_nids_by_references( $campaign_nid = NULL, $team_nid = NULL ){
+        dd( 'scoga_get_campaignteam_nids_by_references' );
         $query = new EntityFieldQuery();
         $entity_type = 'node';
         $query
@@ -86,7 +109,9 @@
             $query->fieldCondition( 'field_campaignteam_team', 'target_id', $team_nid, '=' );
         }
 
+        dd( 'before executing query' );
         $result = $query->execute();
+        dd( 'after executing query' );
         if( array_key_exists( $entity_type, $result ) ){
             $campaignteam_nids = array_keys( $result[ $entity_type ] );
             return $campaignteam_nids;

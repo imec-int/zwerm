@@ -182,4 +182,47 @@
         return scoga_theme_info($existing, $type, $theme, $path);
     }
 
+    /**
+     * implements hook_points, see userpoints/README.txt
+     * @param String $op
+         'setting'
+           Pass a field set and fields that would be displayed in the userpoints
+           settings page. For example, this can be used for your program to ask
+           the admin to set a number of points for certain actions your module
+           performs. The function should return an array object conforming to
+           FormsAPI structure.
+
+         'points before'
+           Calls your module, and others, before the points are processed. You can
+           prevent points from being awarded by returning FALSE.
+
+         'points after'
+           Calls your module, and others, after points are processed. You can take
+           certain actions if you so wish. Return value is ignored.
+     * @param array $params the original $params array as sent to userpoints_userpointsapi
+     *    'points' => # of points (int) (required)
+     *    'moderate' => TRUE/FALSE
+     *    'uid' => $user->uid
+     *    'time_stamp' => unix time of the points assignment date
+     *    'operation' => 'published' 'moderated' etc.
+     *    'tid' => 'category ID'
+     *    'expirydate' => timestamp or 0, 0 = non-expiring; NULL = site default
+     *    'description' => 'description'
+     *    'reference' => reserved for module specific use
+     *    'display' => whether or not to display "points awarded" message
+     *    'txn_id' => Transaction ID of points, If present an UPDATE is performed
+     *    'entity_id' => ID of an entity in the Database. ex. $node->id or $user->uid
+     *    'entity_type' => string of the entity type. ex. 'node' or 'user' NOT 'node-content-custom'
+
+     */
+    function scoga_userpoints($op, $params = array()){
+        module_load_include( 'userpoints.inc', 'scoga', 'restricted/scoga' );
+
+        switch( $op ){
+            case 'points after':
+                scoga_handle_userpoints_after( $params );
+                break;
+        }
+
+    }
 
