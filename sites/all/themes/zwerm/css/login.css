@@ -7,37 +7,61 @@
 .page-user {
   background-color: #333333;
   background-image: url(../images/zwerm_logo.png);
+  background-size: 100%;
   background-repeat: no-repeat;
 }
-/* line 10, ../sass/login.scss */
+/* line 11, ../sass/login.scss */
 .page-user h1, .page-user .form-required, .page-user .description, .page-user #header, .page-user #footer {
   display: none;
 }
-/* line 17, ../sass/login.scss */
+/* line 16, ../sass/login.scss */
+.page-user #user-login {
+  margin-top: 166px;
+}
+/* line 19, ../sass/login.scss */
 .page-user #user-login .form-item-name {
   position: relative;
 }
-/* line 20, ../sass/login.scss */
+/* line 22, ../sass/login.scss */
 .page-user #user-login .form-item-name label {
   position: absolute;
-  top: 1px;
-  left: 9px;
+  top: 9px;
+  left: 7%;
   color: #aaa;
 }
-/* line 28, ../sass/login.scss */
+/* line 30, ../sass/login.scss */
 .page-user #user-login .form-item-pass {
   position: relative;
 }
-/* line 31, ../sass/login.scss */
+/* line 33, ../sass/login.scss */
 .page-user #user-login .form-item-pass label {
   position: absolute;
-  top: 1px;
-  left: 9px;
+  top: 9px;
+  left: 7%;
   color: #aaa;
 }
-/* line 40, ../sass/login.scss */
+/* line 42, ../sass/login.scss */
+.page-user #user-login input {
+  border-radius: 4px;
+  height: 35px;
+  /*width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;  */
+}
+/* line 51, ../sass/login.scss */
+.page-user #user-login .form-item {
+  width: 90%;
+  margin-left: 3%;
+  margin-right: 5%;
+}
+/* line 58, ../sass/login.scss */
 .page-user #edit-submit {
   background-color: #7fb083;
   color: white;
   border-radius: 4px;
+}
+/* line 65, ../sass/login.scss */
+.page-user #edit-actions {
+  width: 97%;
+  margin-left: 3%;
 }
