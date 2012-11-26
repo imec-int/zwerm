@@ -161,6 +161,7 @@ li a.active {
 @media all and (min-width: $start_of_large_viewport) {
   #navigation {
     position:fixed;
+    top: 0px;
     background-color: $green-marking-color;
     z-index: 21;
     width:100%;

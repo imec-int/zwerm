@@ -485,7 +485,6 @@ a {
   /* line 456, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
-    background-color: black;
     padding-top: 25%;
   }
 
