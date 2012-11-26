@@ -104,16 +104,16 @@ $indent-amount: 30px;
 $end_of_small_viewport : 629px;
 $start_of_large_viewport : 630px;
 
-//small viewport
+//for small viewport
 $header-height-small-viewport: 40px;
 
 
-//large viewport
+//for large viewport
 $header-height-large-viewport : 25%;
 $logo-width-large-viewport : 20%;
 
 
-//common
+//common to viewports
 $li-height : 60px;
 $score-navbar-height : 60px;
 $pages-title-top-padding : 45px;
@@ -128,6 +128,11 @@ $team-red-color : #dc6058;
 $green-marking-color : #7fb083;
 $score-navbar-color : #484848;
 $score-navbar-non-active-link-color: #808080;
+
+//calculation of navigation menu width for large viewport
+$number_of_items_in_navmenu : 5;
+$space_outside_of_navmenus : 12.5; //in percentage
+$width_per_item : percentage((100-$space_outside_of_navmenus)/($number_of_items_in_navmenu)/100);
 
 
 

@@ -153,10 +153,6 @@
   /* line 170, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
-    float: left;
-    width: 33.33333%;
-    margin-left: 66.66667%;
-    margin-right: -100%;
   }
 
   /* line 175, ../../sass/layouts/responsive-sidebars.scss */

@@ -168,7 +168,7 @@ $zen-column-count: 6;
   .sidebar-first {
 
     .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
-      @include zen-grid-item(2, 5);
+      //@include zen-grid-item(2, 5);
     }
   }
 
