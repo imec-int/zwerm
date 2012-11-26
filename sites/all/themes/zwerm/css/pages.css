@@ -457,21 +457,21 @@ a {
   background-color: #7fb083;
 }
 
-/* line 429, ../sass/pages.scss */
-#type_page h1 {
-  font-family: romina;
-  text-align: center;
-  padding-top: 45px;
-}
-
 @media all and (max-width: 629px) {
-  /* line 439, ../sass/pages.scss */
+  /* line 430, ../sass/pages.scss */
   #block-block-3 {
     display: none;
   }
+
+  /* line 437, ../sass/pages.scss */
+  #type_page h1 {
+    font-family: romina;
+    text-align: center;
+    padding-top: 45px;
+  }
 }
 @media all and (min-width: 630px) {
-  /* line 446, ../sass/pages.scss */
+  /* line 448, ../sass/pages.scss */
   #header {
     background-image: url(../images/zwerm_logo_black_background.png);
     background-size: 10%;
@@ -482,19 +482,31 @@ a {
     display: block;
   }
 
-  /* line 456, ../sass/pages.scss */
+  /* line 459, ../sass/pages.scss */
+  #content {
+    position: fixed;
+    top: 25.2%;
+  }
+
+  /* line 464, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
     padding-top: 25%;
   }
 
-  /* line 465, ../sass/pages.scss */
+  /* line 471, ../sass/pages.scss */
   #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
     display: none;
   }
 
-  /* line 470, ../sass/pages.scss */
+  /* line 476, ../sass/pages.scss */
   .region-sidebar-first {
     padding-top: 25%;
+  }
+
+  /* line 483, ../sass/pages.scss */
+  #type_page h1 {
+    font-family: romina;
+    text-align: center;
   }
 }

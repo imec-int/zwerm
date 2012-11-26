@@ -158,11 +158,11 @@ $zen-column-count: 6;
     //needed for floating footer
     height : 175%;
     //width: 980px;
-    color:white;
+    //color:white;
   }
 
   #content {
-    @include zen-grid-item(4, 1);
+    @include zen-grid-item(4, 2);
   }
 
   .sidebar-first {

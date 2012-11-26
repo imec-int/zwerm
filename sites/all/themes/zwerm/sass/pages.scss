@@ -423,24 +423,26 @@ a {
   background-color: $green-marking-color;
 }
 
-#type_page
-{
-  h1
-  {
-    font-family: romina;
-    text-align: center;
-    padding-top: $pages-title-top-padding;
-  }
-}
-
+//small viewport
 @media all and (max-width: $end_of_small_viewport)
 {
   #block-block-3
   {
     display:none;
   }
+
+  #type_page
+  {
+    h1
+    {
+      font-family: romina;
+      text-align: center;
+      padding-top: $pages-title-top-padding;
+    }
+  }
 }
 
+//large viewport
 @media all and (min-width: $start_of_large_viewport)
 {
   #header{
@@ -453,12 +455,16 @@ a {
     display:block;
   }
 
+  #content
+  {
+    position:fixed;
+    top:$header-height-large-viewport + 0.2;
+  }
+
   #type_page, #type_nodetype_event {
     height: 100%;
     //background-color: black;
     padding-top:$header-height-large-viewport;
-
-
   }
 
   #home_nav , #menu_container , #menu_text , #zwerm_logo_text
@@ -470,6 +476,17 @@ a {
   {
     padding-top: $header-height-large-viewport;
   }
+
+  #type_page
+  {
+    h1
+    {
+      font-family: romina;
+      text-align: center;
+      //padding-top: $pages-title-top-padding;
+    }
+  }
+
 
 
 }

@@ -139,15 +139,14 @@
     margin-right: -100%;
     clear: left;
     height: 175%;
-    color: white;
   }
 
   /* line 164, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     float: left;
     width: 66.66667%;
-    margin-left: 0%;
-    margin-right: -66.66667%;
+    margin-left: 16.66667%;
+    margin-right: -83.33333%;
   }
 
   /* line 170, ../../sass/layouts/responsive-sidebars.scss */
