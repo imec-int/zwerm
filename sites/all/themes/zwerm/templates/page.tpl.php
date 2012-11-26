@@ -148,7 +148,7 @@
         <div id="<?php print($type)?>" class="<?php //print($team[0]);?>" >
 
 
-            <?php if(drupal_is_front_page()):     ?>
+
                 <div id="navigation">
 
                     <?php if ($main_menu): ?>
@@ -170,8 +170,6 @@
                             ),
                         )); ?>
                     </nav>
-                    <?php endif; ?>
-
                     <?php print render($page['navigation']); ?>
 
                 </div><!-- /#navigation -->

@@ -176,22 +176,23 @@ li a.active {
   /* line 181, ../sass/navigation.scss */
   #navigation li {
     float: left;
-    width: 15.5%;
+    width: 15%;
     text-align: center;
+    padding: 0px;
   }
-  /* line 188, ../sass/navigation.scss */
+  /* line 189, ../sass/navigation.scss */
   #navigation .first {
     margin-left: 12.5%;
   }
 }
 @media all and (max-width: 400px) {
-  /* line 198, ../sass/navigation.scss */
+  /* line 199, ../sass/navigation.scss */
   #navigation li {
     width: 78px;
   }
 }
 @media all and (min-width: 401px) and (max-width: 630px) {
-  /* line 208, ../sass/navigation.scss */
+  /* line 209, ../sass/navigation.scss */
   #navigation li {
     width: 100px;
   }
@@ -199,13 +200,12 @@ li a.active {
 /*
 * Main menu and Secondary menu links
 */
-/* line 219, ../sass/navigation.scss */
+/* line 220, ../sass/navigation.scss */
 #main-menu {
   width: 100%;
-  margin-left: 2%;
 }
 
-/* line 224, ../sass/navigation.scss */
+/* line 225, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */

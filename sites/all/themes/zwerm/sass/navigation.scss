@@ -180,8 +180,9 @@ li a.active {
     li
     {
       float:left;
-      width:$width_per_item - 2;
+      width:$width_per_item;
       text-align: center;
+      padding:0px;
     }
 
     .first
@@ -218,7 +219,7 @@ li a.active {
 
 #main-menu {
   width:100%;
-  margin-left:2%;
+  //margin-left:2%;
 }
 
 #secondary-menu {
