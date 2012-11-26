@@ -63,125 +63,151 @@ li a.active {
 /*
  * Navigation bar
  */
+@media all and (max-width: $end_of_small_viewport) {
+  #navigation {
+     //overflow: hidden; //Sometimes you want to prevent overlapping with main div. */
+    display:block;
+    float:none;
+    width:100%;
+    //height:100%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top :10%;
+    //margin-bottom: 10%;
 
-#navigation {
-   //overflow: hidden; //Sometimes you want to prevent overlapping with main div. */
-  display:block;
-  float:none;
-  width:100%;
-  //height:100%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top :10%;
-  //margin-bottom: 10%;
-
-  padding-top : $header-height; //otherwise footer will overlap content in #main
-  .block {
-    margin-bottom: 0;
-  }
-
-  .block-menu .block-title,
-  .block-menu-block .block-title {
-    @include element-invisible();
-  }
-
-  ul.links, /* Main menu and secondary menu links */
-  ul.menu { /* Menu block links */
-    margin: 0;
-    padding: 0;
-    text-align: left; /* LTR */
-
-    li { /* A simple method to get navigation links to appear in one line. */
-      float: left; /* LTR */
-      //padding: 0 10px 0 0; /* LTR */
-      //background-image : url(../images/het_spel.png);
-      //background-size: 50%;
-      //background-position: 50%;
-      list-style-type: none;
-      list-style-image: none;
-    }
-  }
-
-  //changes color of the selected item on mousedown
-  .selectedItem
-  {
-    background-color: $green-marking-color;
-  }
-
-  #Info
-  {
-    background-image : url(../images/info.png);
-    @include nav-image-style();
-    background-size: 50%;
-  }
-
-  #Speel
-  {
-    background-image : url(../images/spelen.png);
-    @include nav-image-style();
-    background-size: 60%;
-  }
-
-  #Teams
-  {
-    background-image : url(../images/teams.png);
-    @include nav-image-style();
-    background-size: 70%;
-  }
-
-  #Score
-  {
-    background-image : url(../images/score.png);
-    @include nav-image-style();
-    background-size: 70%;
-  }
-
-  #Inbox
-  {
-    background-image : url(../images/berichten.png);
-    @include nav-image-style();
-    background-size: 80%;
-  }
-
-
-
-  li
-  {
-    display: block;
-    height: 100px;
-    //width:100px;
-    padding: 0 0px 0 0;
-    background-color: #84B7C2;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 5px;
-    margin: 5px;
-    text-align:center;
-    line-height:188px;
-    box-align:center;
-
-    a:link {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-family: Verdana, Arial, Helvetica, sans-serif;
-      font-weight: bold;
+    padding-top : $header-height-small-viewport; //otherwise footer will overlap content in #main
+    .block {
+      margin-bottom: 0;
     }
 
-    a:visited {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-family: Verdana, Arial, Helvetica, sans-serif;
-      font-weight: bold;
-      padding-bottom: 5px;
+    .block-menu .block-title,
+    .block-menu-block .block-title {
+      @include element-invisible();
+    }
+
+    ul.links, /* Main menu and secondary menu links */
+    ul.menu { /* Menu block links */
+      margin: 0;
+      padding: 0;
+      text-align: left; /* LTR */
+
+      li { /* A simple method to get navigation links to appear in one line. */
+        float: left; /* LTR */
+        //padding: 0 10px 0 0; /* LTR */
+        //background-image : url(../images/het_spel.png);
+        //background-size: 50%;
+        //background-position: 50%;
+        list-style-type: none;
+        list-style-image: none;
+      }
+    }
+
+    //changes color of the selected item on mousedown
+    .selectedItem
+    {
+      background-color: $green-marking-color;
+    }
+
+    #Info
+    {
+      background-image : url(../images/info.png);
+      @include nav-image-style();
+      background-size: 50%;
+    }
+
+    #Speel
+    {
+      background-image : url(../images/spelen.png);
+      @include nav-image-style();
+      background-size: 60%;
+    }
+
+    #Teams
+    {
+      background-image : url(../images/teams.png);
+      @include nav-image-style();
+      background-size: 70%;
+    }
+
+    #Score
+    {
+      background-image : url(../images/score.png);
+      @include nav-image-style();
+      background-size: 70%;
+    }
+
+    #Inbox
+    {
+      background-image : url(../images/berichten.png);
+      @include nav-image-style();
+      background-size: 80%;
+    }
+
+
+
+    li
+    {
+      display: block;
+      height: 100px;
+      //width:100px;
+      padding: 0 0px 0 0;
+      background-color: #84B7C2;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 5px;
+      margin: 5px;
+      text-align:center;
+      line-height:188px;
+      box-align:center;
+
+      a:link {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+
+      a:visited {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
     }
   }
-
-
 }
 
-/*
- * Main menu and Secondary menu links
- */
+@media all and (min-width: $start_of_large_viewport) {
+  #navigation {
+    position:fixed;
+    background-color: $green-marking-color;
+    z-index: 21;
+    width:100%;
+    background-image:url("../images/menu_icon.png");
+    background-size: 23px;
+    background-position-y: 3px;
+    background-position-x: 3px;
+    background-repeat: no-repeat;
+
+    #main-menu {
+      width:100%;
+      margin-left:10%;
+      width: 80%;
+
+    }
+
+
+    li
+    {
+      float:left;
+    }
+  }
+}
+
+  /*
+  * Main menu and Secondary menu links
+  */
 
 #main-menu {
   width:100%;

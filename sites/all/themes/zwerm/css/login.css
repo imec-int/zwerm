@@ -6,42 +6,44 @@
 /* line 4, ../sass/login.scss */
 .page-user.not-logged-in {
   background-color: #333333;
-  background-image: url(../images/zwerm_logo.png);
-  background-size: 100%;
+  background-image: url(../images/zwerm_logo_transp_background.png);
+  background-size: 40%;
+  background-position-x: 50%;
+  background-position-y: 10%;
   background-repeat: no-repeat;
 }
-/* line 13, ../sass/login.scss */
+/* line 15, ../sass/login.scss */
 .page-user.not-logged-in h1, .page-user.not-logged-in .form-required, .page-user.not-logged-in .description, .page-user.not-logged-in #header, .page-user.not-logged-in #footer, .page-user.not-logged-in a[href*="register"],
 .page-user.not-logged-in .active {
   display: none;
 }
-/* line 18, ../sass/login.scss */
+/* line 20, ../sass/login.scss */
 .page-user.not-logged-in #user-login {
-  margin-top: 166px;
+  margin-top: 35%;
 }
-/* line 21, ../sass/login.scss */
+/* line 23, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-name {
   position: relative;
 }
-/* line 24, ../sass/login.scss */
+/* line 26, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-name label {
   position: absolute;
   top: 9px;
   left: 7%;
   color: #aaa;
 }
-/* line 32, ../sass/login.scss */
+/* line 34, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-pass {
   position: relative;
 }
-/* line 35, ../sass/login.scss */
+/* line 37, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-pass label {
   position: absolute;
   top: 9px;
   left: 7%;
   color: #aaa;
 }
-/* line 44, ../sass/login.scss */
+/* line 46, ../sass/login.scss */
 .page-user.not-logged-in #user-login input {
   border-radius: 4px;
   height: 35px;
@@ -49,44 +51,44 @@
   margin-left: 5%;
   margin-right: 5%;  */
 }
-/* line 53, ../sass/login.scss */
+/* line 55, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item {
   width: 90%;
   margin-left: 3%;
   margin-right: 5%;
 }
-/* line 60, ../sass/login.scss */
+/* line 62, ../sass/login.scss */
 .page-user.not-logged-in #edit-submit {
   background-color: #7fb083;
   color: white;
   border-radius: 4px;
-  position: relative;
-  top: 40px;
+  position: fixed;
+  top: 90%;
 }
-/* line 69, ../sass/login.scss */
+/* line 71, ../sass/login.scss */
 .page-user.not-logged-in #edit-actions {
   width: 97%;
   margin-left: 3%;
 }
-/* line 75, ../sass/login.scss */
+/* line 77, ../sass/login.scss */
 .page-user.not-logged-in a[href*="password"] {
   display: block;
   color: red;
-  position: absolute;
-  top: 320px;
+  position: fixed;
+  top: 70%;
   left: 7%;
 }
-/* line 84, ../sass/login.scss */
+/* line 86, ../sass/login.scss */
 .page-user.not-logged-in .tabs {
   display: block;
   background-color: transparent;
 }
-/* line 88, ../sass/login.scss */
+/* line 90, ../sass/login.scss */
 .page-user.not-logged-in .tabs li {
   background-color: transparent;
   width: 100%;
 }
-/* line 92, ../sass/login.scss */
+/* line 94, ../sass/login.scss */
 .page-user.not-logged-in .tabs li a {
   text-align: left;
 }

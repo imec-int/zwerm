@@ -4,8 +4,10 @@
 {
 
    background-color:$footer-color;
-   background-image : url(../images/zwerm_logo.png);
-   background-size: 100%;
+   background-image : url(../images/zwerm_logo_transp_background.png);
+   background-size: 40%;
+   background-position-x: 50%;
+  background-position-y: 10%;
    background-repeat: no-repeat;
 
    h1,.form-required,.description, #header, #footer,  a[href*="register"],
@@ -16,7 +18,7 @@
 
    #user-login
    {
-     margin-top: 166px;
+     margin-top: 35%;
      .form-item-name
      {
        position:relative;
@@ -61,8 +63,8 @@
      background-color: $green-marking-color;
      color:white;
      border-radius: 4px;
-     position: relative;
-     top:40px;
+     position: fixed;
+     top:90%;
    }
 
    #edit-actions
@@ -75,8 +77,8 @@
    {
      display:block;
      color:red;
-     position: absolute;
-     top: 320px;
+     position: fixed;
+     top: 70%;
      left: 7%;
    }
 

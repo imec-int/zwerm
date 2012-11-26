@@ -52,131 +52,156 @@ li a.active {
 /*
  * Navigation bar
  */
-/* line 67, ../sass/navigation.scss */
-#navigation {
-  display: block;
-  float: none;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-  padding-top: 40px;
+@media all and (max-width: 629px) {
+  /* line 67, ../sass/navigation.scss */
+  #navigation {
+    display: block;
+    float: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    padding-top: 40px;
+  }
+  /* line 79, ../sass/navigation.scss */
+  #navigation .block {
+    margin-bottom: 0;
+  }
+  /* line 84, ../sass/navigation.scss */
+  #navigation .block-menu .block-title,
+  #navigation .block-menu-block .block-title {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+  /* line 89, ../sass/navigation.scss */
+  #navigation ul.links,
+  #navigation ul.menu {
+    /* Menu block links */
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    /* LTR */
+  }
+  /* line 94, ../sass/navigation.scss */
+  #navigation ul.links li,
+  #navigation ul.menu li {
+    /* A simple method to get navigation links to appear in one line. */
+    float: left;
+    /* LTR */
+    list-style-type: none;
+    list-style-image: none;
+  }
+  /* line 107, ../sass/navigation.scss */
+  #navigation .selectedItem {
+    background-color: #7fb083;
+  }
+  /* line 112, ../sass/navigation.scss */
+  #navigation #Info {
+    background-image: url(../images/info.png);
+    background-position-x: 50%;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+    background-size: 50%;
+  }
+  /* line 119, ../sass/navigation.scss */
+  #navigation #Speel {
+    background-image: url(../images/spelen.png);
+    background-position-x: 50%;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+    background-size: 60%;
+  }
+  /* line 126, ../sass/navigation.scss */
+  #navigation #Teams {
+    background-image: url(../images/teams.png);
+    background-position-x: 50%;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+    background-size: 70%;
+  }
+  /* line 133, ../sass/navigation.scss */
+  #navigation #Score {
+    background-image: url(../images/score.png);
+    background-position-x: 50%;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+    background-size: 70%;
+  }
+  /* line 140, ../sass/navigation.scss */
+  #navigation #Inbox {
+    background-image: url(../images/berichten.png);
+    background-position-x: 50%;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+  /* line 149, ../sass/navigation.scss */
+  #navigation li {
+    display: block;
+    height: 100px;
+    padding: 0 0px 0 0;
+    background-color: #84B7C2;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    line-height: 188px;
+    box-align: center;
+  }
+  /* line 163, ../sass/navigation.scss */
+  #navigation li a:link {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  /* line 170, ../sass/navigation.scss */
+  #navigation li a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-bottom: 5px;
+  }
 }
-/* line 79, ../sass/navigation.scss */
-#navigation .block {
-  margin-bottom: 0;
+@media all and (min-width: 630px) {
+  /* line 182, ../sass/navigation.scss */
+  #navigation {
+    position: fixed;
+    background-color: #7fb083;
+    z-index: 21;
+    width: 100%;
+    background-image: url("../images/menu_icon.png");
+    background-size: 23px;
+    background-position-y: 3px;
+    background-position-x: 3px;
+    background-repeat: no-repeat;
+  }
+  /* line 193, ../sass/navigation.scss */
+  #navigation #main-menu {
+    width: 100%;
+    margin-left: 10%;
+    width: 80%;
+  }
+  /* line 202, ../sass/navigation.scss */
+  #navigation li {
+    float: left;
+  }
 }
-/* line 84, ../sass/navigation.scss */
-#navigation .block-menu .block-title,
-#navigation .block-menu-block .block-title {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-/* line 89, ../sass/navigation.scss */
-#navigation ul.links,
-#navigation ul.menu {
-  /* Menu block links */
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  /* LTR */
-}
-/* line 94, ../sass/navigation.scss */
-#navigation ul.links li,
-#navigation ul.menu li {
-  /* A simple method to get navigation links to appear in one line. */
-  float: left;
-  /* LTR */
-  list-style-type: none;
-  list-style-image: none;
-}
-/* line 107, ../sass/navigation.scss */
-#navigation .selectedItem {
-  background-color: #7fb083;
-}
-/* line 112, ../sass/navigation.scss */
-#navigation #Info {
-  background-image: url(../images/info.png);
-  background-position-x: 50%;
-  background-position-y: 20px;
-  background-repeat: no-repeat;
-  background-size: 50%;
-}
-/* line 119, ../sass/navigation.scss */
-#navigation #Speel {
-  background-image: url(../images/spelen.png);
-  background-position-x: 50%;
-  background-position-y: 20px;
-  background-repeat: no-repeat;
-  background-size: 60%;
-}
-/* line 126, ../sass/navigation.scss */
-#navigation #Teams {
-  background-image: url(../images/teams.png);
-  background-position-x: 50%;
-  background-position-y: 20px;
-  background-repeat: no-repeat;
-  background-size: 70%;
-}
-/* line 133, ../sass/navigation.scss */
-#navigation #Score {
-  background-image: url(../images/score.png);
-  background-position-x: 50%;
-  background-position-y: 20px;
-  background-repeat: no-repeat;
-  background-size: 70%;
-}
-/* line 140, ../sass/navigation.scss */
-#navigation #Inbox {
-  background-image: url(../images/berichten.png);
-  background-position-x: 50%;
-  background-position-y: 20px;
-  background-repeat: no-repeat;
-  background-size: 80%;
-}
-/* line 149, ../sass/navigation.scss */
-#navigation li {
-  display: block;
-  height: 100px;
-  padding: 0 0px 0 0;
-  background-color: #84B7C2;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 5px;
-  margin: 5px;
-  text-align: center;
-  line-height: 188px;
-  box-align: center;
-}
-/* line 163, ../sass/navigation.scss */
-#navigation li a:link {
-  color: #FFFFFF;
-  text-decoration: none;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-}
-/* line 170, ../sass/navigation.scss */
-#navigation li a:visited {
-  color: #FFFFFF;
-  text-decoration: none;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  padding-bottom: 5px;
-}
-
 /*
- * Main menu and Secondary menu links
- */
-/* line 186, ../sass/navigation.scss */
+* Main menu and Secondary menu links
+*/
+/* line 212, ../sass/navigation.scss */
 #main-menu {
   width: 100%;
   margin-left: 2%;
 }
 
-/* line 191, ../sass/navigation.scss */
+/* line 217, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */

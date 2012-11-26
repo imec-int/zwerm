@@ -61,7 +61,7 @@ body {
 #header {
   background-color: $header-color;
   position: fixed;
-  height : $header-height;
+  height : $header-height-small-viewport;
   width : 100%;
   z-index:20;
   #header_align
@@ -187,7 +187,7 @@ body {
  */
 
 #content {
-  padding-top: $header-height;
+  padding-top: $header-height-small-viewport;
 }
 
 .region-highlighted {
@@ -448,14 +448,15 @@ a {
     background-size: 10%;
     background-repeat: no-repeat;
     background-position: center;
-    height : $header-height * 2;
+    background-size: $logo-width-large-viewport;
+    height : $header-height-large-viewport;
     display:block;
   }
 
   #type_page, #type_nodetype_event {
     height: 100%;
     background-color: black;
-    padding-top:$header-height;
+    padding-top:$header-height-large-viewport;
 
 
   }
@@ -467,15 +468,13 @@ a {
 
   .region-sidebar-first
   {
-    padding-top: $header-height;
+    padding-top: $header-height-large-viewport;
   }
 
-  #footer
-  {
-    background-color: $green-marking-color;
-    height : $header-height * 4;
-  }
+
 }
+
+
 
 
 

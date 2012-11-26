@@ -104,7 +104,16 @@ $indent-amount: 30px;
 $end_of_small_viewport : 629px;
 $start_of_large_viewport : 630px;
 
-$header-height : 40px;
+//small viewport
+$header-height-small-viewport: 40px;
+
+
+//large viewport
+$header-height-large-viewport : 25%;
+$logo-width-large-viewport : 20%;
+
+
+//common
 $li-height : 60px;
 $score-navbar-height : 60px;
 $pages-title-top-padding : 45px;

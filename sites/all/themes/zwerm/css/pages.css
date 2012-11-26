@@ -477,30 +477,25 @@ a {
     background-size: 10%;
     background-repeat: no-repeat;
     background-position: center;
-    height: 80px;
+    background-size: 20%;
+    height: 25%;
     display: block;
   }
 
-  /* line 455, ../sass/pages.scss */
+  /* line 456, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
     background-color: black;
-    padding-top: 40px;
+    padding-top: 25%;
   }
 
-  /* line 464, ../sass/pages.scss */
+  /* line 465, ../sass/pages.scss */
   #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
     display: none;
   }
 
-  /* line 469, ../sass/pages.scss */
+  /* line 470, ../sass/pages.scss */
   .region-sidebar-first {
-    padding-top: 40px;
-  }
-
-  /* line 474, ../sass/pages.scss */
-  #footer {
-    background-color: #7fb083;
-    height: 160px;
+    padding-top: 25%;
   }
 }
