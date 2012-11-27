@@ -358,7 +358,7 @@
     function scoga_service_network_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_network_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.network.inc', 'scoga', 'api/scoga' );
-        return scoga_create_network_vo();
+        return scoga_get_current_relationships();
     }
 
     /**

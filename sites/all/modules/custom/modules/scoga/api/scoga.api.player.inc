@@ -314,6 +314,6 @@
     /**
      *
      */
-    function scoga_reset_user_relationships(){
-        db_query( 'TRUNCATE {user_relationships}' );
-    }
+//    function scoga_reset_user_relationships(){
+//        db_query( 'TRUNCATE {user_relationships}' );
+//    }
