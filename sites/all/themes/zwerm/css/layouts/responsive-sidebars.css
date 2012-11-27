@@ -131,7 +131,7 @@
 
   /* line 154, ../../sass/layouts/responsive-sidebars.scss */
   #main {
-    /* Span 3 columns, starting in 2nd column from left. */
+    /* Span 5 columns, starting in 2nd column from left. */
     background-color: white;
     float: left;
     width: 100%;
@@ -144,9 +144,9 @@
   /* line 164, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     float: left;
-    width: 66.66667%;
-    margin-left: 16.66667%;
-    margin-right: -83.33333%;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: -80%;
   }
 
   /* line 170, ../../sass/layouts/responsive-sidebars.scss */

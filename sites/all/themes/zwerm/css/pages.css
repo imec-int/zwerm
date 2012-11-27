@@ -484,7 +484,7 @@ a {
 
   /* line 459, ../sass/pages.scss */
   #content {
-    position: fixed;
+    position: absolute;
     top: 25.2%;
   }
 
