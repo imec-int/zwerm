@@ -15,16 +15,30 @@
             $i = 0;
             foreach ($items as $key=>$item)
             {
+                $classes;
                 //paths are for /get_points
                 if (isset($paths))
                 {
+                    $id='';
                     if ($paths != '')
                     {
                         $path = $paths[$i];
-                        print("<li  onmousedown=\"li_mousedown('".$path."',this);\"> <div class=\"link_truncated\">".$item."</div></li>");
+
+                        if ($path==false)
+                        {
+                            $classes .= ' list_header';
+                            print("<li class='".$classes."''>".$item."</li>");
+                        }
+                        else
+                        {
+                            if (strpos($item,t('Wish'))!=false)
+                                $classes .= ' wish';
+                            //print("<li  onmousedown=\"li_mousedown('".$path."',this);\"> <div class=\"".$classes."\">".$item."</div></li>");
+                            print("<li class=\"".$classes."\" onmousedown=\"li_mousedown('".$path."',this);\"><div class=link_truncated>".$item."</div></li>");
+                        }
                     }
                 }
-                //if there are no pathsm the case for /not_partner applies
+                //if there are no paths the case for /not_partner applies
                 //todo split the template files in one for /not_partner and one for /get_points
                 else
                 {

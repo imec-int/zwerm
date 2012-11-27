@@ -34,6 +34,16 @@
             }
         });
 
+        jQuery(".wish").hide();
+        //toggle the component with class msg_body
+        jQuery(".list_header").click(function()
+        {
+            //jQuery(this).next(".title").slideToggle(500);
+            jQuery(".wish").slideToggle(500);
+            //ev.preventDefault();
+        });
+
+
     });
 
 })(jQuery, Drupal, this, this.document);
