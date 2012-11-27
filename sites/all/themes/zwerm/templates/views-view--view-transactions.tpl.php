@@ -63,6 +63,7 @@
             'attributes' => array('class'=> array('links', 'menu-score-navigation-bar')) ));
         ?>
     </div>
+
     <?php if ($rows): ?>
     <div class="view-content">
         <?php print $rows; ?>
@@ -76,6 +77,7 @@
     <?php if ($pager): ?>
     <?php print $pager; ?>
     <?php endif; ?>
+
 
     <?php if ($attachment_after): ?>
     <div class="attachment attachment-after">

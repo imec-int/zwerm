@@ -1,0 +1,102 @@
+@import "base";
+
+.page-user.not-logged-in
+{
+
+   background-color:$footer-color;
+   background-image : url(../images/zwerm_logo_transp_background.png);
+   background-size: 40%;
+   background-position-x: 50%;
+  background-position-y: 10%;
+   background-repeat: no-repeat;
+
+   h1,.form-required,.description, #header, #footer,  a[href*="register"],
+   .active
+   {
+     display:none;
+   }
+
+   #user-login
+   {
+     margin-top: 35%;
+     .form-item-name
+     {
+       position:relative;
+       label
+       {
+         position:absolute;
+         top:9px;
+         left:7%;
+         color:#aaa;
+       }
+     }
+     .form-item-pass
+     {
+       position:relative;
+       label
+       {
+         position:absolute;
+         top:9px;
+         left:7%;
+         color:#aaa;
+       }
+     }
+
+     input
+     {
+       border-radius: 4px;
+       height: 35px;
+       /*width: 90%;
+       margin-left: 5%;
+       margin-right: 5%;  */
+     }
+
+     .form-item
+     {
+       width: 90%;
+       margin-left: 3%;
+       margin-right: 5%;
+     }
+   }
+
+   #edit-submit {
+     background-color: $green-marking-color;
+     color:white;
+     border-radius: 4px;
+     position: fixed;
+     top:90%;
+   }
+
+   #edit-actions
+   {
+     width:97%;
+     margin-left: 3%;
+   }
+
+   a[href*="password"]
+   {
+     display:block;
+     color:red;
+     position: fixed;
+     top: 70%;
+     left: 7%;
+   }
+
+   .tabs
+   {
+     display:block;
+     background-color: transparent;
+     li
+     {
+       background-color: transparent;
+       width:100%;
+       a
+       {
+         text-align:left;
+       }
+     }
+   }
+
+
+
+}

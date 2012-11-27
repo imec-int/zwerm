@@ -1,8 +1,24 @@
 @import "base";
 
-.page-get-points
+
+@media all and (max-width: $end_of_small_viewport) {
+  .page-get-points
+  {
+    background-color: #000000;
+  }
+}
+
+
+@media all and (min-width: $start_of_large_viewport) {
+  .page-get-points
+  {
+    background-color: #ffffff;
+  }
+}
+
+
+  .page-get-points
 {
-  background-color: #000000;
 
   #page-title
   {
@@ -57,5 +73,13 @@
     }
   }
 
+  .link_truncated {
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
+  }
 
 }
