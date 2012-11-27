@@ -15,7 +15,7 @@
             $i = 0;
             foreach ($items as $key=>$item)
             {
-                $classes;
+                $classes = '';
                 //paths are for /get_points
                 if (isset($paths))
                 {
@@ -26,13 +26,22 @@
 
                         if ($path==false)
                         {
-                            $classes .= ' list_header';
-                            print("<li class='".$classes."''>".$item."</li>");
+                            if (strpos($item,'wish')!=false)
+                            {
+                                $classes .= ' list_header_wish';
+                            }
+                            if (strpos($item,'event')!=false)
+                            {
+                                $classes .= ' list_header_event';
+                            }
+                            print("<li class=\"".$classes."\">".$item."</li>");
                         }
                         else
                         {
                             if (strpos($item,t('Wish'))!=false)
                                 $classes .= ' wish';
+                            if (strpos($item,'Event')!=false)
+                                $classes .= ' event';
                             //print("<li  onmousedown=\"li_mousedown('".$path."',this);\"> <div class=\"".$classes."\">".$item."</div></li>");
                             print("<li class=\"".$classes."\" onmousedown=\"li_mousedown('".$path."',this);\"><div class=link_truncated>".$item."</div></li>");
                         }

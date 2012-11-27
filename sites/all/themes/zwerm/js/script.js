@@ -35,12 +35,15 @@
         });
 
         jQuery(".wish").hide();
-        //toggle the component with class msg_body
-        jQuery(".list_header").click(function()
+        jQuery(".list_header_wish").click(function()
         {
-            //jQuery(this).next(".title").slideToggle(500);
             jQuery(".wish").slideToggle(500);
-            //ev.preventDefault();
+        });
+
+        jQuery(".event").hide();
+        jQuery(".list_header_event").click(function()
+        {
+            jQuery(".event").slideToggle(500);
         });
 
 

@@ -60,6 +60,8 @@
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';
         //todo : add link to active geo challenges
+        $assignment_titles[] = t('Active events');
+        $assignment_paths[] = '';
         //add links to active events
         _scoga_add_content_type_to_output('nodetype_event','Event',&$assignment_titles,&$assignment_paths);
         //add links to active questions
