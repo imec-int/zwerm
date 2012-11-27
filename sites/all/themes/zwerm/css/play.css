@@ -3,11 +3,19 @@
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
 }
 
-/* line 4, ../sass/play.scss */
-.page-get-points {
-  background-color: #000000;
+@media all and (max-width: 629px) {
+  /* line 6, ../sass/play.scss */
+  .page-get-points {
+    background-color: #000000;
+  }
 }
-/* line 8, ../sass/play.scss */
+@media all and (min-width: 630px) {
+  /* line 14, ../sass/play.scss */
+  .page-get-points {
+    background-color: #ffffff;
+  }
+}
+/* line 24, ../sass/play.scss */
 .page-get-points #page-title {
   background-color: #333333;
   color: white;
@@ -18,18 +26,18 @@
   line-height: 2.6em;
   letter-spacing: 2px;
 }
-/* line 13, ../sass/play.scss */
+/* line 29, ../sass/play.scss */
 .page-get-points #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 18, ../sass/play.scss */
+/* line 34, ../sass/play.scss */
 .page-get-points #content li {
   height: 60px;
   background-color: white;
   margin-bottom: 3px;
 }
-/* line 25, ../sass/play.scss */
+/* line 41, ../sass/play.scss */
 .page-get-points #content li:after {
   content: ">";
   display: inline;
@@ -38,22 +46,31 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 35, ../sass/play.scss */
+/* line 51, ../sass/play.scss */
 .page-get-points #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 44, ../sass/play.scss */
+/* line 60, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
   white-space: nowrap;
 }
-/* line 49, ../sass/play.scss */
+/* line 65, ../sass/play.scss */
 .page-get-points #content #select_list a {
   line-height: 3.8em;
 }
-/* line 55, ../sass/play.scss */
+/* line 71, ../sass/play.scss */
 .page-get-points #content #main-content {
   display: none;
+}
+/* line 76, ../sass/play.scss */
+.page-get-points .link_truncated {
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
 }

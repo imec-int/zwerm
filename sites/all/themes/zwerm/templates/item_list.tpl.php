@@ -21,7 +21,7 @@
                     if ($paths != '')
                     {
                         $path = $paths[$i];
-                        print("<li onmousedown=\"li_mousedown('".$path."',this);\">".$item."</li>");
+                        print("<li  onmousedown=\"li_mousedown('".$path."',this);\"> <div class=\"link_truncated\">".$item."</div></li>");
                     }
                 }
                 //if there are no pathsm the case for /not_partner applies
