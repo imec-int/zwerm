@@ -34,13 +34,31 @@
     }
   }
 
-  li:nth-child(3),li:nth-child(4)
+  tr.odd
   {
-    display:none;
+    background-color:$green-marking-color;
+  }
+
+  #content .tabs
+  {
+    li:nth-child(3),li:nth-child(4)
+    {
+      display:none;
+    }
   }
 
   #edit-operation
   {
     display:none;
+  }
+
+  .privatemsg-list-subject
+  {
+    padding-left: 13px;
+  }
+
+  .container-inline, .form-type-checkbox,.form-checkbox
+  {
+    display: none;
   }
 }

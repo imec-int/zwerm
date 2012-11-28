@@ -152,7 +152,7 @@ $zen-column-count: 5;
 
 
   #main{ /* Span 5 columns, starting in 2nd column from left. */
-    background-color : white;
+    background-color : $white-background-color;
     @include zen-grid-item(5, 1);
     @include zen-clear();
     //needed for floating footer
@@ -163,6 +163,7 @@ $zen-column-count: 5;
 
   #content {
     @include zen-grid-item(3, 2);
+    //@include zen-grid-item(5, 1);
   }
 
   .sidebar-first {

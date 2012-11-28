@@ -25,10 +25,22 @@
   color: black;
 }
 /* line 38, ../sass/messages.scss */
-.page-messages li:nth-child(3), .page-messages li:nth-child(4) {
+.page-messages tr.odd {
+  background-color: #7fb083;
+}
+/* line 45, ../sass/messages.scss */
+.page-messages #content .tabs li:nth-child(3), .page-messages #content .tabs li:nth-child(4) {
   display: none;
 }
-/* line 43, ../sass/messages.scss */
+/* line 51, ../sass/messages.scss */
 .page-messages #edit-operation {
+  display: none;
+}
+/* line 56, ../sass/messages.scss */
+.page-messages .privatemsg-list-subject {
+  padding-left: 13px;
+}
+/* line 61, ../sass/messages.scss */
+.page-messages .container-inline, .page-messages .form-type-checkbox, .page-messages .form-checkbox {
   display: none;
 }

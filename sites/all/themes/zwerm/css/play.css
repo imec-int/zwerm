@@ -25,14 +25,13 @@
   .page-get-points {
     background-color: #ffffff;
   }
-
-  /* line 32, ../sass/play.scss */
-  #content li {
+  /* line 30, ../sass/play.scss */
+  .page-get-points #content li {
     height: 60px;
     background-color: white;
   }
 }
-/* line 45, ../sass/play.scss */
+/* line 46, ../sass/play.scss */
 .page-get-points #page-title {
   background-color: #333333;
   color: white;
@@ -43,25 +42,25 @@
   line-height: 2.6em;
   letter-spacing: 2px;
 }
-/* line 50, ../sass/play.scss */
+/* line 51, ../sass/play.scss */
 .page-get-points #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 55, ../sass/play.scss */
+/* line 56, ../sass/play.scss */
 .page-get-points #content ul {
   border-top-style: none;
 }
-/* line 60, ../sass/play.scss */
+/* line 61, ../sass/play.scss */
 .page-get-points #content .list_header {
   padding-top: 16px;
   padding-left: 26px;
 }
-/* line 66, ../sass/play.scss */
+/* line 67, ../sass/play.scss */
 .page-get-points #content li.list_header_event, .page-get-points #content li.list_header_wish, .page-get-points #content li.list_header_question {
   background-color: #7fb083;
 }
-/* line 71, ../sass/play.scss */
+/* line 72, ../sass/play.scss */
 .page-get-points #content li:after {
   content: ">";
   display: inline;
@@ -70,26 +69,26 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 81, ../sass/play.scss */
+/* line 82, ../sass/play.scss */
 .page-get-points #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 90, ../sass/play.scss */
+/* line 91, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
   white-space: nowrap;
 }
-/* line 95, ../sass/play.scss */
+/* line 96, ../sass/play.scss */
 .page-get-points #content #select_list a {
   line-height: 3.8em;
 }
-/* line 101, ../sass/play.scss */
+/* line 102, ../sass/play.scss */
 .page-get-points #content #main-content {
   display: none;
 }
-/* line 106, ../sass/play.scss */
+/* line 107, ../sass/play.scss */
 .page-get-points .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
