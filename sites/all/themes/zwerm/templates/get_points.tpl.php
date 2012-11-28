@@ -9,8 +9,12 @@
     foreach ($assignment_titles as $title)
     {
         $path = $assignment_paths[$i];
-        $assignment_link = l($title,$path);
+        if ($path!=false)
+            $assignment_link = l($title,$path);
+        else
+            $assignment_link = $title;
         $assignment_links[] = $assignment_link;
+
         $i = $i +1;
     }
     $variables ['items'] = $assignment_links;
