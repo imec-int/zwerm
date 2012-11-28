@@ -17,7 +17,7 @@
 }
 
 
-  .page-get-points
+.page-get-points
 {
 
   #page-title
@@ -80,6 +80,11 @@
     white-space: nowrap;
     overflow: hidden;
     vertical-align: top;
+  }
+  .list_header
+  {
+    padding-top: 16px;
+    padding-left: 26px;
   }
 
 }

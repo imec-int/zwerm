@@ -74,3 +74,8 @@
   overflow: hidden;
   vertical-align: top;
 }
+/* line 85, ../sass/play.scss */
+.page-get-points .list_header {
+  padding-top: 16px;
+  padding-left: 26px;
+}

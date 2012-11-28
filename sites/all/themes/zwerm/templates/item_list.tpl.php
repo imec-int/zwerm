@@ -34,7 +34,7 @@
                             {
                                 $classes .= ' list_header_event';
                             }
-                            print("<li class=\"".$classes."\">".$item."</li>");
+                            print("<li class=\"".$classes."\"><div class=link_truncated>".$item."</div></li>");
                         }
                         else
                         {
