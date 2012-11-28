@@ -46,6 +46,12 @@
             jQuery(".event").slideToggle(500);
         });
 
+        jQuery(".question").hide();
+        jQuery(".list_header_question").click(function()
+        {
+            jQuery(".question").slideToggle(500);
+        });
+
 
     });
 

@@ -6,6 +6,16 @@
   {
     background-color: #000000;
   }
+
+  #content
+  {
+    li
+    {
+      height:$li-height;
+      background-color:white;
+      margin-bottom: 3px;
+    }
+  }
 }
 
 
@@ -13,6 +23,16 @@
   .page-get-points
   {
     background-color: #ffffff;
+  }
+
+  #content
+  {
+    li
+    {
+      height:$li-height;
+      background-color:white;
+      //margin-bottom: 3px;
+    }
   }
 }
 
@@ -30,11 +50,20 @@
     padding-left: 0px;
     padding-right: 0px;
 
-    li
+    ul
     {
-      height:$li-height;
-      background-color:white;
-      margin-bottom: 3px;
+      border-top-style: none;
+    }
+
+    .list_header
+    {
+      padding-top: 16px;
+      padding-left: 26px;
+    }
+
+    li.list_header_event, li.list_header_wish, li.list_header_question
+    {
+      background-color: $green-marking-color;
     }
 
     li:after
@@ -81,10 +110,6 @@
     overflow: hidden;
     vertical-align: top;
   }
-  .list_header
-  {
-    padding-top: 16px;
-    padding-left: 26px;
-  }
+
 
 }
