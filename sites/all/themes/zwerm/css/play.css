@@ -93,7 +93,7 @@
 .page-get-points .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
-  width: 90%;
+  width: 85%;
   white-space: nowrap;
   overflow: hidden;
   vertical-align: top;
