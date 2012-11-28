@@ -9,7 +9,11 @@
     background-color: #000000;
   }
 
-  /* line 13, ../sass/play.scss */
+  /* line 11, ../sass/play.scss */
+  #content {
+    padding-top: 0px;
+  }
+  /* line 14, ../sass/play.scss */
   #content li {
     height: 60px;
     background-color: white;
@@ -17,18 +21,18 @@
   }
 }
 @media all and (min-width: 630px) {
-  /* line 24, ../sass/play.scss */
+  /* line 25, ../sass/play.scss */
   .page-get-points {
     background-color: #ffffff;
   }
 
-  /* line 31, ../sass/play.scss */
+  /* line 32, ../sass/play.scss */
   #content li {
     height: 60px;
     background-color: white;
   }
 }
-/* line 44, ../sass/play.scss */
+/* line 45, ../sass/play.scss */
 .page-get-points #page-title {
   background-color: #333333;
   color: white;
@@ -39,25 +43,25 @@
   line-height: 2.6em;
   letter-spacing: 2px;
 }
-/* line 49, ../sass/play.scss */
+/* line 50, ../sass/play.scss */
 .page-get-points #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 54, ../sass/play.scss */
+/* line 55, ../sass/play.scss */
 .page-get-points #content ul {
   border-top-style: none;
 }
-/* line 59, ../sass/play.scss */
+/* line 60, ../sass/play.scss */
 .page-get-points #content .list_header {
   padding-top: 16px;
   padding-left: 26px;
 }
-/* line 65, ../sass/play.scss */
+/* line 66, ../sass/play.scss */
 .page-get-points #content li.list_header_event, .page-get-points #content li.list_header_wish, .page-get-points #content li.list_header_question {
   background-color: #7fb083;
 }
-/* line 70, ../sass/play.scss */
+/* line 71, ../sass/play.scss */
 .page-get-points #content li:after {
   content: ">";
   display: inline;
@@ -66,26 +70,26 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 80, ../sass/play.scss */
+/* line 81, ../sass/play.scss */
 .page-get-points #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 89, ../sass/play.scss */
+/* line 90, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
   white-space: nowrap;
 }
-/* line 94, ../sass/play.scss */
+/* line 95, ../sass/play.scss */
 .page-get-points #content #select_list a {
   line-height: 3.8em;
 }
-/* line 100, ../sass/play.scss */
+/* line 101, ../sass/play.scss */
 .page-get-points #content #main-content {
   display: none;
 }
-/* line 105, ../sass/play.scss */
+/* line 106, ../sass/play.scss */
 .page-get-points .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
