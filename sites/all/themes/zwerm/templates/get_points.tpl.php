@@ -18,5 +18,5 @@
         $i = $i +1;
     }
     $variables ['items'] = $assignment_links;
-    print theme('item_list',$variables);
+    print theme('item_list_get_points',$variables);
 ?>
