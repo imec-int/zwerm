@@ -353,5 +353,12 @@
         //$relationship_type is updated by reference
         user_relationships_type_save( $relationship_type );
 
+        //grant permissions
+        $permissions = array();
+        $permissions[ 'can have '       . $relationship_type->name . ' relationships' ] = TRUE;
+        $permissions[ 'can request '    . $relationship_type->name . ' relationships' ] = TRUE;
+        $permissions[ 'view all '       . $relationship_type->name . ' relationships' ] = TRUE;
+        user_role_change_permissions( SCOGA_PLAYER_ROLE, $permissions );
+
         return $relationship_type;
     }
