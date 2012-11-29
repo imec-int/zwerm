@@ -58,6 +58,8 @@
      .get-new-password
      {
        margin-left: 3%;
+       margin-right: 4%;
+       float:right;
        a
        {
          color: red;
@@ -69,13 +71,12 @@
      background-color: $green-marking-color;
      color:white;
      border-radius: 4px;
-     position: fixed;
-     top:90%;
+     //top:90%;
    }
 
    #edit-actions
    {
-     width:97%;
+     width:92%;
      margin-left: 3%;
    }
 
