@@ -20,6 +20,7 @@
     padding-right: 2%;
   }
 
+
   li
   {
     font-size: small;
@@ -51,7 +52,21 @@
     }
 
   }
+}
 
-
+@media all and (max-width: $end_of_small_viewport)
+{
+  #score_nav_bar
+  {
+    li
+    {
+      height:30px;
+      margin-top:22px;
+      a
+      {
+        padding-top: 3px;
+      }
+    }
+  }
 }
 

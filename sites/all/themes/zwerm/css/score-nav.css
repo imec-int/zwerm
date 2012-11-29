@@ -20,7 +20,7 @@
   padding-left: 2%;
   padding-right: 2%;
 }
-/* line 24, ../sass/score-nav.scss */
+/* line 25, ../sass/score-nav.scss */
 #score_nav_bar li {
   font-size: small;
   background-color: #484848;
@@ -32,7 +32,7 @@
   margin-left: 1px;
   margin-right: 1px;
 }
-/* line 37, ../sass/score-nav.scss */
+/* line 38, ../sass/score-nav.scss */
 #score_nav_bar li a {
   color: gray;
   display: block;
@@ -40,7 +40,19 @@
   width: 99%;
   padding-top: 13px;
 }
-/* line 49, ../sass/score-nav.scss */
+/* line 50, ../sass/score-nav.scss */
 #score_nav_bar li a.active {
   color: white;
+}
+
+@media all and (max-width: 629px) {
+  /* line 62, ../sass/score-nav.scss */
+  #score_nav_bar li {
+    height: 30px;
+    margin-top: 22px;
+  }
+  /* line 66, ../sass/score-nav.scss */
+  #score_nav_bar li a {
+    padding-top: 3px;
+  }
 }

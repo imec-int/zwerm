@@ -156,7 +156,7 @@ $zen-column-count: 5;
     @include zen-grid-item(5, 1);
     @include zen-clear();
     //needed for floating footer
-    height : 175%;
+    //height : 175%;
     //width: 980px;
     //color:white;
   }
