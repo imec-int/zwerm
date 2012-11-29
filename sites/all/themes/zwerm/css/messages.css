@@ -17,7 +17,7 @@
 }
 /* line 22, ../sass/messages.scss */
 .page-messages .action-links a {
-  color: black;
+  color: red;
   margin-left: -28px;
 }
 /* line 32, ../sass/messages.scss */
@@ -42,5 +42,10 @@
 }
 /* line 61, ../sass/messages.scss */
 .page-messages .container-inline, .page-messages .form-type-checkbox, .page-messages .form-checkbox {
+  display: none;
+}
+
+/* line 69, ../sass/messages.scss */
+.page-messages-new .description, .page-messages-new #edit-cancel {
   display: none;
 }

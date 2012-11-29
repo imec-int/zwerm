@@ -7,7 +7,7 @@
    background-image : url(../images/zwerm_logo_transp_background.png);
    background-size: 40%;
    background-position-x: 50%;
-  background-position-y: 10%;
+   background-position-y: 10%;
    background-repeat: no-repeat;
 
    h1,.form-required,.description, #header, #footer,  a[href*="register"],
@@ -46,9 +46,6 @@
      {
        border-radius: 4px;
        height: 35px;
-       /*width: 90%;
-       margin-left: 5%;
-       margin-right: 5%;  */
      }
 
      .form-item
@@ -56,6 +53,15 @@
        width: 90%;
        margin-left: 3%;
        margin-right: 5%;
+     }
+
+     .get-new-password
+     {
+       margin-left: 3%;
+       a
+       {
+         color: red;
+       }
      }
    }
 
@@ -73,30 +79,8 @@
      margin-left: 3%;
    }
 
-   a[href*="password"]
+   #content .tabs
    {
-     display:block;
-     color:red;
-     position: fixed;
-     top: 70%;
-     left: 7%;
+     display:none;
    }
-
-   .tabs
-   {
-     display:block;
-     background-color: transparent;
-     li
-     {
-       background-color: transparent;
-       width:100%;
-       a
-       {
-         text-align:left;
-       }
-     }
-   }
-
-
-
 }

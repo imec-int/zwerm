@@ -20,7 +20,7 @@
     }
     a
     {
-      color:black;
+      color:red;
       margin-left: -28px;
 
     }
@@ -60,5 +60,13 @@
   .container-inline, .form-type-checkbox,.form-checkbox
   {
     display: none;
+  }
+}
+
+.page-messages-new
+{
+  .description, #edit-cancel
+  {
+    display:none;
   }
 }

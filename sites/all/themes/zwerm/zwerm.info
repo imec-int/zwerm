@@ -55,7 +55,6 @@ stylesheets[all][] = css/page-backgrounds.css
 stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/wish.css
 stylesheets[all][] = css/messages-new.css
-stylesheets[all][] = css/user.css
 stylesheets[all][] = css/frontpage.css
 stylesheets[all][] = css/team-view.css
 stylesheets[all][] = css/blocks.css
@@ -74,6 +73,8 @@ stylesheets[all][] = css/events.css
 stylesheets[all][] = css/score-nav.css
 stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/messages.css
+stylesheets[all][] = css/login.css
+stylesheets[all][] = css/user.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
 
 ;stylesheets[all][] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.css
