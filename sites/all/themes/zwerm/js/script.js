@@ -34,6 +34,25 @@
             }
         });
 
+        jQuery(".wish").hide();
+        jQuery(".list_header_wish").click(function()
+        {
+            jQuery(".wish").slideToggle(500);
+        });
+
+        jQuery(".event").hide();
+        jQuery(".list_header_event").click(function()
+        {
+            jQuery(".event").slideToggle(500);
+        });
+
+        jQuery(".question").hide();
+        jQuery(".list_header_question").click(function()
+        {
+            jQuery(".question").slideToggle(500);
+        });
+
+
     });
 
 })(jQuery, Drupal, this, this.document);

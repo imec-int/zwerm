@@ -15,5 +15,10 @@ function scoga_theme_info($existing, $type, $theme, $path)
             'path' =>'templates',
             'template' => 'get_points'
         ),
+        item_list_get_points => array(
+            'variables' => array('assignment_titles' => NULL) ,
+            'path' =>'templates',
+            'template' => 'get_points'
+        )
     );
 }

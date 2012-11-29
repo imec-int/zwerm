@@ -8,16 +8,15 @@
     $assignment_links = array();
     foreach ($assignment_titles as $title)
     {
-        //$title_crop_treshold = 20;
-        /*if (strlen($title)>$title_crop_treshold)
-        {
-            $title = substr($title,0,$title_crop_treshold).'...';
-        } */
         $path = $assignment_paths[$i];
-        $assignment_link = l($title,$path);
+
+        if ($path!=false)
+            $assignment_link = l($title,$path);
+        else
+            $assignment_link = "<div class='list_header'>".$title."</div>";
         $assignment_links[] = $assignment_link;
         $i = $i +1;
     }
     $variables ['items'] = $assignment_links;
-    print theme('item_list',$variables);
+    print theme('item_list_get_points',$variables);
 ?>
