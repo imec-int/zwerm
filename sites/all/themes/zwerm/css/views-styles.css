@@ -104,7 +104,6 @@ tr.loggedInUser {
 /* line 98, ../sass/views-styles.scss */
 .page-leaderboard .view, .page-team-players .view, .page-points-in-campaign .view {
   width: 100%;
-  margin-top: -24px;
 }
 /* line 104, ../sass/views-styles.scss */
 .page-leaderboard tr, .page-team-players tr, .page-points-in-campaign tr {
