@@ -23,10 +23,11 @@
      * @return Result
      */
     function scoga_register_checkin( $card_id, $reader_id ){
-
+        ddl( '--- scoga_register_checkin ---');
         $output = new Result();
 
         $current_campaign_nid = scoga_get_current_campaign_nid();
+//        ddl( $current_campaign_nid, '$current_campaign_nid');
         if( !$current_campaign_nid ){
             $output->message = t( 'no campaign is running at the moment' );
             $output->code = CODE_NO_CAMPAIGN;
@@ -38,6 +39,7 @@
         */
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         $user_account = scoga_get_player_entity_by_card_id( $card_id );
+//        ddl( $user_account, '$user_account');
         if( !$user_account ){
             $output->message = t( "card @card_id not registered", array( '@card_id' => $card_id ) );
             $output->code = CODE_CARD_NOT_REGISTERED;
@@ -64,6 +66,7 @@
         */
         module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
+//        ddl( $reader_node, '$reader_node');
 
         if( !$reader_node ){
             $output->message = t( "invalid RFID reader with id @reader_id", array( '@reader_id' => $reader_id ) );
@@ -76,6 +79,8 @@
         */
         $users_points = array();
         $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid );
+//        ddl( $checkin_node, '$checkin_node');
+
         if( scoga_player_has_cooled_down( $user_account ) ){
             $output->message =  t( 'checkin' );
             $output->code = CODE_CHECKIN_SUCCESS;
@@ -90,6 +95,7 @@
 
 
         $relationships_list = scoga_evaluate_checkin_node_for_combo( $checkin_node->created, $reader_node->nid, $user_account, $current_campaign_nid );
+//        ddl( $relationships_list, '$relationships_list');
 
         $checkin_vo = new Checkin();
         $checkin_vo->nid = $checkin_node->nid;
@@ -106,7 +112,7 @@
                 $transaction_node = scoga_award_points_to_user( $relationship_vo->requestee_id , scoga_get_combocheckin_reward(), $output->message );
                 $others_points[] = scoga_create_transaction_vo( $transaction_node );
             }
-            $checkin_node->type = 'combo';
+            scoga_set_field_value( $checkin_node, 'field_checkin_type', 'combo' );
             $checkin_node->status=1;
         }
 
@@ -127,7 +133,10 @@
         $index = 0;
         $combo_uids = array();
         $comparison_time = $new_time;
-        while( $old_checkin_node = scoga_get_checkin_node_by_index( $index++, 'DESC' ) ){
+
+        //we need to skip the newly created node, so pre-increment index
+        while( $old_checkin_node = scoga_get_checkin_node_by_index( ++$index, 'DESC' ) ){
+//            ddl( $old_checkin_node, 'iteration '. $index );
 
             //sequence of checks is of importance, both for optimal performance
             //but also logic
@@ -139,18 +148,21 @@
             //should be during same campaign, otherwise exit
             $old_campaign_nid = scoga_get_eid_from_field( $old_checkin_node, 'field_checkin_campaign' );
             if( $old_campaign_nid != $new_campaign_nid ){
+//                ddl( 'not during same campaign');
                 break;
             }
 
             //should be same reader, otherwise ignore
             $old_reader_nid = scoga_get_eid_from_field( $old_checkin_node, 'field_checkin_reader' );
             if( $old_reader_nid != $new_reader_nid ){
+//                ddl( 'not same reader');
                 continue;
             }
 
             //should be within time frame, otherwise exit
             $old_time = $old_checkin_node->created;
             if( $old_time + scoga_get_combocheckin_timeframe() < $comparison_time ){
+//                ddl( 'not within time frame');
                 break;
             }else{
                 $comparison_time = $old_time;
@@ -163,6 +175,7 @@
             $old_player_uid = $old_user_account->uid;
             if( $old_player_uid == $new_player_uid ){
                 //invalid uid, clear
+//                ddl( 'same player');
                 $combo_uids = array();
                 break;
             }
@@ -171,6 +184,7 @@
             //(we already know the checkin occurs at same reader, otherwise we wouldn't have gotten here)
             $old_team_nid = scoga_get_eid_from_field( $old_user_account, 'field_user_team',array( 'entity_type'  => 'user' ) );
             if( $old_team_nid != $new_team_nid ){
+//                ddl( 'other team');
                 continue;
             }
 
