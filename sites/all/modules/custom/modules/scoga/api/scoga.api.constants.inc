@@ -12,6 +12,9 @@
     define( 'SCOGA_WISHEDITEM_NODETYPE',        'nodetype_wished_item' );
     define( 'SCOGA_WISHFULFILLED_NODETYPE',     'nodetype_wish_fulfilled' );
     define( 'SCOGA_PAGE_NODETYPE',              'nodetype_service_page');
+    define( 'SCOGA_ARTICLE_NODETYPE',           'article' );
+    define( 'SCOGA_POLL_NODETYPE',              'poll' );
+    define( 'SCOGA_EVENT_NODETYPE',             'nodetype_event' );
 
     //--( SETTINGS )--//
 

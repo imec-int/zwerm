@@ -8,6 +8,13 @@
      */
 
     class Message {
+        static public $types = array(
+            SCOGA_MESSAGES_NODETYPE,
+            SCOGA_ARTICLE_NODETYPE,
+            SCOGA_POLL_NODETYPE,
+            SCOGA_EVENT_NODETYPE,
+        );
+
         public $nid;
         public $uid;
         public $timestamp;
@@ -30,7 +37,7 @@
         $query = new EntityFieldQuery();
         $query
             ->entityCondition( 'entity_type', $entity_type )
-            ->entityCondition( 'bundle', SCOGA_MESSAGES_NODETYPE )
+            ->entityCondition( 'bundle', Message::$types, 'IN' )
             ->propertyOrderBy( 'nid', 'DESC' )
             ->range( 0, 1 );
         $result = $query->execute();
