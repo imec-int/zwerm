@@ -85,7 +85,7 @@ tr.loggedInUser
 
   #main
   {
-    //background-color: #000000;
+    background-color: $white-background-color;
   }
 
   table
@@ -97,7 +97,7 @@ tr.loggedInUser
   .view
   {
     width:100%;
-    margin-top: -24px;
+    //margin-top: -24px;
   }
 
   tr

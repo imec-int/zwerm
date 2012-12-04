@@ -24,17 +24,18 @@
   .page-get-points
   {
     background-color: #ffffff;
-  }
-
-  #content
-  {
-    li
+    #content
     {
-      height:$li-height;
-      background-color:white;
-      //margin-bottom: 3px;
+      li
+      {
+        height:$li-height;
+        background-color:white;
+        //margin-bottom: 3px;
+      }
     }
   }
+
+
 }
 
 

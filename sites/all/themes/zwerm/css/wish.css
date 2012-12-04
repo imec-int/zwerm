@@ -31,3 +31,7 @@
 .page-node-add-nodetype-wished-item #edit-body, .node-type-nodetype-wished-item #edit-body {
   width: 101%;
 }
+/* line 37, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .form-field-name-field-wisheditem-image, .node-type-nodetype-wished-item .form-field-name-field-wisheditem-image {
+  display: none;
+}

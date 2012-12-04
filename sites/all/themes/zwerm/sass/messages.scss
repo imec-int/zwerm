@@ -20,7 +20,7 @@
     }
     a
     {
-      color:black;
+      color:red;
       margin-left: -28px;
 
     }
@@ -34,12 +34,38 @@
     }
   }
 
-  li:nth-child(3),li:nth-child(4)
+  tr.odd
+  {
+    background-color:$green-marking-color;
+  }
+
+  #content .tabs
+  {
+    li:nth-child(3),li:nth-child(4)
+    {
+      display:none;
+    }
+  }
+
+  #edit-operation
   {
     display:none;
   }
 
-  #edit-operation
+  .privatemsg-list-subject
+  {
+    padding-left: 13px;
+  }
+
+  .container-inline, .form-type-checkbox,.form-checkbox
+  {
+    display: none;
+  }
+}
+
+.page-messages-new
+{
+  .description, #edit-cancel
   {
     display:none;
   }

@@ -136,13 +136,12 @@
   /* line 154, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 5 columns, starting in 2nd column from left. */
-    background-color: white;
+    background-color: #eeeeee;
     float: right;
     width: 100%;
     margin-right: 0%;
     margin-left: -100%;
     clear: right;
-    height: 175%;
   }
 
   /* line 164, ../../sass/layouts/responsive-sidebars.scss */
@@ -153,12 +152,12 @@
     margin-left: -80%;
   }
 
-  /* line 170, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 171, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
   }
 
-  /* line 175, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 176, ../../sass/layouts/responsive-sidebars.scss */
   #footer {
     display: none;
     float: right;

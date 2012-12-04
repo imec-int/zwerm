@@ -92,6 +92,10 @@ tr.loggedInUser {
   padding-left: 0px;
   padding-right: 0px;
 }
+/* line 87, ../sass/views-styles.scss */
+.page-leaderboard #main, .page-team-players #main, .page-points-in-campaign #main {
+  background-color: #eeeeee;
+}
 /* line 92, ../sass/views-styles.scss */
 .page-leaderboard table, .page-team-players table, .page-points-in-campaign table {
   margin-top: 0px;
@@ -100,7 +104,6 @@ tr.loggedInUser {
 /* line 98, ../sass/views-styles.scss */
 .page-leaderboard .view, .page-team-players .view, .page-points-in-campaign .view {
   width: 100%;
-  margin-top: -24px;
 }
 /* line 104, ../sass/views-styles.scss */
 .page-leaderboard tr, .page-team-players tr, .page-points-in-campaign tr {

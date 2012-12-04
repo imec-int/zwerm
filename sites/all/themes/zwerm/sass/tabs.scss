@@ -10,62 +10,56 @@
 
 @import "base";
 
-.tabs
+#content
 {
-  background-color: $footer-color;
-  width:100%;
-  float: left;
-  height:$score-navbar-height;
-  margin-top: 0px;
-  margin-left: -10px;
-  display: block;
-  padding-left: 5%;
-  padding-right: 5%;
-  line-height: 0.8em;
 
 
-  ul
+  .tabs
   {
-    width:99%;
-    height: $score-navbar-height;
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: $footer-color;
+    width:100%;
+    float: left;
+    height:$score-navbar-height;
+    margin-top: 0px;
+    //margin-left: -10px;
+    display: block;
     padding-left: 2%;
     padding-right: 2%;
-  }
+    line-height: 0.8em;
 
-  li
-  {
-    font-size: small;
-    background-color: $score-navbar-color ;
-    //padding-right: 1px;
-    list-style-type: none;
-    display:block;
-    float:left;
-    height:50px;
-    width:45%;
-    margin-top: 5px;
-    margin-left: 1px;
-    margin-right: 1px;
 
-    a
+
+    li
     {
-      color:$score-navbar-non-active-link-color;
+      font-size: small;
+      background-color: $score-navbar-color ;
+      list-style-type: none;
       display:block;
-      text-align:center;
-      width:99%;
-      padding-top: 20px;
-      //font-size: large;
-    }
+      float:left;
+      height:50px;
+      width:48%;
+      margin-top: 5px;
+      margin-left: 1%;
+      margin-right: 1%;
 
-    a.active
-    {
-      color:white;
+      a
+      {
+        color:$score-navbar-non-active-link-color;
+        display:block;
+        text-align:center;
+        width:99%;
+        padding-top: 20px;
+        //font-size: large;
+      }
+
+      a.active
+      {
+        color:white;
+      }
+
+
     }
   }
-
-
 }
 
 
