@@ -6,9 +6,21 @@
      */
 
     class Checkin{
+
+        /**
+         * @var []Relationship
+         */
         public $new_relationships;
+
+        /**
+         * @var []PointsTransaction
+         */
         public $users_points;
-        public $others_points;
+
+        /**
+         * @var []PointsTransaction
+         */
+        public $conn_points;
         public $cardID;
         public $expires;
         public $nid;
@@ -23,7 +35,7 @@
      * @return Result
      */
     function scoga_register_checkin( $card_id, $reader_id ){
-        ddl( '--- scoga_register_checkin ---');
+//        ddl( '--- scoga_register_checkin ---');
         $output = new Result();
 
         $current_campaign_nid = scoga_get_current_campaign_nid();
@@ -77,16 +89,16 @@
         /*
         * create checkin node
         */
-        $users_points = array();
         $checkin_node = scoga_create_checkin_entity( $user_account, $reader_node, $current_campaign_nid );
 //        ddl( $checkin_node, '$checkin_node');
 
+        $users_points = array();
         if( scoga_player_has_cooled_down( $user_account ) ){
             $output->message =  t( 'checkin' );
             $output->code = CODE_CHECKIN_SUCCESS;
             module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
             $transaction_node = scoga_award_points_to_user( $user_account->uid, scoga_get_rfidcheckin_reward(), $output->message );
-            $users_points[] = scoga_create_transaction_vo( $transaction_node );
+            $users_points[] = scoga_create_transaction_vo_from_assoc_arr( $transaction_node );
             $checkin_node->status=1;
         }else{
             $output->message =  t( 'Player needs to cool down' );
@@ -101,16 +113,16 @@
         $checkin_vo->nid = $checkin_node->nid;
         $checkin_vo->cardID = $card_id;
 
-        $others_points = array();
+        $conn_points = array();
 
         if( count( $relationships_list ) > 0 ){
             $output->message =  t( 'combo checkin' );
             $output->code = CODE_COMBO_SUCCESS;
             foreach( $relationships_list as $relationship_vo ){
                 $transaction_node = scoga_award_points_to_user( $relationship_vo->requester_id, scoga_get_combocheckin_reward(), $output->message );
-                $users_points[] = scoga_create_transaction_vo( $transaction_node );
+                $conn_points[] = scoga_create_transaction_vo_from_assoc_arr( $transaction_node );
                 $transaction_node = scoga_award_points_to_user( $relationship_vo->requestee_id , scoga_get_combocheckin_reward(), $output->message );
-                $others_points[] = scoga_create_transaction_vo( $transaction_node );
+                $conn_points[] = scoga_create_transaction_vo_from_assoc_arr( $transaction_node );
             }
             scoga_set_field_value( $checkin_node, 'field_checkin_type', 'combo' );
             $checkin_node->status=1;
@@ -119,7 +131,7 @@
         node_save( $checkin_node );
 
         $checkin_vo->users_points = $users_points;
-        $checkin_vo->others_points = $others_points;
+        $checkin_vo->conn_points = $conn_points;
         $checkin_vo->new_relationships = $relationships_list;
         $checkin_vo->expires = time() + scoga_get_combocheckin_timeframe();
         $output->result = $checkin_vo;
@@ -180,12 +192,12 @@
                 break;
             }
 
-            //should be from same team, otherwise ignore
+            //should be from same team, otherwise exit
             //(we already know the checkin occurs at same reader, otherwise we wouldn't have gotten here)
             $old_team_nid = scoga_get_eid_from_field( $old_user_account, 'field_user_team',array( 'entity_type'  => 'user' ) );
             if( $old_team_nid != $new_team_nid ){
 //                ddl( 'other team');
-                continue;
+                break;
             }
 
             //

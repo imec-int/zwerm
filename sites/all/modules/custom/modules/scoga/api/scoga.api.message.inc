@@ -8,6 +8,13 @@
      */
 
     class Message {
+        static public $types = array(
+            SCOGA_MESSAGES_NODETYPE,
+            SCOGA_ARTICLE_NODETYPE,
+            SCOGA_POLL_NODETYPE,
+            SCOGA_EVENT_NODETYPE,
+        );
+
         public $nid;
         public $uid;
         public $timestamp;
@@ -44,14 +51,11 @@
     }
 
     /**
-     * @param null $nid
+     * @param int $nid
      *
      * @return array
      */
-    function scoga_get_message_vos_after_nid( $nid = NULL ){
-        if( $nid == NULL ){
-            $nid = 0;
-        }
+    function scoga_get_message_vos_after_nid( $nid = 0 ){
         $nids = scoga_get_message_nids_after_nid( $nid );
 
         $output = array();

@@ -87,7 +87,102 @@ function scoga_feature_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => -4,
+        'weight' => '-4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-article-field_campaign'.
+  $fields['node-article-field_campaign'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_campaign',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'body:value',
+            'property' => 'nid',
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'nodetype_campaign' => 'nodetype_campaign',
+          ),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'article',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Will only be shown when the chose campaign is the current one',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => 11,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_campaign',
+      'label' => 'Campaign',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '32',
       ),
     ),
   );
@@ -176,7 +271,7 @@ function scoga_feature_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => -1,
+        'weight' => '-1',
       ),
     ),
   );
@@ -256,7 +351,7 @@ function scoga_feature_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => -4,
+        'weight' => '-4',
       ),
     ),
   );
@@ -1218,6 +1313,101 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
     ),
   );
 
+  // Exported field: 'node-nodetype_event-field_campaign'.
+  $fields['node-nodetype_event-field_campaign'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_campaign',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'body:value',
+            'property' => 'nid',
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'nodetype_campaign' => 'nodetype_campaign',
+          ),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'nodetype_event',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'When chosen this node will only be shown when the campaign is the current campaign',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => 5,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_campaign',
+      'label' => 'Campaign',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '8',
+      ),
+    ),
+  );
+
   // Exported field: 'node-nodetype_event-field_event_address'.
   $fields['node-nodetype_event-field_event_address'] = array(
     'field_config' => array(
@@ -1656,6 +1846,101 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
         ),
         'type' => 'text_textarea_with_summary',
         'weight' => '31',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-nodetype_logmessages-field_campaign'.
+  $fields['node-nodetype_logmessages-field_campaign'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_campaign',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'body:value',
+            'property' => 'nid',
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'nodetype_campaign' => 'nodetype_campaign',
+          ),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'nodetype_logmessages',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Will only be shown when the chose campaign is the current one',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => 2,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_campaign',
+      'label' => 'Campaign',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '34',
       ),
     ),
   );
@@ -2757,7 +3042,7 @@ DO NOT MODIFY ONCE SET!',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '5',
+          'weight' => 5,
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -2873,7 +3158,7 @@ DO NOT MODIFY ONCE SET!',
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => '6',
+          'weight' => 6,
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3508,7 +3793,7 @@ DO NOT MODIFY ONCE SET!',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 13,
+          'weight' => '13',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3918,7 +4203,9 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Unique machine name used to retrieve the page through the services.
 DO NOT MODIFY ONCE SET!');
   t('Upload an image to go with this article.');
+  t('When chosen this node will only be shown when the campaign is the current campaign');
   t('Will be overwritten by the system, DO NOT EDIT MANUALLY');
+  t('Will only be shown when the chose campaign is the current one');
   t('Wished item');
 
   return $fields;

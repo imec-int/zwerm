@@ -20,77 +20,97 @@
      *
      * @return array
      */
-    function scoga_get_transaction_vos_by_txnid( $last_txnid ){
-        $query =
-            " SELECT txn_id, time_stamp "
-                . "FROM {userpoints_txn} "
-                . "WHERE tid = :tid "
-                . "AND txn_id > :txnid ";
+    function scoga_get_transaction_vos_after_txnid( $last_txnid = 0 ){
+        if( $last_txnid > 0 ){
+            $query =
+                " SELECT txn_id, time_stamp "
+                    . "FROM {userpoints_txn} "
+                    . "WHERE tid = :tid "
+                    . "AND txn_id > :txnid ";
 
-        $rows = db_query( $query, array(
-            ':tid'          => scoga_get_current_userpoints_category_tid(),
-            ':txnid'        => $last_txnid,
-        ) );
+            $rows = db_query( $query, array(
+                ':tid'          => scoga_get_current_userpoints_category_tid(),
+                ':txnid'        => $last_txnid,
+            ) );
 
-        $options = array(
-            'link'             => FALSE,
-            'truncate'         => FALSE,
-            'skip_description' => FALSE,
-        );
+//            $options = array(
+//                'link'             => FALSE,
+//                'truncate'         => FALSE,
+//                'skip_description' => FALSE,
+//            );
 
-        $result = array();
-        foreach( $rows as $row ){
-            $transaction = userpoints_transaction_load( $row->txn_id );
-            $result[ ] = scoga_create_transaction_vo( $transaction );
+            $result = array();
+            foreach( $rows as $row ){
+                $transaction = userpoints_transaction_load( $row->txn_id );
+                $result[ ] = scoga_create_transaction_vo_from_std_class( $transaction );
+            }
+
+            return $result;
         }
 
-        return $result;
+        return array();
     }
 
+//    /**
+//     * @param null $begin_time
+//     * @param null $end_time
+//     *
+//     * @return array
+//     */
+//    function scoga_get_transaction_vos_by_period( $begin_time = NULL, $end_time = NULL ){
+//
+//        if( $begin_time == NULL ){
+//            $begin_time = 0;
+//        }
+//        if( $end_time == NULL ){
+//            $end_time = time() + 1;
+//        }
+//
+//        //dd( $begin_time, 'begin time');
+//        //dd( $end_time, 'end time' );
+//
+//        //TODO: check if this can be rewritten to use the user_points methods
+//        $query =
+//            " SELECT txn_id, time_stamp "
+//                . "FROM {userpoints_txn} "
+//                . "WHERE tid = :tid "
+//                . "AND time_stamp >= :begin_time "
+//                . "AND time_stamp < :end_time";
+//        $rows = db_query( $query, array(
+//            ':tid'          => scoga_get_current_userpoints_category_tid(),
+//            ':begin_time'   => $begin_time,
+//            ':end_time'     => $end_time,
+//        ) );
+//
+//        $options = array(
+//            'link'             => FALSE,
+//            'truncate'         => FALSE,
+//            'skip_description' => FALSE,
+//        );
+//
+//        $result = array();
+//        foreach( $rows as $row ){
+//            $transaction = userpoints_transaction_load( $row->txn_id );
+//            $result[ ] = scoga_create_transaction_vo_from_std_class( $transaction );
+//        }
+//
+//        return $result;
+//    }
+
     /**
-     * @param null $begin_time
-     * @param null $end_time
+     * @param $transaction array
      *
-     * @return array
+     * @return PointsTransaction
      */
-    function scoga_get_transaction_vos_by_period( $begin_time = NULL, $end_time = NULL ){
+    function scoga_create_transaction_vo_from_assoc_arr( $transaction ){
+        $output = new PointsTransaction();
+        $output->txn_id = $transaction['txn_id'];
+        $output->uid = $transaction['uid'];
+        $output->points = $transaction['points'];
+        $output->description = $transaction['description'];
+        $output->time_stamp = $transaction['time_stamp'];
 
-        if( $begin_time == NULL ){
-            $begin_time = 0;
-        }
-        if( $end_time == NULL ){
-            $end_time = time() + 1;
-        }
-
-        //dd( $begin_time, 'begin time');
-        //dd( $end_time, 'end time' );
-
-        //TODO: check if this can be rewritten to use the user_points methods
-        $query =
-            " SELECT txn_id, time_stamp "
-                . "FROM {userpoints_txn} "
-                . "WHERE tid = :tid "
-                . "AND time_stamp >= :begin_time "
-                . "AND time_stamp < :end_time";
-        $rows = db_query( $query, array(
-            ':tid'          => scoga_get_current_userpoints_category_tid(),
-            ':begin_time'   => $begin_time,
-            ':end_time'     => $end_time,
-        ) );
-
-        $options = array(
-            'link'             => FALSE,
-            'truncate'         => FALSE,
-            'skip_description' => FALSE,
-        );
-
-        $result = array();
-        foreach( $rows as $row ){
-            $transaction = userpoints_transaction_load( $row->txn_id );
-            $result[ ] = scoga_create_transaction_vo( $transaction );
-        }
-
-        return $result;
+        return $output;
     }
 
     /**
@@ -98,13 +118,13 @@
      *
      * @return PointsTransaction
      */
-    function scoga_create_transaction_vo( $transaction ){
+    function scoga_create_transaction_vo_from_std_class( $transaction ){
         $output = new PointsTransaction();
-        $output->txn_id = $transaction['txn_id'];
-        $output->uid = $transaction['uid'];
-        $output->points = $transaction['points'];
-        $output->description = $transaction['description'];
-        $output->time_stamp = $transaction['time_stamp'];
+        $output->txn_id = $transaction->txn_id;
+        $output->uid = $transaction->uid;
+        $output->points = $transaction->points;
+        $output->description = $transaction->description;
+        $output->time_stamp = $transaction->time_stamp;
 
         return $output;
     }
