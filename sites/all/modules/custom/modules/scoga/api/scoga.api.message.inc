@@ -37,7 +37,7 @@
         $query = new EntityFieldQuery();
         $query
             ->entityCondition( 'entity_type', $entity_type )
-            ->entityCondition( 'bundle', Message::$types, 'IN' )
+            ->entityCondition( 'bundle', SCOGA_MESSAGES_NODETYPE )
             ->propertyOrderBy( 'nid', 'DESC' )
             ->range( 0, 1 );
         $result = $query->execute();
@@ -51,14 +51,11 @@
     }
 
     /**
-     * @param null $nid
+     * @param int $nid
      *
      * @return array
      */
-    function scoga_get_message_vos_after_nid( $nid = NULL ){
-        if( $nid == NULL ){
-            $nid = 0;
-        }
+    function scoga_get_message_vos_after_nid( $nid = 0 ){
         $nids = scoga_get_message_nids_after_nid( $nid );
 
         $output = array();
