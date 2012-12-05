@@ -8,13 +8,14 @@
         public $timeMS;
         public $campaignID;
         public $messages;
-        public $transactions;
+        public $points;
         public $relationships;
     }
 
     function scoga_get_sync_vo( $messageID = 0, $transactionID = 0, $relationshipID = 0 ){
         module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
         module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
+        module_load_include( 'api.network.inc', 'scoga', 'api/scoga' );
         $output = new SyncData();
         $output->timeMS = scoga_get_current_time_MS();
         $output->campaignID = scoga_get_current_campaign_nid();

@@ -54,7 +54,21 @@
                     array(
                         'name'        => 'messageID',
                         'type'        => 'string',
-                        'description' => 'The ID of the message previously retrieved',
+                        'description' => 'The ID of the message lastly retrieved',
+                        'source'      => 'param',
+                        'optional'    => TRUE,
+                    ),
+                    array(
+                        'name'        => 'transactionID',
+                        'type'        => 'string',
+                        'description' => 'The ID of the points transaction lastly retrieved',
+                        'source'      => 'param',
+                        'optional'    => TRUE,
+                    ),
+                    array(
+                        'name'        => 'relationshipID',
+                        'type'        => 'string',
+                        'description' => 'The ID of the relationship lastly retrieved',
                         'source'      => 'param',
                         'optional'    => TRUE,
                     ),
@@ -369,8 +383,11 @@
     function scoga_service_sync_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_sync_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.sync.inc', 'scoga', 'api/scoga' );
-        if( $params && array_key_exists( 'messageID', $params ) ){
-            return scoga_get_sync_vo( $params[ 'messageID' ] );
+        if( $params ){
+            $messageID = array_key_exists( 'messageID', $params ) ? $params[ 'messageID' ] : 0;
+            $transactionID = array_key_exists( 'transactionID', $params ) ? $params[ 'transactionID' ] : 0;
+            $relationshipID = array_key_exists( 'relationshipID', $params ) ? $params[ 'relationshipID' ] : 0;
+            return scoga_get_sync_vo( $messageID, $transactionID, $relationshipID );
         }
         return scoga_get_sync_vo();
     }
