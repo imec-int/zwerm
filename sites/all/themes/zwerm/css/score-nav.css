@@ -55,4 +55,8 @@
   #score_nav_bar li a {
     padding-top: 3px;
   }
+  /* line 72, ../sass/score-nav.scss */
+  #score_nav_bar ul {
+    margin-top: -7px;
+  }
 }

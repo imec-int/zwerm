@@ -9,7 +9,8 @@
             foreach ($items as $key=>$item)
             {
                 $user_profile_path = base_path().'user/'.$variables['uids'][$key];
-                print("<li onmousedown=\"li_mousedown('".$user_profile_path."',this);\">".$item."</li>");
+                //print("<li onmousedown=\"li_mousedown('".$user_profile_path."',this);\">".$item."</li>");
+                print("<li">".$item."</li>");
                 $i = $i+1;
             }
         print ('</ul>');

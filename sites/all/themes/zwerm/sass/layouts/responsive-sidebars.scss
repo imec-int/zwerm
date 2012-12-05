@@ -15,7 +15,9 @@
 // We are going to create a 980px wide, 5 column gri  d with 20px gutters between
 // columns (applied as 10px of left/right padding on each column).
 $zen-column-count:  5;
-$zen-gutter-width:  20px;
+//$zen-gutter-width:  20px;
+$zen-gutter-width:  0px;
+
 
 
 // IE6-7 don't support box-sizing: border-box. We can fix this in 1 of 3 ways:
@@ -91,6 +93,7 @@ $zen-column-count: 2;
   //padding-top: 3em; /* Move all the children of #main down to make room. */
   //@include zen-clear();
   //position: relative;
+  @include zen-grid-item(2, 1);
 
   #content {
     //@include zen-clear();
@@ -126,7 +129,7 @@ table
   //display:none;
   .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
 
-    @include zen-grid-item(2, 5);
+   // @include zen-grid-item(2, 5);
   }
 }
 
