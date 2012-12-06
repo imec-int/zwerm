@@ -14,8 +14,10 @@
 
 // We are going to create a 980px wide, 5 column gri  d with 20px gutters between
 // columns (applied as 10px of left/right padding on each column).
-$zen-column-count:  5;
-$zen-gutter-width:  20px;
+//$zen-column-count:  5;
+//$zen-gutter-width:  20px;
+$zen-gutter-width:  0px;
+
 
 
 // IE6-7 don't support box-sizing: border-box. We can fix this in 1 of 3 ways:
@@ -32,7 +34,7 @@ $zen-gutter-width:  20px;
 
 // You can generate more efficient CSS if you manually apply the
 // zen-grid-item-base mixin to all grid items from within a single ruleset.
-$zen-auto-include-item-base: false;
+$zen-auto-include-item-base: true;
 // $zen-auto-include-flow-item-base: false;
 
 
@@ -79,21 +81,15 @@ by setting a max-width. */
 @media all and (max-width: $end_of_small_viewport) {
 $zen-column-count: 2;
 
-#header{ /* Span 1 columns, starting in 4nd column from left. */
-/*@include zen-grid-item(2, 1);
-@include zen-clear();
-#logo {
- display:inline-block;
-} */
-}
-
 #main {
   //padding-top: 3em; /* Move all the children of #main down to make room. */
   //@include zen-clear();
   //position: relative;
+  @include zen-grid-item(2, 1);
+  height:100%;
 
-  #content {
-    //@include zen-clear();
+  #content, {
+    @include zen-grid-item(2, 1);
   }
   #logo {
     display : none;
@@ -122,17 +118,6 @@ table
   }
 }
 
-.sidebar-first {
-  //display:none;
-  .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
-
-    @include zen-grid-item(2, 5);
-  }
-}
-
-#footer {
-  // @include zen-grid-item(2, 1);
-}
 }
 
 @media all and (min-width: $start_of_large_viewport){

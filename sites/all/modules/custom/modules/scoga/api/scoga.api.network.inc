@@ -34,3 +34,28 @@
         return $output;
     }
 
+    function scoga_get_relationship_vos_after_rid( $last_rid = 0 ){
+        if( $last_rid > 0 ){
+            $query =
+                " SELECT rid, requester_id, requestee_id "
+                    . "FROM {user_relationships} "
+                    . "WHERE rtid = :rtid "
+                    . "AND rid > :rid "
+                    . "GROUP BY rid"
+            ;
+            $rows = db_query( $query, array(
+                ':rtid' => scoga_get_current_combocheckin_rtid(),
+                ':rid'  => $last_rid
+            ));
+            $result = array();
+            foreach( $rows as $row ){
+                $relationships = user_relationships_load( array( 'rid' => $row->rid ) );
+                $result[] = scoga_create_relationship_vo( $relationships[ $row->rid ] );
+            }
+
+            return $result;
+        }
+
+        return array();
+
+    }

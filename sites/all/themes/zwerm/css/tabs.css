@@ -20,11 +20,11 @@
   height: 60px;
   margin-top: 0px;
   display: block;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 0%;
+  padding-right: 0%;
   line-height: 0.8em;
 }
-/* line 33, ../sass/tabs.scss */
+/* line 31, ../sass/tabs.scss */
 #content .tabs li {
   font-size: small;
   background-color: #484848;
@@ -37,7 +37,7 @@
   margin-left: 1%;
   margin-right: 1%;
 }
-/* line 46, ../sass/tabs.scss */
+/* line 44, ../sass/tabs.scss */
 #content .tabs li a {
   color: gray;
   display: block;
@@ -45,7 +45,7 @@
   width: 99%;
   padding-top: 20px;
 }
-/* line 56, ../sass/tabs.scss */
+/* line 54, ../sass/tabs.scss */
 #content .tabs li a.active {
   color: white;
 }

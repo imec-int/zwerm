@@ -33,7 +33,7 @@ if (count($links) > 0) {
             $class[] = 'active';
         }
         $output .= '<li' . drupal_attributes(array('class' => $class)) . ' onmousedown="li_mousedown(\' ' . $link['href'] . '\',this)">';
-        $output .= '<div  id="'.$link['title'].'">'; // for hooking up the correct images in the css to the nav items
+        $output .= '<div  id="'.$link['title'].'" class="menu_item">'; // for hooking up the correct images in the css to the nav items
         if (isset($link['href'])) {
             // Pass in $link as $options, they share the same keys.
             $output .= l($link['title'], $link['href'], $link);

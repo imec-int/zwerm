@@ -66,8 +66,10 @@
 
 @mixin nav-image-style {
   background-position-x: 50%;
-  background-position-y: 20px;
+  background-position-y: 5%;
   background-repeat: no-repeat;
+  background-size: contain;
+
 }
 
 @mixin team-members-button {

@@ -54,7 +54,21 @@
                     array(
                         'name'        => 'messageID',
                         'type'        => 'string',
-                        'description' => 'The ID of the message previously retrieved',
+                        'description' => 'The ID of the message lastly retrieved',
+                        'source'      => 'param',
+                        'optional'    => TRUE,
+                    ),
+                    array(
+                        'name'        => 'transactionID',
+                        'type'        => 'string',
+                        'description' => 'The ID of the points transaction lastly retrieved',
+                        'source'      => 'param',
+                        'optional'    => TRUE,
+                    ),
+                    array(
+                        'name'        => 'relationshipID',
+                        'type'        => 'string',
+                        'description' => 'The ID of the relationship lastly retrieved',
                         'source'      => 'param',
                         'optional'    => TRUE,
                     ),
@@ -232,34 +246,34 @@
         );
     }
 
-    function scoga_outline_services_transaction(){
-        return array(
-            'index' => array(
-                'help'             => 'Retrieves all transactions between two timestamps',
-                'file'             => array(
-                    'file'   => 'services.inc',
-                    'module' => 'scoga'
-                ),
-                'callback'         => 'scoga_service_transaction_index',
-                'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
-                'args'             => array(
-                    array(
-                        'name'        => 'campaign_uuid',
-                        'type'        => 'string',
-                        'description' => 'The UUID of the campaign node',
-                        'source'      => 'param',
-                        'optional'    => TRUE
-                    ),
-                    array(
-                        'name'        => 'last_txnid',
-                        'description' => 'Transaction ID',
-                        'source'      => 'param',
-                        'optional'    => TRUE
-                    ),
-                )
-            ),
-        );
-    }
+//    function scoga_outline_services_transaction(){
+//        return array(
+//            'index' => array(
+//                'help'             => 'Retrieves all transactions',
+//                'file'             => array(
+//                    'file'   => 'services.inc',
+//                    'module' => 'scoga'
+//                ),
+//                'callback'         => 'scoga_service_transaction_index',
+//                'access arguments' => array( SCOGA_PERM_REST_ACCESS_TRANSACTION_DATA ),
+//                'args'             => array(
+//                    array(
+//                        'name'        => 'campaign_uuid',
+//                        'type'        => 'string',
+//                        'description' => 'The UUID of the campaign node',
+//                        'source'      => 'param',
+//                        'optional'    => TRUE
+//                    ),
+//                    array(
+//                        'name'        => 'last_txnid',
+//                        'description' => 'Transaction ID',
+//                        'source'      => 'param',
+//                        'optional'    => TRUE
+//                    ),
+//                )
+//            ),
+//        );
+//    }
 
     function scoga_outline_services_player(){
         return array(
@@ -369,8 +383,11 @@
     function scoga_service_sync_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_sync_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.sync.inc', 'scoga', 'api/scoga' );
-        if( $params && array_key_exists( 'messageID', $params ) ){
-            return scoga_get_sync_vo( $params[ 'messageID' ] );
+        if( $params ){
+            $messageID = array_key_exists( 'messageID', $params ) ? $params[ 'messageID' ] : 0;
+            $transactionID = array_key_exists( 'transactionID', $params ) ? $params[ 'transactionID' ] : 0;
+            $relationshipID = array_key_exists( 'relationshipID', $params ) ? $params[ 'relationshipID' ] : 0;
+            return scoga_get_sync_vo( $messageID, $transactionID, $relationshipID );
         }
         return scoga_get_sync_vo();
     }
@@ -414,7 +431,7 @@
         watchdog( 'SCOGA', 'scoga_service_transaction_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.transaction.inc', 'scoga', 'api/scoga' );
         $last_txnid = ( array_key_exists( 'last_txnid', $params ) ) ? $params[ 'last_txnid' ] : '0';
-        return scoga_get_transaction_vos_by_txnid( $last_txnid );
+        return scoga_get_transaction_vos_after_txnid( $last_txnid );
     }
 
 //    function scoga_service_overview_index(){

@@ -44,8 +44,12 @@
 .page-messages .container-inline, .page-messages .form-type-checkbox, .page-messages .form-checkbox {
   display: none;
 }
+/* line 65, ../sass/messages.scss */
+.page-messages .action-links {
+  margin-top: 0px;
+}
 
-/* line 69, ../sass/messages.scss */
+/* line 73, ../sass/messages.scss */
 .page-messages-new .description, .page-messages-new #edit-cancel {
   display: none;
 }
