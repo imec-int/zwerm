@@ -19,9 +19,11 @@
 body {
   margin: 0;
   padding: 0;
+  width:100%;
   //needed for floating footer
   height : 100%;
   background-color: $white-background-color;
+  min-width: 320px;
 }
 
 .js
