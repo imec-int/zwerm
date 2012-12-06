@@ -43,9 +43,19 @@ li a.active {
  * Navigation bar
  */
 @media all and (max-width: $end_of_small_viewport) {
+
+  .not-front
+  {
+    #navigation
+    {
+      background-color: #7fb083;
+    }
+  }
+
   .page-frontpage
   {
-    #navigation {
+    #navigation
+    {
        //overflow: hidden; //Sometimes you want to prevent overlapping with main div. */
       display:block;
       float:none;

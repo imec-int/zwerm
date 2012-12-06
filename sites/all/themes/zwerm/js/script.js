@@ -52,6 +52,12 @@
             jQuery(".question").slideToggle(500);
         });
 
+        jQuery("#menu_container").click(function()
+        {
+            jQuery("#main-menu").slideToggle(500);
+        });
+
+
 
     });
 
