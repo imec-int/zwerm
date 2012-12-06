@@ -44,63 +44,72 @@ li a.active {
  */
 @media all and (max-width: $end_of_small_viewport) {
 
+  //the nav menu for everything that is not the front page : collapsable Javascript
   .not-front
   {
     #navigation
     {
       background-color: #7fb083;
-    }
-    .menu_item
-    {
-      background-color: #7bac7d;
-      margin-left: 10%;
-      margin-right: 10%;
-    }
 
-    #Info
-    {
-      background-image : url(../images/info.png);
-      @include nav-image-style-non-front();
-    }
+      a
+      {
+        padding-left: 15%;
+        font-family: Romina;
+      }
+      .menu_item
+      {
+        background-color: #7bac7d;
+        margin-left: 10%;
+        margin-right: 10%;
+      }
 
-    #Speel
-    {
-      background-image : url(../images/spelen.png);
-      @include nav-image-style-non-front();
-    }
+      #Info
+      {
+        background-image : url(../images/info.png);
+        @include nav-image-style-non-front();
+      }
 
-    #Teams
-    {
-      background-image : url(../images/teams.png);
-      @include nav-image-style-non-front();
-    }
+      #Speel
+      {
+        background-image : url(../images/spelen.png);
+        @include nav-image-style-non-front();
+      }
 
-    #Score
-    {
-      background-image : url(../images/score.png);
-      @include nav-image-style-non-front();
-    }
+      #Teams
+      {
+        background-image : url(../images/teams.png);
+        @include nav-image-style-non-front();
+      }
 
-    #Inbox
-    {
-      background-image : url(../images/berichten.png);
-      @include nav-image-style-non-front();
-    }
+      #Score
+      {
+        background-image : url(../images/score.png);
+        @include nav-image-style-non-front();
+      }
 
-    #Map
-    {
-      background-image : url(../images/map.png);
-      @include nav-image-style-non-front();
-    }
+      #Inbox
+      {
+        background-image : url(../images/berichten.png);
+        @include nav-image-style-non-front();
+      }
 
-    a {
-      padding-left: 15%;
-    }
+      #Map
+      {
+        background-image : url(../images/map.png);
+        @include nav-image-style-non-front();
+      }
 
+    }
   }
 
+  //the nav menu for the front page : buttons
   .page-frontpage
   {
+    #menu_container
+    {
+      display:none;
+    }
+
     #navigation
     {
        //overflow: hidden; //Sometimes you want to prevent overlapping with main div. */
@@ -108,8 +117,6 @@ li a.active {
       float:none;
       width:100%;
       height:100%;
-      //margin-left:auto;
-      //margin-right:auto;
 
       #main-menu
       {
@@ -150,37 +157,37 @@ li a.active {
       #Info
       {
         background-image : url(../images/info.png);
-        @include nav-image-style();
+        @include nav-image-style-front();
       }
 
       #Speel
       {
         background-image : url(../images/spelen.png);
-        @include nav-image-style();
+        @include nav-image-style-front();
       }
 
       #Teams
       {
         background-image : url(../images/teams.png);
-        @include nav-image-style();
+        @include nav-image-style-front();
       }
 
       #Score
       {
         background-image : url(../images/score.png);
-        @include nav-image-style();
+        @include nav-image-style-front();
       }
 
       #Inbox
       {
         background-image : url(../images/berichten.png);
-        @include nav-image-style();
+        @include nav-image-style-front();
       }
 
       #Map
       {
         background-image : url(../images/map.png);
-        @include nav-image-style();
+        @include nav-image-style-front();
       }
 
       .menu_item
@@ -200,8 +207,6 @@ li a.active {
         padding: 1%;
         margin: 5px;
         text-align:center;
-        //line-height:188px;
-        //line-height:9%;
         box-align:center;
 
         a:link {

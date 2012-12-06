@@ -41,64 +41,69 @@ li a.active {
  * Navigation bar
  */
 @media all and (max-width: 629px) {
-  /* line 50, ../sass/navigation.scss */
+  /* line 51, ../sass/navigation.scss */
   .not-front #navigation {
     background-color: #7fb083;
   }
-  /* line 54, ../sass/navigation.scss */
-  .not-front .menu_item {
+  /* line 55, ../sass/navigation.scss */
+  .not-front #navigation a {
+    padding-left: 15%;
+    font-family: Romina;
+  }
+  /* line 60, ../sass/navigation.scss */
+  .not-front #navigation .menu_item {
     background-color: #7bac7d;
     margin-left: 10%;
     margin-right: 10%;
   }
-  /* line 61, ../sass/navigation.scss */
-  .not-front #Info {
+  /* line 67, ../sass/navigation.scss */
+  .not-front #navigation #Info {
     background-image: url(../images/info.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 67, ../sass/navigation.scss */
-  .not-front #Speel {
+  /* line 73, ../sass/navigation.scss */
+  .not-front #navigation #Speel {
     background-image: url(../images/spelen.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 73, ../sass/navigation.scss */
-  .not-front #Teams {
+  /* line 79, ../sass/navigation.scss */
+  .not-front #navigation #Teams {
     background-image: url(../images/teams.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 79, ../sass/navigation.scss */
-  .not-front #Score {
+  /* line 85, ../sass/navigation.scss */
+  .not-front #navigation #Score {
     background-image: url(../images/score.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 85, ../sass/navigation.scss */
-  .not-front #Inbox {
+  /* line 91, ../sass/navigation.scss */
+  .not-front #navigation #Inbox {
     background-image: url(../images/berichten.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 91, ../sass/navigation.scss */
-  .not-front #Map {
+  /* line 97, ../sass/navigation.scss */
+  .not-front #navigation #Map {
     background-image: url(../images/map.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 96, ../sass/navigation.scss */
-  .not-front a {
-    padding-left: 15%;
-  }
 
-  /* line 105, ../sass/navigation.scss */
+  /* line 109, ../sass/navigation.scss */
+  .page-frontpage #menu_container {
+    display: none;
+  }
+  /* line 114, ../sass/navigation.scss */
   .page-frontpage #navigation {
     display: block;
     float: none;
@@ -106,17 +111,17 @@ li a.active {
     height: 100%;
     padding-top: 40px;
   }
-  /* line 115, ../sass/navigation.scss */
+  /* line 122, ../sass/navigation.scss */
   .page-frontpage #navigation #main-menu {
     margin-left: 1%;
     margin-top: 15%;
     height: 100%;
   }
-  /* line 122, ../sass/navigation.scss */
+  /* line 129, ../sass/navigation.scss */
   .page-frontpage #navigation .block {
     margin-bottom: 0;
   }
-  /* line 127, ../sass/navigation.scss */
+  /* line 134, ../sass/navigation.scss */
   .page-frontpage #navigation .block-menu .block-title,
   .page-frontpage #navigation .block-menu-block .block-title {
     position: absolute !important;
@@ -125,7 +130,7 @@ li a.active {
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
   }
-  /* line 132, ../sass/navigation.scss */
+  /* line 139, ../sass/navigation.scss */
   .page-frontpage #navigation ul.links,
   .page-frontpage #navigation ul.menu {
     /* Menu block links */
@@ -134,7 +139,7 @@ li a.active {
     text-align: left;
     /* LTR */
   }
-  /* line 137, ../sass/navigation.scss */
+  /* line 144, ../sass/navigation.scss */
   .page-frontpage #navigation ul.links li,
   .page-frontpage #navigation ul.menu li {
     /* A simple method to get navigation links to appear in one line. */
@@ -143,11 +148,11 @@ li a.active {
     list-style-type: none;
     list-style-image: none;
   }
-  /* line 146, ../sass/navigation.scss */
+  /* line 153, ../sass/navigation.scss */
   .page-frontpage #navigation .selectedItem {
     background-color: #7fb083;
   }
-  /* line 151, ../sass/navigation.scss */
+  /* line 158, ../sass/navigation.scss */
   .page-frontpage #navigation #Info {
     background-image: url(../images/info.png);
     background-position-x: 50%;
@@ -155,7 +160,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 157, ../sass/navigation.scss */
+  /* line 164, ../sass/navigation.scss */
   .page-frontpage #navigation #Speel {
     background-image: url(../images/spelen.png);
     background-position-x: 50%;
@@ -163,7 +168,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 163, ../sass/navigation.scss */
+  /* line 170, ../sass/navigation.scss */
   .page-frontpage #navigation #Teams {
     background-image: url(../images/teams.png);
     background-position-x: 50%;
@@ -171,7 +176,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 169, ../sass/navigation.scss */
+  /* line 176, ../sass/navigation.scss */
   .page-frontpage #navigation #Score {
     background-image: url(../images/score.png);
     background-position-x: 50%;
@@ -179,7 +184,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 175, ../sass/navigation.scss */
+  /* line 182, ../sass/navigation.scss */
   .page-frontpage #navigation #Inbox {
     background-image: url(../images/berichten.png);
     background-position-x: 50%;
@@ -187,7 +192,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 181, ../sass/navigation.scss */
+  /* line 188, ../sass/navigation.scss */
   .page-frontpage #navigation #Map {
     background-image: url(../images/map.png);
     background-position-x: 50%;
@@ -195,11 +200,11 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 187, ../sass/navigation.scss */
+  /* line 194, ../sass/navigation.scss */
   .page-frontpage #navigation .menu_item {
     padding-top: 70%;
   }
-  /* line 192, ../sass/navigation.scss */
+  /* line 199, ../sass/navigation.scss */
   .page-frontpage #navigation li {
     display: block;
     height: 25%;
@@ -213,7 +218,7 @@ li a.active {
     text-align: center;
     box-align: center;
   }
-  /* line 207, ../sass/navigation.scss */
+  /* line 212, ../sass/navigation.scss */
   .page-frontpage #navigation li a:link {
     color: #FFFFFF;
     text-decoration: none;
@@ -221,7 +226,7 @@ li a.active {
     font-weight: bold;
     font-family: Romina;
   }
-  /* line 215, ../sass/navigation.scss */
+  /* line 220, ../sass/navigation.scss */
   .page-frontpage #navigation li a:visited {
     color: #FFFFFF;
     text-decoration: none;
@@ -232,7 +237,7 @@ li a.active {
   }
 }
 @media all and (min-width: 630px) {
-  /* line 230, ../sass/navigation.scss */
+  /* line 235, ../sass/navigation.scss */
   #navigation {
     position: fixed;
     top: 0px;
@@ -245,24 +250,24 @@ li a.active {
     background-position-x: 3px;
     background-repeat: no-repeat;
   }
-  /* line 242, ../sass/navigation.scss */
+  /* line 247, ../sass/navigation.scss */
   #navigation #main-menu {
     width: 100%;
   }
-  /* line 250, ../sass/navigation.scss */
+  /* line 255, ../sass/navigation.scss */
   #navigation li {
     float: left;
     width: 15%;
     text-align: center;
     padding: 0px;
   }
-  /* line 258, ../sass/navigation.scss */
+  /* line 263, ../sass/navigation.scss */
   #navigation .first {
     margin-left: 12.5%;
   }
 }
 @media all and (min-width: 401px) and (max-width: 630px) {
-  /* line 278, ../sass/navigation.scss */
+  /* line 283, ../sass/navigation.scss */
   #navigation li {
     width: 100px;
   }
@@ -270,12 +275,12 @@ li a.active {
 /*
 * Main menu and Secondary menu links
 */
-/* line 289, ../sass/navigation.scss */
+/* line 294, ../sass/navigation.scss */
 #main-menu {
   width: 100%;
 }
 
-/* line 294, ../sass/navigation.scss */
+/* line 299, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
