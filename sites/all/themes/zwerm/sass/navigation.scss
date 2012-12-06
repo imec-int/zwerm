@@ -50,6 +50,53 @@ li a.active {
     {
       background-color: #7fb083;
     }
+    .menu_item
+    {
+      background-color: #7bac7d;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    #Info
+    {
+      background-image : url(../images/info.png);
+      @include nav-image-style-non-front();
+    }
+
+    #Speel
+    {
+      background-image : url(../images/spelen.png);
+      @include nav-image-style-non-front();
+    }
+
+    #Teams
+    {
+      background-image : url(../images/teams.png);
+      @include nav-image-style-non-front();
+    }
+
+    #Score
+    {
+      background-image : url(../images/score.png);
+      @include nav-image-style-non-front();
+    }
+
+    #Inbox
+    {
+      background-image : url(../images/berichten.png);
+      @include nav-image-style-non-front();
+    }
+
+    #Map
+    {
+      background-image : url(../images/map.png);
+      @include nav-image-style-non-front();
+    }
+
+    a {
+      padding-left: 15%;
+    }
+
   }
 
   .page-frontpage
