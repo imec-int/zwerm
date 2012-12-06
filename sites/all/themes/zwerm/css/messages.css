@@ -25,8 +25,8 @@
   color: black;
 }
 /* line 38, ../sass/messages.scss */
-.page-messages tr.odd {
-  background-color: #7fb083;
+.page-messages tr.odd, .page-messages tr.even {
+  background-color: #eeeeee;
 }
 /* line 45, ../sass/messages.scss */
 .page-messages #content .tabs li:nth-child(3), .page-messages #content .tabs li:nth-child(4) {
@@ -48,8 +48,12 @@
 .page-messages .action-links {
   margin-top: 0px;
 }
+/* line 69, ../sass/messages.scss */
+.page-messages .privatemsg-unread td {
+  font-weight: normal;
+}
 
-/* line 73, ../sass/messages.scss */
+/* line 77, ../sass/messages.scss */
 .page-messages-new .description, .page-messages-new #edit-cancel {
   display: none;
 }

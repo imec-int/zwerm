@@ -34,9 +34,9 @@
     }
   }
 
-  tr.odd
+  tr.odd, tr.even
   {
-    background-color:$green-marking-color;
+    background-color:$white-background-color;
   }
 
   #content .tabs
@@ -64,6 +64,10 @@
 
   .action-links {
     margin-top: 0px;
+  }
+
+  .privatemsg-unread td {
+    font-weight: normal;
   }
 }
 
