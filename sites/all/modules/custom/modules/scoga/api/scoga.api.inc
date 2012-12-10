@@ -224,19 +224,19 @@
     /**
      * @return int
      */
-    function scoga_get_determinecampaign_cron_interval(){
-        return variable_get_value( SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL );
-    }
+//    function scoga_get_determinecampaign_cron_interval(){
+//        return variable_get_value( SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL );
+//    }
 
     /**
      * @return int
      */
-    function scoga_get_determinecampaign_next_execution(){
-        return variable_get_value( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION );
-    }
-    function scoga_set_determinecampaign_next_execution( $value ){
-        variable_set_value( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION, $value );
-    }
+//    function scoga_get_determinecampaign_next_execution(){
+//        return variable_get_value( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION );
+//    }
+//    function scoga_set_determinecampaign_next_execution( $value ){
+//        variable_set_value( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION, $value );
+//    }
 
     /**
      * @return int

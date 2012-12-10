@@ -108,7 +108,8 @@
     /**
      * @param null $timestamp
      *
-     * @return int
+     * @return int returns nid of campaign with a date range that encompasses the <code>timestamp</code>. Returns -1,
+     * if no such campaign was found
      */
     function scoga_get_campaign_nid_for_time( $timestamp = NULL ){
         $query = new EntityFieldQuery();
@@ -118,6 +119,7 @@
         $result = $query
             ->entityCondition( 'entity_type', $entity_type )
             ->entityCondition( 'bundle', SCOGA_CAMPAIGN_NODETYPE )
+            ->propertyCondition( 'status', '1' )
             ->fieldCondition( 'field_campaign_period', 'value', $timestamp, '<=' )
             ->fieldCondition( 'field_campaign_period', 'value2', $timestamp, '>' )
             ->execute();
