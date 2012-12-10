@@ -86,6 +86,7 @@ $zen-column-count: 2;
   //@include zen-clear();
   //position: relative;
   @include zen-grid-item(2, 1);
+  height:100%;
 
   #content, {
     @include zen-grid-item(2, 1);

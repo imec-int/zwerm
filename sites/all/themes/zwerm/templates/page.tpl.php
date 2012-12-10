@@ -145,7 +145,7 @@
 
     ?>
     <div id="main" class="<?php print($type)?>">
-        <div id="<?php print($type)?>" class="<?php //print($team[0]);?>" >
+       <!-- <div id="<?php //print($type)?>" class="<?php //print($team[0]);?>" >      -->
 
 
 
@@ -207,7 +207,7 @@
                 <?php print $sidebar_second; ?>
             </aside><!-- /.sidebars -->
             <?php endif; ?>
-        </div> <!-- <div id="print($type)"> -->
+        <!--   </div> <div id="print($type)"> -->
     </div><!-- /#main -->
     <!--<div class="clearfooter"></div>     -->
 

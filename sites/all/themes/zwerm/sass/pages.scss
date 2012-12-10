@@ -16,6 +16,11 @@
  * foot
  */
 
+html
+{
+  height:100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -171,6 +176,8 @@ body {
   display:block;
   height:100%;
   width:100%;
+  padding-top:$header-height-small-viewport;
+
 
   input
   {
@@ -185,6 +192,14 @@ body {
   }
 }
 
+.page-frontpage
+{
+  #main
+  {
+    padding-top:0px;
+
+  }
+}
 /*
  * Content
  */
