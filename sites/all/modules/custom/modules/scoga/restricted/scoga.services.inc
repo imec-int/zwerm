@@ -18,12 +18,11 @@
             'scoga_teams'        => scoga_outline_services_teams(),
             'scoga_campaigns'    => scoga_outline_services_campaigns(),
             'scoga_sync'        => scoga_outline_services_sync(),
-            'scoga_messages'     => scoga_outline_services_messages(),
             'scoga_network'     => scoga_outline_services_network(),
             'scoga_checkin'     => scoga_outline_services_checkin(),
             'scoga_reader'      => scoga_outline_services_reader(),
             'scoga_pages'       =>  scoga_outline_services_pages(),
-            'scoga_mail'        => scoga_outline_services_mail(),
+            'scoga_config'      => scoga_outline_services_config(),
         );
     }
 
@@ -222,7 +221,7 @@
                 'access arguments' => array( SCOGA_PERM_REST_ACCESS_MESSAGES_DATA ),
                 'args'             => array(
                     array(
-                        'name'        => 'last_nid',
+                        'name'        => 'messageID',
                         'type'        => 'string',
                         'description' => 'Messages with a nid higher than last_nid will be retrieved',
                         'source'      => 'param',
@@ -233,19 +232,33 @@
         );
     }
 
-    function scoga_outline_services_overview(){
+    function scoga_outline_services_config(){
         return array(
             'index' => array(
-                'help'             => 'Retrieves a snapshot of the SCOGA state',
+                'help'             => 'Retrieves all remote config data',
                 'file'             => array(
                     'type'   => 'services.inc',
                     'module' => 'scoga'
                 ),
-                'callback'         => 'scoga_service_overview_index',
-                'access arguments' => array( SCOGA_PERM_REST_ACCESS_OVERVIEW_DATA ),
+                'callback'         => 'scoga_service_config_index',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_MESSAGES_DATA ),
             ),
         );
     }
+
+//    function scoga_outline_services_overview(){
+//        return array(
+//            'index' => array(
+//                'help'             => 'Retrieves a snapshot of the SCOGA state',
+//                'file'             => array(
+//                    'type'   => 'services.inc',
+//                    'module' => 'scoga'
+//                ),
+//                'callback'         => 'scoga_service_overview_index',
+//                'access arguments' => array( SCOGA_PERM_REST_ACCESS_OVERVIEW_DATA ),
+//            ),
+//        );
+//    }
 
 //    function scoga_outline_services_transaction(){
 //        return array(
@@ -468,7 +481,7 @@
 
     function scoga_service_transaction_index( $params ){
         watchdog( 'SCOGA', 'scoga_service_transaction_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
-        module_load_include( 'api.transaction.inc', 'scoga', 'api/scoga' );
+        module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
         $last_txnid = ( array_key_exists( 'last_txnid', $params ) ) ? $params[ 'last_txnid' ] : '0';
         return scoga_get_transaction_vos_after_txnid( $last_txnid );
     }
@@ -485,8 +498,8 @@
     function scoga_service_messages_index( $params ){
         watchdog( 'SCOGA', 'scoga_services_message_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
     	module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
-        $last_nid = ( array_key_exists( 'last_nid', $params ) )
-            ? $params[ 'last_nid' ]
+        $last_nid = ( array_key_exists( 'messageID', $params ) )
+            ? $params[ 'messageID' ]
             : NULL
         ;
         return scoga_get_message_vos_after_nid( $last_nid );
@@ -608,4 +621,11 @@
         }
 
         return $result;
+    }
+
+    function scoga_service_config_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_config_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
+
+        module_load_include( 'api.config.inc', 'scoga', 'api/scoga' );
+        return scoga_get_config_vo();
     }

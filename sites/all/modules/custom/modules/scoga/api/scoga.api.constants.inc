@@ -61,6 +61,7 @@
     define( 'SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER', 'access content');
     define( 'SCOGA_PERM_REST_ACCESS_PAGES_DATA',        'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_MAIL',              'access content' );
+    define( 'SCOGA_PERM_REST_ACCESS_CONFIG',              'access content' );
 
 
 //--( VALUES )--//
