@@ -23,6 +23,7 @@
             'scoga_reader'      => scoga_outline_services_reader(),
             'scoga_pages'       =>  scoga_outline_services_pages(),
             'scoga_config'      => scoga_outline_services_config(),
+            'scoga_players'     => scoga_outline_services_players(),
         );
     }
 
@@ -289,26 +290,20 @@
 //        );
 //    }
 
-    function scoga_outline_services_player(){
+    function scoga_outline_services_players(){
         return array(
             'index' => array(
-                'help'             => 'Retrieves all data of a player',
+                'help'             => 'Retrieves all data of player(s)',
                 'file'             => array(
                     'file'   => 'services.inc',
                     'module' => 'scoga'
                 ),
-                'callback'         => 'scoga_service_player_index',
+                'callback'         => 'scoga_service_players_index',
                 'access arguments' => array( SCOGA_PERM_REST_ACCESS_PLAYER_DATA ),
                 'args'             => array(
                     array(
-                        'name'        => 'uuid',
-                        'description' => 'The UUID of the player',
-                        'source'      => 'param',
-                        'optional'    => TRUE
-                    ),
-                    array(
-                        'name'        => 'uid',
-                        'description' => 'The uid of the team node',
+                        'name'        => 'uids',
+                        'description' => 'The uids of the players',
                         'source'      => 'param',
                         'optional'    => TRUE
                     ),
@@ -465,18 +460,14 @@
         return scoga_get_team_vos_by_campaign_nid( scoga_get_current_campaign_nid() );
     }
 
-    function scoga_service_player_index( $params ){
-        watchdog( 'SCOGA', 'scoga_service_player_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
+    function scoga_service_players_index( $params ){
+        watchdog( 'SCOGA', 'scoga_service_players_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
-//        if( array_key_exists( 'uuid', $params ) ){
-//            return scoga_get_player_vos_by_UUIDs( $params[ 'uuid' ] );
-//        }
-
-        if( array_key_exists( 'uid', $params ) ){
-            return scoga_get_player_vos_by_uids( $params[ 'uid' ] );
+        if( array_key_exists( 'uids', $params ) ){
+            return scoga_get_player_vos_by_uids( $params[ 'nids' ] );
         }
 
-        return FALSE;
+        return array();
     }
 
     function scoga_service_transaction_index( $params ){
