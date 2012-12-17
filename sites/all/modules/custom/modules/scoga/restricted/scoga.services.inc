@@ -23,6 +23,7 @@
             'scoga_checkin'     => scoga_outline_services_checkin(),
             'scoga_reader'      => scoga_outline_services_reader(),
             'scoga_pages'       =>  scoga_outline_services_pages(),
+            'scoga_mail'        => scoga_outline_services_mail(),
         );
     }
 
@@ -369,6 +370,44 @@
         );
     }
 
+    function scoga_outline_services_mail(){
+        return array(
+            'create' =>array(
+                'help'             => 'Send mail to admin',
+                'file'             => array(
+                    'type'   => 'services.inc',
+                    'module' => 'scoga'
+                ),
+                'callback'         => 'scoga_service_mail_create',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_MAIL ),
+                'args'             => array(
+                    array(
+                        'name'        => 'message',
+                        'description' => 'Message to send',
+                        'source'      => 'data',
+                        'optional'    => TRUE,
+                    ),
+                    array(
+                        'name'          => 'time',
+                        'source'        => 'data',
+                        'optional'    => TRUE,
+                    ),
+                    array(
+                        'name'          => 's',
+                        'source'        => 'data',
+                        'optional'    => TRUE,
+                    ),
+                    array(
+                        'name'        => 'subject',
+                        'type'        => 'string',
+                        'source'      => 'data',
+                        'optional'    => TRUE,
+                    ),
+                )
+            )
+        );
+    }
+
     function scoga_service_network_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_network_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.network.inc', 'scoga', 'api/scoga' );
@@ -545,4 +584,28 @@
             }
         }
         return scoga_get_page_vos();
+    }
+
+    function scoga_service_mail_create( $params ){
+        watchdog( 'SCOGA', 'scoga_service_mail_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
+        module_load_include( 'api.mail.inc', 'scoga', 'api/scoga' );
+        $subject = $params[ 'subject' ];
+        $remote_signature = $params[ 's' ];
+        $timestamp = $params[ 'time' ];
+        $message = $params[ 'message' ];
+        try{
+            $unenc_signature = $timestamp . SCOGA_SALT. $subject;
+            $enc_signature = hash( 'sha256', $unenc_signature );
+//            watchdog( 'SCOGA', $enc_signature, array(), WATCHDOG_DEBUG );
+            if( $enc_signature != $remote_signature ){
+                throw new ErrorException( 'incorrect signature' );
+            }
+            $result = scoga_send_admin_mail( $message, $subject );
+        }catch ( Exception $e ){
+            $message = $e->getMessage();
+            watchdog( 'SCOGA', $message, array(), WATCHDOG_ERROR );
+            $result = $message;
+        }
+
+        return $result;
     }
