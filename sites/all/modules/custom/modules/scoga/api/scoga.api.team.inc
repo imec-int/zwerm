@@ -93,8 +93,7 @@
      *
      * @return array
      */
-    function scoga_get_campaignteam_nids_by_references( $campaign_nid = NULL, $team_nid = NULL ){
-        dd( 'scoga_get_campaignteam_nids_by_references' );
+    function scoga_get_campaignteam_nids_by_references( $campaign_nid = NULL, $team_nid = NULL, $timestamp = NULL ){
         $query = new EntityFieldQuery();
         $entity_type = 'node';
         $query
@@ -108,10 +107,19 @@
         if( $team_nid ){
             $query->fieldCondition( 'field_campaignteam_team', 'target_id', $team_nid, '=' );
         }
+        if( $timestamp ){
+            $date_info = new DateTime( date( 'Y-m-d', $timestamp ) );
+            $today = $date_info->getTimestamp();
+            $interval = new DateInterval( 'P1D' );
+            $date_info->add( $interval );
+            $tomorrow = $date_info->getTimestamp();
+            $query
+                ->propertyCondition( 'created', $today, '>=' )
+                ->propertyCondition( 'created', $tomorrow, '<' )
+            ;
+        }
 
-        dd( 'before executing query' );
         $result = $query->execute();
-        dd( 'after executing query' );
         if( array_key_exists( $entity_type, $result ) ){
             $campaignteam_nids = array_keys( $result[ $entity_type ] );
             return $campaignteam_nids;
@@ -119,6 +127,17 @@
 
         return array();
     }
+
+    function scoga_determine_campaignteam_creation(){
+        $campaign_nid = scoga_get_current_campaign_nid();
+        if( $campaign_nid> -1 ){
+            $nids = scoga_get_campaignteam_nids_by_references( $campaign_nid, NULL, time() );
+            if( count( $nids ) < 1 ){
+                scoga_create_campaignteam_entities_for_campaign( node_load( $campaign_nid ) );
+            }
+        }
+    }
+
 
 
 //    /**
