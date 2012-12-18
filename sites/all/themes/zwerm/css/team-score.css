@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/team-score.scss */
+.page-team-score .view-content {
+  margin-left: 10%;
+}
+/* line 11, ../sass/team-score.scss */
+.page-team-score .views-row {
+  width: 40%;
+  display: inline-block;
+}

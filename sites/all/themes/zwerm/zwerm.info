@@ -54,6 +54,7 @@ stylesheets[all][] = css/wireframes.css
 stylesheets[all][] = css/page-backgrounds.css
 stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/wish.css
+stylesheets[all][] = css/team-score.css
 stylesheets[all][] = css/messages-new.css
 stylesheets[all][] = css/frontpage.css
 stylesheets[all][] = css/team-view.css
