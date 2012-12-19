@@ -130,7 +130,7 @@ $score-navbar-color : #484848;
 $score-navbar-non-active-link-color: #808080;
 
 //calculation of navigation menu width for large viewport
-$number_of_items_in_navmenu : 6;
+$number_of_items_in_navmenu : 7;
 $space_outside_of_navmenus : 12.5; //in percentage
 $width_per_item : percentage((100 - ($space_outside_of_navmenus * 2)) / $number_of_items_in_navmenu / 100);
 
