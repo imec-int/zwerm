@@ -141,7 +141,7 @@
   }
 
   /* line 122, ../../sass/layouts/responsive-sidebars.scss */
-  #footer {
+  .logged-in #footer {
     display: none;
   }
 }

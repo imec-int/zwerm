@@ -53,7 +53,7 @@ li a.active {
 
       #main-menu
       {
-        padding-top: 30px;
+        //padding-top: 30px;
       }
 
       a
@@ -110,7 +110,7 @@ li a.active {
   //the nav menu for the front page : buttons
   .page-frontpage
   {
-    #menu_container
+    #menu_container, #home_text
     {
       display:none;
     }
@@ -193,6 +193,11 @@ li a.active {
       {
         background-image : url(../images/map.png);
         @include nav-image-style-front();
+      }
+
+      #Account
+      {
+        text-replace: "Login" "Account" ;
       }
 
       .menu_item
