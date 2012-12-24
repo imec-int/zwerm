@@ -19,7 +19,7 @@
 }
 /* line 20, ../sass/login.scss */
 .page-user.not-logged-in #user-login {
-  margin-top: 35%;
+  margin-top: 30%;
 }
 /* line 23, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-name {

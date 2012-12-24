@@ -429,6 +429,7 @@ tr.colordc6058 {
   }
   a {
     @include hyperlink-style;
+    padding-right: 10px;
   }
 }
 
