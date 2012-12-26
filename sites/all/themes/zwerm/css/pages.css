@@ -495,33 +495,33 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20%;
-    height: 25%;
+    height: 200px;
     display: block;
   }
 
   /* line 480, ../sass/pages.scss */
   #content {
-    position: absolute;
-    top: 25%;
+    position: relative;
+    top: 120px;
   }
 
-  /* line 485, ../sass/pages.scss */
+  /* line 486, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
-    padding-top: 25%;
+    padding-top: 200px;
   }
 
-  /* line 492, ../sass/pages.scss */
+  /* line 493, ../sass/pages.scss */
   #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
     display: none;
   }
 
-  /* line 497, ../sass/pages.scss */
+  /* line 498, ../sass/pages.scss */
   .region-sidebar-first {
-    padding-top: 25%;
+    padding-top: 200px;
   }
 
-  /* line 504, ../sass/pages.scss */
+  /* line 505, ../sass/pages.scss */
   #type_page h1 {
     font-family: romina;
     text-align: center;

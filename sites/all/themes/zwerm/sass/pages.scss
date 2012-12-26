@@ -478,8 +478,9 @@ a {
 
   #content
   {
-    position:absolute;
-    top:$header-height-large-viewport;
+    position:relative;
+    //top:$header-height-large-viewport+$nav_height_large_viewport+15;
+    top:120px;
   }
 
   #type_page, #type_nodetype_event {

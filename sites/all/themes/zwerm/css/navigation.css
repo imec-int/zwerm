@@ -248,30 +248,31 @@ li a.active {
     background-color: #7fb083;
     z-index: 21;
     width: 100%;
+    height: 23px;
     background-image: url("../images/menu_icon.png");
     background-size: 23px;
     background-position-y: 3px;
     background-position-x: 3px;
     background-repeat: no-repeat;
   }
-  /* line 257, ../sass/navigation.scss */
+  /* line 258, ../sass/navigation.scss */
   #navigation #main-menu {
     width: 100%;
   }
-  /* line 265, ../sass/navigation.scss */
+  /* line 266, ../sass/navigation.scss */
   #navigation li {
     float: left;
     width: 10.71429%;
     text-align: center;
     padding: 0px;
   }
-  /* line 273, ../sass/navigation.scss */
+  /* line 274, ../sass/navigation.scss */
   #navigation .first {
     margin-left: 12.5%;
   }
 }
 @media all and (min-width: 401px) and (max-width: 630px) {
-  /* line 293, ../sass/navigation.scss */
+  /* line 294, ../sass/navigation.scss */
   #navigation li {
     width: 100px;
   }
@@ -279,12 +280,12 @@ li a.active {
 /*
 * Main menu and Secondary menu links
 */
-/* line 304, ../sass/navigation.scss */
+/* line 305, ../sass/navigation.scss */
 #main-menu {
   width: 100%;
 }
 
-/* line 309, ../sass/navigation.scss */
+/* line 310, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
