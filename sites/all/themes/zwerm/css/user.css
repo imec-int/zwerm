@@ -9,7 +9,7 @@
 }
 
 /* line 6, ../sass/user.scss */
-.page-user .tabs, .page-user #select_list, .page-user h3, .page-user dl {
+.page-user .tabs, .page-user #select_list, .page-user h3, .page-user dl, .page-user #content .tabs {
   display: none;
 }
 /* line 11, ../sass/user.scss */
@@ -19,8 +19,14 @@
 /* line 16, ../sass/user.scss */
 .page-user .user-picture {
   float: left;
+  padding-right: 10px;
 }
-/* line 20, ../sass/user.scss */
+/* line 21, ../sass/user.scss */
 .page-user .privatemsg-send-link.privatemsg-send-link-profile {
   display: inline-block;
+}
+/* line 25, ../sass/user.scss */
+.page-user .field.field-name-field-user-firstname.field-type-text.field-label-hidden {
+  float: left;
+  padding-right: 4px;
 }
