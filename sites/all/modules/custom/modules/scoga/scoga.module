@@ -226,3 +226,32 @@
 
     }
 
+    /*
+     * Used to add the team color to the page, based on
+     * the team of the logged in user
+     * @Camille : is this the correct spot to place this ?
+     * If moved to scoga.theme.inc, only works once, after clearing
+     * cache, and is no longer invoked subsequently
+     *
+     */
+    function scoga_preprocess_html(&$variables)
+    {
+        global $user;
+        $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
+    }
+
+    function _scoga_get_user_team_color($uid)
+    {
+        $returnValue = "";
+        $query = db_query('
+                  SELECT field_team_colour_value
+                  FROM field_data_field_team_colour as ftc
+                  INNER JOIN field_data_field_user_team as fut on fut.field_user_team_target_id = ftc.entity_id
+                  WHERE fut.entity_id= :uid',array(':uid' =>$uid));
+        foreach ($query as $record)
+        {
+            $returnValue = 'color-'.$record->field_team_colour_value;
+        }
+        return $returnValue;
+    }
+

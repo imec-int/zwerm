@@ -136,7 +136,10 @@ $space_outside_of_navmenus : 12.5; //in percentage
 $width_per_item : percentage((100 - ($space_outside_of_navmenus * 2)) / $number_of_items_in_navmenu / 100);
 
 
-
+.color-dc6058
+{
+  background-color: #DC6058;
+}
 
 @font-face {
   font-family: "Romina";
