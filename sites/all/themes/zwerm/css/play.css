@@ -21,10 +21,6 @@
   }
 }
 @media all and (min-width: 630px) {
-  /* line 25, ../sass/play.scss */
-  .page-get-points {
-    background-color: #ffffff;
-  }
   /* line 30, ../sass/play.scss */
   .page-get-points #content li {
     height: 60px;
