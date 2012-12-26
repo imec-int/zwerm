@@ -77,6 +77,8 @@ stylesheets[all][] = css/messages.css
 stylesheets[all][] = css/login.css
 stylesheets[all][] = css/user.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
+stylesheets[all][] = css/poll.css
+
 
 ;stylesheets[all][] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.css
 
