@@ -191,6 +191,8 @@ body {
     //padding-top:$pages-title-top-padding;
     text-align: center;
   }
+
+
 }
 
 .page-frontpage
@@ -450,6 +452,16 @@ a {
   #block-block-3
   {
     display:none;
+  }
+
+  .section-het-spel
+  {
+    article
+    {
+      padding-left:10px;
+      padding-right:10px;
+
+    }
   }
 
   #type_page
