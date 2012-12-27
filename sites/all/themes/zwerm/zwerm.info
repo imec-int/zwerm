@@ -69,7 +69,6 @@ stylesheets[all][] = css/forms.css
 stylesheets[all][] = css/fields.css
 stylesheets[all][] = css/print.css
 stylesheets[all][] = css/not-checkin.css
-stylesheets[all][] = css/play.css
 stylesheets[all][] = css/events.css
 stylesheets[all][] = css/score-nav.css
 stylesheets[all][] = css/tabs.css
@@ -78,6 +77,8 @@ stylesheets[all][] = css/user.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
 stylesheets[all][] = css/poll.css
 stylesheets[all][] = css/messages.css
+stylesheets[all][] = css/play.css
+
 
 
 

@@ -203,13 +203,6 @@ body {
 
   }
 }
-/*
- * Content
- */
-
-#content {
-  padding-top: $header-height-small-viewport;
-}
 
 .region-highlighted {
 }
@@ -490,6 +483,7 @@ a {
 
   #content
   {
+    padding-top: $header-height-small-viewport;
     position:relative;
     //top:$header-height-large-viewport+$nav_height_large_viewport+15;
     top:120px;

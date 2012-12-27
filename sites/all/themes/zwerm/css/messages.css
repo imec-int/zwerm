@@ -70,29 +70,30 @@
 /* line 94, ../sass/messages.scss */
 .page-messages .action-links {
   margin-top: 0px;
+  margin-bottom: -30px;
 }
-/* line 98, ../sass/messages.scss */
+/* line 99, ../sass/messages.scss */
 .page-messages .privatemsg-unread td {
   font-weight: normal;
 }
-/* line 103, ../sass/messages.scss */
+/* line 104, ../sass/messages.scss */
 .page-messages td.privatemsg-list-subject, .page-messages td.privatemsg-list-participants {
   border-right: 1px solid #CCC;
 }
-/* line 109, ../sass/messages.scss */
+/* line 110, ../sass/messages.scss */
 .page-messages td.privatemsg-list-participants, .page-messages td.privatemsg-list-date {
   padding-left: 3px;
 }
-/* line 114, ../sass/messages.scss */
+/* line 115, ../sass/messages.scss */
 .page-messages th {
   font-size: xx-small;
 }
-/* line 119, ../sass/messages.scss */
+/* line 120, ../sass/messages.scss */
 .page-messages td {
   font-size: small;
 }
 
-/* line 127, ../sass/messages.scss */
+/* line 128, ../sass/messages.scss */
 .page-messages-new .description, .page-messages-new #edit-cancel {
   display: none;
 }
