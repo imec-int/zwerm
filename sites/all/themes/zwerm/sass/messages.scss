@@ -3,6 +3,18 @@
 .section-messages
 {
   background-color: $white-background-color;
+
+  .privatemsg-message-actions.links.inline
+  {
+    display: none;
+  }
+
+  .privatemsg-message-column
+  {
+    //controls the indendation of every message
+    width: 95%;
+    padding-right: 5px;
+  }
 }
 
 .page-messages
@@ -46,10 +58,16 @@
 
   #content .tabs
   {
-    li:nth-child(3),li:nth-child(4)
+    //hide all tabs except inbox and sent
+    li:nth-child(3),li:nth-child(4),li:nth-child(5)
     {
       display:none;
     }
+  }
+
+  .username
+  {
+    color: black;
   }
 
   #edit-operation
@@ -59,7 +77,7 @@
 
   .privatemsg-list-subject
   {
-    padding-left: 13px;
+    //padding-left: 13px;
   }
 
   .container-inline, .form-type-checkbox,.form-checkbox
@@ -73,6 +91,29 @@
 
   .privatemsg-unread td {
     font-weight: normal;
+  }
+
+  td.privatemsg-list-subject, td.privatemsg-list-participants
+  {
+    border-right: 1px solid #CCC;
+    //@include text-truncation;
+    //width:78%;
+    //white-space:nowrap;
+  }
+
+  th
+  {
+    font-size: xx-small;
+  }
+
+  td
+  {
+    font-size: small;
+  }
+
+  td
+  {
+    //border-right: 1px solid gray;
   }
 }
 

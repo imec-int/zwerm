@@ -94,7 +94,8 @@
   }
 }
 
-@mixin page-title {
+@mixin page-title
+{
   background-color: $footer-color;
   color : white;
   font-family: arial;
@@ -103,6 +104,16 @@
   height : $li-height;
   line-height: 2.6em;
   letter-spacing:2px;
+}
+
+@mixin text-truncation
+{
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
 }
 
 

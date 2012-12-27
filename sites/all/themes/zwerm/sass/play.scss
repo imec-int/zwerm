@@ -105,12 +105,13 @@
   }
 
   .link_truncated {
-    text-overflow: ellipsis;
+    /*text-overflow: ellipsis;
     display: inline-block;
     width: 85%;
     white-space: nowrap;
     overflow: hidden;
-    vertical-align: top;
+    vertical-align: top; */
+    @include text-truncation;
   }
 
 
