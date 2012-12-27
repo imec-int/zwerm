@@ -75,16 +75,20 @@
 .page-messages td.privatemsg-list-subject, .page-messages td.privatemsg-list-participants {
   border-right: 1px solid #CCC;
 }
-/* line 105, ../sass/messages.scss */
+/* line 103, ../sass/messages.scss */
+.page-messages td.privatemsg-list-participants, .page-messages td.privatemsg-list-date {
+  padding-left: 3px;
+}
+/* line 108, ../sass/messages.scss */
 .page-messages th {
   font-size: xx-small;
 }
-/* line 110, ../sass/messages.scss */
+/* line 113, ../sass/messages.scss */
 .page-messages td {
   font-size: small;
 }
 
-/* line 123, ../sass/messages.scss */
+/* line 121, ../sass/messages.scss */
 .page-messages-new .description, .page-messages-new #edit-cancel {
   display: none;
 }

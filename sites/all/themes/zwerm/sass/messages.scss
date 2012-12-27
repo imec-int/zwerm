@@ -95,10 +95,13 @@
 
   td.privatemsg-list-subject, td.privatemsg-list-participants
   {
+    //vertical lines between columns
     border-right: 1px solid #CCC;
-    //@include text-truncation;
-    //width:78%;
-    //white-space:nowrap;
+  }
+
+  td.privatemsg-list-participants, td.privatemsg-list-date
+  {
+    padding-left: 3px;
   }
 
   th
@@ -109,11 +112,6 @@
   td
   {
     font-size: small;
-  }
-
-  td
-  {
-    //border-right: 1px solid gray;
   }
 }
 
