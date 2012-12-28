@@ -10,18 +10,17 @@
 
 @media all and (max-width: 629px) {
   /* line 6, ../sass/play.scss */
-  .page-get-points {
-    background-color: #000000;
+  body.page-get-points {
+    background-color: #eeeeee;
   }
   /* line 10, ../sass/play.scss */
-  .page-get-points #content {
+  body.page-get-points #content {
     padding-top: 0px;
   }
   /* line 13, ../sass/play.scss */
-  .page-get-points #content li {
+  body.page-get-points #content li {
     height: 60px;
     background-color: white;
-    margin-bottom: 3px;
   }
 }
 @media all and (min-width: 630px) {

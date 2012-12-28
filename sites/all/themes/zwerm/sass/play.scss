@@ -2,9 +2,9 @@
 
 
 @media all and (max-width: $end_of_small_viewport) {
-  .page-get-points
+  body.page-get-points
   {
-    background-color: #000000;
+    background-color: $white-background-color;
 
     #content
     {
@@ -14,7 +14,7 @@
         //default style of list items in get-points list
         height:$li-height;
         background-color:white;
-        margin-bottom: 3px;
+        //margin-bottom: 3px;
       }
     }
   }

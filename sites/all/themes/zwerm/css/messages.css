@@ -9,20 +9,20 @@
 }
 
 /* line 4, ../sass/messages.scss */
-.section-messages {
+body.section-messages {
   background-color: #eeeeee;
 }
 /* line 8, ../sass/messages.scss */
-.section-messages .privatemsg-message-actions.links.inline {
+body.section-messages .privatemsg-message-actions.links.inline {
   display: none;
 }
 /* line 13, ../sass/messages.scss */
-.section-messages .privatemsg-message-column {
+body.section-messages .privatemsg-message-column {
   width: 95%;
   padding-right: 5px;
 }
 /* line 20, ../sass/messages.scss */
-.section-messages #edit-cancel {
+body.section-messages #edit-cancel {
   display: none;
 }
 
