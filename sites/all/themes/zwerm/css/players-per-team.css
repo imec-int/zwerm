@@ -1,3 +1,8 @@
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
@@ -13,7 +18,6 @@
   height: 60px;
   line-height: 2.6em;
   letter-spacing: 2px;
-  margin-bottom: 30px;
 }
 /* line 11, ../sass/players-per-team.scss */
 .page-team-players thead {

@@ -2,6 +2,11 @@
  * @file
  * Views Styling
  */
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
@@ -186,4 +191,9 @@ tr.loggedInUser {
 .page-leaderboard tr.loggedInUser, .page-team-players tr.loggedInUser, .page-points-in-campaign tr.loggedInUser {
   background-color: #ffffff;
   color: #000000;
+}
+
+/* line 206, ../sass/views-styles.scss */
+.pager-next a, .pager-previous a {
+  color: black;
 }

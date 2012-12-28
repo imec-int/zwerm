@@ -2,6 +2,11 @@
  * @file
  * Navigation Styling
  */
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
@@ -44,10 +49,6 @@ li a.active {
   /* line 51, ../sass/navigation.scss */
   .not-front #navigation {
     background-color: #7fb083;
-  }
-  /* line 55, ../sass/navigation.scss */
-  .not-front #navigation #main-menu {
-    padding-top: 30px;
   }
   /* line 60, ../sass/navigation.scss */
   .not-front #navigation a {
@@ -104,7 +105,7 @@ li a.active {
   }
 
   /* line 114, ../sass/navigation.scss */
-  .page-frontpage #menu_container {
+  .page-frontpage #menu_container, .page-frontpage #home_text {
     display: none;
   }
   /* line 119, ../sass/navigation.scss */
@@ -205,16 +206,19 @@ li a.active {
     background-size: contain;
   }
   /* line 199, ../sass/navigation.scss */
+  .page-frontpage #navigation #Account {
+    text-replace: "Login" "Account";
+  }
+  /* line 204, ../sass/navigation.scss */
   .page-frontpage #navigation .menu_item {
     padding-top: 70%;
   }
-  /* line 204, ../sass/navigation.scss */
+  /* line 209, ../sass/navigation.scss */
   .page-frontpage #navigation li {
     display: block;
     height: 25%;
     width: 28%;
     padding: 0 0px 0 0;
-    background-color: #84B7C2;
     background-repeat: no-repeat;
     background-position: center;
     padding: 1%;
@@ -222,7 +226,7 @@ li a.active {
     text-align: center;
     box-align: center;
   }
-  /* line 217, ../sass/navigation.scss */
+  /* line 222, ../sass/navigation.scss */
   .page-frontpage #navigation li a:link {
     color: #FFFFFF;
     text-decoration: none;
@@ -230,7 +234,7 @@ li a.active {
     font-weight: bold;
     font-family: Romina;
   }
-  /* line 225, ../sass/navigation.scss */
+  /* line 230, ../sass/navigation.scss */
   .page-frontpage #navigation li a:visited {
     color: #FFFFFF;
     text-decoration: none;
@@ -241,37 +245,38 @@ li a.active {
   }
 }
 @media all and (min-width: 630px) {
-  /* line 240, ../sass/navigation.scss */
+  /* line 245, ../sass/navigation.scss */
   #navigation {
     position: fixed;
     top: 0px;
     background-color: #7fb083;
     z-index: 21;
     width: 100%;
+    height: 23px;
     background-image: url("../images/menu_icon.png");
     background-size: 23px;
     background-position-y: 3px;
     background-position-x: 3px;
     background-repeat: no-repeat;
   }
-  /* line 252, ../sass/navigation.scss */
+  /* line 258, ../sass/navigation.scss */
   #navigation #main-menu {
     width: 100%;
   }
-  /* line 260, ../sass/navigation.scss */
+  /* line 266, ../sass/navigation.scss */
   #navigation li {
     float: left;
-    width: 15%;
+    width: 10.71429%;
     text-align: center;
     padding: 0px;
   }
-  /* line 268, ../sass/navigation.scss */
+  /* line 274, ../sass/navigation.scss */
   #navigation .first {
     margin-left: 12.5%;
   }
 }
 @media all and (min-width: 401px) and (max-width: 630px) {
-  /* line 288, ../sass/navigation.scss */
+  /* line 294, ../sass/navigation.scss */
   #navigation li {
     width: 100px;
   }
@@ -279,12 +284,12 @@ li a.active {
 /*
 * Main menu and Secondary menu links
 */
-/* line 299, ../sass/navigation.scss */
+/* line 305, ../sass/navigation.scss */
 #main-menu {
   width: 100%;
 }
 
-/* line 304, ../sass/navigation.scss */
+/* line 310, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */

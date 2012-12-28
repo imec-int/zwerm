@@ -3530,16 +3530,16 @@ DO NOT MODIFY ONCE SET!',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'number',
           'settings' => array(
             'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
+            'prefix_suffix' => 1,
             'scale' => 0,
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => 1,
+          'weight' => '0',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3633,12 +3633,9 @@ DO NOT MODIFY ONCE SET!',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 0,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3793,7 +3790,7 @@ DO NOT MODIFY ONCE SET!',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 13,
+          'weight' => '13',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3866,7 +3863,7 @@ DO NOT MODIFY ONCE SET!',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -4024,7 +4021,7 @@ DO NOT MODIFY ONCE SET!',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',

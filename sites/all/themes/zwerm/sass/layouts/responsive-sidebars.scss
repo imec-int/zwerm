@@ -118,6 +118,11 @@ table
   }
 }
 
+.logged-in #footer
+{
+  display:none;
+}
+
 }
 
 @media all and (min-width: $start_of_large_viewport){

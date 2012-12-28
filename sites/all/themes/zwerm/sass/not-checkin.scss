@@ -1,8 +1,8 @@
 @import "base";
 
-.page-not-partner
+body.page-not-partner
 {
-  background-color:black;
+  background-color:$white-background-color;
   #select_list
   {
     a
@@ -26,6 +26,7 @@
     #page-title
     {
       @include page-title;
+      margin-bottom: -2PX;
     }
 
     li
