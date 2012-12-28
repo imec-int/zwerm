@@ -27,6 +27,7 @@
   .page-get-points
   {
 
+
     #content
     {
       li
@@ -36,6 +37,10 @@
         //margin-bottom: 3px;
       }
     }
+  }
+  body.page-get-points
+  {
+    background-color: $white-background-color;
   }
 
 
