@@ -88,6 +88,7 @@ features[flag][] = flag_unredeemed_wish
 features[flag][] = flag_unsolvable_wish
 features[image][] = avatar_pinhead
 features[menu_custom][] = main-menu
+features[menu_custom][] = menu-footer
 features[menu_custom][] = menu-score-navigation-bar
 features[menu_links][] = main-menu:leaderboard
 features[node][] = article
