@@ -192,3 +192,8 @@ tr.loggedInUser {
   background-color: #ffffff;
   color: #000000;
 }
+
+/* line 206, ../sass/views-styles.scss */
+.pager-next a, .pager-previous a {
+  color: black;
+}
