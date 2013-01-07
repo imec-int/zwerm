@@ -2,7 +2,7 @@
  * @file
  * Navigation Styling
  */
-/* line 140, ../sass/_base.scss */
+/* line 140, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss */
 .color-dc6058 {
   background-color: #DC6058;
 }
@@ -253,7 +253,6 @@ li a.active {
     z-index: 21;
     width: 100%;
     height: 23px;
-    background-image: url("../images/menu_icon.png");
     background-size: 23px;
     background-position-y: 3px;
     background-position-x: 3px;
@@ -266,7 +265,7 @@ li a.active {
   /* line 266, ../sass/navigation.scss */
   #navigation li {
     float: left;
-    width: 10.71429%;
+    width: 12.5%;
     text-align: center;
     padding: 0px;
   }
