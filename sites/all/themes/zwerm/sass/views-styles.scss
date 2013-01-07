@@ -75,8 +75,9 @@ tr.loggedInUser
   display:inline-block;
 }
 
-.page-leaderboard, .page-team-players, .page-points-in-campaign
+body.page-leaderboard, .page-team-players, .page-points-in-campaign
 {
+  height:100%;
   #content
   {
     padding-left: 0px;

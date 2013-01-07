@@ -125,7 +125,8 @@ table
 
 }
 
-@media all and (min-width: $start_of_large_viewport){
+@media all and (min-width: $start_of_large_viewport)
+{
 /*
 * Use 5 grid columns for larger screens.
 */
@@ -163,8 +164,12 @@ $zen-column-count: 5;
     }
   }
 
-  #footer {
-    display:none;
-    @include zen-grid-item(5, 1);
+  #footer
+  {
+    .logged-in
+    {
+      display:none;
+      @include zen-grid-item(5, 1);
+    }
   }
 }
