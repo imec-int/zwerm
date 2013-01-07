@@ -67,7 +67,7 @@
 
     .list_header
     {
-      padding-top: 16px;
+      padding-top: 19px;
       padding-left: 26px;
     }
 
@@ -76,12 +76,17 @@
       background-color: $green-marking-color;
     }
 
+    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after
+    {
+        content: url('../images/expand_icon.png');
+    }
+
     li:after
     {
       content:">";
       display:inline;
       float:right;
-      padding-top:17px;
+      padding-top:19px;
       padding-right:25px;
       font-size: large;
     }
