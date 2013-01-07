@@ -295,6 +295,7 @@ span.field-label { /* The inline field label used by the Fences module */
 
 .item-list .pager { /* A list of page numbers when more than 1 page of content is available */
   padding: 0;
+  margin-top:-15px;
 
   li { /* Each page number in the pager list */
     padding: 0 0.5em;
@@ -374,8 +375,8 @@ span.field-label { /* The inline field label used by the Fences module */
   position: fixed;
   right: 0;
   width : 100%;
-  padding-top: 10px;
-  height:45px;
+  padding-top: 3px;
+  height:33px;
 }
 
 //needed for footer to remain at bottom

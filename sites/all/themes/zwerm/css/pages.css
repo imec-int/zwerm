@@ -332,19 +332,20 @@ span.field-label {
 .item-list .pager {
   /* A list of page numbers when more than 1 page of content is available */
   padding: 0;
+  margin-top: -15px;
 }
-/* line 299, ../sass/pages.scss */
+/* line 300, ../sass/pages.scss */
 .item-list .pager li {
   /* Each page number in the pager list */
   padding: 0 0.5em;
 }
 
-/* line 304, ../sass/pages.scss */
+/* line 305, ../sass/pages.scss */
 .feed-icon {
   /* The link to the RSS or Atom feed for the current list of content */
 }
 
-/* line 307, ../sass/pages.scss */
+/* line 308, ../sass/pages.scss */
 .more-link {
   /* Aggregator, blog, and forum more link */
 }
@@ -364,7 +365,7 @@ span.field-label {
 /*
  * Page bottom
  */
-/* line 335, ../sass/pages.scss */
+/* line 336, ../sass/pages.scss */
 .region-bottom {
   /* Wrapper for any blocks placed in the page bottom region */
 }
@@ -372,38 +373,38 @@ span.field-label {
 /*
  * The Zwerm list style, mobile optimized
  */
-/* line 343, ../sass/pages.scss */
+/* line 344, ../sass/pages.scss */
 #select_list li {
   display: block;
   height: 50px;
   border-bottom-style: solid;
   border-width: 1px;
 }
-/* line 349, ../sass/pages.scss */
+/* line 350, ../sass/pages.scss */
 #select_list ul {
   display: block;
   border-top-style: solid;
   border-width: 1px;
   padding: 0 0 0 0;
 }
-/* line 355, ../sass/pages.scss */
+/* line 356, ../sass/pages.scss */
 #select_list a {
   line-height: 3em;
 }
-/* line 360, ../sass/pages.scss */
+/* line 361, ../sass/pages.scss */
 #select_list a:link {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
-/* line 364, ../sass/pages.scss */
+/* line 365, ../sass/pages.scss */
 #select_list a:visited {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
-/* line 369, ../sass/pages.scss */
+/* line 370, ../sass/pages.scss */
 #footer {
   background-color: #333333;
   bottom: 0;
@@ -411,46 +412,46 @@ span.field-label {
   position: fixed;
   right: 0;
   width: 100%;
-  padding-top: 10px;
-  height: 45px;
+  padding-top: 3px;
+  height: 33px;
 }
 
-/* line 396, ../sass/pages.scss */
+/* line 397, ../sass/pages.scss */
 tr.color79b1bd {
   background-color: #79b1bd;
 }
 
-/* line 400, ../sass/pages.scss */
+/* line 401, ../sass/pages.scss */
 tr.colordc6058 {
   background-color: #dc6058;
 }
 
-/* line 406, ../sass/pages.scss */
+/* line 407, ../sass/pages.scss */
 #block-menu-menu-footer .block-title {
   display: none;
 }
-/* line 409, ../sass/pages.scss */
+/* line 410, ../sass/pages.scss */
 #block-menu-menu-footer li {
   display: block;
   height: 50px;
 }
-/* line 413, ../sass/pages.scss */
+/* line 414, ../sass/pages.scss */
 #block-menu-menu-footer ul {
   display: block;
   border-width: 1px;
   padding: 0 0 0 0;
 }
-/* line 418, ../sass/pages.scss */
+/* line 419, ../sass/pages.scss */
 #block-menu-menu-footer .first {
   float: left;
   margin-top: -22px;
 }
-/* line 422, ../sass/pages.scss */
+/* line 423, ../sass/pages.scss */
 #block-menu-menu-footer .last {
   float: right;
   margin-top: -22px;
 }
-/* line 426, ../sass/pages.scss */
+/* line 427, ../sass/pages.scss */
 #block-menu-menu-footer a {
   color: #FFFFFF;
   text-decoration: none;
@@ -459,31 +460,31 @@ tr.colordc6058 {
   padding-left: 10px;
 }
 
-/* line 433, ../sass/pages.scss */
+/* line 434, ../sass/pages.scss */
 a {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
-/* line 438, ../sass/pages.scss */
+/* line 439, ../sass/pages.scss */
 .selectedItem {
   background-color: #7fb083;
 }
 
 @media all and (max-width: 629px) {
-  /* line 446, ../sass/pages.scss */
+  /* line 447, ../sass/pages.scss */
   #block-block-3 {
     display: none;
   }
 
-  /* line 453, ../sass/pages.scss */
+  /* line 454, ../sass/pages.scss */
   .section-het-spel article {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  /* line 463, ../sass/pages.scss */
+  /* line 464, ../sass/pages.scss */
   #type_page h1 {
     font-family: romina;
     text-align: center;
@@ -491,7 +492,7 @@ a {
   }
 }
 @media all and (min-width: 630px) {
-  /* line 474, ../sass/pages.scss */
+  /* line 475, ../sass/pages.scss */
   #header {
     background-image: url(../images/zwerm_logo_black_background.png);
     background-size: 10%;
@@ -502,30 +503,30 @@ a {
     display: block;
   }
 
-  /* line 485, ../sass/pages.scss */
+  /* line 486, ../sass/pages.scss */
   #content {
     padding-top: 40px;
     position: relative;
     top: 120px;
   }
 
-  /* line 492, ../sass/pages.scss */
+  /* line 493, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
     padding-top: 200px;
   }
 
-  /* line 499, ../sass/pages.scss */
+  /* line 500, ../sass/pages.scss */
   #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
     display: none;
   }
 
-  /* line 504, ../sass/pages.scss */
+  /* line 505, ../sass/pages.scss */
   .region-sidebar-first {
     padding-top: 200px;
   }
 
-  /* line 511, ../sass/pages.scss */
+  /* line 512, ../sass/pages.scss */
   #type_page h1 {
     font-family: romina;
     text-align: center;
