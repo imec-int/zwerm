@@ -214,7 +214,7 @@ NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_team' => array(

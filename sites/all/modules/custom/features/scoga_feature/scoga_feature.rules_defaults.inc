@@ -131,7 +131,7 @@ function scoga_feature_default_rules_configuration() {
       "LABEL" : "Reserve credits after wishitem creation",
       "PLUGIN" : "reaction rule",
       "ACTIVE" : false,
-      "REQUIRES" : [ "rules", "php", "userpoints_rules" ],
+      "REQUIRES" : [ "rules", "userpoints_rules" ],
       "ON" : [ "node_insert" ],
       "IF" : [
         { "node_is_of_type" : {
@@ -143,10 +143,7 @@ function scoga_feature_default_rules_configuration() {
       "DO" : [
         { "userpoints_action_grant_points" : {
             "user" : [ "node:author" ],
-            "points" : {
-              "select" : "node:field-wisheditem-award",
-              "php" : { "code" : "return - $value;" }
-            },
+            "points" : [ "node:field-wisheditem-award" ],
             "tid" : "3",
             "entity" : [ "node" ],
             "description" : "Deducted for creating wished item",
