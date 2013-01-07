@@ -1479,7 +1479,11 @@ else
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    4 => '4',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
@@ -1494,13 +1498,11 @@ else
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['id'] = 'field_campaignteam_team_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['table'] = 'field_data_field_campaignteam_team';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['field'] = 'field_campaignteam_team_target_id';
-  $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['label'] = 'Inhoud entity referenced from field_campaignteam_team';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['required'] = 0;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['id'] = 'field_campaignteam_campaign_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['table'] = 'field_data_field_campaignteam_campaign';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['field'] = 'field_campaignteam_campaign_target_id';
-  $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['label'] = 'Inhoud entity referenced from field_campaignteam_campaign';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['required'] = 0;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
@@ -1672,7 +1674,6 @@ else
   $handler->display->display_options['fields']['title_1']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['relationship'] = 'field_campaignteam_campaign_target_id';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Titel';
   $handler->display->display_options['fields']['title_1']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['absolute'] = 0;
@@ -2206,10 +2207,10 @@ return true;';
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Inhoud entity referenced from field_campaignteam_team'),
-    t('Inhoud entity referenced from field_campaignteam_campaign'),
+    t('Content entity referenced from field_campaignteam_team'),
+    t('Content entity referenced from field_campaignteam_campaign'),
     t('<a href=\'team/players/[title] \'>Bekijk actieve leden</a>'),
-    t('Titel'),
+    t('Title'),
     t('Extended team view'),
     t('Page'),
     t('Extended team view with score'),
@@ -2722,7 +2723,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   /* Display: Players by team */
   $handler = $view->new_display('page', 'Players by team', 'page_1');
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'mini';
+  $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';

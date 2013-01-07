@@ -3790,7 +3790,7 @@ DO NOT MODIFY ONCE SET!',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '13',
+          'weight' => 13,
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
