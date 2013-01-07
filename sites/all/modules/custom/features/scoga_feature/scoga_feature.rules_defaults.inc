@@ -143,7 +143,7 @@ function scoga_feature_default_rules_configuration() {
       "DO" : [
         { "userpoints_action_grant_points" : {
             "user" : [ "node:author" ],
-            "points" : { "select" : "node:field-wisheditem-award" },
+            "points" : [ "node:field-wisheditem-award" ],
             "tid" : "3",
             "entity" : [ "node" ],
             "description" : "Deducted for creating wished item",
