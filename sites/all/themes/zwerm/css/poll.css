@@ -1,0 +1,38 @@
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/poll.scss */
+.node-type-poll .poll .vote-form .choices {
+  margin: 0;
+}
+/* line 13, ../sass/poll.scss */
+.node-type-poll #main .form-radio {
+  width: 5%;
+}
+/* line 17, ../sass/poll.scss */
+.node-type-poll #main .form-submit {
+  width: 40%;
+  margin-left: 30%;
+}
+/* line 22, ../sass/poll.scss */
+.node-type-poll #main .field-label {
+  float: left;
+  font-weight: normal;
+}
+/* line 31, ../sass/poll.scss */
+.node-type-poll #content .tabs, .node-type-poll .submitted, .node-type-poll .field-name-field-poll-team {
+  display: none;
+}
+@media all and (max-width: 629px) {
+  /* line 39, ../sass/poll.scss */
+  .node-type-poll article {
+    margin-left: 5%;
+  }
+}

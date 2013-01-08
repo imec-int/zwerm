@@ -2,6 +2,11 @@
  * @file
  * RTL companion for the tabs.css file.
  */
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");

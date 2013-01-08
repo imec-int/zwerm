@@ -20,6 +20,11 @@ function scoga_theme_info($existing, $type, $theme, $path)
             'path' =>'templates',
             'template' => 'get_points'
         ),
+        'item_list_no_checkin' => array(
+            //'variables' => array('assignment_titles' => NULL) ,
+            'path' =>'templates',
+            'template' => 'get_points'
+        ),
         'user_login' => array(
             'path' =>'templates',
             'template' => 'templates/user_login',
@@ -27,3 +32,6 @@ function scoga_theme_info($existing, $type, $theme, $path)
         )
     );
 }
+
+
+

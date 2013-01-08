@@ -2,7 +2,7 @@
 
 .page-user
 {
-  .tabs, #select_list, h3, dl
+  .tabs, #select_list, h3, dl, #content .tabs
   {
     display: none;
   }
@@ -15,9 +15,15 @@
   .user-picture
   {
     float: left;
+    padding-right: 10px;
   }
 
   .privatemsg-send-link.privatemsg-send-link-profile {
     display: inline-block;
+  }
+
+  .field.field-name-field-user-firstname.field-type-text.field-label-hidden {
+    float: left;
+    padding-right: 4px;
   }
 }

@@ -7,10 +7,10 @@
    background-image : url(../images/zwerm_logo_transp_background.png);
    background-size: 40%;
    background-position-x: 50%;
-   background-position-y: 10%;
+   background-position-y: 50px;
    background-repeat: no-repeat;
 
-   h1,.form-required,.description, #header, #footer,  a[href*="register"],
+   h1,.form-required,.description, #footer,  a[href*="register"],
    .active
    {
      display:none;
@@ -18,7 +18,7 @@
 
    #user-login
    {
-     margin-top: 35%;
+     margin-top: 30%;
      .form-item-name
      {
        position:relative;

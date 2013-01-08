@@ -2,6 +2,7 @@
 /**
  * Formats $items as an html list
  */
+
     print ('<div id="select_list" class="clearfix">');
         print ('<ul>');
             $items = $variables['items'];
@@ -15,3 +16,4 @@
             }
         print ('</ul>');
     print ('</div>');
+

@@ -1,0 +1,43 @@
+@import "base";
+
+.node-type-poll
+{
+  .poll .vote-form .choices
+  {
+    margin:0;
+  }
+
+  #main
+  {
+    .form-radio
+    {
+      width:5%;
+    }
+    .form-submit
+    {
+      width: 40%;
+      margin-left: 30%;
+    }
+    .field-label
+    {
+      float:left;
+      font-weight: normal;
+    }
+  }
+
+
+
+  #content .tabs, .submitted, .field-name-field-poll-team
+  {
+    display: none;
+  }
+
+  //small viewport
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    article
+    {
+      margin-left: 5%;
+    }
+  }
+}

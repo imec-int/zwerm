@@ -1,3 +1,8 @@
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
@@ -9,17 +14,17 @@
   background-image: url(../images/zwerm_logo_transp_background.png);
   background-size: 40%;
   background-position-x: 50%;
-  background-position-y: 10%;
+  background-position-y: 50px;
   background-repeat: no-repeat;
 }
 /* line 15, ../sass/login.scss */
-.page-user.not-logged-in h1, .page-user.not-logged-in .form-required, .page-user.not-logged-in .description, .page-user.not-logged-in #header, .page-user.not-logged-in #footer, .page-user.not-logged-in a[href*="register"],
+.page-user.not-logged-in h1, .page-user.not-logged-in .form-required, .page-user.not-logged-in .description, .page-user.not-logged-in #footer, .page-user.not-logged-in a[href*="register"],
 .page-user.not-logged-in .active {
   display: none;
 }
 /* line 20, ../sass/login.scss */
 .page-user.not-logged-in #user-login {
-  margin-top: 35%;
+  margin-top: 30%;
 }
 /* line 23, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-name {

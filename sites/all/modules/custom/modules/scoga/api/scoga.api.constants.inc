@@ -57,7 +57,7 @@
     define( 'SCOGA_PERM_REST_ACCESS_SYNC',              'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_RELATIONSHIPS',     'access content' );
     define( 'SCOGA_PAGE_ACCESS_NOT_CHECKIN_PARTNER',    'access content' );
-    define( 'SCOGA_PERM_PAGE_ACCESS_GET_POINTS',        'access content' );
+    define( 'SCOGA_PERM_PAGE_ACCESS_GET_POINTS',        'play game' );
     define( 'SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER', 'access content');
     define( 'SCOGA_PERM_REST_ACCESS_PAGES_DATA',        'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_MAIL',              'access content' );

@@ -51,6 +51,11 @@ li a.active {
     {
       background-color: #7fb083;
 
+      #main-menu
+      {
+        //padding-top: 30px;
+      }
+
       a
       {
         padding-left: 15%;
@@ -105,7 +110,7 @@ li a.active {
   //the nav menu for the front page : buttons
   .page-frontpage
   {
-    #menu_container
+    #menu_container, #home_text
     {
       display:none;
     }
@@ -190,6 +195,11 @@ li a.active {
         @include nav-image-style-front();
       }
 
+      #Account
+      {
+        text-replace: "Login" "Account" ;
+      }
+
       .menu_item
       {
         padding-top:70%;
@@ -201,7 +211,7 @@ li a.active {
         height: 25%;
         width:28%;
         padding: 0 0px 0 0;
-        background-color: #84B7C2;
+        //background-color: #84B7C2;
         background-repeat: no-repeat;
         background-position: center;
         padding: 1%;
@@ -238,7 +248,8 @@ li a.active {
     background-color: $green-marking-color;
     z-index: 21;
     width:100%;
-    background-image:url("../images/menu_icon.png");
+    height:$nav_height_large_viewport;
+    //background-image:url("../images/menu_icon.png");
     background-size: 23px;
     background-position-y: 3px;
     background-position-x: 3px;

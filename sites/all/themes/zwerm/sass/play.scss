@@ -2,28 +2,32 @@
 
 
 @media all and (max-width: $end_of_small_viewport) {
-  .page-get-points
+  body.page-get-points
   {
-    background-color: #000000;
-  }
+    background-color: $white-background-color;
 
-  #content
-  {
-    padding-top: 0px;
-    li
+    #content
     {
-      height:$li-height;
-      background-color:white;
-      margin-bottom: 3px;
+      padding-top: 0px;
+      li
+      {
+        //default style of list items in get-points list
+        height:$li-height;
+        background-color:white;
+        //margin-bottom: 3px;
+      }
     }
   }
+
+
 }
 
 
 @media all and (min-width: $start_of_large_viewport) {
   .page-get-points
   {
-    background-color: #ffffff;
+
+
     #content
     {
       li
@@ -33,6 +37,10 @@
         //margin-bottom: 3px;
       }
     }
+  }
+  body.page-get-points
+  {
+    background-color: $white-background-color;
   }
 
 
@@ -59,7 +67,7 @@
 
     .list_header
     {
-      padding-top: 16px;
+      padding-top: 19px;
       padding-left: 26px;
     }
 
@@ -68,12 +76,17 @@
       background-color: $green-marking-color;
     }
 
+    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after
+    {
+        content: url('../images/expand_icon.png');
+    }
+
     li:after
     {
       content:">";
       display:inline;
       float:right;
-      padding-top:17px;
+      padding-top:19px;
       padding-right:25px;
       font-size: large;
     }
@@ -105,12 +118,7 @@
   }
 
   .link_truncated {
-    text-overflow: ellipsis;
-    display: inline-block;
-    width: 85%;
-    white-space: nowrap;
-    overflow: hidden;
-    vertical-align: top;
+    @include text-truncation;
   }
 
 

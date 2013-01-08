@@ -118,6 +118,7 @@ body {
     width:20px;
     vertical-align: bottom;
     padding-left: 10px;
+    padding-right: 10px;
   }
   #menu_text
   {
@@ -190,6 +191,8 @@ body {
     //padding-top:$pages-title-top-padding;
     text-align: center;
   }
+
+
 }
 
 .page-frontpage
@@ -199,13 +202,6 @@ body {
     padding-top:0px;
 
   }
-}
-/*
- * Content
- */
-
-#content {
-  padding-top: $header-height-small-viewport;
 }
 
 .region-highlighted {
@@ -299,6 +295,7 @@ span.field-label { /* The inline field label used by the Fences module */
 
 .item-list .pager { /* A list of page numbers when more than 1 page of content is available */
   padding: 0;
+  margin-top:-15px;
 
   li { /* Each page number in the pager list */
     padding: 0 0.5em;
@@ -378,8 +375,8 @@ span.field-label { /* The inline field label used by the Fences module */
   position: fixed;
   right: 0;
   width : 100%;
-  padding-top: 10px;
-  height:45px;
+  padding-top: 3px;
+  height:33px;
 }
 
 //needed for footer to remain at bottom
@@ -429,6 +426,8 @@ tr.colordc6058 {
   }
   a {
     @include hyperlink-style;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 }
 
@@ -447,6 +446,16 @@ a {
   #block-block-3
   {
     display:none;
+  }
+
+  .section-het-spel
+  {
+    article
+    {
+      padding-left:10px;
+      padding-right:10px;
+
+    }
   }
 
   #type_page
@@ -475,8 +484,10 @@ a {
 
   #content
   {
-    position:absolute;
-    top:$header-height-large-viewport;
+    padding-top: $header-height-small-viewport;
+    position:relative;
+    //top:$header-height-large-viewport+$nav_height_large_viewport+15;
+    top:120px;
   }
 
   #type_page, #type_nodetype_event {

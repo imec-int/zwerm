@@ -1,0 +1,20 @@
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/team-score.scss */
+.page-team-score .view-content {
+  margin-left: 20%;
+  width: 100%;
+}
+/* line 12, ../sass/team-score.scss */
+.page-team-score .views-row {
+  width: 30%;
+  display: inline-block;
+}

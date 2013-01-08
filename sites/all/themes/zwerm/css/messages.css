@@ -1,55 +1,99 @@
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
 }
 
-/* line 6, ../sass/messages.scss */
+/* line 4, ../sass/messages.scss */
+body.section-messages {
+  background-color: #eeeeee;
+}
+/* line 8, ../sass/messages.scss */
+body.section-messages .privatemsg-message-actions.links.inline {
+  display: none;
+}
+/* line 13, ../sass/messages.scss */
+body.section-messages .privatemsg-message-column {
+  width: 95%;
+  padding-right: 5px;
+}
+/* line 20, ../sass/messages.scss */
+body.section-messages #edit-cancel {
+  display: none;
+}
+
+/* line 29, ../sass/messages.scss */
 .page-messages #main {
   background-color: #eeeeee;
 }
-/* line 11, ../sass/messages.scss */
+/* line 34, ../sass/messages.scss */
 .page-messages h1 {
   display: none;
 }
-/* line 18, ../sass/messages.scss */
+/* line 41, ../sass/messages.scss */
 .page-messages .action-links li {
   list-style-type: none;
 }
-/* line 22, ../sass/messages.scss */
+/* line 45, ../sass/messages.scss */
 .page-messages .action-links a {
   color: red;
   margin-left: -28px;
 }
-/* line 32, ../sass/messages.scss */
+/* line 55, ../sass/messages.scss */
 .page-messages th a, .page-messages td a {
   color: black;
 }
-/* line 38, ../sass/messages.scss */
-.page-messages tr.odd {
-  background-color: #7fb083;
+/* line 61, ../sass/messages.scss */
+.page-messages tr.odd, .page-messages tr.even {
+  background-color: #eeeeee;
 }
-/* line 45, ../sass/messages.scss */
-.page-messages #content .tabs li:nth-child(3), .page-messages #content .tabs li:nth-child(4) {
+/* line 69, ../sass/messages.scss */
+.page-messages #content .tabs li:nth-child(3), .page-messages #content .tabs li:nth-child(4), .page-messages #content .tabs li:nth-child(5) {
   display: none;
 }
-/* line 51, ../sass/messages.scss */
+/* line 75, ../sass/messages.scss */
+.page-messages .username {
+  color: black;
+}
+/* line 80, ../sass/messages.scss */
 .page-messages #edit-operation {
   display: none;
 }
-/* line 56, ../sass/messages.scss */
-.page-messages .privatemsg-list-subject {
-  padding-left: 13px;
-}
-/* line 61, ../sass/messages.scss */
+/* line 90, ../sass/messages.scss */
 .page-messages .container-inline, .page-messages .form-type-checkbox, .page-messages .form-checkbox {
   display: none;
 }
-/* line 65, ../sass/messages.scss */
+/* line 94, ../sass/messages.scss */
 .page-messages .action-links {
   margin-top: 0px;
+  margin-bottom: -30px;
+}
+/* line 99, ../sass/messages.scss */
+.page-messages .privatemsg-unread td {
+  font-weight: normal;
+}
+/* line 104, ../sass/messages.scss */
+.page-messages td.privatemsg-list-subject, .page-messages td.privatemsg-list-participants {
+  border-right: 1px solid #CCC;
+}
+/* line 110, ../sass/messages.scss */
+.page-messages td.privatemsg-list-participants, .page-messages td.privatemsg-list-date {
+  padding-left: 3px;
+}
+/* line 115, ../sass/messages.scss */
+.page-messages th {
+  font-size: xx-small;
+}
+/* line 120, ../sass/messages.scss */
+.page-messages td {
+  font-size: small;
 }
 
-/* line 73, ../sass/messages.scss */
+/* line 128, ../sass/messages.scss */
 .page-messages-new .description, .page-messages-new #edit-cancel {
   display: none;
 }

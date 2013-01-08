@@ -54,7 +54,9 @@
 
         jQuery("#menu_container").click(function()
         {
+            jQuery('html, body').animate({scrollTop:0}, 'fast');
             jQuery("#main-menu").slideToggle(500);
+            jQuery("#footer").slideToggle(500);
         });
 
 
