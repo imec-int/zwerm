@@ -12,31 +12,42 @@
 .page-node-add-nodetype-wished-item, .node-type-nodetype-wished-item {
   background-color: #eeeeee;
 }
-/* line 8, ../sass/wish.scss */
+@media all and (max-width: 629px) {
+  /* line 12, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main #content, .node-type-nodetype-wished-item #main #content {
+    margin-left: 2%;
+    width: 94%;
+  }
+  /* line 16, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main #content #edit-title, .node-type-nodetype-wished-item #main #content #edit-title {
+    width: 94%;
+  }
+}
+/* line 24, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .field-edit-link, .node-type-nodetype-wished-item .field-edit-link {
   display: none;
 }
-/* line 13, ../sass/wish.scss */
+/* line 29, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .filter-wrapper, .node-type-nodetype-wished-item .filter-wrapper {
   display: none;
 }
-/* line 18, ../sass/wish.scss */
+/* line 34, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .wysiwyg-toggle-wrapper, .node-type-nodetype-wished-item .wysiwyg-toggle-wrapper {
   display: none;
 }
-/* line 23, ../sass/wish.scss */
+/* line 39, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item #edit-preview, .node-type-nodetype-wished-item #edit-preview {
   display: none;
 }
-/* line 28, ../sass/wish.scss */
+/* line 44, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .username, .node-type-nodetype-wished-item .username {
   color: black;
 }
-/* line 32, ../sass/wish.scss */
+/* line 48, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item #edit-body, .node-type-nodetype-wished-item #edit-body {
   width: 101%;
 }
-/* line 37, ../sass/wish.scss */
+/* line 53, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .form-field-name-field-wisheditem-image, .node-type-nodetype-wished-item .form-field-name-field-wisheditem-image {
   display: none;
 }

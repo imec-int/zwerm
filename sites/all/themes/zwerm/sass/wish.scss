@@ -4,6 +4,22 @@
 {
   background-color: $white-background-color;
 
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    #main
+    {
+      #content
+      {
+        margin-left: 2%;
+        width: 94%;
+        #edit-title
+        {
+          width: 94%;
+        }
+      }
+    }
+  }
+
   .field-edit-link
   {
     display:none;
