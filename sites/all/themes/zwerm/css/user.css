@@ -17,15 +17,23 @@
   color: black;
 }
 /* line 16, ../sass/user.scss */
+.page-user a.privatemsg-send-link {
+  color: red;
+}
+/* line 21, ../sass/user.scss */
 .page-user .user-picture {
   float: left;
   padding-right: 10px;
 }
-/* line 21, ../sass/user.scss */
+/* line 26, ../sass/user.scss */
+.page-user .profile {
+  margin-left: 4%;
+}
+/* line 30, ../sass/user.scss */
 .page-user .privatemsg-send-link.privatemsg-send-link-profile {
   display: inline-block;
 }
-/* line 25, ../sass/user.scss */
+/* line 34, ../sass/user.scss */
 .page-user .field.field-name-field-user-firstname.field-type-text.field-label-hidden {
   float: left;
   padding-right: 4px;

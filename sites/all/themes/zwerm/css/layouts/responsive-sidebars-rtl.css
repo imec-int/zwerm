@@ -143,9 +143,10 @@
   /* line 116, ../../sass/layouts/responsive-sidebars.scss */
   #navigation .not-front-page {
     display: none;
+    padding-top: 18px;
   }
 
-  /* line 122, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 123, ../../sass/layouts/responsive-sidebars.scss */
   .logged-in #footer {
     display: none;
   }
@@ -157,7 +158,7 @@
   /*
   * The layout when there is only one sidebar, the left one.
   */
-  /* line 139, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 140, ../../sass/layouts/responsive-sidebars.scss */
   #navigation {
     /* Span 3 columns, starting in 2nd column from left. */
     clear: right;
@@ -174,7 +175,7 @@
     word-wrap: break-word;
   }
 
-  /* line 145, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 146, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 5 columns, starting in 2nd column from left. */
     background-color: #eeeeee;
@@ -192,7 +193,7 @@
     clear: right;
   }
 
-  /* line 155, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     float: right;
     width: 60%;
@@ -207,12 +208,12 @@
     word-wrap: break-word;
   }
 
-  /* line 162, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 163, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
   }
 
-  /* line 170, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 171, ../../sass/layouts/responsive-sidebars.scss */
   #footer .logged-in {
     display: none;
     float: right;

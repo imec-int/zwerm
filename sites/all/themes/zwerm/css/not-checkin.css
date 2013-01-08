@@ -8,10 +8,6 @@
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
 }
 
-/* line 4, ../sass/not-checkin.scss */
-body.page-not-partner {
-  background-color: #eeeeee;
-}
 /* line 9, ../sass/not-checkin.scss */
 body.page-not-partner #select_list a {
   color: black;
@@ -35,15 +31,18 @@ body.page-not-partner #content #page-title {
   height: 60px;
   line-height: 2.6em;
   letter-spacing: 2px;
-  margin-bottom: -2PX;
+  margin-bottom: -2px;
+  line-height: 1.5em;
+  text-align: left;
+  font-size: large;
+  padding-left: 5px;
 }
-/* line 33, ../sass/not-checkin.scss */
+/* line 37, ../sass/not-checkin.scss */
 body.page-not-partner #content li {
   height: 60px;
-  background-color: white;
   margin-bottom: 3px;
 }
-/* line 40, ../sass/not-checkin.scss */
+/* line 44, ../sass/not-checkin.scss */
 body.page-not-partner #content li:after {
   content: ">";
   display: inline;
@@ -52,22 +51,22 @@ body.page-not-partner #content li:after {
   padding-right: 25px;
   font-size: large;
 }
-/* line 50, ../sass/not-checkin.scss */
+/* line 54, ../sass/not-checkin.scss */
 body.page-not-partner #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 59, ../sass/not-checkin.scss */
+/* line 63, ../sass/not-checkin.scss */
 body.page-not-partner #content #select_list ul {
   margin-top: 2px;
   white-space: nowrap;
 }
-/* line 64, ../sass/not-checkin.scss */
+/* line 68, ../sass/not-checkin.scss */
 body.page-not-partner #content #select_list a {
   line-height: 3.8em;
 }
-/* line 70, ../sass/not-checkin.scss */
+/* line 74, ../sass/not-checkin.scss */
 body.page-not-partner #content #main-content {
   display: none;
 }
