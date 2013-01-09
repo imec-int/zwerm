@@ -78,6 +78,7 @@ stylesheets[all][] = css/poll.css
 stylesheets[all][] = css/messages.css
 stylesheets[all][] = css/play.css
 stylesheets[all][] = css/recent-points.css
+stylesheets[all][] = css/geochallenges.css
 
 
 

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SCOGA Geochallenges Extensions feature.
+ */
+
+include_once 'scoga_geochallenges_extensions.features.inc';

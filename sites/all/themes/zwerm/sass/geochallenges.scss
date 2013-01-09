@@ -1,0 +1,77 @@
+/**
+ * @file
+ * Geochallenges related styling
+ */
+
+@import "base";
+
+.page-node.node-type-geo-challenge #page-title {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.page-node.node-type-geo-challenge .node-geo-challenge {
+  margin: -10px 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.node-type-geo-challenge  .field-name-field-description {
+  text-align: center;
+}
+
+.node-type-geo-challenge  .node-geo-challenge  {
+  margin: 0 0 25px 0;
+}
+
+.geochallenge-subtitle {
+  text-align: center;
+  font-family: Romina;
+  font-size: 1.5em;
+  margin: 5px 0 20px 0;
+}
+
+.field-name-field-description {
+  font-size: 1.2em;
+}
+
+.node-type-geo-challenge .view-poi-per-challenge {
+  margin: 0 0 0 0;
+}
+
+.geochallenge-details {
+  margin: 20px 0 0 0;
+  padding: 10px 10px 10px 10px;
+  background-color: $green-marking-color;
+  font-size: 0.8em;
+  color: #ffffff;
+  line-height: 1.4em;
+}
+
+.geochallenge-details-label {
+
+}
+
+.geochallenge-details-value {
+  margin: 0 0 0 5px;
+  font-weight: bold;
+  font-family: Romina;
+  font-size: 1.1em;
+}
+
+.geochallenge-add-poi a {
+  display: block;
+  background-color: $score-navbar-color;
+  background-image: url('../images/expand_icon.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin: 1px 0;
+  font-family: Romina;
+  font-size: 1.4em;
+
+  span {
+    font-size: 4em;
+  }
+}
+

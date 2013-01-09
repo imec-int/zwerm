@@ -1,0 +1,89 @@
+/**
+ * @file
+ * Geochallenges related styling
+ */
+/* line 140, ../sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 8, ../sass/geochallenges.scss */
+.page-node.node-type-geo-challenge #page-title {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+/* line 13, ../sass/geochallenges.scss */
+.page-node.node-type-geo-challenge .node-geo-challenge {
+  margin: -10px 0 0 0;
+  padding: 0 0 0 0;
+}
+
+/* line 18, ../sass/geochallenges.scss */
+.node-type-geo-challenge .field-name-field-description {
+  text-align: center;
+}
+
+/* line 22, ../sass/geochallenges.scss */
+.node-type-geo-challenge .node-geo-challenge {
+  margin: 0 0 25px 0;
+}
+
+/* line 26, ../sass/geochallenges.scss */
+.geochallenge-subtitle {
+  text-align: center;
+  font-family: Romina;
+  font-size: 1.5em;
+  margin: 5px 0 20px 0;
+}
+
+/* line 33, ../sass/geochallenges.scss */
+.field-name-field-description {
+  font-size: 1.2em;
+}
+
+/* line 37, ../sass/geochallenges.scss */
+.node-type-geo-challenge .view-poi-per-challenge {
+  margin: 0 0 0 0;
+}
+
+/* line 41, ../sass/geochallenges.scss */
+.geochallenge-details {
+  margin: 20px 0 0 0;
+  padding: 10px 10px 10px 10px;
+  background-color: #7fb083;
+  font-size: 0.8em;
+  color: #ffffff;
+  line-height: 1.4em;
+}
+
+/* line 54, ../sass/geochallenges.scss */
+.geochallenge-details-value {
+  margin: 0 0 0 5px;
+  font-weight: bold;
+  font-family: Romina;
+  font-size: 1.1em;
+}
+
+/* line 61, ../sass/geochallenges.scss */
+.geochallenge-add-poi a {
+  display: block;
+  background-color: #484848;
+  background-image: url("../images/expand_icon.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin: 1px 0;
+  font-family: Romina;
+  font-size: 1.4em;
+}
+/* line 73, ../sass/geochallenges.scss */
+.geochallenge-add-poi a span {
+  font-size: 4em;
+}

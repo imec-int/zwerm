@@ -12,7 +12,7 @@
  *
  * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
  */
-/* line 140, ../../sass/_base.scss */
+/* line 140, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
 .color-dc6058 {
   background-color: #DC6058;
 }
@@ -25,7 +25,7 @@
 /*
  * Center the page.
  */
-/* line 46, ../../sass/layouts/responsive-sidebars.scss */
+/* line 46, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
 #page,
 .region-bottom {
   /* For screen sizes larger than 1200px, prevent excessively long lines of text
@@ -37,7 +37,7 @@
 /*
  * Apply the shared properties of grid items in a single, efficient ruleset.
  */
-/* line 66, ../../sass/layouts/responsive-sidebars.scss */
+/* line 66, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
 #header,
 #content,
 #navigation,
@@ -56,7 +56,7 @@
 /*
  * Containers for grid items and flow items.
  */
-/* line 52, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 52, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #header:before, #header:after,
 #main:before,
 #main:after,
@@ -65,7 +65,7 @@
   content: "";
   display: table;
 }
-/* line 56, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 56, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #header:after,
 #main:after,
 #footer:after {
@@ -73,7 +73,7 @@
 }
 
 @media all and (max-width: 629px) {
-  /* line 84, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 84, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   #main {
     float: right;
     width: 100%;
@@ -88,7 +88,7 @@
     word-wrap: break-word;
     height: 100%;
   }
-  /* line 91, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 91, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   #main #content {
     float: right;
     width: 100%;
@@ -102,12 +102,12 @@
     box-sizing: border-box;
     word-wrap: break-word;
   }
-  /* line 94, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 94, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   #main #logo {
     display: none;
   }
 
-  /* line 100, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 100, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   table {
     float: right;
     width: 100%;
@@ -123,7 +123,7 @@
     clear: right;
   }
 
-  /* line 107, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 107, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   .messages {
     clear: right;
     float: right;
@@ -140,12 +140,12 @@
     display: block;
   }
 
-  /* line 116, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 116, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   #navigation .not-front-page {
     display: none;
   }
 
-  /* line 122, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 122, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   .logged-in #footer {
     display: none;
   }
@@ -157,7 +157,7 @@
   /*
   * The layout when there is only one sidebar, the left one.
   */
-  /* line 139, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 139, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   #navigation {
     /* Span 3 columns, starting in 2nd column from left. */
     clear: right;
@@ -174,7 +174,7 @@
     word-wrap: break-word;
   }
 
-  /* line 145, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 145, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 5 columns, starting in 2nd column from left. */
     background-color: #eeeeee;
@@ -192,7 +192,7 @@
     clear: right;
   }
 
-  /* line 155, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 155, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   #content {
     float: right;
     width: 60%;
@@ -207,12 +207,12 @@
     word-wrap: break-word;
   }
 
-  /* line 162, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 162, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
   }
 
-  /* line 170, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 170, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss */
   #footer .logged-in {
     display: none;
     float: right;
