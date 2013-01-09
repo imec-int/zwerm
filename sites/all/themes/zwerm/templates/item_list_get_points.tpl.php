@@ -45,13 +45,13 @@
                     else
                     {
                         if (strpos($item,t('GeoChallenge'))!=false)
-                            $classes .= ' geochallenge';
+                            $classes .= ' geochallenge collapsible';
                         if (strpos($item,t('Wish'))!=false)
-                            $classes .= ' wish';
+                            $classes .= ' wish collapsible';
                         if (strpos($item,'Event')!=false)
-                            $classes .= ' event';
+                            $classes .= ' event collapsible';
                         if (strpos($item,'Question')!=false)
-                            $classes .= ' question';
+                            $classes .= ' question collapsible';
                         print("<li class=\"".$classes."\" onmousedown=\"li_mousedown('".$path."',this);\"><div class=link_truncated>".$item."</div></li>");
                     }
 
