@@ -71,6 +71,7 @@
 
 function li_mousedown(url,element)
 {
+    alert('test');
     element.className="selectedItem";
     document.location = url;
 }
