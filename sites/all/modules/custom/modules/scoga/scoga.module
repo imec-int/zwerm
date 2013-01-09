@@ -1,6 +1,29 @@
 <?php
     /**
-     * Created by JetBrains PhpStorm.
+     * All hooks are placed in this file.
+     * They relay their calls to appropriate handlers, which are declared in the /restricted directory
+     *
+     * For instance: if you want to use hook_node_insert
+     * 1. declare a function <code>scoga_node_insert</code> inside this file
+     * 2. create a /restricted/scoga.node.inc file (it's called scoga.node.inc, since the hook is invoked from the node module,
+     * consequently if you declare a user_relationships hook you create a file /restricted/scoga.user_relationships.inc)
+     * 3. declare a function <code>scoga_handle_node_insert</code> inside the scoga.node.inc file
+     * 4. inside the <code>scoga_node_insert</code> function include the scoga.node.inc file and call the handler function:
+     * <code>
+    module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+    scoga_handle_node_insert( $node );
+     * </code>
+     *
+     * the handler is always called : scoga_handle_<hookname>
+     *
+     *
+     * Benefits:
+     * 1/ all hook implementations are centralized inside one file (scoga.module) which gives a very clean overview of all the hooks used. Also, it allows for easy switching on and off of hooks
+     * 2/ only the appropriate files are parsed and processed -> better execution times
+     * 3/ by structuring the handlers inside scoga.<module>.inc files, it allows for fast look ups of hook handlers.
+     * No need to search where a function is defined.
+     * 4/ avoids turning scoga.module to one, huge, monolithic code repository
+     *
      * User: creynder
      * Date: 12/04/12
      * Time: 10:19
@@ -179,7 +202,7 @@
     function scoga_theme($existing, $type, $theme, $path)
     {
         module_load_include( 'theme.inc', 'scoga', 'restricted/scoga' );
-        return scoga_theme_info($existing, $type, $theme, $path);
+        return scoga_handle_theme($existing, $type, $theme, $path);
     }
 
     /**
@@ -224,34 +247,5 @@
                 break;
         }
 
-    }
-
-    /*
-     * Used to add the team color to the page, based on
-     * the team of the logged in user
-     * @Camille : is this the correct spot to place this ?
-     * If moved to scoga.theme.inc, only works once, after clearing
-     * cache, and is no longer invoked subsequently
-     *
-     */
-    function scoga_preprocess_html(&$variables)
-    {
-        global $user;
-        $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
-    }
-
-    function _scoga_get_user_team_color($uid)
-    {
-        $returnValue = "";
-        $query = db_query('
-                  SELECT field_team_colour_value
-                  FROM field_data_field_team_colour as ftc
-                  INNER JOIN field_data_field_user_team as fut on fut.field_user_team_target_id = ftc.entity_id
-                  WHERE fut.entity_id= :uid',array(':uid' =>$uid));
-        foreach ($query as $record)
-        {
-            $returnValue = 'color-'.$record->field_team_colour_value;
-        }
-        return $returnValue;
     }
 
