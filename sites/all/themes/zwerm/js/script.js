@@ -18,7 +18,6 @@
 
         // Find each of our input fields
         var fields = $("form#user-login input");
-        //alert(fields);
 
         // If a field gets focus then hide the label
         // (which is the previous element in the DOM).
@@ -32,6 +31,12 @@
             if (!this.value) {
                 $(this).prev().show();
             }
+        });
+
+        jQuery(".geochallenge").hide();
+        jQuery(".list_header_geochallenge").click(function()
+        {
+            jQuery(".geochallenge").slideToggle(500);
         });
 
         jQuery(".wish").hide();
@@ -58,9 +63,6 @@
             jQuery("#main-menu").slideToggle(500);
             jQuery("#footer").slideToggle(500);
         });
-
-
-
     });
 
 })(jQuery, Drupal, this, this.document);
