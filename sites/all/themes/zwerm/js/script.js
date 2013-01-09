@@ -33,27 +33,29 @@
             }
         });
 
-        jQuery(".geochallenge").hide();
+        jQuery(".collapsible").hide();
         jQuery(".list_header_geochallenge").click(function()
         {
+            jQuery(".collapsible").hide();
             jQuery(".geochallenge").slideToggle(500);
+
         });
 
-        jQuery(".wish").hide();
         jQuery(".list_header_wish").click(function()
         {
+            jQuery(".collapsible").hide();
             jQuery(".wish").slideToggle(500);
         });
 
-        jQuery(".event").hide();
         jQuery(".list_header_event").click(function()
         {
+            jQuery(".collapsible").hide();
             jQuery(".event").slideToggle(500);
         });
 
-        jQuery(".question").hide();
         jQuery(".list_header_question").click(function()
         {
+            jQuery(".collapsible").hide();
             jQuery(".question").slideToggle(500);
         });
 
