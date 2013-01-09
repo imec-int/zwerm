@@ -18,7 +18,6 @@
 
         // Find each of our input fields
         var fields = $("form#user-login input");
-        //alert(fields);
 
         // If a field gets focus then hide the label
         // (which is the previous element in the DOM).
@@ -34,21 +33,29 @@
             }
         });
 
-        jQuery(".wish").hide();
+        jQuery(".collapsible").hide();
+        jQuery(".list_header_geochallenge").click(function()
+        {
+            jQuery(".collapsible").hide();
+            jQuery(".geochallenge").slideToggle(500);
+
+        });
+
         jQuery(".list_header_wish").click(function()
         {
+            jQuery(".collapsible").hide();
             jQuery(".wish").slideToggle(500);
         });
 
-        jQuery(".event").hide();
         jQuery(".list_header_event").click(function()
         {
+            jQuery(".collapsible").hide();
             jQuery(".event").slideToggle(500);
         });
 
-        jQuery(".question").hide();
         jQuery(".list_header_question").click(function()
         {
+            jQuery(".collapsible").hide();
             jQuery(".question").slideToggle(500);
         });
 
@@ -58,9 +65,6 @@
             jQuery("#main-menu").slideToggle(500);
             jQuery("#footer").slideToggle(500);
         });
-
-
-
     });
 
 })(jQuery, Drupal, this, this.document);

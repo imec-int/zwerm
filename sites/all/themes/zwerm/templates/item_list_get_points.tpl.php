@@ -20,9 +20,14 @@
                 {
                     $path = $paths[$i];
 
+                    //when there is not path, it should be treated as a heading
                     if ($path==false)
                     {
-                        if (strpos($item,'wish')!=false)
+                        if (strpos($item,'GeoChallenges')!=false)
+                        {
+                            $classes .= ' list_header_geochallenge';
+                        }
+                        if (strpos($item,'Wish')!=false)
                         {
                             $classes .= ' list_header_wish';
                         }
@@ -36,14 +41,17 @@
                         }
                         print("<li class=\"".$classes."\"><div class=link_truncated>".$item."</div></li>");
                     }
+                    //when there is a path, it should be treated as a an actual selectable item
                     else
                     {
+                        if (strpos($item,t('GeoChallenge'))!=false)
+                            $classes .= ' geochallenge collapsible';
                         if (strpos($item,t('Wish'))!=false)
-                            $classes .= ' wish';
+                            $classes .= ' wish collapsible';
                         if (strpos($item,'Event')!=false)
-                            $classes .= ' event';
+                            $classes .= ' event collapsible';
                         if (strpos($item,'Question')!=false)
-                            $classes .= ' question';
+                            $classes .= ' question collapsible';
                         print("<li class=\"".$classes."\" onmousedown=\"li_mousedown('".$path."',this);\"><div class=link_truncated>".$item."</div></li>");
                     }
 

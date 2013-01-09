@@ -117,15 +117,14 @@ $logo-width-large-viewport : 20%;
 //common to viewports
 $li-height : 60px;
 $score-navbar-height : 60px;
-$pages-title-top-padding : 45px;
+$pages-title-top-padding : 10px;
 
-$white-background-color : #eeeeee;
 $header-color : #000000;
 $team-overview-score-color : #aaaaaa;
-$team-blue-color : #79B1BD;
 $footer-color : #333333;
 $team-blue-color : #79b1bd;
 $team-red-color : #dc6058;
+$white-background-color : #eeeeee;
 $green-marking-color : #7fb083;
 $score-navbar-color : #484848;
 $score-navbar-non-active-link-color: #808080;
@@ -135,10 +134,18 @@ $number_of_items_in_navmenu : 6;
 $space_outside_of_navmenus : 12.5; //in percentage
 $width_per_item : percentage((100 - ($space_outside_of_navmenus * 2)) / $number_of_items_in_navmenu / 100);
 
-
-.color-dc6058
+@media all and (max-width: $end_of_small_viewport)
 {
-  background-color: #DC6058;
+  .color-dc6058
+  {
+    background-color: #DC6058;
+  }
+
+  .color-79b1bd
+  {
+    background-color: #79b1bd;
+  }
+
 }
 
 @font-face {

@@ -1479,11 +1479,7 @@ else
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    3 => '3',
-    4 => '4',
-  );
+  $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
@@ -1498,11 +1494,13 @@ else
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['id'] = 'field_campaignteam_team_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['table'] = 'field_data_field_campaignteam_team';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['field'] = 'field_campaignteam_team_target_id';
+  $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['label'] = 'Inhoud entity referenced from field_campaignteam_team';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['required'] = 0;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['id'] = 'field_campaignteam_campaign_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['table'] = 'field_data_field_campaignteam_campaign';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['field'] = 'field_campaignteam_campaign_target_id';
+  $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['label'] = 'Inhoud entity referenced from field_campaignteam_campaign';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['required'] = 0;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
@@ -1674,6 +1672,7 @@ else
   $handler->display->display_options['fields']['title_1']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['relationship'] = 'field_campaignteam_campaign_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Titel';
   $handler->display->display_options['fields']['title_1']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['absolute'] = 0;
@@ -2207,10 +2206,10 @@ return true;';
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Content entity referenced from field_campaignteam_team'),
-    t('Content entity referenced from field_campaignteam_campaign'),
+    t('Inhoud entity referenced from field_campaignteam_team'),
+    t('Inhoud entity referenced from field_campaignteam_campaign'),
     t('<a href=\'team/players/[title] \'>Bekijk actieve leden</a>'),
-    t('Title'),
+    t('Titel'),
     t('Extended team view'),
     t('Page'),
     t('Extended team view with score'),
@@ -2723,7 +2722,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   /* Display: Players by team */
   $handler = $view->new_display('page', 'Players by team', 'page_1');
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
@@ -2876,7 +2875,8 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['label'] = '';
   $handler->display->display_options['fields']['field_user_firstname']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_user_firstname']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_user_firstname']['alter']['make_link'] = 1;
+  $handler->display->display_options['fields']['field_user_firstname']['alter']['path'] = 'users/[name]';
   $handler->display->display_options['fields']['field_user_firstname']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['replace_spaces'] = 0;
@@ -2888,19 +2888,25 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['field_user_firstname']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_user_firstname']['element_type'] = '0';
   $handler->display->display_options['fields']['field_user_firstname']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_user_firstname']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_user_firstname']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_user_firstname']['element_default_classes'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
+  $handler->display->display_options['fields']['field_user_firstname']['settings'] = array(
+    'trim_length' => '600',
+  );
+  $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 1;
   /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['label'] = '';
   $handler->display->display_options['fields']['field_user_surname']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_user_surname']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_user_surname']['alter']['make_link'] = 1;
+  $handler->display->display_options['fields']['field_user_surname']['alter']['path'] = '/users/[name]';
   $handler->display->display_options['fields']['field_user_surname']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['alter']['replace_spaces'] = 0;
@@ -3012,6 +3018,8 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('All'),
     t('Team members of current user'),
     t('Players by team'),
+    t('users/[name]'),
+    t('/users/[name]'),
     t('Entity Reference View Widget'),
   );
   $export['view_team_members_of_current_user'] = $view;
@@ -3549,7 +3557,7 @@ return true;*/';
 $static->current_userpoints_category_tid = scoga_get_current_userpoints_category_tid();';
   $handler->display->display_options['filters']['php']['php_filter'] = '//Filters the Campaign team nodes that correspond to the current campaign
 //dsm($static->current_userpoints_category_tid);
-//dsm($row->tid_1);
+var_dump($row);
 if ($static->current_userpoints_category_tid == $row->tid_1)
 return false;
 else

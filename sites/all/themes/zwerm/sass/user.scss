@@ -9,13 +9,35 @@
 
   a
   {
-   color: black;
+    color:black;
+  }
+
+
+
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    a.privatemsg-send-link
+    {
+      color: $green-marking-color;
+    }
+  }
+
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    a.privatemsg-send-link
+    {
+      color:$white-background-color;
+    }
   }
 
   .user-picture
   {
     float: left;
     padding-right: 10px;
+  }
+
+  .profile {
+    margin-left: 4%;
   }
 
   .privatemsg-send-link.privatemsg-send-link-profile {
@@ -25,5 +47,22 @@
   .field.field-name-field-user-firstname.field-type-text.field-label-hidden {
     float: left;
     padding-right: 4px;
+  }
+
+  li
+  {
+    list-style-type: none;
+  }
+
+  .item-list
+  {
+    padding-top: 25px;
+    display:block
+  }
+
+  ul.userpoints-points
+  {
+    margin-left: 80px;
+    margin-top: -24px;
   }
 }
