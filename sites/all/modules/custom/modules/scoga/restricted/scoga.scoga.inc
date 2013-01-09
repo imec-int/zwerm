@@ -8,7 +8,7 @@
  */
 
     function scoga_handle_scoga_current_campaign_changed( $new_nid, $current_nid ){
-
+        watchdog( 'SCOGA', 'scoga_handle_scoga_current_campaign_changed', array(), WATCHDOG_DEBUG );
 //        module_load_include( 'module', 'userpoints_reset' );
 //        userpoints_reset_do();
 //        watchdog( 'SCOGA', 'all user points reset due to campaign switch', array(), WATCHDOG_INFO );
