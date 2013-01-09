@@ -68,8 +68,12 @@
         $assignment_paths[] = '';
         //add links to active questions
         _scoga_add_content_type_to_output('poll','Question',&$assignment_titles,&$assignment_paths);
+        $assignment_titles[] = t('Active GeoChallenges');
+        $assignment_paths[] = '';
+        //add links to active questions
+        _scoga_add_content_type_to_output('geo_challenge','GeoChallenge',&$assignment_titles,&$assignment_paths);
         //add wishes header
-        $assignment_titles[] = t('Posted wished');
+        $assignment_titles[] = t('Posted Wishes');
         $assignment_paths[] = '';
         //add links to active wishes
         _scoga_add_content_type_to_output('nodetype_wished_item','Wish',&$assignment_titles,&$assignment_paths);
@@ -80,11 +84,11 @@
     /*
      * Adds a div to the title
      */
-    function scoga_overview_of_assignments_title()
+    /*function scoga_overview_of_assignments_title()
     {
         $output = "<div class='play_title'>".t(Play)."</div>";
         return $output;
-    }
+    } */
 
     /*
      * Load node of a given content type and adds it to the output
