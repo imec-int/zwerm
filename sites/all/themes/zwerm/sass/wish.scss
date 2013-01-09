@@ -20,6 +20,16 @@
     }
   }
 
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    //to make sure footer does not overlap submit button in new
+    //wish form
+    #edit-submit
+    {
+      margin-bottom: 58px;
+    }
+  }
+
   .field-edit-link
   {
     display:none;
@@ -52,5 +62,24 @@
   .form-field-name-field-wisheditem-image
   {
     display: none;
+  }
+
+  //theme the action links
+  ul.inline li
+  {
+    display:block;
+    a
+    {
+      color: red;
+    }
+  }
+
+  ul.inline.clearfix li
+  {
+    display:block;
+    a
+    {
+      color: white;
+    }
   }
 }

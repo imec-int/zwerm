@@ -29,31 +29,53 @@
     width: 94%;
   }
 }
-/* line 24, ../sass/wish.scss */
+@media all and (min-width: 630px) {
+  /* line 28, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #edit-submit, .node-type-nodetype-wished-item #edit-submit {
+    margin-bottom: 58px;
+  }
+}
+/* line 34, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .field-edit-link, .node-type-nodetype-wished-item .field-edit-link {
   display: none;
 }
-/* line 29, ../sass/wish.scss */
+/* line 39, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .filter-wrapper, .node-type-nodetype-wished-item .filter-wrapper {
   display: none;
 }
-/* line 34, ../sass/wish.scss */
+/* line 44, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .wysiwyg-toggle-wrapper, .node-type-nodetype-wished-item .wysiwyg-toggle-wrapper {
   display: none;
 }
-/* line 39, ../sass/wish.scss */
+/* line 49, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item #edit-preview, .node-type-nodetype-wished-item #edit-preview {
   display: none;
 }
-/* line 44, ../sass/wish.scss */
+/* line 54, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .username, .node-type-nodetype-wished-item .username {
   color: black;
 }
-/* line 48, ../sass/wish.scss */
+/* line 58, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item #edit-body, .node-type-nodetype-wished-item #edit-body {
   width: 101%;
 }
-/* line 53, ../sass/wish.scss */
+/* line 63, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .form-field-name-field-wisheditem-image, .node-type-nodetype-wished-item .form-field-name-field-wisheditem-image {
   display: none;
+}
+/* line 69, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item ul.inline li, .node-type-nodetype-wished-item ul.inline li {
+  display: block;
+}
+/* line 72, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item ul.inline li a, .node-type-nodetype-wished-item ul.inline li a {
+  color: red;
+}
+/* line 78, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item ul.inline.clearfix li, .node-type-nodetype-wished-item ul.inline.clearfix li {
+  display: block;
+}
+/* line 81, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item ul.inline.clearfix li a, .node-type-nodetype-wished-item ul.inline.clearfix li a {
+  color: white;
 }
