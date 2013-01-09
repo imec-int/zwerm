@@ -2,7 +2,10 @@
 
 body.page-not-partner
 {
-  //background-color:$white-background-color;
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    background-color:$white-background-color;
+  }
   #select_list
   {
     a

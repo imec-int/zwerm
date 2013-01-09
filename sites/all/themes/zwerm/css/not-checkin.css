@@ -1,27 +1,39 @@
-/* line 140, ../sass/_base.scss */
-.color-dc6058 {
-  background-color: #DC6058;
-}
+@media all and (max-width: 629px) {
+  /* line 140, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
+  /* line 145, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
 }
 
-/* line 9, ../sass/not-checkin.scss */
+@media all and (min-width: 630px) {
+  /* line 4, ../sass/not-checkin.scss */
+  body.page-not-partner {
+    background-color: #eeeeee;
+  }
+}
+/* line 12, ../sass/not-checkin.scss */
 body.page-not-partner #select_list a {
   color: black;
 }
-/* line 15, ../sass/not-checkin.scss */
+/* line 18, ../sass/not-checkin.scss */
 body.page-not-partner h1 {
   color: white;
 }
-/* line 22, ../sass/not-checkin.scss */
+/* line 25, ../sass/not-checkin.scss */
 body.page-not-partner #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 27, ../sass/not-checkin.scss */
+/* line 30, ../sass/not-checkin.scss */
 body.page-not-partner #content #page-title {
   background-color: #333333;
   color: white;
@@ -37,12 +49,12 @@ body.page-not-partner #content #page-title {
   font-size: large;
   padding-left: 5px;
 }
-/* line 37, ../sass/not-checkin.scss */
+/* line 40, ../sass/not-checkin.scss */
 body.page-not-partner #content li {
   height: 60px;
   margin-bottom: 3px;
 }
-/* line 44, ../sass/not-checkin.scss */
+/* line 47, ../sass/not-checkin.scss */
 body.page-not-partner #content li:after {
   content: ">";
   display: inline;
@@ -51,22 +63,22 @@ body.page-not-partner #content li:after {
   padding-right: 25px;
   font-size: large;
 }
-/* line 54, ../sass/not-checkin.scss */
+/* line 57, ../sass/not-checkin.scss */
 body.page-not-partner #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 63, ../sass/not-checkin.scss */
+/* line 66, ../sass/not-checkin.scss */
 body.page-not-partner #content #select_list ul {
   margin-top: 2px;
   white-space: nowrap;
 }
-/* line 68, ../sass/not-checkin.scss */
+/* line 71, ../sass/not-checkin.scss */
 body.page-not-partner #content #select_list a {
   line-height: 3.8em;
 }
-/* line 74, ../sass/not-checkin.scss */
+/* line 77, ../sass/not-checkin.scss */
 body.page-not-partner #content #main-content {
   display: none;
 }

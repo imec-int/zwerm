@@ -6,11 +6,17 @@
  * miscellaneous Drupal elements that appear in the $content variable, such as
  * ul.links, .pager, .more-link, etc.
  */
-/* line 140, ../sass/_base.scss */
-.color-dc6058 {
-  background-color: #DC6058;
-}
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
@@ -488,7 +494,7 @@ a {
   #type_page h1 {
     font-family: romina;
     text-align: center;
-    padding-top: 45px;
+    padding-top: 10px;
   }
 }
 @media all and (min-width: 630px) {
