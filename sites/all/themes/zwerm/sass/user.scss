@@ -9,13 +9,22 @@
 
   a
   {
-   color: black;
+    color:black;
+  }
+
+  a.privatemsg-send-link
+  {
+   color: $green-marking-color;
   }
 
   .user-picture
   {
     float: left;
     padding-right: 10px;
+  }
+
+  .profile {
+    margin-left: 4%;
   }
 
   .privatemsg-send-link.privatemsg-send-link-profile {
