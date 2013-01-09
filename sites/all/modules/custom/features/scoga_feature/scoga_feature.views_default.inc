@@ -1513,6 +1513,7 @@ else
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
@@ -2239,16 +2240,16 @@ return true;';
   $handler->display->display_options['path'] = 'team_score';
   $translatables['team_overview'] = array(
     t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Content entity referenced from field_campaignteam_team'),
-    t('Content entity referenced from field_campaignteam_campaign'),
+    t('meer'),
+    t('Toepassen'),
+    t('Opnieuw instellen'),
+    t('Sorteer op'),
+    t('Oplopend'),
+    t('Aflopend'),
+    t('Inhoud entity referenced from field_campaignteam_team'),
+    t('Inhoud entity referenced from field_campaignteam_campaign'),
     t('<a href=\'team/players/[title] \'>Bekijk actieve leden</a>'),
-    t('Title'),
+    t('Titel'),
     t('Extended team view'),
     t('Page'),
     t('Extended team view with score'),
