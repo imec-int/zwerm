@@ -5,11 +5,26 @@
  */
 
     function scoga_close_all_active_polls_of_campaign( $campaign_nid ){
-
+        $poll_nodes = scoga_get_poll_nodes_for_campaign( $campaign_nid );
+        foreach( $poll_nodes as $poll_node ){
+            $poll_node->active = 0;
+            node_save( $poll_node );
+        }
     }
 
+    /**
+     * @param $campaign_nid
+     *
+     * @return array returns empty array when none found
+     */
     function scoga_get_poll_nodes_for_campaign( $campaign_nid ){
+        $poll_nids = scoga_get_poll_nids_for_campaign( $campaign_nid );
+        $poll_nodes = array();
+        foreach( $poll_nids as $poll_nid ){
+            $poll_nodes[] = node_load( $poll_nid );
+        }
 
+        return $poll_nodes;
     }
 
     /**
