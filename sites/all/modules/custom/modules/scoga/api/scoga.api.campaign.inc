@@ -134,3 +134,29 @@
         return $new_nid;
     }
 
+    /**
+     *@return array containing days, hours, minutes, seconds to end of active campaign
+     */
+    function scoga_get_current_campaign_expitaration_time()
+    {
+        define('DAY',60*60*24,true);
+        define('HOUR',60*60,true);
+        define('MINUTE',60,true);
+        $time_interval_elements = array();
+
+        $campaign_node = node_load(scoga_get_campaign_nid_for_time());
+        $campaign_end_timestamp = $campaign_node->field_campaign_period['und'][0][value2];
+        $time_interval = $campaign_end_timestamp - time();
+
+        $days = floor($time_interval/DAY);
+        $time_interval_elements[] = $days;
+        $hours = floor(($time_interval-$days*DAY)/HOUR);
+        $time_interval_elements[] = $hours;
+        $minutes = floor(($time_interval-$days*DAY-$hours*HOUR)/MINUTE);
+        $time_interval_elements[] = $minutes;
+        $seconds = floor($time_interval-$days*DAY-$hours*HOUR-$minutes*MINUTE);
+
+        $time_interval_elements[] = $seconds;
+        return $time_interval_elements;
+    }
+
