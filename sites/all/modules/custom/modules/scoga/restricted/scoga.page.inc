@@ -51,6 +51,14 @@
      */
     function scoga_overview_of_assignments_to_get_point()
     {
+        $output='';
+        //add time interval to end of current campaign
+        module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+        $time_interval_elements = scoga_get_current_campaign_expiration_time();
+        //dsm($time_interval_elements);
+        $output .= theme('time_interval',array('interval_elements' => $time_interval_elements));
+
+
         $assignment_titles = array();
         $assignment_paths = array();
         //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
@@ -77,7 +85,7 @@
         $assignment_paths[] = '';
         //add links to active wishes
         _scoga_add_content_type_to_output('nodetype_wished_item','Wish',&$assignment_titles,&$assignment_paths);
-        $output = theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
+        $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
     }
 
