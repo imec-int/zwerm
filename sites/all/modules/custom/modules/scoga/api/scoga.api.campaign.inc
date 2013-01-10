@@ -164,7 +164,7 @@ function scoga_get_current_campaign_expiration_time()
     $minutes = floor(($time_interval-$days*DAY-$hours*HOUR)/MINUTE);
     $time_interval_elements[] = $minutes;
     $seconds = floor($time_interval-$days*DAY-$hours*HOUR-$minutes*MINUTE);
-
     $time_interval_elements[] = $seconds;
+
     return $time_interval_elements;
 }
