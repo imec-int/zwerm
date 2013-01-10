@@ -54,7 +54,7 @@
         $output='';
         //add time interval to end of current campaign
         module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
-        $time_interval_elements = scoga_get_current_campaign_expitaration_time();
+        $time_interval_elements = scoga_get_current_campaign_expiration_time();
         //dsm($time_interval_elements);
         $output .= theme('time_interval',array('interval_elements' => $time_interval_elements));
 

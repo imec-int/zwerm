@@ -207,3 +207,25 @@
         return array();
     }
 
+
+    function scoga_get_highest_transaction_id(){
+
+        $query =
+            " SELECT txn_id "
+            . "FROM {userpoints_txn} "
+            . "WHERE tid = :tid "
+            . "ORDER BY txn_id DESC"
+        ;
+
+        $rows = db_query( $query, array(
+            ':tid'          => scoga_get_current_userpoints_category_tid(),
+        ) );
+
+        $result = $rows->fetchAssoc();
+
+        if( $result && array_key_exists( 'txn_id', $result ) ){
+            return $result[ 'txn_id' ];
+        }
+
+        return 0;
+    }
