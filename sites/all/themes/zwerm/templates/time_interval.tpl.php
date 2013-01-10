@@ -7,9 +7,9 @@
 
     //print('accessing template file');
     $time_interval_elements = $variables ["interval_elements"];
-    print(t('Campaigns ends in: '));
-    $formatted_time = ($time_interval_elements[0].' '.t("days").' '.
-                       $time_interval_elements[1].' '.t("hours").' '.
-                       $time_interval_elements[2].' '.t("minutes").' '.
-                       $time_interval_elements[3].' '.t("seconds"));
-    print($formatted_time);
+    print('<div class="time_interval_label">'.t('Campaign end: ').'</div>');
+    $formatted_time = ($time_interval_elements[0].' '.t("d").' '.
+                       $time_interval_elements[1].' '.t("h").' '.
+                       $time_interval_elements[2].' '.t("m").' '.
+                       $time_interval_elements[3].' '.t("s"));
+    print('<div class="time_interval">'.$formatted_time.'</div>');
