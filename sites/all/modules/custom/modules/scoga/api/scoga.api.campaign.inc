@@ -6,7 +6,7 @@
      */
 
     class Campaign {
-        public $nid;
+        public $nid = 0;
         public $title;
         public $end_date;
         public $begin_date;
@@ -132,5 +132,14 @@
             $new_nid = -1;
         }
         return $new_nid;
+    }
+
+    function scoga_get_current_campaign_vo(){
+        $nid = scoga_get_current_campaign_nid();
+        if( $node = scoga_get_campaign_vo_by_nid( $nid ) ){
+            return $node;
+        }
+
+        return new Campaign();
     }
 

@@ -379,12 +379,25 @@
         //$relationship_type is updated by reference
         user_relationships_type_save( $relationship_type );
 
+        scoga_grant_player_role_permissions_to_combocheckin_relationship_type( $relationship_type );
+
+        return $relationship_type;
+    }
+
+    function scoga_grant_player_role_permissions_to_combocheckin_relationship_type( $relationship_type ){
+        cache_clear_all( 'user_relationships', 'cache', TRUE );
+
+        /*
+         * resets the user_relationships_types list.
+         * DO NOT REMOVE, otherwise the newly inserted user relationship type won't be available
+         * to grant permissions to.
+         */
+        user_relationships_types_load( TRUE );
+
         //grant permissions
         $permissions = array();
         $permissions[ 'can have '       . $relationship_type->name . ' relationships' ] = TRUE;
         $permissions[ 'can request '    . $relationship_type->name . ' relationships' ] = TRUE;
         $permissions[ 'view all '       . $relationship_type->name . ' relationships' ] = TRUE;
         user_role_change_permissions( SCOGA_PLAYER_ROLE, $permissions );
-
-        return $relationship_type;
     }
