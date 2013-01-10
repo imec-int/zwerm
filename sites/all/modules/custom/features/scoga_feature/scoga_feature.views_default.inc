@@ -2790,6 +2790,30 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['uid']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['uid']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['uid']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['uid']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['uid']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['uid']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = 0;
   /* Field: Content: Team colour */
   $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
@@ -2876,7 +2900,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['field_user_firstname']['label'] = '';
   $handler->display->display_options['fields']['field_user_firstname']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['make_link'] = 1;
-  $handler->display->display_options['fields']['field_user_firstname']['alter']['path'] = 'users/[name]';
+  $handler->display->display_options['fields']['field_user_firstname']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['field_user_firstname']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['alter']['replace_spaces'] = 0;
@@ -2906,7 +2930,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['field_user_surname']['label'] = '';
   $handler->display->display_options['fields']['field_user_surname']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['alter']['make_link'] = 1;
-  $handler->display->display_options['fields']['field_user_surname']['alter']['path'] = '/users/[name]';
+  $handler->display->display_options['fields']['field_user_surname']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['field_user_surname']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['alter']['replace_spaces'] = 0;
@@ -3018,8 +3042,8 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('All'),
     t('Team members of current user'),
     t('Players by team'),
-    t('users/[name]'),
-    t('/users/[name]'),
+    t('Uid'),
+    t('user/[uid]'),
     t('Entity Reference View Widget'),
   );
   $export['view_team_members_of_current_user'] = $view;
