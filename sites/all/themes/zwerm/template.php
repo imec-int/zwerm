@@ -233,7 +233,7 @@ function zwerm_preprocess_block(&$variables, $hook) {
      */
 
 
-    function scoga_preprocess_html(&$variables)
+    function zwerm_preprocess_html(&$variables)
     {
         global $user;
         $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
