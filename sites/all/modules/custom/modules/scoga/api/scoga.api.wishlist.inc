@@ -82,17 +82,14 @@
     /**
      *
      */
-    function scoga_close_all_open_wisheditems(){
-        //TEMPORARY FIX
-        //TODO: should filter wished items for current campaign
-        $current_campaign_nid = scoga_get_current_campaign_nid();
+    function scoga_close_all_open_wisheditems( $campaign_nid ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
         $result = $query
             ->entityCondition( 'entity_type', $entity_type )
             ->entityCondition( 'bundle', SCOGA_WISHEDITEM_NODETYPE )
             ->fieldCondition( 'field_wisheditem_state', 'value', 'open', '=' )
-            ->fieldCondition( 'field_wisheditem_campaign', 'target_id', $current_campaign_nid, '=' )
+            ->fieldCondition( 'field_wisheditem_campaign', 'target_id', $campaign_nid, '=' )
             ->execute();
 
         if( $result && array_key_exists( $entity_type, $result ) ){

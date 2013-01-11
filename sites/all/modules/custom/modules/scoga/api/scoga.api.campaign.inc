@@ -153,7 +153,7 @@ function scoga_get_current_campaign_expiration_time()
     define('MINUTE',60,true);
     $time_interval_elements = array();
 
-    $campaign_node = node_load(scoga_get_campaign_nid_for_time());
+    $campaign_node = node_load(scoga_get_campaign_nid_for_time(time()));
     $campaign_end_timestamp = $campaign_node->field_campaign_period['und'][0][value2];
     $time_interval = $campaign_end_timestamp - time();
 
@@ -164,7 +164,7 @@ function scoga_get_current_campaign_expiration_time()
     $minutes = floor(($time_interval-$days*DAY-$hours*HOUR)/MINUTE);
     $time_interval_elements[] = $minutes;
     $seconds = floor($time_interval-$days*DAY-$hours*HOUR-$minutes*MINUTE);
-
     $time_interval_elements[] = $seconds;
+
     return $time_interval_elements;
 }

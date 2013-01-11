@@ -27,7 +27,7 @@
                         {
                             $classes .= ' list_header_geochallenge';
                         }
-                        if (strpos($item,'Wish')!=false)
+                        if (strpos($item,'wish')!=false)
                         {
                             $classes .= ' list_header_wish';
                         }
