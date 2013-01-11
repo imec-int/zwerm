@@ -1,6 +1,7 @@
 <?php
     /*
      * Construct the list of /not_checkin
+     * @return string
      */
     function scoga_get_list_of_not_checkin_parnters()
     {
@@ -46,8 +47,10 @@
         return $output;
 
     }
+
     /*
      * Construct the list of /get_points
+     * @return string
      */
     function scoga_overview_of_assignments_to_get_point()
     {
@@ -67,43 +70,43 @@
         //add link to wish creation page to output
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';
-        //todo : add link to active geo challenges
-        $assignment_titles[] = t('Active events');
-        $assignment_paths[] = '';
-        //add links to active events
-        _scoga_add_content_type_to_output('nodetype_event','Event',&$assignment_titles,&$assignment_paths);
-        $assignment_titles[] = t('Active questions');
-        $assignment_paths[] = '';
-        //add links to active questions
-        _scoga_add_content_type_to_output('poll','Question',&$assignment_titles,&$assignment_paths);
-        $assignment_titles[] = t('Active GeoChallenges');
-        $assignment_paths[] = '';
-        //add links to active questions
-        _scoga_add_content_type_to_output('geo_challenge','GeoChallenge',&$assignment_titles,&$assignment_paths);
-        //add wishes header
-        $assignment_titles[] = t('Posted Wishes');
-        $assignment_paths[] = '';
-        //add links to active wishes
-        _scoga_add_content_type_to_output('nodetype_wished_item','Wish',&$assignment_titles,&$assignment_paths);
+        //add other playable elements to output
+        _scoga_add_nodes_to_output('nodetype_event','Event','Active events',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('Poll','Question','Active questions',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes',&$assignment_titles,&$assignment_paths);
         $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
     }
 
-    /*
-     * Adds a div to the title
-     */
-    /*function scoga_overview_of_assignments_title()
-    {
-        $output = "<div class='play_title'>".t(Play)."</div>";
-        return $output;
-    } */
 
-    /*
-     * Load node of a given content type and adds it to the output
+    /**
+     * Loads nodes from DB and adds them to the output, preceded by a header
+     * @param $content_type
+     * @param $label
+     * @param $header
+     * @param $titles
+     * @param $paths
      */
-    function _scoga_add_content_type_to_output($content_type,$label,$titles,$paths)
+    function _scoga_add_nodes_to_output($content_type,$label,$header,$titles,$paths)
     {
         $nodes = node_load_multiple(array(), array('type' => $content_type));
+        if (sizeOf($nodes)!=0)
+        {
+            $titles[] = t($header);
+            $paths[] = '';
+            _scoga_fill_titles_and_path($nodes,&$titles,&$paths,$label);
+        }
+    }
+
+    /**
+     * @param $nodes
+     * @param $titles
+     * @param $paths
+     * @param $label
+     */
+    function _scoga_fill_titles_and_path($nodes,$titles,$paths,$label)
+    {
         foreach($nodes as $node_item)
         {
             $titles[] = $label.': '.$node_item->title;
