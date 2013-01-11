@@ -71,10 +71,10 @@
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';
         //add other playable elements to output
-        _scoga_add_nodes_to_output('nodetype_event','Event','Active events',&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('Poll','Question','Active questions',&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges',&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('Poll','Question','Active questions','field_campaign',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',&$assignment_titles,&$assignment_paths);
         $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
     }
@@ -85,12 +85,22 @@
      * @param $content_type
      * @param $label
      * @param $header
+     * @param $campaign_ref_field
      * @param $titles
      * @param $paths
      */
-    function _scoga_add_nodes_to_output($content_type,$label,$header,$titles,$paths)
+    function _scoga_add_nodes_to_output($content_type,$label,$header,$campaign_ref_field,$titles,$paths)
     {
-        $nodes = node_load_multiple(array(), array('type' => $content_type));
+        //$nodes = node_load_multiple(array(), array('type' => $content_type));
+        $current_campaign_id = scoga_get_campaign_nid_for_time(time());
+        $nodeQuery = new EntityFieldQuery;
+        $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
+            ->entityCondition('bundle', $content_type)
+            ->fieldCondition($campaign_ref_field,'target_id', $current_campaign_id, '=')
+            ->propertyCondition( 'status', '1' )
+            ->execute();
+        $nodes = node_load_multiple(array_keys($nodes_properties['node']));
+        dsm($nodes);
         if (sizeOf($nodes)!=0)
         {
             $titles[] = t($header);
