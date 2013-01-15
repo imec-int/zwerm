@@ -790,6 +790,13 @@ function poll_vote($form, &$form_state) {
 
   drupal_set_message(t('Your vote was recorded.'));
 
+    /*
+     * Hack for scoga module
+     * @author creynders
+     */
+    module_invoke_all( 'poll_save_vote', $node, $choice );
+    /* end hack */
+
   // Return the user to whatever page they voted from.
 }
 
@@ -978,6 +985,14 @@ function poll_cancel($form, &$form_state) {
   unset($_SESSION['poll_vote'][$node->nid]);
 
   drupal_set_message(t('Your vote was cancelled.'));
+
+    /*
+     * Hack for scoga module
+     * @author creynders
+     */
+    module_invoke_all( 'poll_cancel_vote', $node );
+    /* end hack */
+
 }
 
 /**
