@@ -1,0 +1,46 @@
+From f3d50f648894c0bce9ef60ed2c253b5d2d59b960 Mon Sep 17 00:00:00 2001
+From: Camille Reynders <camille.reynders@iminds.be>
+Date: Tue, 15 Jan 2013 09:49:27 +0100
+Subject: [PATCH] added hook_poll_cancel_vote and hook_poll_save_vote to
+ poll.module
+
+---
+ modules/poll/poll.module |   15 +++++++++++++++
+ 1 files changed, 15 insertions(+), 0 deletions(-)
+
+diff --git a/modules/poll/poll.module b/modules/poll/poll.module
+index 6cea886..0621f6c 100644
+--- a/modules/poll/poll.module
++++ b/modules/poll/poll.module
+@@ -790,6 +790,13 @@ function poll_vote($form, &$form_state) {
+ 
+   drupal_set_message(t('Your vote was recorded.'));
+ 
++    /*
++     * Hack for scoga module
++     * @author creynders
++     */
++    module_invoke_all( 'poll_save_vote', $node, $choice );
++    /* end hack */
++
+   // Return the user to whatever page they voted from.
+ }
+ 
+@@ -978,6 +985,14 @@ function poll_cancel($form, &$form_state) {
+   unset($_SESSION['poll_vote'][$node->nid]);
+ 
+   drupal_set_message(t('Your vote was cancelled.'));
++
++    /*
++     * Hack for scoga module
++     * @author creynders
++     */
++    module_invoke_all( 'poll_cancel_vote', $node );
++    /* end hack */
++
+ }
+ 
+ /**
+-- 
+1.7.5.4
+
