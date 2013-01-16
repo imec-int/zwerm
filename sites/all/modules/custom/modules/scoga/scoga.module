@@ -249,3 +249,23 @@
 
     }
 
+    /*
+     * Implements hook_token_info
+     */
+    function scoga_token_info()
+    {
+        module_load_include( 'token.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_token_info();
+    }
+
+    /*
+     * Implements hook_tokens
+     */
+    function scoga_tokens($type, $tokens, array $data = array(), array $options = array())
+    {
+        module_load_include( 'token.inc', 'scoga', 'restricted/scoga' );
+        $options['sanitize'] = false;
+        $replacements = scoga_handle_tokens($type, $tokens,$data,$options);
+        return $replacements;
+    }
+
