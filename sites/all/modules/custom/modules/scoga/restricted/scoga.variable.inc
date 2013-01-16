@@ -156,6 +156,15 @@
             'required'          => TRUE
         );
 
+        $variables[ USERPOINTS_CATEGORY_DEFAULT_TID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The current user points category TID' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
         $variables[ SCOGA_SETTING_CREDITS_TID ] = array(
             'group'             => SCOGA_VARIABLE_GROUP_NAME,
             'type'              => 'number',
