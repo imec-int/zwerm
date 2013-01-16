@@ -635,11 +635,6 @@ else return 0;';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Relationship: User relationships: RTID */
-  $handler->display->display_options['relationships']['rtid']['id'] = 'rtid';
-  $handler->display->display_options['relationships']['rtid']['table'] = 'user_relationships';
-  $handler->display->display_options['relationships']['rtid']['field'] = 'rtid';
-  $handler->display->display_options['relationships']['rtid']['required'] = 0;
   /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -782,6 +777,10 @@ else return 0;';
   $handler->display->display_options['arguments']['title']['limit'] = '0';
   $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
   $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'OR',
+    2 => 'AND',
+  );
   /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
@@ -801,11 +800,8 @@ else return 0;';
   $handler = $view->new_display('page', 'Leaderboard', 'page_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '30';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['row_class'] = 'color.[field_team_colour]';
@@ -919,10 +915,11 @@ else return 0;';
   $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
-  /* Field: Global: PHP */
+  /* Field: field counter */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['ui_name'] = 'field counter';
   $handler->display->display_options['fields']['php']['label'] = '';
   $handler->display->display_options['fields']['php']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['php']['alter']['make_link'] = 0;
@@ -1112,6 +1109,31 @@ return $reformattedNr;
   $handler->display->display_options['fields']['uid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['uid']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['uid']['link_to_user'] = 0;
+  /* Field: Taxonomy term: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['label'] = 'Term-ID';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['tid']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['tid']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['tid']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['tid']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['tid']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['tid']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['tid']['format_plural'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Userpoints: Current points in category */
   $handler->display->display_options['sorts']['points']['id'] = 'points';
@@ -1119,6 +1141,18 @@ return $reformattedNr;
   $handler->display->display_options['sorts']['points']['field'] = 'points';
   $handler->display->display_options['sorts']['points']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Taxonomy term: Term ID */
+  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['tid']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['tid']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['tid']['not'] = 0;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -1127,80 +1161,22 @@ return $reformattedNr;
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Userpoints: Points category */
-  $handler->display->display_options['filters']['tid']['id'] = 'tid';
-  $handler->display->display_options['filters']['tid']['table'] = 'userpoints';
-  $handler->display->display_options['filters']['tid']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid']['value'] = array(
-    4 => '4',
-  );
-  /* Filter criterion: Global: PHP */
+  /* Filter criterion: select items for leaderboard */
   $handler->display->display_options['filters']['php']['id'] = 'php';
   $handler->display->display_options['filters']['php']['table'] = 'views';
   $handler->display->display_options['filters']['php']['field'] = 'php';
+  $handler->display->display_options['filters']['php']['ui_name'] = 'select items for leaderboard';
+  $handler->display->display_options['filters']['php']['group'] = 2;
   $handler->display->display_options['filters']['php']['use_php_setup'] = 1;
   $handler->display->display_options['filters']['php']['php_setup'] = '$static->userPosition = 0;
-$static->counter = 0;';
+$static->counter = 0;
+module_load_include( \'api.inc\', \'scoga\', \'api/scoga\' );
+$static->current_userpoints_category_tid = scoga_get_current_userpoints_category_tid();';
   $handler->display->display_options['filters']['php']['php_filter'] = '//this filter depends on the view_php module
 //$static->counter set to 0 in filter setup code
 //$static->userPosition set to 0 in filter setup code
-//find the position of the logged in user on the leaderboard
-//store the position in the $static variable for reference in later calls
-
-
-if ($static->userPosition == 0)
-{
-   global $user;
-   $results = $view->result;
-   for ($i = 0; $i <= count($results); $i++)
-   {
-      $result = $results[$i];
-      $user_name = $result->users_name;
-      if ($user_name==$user->name)
-      {
-          $static->userPosition = $i;
-          //set a variable for later use in the theme
-          variable_set(\'userLeaderboardPosition\',$i);
-          break;
-      }
-   }
-   //increment, to reflect real user rank, not zero-based array positions
-   $static->userPosition = $static->userPosition+1;
-}
-else
-{
-	$static->counter = $static->counter+1;
-	$numberOnLeaderboard =$static->counter;
-	$loggedInUserPosition = $static->userPosition;
-
-	//if $static->userPosition ==1 , this means that user was not in $view result and has no points
-	//in that case, only show top 10 results
-	if ($static->userPosition == 1)
-	{
-		if ($numberOnLeaderboard>9)
-		{
-			return true;
-		}
-	}
-	else
-	{
-		//print top 3 players
-		//don\'t print the users between top 3 and 3 positions above $static->userPosition
-		//don\'t print the users starting from 3 positions under $static->userPosition
-		if ((2<$numberOnLeaderboard && $numberOnLeaderboard<$loggedInUserPosition-4) ||
-			($numberOnLeaderboard>$loggedInUserPosition+2))
-		{
-			return true;
-		}
-
-		else
-		{
-			$row->counter = $numberOnLeaderboard ;
-			return false;
-		}
-	}
-}
-';
+module_load_include( \'phpfilter.inc\', \'scoga\', \'restricted/scoga\' );
+return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static->current_userpoints_category_tid,$row->tid,$view);';
   $handler->display->display_options['path'] = 'leaderboard';
   $translatables['leader'] = array(
     t('Master'),
@@ -1214,7 +1190,6 @@ else
     t('- All -'),
     t('Offset'),
     t('Content entity referenced from field_user_team'),
-    t('rtid'),
     t('Username'),
     t('Name'),
     t('Points'),
@@ -1224,6 +1199,7 @@ else
     t('Leaderboard'),
     t('$user->uid'),
     t(' punten'),
+    t('Term-ID'),
   );
   $export['leader'] = $view;
 
