@@ -15,10 +15,10 @@
     else
     {
         print('<div class="time_interval_label">'.t('Campaign end in: ').'</div>');
-        $formatted_time = ($time_interval_elements[0].' '.t("d").' '.
-                           $time_interval_elements[1].' '.t("h").' '.
-                           $time_interval_elements[2].' '.t("m").' '.
-                           $time_interval_elements[3].' '.t("s"));
+        $formatted_time = ($time_interval_elements[0].t("d").' '.
+                           $time_interval_elements[1].t("h").' '.
+                           $time_interval_elements[2].t("m").' '.
+                           $time_interval_elements[3].t("s"));
         print('<div class="time_interval">'.$formatted_time.'</div>');
     }
     print('</div>');
