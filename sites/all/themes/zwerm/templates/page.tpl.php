@@ -81,12 +81,19 @@
         <div id="header_align">
             <?php if ($logo): ?>
                  <div id="home_nav">
+
                      <div id="home_logo">
                          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-                             <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
                          </a>
                      </div>
-                     <div id="home_text">Home</div>
+                     <div id="home_text">
+                         <a href="<?php print(base_path()); ?>" title="Home" rel="home" >
+                             Home
+                         </a>
+                     </div>
+
+
                  </div>
             <?php endif; ?>
             <div id="menu_container">
