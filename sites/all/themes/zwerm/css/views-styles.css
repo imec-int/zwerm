@@ -169,7 +169,6 @@ body.section-leaderboard .field-name-field-user-surname, body.page-team-players 
 body.section-leaderboard td.views-field-field-user-firstname, body.page-team-players td.views-field-field-user-firstname, .page-points-in-campaign td.views-field-field-user-firstname {
   display: block;
   height: 16px;
-  position: relative;
   top: 7px;
 }
 /* line 170, ../sass/views-styles.scss */
