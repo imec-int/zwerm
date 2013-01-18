@@ -1,5 +1,16 @@
+
+
 <?php
 
+/**
+ * Functions used in php filters in views
+ */
+
+/**
+ * @param $current_campaign_tid
+ * @param $result_tid
+ * @return bool
+ */
 function scoga_filter_points_in_current_campaign($current_campaign_tid,$result_tid)
 {
     if ($current_campaign_tid==$result_tid)
@@ -9,10 +20,20 @@ function scoga_filter_points_in_current_campaign($current_campaign_tid,$result_t
 
 }
 
-//find the position of the logged in user on the leaderboard
-//store the position in the $static variable for reference in later calls
+/**
+ * find the position of the logged in user on the leaderboard
+ * store the position in the $static variable for reference in later calls
+ *
+ * @param $userPosition
+ * @param $counter
+ * @param $point_taxo_id
+ * @param $campaign_taxo_id
+ * @param $view
+ * @return bool
+ */
 function scoga_filter_leaderboard($userPosition,$counter,$point_taxo_id,$campaign_taxo_id,$view)
 {
+    $return_values = array();
     if ($userPosition == 0)
     {
         global $user;

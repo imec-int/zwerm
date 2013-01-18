@@ -231,8 +231,6 @@ function zwerm_preprocess_block(&$variables, $hook) {
      * the team of the logged in user
      *
      */
-
-
     function zwerm_preprocess_html(&$variables)
     {
         global $user;
@@ -259,6 +257,14 @@ function zwerm_preprocess_block(&$variables, $hook) {
              $returnValue = 'color-'.$record->field_team_colour_value;
          }
          return $returnValue;
+     }
+
+     function zwerm_preprocess_node(&$vars, $hook)
+     {
+        //var_dump($vars);
+         //$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
+        $vars['submitted']['name'] = $vars['name'];
+        $vars['submitted']['date'] = $vars['date'];
      }
 
 
