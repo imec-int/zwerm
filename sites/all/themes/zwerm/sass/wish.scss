@@ -30,6 +30,11 @@
     }
   }
 
+  //hide preview button
+  #edit-preview-changes {
+    display: none;
+  }
+
   .node-nodetype-wished-item
   {
     li
