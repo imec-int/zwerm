@@ -29,9 +29,9 @@
 .page-team-players thead {
   display: none;
 }
-/* line 16, ../sass/players-per-team.scss */
-.page-team-players a img {
-  height: 60%;
+/* line 18, ../sass/players-per-team.scss */
+.page-team-players .views-field-picture img {
+  height: 50px;
   display: block;
   margin-left: 5px;
 }

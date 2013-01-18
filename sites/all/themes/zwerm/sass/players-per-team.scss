@@ -12,10 +12,13 @@
     display:none;
   }
 
-  a img
+  .views-field-picture
   {
-    height: 60%;
-    display: block;
-    margin-left: 5px;
+    img
+    {
+      height: 50px;
+      display: block;
+      margin-left: 5px;
+    }
   }
 }
