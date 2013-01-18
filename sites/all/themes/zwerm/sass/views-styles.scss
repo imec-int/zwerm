@@ -160,10 +160,8 @@ body.section-leaderboard, body.page-team-players, .page-points-in-campaign
   //alignment of player name, points and connections in tr
   td.views-field-field-user-firstname
   {
-    //display: block;
     height:16px;
-    //position:relative;
-    top:7px;
+    padding-left: 5px;
   }
 
   td.points
