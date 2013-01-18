@@ -43,16 +43,22 @@
 
     header
     {
-      background-color: $green-marking-color;
+      //background-color: $green-marking-color;
       padding-left: 20px;
+      //height: 100%
     }
+
+    .user-picture {
+      padding-right: 16px;
+    }
+
     //theme the action links
     ul.inline li
     {
       display:block;
       a
       {
-        color: red;
+        color: black;
       }
     }
 
