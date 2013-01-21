@@ -248,3 +248,23 @@
         }
 
     }
+
+
+    /**
+     * implements hook_poll_save_vote hack
+     * @param $poll_node
+     * @param $choice
+     */
+    function scoga_poll_save_vote( $poll_node, $choice ){
+        module_load_include( 'poll.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_poll_save_vote( $poll_node, $choice );
+    }
+
+    /**
+     * implements hook_poll_cancel_vote hack
+     * @param $poll_node
+     */
+    function scoga_poll_cancel_vote( $poll_node ){
+        module_load_include( 'poll.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_poll_cancel_vote( $poll_node );
+    }
