@@ -25,7 +25,56 @@
     }
   }
 
-
+  //poll
+  .node .poll {
+    margin: 2em 0;
+  }
+  .node .poll #edit-choice {
+    margin: 0 0 1.5em;
+  }
+  .poll .vote-form {
+    text-align: left; /* LTR */
+  }
+  .poll .vote-form .choices {
+    margin: 0;
+  }
+  .poll .percent {
+    font-size: 0.857em;
+    font-style: italic;
+    margin-bottom: 3em;
+    margin-top: -3.2em;
+    float: right;
+    text-align: right;
+  }
+  .poll .text {
+    clear: right;
+    margin-right: 2.25em;
+  }
+  .poll .total {
+    font-size: 0.929em;
+    font-style: italic;
+    text-align: right; /* LTR */
+    clear: both;
+  }
+  .node .poll {
+    margin: 1.8em 0 0;
+  }
+  .node .poll .text {
+    margin-right: 6.75em;
+  }
+  .node .poll #edit-choice {
+    margin: 0 0 1.2em;
+  }
+  .poll .bar .foreground {
+    height: 10px;
+    background-color: $green-marking-color;
+  }
+  #footer-wrapper .poll .bar {
+    background-color: #666;
+  }
+  #footer-wrapper .poll .bar .foreground {
+    background-color: #ddd;
+  }
 
   #content .tabs, .submitted, .field-name-field-poll-team
   {
@@ -41,3 +90,4 @@
     }
   }
 }
+
