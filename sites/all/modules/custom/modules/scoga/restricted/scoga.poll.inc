@@ -13,6 +13,7 @@
     }
 
     function scoga_handle_poll_save_vote( $poll_node, $choice ){
+        watchdog('scoga','scoga_handle_poll_save_vote');
         module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
         global $user;
         $points = scoga_get_field_value( $poll_node, 'field_poll_reward' );
