@@ -95,13 +95,18 @@ function scoga_create_campaign_vo( $campaign_node ){
  *
  */
 function scoga_determine_current_campaign(){
-    $current_nid = scoga_get_current_campaign_nid();
+    $old_nid = scoga_get_current_campaign_nid();
     $new_nid = scoga_get_campaign_nid_for_time();
 
-    if( $new_nid != $current_nid ){
+    if( $new_nid != $old_nid ){
+        if( $old_nid > SCOGA_NULL_CAMPAIGN_NID ){
+            module_invoke_all( 'scoga_current_campaign_finished', $old_nid );
+        }
         scoga_set_current_campaign_nid( $new_nid );
-        watchdog( 'SCOGA', 'invoke scoga_current_campaign_changed', array(), WATCHDOG_INFO );
-        module_invoke_all( 'scoga_current_campaign_changed', $new_nid, $current_nid );
+//        watchdog( 'SCOGA', 'invoke scoga_current_campaign_changed', array(), WATCHDOG_INFO );
+        if( $new_nid > SCOGA_NULL_CAMPAIGN_NID ){
+            module_invoke_all( 'scoga_current_campaign_started', $new_nid );
+        }
     }
 }
 
@@ -129,7 +134,7 @@ function scoga_get_campaign_nid_for_time( $timestamp = NULL ){
         $partial_node = reset( $result[ $entity_type ] );
         $new_nid = $partial_node->nid;
     } else{
-        $new_nid = -1;
+        $new_nid = SCOGA_NULL_CAMPAIGN_NID;
     }
     return $new_nid;
 }
