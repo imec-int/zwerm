@@ -1712,6 +1712,19 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextuele filter: Inhoud: Campaign (field_campaignteam_campaign) */
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['id'] = 'field_campaignteam_campaign_target_id';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['table'] = 'field_data_field_campaignteam_campaign';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['field'] = 'field_campaignteam_campaign_target_id';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['default_argument_type'] = 'variable';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['default_argument_options']['variable'] = 'scoga_settings_current_campaign_nid';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['not'] = 0;
   /* Filtercriterium: Inhoud: Gepubliceerd */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -1994,24 +2007,12 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['filters']['type']['value'] = array(
     'nodetype_campaign_team' => 'nodetype_campaign_team',
   );
-  /* Filtercriterium: Campaign is current campaign */
-  $handler->display->display_options['filters']['php']['id'] = 'php';
-  $handler->display->display_options['filters']['php']['table'] = 'views';
-  $handler->display->display_options['filters']['php']['field'] = 'php';
-  $handler->display->display_options['filters']['php']['ui_name'] = 'Campaign is current campaign';
-  $handler->display->display_options['filters']['php']['use_php_setup'] = 0;
-  $handler->display->display_options['filters']['php']['php_filter'] = '//Filters the Campaign team nodes that correspond to the current campaign
-module_load_include( \'api.campaign.inc\', \'scoga\', \'api/scoga\' );
-if ($row->nid == scoga_get_campaign_nid_for_time())
-return false;
-else 
-return true;';
   $handler->display->display_options['path'] = 'team3';
 
   /* Display: Team view with only score */
   $handler = $view->new_display('page', 'Team view with only score', 'page_2');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Team colour */
+  /* Veld: Inhoud: Team colour */
   $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
@@ -2039,7 +2040,7 @@ return true;';
   $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
-  /* Field: Content: Image */
+  /* Veld: Inhoud: Image */
   $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
   $handler->display->display_options['fields']['field_team_image']['table'] = 'field_data_field_team_image';
   $handler->display->display_options['fields']['field_team_image']['field'] = 'field_team_image';
@@ -2186,34 +2187,6 @@ return true;';
   $handler->display->display_options['fields']['nid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nid']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['nid']['link_to_node'] = 0;
-  /* Veld: Inhoud: Team colour */
-  $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
-  $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
-  $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
-  $handler->display->display_options['fields']['field_team_colour']['relationship'] = 'field_campaignteam_team_target_id';
-  $handler->display->display_options['fields']['field_team_colour']['label'] = '';
-  $handler->display->display_options['fields']['field_team_colour']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_team_colour']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_team_colour']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_team_colour']['element_default_classes'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filtercriterium: Inhoud: Gepubliceerd */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -2254,6 +2227,7 @@ return true;';
     t('Inhoud entity referenced from field_campaignteam_campaign'),
     t('<a href=\'team/players/[title] \'>Bekijk actieve leden</a>'),
     t('Titel'),
+    t('Alle'),
     t('Extended team view'),
     t('Page'),
     t('Extended team view with score'),
@@ -2474,11 +2448,6 @@ return true;';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Relatie: User relationships: RTID */
-  $handler->display->display_options['relationships']['rtid']['id'] = 'rtid';
-  $handler->display->display_options['relationships']['rtid']['table'] = 'user_relationships';
-  $handler->display->display_options['relationships']['rtid']['field'] = 'rtid';
-  $handler->display->display_options['relationships']['rtid']['required'] = 0;
   /* Veld: Gebruiker: Afbeelding */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -2621,6 +2590,12 @@ return true;';
   $handler->display->display_options['arguments']['title']['limit'] = '0';
   $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
   $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
+  /* Contextuele filter: Taxonomie term: Term-ID */
+  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   /* Filtercriterium: Gebruiker: Actief */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
@@ -3002,6 +2977,35 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['points']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points']['separator'] = '.';
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextuele filter: Inhoud: Titel */
+  $handler->display->display_options['arguments']['title']['id'] = 'title';
+  $handler->display->display_options['arguments']['title']['table'] = 'node';
+  $handler->display->display_options['arguments']['title']['field'] = 'title';
+  $handler->display->display_options['arguments']['title']['relationship'] = 'field_user_team_target_id';
+  $handler->display->display_options['arguments']['title']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['title']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['title']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['title']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['title']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['title']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['title']['glossary'] = 0;
+  $handler->display->display_options['arguments']['title']['limit'] = '0';
+  $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
+  $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
+  /* Contextuele filter: Taxonomie term: Term-ID */
+  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'variable';
+  $handler->display->display_options['arguments']['tid']['default_argument_options']['variable'] = 'userpoints_category_default_tid';
+  $handler->display->display_options['arguments']['tid']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['tid']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['tid']['not'] = 0;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filtercriterium: Gebruiker: Actief */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -3010,13 +3014,6 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Userpoints: Points category */
-  $handler->display->display_options['filters']['tid']['id'] = 'tid';
-  $handler->display->display_options['filters']['tid']['table'] = 'userpoints';
-  $handler->display->display_options['filters']['tid']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid']['value'] = array(
-    4 => '4',
-  );
   $handler->display->display_options['path'] = 'team/players/%';
 
   /* Display: Entity Reference View Widget */
@@ -3066,7 +3063,6 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('- Alle -'),
     t('Offset'),
     t('Inhoud entity referenced from field_user_team'),
-    t('rtid'),
     t('Gebruikersnaam'),
     t('Naam'),
     t('Punten'),
@@ -4136,6 +4132,7 @@ return true;
   $handler->display->display_options['fields']['field_wisheditem_award']['id'] = 'field_wisheditem_award';
   $handler->display->display_options['fields']['field_wisheditem_award']['table'] = 'field_data_field_wisheditem_award';
   $handler->display->display_options['fields']['field_wisheditem_award']['field'] = 'field_wisheditem_award';
+  $handler->display->display_options['fields']['field_wisheditem_award']['label'] = 'Te behalen punten';
   $handler->display->display_options['fields']['field_wisheditem_award']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_wisheditem_award']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_wisheditem_award']['alter']['absolute'] = 0;
@@ -4417,7 +4414,7 @@ return true;
     t('Wishlist by team'),
     t('Wishlist of current user'),
     t('My wishlist'),
-    t('Reward'),
+    t('Te behalen punten'),
     t('Wishlist block'),
     t('Recent wishes'),
     t('Displays latest wished items'),
