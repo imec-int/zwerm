@@ -74,7 +74,8 @@
     margin: 0 0 1.2em;
   }
   .poll .bar .foreground {
-    height: 10px;
+    height: 20px;
+    margin-right: 10px;
     background-color: $green-marking-color;
   }
   #footer-wrapper .poll .bar {

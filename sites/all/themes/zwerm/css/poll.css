@@ -92,23 +92,24 @@
 }
 /* line 76, ../sass/poll.scss */
 .node-type-poll .poll .bar .foreground {
-  height: 10px;
+  height: 20px;
+  margin-right: 10px;
   background-color: #7fb083;
 }
-/* line 80, ../sass/poll.scss */
+/* line 81, ../sass/poll.scss */
 .node-type-poll #footer-wrapper .poll .bar {
   background-color: #666;
 }
-/* line 83, ../sass/poll.scss */
+/* line 84, ../sass/poll.scss */
 .node-type-poll #footer-wrapper .poll .bar .foreground {
   background-color: #ddd;
 }
-/* line 88, ../sass/poll.scss */
+/* line 89, ../sass/poll.scss */
 .node-type-poll #content .tabs, .node-type-poll .submitted, .node-type-poll .field-name-field-poll-team {
   display: none;
 }
 @media all and (max-width: 629px) {
-  /* line 96, ../sass/poll.scss */
+  /* line 97, ../sass/poll.scss */
   .node-type-poll article {
     margin-left: 5%;
   }
