@@ -51,7 +51,7 @@
             'uid'           => $node->uid,
             'points'        => $award,
             'operation'     => 'sync',
-            'description'   => 'sync score for wished item',
+            'description'   => t('sync score for wished item'),
             'moderate'      => FALSE,
             'display'       => TRUE,
         );
