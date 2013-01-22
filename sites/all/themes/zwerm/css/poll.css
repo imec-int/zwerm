@@ -40,21 +40,22 @@
 /* line 35, ../sass/poll.scss */
 .node-type-poll .node .poll {
   margin: 2em 0;
+  width: 90%;
 }
-/* line 38, ../sass/poll.scss */
+/* line 39, ../sass/poll.scss */
 .node-type-poll .node .poll #edit-choice {
   margin: 0 0 1.5em;
 }
-/* line 41, ../sass/poll.scss */
+/* line 42, ../sass/poll.scss */
 .node-type-poll .poll .vote-form {
   text-align: left;
   /* LTR */
 }
-/* line 44, ../sass/poll.scss */
+/* line 45, ../sass/poll.scss */
 .node-type-poll .poll .vote-form .choices {
   margin: 0;
 }
-/* line 47, ../sass/poll.scss */
+/* line 48, ../sass/poll.scss */
 .node-type-poll .poll .percent {
   font-size: 0.857em;
   font-style: italic;
@@ -64,12 +65,12 @@
   float: right;
   text-align: right;
 }
-/* line 56, ../sass/poll.scss */
+/* line 57, ../sass/poll.scss */
 .node-type-poll .poll .text {
   clear: right;
   margin-right: 2.25em;
 }
-/* line 60, ../sass/poll.scss */
+/* line 61, ../sass/poll.scss */
 .node-type-poll .poll .total {
   font-size: 0.929em;
   font-style: italic;
@@ -78,38 +79,38 @@
   clear: both;
   margin-right: 10px;
 }
-/* line 67, ../sass/poll.scss */
+/* line 68, ../sass/poll.scss */
 .node-type-poll .node .poll {
   margin: 1.8em 0 0;
 }
-/* line 70, ../sass/poll.scss */
+/* line 71, ../sass/poll.scss */
 .node-type-poll .node .poll .text {
   margin-right: 6.75em;
 }
-/* line 73, ../sass/poll.scss */
+/* line 74, ../sass/poll.scss */
 .node-type-poll .node .poll #edit-choice {
   margin: 0 0 1.2em;
 }
-/* line 76, ../sass/poll.scss */
+/* line 77, ../sass/poll.scss */
 .node-type-poll .poll .bar .foreground {
   height: 20px;
   margin-right: 10px;
   background-color: #7fb083;
 }
-/* line 81, ../sass/poll.scss */
+/* line 82, ../sass/poll.scss */
 .node-type-poll #footer-wrapper .poll .bar {
   background-color: #666;
 }
-/* line 84, ../sass/poll.scss */
+/* line 85, ../sass/poll.scss */
 .node-type-poll #footer-wrapper .poll .bar .foreground {
   background-color: #ddd;
 }
-/* line 89, ../sass/poll.scss */
+/* line 90, ../sass/poll.scss */
 .node-type-poll #content .tabs, .node-type-poll .submitted, .node-type-poll .field-name-field-poll-team {
   display: none;
 }
 @media all and (max-width: 629px) {
-  /* line 97, ../sass/poll.scss */
+  /* line 98, ../sass/poll.scss */
   .node-type-poll article {
     margin-left: 5%;
   }
