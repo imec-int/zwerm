@@ -44,7 +44,7 @@
             variable_set( USERPOINTS_CATEGORY_PROFILE_DISPLAY_TID, $shown_on_profile );
         }
 
-        scoga_set_current_userpoints_category_tid( SCOGA_SETTING_SCORE_TID );
+        scoga_set_current_userpoints_category_tid( scoga_get_score_tid() );
     }
 
     function _finish_polls( $old_campaign_nid ){
