@@ -17,6 +17,16 @@
     display:none;
   }
 
+  .comment
+  {
+    .field-name-field-user-firstname,.field-name-field-user-surname
+    {
+      display:block;
+    }
+  }
+
+
+
   @media all and (min-width: $start_of_large_viewport)
   {
     a.privatemsg-send-link
