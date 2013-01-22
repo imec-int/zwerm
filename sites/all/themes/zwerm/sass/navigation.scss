@@ -203,6 +203,8 @@ li a.active {
       .menu_item
       {
         padding-top:70%;
+        //padding-top:150px;
+
       }
 
       li
@@ -288,11 +290,19 @@ li a.active {
 }
 
 @media all and (min-width: 401px ) and (max-width:$start_of_large_viewport) {
-  #navigation
+  .page-frontpage
   {
-    li
+    #navigation
     {
-      width:100px;
+      li
+      {
+        width:28%;
+        padding-bottom: 50px;
+      }
+      #main-menu
+      {
+        margin-top: 0px;
+      }
     }
   }
 }
