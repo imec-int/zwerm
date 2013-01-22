@@ -57,11 +57,18 @@
   }
 
   .submitted { /* The "posted by" information */
+    display:block;
   }
+
+
 
   .permalink { /* Comment's permalink wrapper */
     text-transform: uppercase;
     font-size: 75%;
+  }
+
+  .submitted .permalink { /* Comment's permalink wrapper */
+    display: none;
   }
 
   .user-signature { /* The user's signature */
