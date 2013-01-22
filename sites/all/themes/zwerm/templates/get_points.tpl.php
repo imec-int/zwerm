@@ -9,11 +9,11 @@
     foreach ($assignment_titles as $title)
     {
         $path = $assignment_paths[$i];
-
+        //if there's a path set, then it is not a header
         if ($path!=false)
             $assignment_link = l($title,$path);
         else
-            $assignment_link = "<div class='list_header'>".$title."</div>";
+            $assignment_link = "<div class='list_header'>".t($title)."</div>";
         $assignment_links[] = $assignment_link;
         $i = $i +1;
     }

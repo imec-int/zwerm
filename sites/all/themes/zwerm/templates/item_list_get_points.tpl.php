@@ -23,19 +23,19 @@
                     //when there is not path, it should be treated as a heading
                     if ($path==false)
                     {
-                        if (strpos($item,'GeoChallenges')!=false)
+                        if (strpos($item,t('Active GeoChallenges'))!=false)
                         {
                             $classes .= ' list_header_geochallenge';
                         }
-                        if (strpos($item,'wish')!=false)
+                        if (strpos($item,t('Posted wishes'))!=false)
                         {
                             $classes .= ' list_header_wish';
                         }
-                        if (strpos($item,'event')!=false)
+                        if (strpos($item,t('Active events'))!=false)
                         {
                             $classes .= ' list_header_event';
                         }
-                        if (strpos($item,'question')!=false)
+                        if (strpos($item,t('Active questions'))!=false)
                         {
                             $classes .= ' list_header_question';
                         }
@@ -48,9 +48,9 @@
                             $classes .= ' geochallenge collapsible';
                         if (strpos($item,t('Wish'))!=false)
                             $classes .= ' wish collapsible';
-                        if (strpos($item,'Event')!=false)
+                        if (strpos($item,t('Event'))!=false)
                             $classes .= ' event collapsible';
-                        if (strpos($item,'Question')!=false)
+                        if (strpos($item,t('Question'))!=false)
                             $classes .= ' question collapsible';
                         print("<li class=\"".$classes."\" onmousedown=\"li_mousedown('".$path."',this);\"><div class=link_truncated>".$item."</div></li>");
                     }
