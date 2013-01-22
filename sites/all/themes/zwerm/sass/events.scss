@@ -12,6 +12,27 @@ body.node-type-nodetype-event
     display: none;
   }
 
+  .submitted
+  {
+    .user-picture,
+    {
+      display:none;
+    }
+  }
+  .submitted_by,
+  {
+    .username
+    {
+      display:none;
+    }
+  }
+
+  .submitted_on
+  {
+    display:none;
+  }
+
+
   h1
   {
     font-family: Romina;
