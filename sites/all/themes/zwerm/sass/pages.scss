@@ -67,6 +67,12 @@ body {
   display: none;
 }
 
+//hide "add comment" link
+.comment-add.first.last.active
+{
+  display:none;
+}
+
 /*
  * Header
  */
