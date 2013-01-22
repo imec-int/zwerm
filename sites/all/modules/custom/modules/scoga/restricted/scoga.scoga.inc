@@ -14,7 +14,6 @@
         //a campaign is active
         $new_campaign_node = node_load( $new_nid );
 
-        _prepare_credits();
         _prepare_combo_checkins( $new_campaign_node );
         _prepare_userpoints( $new_campaign_node );
         _prepare_campaignteams( $new_campaign_node );
@@ -30,6 +29,12 @@
     }
 
     function _finish_userpoints( $old_campaign_nid ){
+        module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
+        scoga_drop_credits_of_all_players();
+        watchdog( 'SCOGA', 'all credits of players deleted', array(), WATCHDOG_DEBUG );
+        scoga_reset_userpoints_totals();
+        watchdog( 'SCOGA', 'all user points totals reset', array(), WATCHDOG_DEBUG );
+
         $userpoints_category_tid = scoga_get_current_userpoints_category_tid();
 
         $shown_on_profile = variable_get( USERPOINTS_CATEGORY_PROFILE_DISPLAY_TID );
@@ -62,6 +67,9 @@
 
     function _prepare_userpoints( $new_campaign_node ){
         module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
+        scoga_award_default_credits_to_all_players();
+        watchdog( 'SCOGA', 'all players default credits awarded', array(), WATCHDOG_INFO );
+
         $userpoints_category = scoga_create_userpoints_category( $new_campaign_node->title );
         scoga_set_current_userpoints_category_tid( $userpoints_category->tid );
         watchdog( 'SCOGA', 'created new user points category @name', array( '@name' => $userpoints_category->name ), WATCHDOG_INFO );
@@ -77,11 +85,3 @@
         scoga_set_current_combocheckin_rtid( $relationship_type->rtid );
         watchdog( 'SCOGA', 'created new combo checkin relationship', array(), WATCHDOG_INFO );
     }
-
-    function _prepare_credits(){
-        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
-        scoga_award_default_credits_to_all_players();
-        watchdog( 'SCOGA', 'all players default credits awarded', array(), WATCHDOG_INFO );
-    }
-
-
