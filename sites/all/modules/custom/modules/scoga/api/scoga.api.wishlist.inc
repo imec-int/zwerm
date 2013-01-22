@@ -82,7 +82,7 @@
     /**
      *
      */
-    function scoga_close_all_open_wisheditems( $campaign_nid ){
+    function scoga_close_all_open_wisheditems_of_campaign( $campaign_nid ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
         $result = $query

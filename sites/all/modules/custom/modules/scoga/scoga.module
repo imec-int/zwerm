@@ -80,13 +80,20 @@
     }
 
     /**
-     * implements hook_scoga_current_campaign_changed
+     * implements hook_scoga_current_campaign_started
      * @param $new_nid
-     * @param $old_nid
      */
-    function scoga_scoga_current_campaign_changed( $new_nid, $old_nid ){
+    function scoga_scoga_current_campaign_started( $new_nid ){
         module_load_include( 'scoga.inc', 'scoga', 'restricted/scoga' );
-        scoga_handle_scoga_current_campaign_changed( $new_nid, $old_nid );
+        scoga_handle_scoga_current_campaign_started( $new_nid );
+    }
+    /**
+     * implements hook_scoga_current_campaign_finished
+     * @param $new_nid
+     */
+    function scoga_scoga_current_campaign_finished( $old_nid ){
+        module_load_include( 'scoga.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_scoga_current_campaign_finished( $old_nid );
     }
 
 

@@ -75,6 +75,7 @@
     define( 'SCOGA_VARIABLE_GROUP_NAME',    'scoga' );
     define( 'SCOGA_SALT',                   '97zw3rM&:*');
     define( 'FLASH_HTML_FORMAT',            'flash_html');
+    define( 'SCOGA_NULL_CAMPAIGN_NID',      0 );
 
     //--( RESPONSE CODES )--//
     define( 'CODE_NO_CAMPAIGN',             1010 );
