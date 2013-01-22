@@ -12,7 +12,10 @@
     color:black;
   }
 
-
+  .field-name-field-user-firstname,.field-name-field-user-surname
+  {
+    display:none;
+  }
 
   @media all and (min-width: $start_of_large_viewport)
   {
