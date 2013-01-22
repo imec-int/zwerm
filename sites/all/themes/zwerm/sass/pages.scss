@@ -62,6 +62,11 @@ body {
   }
 }
 
+//hide info on text formatting in comments
+.filter-wrapper {
+  display: none;
+}
+
 /*
  * Header
  */
