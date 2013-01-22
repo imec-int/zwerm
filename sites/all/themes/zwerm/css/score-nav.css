@@ -1,0 +1,73 @@
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 4, ../sass/score-nav.scss */
+#score_nav_bar {
+  background-color: #333333;
+  width: 100%;
+  float: left;
+  height: 60px;
+}
+/* line 13, ../sass/score-nav.scss */
+#score_nav_bar ul {
+  width: 99%;
+  height: 60px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+/* line 25, ../sass/score-nav.scss */
+#score_nav_bar li {
+  font-size: small;
+  background-color: #484848;
+  list-style-type: none;
+  display: block;
+  float: left;
+  height: 50px;
+  width: 32%;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+/* line 38, ../sass/score-nav.scss */
+#score_nav_bar li a {
+  color: gray;
+  display: block;
+  text-align: center;
+  width: 99%;
+  padding-top: 13px;
+}
+/* line 50, ../sass/score-nav.scss */
+#score_nav_bar li a.active {
+  color: white;
+}
+
+@media all and (max-width: 629px) {
+  /* line 62, ../sass/score-nav.scss */
+  #score_nav_bar li {
+    height: 30px;
+    margin-top: 22px;
+  }
+  /* line 66, ../sass/score-nav.scss */
+  #score_nav_bar li a {
+    padding-top: 3px;
+  }
+  /* line 72, ../sass/score-nav.scss */
+  #score_nav_bar ul {
+    margin-top: -7px;
+  }
+}

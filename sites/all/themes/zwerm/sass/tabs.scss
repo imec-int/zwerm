@@ -1,0 +1,63 @@
+/**
+ * @file
+ * Tabs Styling
+ *
+ * Adds styles for the primary and secondary tabs.
+ *
+ * Compare this with default CSS found in the system module's stylesheet (a copy
+ * of which is in drupal7-reference.css.)
+ */
+
+@import "base";
+
+#content
+{
+
+
+  .tabs
+  {
+    background-color: $footer-color;
+    width:100%;
+    float: left;
+    height:$score-navbar-height;
+    margin-top: 0px;
+    display: block;
+    padding-left: 0%;
+    padding-right: 0%;
+    line-height: 0.8em;
+
+
+    li
+    {
+      font-size: small;
+      background-color: $score-navbar-color ;
+      list-style-type: none;
+      display:block;
+      float:left;
+      height:50px;
+      width:48%;
+      margin-top: 5px;
+      margin-left: 1%;
+      margin-right: 1%;
+
+      a
+      {
+        color:$score-navbar-non-active-link-color;
+        display:block;
+        text-align:center;
+        width:99%;
+        padding-top: 20px;
+        //font-size: large;
+      }
+
+      a.active
+      {
+        color:white;
+      }
+
+
+    }
+  }
+}
+
+

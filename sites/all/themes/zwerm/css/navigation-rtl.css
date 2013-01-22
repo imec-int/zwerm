@@ -1,0 +1,43 @@
+/**
+ * @file
+ * RTL companion for the navigation.css file.
+ */
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 9, ../sass/navigation-rtl.scss */
+ul li.collapsed {
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABNJREFUCB1j4GASYFJgcmD+A4IADUIDfIUMT4wAAAAASUVORK5CYII=');
+}
+
+/* line 18, ../sass/navigation-rtl.scss */
+#navigation ul.links,
+#navigation ul.menu {
+  /* Menu block links */
+  text-align: right;
+}
+/* line 21, ../sass/navigation-rtl.scss */
+#navigation ul.links li,
+#navigation ul.menu li {
+  /* A simple method to get navigation links to appear in one line. */
+  float: right;
+  padding: 0 0 0 10px;
+}
+
+/* line 28, ../sass/navigation-rtl.scss */
+#secondary-menu {
+  float: left;
+}

@@ -1,0 +1,68 @@
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 6, ../sass/user.scss */
+.page-user .tabs, .page-user #select_list, .page-user h3, .page-user dl, .page-user #content .tabs {
+  display: none;
+}
+/* line 11, ../sass/user.scss */
+.page-user a {
+  color: black;
+}
+@media all and (min-width: 630px) {
+  /* line 20, ../sass/user.scss */
+  .page-user a.privatemsg-send-link {
+    color: #7fb083;
+  }
+}
+@media all and (max-width: 629px) {
+  /* line 28, ../sass/user.scss */
+  .page-user a.privatemsg-send-link {
+    color: #eeeeee;
+  }
+}
+/* line 34, ../sass/user.scss */
+.page-user .user-picture {
+  float: left;
+  padding-right: 10px;
+}
+/* line 39, ../sass/user.scss */
+.page-user .profile {
+  margin-left: 4%;
+}
+/* line 43, ../sass/user.scss */
+.page-user .privatemsg-send-link.privatemsg-send-link-profile {
+  display: inline-block;
+}
+/* line 47, ../sass/user.scss */
+.page-user .field.field-name-field-user-firstname.field-type-text.field-label-hidden {
+  float: left;
+  padding-right: 4px;
+}
+/* line 53, ../sass/user.scss */
+.page-user li {
+  list-style-type: none;
+}
+/* line 58, ../sass/user.scss */
+.page-user .item-list {
+  padding-top: 25px;
+  display: block;
+}
+/* line 64, ../sass/user.scss */
+.page-user ul.userpoints-points {
+  margin-left: 80px;
+  margin-top: -24px;
+}

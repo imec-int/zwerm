@@ -8,8 +8,8 @@
      * To change this template use File | Settings | File Templates.
      */
 
-//    function scoga_handle_menu(){
-//        $items = array();
+    function scoga_handle_menu(){
+        $items = array();
 //        $items[ SCOGA_ADMIN_PAGE ] = array(
 //            'title'            => t( 'SCOGA settings' ),
 //            'description'      => t( 'General settings for SCOGA' ),
@@ -27,8 +27,24 @@
 //            'page arguments'    => array( 'scoga_settings_form' ),
 //            'access arguments'  => array( SCOGA_PERM_ADMINISTER_SETTINGS ),
 //        );
-//        return $items;
-//    }
+        $items[ SCOGA_NOT_PARTNER_PAGE ] = array(
+            'title'             => t( 'Players you have not checked in with' ),
+            'description'       => t( 'Overview of SCOGA users that are not a checkin partner of logged in user' ),
+            'type'              => MENU_NORMAL_ITEM,
+            'file'              => 'restricted/scoga.page.inc',
+            'page callback'     => 'scoga_get_list_of_not_checkin_parnters',
+            'access arguments'  => array( SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER ),
+        );
+        $items[ SCOGA_GET_POINTS_PAGE ] = array(
+            'title'             => 'Play',
+            'description'       => t( 'Overview of the Scoga assignments the player can perform to get points' ),
+            'type'              => MENU_NORMAL_ITEM,
+            'file'              => 'restricted/scoga.page.inc',
+            'page callback'     => 'scoga_overview_of_assignments_to_get_point',
+            'access arguments'  => array( SCOGA_PERM_PAGE_ACCESS_GET_POINTS ),
+        );
+        return $items;
+    }
 
 
 /*

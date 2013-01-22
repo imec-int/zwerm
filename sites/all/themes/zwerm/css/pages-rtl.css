@@ -1,0 +1,45 @@
+/**
+ * @file
+ * RTL companion for the pages.css file.
+ */
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/*
+ * Header
+ */
+/* line 13, ../sass/pages-rtl.scss */
+#logo {
+  /* Wrapping link for logo */
+  float: right;
+}
+
+/*
+ * Content
+ */
+/* line 21, ../sass/pages-rtl.scss */
+ul.inline li {
+  /* List of links */
+  display: inline-block;
+  /* Bug in Safari causes display: inline to fail. */
+  padding: 0 0 0 1em;
+}
+
+/* line 25, ../sass/pages-rtl.scss */
+span.field-label {
+  /* The inline field label used by the Fences.module */
+  padding: 0 0 0 1em;
+}

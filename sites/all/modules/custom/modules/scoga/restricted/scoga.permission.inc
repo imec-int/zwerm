@@ -22,5 +22,9 @@
                 'title'       => t( 'Register RFID card' ),
                 'description' => t( 'Register an RFID card to be used with SCOGA' ),
             ),
+            SCOGA_PERM_PAGE_ACCESS_GET_POINTS => array(
+                'title'       => t( 'Play the game' ),
+                'descirption' => t( 'Ply the game by getting access to the list of available assignments'  ),
+            )
         );
     }

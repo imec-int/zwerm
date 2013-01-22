@@ -1,0 +1,136 @@
+@import "base";
+
+body.section-messages
+{
+  background-color: $white-background-color;
+
+  .privatemsg-message-actions.links.inline
+  {
+    display: none;
+  }
+
+  .privatemsg-message-column
+  {
+    //controls the indendation of every message
+    width: 95%;
+    padding-right: 5px;
+  }
+
+  #edit-cancel
+  {
+    display:none;
+  }
+
+}
+
+.page-messages
+{
+
+  table
+  {
+    margin-bottom: 30px;
+  }
+  #main
+  {
+    background-color: $white-background-color;
+  }
+
+  h1
+  {
+    display:none;
+  }
+
+  .action-links
+  {
+    li
+    {
+      list-style-type: none;
+    }
+    a
+    {
+      color:red;
+      margin-left: -28px;
+
+    }
+  }
+
+  th, td
+  {
+    a
+    {
+      color:black;
+    }
+  }
+
+  tr.odd, tr.even
+  {
+    background-color:$white-background-color;
+  }
+
+  #content .tabs
+  {
+    //hide all tabs except inbox and sent
+    li:nth-child(3),li:nth-child(4),li:nth-child(5)
+    {
+      display:none;
+    }
+  }
+
+  .username
+  {
+    color: black;
+  }
+
+  #edit-operation
+  {
+    display:none;
+  }
+
+  .privatemsg-list-subject
+  {
+    //padding-left: 13px;
+  }
+
+  .container-inline, .form-type-checkbox,.form-checkbox
+  {
+    display: none;
+  }
+
+  .action-links {
+    margin-top: 0px;
+    margin-bottom: -30px;
+  }
+
+  .privatemsg-unread td {
+    font-weight: normal;
+  }
+
+  td.privatemsg-list-subject, td.privatemsg-list-participants
+  {
+    //vertical lines between columns
+    border-right: 1px solid #CCC;
+  }
+
+  td.privatemsg-list-participants, td.privatemsg-list-date
+  {
+    padding-left: 3px;
+  }
+
+  th
+  {
+    font-size: xx-small;
+  }
+
+  td
+  {
+    font-size: small;
+  }
+}
+
+.page-messages-new
+{
+  .description, #edit-cancel
+  {
+    display:none;
+  }
+}

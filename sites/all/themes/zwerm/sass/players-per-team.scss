@@ -1,0 +1,24 @@
+@import "base";
+
+.page-team-players
+{
+  #page-title
+  {
+    @include page-title;
+    //margin-bottom: 30px;
+  }
+  thead
+  {
+    display:none;
+  }
+
+  .views-field-picture
+  {
+    img
+    {
+      height: 50px;
+      display: block;
+      margin-left: 5px;
+    }
+  }
+}

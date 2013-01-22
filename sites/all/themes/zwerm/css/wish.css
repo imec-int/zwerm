@@ -1,0 +1,114 @@
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 4, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item, .node-type-nodetype-wished-item {
+  background-color: #eeeeee;
+}
+@media all and (max-width: 629px) {
+  /* line 12, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main #content, .node-type-nodetype-wished-item #main #content {
+    margin-left: 2%;
+    width: 94%;
+  }
+  /* line 16, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main #content #edit-title, .node-type-nodetype-wished-item #main #content #edit-title {
+    width: 94%;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 28, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #edit-delete, .node-type-nodetype-wished-item #edit-delete {
+    margin-bottom: 58px;
+  }
+}
+/* line 34, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-preview-changes, .node-type-nodetype-wished-item #edit-preview-changes {
+  display: none;
+}
+/* line 41, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item li, .node-type-nodetype-wished-item .node-nodetype-wished-item li {
+  background-color: #7fb083;
+}
+/* line 44, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item li a, .node-type-nodetype-wished-item .node-nodetype-wished-item li a {
+  padding-left: 20px;
+}
+/* line 50, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item header, .node-type-nodetype-wished-item .node-nodetype-wished-item header {
+  padding-left: 20px;
+}
+/* line 56, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .node-nodetype-wished-item .user-picture {
+  padding-right: 16px;
+}
+/* line 62, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li {
+  display: block;
+}
+/* line 65, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li a {
+  color: black;
+}
+/* line 71, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li {
+  display: block;
+}
+/* line 74, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a {
+  color: white;
+}
+/* line 81, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-name-field-wisheditem-award, .node-type-nodetype-wished-item .field-name-field-wisheditem-award {
+  margin-top: -23px;
+}
+/* line 84, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-name-field-wisheditem-award .field-label, .node-type-nodetype-wished-item .field-name-field-wisheditem-award .field-label {
+  float: left;
+}
+/* line 89, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .user-picture {
+  display: inline;
+  float: left;
+}
+/* line 95, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-edit-link, .node-type-nodetype-wished-item .field-edit-link {
+  display: none;
+}
+/* line 100, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .filter-wrapper, .node-type-nodetype-wished-item .filter-wrapper {
+  display: none;
+}
+/* line 105, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .wysiwyg-toggle-wrapper, .node-type-nodetype-wished-item .wysiwyg-toggle-wrapper {
+  display: none;
+}
+/* line 110, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-preview, .node-type-nodetype-wished-item #edit-preview {
+  display: none;
+}
+/* line 115, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .username, .node-type-nodetype-wished-item .username {
+  color: black;
+}
+/* line 119, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-body, .node-type-nodetype-wished-item #edit-body {
+  width: 101%;
+}
+/* line 124, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .form-field-name-field-wisheditem-image, .node-type-nodetype-wished-item .form-field-name-field-wisheditem-image {
+  display: none;
+}

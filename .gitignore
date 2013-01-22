@@ -13,3 +13,13 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+
+#Ignore osX specific files 
+.DS_Store
+.idea
+gitPush
+__MACOSX/
+
+#Theme-related
+*/.sass-cache/*
+sites/all/themes/zwerm/.sass-cache/

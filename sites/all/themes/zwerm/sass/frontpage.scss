@@ -1,0 +1,23 @@
+@import "base";
+
+.page-frontpage
+{
+  background-color: $white-background-color;
+
+  .views-field-title {
+    font-family: romina;
+    text-align: center;
+  }
+
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    background-color: $team-blue-color;
+
+    .views-row
+    {
+      display:none;
+    }
+
+  }
+
+}

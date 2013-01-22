@@ -8,6 +8,18 @@
      * To change this template use File | Settings | File Templates.
      */
 
+
+    class Result{
+        public $uid;
+        public $result;
+        public $message;
+        public $code;
+    }
+
+    function scoga_get_current_time_MS(){
+        return sprintf( '%.0f', round(microtime(true) * 1000) );
+    }
+
     /**
      * Syntactic sugar for retrieving a value from a field.
      * Retrieves from following structure:
@@ -33,7 +45,7 @@
     }
 
     /**
-     * Doesn't access the real entity system. Is a simple object formatting function.
+     * Doesn't access the entity system. Is a simple object formatting function.
      * Stores value in
      * <code>$entity->{$field_name}[ $langcode ][ $delta ][ $field_column ]</code>
      * @param      $entity
@@ -50,6 +62,20 @@
         $entity->{$field_name}[ $options[ 'langcode' ] ][ $options[ 'delta' ] ][ $options[ 'field_column' ] ] = $value;
         return $entity;
     }
+
+    function scoga_get_eid_from_field( $entity, $field_name, $options = array() ){
+        $options = array( 'field_column' => 'target_id' ) + $options;
+        //do not use += since we want to make sure that field_column gets the right value
+
+        return scoga_get_field_value( $entity, $field_name, $options );
+    }
+
+    function scoga_set_eid_in_field( $entity, $field_name, $eid, $options = array() ){
+        $options = array( 'field_column' => 'target_id' ) + $options;
+
+        scoga_set_field_value( $entity, $field_name, $eid, $options );
+    }
+
 
     /**
      * @param $vid
@@ -135,18 +161,6 @@
     }
 
     /**
-     * @param     $message
-     * @param int $severity
-     *
-     * @throws Exception
-     */
-    function scoga_throw_exception( $message, $severity = WATCHDOG_NOTICE ){
-        watchdog( 'SCOGA', $message, NULL, $severity );
-        throw new Exception( $message );
-    }
-
-
-    /**
      * @param $timeMS
      *
      * @return int|string
@@ -184,67 +198,84 @@
         return intval( $a ) * $seconds;
     }
 
+    function scoga_get_last_nid_of_type( $type ){
+        $entity_type = 'node';
+        $query = new EntityFieldQuery();
+        $result = $query->entityCondition( 'entity_type', $entity_type )
+            ->entityCondition( 'bundle', $type )
+            ->propertyCondition( 'status', 1 )
+            ->propertyOrderBy( 'nid', 'DESC' )
+            ->range( 0, 1 )
+            ->execute();
+        $nids = array_keys( $result[ $entity_type ] );
+        if( $nids ){
+            return $nids[ 0 ];
+        }
+
+        return 0;
+    }
+
     //--( ACCESSORS )--//
 
     /**
      * @return string
      */
     function scoga_get_default_username(){
-        return variable_get( SCOGA_SETTING_DEFAULT_USERNAME );
+        return variable_get_value( SCOGA_SETTING_DEFAULT_USERNAME );
     }
 
     /**
      * @return int
      */
     function scoga_get_checkin_cooldown(){
-        return variable_get( SCOGA_SETTING_CHECKIN_COOLDOWN );
+        return variable_get_value( SCOGA_SETTING_CHECKIN_COOLDOWN );
     }
 
     /**
      * @return int
      */
     function scoga_get_combocheckin_timeframe(){
-        return variable_get( SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME );
+        return variable_get_value( SCOGA_SETTING_COMBOCHECKIN_TIMEFRAME );
     }
 
     /**
      * @return int
      */
-    function scoga_get_determinecampaign_cron_interval(){
-        return variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL );
-    }
+//    function scoga_get_determinecampaign_cron_interval(){
+//        return variable_get_value( SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL );
+//    }
 
     /**
      * @return int
      */
-    function scoga_get_determinecampaign_next_execution(){
-        return variable_get( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION );
-    }
-    function scoga_set_determinecampaign_next_execution( $value ){
-        variable_set( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION, $value );
-    }
+//    function scoga_get_determinecampaign_next_execution(){
+//        return variable_get_value( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION );
+//    }
+//    function scoga_set_determinecampaign_next_execution( $value ){
+//        variable_set_value( SCOGA_SETTING_DETERMINECAMPAIGN_NEXT_EXECUTION, $value );
+//    }
 
     /**
      * @return int
      */
     function scoga_get_current_campaign_nid(){
-        return variable_get( SCOGA_SETTING_CURRENT_CAMPAIGN_NID );
+        return variable_get_value( SCOGA_SETTING_CURRENT_CAMPAIGN_NID );
     }
     function scoga_set_current_campaign_nid( $campaign_nid ){
         watchdog( 'SCOGA', 'set current campaign nid to @nid', array(
            '@nid' => $campaign_nid
         ));
-        variable_set( SCOGA_SETTING_CURRENT_CAMPAIGN_NID, $campaign_nid );
+        variable_set_value( SCOGA_SETTING_CURRENT_CAMPAIGN_NID, $campaign_nid );
     }
 
     /**
      * @return int
      */
     function scoga_get_current_combocheckin_rtid(){
-        return variable_get( SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID );
+        return variable_get_value( SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID );
     }
     function scoga_set_current_combocheckin_rtid( $value ){
-        variable_set( SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID, $value );
+        variable_set_value( SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID, $value );
     }
 
     /**
@@ -252,7 +283,7 @@
      */
     function scoga_set_current_userpoints_category_tid( $value ){
         //from userpoints module
-        variable_set( USERPOINTS_CATEGORY_DEFAULT_TID, $value );
+        variable_set_value( USERPOINTS_CATEGORY_DEFAULT_TID, $value );
     }
     function scoga_get_current_userpoints_category_tid(){
         return userpoints_get_default_tid();
@@ -262,7 +293,7 @@
      * @return int
      */
     function scoga_get_default_credits(){
-        return variable_get( SCOGA_SETTING_DEFAULT_CREDITS );
+        return variable_get_value( SCOGA_SETTING_DEFAULT_CREDITS );
     }
 
     /**
@@ -274,11 +305,11 @@
 
 
 //    function scoga_get_current_team_nid(){
-//        return variable_get( SCOGA_SETTING_CURRENT_TEAM );
+//        return variable_get_value( SCOGA_SETTING_CURRENT_TEAM );
 //    }
 //
 //    function scoga_set_current_team_nid( $value ){
-//        variable_set( SCOGA_SETTING_CURRENT_TEAM, $value );
+//        variable_set_value( SCOGA_SETTING_CURRENT_TEAM, $value );
 //    }
 
 
@@ -286,26 +317,34 @@
      * @return int
      */
     function scoga_get_credits_tid(){
-        return SCOGA_SETTING_CREDITS_TID;
+        return variable_get_value( SCOGA_SETTING_CREDITS_TID );
     }
     function scoga_set_credits_tid( $value ) {
-        variable_set( SCOGA_SETTING_CREDITS_TID, $value );
+        variable_set_value( SCOGA_SETTING_CREDITS_TID, $value );
     }
 
     /**
      * @return int
      */
     function scoga_get_score_tid(){
-        return SCOGA_SETTING_SCORE_TID;
+        return variable_get_value( SCOGA_SETTING_SCORE_TID );
     }
     function scoga_set_score_tid( $value ){
-        variable_set( SCOGA_SETTING_SCORE_TID, $value );
+        variable_set_value( SCOGA_SETTING_SCORE_TID, $value );
     }
 
     /**
      * @return int
      */
     function scoga_get_max_wishitem_credits(){
-        return intval( variable_get( SCOGA_SETTING_MAX_WISHITEM_CREDIT, 10 ) );
+        return intval( variable_get_value( SCOGA_SETTING_MAX_WISHITEM_CREDIT ) );
+    }
+
+    function scoga_get_combocheckin_reward(){
+        return variable_get_value( SCOGA_SETTING_REWARD_COMBO_CHECKIN );
+    }
+
+    function scoga_get_rfidcheckin_reward(){
+        return variable_get_value( SCOGA_SETTING_REWARD_RFID_CHECKIN );
     }
 

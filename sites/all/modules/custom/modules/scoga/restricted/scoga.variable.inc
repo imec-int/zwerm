@@ -74,6 +74,15 @@
             'required'          => TRUE
         );
 
+        $variables[ SCOGA_SETTING_MAX_WISHITEM_CREDIT ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Max credit value for wished items' ),
+            'description'       => t( 'Maximum credit value for wished items' ),
+            'default'           => 10,
+            'required'          => TRUE
+        );
+
         //determinecampaign cron interval
         $variables[ SCOGA_SETTING_DETERMINECAMPAIGN_CRON_INTERVAL ] = array(
             'group'             => SCOGA_VARIABLE_GROUP_NAME,
@@ -84,15 +93,95 @@
             'required'          => TRUE
         );
 
-        $variables[ SCOGA_SETTING_MAX_WISHITEM_CREDIT ] = array(
+        $variables[ SCOGA_SETTING_REWARD_ANSWER_POLL ] = array(
             'group'             => SCOGA_VARIABLE_GROUP_NAME,
             'type'              => 'number',
-            'title'             => t( 'Max credit value for wished items' ),
-            'description'       => t( 'Maximum credit value for wished items' ),
+            'title'             => t( 'Reward points amount for answering a poll' ),
+            'description'       => t( 'Reward points amount for answering a poll' ),
+            'default'           => 5,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_REWARD_RFID_CHECKIN ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for checkin' ),
+            'description'       => t( 'Reward points amount for checkin' ),
+            'default'           => 1,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_REWARD_COMBO_CHECKIN ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for combo checkin' ),
+            'description'       => t( 'Reward points amount for combo checkin' ),
+            'default'           => 5,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_REWARD_COMPLETE_PROFILE ]= array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Reward points amount for completing your profile' ),
+            'description'       => t( 'Reward points amount for completing your profile' ),
             'default'           => 10,
             'required'          => TRUE
         );
 
+        $variables[ SCOGA_SETTING_CURRENT_COMBOCHECKIN_RTID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The current user relationship type ID' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_CHECKIN_EXPLANATION_NID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The node id of the combo checkin explanation page' ),
+            'description'       => t( 'The node id of the page containing the explanation on how to do combo checkins' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_CURRENT_CAMPAIGN_NID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The current campaign' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
+        $variables[ USERPOINTS_CATEGORY_DEFAULT_TID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'The current user points category TID' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_CREDITS_TID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Credits TID' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
+
+        $variables[ SCOGA_SETTING_SCORE_TID ] = array(
+            'group'             => SCOGA_VARIABLE_GROUP_NAME,
+            'type'              => 'number',
+            'title'             => t( 'Score TID' ),
+            'description'       => t( 'FOR DEBUGGING AND DEVELOPMENT PURPOSES ONLY, DO NOT MODIFY ON LIVE SITE' ),
+            'default'           => 0,
+            'required'          => TRUE
+        );
         return $variables;
 
     }

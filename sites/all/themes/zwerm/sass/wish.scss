@@ -1,0 +1,129 @@
+@import "base";
+
+.page-node-add-nodetype-wished-item,.node-type-nodetype-wished-item
+{
+  background-color: $white-background-color;
+
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    #main
+    {
+      #content
+      {
+        margin-left: 2%;
+        width: 94%;
+        #edit-title
+        {
+          width: 94%;
+        }
+      }
+    }
+  }
+
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    //to make sure footer does not overlap submit button in new
+    //wish form
+    #edit-delete
+    {
+      margin-bottom: 58px;
+    }
+  }
+
+  //hide preview button
+  #edit-preview-changes {
+    display: none;
+  }
+
+  .node-nodetype-wished-item
+  {
+    li
+    {
+      background-color:$green-marking-color;
+      a
+      {
+        padding-left: 20px;
+      }
+    }
+
+    header
+    {
+      //background-color: $green-marking-color;
+      padding-left: 20px;
+      //height: 100%
+    }
+
+    .user-picture {
+      padding-right: 16px;
+    }
+
+    //theme the action links
+    ul.inline li
+    {
+      display:block;
+      a
+      {
+        color: black;
+      }
+    }
+
+    ul.inline.clearfix li
+    {
+      display:block;
+      a
+      {
+        color: white;
+      }
+    }
+  }
+
+  .field-name-field-wisheditem-award
+  {
+    margin-top: -23px;
+    .field-label
+    {
+      float:left;
+    }
+  }
+
+  .user-picture {
+    display: inline;
+    float: left;
+  }
+
+  .field-edit-link
+  {
+    display:none;
+  }
+
+  .filter-wrapper
+  {
+    display: none;
+  }
+
+  .wysiwyg-toggle-wrapper
+  {
+    display: none;
+  }
+
+  #edit-preview
+  {
+    display: none;
+  }
+
+  .username
+  {
+    color:black;
+  }
+
+  #edit-body {
+    width: 101%;
+  }
+
+  .form-field-name-field-wisheditem-image
+  {
+    display: none;
+  }
+
+
+}
