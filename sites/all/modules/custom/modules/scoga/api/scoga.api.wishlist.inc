@@ -40,7 +40,7 @@
             'points'        => $award,
             'tid'           => scoga_get_credits_tid(),
             'operation'     => 'sync',
-            'description'   => 'sync credits for wished item',
+            'description'   => t('sync credits for wished item'),
             'moderate'      => FALSE,
             'display'       => TRUE,
         );

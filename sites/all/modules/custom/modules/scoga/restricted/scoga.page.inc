@@ -65,14 +65,14 @@
         $assignment_titles = array();
         $assignment_paths = array();
         //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
-        $assignment_titles[] = 'Check-in : find new partners';
+        $assignment_titles[] = t('Check-in : find new partners');
         $assignment_paths[] = SCOGA_NOT_PARTNER_PAGE;
         //add link to wish creation page to output
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';
         //add other playable elements to output
         _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign',&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('Poll','Question','Active questions','field_campaign',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('Poll','Question',t('Active questions'),'field_campaign',&$assignment_titles,&$assignment_paths);
         _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',&$assignment_titles,&$assignment_paths);
         _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',&$assignment_titles,&$assignment_paths);
         $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
@@ -100,7 +100,6 @@
             ->propertyCondition( 'status', '1' )
             ->execute();
         $nodes = node_load_multiple(array_keys($nodes_properties['node']));
-        dsm($nodes);
         if (sizeOf($nodes)!=0)
         {
             $titles[] = t($header);
@@ -119,7 +118,7 @@
     {
         foreach($nodes as $node_item)
         {
-            $titles[] = $label.': '.$node_item->title;
+            $titles[] = t($label).': '.$node_item->title;
             $paths[] = 'node/'.$node_item->nid;
         }
     }
