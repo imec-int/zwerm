@@ -3635,7 +3635,7 @@ DO NOT MODIFY ONCE SET!',
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '2',
+          'weight' => '3',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
