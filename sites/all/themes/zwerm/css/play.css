@@ -92,6 +92,7 @@
 /* line 104, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
+  white-space: nowrap;
 }
 /* line 109, ../sass/play.scss */
 .page-get-points #content #select_list a {

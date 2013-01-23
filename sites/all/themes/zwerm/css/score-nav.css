@@ -18,6 +18,7 @@
 #score_nav_bar {
   background-color: #333333;
   width: 100%;
+  float: left;
   height: 60px;
 }
 /* line 13, ../sass/score-nav.scss */

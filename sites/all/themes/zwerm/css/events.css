@@ -24,43 +24,31 @@
 body.node-type-nodetype-event p.submitted {
   display: none;
 }
-/* line 18, ../sass/events.scss */
-body.node-type-nodetype-event .submitted .user-picture {
-  display: none;
-}
-/* line 25, ../sass/events.scss */
-body.node-type-nodetype-event .submitted_by .username {
-  display: none;
-}
-/* line 31, ../sass/events.scss */
-body.node-type-nodetype-event .submitted_on {
-  display: none;
-}
-/* line 37, ../sass/events.scss */
+/* line 16, ../sass/events.scss */
 body.node-type-nodetype-event h1 {
   font-family: Romina;
   padding-top: 10px;
   text-align: center;
 }
-/* line 44, ../sass/events.scss */
+/* line 23, ../sass/events.scss */
 body.node-type-nodetype-event .field-type-datestamp {
   text-align: center;
 }
-/* line 49, ../sass/events.scss */
+/* line 28, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-team {
   display: none;
 }
-/* line 54, ../sass/events.scss */
+/* line 33, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-address {
   font-size: x-large;
   margin-bottom: 30px;
   line-height: 1.5em;
 }
-/* line 62, ../sass/events.scss */
+/* line 41, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-date {
   margin-top: 5px;
 }
-/* line 72, ../sass/events.scss */
+/* line 51, ../sass/events.scss */
 body.node-type-nodetype-event #block-views-event-content-type-map-block-1 {
   margin-bottom: 10px;
 }
