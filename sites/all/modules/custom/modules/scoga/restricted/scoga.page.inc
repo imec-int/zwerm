@@ -58,10 +58,7 @@
         //add time interval to end of current campaign
         module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
         $time_interval_elements = scoga_get_current_campaign_expiration_time();
-        //dsm($time_interval_elements);
         $output .= theme('time_interval',array('interval_elements' => $time_interval_elements));
-
-
         $assignment_titles = array();
         $assignment_paths = array();
         //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
