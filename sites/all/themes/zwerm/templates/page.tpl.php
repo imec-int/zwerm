@@ -79,7 +79,6 @@ else $front_page_class = "";
 
     <header id="header" role="banner">
         <div id="header_align">
-<<<<<<< HEAD
           <?php if ($logo): ?>
             <div id="home_nav">
                 <div id="home_logo">
@@ -92,7 +91,6 @@ else $front_page_class = "";
                 <div id="home_text">Home</div>
             </div>
           <?php endif; ?>
-=======
             <?php if ($logo): ?>
                  <div id="home_nav">
 
@@ -110,7 +108,6 @@ else $front_page_class = "";
 
                  </div>
             <?php endif; ?>
->>>>>>> 9a466d1c3a5a86f2f849566df10d429178280490
             <div id="menu_container">
                 <div id="menu_icon"><img
                         src="<?php print(base_path() . path_to_theme()); ?>/images/menu_icon.png"/>

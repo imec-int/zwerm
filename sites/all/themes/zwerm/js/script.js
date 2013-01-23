@@ -67,17 +67,14 @@
             jQuery("#main-menu").slideToggle(500);
             jQuery("#footer").slideToggle(500);
         });
-<<<<<<< HEAD
     });
 
   $(document).ready(function(){
     $('.geochallenge-add-poi').show();
-
     $('.geochallenge-add-poi').click(function()
     {
       //jQuery('html, body').animate({scrollTop:0}, 'fast');
       jQuery(".geochallenge-add-poi-instructions").slideDown('fast');
-
 
       jQuery('html, body').animate({
           scrollTop: $(".geochallenge-add-poi").offset().top-202
@@ -88,8 +85,6 @@
       //console.log(ol);
 
       return false;
-=======
->>>>>>> 9a466d1c3a5a86f2f849566df10d429178280490
     });
 
     jQuery(".geochallenge-add-psoi").click(function()
@@ -99,17 +94,10 @@
       //return false;
 
       var ol = $('.openlayers-map').data('openlayers');//assuming there is just one map on the page
-
       ol.draw
-
       alert(ol);
-
       return false;
-
     });
-
-
-
   });
 
 
