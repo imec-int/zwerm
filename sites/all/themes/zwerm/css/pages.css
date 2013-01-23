@@ -283,14 +283,14 @@ div.status {
 div.warning,
 tr.warning {
   /* Medium priority messages */
-  /* border: 1px solid #f0c020; */
-  /* Drupal core uses: 1px solid #f0c020 */
+  display: none;
 }
 
 /* line 273, ../sass/pages.scss */
 div.error,
 tr.error {
   /* High priority messages. See also the .error declaration below. */
+  display: none;
 }
 
 /* line 277, ../sass/pages.scss */
