@@ -1,0 +1,545 @@
+/**
+ * @file
+ * Page Styling
+ *
+ * Style the markup found in page.tpl.php. Also includes some styling of
+ * miscellaneous Drupal elements that appear in the $content variable, such as
+ * ul.links, .pager, .more-link, etc.
+ */
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/*
+ * foot
+ */
+/* line 20, ../sass/pages.scss */
+html {
+  height: 100%;
+}
+
+/* line 24, ../sass/pages.scss */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeee;
+  min-width: 320px;
+}
+
+/* line 35, ../sass/pages.scss */
+.js {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 40, ../sass/pages.scss */
+#page {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ * See the element-focusable rule in system.base.css.
+ */
+/* line 51, ../sass/pages.scss */
+#skip-link {
+  margin: 0;
+}
+/* line 55, ../sass/pages.scss */
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+/* line 66, ../sass/pages.scss */
+.filter-wrapper {
+  display: none;
+}
+
+/*
+ * Header
+ */
+/* line 74, ../sass/pages.scss */
+#header {
+  background-color: black;
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  z-index: 20;
+}
+/* line 81, ../sass/pages.scss */
+#header #header_align {
+  padding-top: 10px;
+}
+/* line 85, ../sass/pages.scss */
+#header #home_nav {
+  float: left;
+  width: 33%;
+}
+/* line 90, ../sass/pages.scss */
+#header #home_logo {
+  width: 33px;
+  float: left;
+  margin-top: 2px;
+}
+/* line 96, ../sass/pages.scss */
+#header #home_text {
+  color: #FFFFFF;
+  float: left;
+  padding-left: 10px;
+}
+/* line 102, ../sass/pages.scss */
+#header #zwerm_logo_text {
+  width: 33%;
+  float: left;
+}
+/* line 107, ../sass/pages.scss */
+#header #zwerm_logo_text img {
+  height: 15px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+/* line 115, ../sass/pages.scss */
+#header #menu_container {
+  width: 33%;
+  float: right;
+}
+/* line 121, ../sass/pages.scss */
+#header #menu_icon {
+  float: right;
+  width: 20px;
+  vertical-align: bottom;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 129, ../sass/pages.scss */
+#header #menu_text {
+  color: #FFFFFF;
+  float: right;
+  vertical-align: text-bottom;
+}
+
+/* line 138, ../sass/pages.scss */
+#name-and-slogan {
+  /* Wrapper for website name and slogan */
+  float: left;
+  display: block;
+}
+
+/* line 143, ../sass/pages.scss */
+#site-name {
+  /* The name of the website */
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.5em;
+  color: black;
+}
+/* line 150, ../sass/pages.scss */
+#site-name a:link,
+#site-name a:visited {
+  color: #000;
+  text-decoration: none;
+}
+/* line 156, ../sass/pages.scss */
+#site-name a:hover,
+#site-name a:focus {
+  text-decoration: underline;
+}
+
+/* line 163, ../sass/pages.scss */
+#site-slogan {
+  /* The slogan (or tagline) of a website */
+  margin: 0;
+  font-size: 1em;
+}
+
+/* line 168, ../sass/pages.scss */
+.region-header {
+  /* Wrapper for any blocks placed in the header region */
+  clear: both;
+  /* Clear the logo */
+}
+
+/* line 173, ../sass/pages.scss */
+.page-node {
+  background-color: #eeeeee;
+}
+
+/*
+ * Main (container for everything else)
+ */
+/* line 181, ../sass/pages.scss */
+#main {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding-top: 40px;
+}
+/* line 189, ../sass/pages.scss */
+#main input {
+  width: 100%;
+}
+/* line 194, ../sass/pages.scss */
+#main h1 {
+  font-family: Romina;
+  text-align: center;
+}
+
+/* line 206, ../sass/pages.scss */
+.page-frontpage #main {
+  padding-top: 0px;
+}
+
+/* line 215, ../sass/pages.scss */
+.breadcrumb {
+  /* The path to the current page in the form of a list of links */
+}
+/* line 216, ../sass/pages.scss */
+.breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+/* line 220, ../sass/pages.scss */
+.breadcrumb li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 233, ../sass/pages.scss */
+h1.title,
+h2.node-title,
+h2.block-title,
+h2.title,
+h2.comment-form,
+h3.title {
+  /* Comment title */
+  margin: 0;
+}
+
+/* line 237, ../sass/pages.scss */
+tr.even {
+  /* Some tables have rows marked even or odd. */
+  /* background-color: #eee; */
+  /* Drupal core uses a #eee background */
+}
+
+/* line 241, ../sass/pages.scss */
+tr.odd {
+  /* background-color: #eee; */
+  /* Drupal core uses a #eee background */
+}
+
+/* line 245, ../sass/pages.scss */
+div.messages {
+  /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+  margin: 1.5em 0;
+  /* Drupal core uses "6px 0" margin */
+  display: inline-block;
+}
+/* line 248, ../sass/pages.scss */
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* line 254, ../sass/pages.scss */
+div.status {
+  /* Normal priority messages */
+}
+
+/* line 258, ../sass/pages.scss */
+div.warning,
+tr.warning {
+  /* Medium priority messages */
+  /* border: 1px solid #f0c020; */
+  /* Drupal core uses: 1px solid #f0c020 */
+}
+
+/* line 263, ../sass/pages.scss */
+div.error,
+tr.error {
+  /* High priority messages. See also the .error declaration below. */
+}
+
+/* line 267, ../sass/pages.scss */
+.error {
+  /* Errors that are separate from div.messages status messages. */
+  /* color: #e55; */
+  /* Drupal core uses a #e55 background */
+}
+
+/* line 271, ../sass/pages.scss */
+.warning {
+  /* Warnings that are separate from div.messages status messages. */
+  /* color: #e09010; */
+  /* Drupal core uses a #e09010 background */
+}
+
+/* line 275, ../sass/pages.scss */
+.tabs {
+  /* See also the tabs.css file. */
+}
+
+/* line 278, ../sass/pages.scss */
+.region-help {
+  /* Help text on a page */
+}
+
+/* line 281, ../sass/pages.scss */
+.more-help-link {
+  /* Link to more help */
+}
+
+/* line 284, ../sass/pages.scss */
+.region-content {
+  /* Wrapper for the actual page content */
+}
+
+/* line 287, ../sass/pages.scss */
+ul.inline {
+  /* List of links generated by theme_links() */
+  display: inline;
+  padding: 0;
+}
+/* line 291, ../sass/pages.scss */
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0;
+  /* LTR */
+}
+
+/* line 297, ../sass/pages.scss */
+span.field-label {
+  /* The inline field label used by the Fences module */
+  padding: 0 1em 0 0;
+  /* LTR */
+}
+
+/* line 301, ../sass/pages.scss */
+.item-list .pager {
+  /* A list of page numbers when more than 1 page of content is available */
+  padding: 0;
+  margin-top: -15px;
+}
+/* line 305, ../sass/pages.scss */
+.item-list .pager li {
+  /* Each page number in the pager list */
+  padding: 0 0.5em;
+}
+
+/* line 310, ../sass/pages.scss */
+.feed-icon {
+  /* The link to the RSS or Atom feed for the current list of content */
+}
+
+/* line 313, ../sass/pages.scss */
+.more-link {
+  /* Aggregator, blog, and forum more link */
+}
+
+/*
+ * First sidebar (on left in LTR languages, on right in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-first
+ * (see the layout.css file.)
+ */
+/*
+ * Second sidebar (on right in LTR languages, on left in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-second
+ * (see the layout.css file.)
+ */
+/*
+ * Page bottom
+ */
+/* line 341, ../sass/pages.scss */
+.region-bottom {
+  /* Wrapper for any blocks placed in the page bottom region */
+}
+
+/*
+ * The Zwerm list style, mobile optimized
+ */
+/* line 349, ../sass/pages.scss */
+#select_list li {
+  display: block;
+  height: 50px;
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+/* line 355, ../sass/pages.scss */
+#select_list ul {
+  display: block;
+  border-top-style: solid;
+  border-width: 1px;
+  padding: 0 0 0 0;
+}
+/* line 361, ../sass/pages.scss */
+#select_list a {
+  line-height: 3em;
+}
+/* line 366, ../sass/pages.scss */
+#select_list a:link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+/* line 370, ../sass/pages.scss */
+#select_list a:visited {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* line 375, ../sass/pages.scss */
+#footer {
+  background-color: #333333;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  padding-top: 3px;
+  height: 33px;
+}
+
+/* line 402, ../sass/pages.scss */
+tr.color79b1bd {
+  background-color: #79b1bd;
+}
+
+/* line 406, ../sass/pages.scss */
+tr.colordc6058 {
+  background-color: #dc6058;
+}
+
+/* line 412, ../sass/pages.scss */
+#block-menu-menu-footer .block-title {
+  display: none;
+}
+/* line 415, ../sass/pages.scss */
+#block-menu-menu-footer li {
+  display: block;
+  height: 50px;
+}
+/* line 419, ../sass/pages.scss */
+#block-menu-menu-footer ul {
+  display: block;
+  border-width: 1px;
+  padding: 0 0 0 0;
+}
+/* line 424, ../sass/pages.scss */
+#block-menu-menu-footer .first {
+  float: left;
+  margin-top: -22px;
+}
+/* line 428, ../sass/pages.scss */
+#block-menu-menu-footer .last {
+  float: right;
+  margin-top: -22px;
+}
+/* line 432, ../sass/pages.scss */
+#block-menu-menu-footer a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/* line 439, ../sass/pages.scss */
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* line 444, ../sass/pages.scss */
+.selectedItem {
+  background-color: #7fb083;
+}
+
+@media all and (max-width: 629px) {
+  /* line 452, ../sass/pages.scss */
+  #block-block-3 {
+    display: none;
+  }
+
+  /* line 459, ../sass/pages.scss */
+  .section-het-spel article {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* line 469, ../sass/pages.scss */
+  #type_page h1 {
+    font-family: romina;
+    text-align: center;
+    padding-top: 10px;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 480, ../sass/pages.scss */
+  #header {
+    background-image: url(../images/zwerm_logo_black_background.png);
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    height: 200px;
+    display: block;
+  }
+
+  /* line 491, ../sass/pages.scss */
+  #content {
+    padding-top: 40px;
+    position: relative;
+    top: 120px;
+  }
+
+  /* line 498, ../sass/pages.scss */
+  #type_page, #type_nodetype_event {
+    height: 100%;
+    padding-top: 200px;
+  }
+
+  /* line 505, ../sass/pages.scss */
+  #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
+    display: none;
+  }
+
+  /* line 510, ../sass/pages.scss */
+  .region-sidebar-first {
+    padding-top: 200px;
+  }
+
+  /* line 517, ../sass/pages.scss */
+  #type_page h1 {
+    font-family: romina;
+    text-align: center;
+  }
+}
