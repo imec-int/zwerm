@@ -511,7 +511,7 @@ function menu_execute_active_handler($path = NULL, $deliver = TRUE) {
     if ($router_item = menu_get_item($path)) {
       if ($router_item['access']) {
         if ($router_item['include_file']) {
-          require_once DRUPAL_ROOT . '/' . $router_item['include_file'];
+          require_once(DRUPAL_ROOT . '/' . $router_item['include_file']);
         }
         $page_callback_result = call_user_func_array($router_item['page_callback'], $router_item['page_arguments']);
       }
