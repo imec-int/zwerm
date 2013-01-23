@@ -1371,12 +1371,9 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 5,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1618,7 +1615,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -3539,7 +3536,7 @@ DO NOT MODIFY ONCE SET!',
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => '1',
+          'weight' => '0',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',

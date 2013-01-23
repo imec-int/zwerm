@@ -1071,7 +1071,7 @@ return $reformattedNr;
   $handler->display->display_options['fields']['points_1']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points_1']['format_plural'] = 0;
-  $handler->display->display_options['fields']['points_1']['suffix'] = ' punten';
+  $handler->display->display_options['fields']['points_1']['suffix'] = ' pt';
   /* Veld: Gebruiker: Naam */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -1215,7 +1215,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     t('Alle'),
     t('Leaderboard'),
     t('$user->uid'),
-    t(' punten'),
+    t(' pt'),
     t('Term-ID'),
   );
   $export['leader'] = $view;
@@ -2448,7 +2448,7 @@ return true;';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Field: User: Picture */
+  /* Veld: Gebruiker: Afbeelding */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -2978,7 +2978,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['points']['separator'] = '.';
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Title */
+  /* Contextuele filter: Inhoud: Titel */
   $handler->display->display_options['arguments']['title']['id'] = 'title';
   $handler->display->display_options['arguments']['title']['table'] = 'node';
   $handler->display->display_options['arguments']['title']['field'] = 'title';
@@ -2993,7 +2993,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['arguments']['title']['limit'] = '0';
   $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
   $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
-  /* Contextual filter: Taxonomy term: Term ID */
+  /* Contextuele filter: Taxonomie term: Term-ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -3062,10 +3062,10 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Content entity referenced from field_user_team'),
-    t('Username'),
-    t('Name'),
-    t('Points'),
+    t('Inhoud entity referenced from field_user_team'),
+    t('Gebruikersnaam'),
+    t('Naam'),
+    t('Punten'),
     t('.'),
     t(','),
     t('Alle'),
@@ -3572,7 +3572,7 @@ return true;*/';
   $handler->display->display_options['fields']['tid_1']['empty_zero'] = 0;
   $handler->display->display_options['fields']['tid_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['tid_1']['format_plural'] = 0;
-  /* Field: Userpoints Transactions: Timestamp */
+  /* Veld: Userpoints Transactions: Tijdstip */
   $handler->display->display_options['fields']['time_stamp']['id'] = 'time_stamp';
   $handler->display->display_options['fields']['time_stamp']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['time_stamp']['field'] = 'time_stamp';
@@ -3596,20 +3596,6 @@ return true;*/';
   $handler->display->display_options['fields']['time_stamp']['empty_zero'] = 0;
   $handler->display->display_options['fields']['time_stamp']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['time_stamp']['date_format'] = 'short';
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Taxonomy term: Term ID */
-  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'variable';
-  $handler->display->display_options['arguments']['tid']['default_argument_options']['variable'] = 'userpoints_category_default_tid';
-  $handler->display->display_options['arguments']['tid']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['tid']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['tid']['not'] = 0;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filtercriterium: transaction belongs to current userpoints category */
   $handler->display->display_options['filters']['php']['id'] = 'php';
@@ -3620,6 +3606,8 @@ return true;*/';
   $handler->display->display_options['filters']['php']['php_setup'] = 'module_load_include( \'api.inc\', \'scoga\', \'api/scoga\' );
 $static->current_userpoints_category_tid = scoga_get_current_userpoints_category_tid();';
   $handler->display->display_options['filters']['php']['php_filter'] = '//Filters the Campaign team nodes that correspond to the current campaign
+//dsm($static->current_userpoints_category_tid);
+//dsm($row->tid_1);
 if ($static->current_userpoints_category_tid == $row->tid_1)
 return false;
 else
@@ -3648,7 +3636,6 @@ return true;
     t('Offset'),
     t('Beschrijving'),
     t('Points in current campaign page'),
-    t('All'),
   );
   $export['view_transactions'] = $view;
 
