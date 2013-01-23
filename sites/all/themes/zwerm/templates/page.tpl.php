@@ -178,34 +178,33 @@ $team = $node->field_event_team;     */
       <?php print render($page['navigation']); ?>
 
                 </div><!-- /#navigation -->
-      <?php endif; ?> <!-- if(!drupal_is_front_page()) -->
-        <div id="clearnav"></div>
-        <div id="content" class="column" role="main">
-          <?php print render($page['highlighted']); ?>
-          <?php print $breadcrumb; ?>
-            <!-- <a id="main-content"></a> -->
-          <?php if (!drupal_is_front_page()): ?>
-          <?php print $messages; ?>
-          <?php endif; ?>
-          <?php print render($title_prefix); ?>
-          <?php if ($title): ?>
-            <h1 class="title" id="page-title"><?php print $title; ?></h1>
-          <?php endif; ?>
-          <?php print render($title_suffix); ?>
-          <?php print render($tabs); ?>
-          <?php print render($page['help']); ?>
-          <?php if ($action_links): ?>
-            <ul class="action-links"><?php print render($action_links); ?></ul>
-          <?php endif; ?>
-          <?php print render($page['content']); ?>
-          <?php //print $feed_icons; ?>
-        </div>
-        <!-- /#content -->
-      <?php
-      // Render the sidebars to see if there's anything in them.
-      $sidebar_first = render($page['sidebar_first']);
-      $sidebar_second = render($page['sidebar_second']);
-      ?>
+            <?php endif; ?> <!-- if(!drupal_is_front_page()) -->
+            <div id="clearnav"></div>
+            <div id="content" class="column" role="main">
+                <?php print render($page['highlighted']); ?>
+                <?php print $breadcrumb; ?>
+                <!-- <a id="main-content"></a> -->
+                <?php print render($title_prefix); ?>
+                <?php if ($title): ?>
+                    <h1 class="title" id="page-title"><?php print $title; ?></h1>
+                    <?php endif; ?>
+                    <?php print render($title_suffix); ?>
+                    <?php print render($tabs); ?>
+                    <?php print render($page['help']); ?>
+                    <?php if ($action_links): ?>
+                    <ul class="action-links"><?php print render($action_links); ?></ul>
+                <?php endif; ?>
+                <?php print render($page['content']); ?>
+                <?php //print $feed_icons; ?>
+                <?php if (!drupal_is_front_page()): ?>
+                    <?php //print $messages; ?>
+                <?php endif; ?>
+            </div><!-- /#content -->
+            <?php
+            // Render the sidebars to see if there's anything in them.
+            $sidebar_first  = render($page['sidebar_first']);
+            $sidebar_second = render($page['sidebar_second']);
+            ?>
 
       <?php if ($sidebar_first || $sidebar_second): ?>
         <aside class="sidebars">

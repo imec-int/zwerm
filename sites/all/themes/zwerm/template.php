@@ -231,12 +231,17 @@ function zwerm_preprocess_block(&$variables, $hook) {
      * the team of the logged in user
      *
      */
-    function zwerm_preprocess_html(&$variables)
+   /* function zwerm_preprocess_html(&$variables)
     {
+        dsm($variables);
+
+        //$content_type = $variables
         global $user;
+        //if ()
         $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
 
-    }
+    }   */
+
 
     /**
       *
@@ -255,14 +260,17 @@ function zwerm_preprocess_block(&$variables, $hook) {
          foreach ($query as $record)
          {
              $returnValue = 'color-'.$record->field_team_colour_value;
+             var_dump($returnValue);
          }
          return $returnValue;
      }
 
-     function zwerm_preprocess_node(&$vars, $hook)
+     function zwerm_preprocess_node(&$vars)
      {
-        //var_dump($vars);
-         //$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
+         watchdog('scoga','zwerm_preprocess_node');
+         dsm('test');
+        //changes the submitted by string
+        //$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
         $vars['submitted']['name'] = $vars['name'];
         $vars['submitted']['date'] = $vars['date'];
      }
