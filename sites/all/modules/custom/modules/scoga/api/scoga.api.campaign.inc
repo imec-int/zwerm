@@ -159,7 +159,7 @@ function scoga_get_current_campaign_expiration_time()
     $time_interval_elements = array();
 
     $campaign_node = node_load(scoga_get_campaign_nid_for_time(time()));
-    $campaign_end_timestamp = $campaign_node->field_campaign_period['und'][0][value2];
+    $campaign_end_timestamp = $campaign_node->field_campaign_period['und'][0]['value2'];
     $time_interval = $campaign_end_timestamp - time();
 
     $days = floor($time_interval/DAY);
