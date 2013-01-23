@@ -227,20 +227,26 @@ function zwerm_preprocess_block(&$variables, $hook) {
 
 
     /*
+     * @param $variables
+     *
      * Used to add the team color to the page, based on
      * the team of the logged in user
      *
      */
-   /* function zwerm_preprocess_html(&$variables)
+    function zwerm_preprocess_html(&$variables)
     {
-        dsm($variables);
-
-        //$content_type = $variables
         global $user;
-        //if ()
-        $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
 
-    }   */
+        //if visiting a user profile, get the color code of the user to whom the profile belongs, not the logged in user
+        $user_profile_owner = menu_get_object('user');
+        if (isset($user_profile_owner))
+        {
+            $user_profile_id = menu_get_object('user')->uid;
+            $variables['classes_array'][] = _scoga_get_user_team_color($user_profile_id);
+        }
+        else
+            $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
+    }
 
 
     /**
@@ -260,15 +266,12 @@ function zwerm_preprocess_block(&$variables, $hook) {
          foreach ($query as $record)
          {
              $returnValue = 'color-'.$record->field_team_colour_value;
-             var_dump($returnValue);
          }
          return $returnValue;
      }
 
      function zwerm_preprocess_node(&$vars)
      {
-         watchdog('scoga','zwerm_preprocess_node');
-         dsm('test');
         //changes the submitted by string
         //$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
         $vars['submitted']['name'] = $vars['name'];

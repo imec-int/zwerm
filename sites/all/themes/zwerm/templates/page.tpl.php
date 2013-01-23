@@ -70,107 +70,112 @@
  */
 ?>
 <?php
-    // to allow main menu to disappear on responsive resize
-    if(!drupal_is_front_page()) $front_page_class ='class = "not-front-page"';
-    else $front_page_class ="";
+// to allow main menu to disappear on responsive resize
+if (!drupal_is_front_page()) $front_page_class = 'class = "not-front-page"';
+else $front_page_class = "";
 ?>
 
 <div id="page">
 
     <header id="header" role="banner">
         <div id="header_align">
-            <?php if ($logo): ?>
-                 <div id="home_nav">
-                     <div id="home_logo">
-                         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-                             <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-                         </a>
-                     </div>
-                     <div id="home_text">Home</div>
-                 </div>
-            <?php endif; ?>
+          <?php if ($logo): ?>
+            <div id="home_nav">
+                <div id="home_logo">
+                    <a href="<?php print $front_page; ?>"
+                       title="<?php print t('Home'); ?>" rel="home">
+                        <img src="<?php print $logo; ?>"
+                             alt="<?php print t('Home'); ?>"/>
+                    </a>
+                </div>
+                <div id="home_text">Home</div>
+            </div>
+          <?php endif; ?>
             <div id="menu_container">
-                <div id="menu_icon"><img src="<?php print(base_path().path_to_theme()); ?>/images/menu_icon.png"/> </div>
+                <div id="menu_icon"><img
+                        src="<?php print(base_path() . path_to_theme()); ?>/images/menu_icon.png"/>
+                </div>
                 <div id="menu_text">Menu</div>
             </div>
             <div id="zwerm_logo_text">
-               <img src="<?php print(base_path().path_to_theme()); ?>/images/zwerm_logo_text.png"/>
+                <img src="<?php print(base_path() . path_to_theme()); ?>/images/zwerm_logo_text.png"/>
             </div>
         </div>
-        <?php if ($site_name || $site_slogan): ?>
+      <?php if ($site_name || $site_slogan): ?>
         <hgroup id="name-and-slogan">
-            <?php if ($site_name): ?>
+          <?php if ($site_name): ?>
             <h1 id="site-name">
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+                <a href="<?php print $front_page; ?>"
+                   title="<?php print t('Home'); ?>"
+                   rel="home"><span><?php print $site_name; ?></span></a>
             </h1>
-            <?php endif; ?>
+          <?php endif; ?>
 
-            <?php if ($site_slogan): ?>
+          <?php if ($site_slogan): ?>
             <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
-            <?php endif; ?>
+          <?php endif; ?>
         </hgroup><!-- /#name-and-slogan -->
-        <?php endif; ?>
+      <?php endif; ?>
 
-        <?php if ($secondary_menu): ?>
+      <?php if ($secondary_menu): ?>
         <nav id="secondary-menu" role="navigation">
-            <?php print theme('links__system_secondary_menu', array(
-            'links' => $secondary_menu,
-            'attributes' => array(
-                'class' => array('links', 'inline', 'clearfix'),
-            ),
-            'heading' => array(
-                'text' => $secondary_menu_heading,
-                'level' => 'h2',
-                'class' => array('element-invisible'),
-            ),
+          <?php print theme('links__system_secondary_menu', array(
+          'links' => $secondary_menu,
+          'attributes' => array(
+            'class' => array('links', 'inline', 'clearfix'),
+          ),
+          'heading' => array(
+            'text' => $secondary_menu_heading,
+            'level' => 'h2',
+            'class' => array('element-invisible'),
+          ),
         )); ?>
         </nav>
-        <?php endif; ?>
+      <?php endif; ?>
 
-        <?php print render($page['header']); ?>
+      <?php print render($page['header']); ?>
 
     </header>
-    <?php
-        $type = '';
-        $team = '';
-        if (isset($node))
-        {
-            $type = 'type_'.$node->type;
+  <?php
+  $type = '';
+  $team = '';
+  if (isset($node)) {
+    $type = 'type_' . $node->type;
 
-            /*if (isset($node->field_event_team))
-                var_dump ($node->field_event_team);
-                $team = $node->field_event_team;     */
-        }
+    /*if (isset($node->field_event_team))
+var_dump ($node->field_event_team);
+$team = $node->field_event_team;     */
+  }
 
 
-    ?>
+  ?>
     <div id="main" class="<?php print($type)?>">
-       <!-- <div id="<?php //print($type)?>" class="<?php //print($team[0]);?>" >      -->
+        <!-- <div id="<?php //print($type)?>" class="<?php //print($team[0]);?>" >      -->
 
 
 
-                <div id="navigation">
+    <div id="navigation">
 
-                    <?php if ($main_menu): ?>
-                    <nav id="main-menu" <?php print($front_page_class) ?> role="navigation">
-                        <?php
-                        // This code snippet is hard to modify. We recommend turning off the
-                        // "Main menu" on your sub-theme's settings form, deleting this PHP
-                        // code block, and, instead, using the "Menu block" module.
-                        // @see http://drupal.org/project/menu_block
-                        print theme('links__system_main_menu', array(
-                            'links' => $main_menu,
-                            'attributes' => array(
-                                'class' => array('links', 'inline', 'clearfix'),
-                            ),
-                            'heading' => array(
-                                'text' => t('Main menu'),
-                                'level' => 'h2',
-                                'class' => array('element-invisible'),
-                            ),
-                        )); ?>
-                    </nav>
-                    <?php print render($page['navigation']); ?>
+      <?php if ($main_menu): ?>
+        <nav id="main-menu" <?php print($front_page_class) ?> role="navigation">
+          <?php
+          // This code snippet is hard to modify. We recommend turning off the
+          // "Main menu" on your sub-theme's settings form, deleting this PHP
+          // code block, and, instead, using the "Menu block" module.
+          // @see http://drupal.org/project/menu_block
+          print theme('links__system_main_menu', array(
+            'links' => $main_menu,
+            'attributes' => array(
+              'class' => array('links', 'inline', 'clearfix'),
+            ),
+            'heading' => array(
+              'text' => t('Main menu'),
+              'level' => 'h2',
+              'class' => array('element-invisible'),
+            ),
+          )); ?>
+        </nav>
+      <?php print render($page['navigation']); ?>
 
                 </div><!-- /#navigation -->
             <?php endif; ?> <!-- if(!drupal_is_front_page()) -->
@@ -192,7 +197,7 @@
                 <?php print render($page['content']); ?>
                 <?php //print $feed_icons; ?>
                 <?php if (!drupal_is_front_page()): ?>
-                    <?php print $messages; ?>
+                    <?php //print $messages; ?>
                 <?php endif; ?>
             </div><!-- /#content -->
             <?php
@@ -201,17 +206,18 @@
             $sidebar_second = render($page['sidebar_second']);
             ?>
 
-            <?php if ($sidebar_first || $sidebar_second): ?>
-            <aside class="sidebars">
-                <?php print $sidebar_first; ?>
-                <?php print $sidebar_second; ?>
-            </aside><!-- /.sidebars -->
-            <?php endif; ?>
+      <?php if ($sidebar_first || $sidebar_second): ?>
+        <aside class="sidebars">
+          <?php print $sidebar_first; ?>
+          <?php print $sidebar_second; ?>
+        </aside><!-- /.sidebars -->
+      <?php endif; ?>
         <!--   </div> <div id="print($type)"> -->
-    </div><!-- /#main -->
+    </div>
+    <!-- /#main -->
     <!--<div class="clearfooter"></div>     -->
 
-    <?php print render($page['footer']); ?>
+  <?php print render($page['footer']); ?>
 
 
 </div><!-- /#page -->
