@@ -12,11 +12,18 @@
  *
  * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
  */
+<<<<<<< HEAD
+/* line 140, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+=======
 @media all and (max-width: 629px) {
   /* line 140, ../../sass/_base.scss */
   .color-dc6058 {
     background-color: #DC6058;
   }
+>>>>>>> 9a466d1c3a5a86f2f849566df10d429178280490
 
   /* line 145, ../../sass/_base.scss */
   .color-79b1bd {
@@ -31,7 +38,7 @@
 /*
  * Center the page.
  */
-/* line 43, ../../sass/layouts/fixed-width.scss */
+/* line 43, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 #page,
 .region-bottom {
   /* If you want to make the page a fixed width and centered in the viewport,
@@ -44,7 +51,7 @@
 /*
  * Apply the shared properties of grid items in a single, efficient ruleset.
  */
-/* line 61, ../../sass/layouts/fixed-width.scss */
+/* line 61, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 #header,
 #content,
 #navigation,
@@ -60,7 +67,7 @@
 /*
  * Containers for grid items and flow items.
  */
-/* line 52, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 52, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #header:before, #header:after,
 #main:before,
 #main:after,
@@ -69,7 +76,7 @@
   content: "";
   display: table;
 }
-/* line 56, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 56, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #header:after,
 #main:after,
 #footer:after {
@@ -79,14 +86,14 @@
 /*
  * Navigation bar
  */
-/* line 79, ../../sass/layouts/fixed-width.scss */
+/* line 79, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 #main {
   padding-top: 3em;
   /* Move all the children of #main down to make room. */
   position: relative;
 }
 
-/* line 83, ../../sass/layouts/fixed-width.scss */
+/* line 83, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 #navigation {
   position: absolute;
   top: 0;
@@ -98,7 +105,7 @@
 /*
  * The layout when there is only one sidebar, the left one.
  */
-/* line 95, ../../sass/layouts/fixed-width.scss */
+/* line 95, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 .sidebar-first #content {
   /* Span 4 columns, starting in 2nd column from left. */
   float: right;
@@ -106,7 +113,7 @@
   margin-right: 196px;
   margin-left: -980px;
 }
-/* line 99, ../../sass/layouts/fixed-width.scss */
+/* line 99, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 .sidebar-first .region-sidebar-first {
   /* Span 1 column, starting in 1st column from left. */
   float: right;
@@ -118,7 +125,7 @@
 /*
  * The layout when there is only one sidebar, the right one.
  */
-/* line 109, ../../sass/layouts/fixed-width.scss */
+/* line 109, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 .sidebar-second #content {
   /* Span 4 columns, starting in 1st column from left. */
   float: right;
@@ -126,7 +133,7 @@
   margin-right: 0px;
   margin-left: -784px;
 }
-/* line 113, ../../sass/layouts/fixed-width.scss */
+/* line 113, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 .sidebar-second .region-sidebar-second {
   /* Span 1 column, starting in 5th column from left. */
   float: right;
@@ -138,7 +145,7 @@
 /*
  * The layout when there are two sidebars.
  */
-/* line 123, ../../sass/layouts/fixed-width.scss */
+/* line 123, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 .two-sidebars #content {
   /* Span 3 columns, starting in 2nd column from left. */
   float: right;
@@ -146,7 +153,7 @@
   margin-right: 196px;
   margin-left: -784px;
 }
-/* line 127, ../../sass/layouts/fixed-width.scss */
+/* line 127, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 .two-sidebars .region-sidebar-first {
   /* Span 1 column, starting in 1st column from left. */
   float: right;
@@ -154,7 +161,7 @@
   margin-right: 0px;
   margin-left: -196px;
 }
-/* line 131, ../../sass/layouts/fixed-width.scss */
+/* line 131, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/layouts/fixed-width.scss */
 .two-sidebars .region-sidebar-second {
   /* Span 1 column, starting in 5th column from left. */
   float: right;

@@ -1,9 +1,16 @@
 /* normalize-rtl.css - RTL language extension of normalize.scss. */
+<<<<<<< HEAD
+/* line 140, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
+.color-dc6058 {
+  background-color: #DC6058;
+}
+=======
 @media all and (max-width: 629px) {
   /* line 140, ../sass/_base.scss */
   .color-dc6058 {
     background-color: #DC6058;
   }
+>>>>>>> 9a466d1c3a5a86f2f849566df10d429178280490
 
   /* line 145, ../sass/_base.scss */
   .color-79b1bd {

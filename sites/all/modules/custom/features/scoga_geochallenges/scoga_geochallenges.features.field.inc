@@ -143,12 +143,9 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 3,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -235,7 +232,7 @@ function scoga_geochallenges_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '2',
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -308,10 +305,9 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 4,
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -387,10 +383,9 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 5,
+          'type' => 'hidden',
+          'weight' => '1',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -585,6 +580,84 @@ function scoga_geochallenges_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-poi-field_poi_confirmed_status'.
+  $fields['node-poi-field_poi_confirmed_status'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_poi_confirmed_status',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Nieuw',
+          1 => 'Geconfirmeerd',
+          2 => 'Afgewezen',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'poi',
+      'default_value' => array(
+        0 => array(
+          'value' => '0',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 5,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_poi_confirmed_status',
+      'label' => 'POI confirmed status',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '31',
+      ),
+    ),
+  );
+
   // Exported field: 'node-poi-field_ref_geo_challenge'.
   $fields['node-poi-field_ref_geo_challenge'] = array(
     'field_config' => array(
@@ -593,6 +666,9 @@ function scoga_geochallenges_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_ref_geo_challenge',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'node' => array(
           'columns' => array(
@@ -618,7 +694,7 @@ function scoga_geochallenges_field_default_fields() {
           ),
           'sort' => array(
             'direction' => 'ASC',
-            'field' => 'field_description:value',
+            'field' => 'body:value',
             'property' => 'nid',
             'type' => 'none',
           ),
@@ -662,6 +738,7 @@ function scoga_geochallenges_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_ref_geo_challenge',
       'label' => 'Geo Challenge',
       'required' => 0,
@@ -669,7 +746,7 @@ function scoga_geochallenges_field_default_fields() {
         'behaviors' => array(
           'prepopulate' => array(
             'action' => 'hide',
-            'fallback' => 'none',
+            'fallback' => 'hide',
             'skip_perm' => 'access administration menu',
             'status' => 1,
           ),
@@ -1076,6 +1153,7 @@ function scoga_geochallenges_field_default_fields() {
   t('POI');
   t('POI Unit name');
   t('POI Unit name (plural)');
+  t('POI confirmed status');
   t('Status');
   t('The name of a single unit of this POI type. For example, if you want to ask people to add trees, you would enter \'tree\'. (Lowercaps)');
   t('The plural form of the unit of POIs that need to be added. If you want players to add trees, then enter \'trees\' (lowercaps)');
