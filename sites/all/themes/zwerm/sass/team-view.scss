@@ -16,6 +16,15 @@
   }
 }
 
+@media all and (min-width: $start_of_large_viewport)
+{
+  //te make footer not overlap with text
+  .view
+  {
+    margin-bottom: $nav_height_large_viewport+10 ;
+  }
+}
+
 .page-team, body.page-team3
 {
   background-color: $white-background-color;

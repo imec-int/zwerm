@@ -176,7 +176,7 @@
         }
         $term = new stdClass();
         $term->vid = $userpoints_vid;
-        $term->name = $iteration;
+        $term->name = $name;
         $term->parent = $score_tid;
         taxonomy_term_save( $term );
         return $term;
@@ -205,5 +205,92 @@
             return $temp[ 'transaction' ];
         }
         return array();
+    }
+
+
+    function scoga_get_highest_transaction_id(){
+
+        $query =
+            " SELECT txn_id "
+            . "FROM {userpoints_txn} "
+            . "WHERE tid = :tid "
+            . "ORDER BY txn_id DESC"
+        ;
+
+        $rows = db_query( $query, array(
+            ':tid'          => scoga_get_current_userpoints_category_tid(),
+        ) );
+
+        $result = $rows->fetchAssoc();
+
+        if( $result && array_key_exists( 'txn_id', $result ) ){
+            return $result[ 'txn_id' ];
+        }
+
+        return 0;
+    }
+
+
+    /**
+     * @param $uid
+     */
+    function scoga_award_default_credits_to_player( $uid ){
+        /*
+         *    if (int) assumed to be points for current user
+         *    Accepts an array of keyed variables and parameters
+         *    'points' => # of points (int) (required)
+         *    'moderate' => TRUE/FALSE
+         *    'uid' => $user->uid
+         *    'time_stamp' => unix time of the points assignment date
+         *    'operation' => 'published' 'moderated' etc.
+         *    'tid' => 'category ID'
+         *    'expirydate' => timestamp or 0, 0 = non-expiring; NULL = site default
+         *    'description' => 'description'
+         *    'reference' => reserved for module specific use
+         *    'display' => whether or not to display "points awarded" message
+         *    'txn_id' => Transaction ID of points, If present an UPDATE is performed
+         *    'entity_id' => ID of an entity in the Database. ex. $node->id or $user->uid
+         *    'entity_type' => string of the entity type. ex. 'node' or 'user' NOT 'node-content-custom'
+         */
+        $params = array(
+            'uid'           => $uid,
+            'points'        => scoga_get_default_credits(),
+            'tid'           => scoga_get_credits_tid(),
+            'operation'     => 'default credits',
+            'description'   => 'default credits awarded',
+            'moderate'      => FALSE,
+            'display'       => TRUE,
+        );
+        $result = userpoints_userpointsapi( $params );
+
+    }
+
+    /**
+     *
+     */
+    function scoga_award_default_credits_to_all_players(){
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
+        $uids = scoga_get_all_player_uids();
+        foreach( $uids as $player_uid ){
+            scoga_award_default_credits_to_player( $player_uid );
+        }
+    }
+
+    function scoga_drop_credits_of_all_players(){
+        $credits_tid = scoga_get_credits_tid();
+        $query = db_delete( 'userpoints_txn' )
+            ->condition( 'tid', $credits_tid )
+            ->execute()
+        ;
+        $query = db_delete( 'userpoints' )
+            ->condition( 'tid', $credits_tid )
+            ->execute()
+        ;
+    }
+
+    function scoga_reset_userpoints_totals(){
+        $query = db_query( 'TRUNCATE userpoints_total' )
+            ->execute()
+        ;
     }
 

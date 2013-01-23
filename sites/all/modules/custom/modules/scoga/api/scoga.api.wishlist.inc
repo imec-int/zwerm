@@ -40,7 +40,7 @@
             'points'        => $award,
             'tid'           => scoga_get_credits_tid(),
             'operation'     => 'sync',
-            'description'   => 'sync credits for wished item',
+            'description'   => t('sync credits for wished item'),
             'moderate'      => FALSE,
             'display'       => TRUE,
         );
@@ -51,7 +51,7 @@
             'uid'           => $node->uid,
             'points'        => $award,
             'operation'     => 'sync',
-            'description'   => 'sync score for wished item',
+            'description'   => t('sync score for wished item'),
             'moderate'      => FALSE,
             'display'       => TRUE,
         );
@@ -82,17 +82,14 @@
     /**
      *
      */
-    function scoga_close_all_open_wisheditems(){
-        //TEMPORARY FIX
-        //TODO: should filter wished items for current campaign
-        $current_campaign_nid = scoga_get_current_campaign_nid();
+    function scoga_close_all_open_wisheditems_of_campaign( $campaign_nid ){
         $entity_type = 'node';
         $query = new EntityFieldQuery();
         $result = $query
             ->entityCondition( 'entity_type', $entity_type )
             ->entityCondition( 'bundle', SCOGA_WISHEDITEM_NODETYPE )
             ->fieldCondition( 'field_wisheditem_state', 'value', 'open', '=' )
-            ->fieldCondition( 'field_wisheditem_campaign', 'target_id', $current_campaign_nid, '=' )
+            ->fieldCondition( 'field_wisheditem_campaign', 'target_id', $campaign_nid, '=' )
             ->execute();
 
         if( $result && array_key_exists( $entity_type, $result ) ){

@@ -2,10 +2,36 @@
 
 body.node-type-nodetype-event
 {
-  p.submitted
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    background-color: $white-background-color;
+  }
+
+    p.submitted
   {
     display: none;
   }
+
+  .submitted
+  {
+    .user-picture,
+    {
+      display:none;
+    }
+  }
+  .submitted_by,
+  {
+    .username
+    {
+      display:none;
+    }
+  }
+
+  .submitted_on
+  {
+    display:none;
+  }
+
 
   h1
   {

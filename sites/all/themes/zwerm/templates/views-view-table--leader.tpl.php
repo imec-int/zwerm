@@ -42,7 +42,7 @@
                 <?php if ($playerRank == $userLeaderboardPosition+1): ?>
                     <?php $loggedInUserClass = 'loggedInUser';?>    <!-- sets class when loggedIn user is being displayed-->
                 <?php endif; ?>
-                <tr onmousedown='li_mousedown(<?php print("\"user/".$row['uid']."\"")?>,this);'  class="<?php print (implode(' ', $row_classes[$row_count]). ' team_'.$row['field_user_team'] .' '.$loggedInUserClass); ?>">
+                <tr onmousedown='li_mousedown(<?php print("\"".base_path()."user/".$row['uid']."\"")?>,this);'  class="<?php print (implode(' ', $row_classes[$row_count]). ' team_'.$row['field_user_team'] .' '.$loggedInUserClass); ?>">
                     <?php if ($playerRank == $userLeaderboardPosition+1): ?>
                     <?php endif; ?>
                     <!-- print the different elements in the row-->

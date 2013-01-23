@@ -20,30 +20,38 @@
                 {
                     $path = $paths[$i];
 
+                    //when there is not path, it should be treated as a heading
                     if ($path==false)
                     {
-                        if (strpos($item,'wish')!=false)
+                        if (strpos($item,t('Active GeoChallenges'))!=false)
+                        {
+                            $classes .= ' list_header_geochallenge';
+                        }
+                        if (strpos($item,t('Posted wishes'))!=false)
                         {
                             $classes .= ' list_header_wish';
                         }
-                        if (strpos($item,'event')!=false)
+                        if (strpos($item,t('Active events'))!=false)
                         {
                             $classes .= ' list_header_event';
                         }
-                        if (strpos($item,'question')!=false)
+                        if (strpos($item,t('Active questions'))!=false)
                         {
                             $classes .= ' list_header_question';
                         }
                         print("<li class=\"".$classes."\"><div class=link_truncated>".$item."</div></li>");
                     }
+                    //when there is a path, it should be treated as a an actual selectable item
                     else
                     {
+                        if (strpos($item,t('GeoChallenge'))!=false)
+                            $classes .= ' geochallenge collapsible';
                         if (strpos($item,t('Wish'))!=false)
-                            $classes .= ' wish';
-                        if (strpos($item,'Event')!=false)
-                            $classes .= ' event';
-                        if (strpos($item,'Question')!=false)
-                            $classes .= ' question';
+                            $classes .= ' wish collapsible';
+                        if (strpos($item,t('Event'))!=false)
+                            $classes .= ' event collapsible';
+                        if (strpos($item,t('Question'))!=false)
+                            $classes .= ' question collapsible';
                         print("<li class=\"".$classes."\" onmousedown=\"li_mousedown('".$path."',this);\"><div class=link_truncated>".$item."</div></li>");
                     }
 

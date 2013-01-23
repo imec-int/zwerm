@@ -61,6 +61,7 @@
     define( 'SCOGA_PERM_PAGE_ACCESS_NOT_CHECKIN_PARTNER', 'access content');
     define( 'SCOGA_PERM_REST_ACCESS_PAGES_DATA',        'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_MAIL',              'access content' );
+    define( 'SCOGA_PERM_REST_ACCESS_CONFIG',              'access content' );
 
 
 //--( VALUES )--//
@@ -74,6 +75,7 @@
     define( 'SCOGA_VARIABLE_GROUP_NAME',    'scoga' );
     define( 'SCOGA_SALT',                   '97zw3rM&:*');
     define( 'FLASH_HTML_FORMAT',            'flash_html');
+    define( 'SCOGA_NULL_CAMPAIGN_NID',      0 );
 
     //--( RESPONSE CODES )--//
     define( 'CODE_NO_CAMPAIGN',             1010 );

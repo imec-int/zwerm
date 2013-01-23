@@ -32,7 +32,14 @@ if (count($links) > 0) {
             && (empty($link['language']) || $link['language']->language == $language_url->language)) {
             $class[] = 'active';
         }
-        $output .= '<li' . drupal_attributes(array('class' => $class)) . ' onmousedown="li_mousedown(\' ' . $link['href'] . '\',this)">';
+        if (drupal_is_front_page())
+        {
+            $output .= '<li' . drupal_attributes(array('class' => $class)) . ' onmousedown="li_mousedown(\' ' . $link['href'] . '\',this)">';
+        }
+        else
+        {
+            $output .= '<li' . drupal_attributes(array('class' => $class)) . '>';
+        }
         $output .= '<div  id="'.$link['title'].'" class="menu_item">'; // for hooking up the correct images in the css to the nav items
         if (isset($link['href'])) {
             // Pass in $link as $options, they share the same keys.

@@ -1,0 +1,87 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  item_list_get_points.tpl.php: n/a
+#  node.tpl.php: n/a
+#  page.tpl.php: n/a
+#  time_interval.tpl.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2013-01-22 18:45+0100\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: item_list_get_points.tpl.php:26
+msgid "Active GeoChallenges"
+msgstr ""
+
+#: item_list_get_points.tpl.php:30
+msgid "Posted wishes"
+msgstr ""
+
+#: item_list_get_points.tpl.php:34
+msgid "Active events"
+msgstr ""
+
+#: item_list_get_points.tpl.php:38
+msgid "Active questions"
+msgstr ""
+
+#: item_list_get_points.tpl.php:47
+msgid "GeoChallenge"
+msgstr ""
+
+#: item_list_get_points.tpl.php:49
+msgid "Wish"
+msgstr ""
+
+#: item_list_get_points.tpl.php:51
+msgid "Event"
+msgstr ""
+
+#: item_list_get_points.tpl.php:53
+msgid "Question"
+msgstr ""
+
+#: node.tpl.php:105
+msgid "Unpublished"
+msgstr ""
+
+#: page.tpl.php:86;87;111
+msgid "Home"
+msgstr ""
+
+#: page.tpl.php:174
+msgid "Main menu"
+msgstr ""
+
+#: time_interval.tpl.php:17
+msgid "Campaign end in: "
+msgstr ""
+
+#: time_interval.tpl.php:18
+msgid "d"
+msgstr ""
+
+#: time_interval.tpl.php:19
+msgid "h"
+msgstr ""
+
+#: time_interval.tpl.php:20
+msgid "m"
+msgstr ""
+
+#: time_interval.tpl.php:21
+msgid "s"
+msgstr ""
+

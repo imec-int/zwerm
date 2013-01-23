@@ -62,6 +62,17 @@ body {
   }
 }
 
+//hide info on text formatting in comments
+.filter-wrapper {
+  display: none;
+}
+
+//hide "add comment" link
+.comment-add.first.last.active
+{
+  display:none;
+}
+
 /*
  * Header
  */

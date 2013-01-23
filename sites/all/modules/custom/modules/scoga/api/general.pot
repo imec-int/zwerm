@@ -1,0 +1,95 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  scoga.api.card.inc: n/a
+#  scoga.api.inc: n/a
+#  scoga.api.checkin.inc: n/a
+#  scoga.api.wishlist.inc: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2013-01-22 20:38+0100\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: scoga.api.card.inc:27
+msgid "RFID reader with id @reader_id not registered"
+msgstr ""
+
+#: scoga.api.card.inc:35
+msgid "RFID card with id @card_id already registered"
+msgstr ""
+
+#: scoga.api.card.inc:16 scoga.api.inc:265
+msgid "SCOGA"
+msgstr ""
+
+#: scoga.api.card.inc:16
+msgid "scoga_register_card: @card_id, @reader_id"
+msgstr ""
+
+#: scoga.api.checkin.inc:44
+msgid "no campaign is running at the moment"
+msgstr ""
+
+#: scoga.api.checkin.inc:56
+msgid "card @card_id not registered"
+msgstr ""
+
+#: scoga.api.checkin.inc:69
+msgid "user @uid not allowed to create checkin"
+msgstr ""
+
+#: scoga.api.checkin.inc:84
+msgid "invalid RFID reader with id @reader_id"
+msgstr ""
+
+#: scoga.api.checkin.inc:97
+msgid "checkin"
+msgstr ""
+
+#: scoga.api.checkin.inc:104
+msgid "Player needs to cool down"
+msgstr ""
+
+#: scoga.api.checkin.inc:119
+msgid "combo checkin"
+msgstr ""
+
+#: scoga.api.checkin.inc:349
+msgid "@user checked in with @reader at @time"
+msgstr ""
+
+#: scoga.api.checkin.inc:373
+msgid "@prefix checkin partner"
+msgstr ""
+
+#: scoga.api.checkin.inc:374
+msgid "@prefix checkin partners"
+msgstr ""
+
+#: scoga.api.inc:117
+msgid "The value is not an unsigned integer"
+msgstr ""
+
+#: scoga.api.inc:265
+msgid "set current campaign nid to @nid"
+msgstr ""
+
+#: scoga.api.wishlist.inc:43
+msgid "sync credits for wished item"
+msgstr ""
+
+#: scoga.api.wishlist.inc:54
+msgid "sync score for wished item"
+msgstr ""
+

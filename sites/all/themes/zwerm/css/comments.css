@@ -2,11 +2,24 @@
  * @file
  * Comment Styling
  */
+<<<<<<< HEAD
 /* line 140, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
 .color-dc6058 {
   background-color: #DC6058;
 }
+=======
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+>>>>>>> 9a466d1c3a5a86f2f849566df10d429178280490
 
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
@@ -24,96 +37,109 @@
 /* line 15, ../sass/comments.scss */
 .comments h2.comment-form {
   /* Heading for the comment form */
+  font-size: large;
 }
 
-/* line 19, ../sass/comments.scss */
+/* line 20, ../sass/comments.scss */
 .comment {
   /* Wrapper for a single comment */
 }
-/* line 21, ../sass/comments.scss */
+@media all and (min-width: 630px) {
+  /* line 24, ../sass/comments.scss */
+  .comment a {
+    color: green;
+  }
+}
+/* line 29, ../sass/comments.scss */
 .comment.comment-preview {
   /* Preview of the comment before submitting new or updated comment */
   background-color: #ffffea;
   /* Drupal core will use a #ffffea background. See #1110842 */
 }
-/* line 25, ../sass/comments.scss */
+/* line 33, ../sass/comments.scss */
 .comment.new {
   /* A new comment since the user last viewed the page. */
 }
-/* line 28, ../sass/comments.scss */
+/* line 36, ../sass/comments.scss */
 .comment.first {
   /* The first comment in the list of comments */
 }
-/* line 31, ../sass/comments.scss */
+/* line 39, ../sass/comments.scss */
 .comment.last {
   /* The last comment in the list of comments */
 }
-/* line 34, ../sass/comments.scss */
+/* line 42, ../sass/comments.scss */
 .comment.odd {
   /* An odd-numbered comment in the list of comments */
 }
-/* line 37, ../sass/comments.scss */
+/* line 45, ../sass/comments.scss */
 .comment.even {
   /* An even-numbered comment in the list of comments */
 }
-/* line 40, ../sass/comments.scss */
+/* line 48, ../sass/comments.scss */
 .comment.comment-by-anonymous {
   /* A comment created by an anonymous user */
 }
-/* line 43, ../sass/comments.scss */
+/* line 51, ../sass/comments.scss */
 .comment.comment-by-node-author {
   /* A comment created by the node's author */
 }
-/* line 46, ../sass/comments.scss */
+/* line 54, ../sass/comments.scss */
 .comment.comment-by-viewer {
   /* A comment created by the current user */
 }
-/* line 49, ../sass/comments.scss */
+/* line 57, ../sass/comments.scss */
 .comment h3.comment-title {
   /* Comment title */
 }
-/* line 52, ../sass/comments.scss */
+/* line 60, ../sass/comments.scss */
 .comment .new {
   /* "New" marker for comments that are new for the current user */
   color: #c00;
 }
-/* line 56, ../sass/comments.scss */
+/* line 64, ../sass/comments.scss */
 .comment .user-picture {
   /* The picture of the comment author */
 }
-/* line 59, ../sass/comments.scss */
+/* line 67, ../sass/comments.scss */
 .comment .submitted {
   /* The "posted by" information */
+  display: block;
 }
-/* line 62, ../sass/comments.scss */
+/* line 73, ../sass/comments.scss */
 .comment .permalink {
   /* Comment's permalink wrapper */
   text-transform: uppercase;
   font-size: 75%;
 }
-/* line 67, ../sass/comments.scss */
+/* line 78, ../sass/comments.scss */
+.comment .submitted .permalink {
+  /* Comment's permalink wrapper */
+  display: none;
+}
+/* line 82, ../sass/comments.scss */
 .comment .user-signature {
   /* The user's signature */
 }
-/* line 70, ../sass/comments.scss */
+/* line 85, ../sass/comments.scss */
 .comment ul.links {
   /* Comment links. See also the ul.links declaration in the pages.css. */
 }
 
-/* line 74, ../sass/comments.scss */
+/* line 89, ../sass/comments.scss */
 .indented {
   /* Nested comments are indented */
   margin-left: 30px;
   /* Drupal core uses a 25px left margin */
 }
 
-/* line 78, ../sass/comments.scss */
+/* line 93, ../sass/comments.scss */
 .comment-unpublished {
   /* Unpublished comments */
   /* background-color: #fff4f4; */
   /* Drupal core uses a #fff4f4 background */
 }
-/* line 81, ../sass/comments.scss */
+/* line 96, ../sass/comments.scss */
 .comment-unpublished p.unpublished {
   /* The word "Unpublished" displayed underneath the content. */
   height: 0;

@@ -1,42 +1,66 @@
-/* line 140, ../sass/_base.scss */
-.color-dc6058 {
-  background-color: #DC6058;
-}
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
 }
 
-/* line 6, ../sass/events.scss */
+@media all and (min-width: 630px) {
+  /* line 4, ../sass/events.scss */
+  body.node-type-nodetype-event {
+    background-color: #eeeeee;
+  }
+}
+/* line 11, ../sass/events.scss */
 body.node-type-nodetype-event p.submitted {
   display: none;
 }
-/* line 11, ../sass/events.scss */
+/* line 18, ../sass/events.scss */
+body.node-type-nodetype-event .submitted .user-picture {
+  display: none;
+}
+/* line 25, ../sass/events.scss */
+body.node-type-nodetype-event .submitted_by .username {
+  display: none;
+}
+/* line 31, ../sass/events.scss */
+body.node-type-nodetype-event .submitted_on {
+  display: none;
+}
+/* line 37, ../sass/events.scss */
 body.node-type-nodetype-event h1 {
   font-family: Romina;
-  padding-top: 45px;
+  padding-top: 10px;
   text-align: center;
 }
-/* line 18, ../sass/events.scss */
+/* line 44, ../sass/events.scss */
 body.node-type-nodetype-event .field-type-datestamp {
   text-align: center;
 }
-/* line 23, ../sass/events.scss */
+/* line 49, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-team {
   display: none;
 }
-/* line 28, ../sass/events.scss */
+/* line 54, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-address {
   font-size: x-large;
   margin-bottom: 30px;
   line-height: 1.5em;
 }
-/* line 36, ../sass/events.scss */
+/* line 62, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-date {
   margin-top: 5px;
 }
-/* line 46, ../sass/events.scss */
+/* line 72, ../sass/events.scss */
 body.node-type-nodetype-event #block-views-event-content-type-map-block-1 {
   margin-bottom: 10px;
 }

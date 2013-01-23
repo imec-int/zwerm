@@ -226,3 +226,45 @@ function zwerm_preprocess_block(&$variables, $hook) {
 // */
 
 
+    /*
+     * Used to add the team color to the page, based on
+     * the team of the logged in user
+     *
+     */
+    function zwerm_preprocess_html(&$variables)
+    {
+        global $user;
+        $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
+
+    }
+
+    /**
+      *
+      * @param $uid
+      *
+      * @return string
+      */
+     function _scoga_get_user_team_color($uid)
+     {
+         $returnValue = "";
+         $query = db_query('
+                   SELECT field_team_colour_value
+                   FROM field_data_field_team_colour as ftc
+                   INNER JOIN field_data_field_user_team as fut on fut.field_user_team_target_id = ftc.entity_id
+                   WHERE fut.entity_id= :uid',array(':uid' =>$uid));
+         foreach ($query as $record)
+         {
+             $returnValue = 'color-'.$record->field_team_colour_value;
+         }
+         return $returnValue;
+     }
+
+     function zwerm_preprocess_node(&$vars, $hook)
+     {
+        //var_dump($vars);
+         //$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
+        $vars['submitted']['name'] = $vars['name'];
+        $vars['submitted']['date'] = $vars['date'];
+     }
+
+

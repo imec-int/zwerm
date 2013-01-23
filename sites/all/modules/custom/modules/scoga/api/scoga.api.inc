@@ -198,6 +198,23 @@
         return intval( $a ) * $seconds;
     }
 
+    function scoga_get_last_nid_of_type( $type ){
+        $entity_type = 'node';
+        $query = new EntityFieldQuery();
+        $result = $query->entityCondition( 'entity_type', $entity_type )
+            ->entityCondition( 'bundle', $type )
+            ->propertyCondition( 'status', 1 )
+            ->propertyOrderBy( 'nid', 'DESC' )
+            ->range( 0, 1 )
+            ->execute();
+        $nids = array_keys( $result[ $entity_type ] );
+        if( $nids ){
+            return $nids[ 0 ];
+        }
+
+        return 0;
+    }
+
     //--( ACCESSORS )--//
 
     /**

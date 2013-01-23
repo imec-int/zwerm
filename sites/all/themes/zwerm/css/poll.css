@@ -1,8 +1,14 @@
-/* line 140, ../sass/_base.scss */
-.color-dc6058 {
-  background-color: #DC6058;
-}
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
@@ -13,25 +19,106 @@
   margin: 0;
 }
 /* line 13, ../sass/poll.scss */
+.node-type-poll .submitted .user-picture {
+  display: none;
+}
+/* line 20, ../sass/poll.scss */
+.node-type-poll .submitted_by .username {
+  display: none;
+}
+/* line 26, ../sass/poll.scss */
+.node-type-poll .submitted_on {
+  display: none;
+}
+/* line 36, ../sass/poll.scss */
 .node-type-poll #main .form-radio {
   width: 5%;
 }
-/* line 17, ../sass/poll.scss */
+/* line 40, ../sass/poll.scss */
 .node-type-poll #main .form-submit {
-  width: 40%;
-  margin-left: 30%;
+  width: 60%;
+  margin-left: 20%;
+  font-size: small;
 }
-/* line 22, ../sass/poll.scss */
+/* line 46, ../sass/poll.scss */
 .node-type-poll #main .field-label {
   float: left;
   font-weight: normal;
 }
-/* line 31, ../sass/poll.scss */
-.node-type-poll #content .tabs, .node-type-poll .submitted, .node-type-poll .field-name-field-poll-team {
+/* line 52, ../sass/poll.scss */
+.node-type-poll .node .poll {
+  margin: 2em 0;
+  width: 90%;
+}
+/* line 56, ../sass/poll.scss */
+.node-type-poll .node .poll #edit-choice {
+  margin: 0 0 1.5em;
+}
+/* line 59, ../sass/poll.scss */
+.node-type-poll .poll .vote-form {
+  text-align: left;
+  /* LTR */
+}
+/* line 62, ../sass/poll.scss */
+.node-type-poll .poll .vote-form .choices {
+  margin: 0;
+}
+/* line 65, ../sass/poll.scss */
+.node-type-poll .poll .percent {
+  font-size: 0.857em;
+  font-style: italic;
+  margin-bottom: 3em;
+  margin-top: -3.2em;
+  margin-right: 10px;
+  float: right;
+  text-align: right;
+}
+/* line 74, ../sass/poll.scss */
+.node-type-poll .poll .text {
+  clear: right;
+  margin-right: 2.25em;
+}
+/* line 78, ../sass/poll.scss */
+.node-type-poll .poll .total {
+  font-size: 0.929em;
+  font-style: italic;
+  text-align: right;
+  /* LTR */
+  clear: both;
+  margin-right: 10px;
+}
+/* line 85, ../sass/poll.scss */
+.node-type-poll .node .poll {
+  margin: 1.8em 0 0;
+}
+/* line 88, ../sass/poll.scss */
+.node-type-poll .node .poll .text {
+  margin-right: 6.75em;
+}
+/* line 91, ../sass/poll.scss */
+.node-type-poll .node .poll #edit-choice {
+  margin: 0 0 1.2em;
+}
+/* line 94, ../sass/poll.scss */
+.node-type-poll .poll .bar .foreground {
+  height: 20px;
+  margin-right: 10px;
+  background-color: #7fb083;
+}
+/* line 99, ../sass/poll.scss */
+.node-type-poll #footer-wrapper .poll .bar {
+  background-color: #666;
+}
+/* line 102, ../sass/poll.scss */
+.node-type-poll #footer-wrapper .poll .bar .foreground {
+  background-color: #ddd;
+}
+/* line 107, ../sass/poll.scss */
+.node-type-poll #content .tabs, .node-type-poll .field-name-field-poll-team {
   display: none;
 }
 @media all and (max-width: 629px) {
-  /* line 39, ../sass/poll.scss */
+  /* line 115, ../sass/poll.scss */
   .node-type-poll article {
     margin-left: 5%;
   }

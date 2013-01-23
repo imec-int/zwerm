@@ -1,8 +1,5 @@
 <?php
-/*
- * Implements hook_theme_info
- */
-function scoga_theme_info($existing, $type, $theme, $path)
+function scoga_handle_theme($existing, $type, $theme, $path)
 {
     return array(
         'no_checkin' => array(
@@ -29,6 +26,11 @@ function scoga_theme_info($existing, $type, $theme, $path)
             'path' =>'templates',
             'template' => 'templates/user_login',
             'render element' => 'form'
+        ),
+        'time_interval' => array(
+            'variables' => array('interval_elements' => NULL) ,
+            'path' => 'templates',
+            'template' => 'templates/time_interval'
         )
     );
 }

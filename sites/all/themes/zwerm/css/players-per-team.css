@@ -1,8 +1,14 @@
-/* line 140, ../sass/_base.scss */
-.color-dc6058 {
-  background-color: #DC6058;
-}
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
 @font-face {
   font-family: "Romina";
   src: url("../fonts/VSV-RominaSquared-Regular.ttf");
@@ -23,9 +29,9 @@
 .page-team-players thead {
   display: none;
 }
-/* line 16, ../sass/players-per-team.scss */
-.page-team-players img {
-  height: 60%;
+/* line 18, ../sass/players-per-team.scss */
+.page-team-players .views-field-picture img {
+  height: 50px;
   display: block;
   margin-left: 5px;
 }
