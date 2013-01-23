@@ -258,6 +258,10 @@ div.messages { /* Important messages (status, warning, and error) for the user. 
 }
 
 div.status { /* Normal priority messages */
+  background-color: $score-navbar-color;
+  font-size: 0.8em;
+  color: #ffffff;
+  line-height: 1.4em;
 }
 
 div.warning,

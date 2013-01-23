@@ -1,0 +1,4 @@
+name = "openlayers_google_popup_fix"
+description = "See http://drupal.org/node/1540534"
+core = "7.x"
+package = "Custom"

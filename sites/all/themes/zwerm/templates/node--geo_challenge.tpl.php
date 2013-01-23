@@ -83,16 +83,17 @@
  * @see template_process()
  */
 ?>
-<article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article
+        class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header>
       <?php print render($title_prefix); ?>
       <?php if (!$page && $title): ?>
-        <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+        <h2<?php print $title_attributes; ?>><a
+                href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
-
       <?php if ($display_submitted): ?>
         <p class="submitted">
           <?php print $user_picture; ?>
@@ -103,17 +104,53 @@
         <p class="unpublished"><?php print t('Unpublished'); ?></p>
       <?php endif; ?>
     </header>
+  <?php else: ?>
+    <div class="geochallenge-subtitle">Geo-Challenge</div>
   <?php endif; ?>
-
   <?php
-    // We hide the comments and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    print render($content);
+  // We hide the comments and links now so that we can render them later.
+  hide($content['comments']);
+  hide($content['links']);
+  print render($content);
   ?>
 
-  <?php print render($content['links']); ?>
+  <?php if ($page): ?>
+    <div class="geochallenge-details">
+        <div class="geochallenge-spotted-friendly">
+            <span class="geochallenge-details-label">Reeds gespot & gechecked in jou buurt:</span>
+            <span class="geochallenge-details-value">--</span>
+        </div>
+        <div class="geochallenge-spotted-enemy">
+            <span class="geochallenge-details-label">Reeds gespot & gechecked door de tegenspelers:</span>
+            <span class="geochallenge-details-value">--</span>
+        </div>
+        <div class="geochallenge-tobechecked-you">
+            <span class="geochallenge-details-label">Nog te checken door jou:</span>
+            <span class="geochallenge-details-value">--</span>
+        </div>
+    </div>
+    <div class="geochallenge-add-poi">
+        <a href=""><span><?php echo $node->field_poi_unit_name['und'][0]['value']; ?> toevoegen</span></a>
+    </div>
+    <div class="geochallenge-add-poi-instructions">
+        <p>
+            Zoek de juiste locatie op de kaart hieronder en controleer
+            eerst of het punt al niet eerder is toegevoegd. Dubbel ingevoerde punten worden
+            niet meegeteld.
+        </p>
 
-  <?php print render($content['comments']); ?>
+        <p>
+            Werd het punt nog niet toegevoegd? Dan is het nu aan jou. Zoek dan op de kaart naar de juiste locatie. (Inzoomen kan via de knopjes aan de linkerkant.)
+        </p>
+        <p>
+            Als je de juiste locatie gevonden hebt, druk je op de<span class="control-icon"></span>knop en plaats het punt vervolgens zo nauwkeurig mogelijk op de kaart.
+        </p>
+
+        <p>
+            Voeg eventueel nog een commentaar toe en druk daarna op de knop
+            'Opslaan' onderaan.
+        </p>
+    </div>
+  <?php endif; ?>
 
 </article><!-- /.node -->

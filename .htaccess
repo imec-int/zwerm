@@ -129,3 +129,4 @@ DirectoryIndex index.php index.html index.htm
     </FilesMatch>
   </IfModule>
 </IfModule>
+php_value memory_limit 512M
