@@ -15,6 +15,8 @@
     //for hiding the labels in the login screen username and password fields
     //based on http://blog.stannard.net.au/2011/01/07/creating-a-form-with-labels-inside-text-fields-using-jquery/
     $(document).ready(function(){
+        //hiding the address bar on iOS devices
+        window.scrollTo(0,1);
 
         // Find each of our input fields
         var fields = $("form#user-login input");
@@ -58,10 +60,48 @@
             jQuery("#main-menu").slideToggle(500);
             jQuery("#footer").slideToggle(500);
         });
+    });
+
+  $(document).ready(function(){
+    $('.geochallenge-add-poi').show();
+
+    $('.geochallenge-add-poi').click(function()
+    {
+      //jQuery('html, body').animate({scrollTop:0}, 'fast');
+      jQuery(".geochallenge-add-poi-instructions").slideDown('fast');
 
 
+      jQuery('html, body').animate({
+          scrollTop: $(".geochallenge-add-poi").offset().top-202
+        }, 'fast');
+      jQuery(".geochallenge-add-poi").addClass('button-pressed');
+
+      //var ol = $('.openlayers-map').data('openlayers');//assuming there is just one map on the page
+      //console.log(ol);
+
+      return false;
+    });
+
+    jQuery(".geochallenge-add-psoi").click(function()
+    {
+      //$(".openlayers-container-map-poi_per_challenge_map").hide();
+      //$("#block-formblock-poi").show();
+      //return false;
+
+      var ol = $('.openlayers-map').data('openlayers');//assuming there is just one map on the page
+
+      ol.draw
+
+      alert(ol);
+
+      return false;
 
     });
+
+
+
+  });
+
 
 })(jQuery, Drupal, this, this.document);
 

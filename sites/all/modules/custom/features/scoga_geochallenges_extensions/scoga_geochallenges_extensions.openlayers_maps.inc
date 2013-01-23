@@ -115,7 +115,7 @@ function scoga_geochallenges_extensions_openlayers_maps() {
     'image_path' => 'sites/all/modules/openlayers/themes/default_dark/img/',
     'css_path' => 'sites/all/modules/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',
-    'hide_empty_map' => 1,
+    'hide_empty_map' => 0,
     'center' => array(
       'initial' => array(
         'centerpoint' => '3.7227344512978, 51.055296041635',
@@ -127,17 +127,6 @@ function scoga_geochallenges_extensions_openlayers_maps() {
       ),
     ),
     'behaviors' => array(
-      'openlayers_behavior_keyboarddefaults' => array(),
-      'openlayers_behavior_layerswitcher' => array(
-        'ascending' => 1,
-        'roundedCorner' => 1,
-        'roundedCornerColor' => '#222222',
-      ),
-      'openlayers_behavior_navigation' => array(
-        'zoomWheelEnabled' => 1,
-        'zoomBoxEnabled' => 1,
-        'documentDrag' => 0,
-      ),
       'openlayers_behavior_popup' => array(
         'layers' => array(
           'poi_per_challenge_data_openlayers_1' => 'poi_per_challenge_data_openlayers_1',
@@ -153,18 +142,21 @@ function scoga_geochallenges_extensions_openlayers_maps() {
     'layer_weight' => array(
       'poi_per_challenge_data_openlayers_1' => '0',
       'poi_overview_openlayers_1' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'openlayers_geojson_picture_this' => '0',
       'geofield_formatter' => '0',
     ),
     'layer_styles' => array(
       'geofield_formatter' => '0',
       'openlayers_geojson_picture_this' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'poi_overview_openlayers_1' => '0',
       'poi_per_challenge_data_openlayers_1' => 'default_marker_gold',
     ),
     'layer_styles_select' => array(
       'geofield_formatter' => '0',
       'openlayers_geojson_picture_this' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'poi_overview_openlayers_1' => '0',
       'poi_per_challenge_data_openlayers_1' => 'default_marker_gold',
     ),
@@ -172,13 +164,15 @@ function scoga_geochallenges_extensions_openlayers_maps() {
       'poi_per_challenge_data_openlayers_1' => 'poi_per_challenge_data_openlayers_1',
       'geofield_formatter' => 0,
       'openlayers_geojson_picture_this' => 0,
+      'event_map_overlay_openlayers_1' => 0,
       'poi_overview_openlayers_1' => 0,
     ),
     'layer_switcher' => array(
-      'poi_per_challenge_data_openlayers_1' => 0,
       'geofield_formatter' => 0,
       'openlayers_geojson_picture_this' => 0,
+      'event_map_overlay_openlayers_1' => 0,
       'poi_overview_openlayers_1' => 0,
+      'poi_per_challenge_data_openlayers_1' => 0,
     ),
     'projection' => '900913',
     'displayProjection' => '4326',
@@ -222,11 +216,6 @@ function scoga_geochallenges_extensions_openlayers_maps() {
         ),
         'allow_edit' => 0,
       ),
-      'openlayers_behavior_geolocate' => array(
-        'bind' => '1',
-        'zoom_level' => '17',
-        'watch' => '0',
-      ),
       'openlayers_behavior_navigation' => array(
         'zoomWheelEnabled' => 0,
         'zoomBoxEnabled' => 0,
@@ -235,6 +224,11 @@ function scoga_geochallenges_extensions_openlayers_maps() {
       'openlayers_behavior_panzoombar' => array(
         'zoomWorldIcon' => 0,
         'panIcons' => 1,
+      ),
+      'openlayers_behavior_tooltip' => array(
+        'layers' => array(
+          'poi_per_challenge_data_openlayers_1' => 'poi_per_challenge_data_openlayers_1',
+        ),
       ),
     ),
     'default_layer' => 'google_hybrid_scoga',
@@ -245,31 +239,36 @@ function scoga_geochallenges_extensions_openlayers_maps() {
     'layer_weight' => array(
       'poi_per_challenge_data_openlayers_1' => '0',
       'poi_overview_openlayers_1' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'openlayers_geojson_picture_this' => '0',
       'geofield_formatter' => '0',
     ),
     'layer_styles' => array(
       'geofield_formatter' => '0',
       'openlayers_geojson_picture_this' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'poi_overview_openlayers_1' => '0',
       'poi_per_challenge_data_openlayers_1' => 'default_marker_blue',
     ),
     'layer_styles_select' => array(
       'geofield_formatter' => '0',
       'openlayers_geojson_picture_this' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'poi_overview_openlayers_1' => '0',
       'poi_per_challenge_data_openlayers_1' => 'default_marker_blue',
     ),
     'layer_activated' => array(
+      'poi_per_challenge_data_openlayers_1' => 'poi_per_challenge_data_openlayers_1',
       'geofield_formatter' => 0,
       'openlayers_geojson_picture_this' => 0,
+      'event_map_overlay_openlayers_1' => 0,
       'poi_overview_openlayers_1' => 0,
-      'poi_per_challenge_data_openlayers_1' => 0,
     ),
     'layer_switcher' => array(
       'poi_per_challenge_data_openlayers_1' => 'poi_per_challenge_data_openlayers_1',
       'geofield_formatter' => 0,
       'openlayers_geojson_picture_this' => 0,
+      'event_map_overlay_openlayers_1' => 0,
       'poi_overview_openlayers_1' => 0,
     ),
     'projection' => '900913',

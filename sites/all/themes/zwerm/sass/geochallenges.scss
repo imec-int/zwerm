@@ -5,14 +5,25 @@
 
 @import "base";
 
-.page-node.node-type-geo-challenge #page-title {
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
-}
+.page-node.node-type-geo-challenge {
+  .page-node.node-type-geo-challenge #page-title {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
 
-.page-node.node-type-geo-challenge .node-geo-challenge {
-  margin: -10px 0 0 0;
-  padding: 0 0 0 0;
+  .page-node.node-type-geo-challenge .node-geo-challenge {
+    margin: -10px 0 0 0;
+    padding: 0 0 0 0;
+  }
+
+  #edit-submit{
+    background-color: $green-marking-color;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    margin: 2px 0 30px 0;
+    font-family: Romina;
+    font-size: 1.4em;
+  }
 }
 
 .node-type-geo-challenge  .field-name-field-description {
@@ -20,7 +31,7 @@
 }
 
 .node-type-geo-challenge  .node-geo-challenge  {
-  margin: 0 0 25px 0;
+  margin: 0 0 0 0;
 }
 
 .geochallenge-subtitle {
@@ -41,10 +52,35 @@
 .geochallenge-details {
   margin: 20px 0 0 0;
   padding: 10px 10px 10px 10px;
-  background-color: $green-marking-color;
+  background-color: $score-navbar-color;
   font-size: 0.8em;
   color: #ffffff;
   line-height: 1.4em;
+  display: none;
+}
+
+.geochallenge-add-poi-instructions {
+  margin: 2px 0 0 0;
+  padding: 15px 10px 5px 10px;
+  background-color: $score-navbar-color;
+  font-size: 0.8em;
+  color: #ffffff;
+  line-height: 1.4em;
+  display: none;
+
+  p {
+    margin: 0 0 10px 0;
+  }
+
+  .control-icon {
+    background-image: url("../images/openlayers-controls.png");
+    background-position: -77px -1px;
+    background-repeat: no-repeat;
+    margin: 0 2px 0 2px;
+    width: 24px;
+    height: 22px;
+    padding: 0 14px 7px 12px;
+  }
 }
 
 .geochallenge-details-label {
@@ -58,20 +94,49 @@
   font-size: 1.1em;
 }
 
+.geochallenge-add-poi {
+  display: none;
+}
+
+.geochallenge-add-poi.button-pressed {
+  a {
+    cursor: text;
+    span {
+      background-image: none;
+      padding: 0 0 0 0;
+    }
+  }
+}
+
 .geochallenge-add-poi a {
   display: block;
-  background-color: $score-navbar-color;
-  background-image: url('../images/expand_icon.png');
-  background-position: left center;
-  background-repeat: no-repeat;
+  background-color: $green-marking-color;
   text-align: center;
   padding: 10px 0 10px 0;
-  margin: 1px 0;
+  margin: 2px 0 2px 0;
   font-family: Romina;
   font-size: 1.4em;
 
   span {
-    font-size: 4em;
+    background-image: url('../images/expand_icon.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 0 0 0 26px;
   }
 }
 
+#block-formblock-poi {
+  //display: none;
+  margin-top: -24px;
+}
+
+@media all and (max-width: $end_of_small_viewport)
+{
+  #main {
+    min-height: 460px;
+  }
+}
+
+.geofield-help {
+  display: none;
+}
