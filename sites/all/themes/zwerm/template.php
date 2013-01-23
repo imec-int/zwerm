@@ -227,6 +227,8 @@ function zwerm_preprocess_block(&$variables, $hook) {
 
 
     /*
+     * @param $variables
+     *
      * Used to add the team color to the page, based on
      * the team of the logged in user
      *
