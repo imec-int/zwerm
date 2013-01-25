@@ -384,6 +384,17 @@
         return $relationship_type;
     }
 
+    function scoga_delete_combocheckin_relationship_type( $prefix ){
+        $types = user_relationships_types_load( TRUE );
+        $params = array( '@prefix' => $prefix );
+        $name = t( '@prefix checkin partner', $params );
+        foreach( $types as $type ){
+            if( $type->name == $name ){
+                user_relationships_type_delete( $type->rtid );
+            }
+        }
+    }
+
     function scoga_grant_player_role_permissions_to_combocheckin_relationship_type( $relationship_type ){
         cache_clear_all( 'user_relationships', 'cache', TRUE );
 

@@ -17,7 +17,7 @@
     }
 
     function scoga_get_current_time_MS(){
-        return sprintf( '%.0f', round(microtime(true) * 1000) );
+        return sprintf( '%.0f', round(microtime(TRUE) * 1000) );
     }
 
     /**
