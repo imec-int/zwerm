@@ -28,6 +28,7 @@
                 _handle_campaign_deleted( $node );
                 break;
         }
+        _handle_node_deleted( $node );
     }
 
     function scoga_handle_node_update( $node ){ //dsm( $node );
@@ -73,3 +74,6 @@
     }
 
 
+    function _handle_node_deleted( $node ){
+        scoga_delete_referencing_nodes( $node->nid );
+    }
