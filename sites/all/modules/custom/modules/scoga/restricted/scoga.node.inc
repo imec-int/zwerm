@@ -67,6 +67,10 @@
     }
 
     function _handle_campaign_deleted( $node ){
+        if( scoga_get_current_campaign_nid() == $node->nid ){
+            scoga_set_current_campaign_nid( SCOGA_NULL_CAMPAIGN_NID );
+        }
+
         module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
         scoga_delete_userpoints_category( $node->title );
         module_load_include( 'api.checkin.inc', 'scoga', 'api/scoga' );
