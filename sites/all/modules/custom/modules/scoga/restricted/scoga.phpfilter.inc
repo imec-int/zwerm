@@ -33,6 +33,7 @@ function scoga_filter_points_in_current_campaign($current_campaign_tid,$result_t
  */
 function scoga_filter_leaderboard($userPosition,$counter,$point_taxo_id,$campaign_taxo_id,$view)
 {
+    watchdog('scoga','scoga_filter_leaderboard');
     $return_values = array();
     if ($userPosition == 0)
     {
