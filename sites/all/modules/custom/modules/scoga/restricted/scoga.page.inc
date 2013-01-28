@@ -71,6 +71,7 @@
         _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign',&$assignment_titles,&$assignment_paths);
         _scoga_add_nodes_to_output('Poll','Question',t('Active questions'),'field_campaign',&$assignment_titles,&$assignment_paths);
         _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',&$assignment_titles,&$assignment_paths);
+        _scoga_add_POI_confirmations_to_output('field_campaign',&$assignment_titles,&$assignment_paths);
         _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',&$assignment_titles,&$assignment_paths);
         $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
@@ -117,6 +118,26 @@
         {
             $titles[] = t($label).': '.$node_item->title;
             $paths[] = 'node/'.$node_item->nid;
+        }
+    }
+
+    function _scoga_add_POI_confirmations_to_output($campaign_ref_field,$titles,$paths)
+    {
+        global $user;
+        $nodeQuery = new EntityFieldQuery;
+        $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
+            ->entityCondition('bundle', 'poi_confirmation')
+            //->fieldCondition($campaign_ref_field,'target_id', $current_campaign_id, '=')
+            ->propertyCondition( 'status', '1' )
+            ->propertyCondition( 'uid', $user->uid )
+            ->fieldCondition( 'field_status', 'value', '0' )
+            ->execute();
+        $nodes = node_load_multiple(array_keys($nodes_properties['node']));
+        if (sizeOf($nodes)!=0)
+        {
+            $titles[] = t('POIs to confirm');
+            $paths[] = '';
+            _scoga_fill_titles_and_path($nodes,&$titles,&$paths,t('POI confirmation'));
         }
     }
 ?>
