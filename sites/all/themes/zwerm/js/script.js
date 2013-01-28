@@ -79,24 +79,14 @@
       jQuery('html, body').animate({
           scrollTop: $(".geochallenge-add-poi").offset().top-202
         }, 'fast');
-      jQuery(".geochallenge-add-poi").addClass('button-pressed');
-
-      //var ol = $('.openlayers-map').data('openlayers');//assuming there is just one map on the page
-      //console.log(ol);
+      $(".geochallenge-add-poi").addClass('button-pressed');
 
       return false;
     });
 
     jQuery(".geochallenge-add-psoi").click(function()
     {
-      //$(".openlayers-container-map-poi_per_challenge_map").hide();
-      //$("#block-formblock-poi").show();
-      //return false;
 
-      var ol = $('.openlayers-map').data('openlayers');//assuming there is just one map on the page
-      ol.draw
-      alert(ol);
-      return false;
     });
   });
 
