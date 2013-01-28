@@ -148,13 +148,43 @@
   margin-top: -24px;
 }
 
+/* line 133, ../sass/geochallenges.scss */
+.geochallenge-add-poi-mobile-scrollarea {
+  display: none;
+}
+
 @media all and (max-width: 629px) {
-  /* line 135, ../sass/geochallenges.scss */
+  /* line 139, ../sass/geochallenges.scss */
   #main {
     min-height: 460px;
   }
+
+  /* line 143, ../sass/geochallenges.scss */
+  .olControlPanZoomBar {
+    display: none;
+  }
+
+  /* line 147, ../sass/geochallenges.scss */
+  .openlayers-container {
+    padding-right: 40px;
+  }
+
+  /* line 151, ../sass/geochallenges.scss */
+  .openlayers-map {
+    border-right: 2px solid white;
+  }
+
+  /* line 155, ../sass/geochallenges.scss */
+  .field-widget-geofield-openlayers {
+    background-color: #7fb083;
+  }
+
+  /* line 159, ../sass/geochallenges.scss */
+  .geochallenge-add-poi-instructions {
+    border-bottom: 2px solid white;
+  }
 }
-/* line 140, ../sass/geochallenges.scss */
+/* line 164, ../sass/geochallenges.scss */
 .geofield-help {
   display: none;
 }
