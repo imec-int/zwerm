@@ -71,12 +71,12 @@
       padding-left: 26px;
     }
 
-    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge
+    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
     {
       background-color: $green-marking-color;
     }
 
-    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after, li.list_header_geochallenge:after
+    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after, li.list_header_geochallenge:after,li.list_header_poi_confirmation:after
     {
         content: url('../images/expand_icon.png');
     }

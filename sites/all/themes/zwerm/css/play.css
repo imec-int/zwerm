@@ -67,11 +67,11 @@
   padding-left: 26px;
 }
 /* line 75, ../sass/play.scss */
-.page-get-points #content li.list_header_event, .page-get-points #content li.list_header_wish, .page-get-points #content li.list_header_question, .page-get-points #content li.list_header_geochallenge {
+.page-get-points #content li.list_header_event, .page-get-points #content li.list_header_wish, .page-get-points #content li.list_header_question, .page-get-points #content li.list_header_geochallenge, .page-get-points #content li.list_header_poi_confirmation {
   background-color: #7fb083;
 }
 /* line 80, ../sass/play.scss */
-.page-get-points #content li.list_header_event:after, .page-get-points #content li.list_header_wish:after, .page-get-points #content li.list_header_question:after, .page-get-points #content li.list_header_geochallenge:after {
+.page-get-points #content li.list_header_event:after, .page-get-points #content li.list_header_wish:after, .page-get-points #content li.list_header_question:after, .page-get-points #content li.list_header_geochallenge:after, .page-get-points #content li.list_header_poi_confirmation:after {
   content: url("../images/expand_icon.png");
 }
 /* line 85, ../sass/play.scss */
