@@ -130,10 +130,34 @@
   margin-top: -24px;
 }
 
+.geochallenge-add-poi-mobile-scrollarea {
+  display: none;
+}
+
 @media all and (max-width: $end_of_small_viewport)
 {
   #main {
     min-height: 460px;
+  }
+
+  .olControlPanZoomBar {
+    display: none;
+  }
+
+  .openlayers-container {
+    padding-right: 40px;
+  }
+
+  .openlayers-map {
+    border-right: 2px solid white;
+  }
+
+  .field-widget-geofield-openlayers {
+    background-color: $green-marking-color;
+  }
+
+  .geochallenge-add-poi-instructions {
+    border-bottom: 2px solid white;
   }
 }
 
