@@ -60,7 +60,11 @@
             jQuery(".collapsible").hide();
             jQuery(".question").slideToggle(500);
         });
-
+        jQuery(".list_header_poi_confirmation").click(function()
+        {
+            jQuery(".collapsible").hide();
+            jQuery(".POI_conf").slideToggle(500);
+        });
         jQuery("#menu_container").click(function()
         {
             jQuery('html, body').animate({scrollTop:0}, 'fast');
