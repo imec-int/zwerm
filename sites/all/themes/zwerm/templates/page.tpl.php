@@ -88,7 +88,11 @@ else $front_page_class = "";
                              alt="<?php print t('Home'); ?>"/>
                     </a>
                 </div>
-                <div id="home_text">Home</div>
+                <a href="<?php print $front_page; ?>"
+                   title="<?php print t('Home'); ?>" rel="home">
+                    <div id="home_text">Home</div>
+                </a>
+
             </div>
           <?php endif; ?>
             <div id="menu_container">
