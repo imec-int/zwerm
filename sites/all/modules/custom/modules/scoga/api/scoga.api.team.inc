@@ -75,19 +75,6 @@
     }
 
     /**
-     * deletes all campaignteam entities linked to a campaign
-     * @param $campaign_node
-     */
-    function scoga_delete_campaignteam_entities_for_campaign( $campaign_node ){
-        $nids = scoga_get_campaignteam_nids_by_references( $campaign_node->nid );
-
-        foreach( $nids as $nid ){
-            node_delete( $nid );
-        }
-
-    }
-
-    /**
      * @param null $campaign_nid
      * @param null $team_nid
      *

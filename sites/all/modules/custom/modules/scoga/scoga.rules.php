@@ -47,11 +47,6 @@
         scoga_create_campaignteam_entities_for_campaign( $campaign_node );
     }
 
-    function scoga_rule_delete_campaignteam_nodes_for_campaign( $campaign_node ){
-        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
-        scoga_delete_campaignteam_entities_for_campaign( $campaign_node );
-    }
-
     function scoga_rule_log_user_points( $transaction ){
 //        module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
 //        $options = array(
