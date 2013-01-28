@@ -166,20 +166,27 @@
      */
     function scoga_create_userpoints_category( $iteration ){
         $name = $iteration . ' score';
-        $userpoints_vid = scoga_get_userpoints_vid();
-        $score_tid = scoga_get_score_tid();
-        $score_children = taxonomy_get_children( $score_tid );
-        foreach( $score_children as $score_child_term ){
-            if( $score_child_term->name == $name ){
-                return $score_child_term;
-            }
+        $terms = taxonomy_get_term_by_name( $name );
+        foreach( $terms as $term ){
+            return $term;
         }
+
+        $score_tid = scoga_get_score_tid();
+        $userpoints_vid = scoga_get_userpoints_vid();
         $term = new stdClass();
         $term->vid = $userpoints_vid;
         $term->name = $name;
         $term->parent = $score_tid;
         taxonomy_term_save( $term );
         return $term;
+    }
+
+    function scoga_delete_userpoints_category( $iteration ){
+        $name = $iteration . ' score';
+        $terms = taxonomy_get_term_by_name( $name );
+        foreach( $terms as $term ){
+            taxonomy_term_delete( $term->tid );
+        }
     }
 
     /**

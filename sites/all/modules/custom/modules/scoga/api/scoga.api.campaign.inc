@@ -99,16 +99,23 @@ function scoga_determine_current_campaign(){
     $new_nid = scoga_get_campaign_nid_for_time();
 
     if( $new_nid != $old_nid ){
+        scoga_finish_campaign( $old_nid );
+        scoga_start_campaign( $new_nid );
+    }
+}
+
+    function scoga_finish_campaign( $old_nid ){
         if( $old_nid > SCOGA_NULL_CAMPAIGN_NID ){
             module_invoke_all( 'scoga_current_campaign_finished', $old_nid );
         }
-        scoga_set_current_campaign_nid( $new_nid );
-//        watchdog( 'SCOGA', 'invoke scoga_current_campaign_changed', array(), WATCHDOG_INFO );
-        if( $new_nid > SCOGA_NULL_CAMPAIGN_NID ){
-            module_invoke_all( 'scoga_current_campaign_started', $new_nid );
+    }
+
+    function scoga_start_campaign( $campaign_nid ){
+        scoga_set_current_campaign_nid( $campaign_nid );
+        if( $campaign_nid > SCOGA_NULL_CAMPAIGN_NID ){
+            module_invoke_all( 'scoga_current_campaign_started', $campaign_nid );
         }
     }
-}
 
 /**
  * @param null $timestamp
@@ -153,13 +160,13 @@ function scoga_get_current_campaign_vo(){
  */
 function scoga_get_current_campaign_expiration_time()
 {
-    define('DAY',60*60*24,true);
-    define('HOUR',60*60,true);
-    define('MINUTE',60,true);
+    define('DAY',60*60*24,TRUE);
+    define('HOUR',60*60,TRUE);
+    define('MINUTE',60,TRUE);
     $time_interval_elements = array();
 
     $campaign_node = node_load(scoga_get_campaign_nid_for_time(time()));
-    $campaign_end_timestamp = $campaign_node->field_campaign_period['und'][0][value2];
+    $campaign_end_timestamp = $campaign_node->field_campaign_period['und'][0]['value2'];
     $time_interval = $campaign_end_timestamp - time();
 
     $days = floor($time_interval/DAY);

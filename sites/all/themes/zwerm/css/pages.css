@@ -283,14 +283,14 @@ div.status {
 div.warning,
 tr.warning {
   /* Medium priority messages */
-  /* border: 1px solid #f0c020; */
-  /* Drupal core uses: 1px solid #f0c020 */
+  display: none;
 }
 
 /* line 273, ../sass/pages.scss */
 div.error,
 tr.error {
   /* High priority messages. See also the .error declaration below. */
+  display: none;
 }
 
 /* line 277, ../sass/pages.scss */
@@ -515,38 +515,37 @@ a {
   /* line 490, ../sass/pages.scss */
   #header {
     background-image: url(../images/zwerm_logo_black_background.png);
-    background-size: 10%;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20%;
+    background-size: 19%;
     height: 200px;
     display: block;
   }
 
-  /* line 501, ../sass/pages.scss */
+  /* line 500, ../sass/pages.scss */
   #content {
     padding-top: 40px;
     position: relative;
     top: 120px;
   }
 
-  /* line 508, ../sass/pages.scss */
+  /* line 507, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
     padding-top: 200px;
   }
 
-  /* line 515, ../sass/pages.scss */
+  /* line 514, ../sass/pages.scss */
   #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
     display: none;
   }
 
-  /* line 520, ../sass/pages.scss */
+  /* line 519, ../sass/pages.scss */
   .region-sidebar-first {
     padding-top: 200px;
   }
 
-  /* line 527, ../sass/pages.scss */
+  /* line 526, ../sass/pages.scss */
   #type_page h1 {
     font-family: romina;
     text-align: center;

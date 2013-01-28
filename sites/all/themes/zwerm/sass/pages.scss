@@ -266,12 +266,12 @@ div.status { /* Normal priority messages */
 
 div.warning,
 tr.warning { /* Medium priority messages */
-  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
+  display:none;
 }
 
 div.error,
 tr.error { /* High priority messages. See also the .error declaration below. */
-  //display:none;
+  display:none;
 }
 
 .error { /* Errors that are separate from div.messages status messages. */
@@ -489,7 +489,6 @@ a {
 {
   #header{
     background-image: url(../images/zwerm_logo_black_background.png);
-    background-size: 10%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: $logo-width-large-viewport;

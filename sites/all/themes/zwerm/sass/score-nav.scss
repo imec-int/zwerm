@@ -6,7 +6,6 @@
   width:100%;
   //float: left;
   height:$score-navbar-height;
-  //margin-top: 24px;
 
 
   ul
@@ -61,7 +60,7 @@
     li
     {
       height:30px;
-      margin-top:22px;
+      margin-top:19px;
       a
       {
         padding-top: 3px;
@@ -73,5 +72,17 @@
       margin-top: -7px;
     }
   }
+}
+
+@media all and (min-width: $start_of_large_viewport)
+{
+  #score_nav_bar
+  {
+    li
+    {
+      margin-top:5px;
+    }
+  }
+
 }
 
