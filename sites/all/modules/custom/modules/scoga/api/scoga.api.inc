@@ -17,7 +17,7 @@
     }
 
     function scoga_get_current_time_MS(){
-        return sprintf( '%.0f', round(microtime(true) * 1000) );
+        return sprintf( '%.0f', round(microtime(TRUE) * 1000) );
     }
 
     /**
@@ -213,6 +213,25 @@
         }
 
         return 0;
+    }
+
+
+    function scoga_delete_referencing_nodes( $target_nid ){
+        $conditions = array( 'type' => 'entityreference' );
+        $include_additional = array( 'include_inactive' => TRUE );
+        $fields = field_read_fields( $conditions, $include_additional );
+        //dsm( $fields );
+        foreach( $fields as $field ){
+            $query = new EntityFieldQuery();
+            $results = $query
+                ->entityCondition( 'entity_type', 'node' )
+                ->fieldCondition( $field, 'target_id', $target_nid )
+                ->execute();
+            if( array_key_exists( 'node', $results ) ){
+                $nids = array_keys( $results[ 'node' ] );
+                node_delete_multiple( $nids );
+            }
+        }
     }
 
     //--( ACCESSORS )--//

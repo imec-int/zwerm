@@ -15,6 +15,9 @@
     define( 'SCOGA_ARTICLE_NODETYPE',           'article' );
     define( 'SCOGA_POLL_NODETYPE',              'poll' );
     define( 'SCOGA_EVENT_NODETYPE',             'nodetype_event' );
+    define( 'SCOGA_GEOCHALLENGE_NODETYPE',      'geo_challenge' );
+    define( 'SCOGA_POI_NODETYPE',               'poi' );
+    define( 'SCOGA_POICONFIRIMATION_NODETYPE',  'poi_confirmation' );
 
     //--( SETTINGS )--//
 
