@@ -1,74 +1,114 @@
-/*
-Syntax error: Invalid CSS after "...display: inline": expected ";", was ".field-label"
-        on line 84 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/wish.scss
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
-Backtrace:
-/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/wish.scss:84
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1061:in `tok!'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:569:in `block in declaration_or_ruleset'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1104:in `call'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1104:in `rethrow'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:575:in `declaration_or_ruleset'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:537:in `block_child'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:526:in `block_contents'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:518:in `block'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:512:in `ruleset'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:574:in `block in declaration_or_ruleset'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1104:in `call'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1104:in `rethrow'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:575:in `declaration_or_ruleset'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:537:in `block_child'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:529:in `block_contents'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:518:in `block'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:512:in `ruleset'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:536:in `block_child'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:529:in `block_contents'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:70:in `stylesheet'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:27:in `parse'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:342:in `_to_tree'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `call'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `block in modified'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block in run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `loop'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/monitor.rb:26:in `run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm.rb:70:in `monitor'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `call'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
-/usr/local/bin/compass:23:in `load'
-/usr/local/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"...display: inline\": expected \";\", was \".field-label\"\A         on line 84 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/wish.scss"; }
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@font-face {
+  font-family: "Romina";
+  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
+}
+
+/* line 4, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item, .node-type-nodetype-wished-item {
+  background-color: #eeeeee;
+}
+@media all and (max-width: 629px) {
+  /* line 12, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main #content, .node-type-nodetype-wished-item #main #content {
+    margin-left: 2%;
+    width: 94%;
+  }
+  /* line 16, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main #content #edit-title, .node-type-nodetype-wished-item #main #content #edit-title {
+    width: 94%;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 28, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #edit-delete, .node-type-nodetype-wished-item #edit-delete {
+    margin-bottom: 58px;
+  }
+}
+/* line 34, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-preview-changes, .node-type-nodetype-wished-item #edit-preview-changes {
+  display: none;
+}
+/* line 41, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item li, .node-type-nodetype-wished-item .node-nodetype-wished-item li {
+  background-color: #7fb083;
+}
+/* line 44, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item li a, .node-type-nodetype-wished-item .node-nodetype-wished-item li a {
+  padding-left: 20px;
+}
+/* line 50, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item header, .node-type-nodetype-wished-item .node-nodetype-wished-item header {
+  padding-left: 20px;
+}
+/* line 56, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .node-nodetype-wished-item .user-picture {
+  padding-right: 16px;
+}
+/* line 62, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li {
+  display: block;
+}
+/* line 65, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li a {
+  color: black;
+}
+/* line 71, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li {
+  display: block;
+}
+/* line 74, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a {
+  color: white;
+}
+/* line 81, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-name-field-wisheditem-award, .node-type-nodetype-wished-item .field-name-field-wisheditem-award {
+  display: inline;
+}
+/* line 85, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-name-field-wisheditem-award .field-label, .node-type-nodetype-wished-item .field-name-field-wisheditem-award .field-label {
+  float: left;
+}
+/* line 90, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .user-picture {
+  display: inline;
+  float: left;
+}
+/* line 96, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-edit-link, .node-type-nodetype-wished-item .field-edit-link {
+  display: none;
+}
+/* line 101, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .filter-wrapper, .node-type-nodetype-wished-item .filter-wrapper {
+  display: none;
+}
+/* line 106, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .wysiwyg-toggle-wrapper, .node-type-nodetype-wished-item .wysiwyg-toggle-wrapper {
+  display: none;
+}
+/* line 111, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-preview, .node-type-nodetype-wished-item #edit-preview {
+  display: none;
+}
+/* line 116, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .username, .node-type-nodetype-wished-item .username {
+  color: black;
+}
+/* line 120, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-body, .node-type-nodetype-wished-item #edit-body {
+  width: 101%;
+}
+/* line 125, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .form-field-name-field-wisheditem-image, .node-type-nodetype-wished-item .form-field-name-field-wisheditem-image {
+  display: none;
+}
