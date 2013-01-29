@@ -127,10 +127,8 @@
         $nodeQuery = new EntityFieldQuery;
         $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
             ->entityCondition('bundle', 'poi_confirmation')
-            //->fieldCondition($campaign_ref_field,'target_id', $current_campaign_id, '=')
-            ->propertyCondition( 'status', '1' )
-            ->propertyCondition( 'uid', $user->uid )
-            ->fieldCondition( 'field_status', 'value', '0' )
+            ->fieldCondition('field_status', 'value', '0' )
+            ->fieldCondition('field_poi_confirm_ref_user', 'target_id', $user->uid )
             ->execute();
         $nodes = node_load_multiple(array_keys($nodes_properties['node']));
         if (sizeOf($nodes)!=0)
