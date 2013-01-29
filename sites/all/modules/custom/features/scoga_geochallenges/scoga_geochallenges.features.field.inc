@@ -611,7 +611,7 @@ function scoga_geochallenges_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 4,
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -780,7 +780,7 @@ function scoga_geochallenges_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 5,
+          'weight' => '5',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -922,6 +922,112 @@ function scoga_geochallenges_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-poi_confirmation-field_geochallenge_ref_campaign'.
+  $fields['node-poi_confirmation-field_geochallenge_ref_campaign'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_geochallenge_ref_campaign',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'DESC',
+            'field' => 'body:value',
+            'property' => 'created',
+            'type' => 'property',
+          ),
+          'target_bundles' => array(
+            'nodetype_campaign' => 'nodetype_campaign',
+          ),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'poi_confirmation',
+      'default_value' => NULL,
+      'default_value_function' => '',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '1',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_geochallenge_ref_campaign',
+      'label' => 'Campaign',
+      'required' => 0,
+      'settings' => array(
+        'behaviors' => array(
+          'prepopulate' => array(
+            'action' => 'none',
+            'fallback' => 'none',
+            'skip_perm' => '0',
+            'status' => 0,
+          ),
+        ),
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '10',
+      ),
+    ),
+  );
+
   // Exported field: 'node-poi_confirmation-field_location'.
   $fields['node-poi_confirmation-field_location'] = array(
     'field_config' => array(
@@ -948,19 +1054,45 @@ function scoga_geochallenges_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'geofield',
+          'label' => 'hidden',
+          'module' => 'geofield_map',
           'settings' => array(
-            'data' => 'full',
+            'geofield_map_baselayers_hybrid' => 1,
+            'geofield_map_baselayers_map' => 1,
+            'geofield_map_baselayers_physical' => 0,
+            'geofield_map_baselayers_satellite' => 1,
+            'geofield_map_controltype' => 'default',
+            'geofield_map_draggable' => 0,
+            'geofield_map_height' => '300px',
+            'geofield_map_maptype' => 'satellite',
+            'geofield_map_mtc' => 'standard',
+            'geofield_map_overview' => 0,
+            'geofield_map_overview_opened' => 0,
+            'geofield_map_pancontrol' => 1,
+            'geofield_map_scale' => 0,
+            'geofield_map_scrollwheel' => 0,
+            'geofield_map_streetview_show' => 1,
+            'geofield_map_width' => '100%',
+            'geofield_map_zoom' => '17',
           ),
-          'type' => 'geofield_wkt',
-          'weight' => 5,
+          'type' => 'geofield_map_map',
+          'weight' => '0',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'geofield',
+          'settings' => array(
+            'data' => 'full',
+            'map_preset' => 'geofield_formatter_map',
+          ),
+          'type' => 'geofield_openlayers',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1052,18 +1184,21 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 4,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1140,16 +1275,21 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 2,
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1238,18 +1378,21 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 1,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1347,18 +1490,21 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 3,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1439,16 +1585,21 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => 0,
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
