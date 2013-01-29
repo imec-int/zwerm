@@ -234,7 +234,7 @@ NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'help' => '',
     ),
     'nodetype_wished_item' => array(
-      'name' => t('Wished Item'),
+      'name' => t('Wens'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
