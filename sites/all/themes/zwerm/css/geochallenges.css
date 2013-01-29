@@ -13,11 +13,6 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 /* line 9, ../sass/geochallenges.scss */
 .page-node.node-type-geo-challenge .page-node.node-type-geo-challenge #page-title {
   margin: 0 0 0 0;
@@ -34,7 +29,7 @@
   text-align: center;
   padding: 10px 0 10px 0;
   margin: 2px 0 30px 0;
-  font-family: Romina;
+  font-family: "Romina";
   font-size: 1.4em;
 }
 
