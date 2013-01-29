@@ -24,7 +24,7 @@ function scoga_geochallenges_extensions_default_rules_configuration() {
               "type" : "integer",
               "value" : {
                 "select" : "site:current-user:uid",
-                "php" : { "code" : "$value = 271;\\r\\nreturn $value;" }
+                "php" : { "code" : "$geochallenge_nid = arg(1);\\r\\nreturn $geochallenge_nid;" }
               }
             },
             "PROVIDE" : { "variable_added" : { "ref_geochallenge_nid" : "NID of Geochallenge" } }
