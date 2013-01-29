@@ -5,6 +5,9 @@
      */
     function scoga_get_list_of_not_checkin_parnters()
     {
+        module_load_include( 'api.inc', 'scoga', 'api/scoga' );
+        $active_relationsip_tid = scoga_get_current_combocheckin_rtid();
+        var_dump($active_relationsip_tid );
         //get all the active users & store all the active users in an array
         $active_user_names = array();
         $active_user_uids = array();
@@ -12,7 +15,10 @@
                   users.name AS users_name,
                   users.uid AS uid
                   FROM {users} users
-                  WHERE (( (users.status <> '0') ))";
+                  LEFT JOIN {field_data_field_user_active} = field_data_field_user_active
+                  ON users.uid = field_data_field_user_active.entity_id
+                  WHERE ((field_data_field_user_active.field_user_active_value=1))";
+                  //WHERE (( (users.status <> '0') ))";
         $result = db_query($query);
         foreach ($result as $row)
         {
@@ -29,9 +35,12 @@
                   FROM {users} users
                   LEFT JOIN {user_relationships} user_relationships
                   ON users.uid = user_relationships.requestee_id
+
                   WHERE (( (users.status <> '0')
                   AND ((user_relationships.requester_id = ".$user->uid."
-                  OR user_relationships.requestee_id = ".$user->uid.")) ))";
+                  OR user_relationships.requestee_id = ".$user->uid."))
+                  AND user_relationships.rtid = ".$active_relationsip_tid."))";
+
         $result = db_query($query);
         foreach ($result as $row)
         {
@@ -129,6 +138,7 @@
             ->entityCondition('bundle', 'poi_confirmation')
             ->fieldCondition('field_status', 'value', '0' )
             ->fieldCondition('field_poi_confirm_ref_user', 'target_id', $user->uid )
+            //->addTag('active_campaign')
             ->execute();
         $nodes = node_load_multiple(array_keys($nodes_properties['node']));
         if (sizeOf($nodes)!=0)
@@ -137,5 +147,13 @@
             $paths[] = '';
             _scoga_fill_titles_and_path($nodes,&$titles,&$paths,t('POI confirmation'));
         }
+    }
+
+    //todo : move this function to location that corresponds to Camille's grand scheme
+    function scoga_query_active_campaign_alter(QueryAlterableInterface $query)
+    {
+       watchdog('scoga','scoga_query_active_campaign_alter');
+       // field_data_field_ref_poi
+       $query->join('node_access', 'node_access', 'node_access.nid = node.nid');
     }
 ?>
