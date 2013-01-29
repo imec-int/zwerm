@@ -192,7 +192,7 @@ function scoga_geochallenges_extensions_openlayers_maps() {
   $openlayers_maps->description = 'A Map for adding POI to SCOGA Geo Challenges';
   $openlayers_maps->data = array(
     'width' => 'auto',
-    'height' => '400px',
+    'height' => '350px',
     'image_path' => 'sites/all/modules/openlayers/themes/default_dark/img/',
     'css_path' => 'sites/all/modules/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',
