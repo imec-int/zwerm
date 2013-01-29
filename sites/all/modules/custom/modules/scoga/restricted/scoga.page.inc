@@ -7,7 +7,6 @@
     {
         module_load_include( 'api.inc', 'scoga', 'api/scoga' );
         $active_relationsip_tid = scoga_get_current_combocheckin_rtid();
-        var_dump($active_relationsip_tid );
         //get all the active users & store all the active users in an array
         $active_user_names = array();
         $active_user_uids = array();
