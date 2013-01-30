@@ -12,13 +12,6 @@
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
-<<<<<<< HEAD
-
-// Place your code here.
-
-
-})(jQuery, Drupal, this, this.document);
-=======
     //for hiding the labels in the login screen username and password fields
     //based on http://blog.stannard.net.au/2011/01/07/creating-a-form-with-labels-inside-text-fields-using-jquery/
     $(document).ready(function(){
@@ -112,4 +105,3 @@ function li_mousedown(url,element)
 
 
 
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98

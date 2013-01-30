@@ -27,10 +27,6 @@ $legacy-support-for-ie6: false;
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: true;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 //
 // Font faces, stacks and sizes.
 //
@@ -80,10 +76,6 @@ $base-font-family: $verdana; // The font family set on the html element.
 $font-body:        $verdana;
 $font-monospace:   $courier;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 //
 // Colors, etc.
 //
@@ -104,8 +96,6 @@ $indent-amount: 30px;
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 
 @import "custom";           // Import our custom mixins last.
-<<<<<<< HEAD
-=======
 
 //
 // Zwerm-specific
@@ -160,4 +150,3 @@ $width_per_item : percentage((100 - ($space_outside_of_navmenus * 2)) / $number_
 
 
 
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98

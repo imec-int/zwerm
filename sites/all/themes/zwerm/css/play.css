@@ -1,72 +1,118 @@
-/*
-Syntax error: Invalid CSS after "...-for-ie8: true;": expected selector or at-rule, was "<<<<<<< HEAD"
-        on line 30 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss
-        from line 1 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/play.scss
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
-Backtrace:
-/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss:30
-/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/play.scss:1
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:28:in `parse'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:342:in `_to_tree'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:274:in `to_tree'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:222:in `visit_import'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/root_node.rb:20:in `render'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `call'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `block in modified'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block in run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `loop'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/monitor.rb:26:in `run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm.rb:70:in `monitor'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `call'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
-/usr/local/bin/compass:23:in `load'
-/usr/local/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"...-for-ie8: true;\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 30 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss\A         from line 1 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/play.scss"; }
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@media all and (max-width: 629px) {
+  /* line 6, ../sass/play.scss */
+  body.page-get-points {
+    background-color: #eeeeee;
+  }
+  /* line 10, ../sass/play.scss */
+  body.page-get-points #content {
+    padding-top: 0px;
+  }
+  /* line 13, ../sass/play.scss */
+  body.page-get-points #content li {
+    height: 60px;
+    background-color: white;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 34, ../sass/play.scss */
+  .page-get-points #content li {
+    height: 60px;
+    background-color: white;
+  }
+
+  /* line 42, ../sass/play.scss */
+  body.page-get-points {
+    background-color: #eeeeee;
+  }
+}
+/* line 54, ../sass/play.scss */
+.page-get-points #page-title {
+  background-color: #333333;
+  color: white;
+  font-family: arial;
+  font-size: x-large;
+  text-align: center;
+  height: 60px;
+  line-height: 2.6em;
+  letter-spacing: 2px;
+}
+/* line 59, ../sass/play.scss */
+.page-get-points #content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 64, ../sass/play.scss */
+.page-get-points #content ul {
+  border-top-style: none;
+}
+/* line 69, ../sass/play.scss */
+.page-get-points #content .list_header {
+  padding-top: 19px;
+  padding-left: 26px;
+}
+/* line 75, ../sass/play.scss */
+.page-get-points #content li.list_header_event, .page-get-points #content li.list_header_wish, .page-get-points #content li.list_header_question, .page-get-points #content li.list_header_geochallenge, .page-get-points #content li.list_header_poi_confirmation {
+  background-color: #7fb083;
+}
+/* line 80, ../sass/play.scss */
+.page-get-points #content li.list_header_event:after, .page-get-points #content li.list_header_wish:after, .page-get-points #content li.list_header_question:after, .page-get-points #content li.list_header_geochallenge:after, .page-get-points #content li.list_header_poi_confirmation:after {
+  content: url("../images/expand_icon.png");
+}
+/* line 85, ../sass/play.scss */
+.page-get-points #content li:after {
+  content: ">";
+  display: inline;
+  float: right;
+  padding-top: 19px;
+  padding-right: 25px;
+  font-size: large;
+}
+/* line 95, ../sass/play.scss */
+.page-get-points #content a {
+  color: black;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+/* line 104, ../sass/play.scss */
+.page-get-points #content #select_list ul {
+  margin-top: 2px;
+}
+/* line 109, ../sass/play.scss */
+.page-get-points #content #select_list a {
+  line-height: 3.8em;
+}
+/* line 115, ../sass/play.scss */
+.page-get-points #content #main-content {
+  display: none;
+}
+/* line 120, ../sass/play.scss */
+.page-get-points .link_truncated {
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+}
+/* line 125, ../sass/play.scss */
+.page-get-points .time_to_end {
+  background-color: white;
+  border-bottom-style: solid;
+  border-width: 1px;
+  padding-left: 25px;
+}
+/* line 133, ../sass/play.scss */
+.page-get-points .time_interval_label, .page-get-points .time_interval {
+  display: inline;
+}

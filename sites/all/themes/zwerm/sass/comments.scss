@@ -13,16 +13,11 @@
   }
 
   h2.comment-form { /* Heading for the comment form */
-<<<<<<< HEAD
-=======
     font-size: large;
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   }
 }
 
 .comment { /* Wrapper for a single comment */
-<<<<<<< HEAD
-=======
   @media all and (min-width: $start_of_large_viewport)
   {
     a
@@ -30,7 +25,6 @@
       color:green;
     }
   }
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 
   &.comment-preview { /* Preview of the comment before submitting new or updated comment */
     background-color: #ffffea; /* Drupal core will use a #ffffea background. See #1110842 */
@@ -71,28 +65,20 @@
   }
 
   .submitted { /* The "posted by" information */
-<<<<<<< HEAD
-  }
-
-=======
     display:block;
   }
 
 
 
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   .permalink { /* Comment's permalink wrapper */
     text-transform: uppercase;
     font-size: 75%;
   }
 
-<<<<<<< HEAD
-=======
   .submitted .permalink { /* Comment's permalink wrapper */
     display: none;
   }
 
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   .user-signature { /* The user's signature */
   }
 

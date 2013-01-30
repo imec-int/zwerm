@@ -1,72 +1,232 @@
-/*
-Syntax error: Invalid CSS after "@import "base";": expected selector or at-rule, was "<<<<<<< HEAD"
-        on line 15 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss
-        from line 11 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/layouts/responsive-sidebars-rtl.scss
+/**
+ * @file
+ * RTL companion for the responsive-sidebars.css file.
+ */
+/**
+ * @file
+ * Positioning for responsive layout .
+ *
+ * Define CSS classes to create a table-free, 3-column, 2-column, or single
+ * column layout depending on whether blocks are enabled in the left or right
+ * columns.
+ *
+ * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
+ */
+@media all and (max-width: 629px) {
+  /* line 140, ../../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
-Backtrace:
-/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss:15
-/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/layouts/responsive-sidebars-rtl.scss:11
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:28:in `parse'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:342:in `_to_tree'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:274:in `to_tree'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:222:in `visit_import'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/root_node.rb:20:in `render'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `call'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `block in modified'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block in run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `loop'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/monitor.rb:26:in `run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm.rb:70:in `monitor'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `call'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
-/usr/local/bin/compass:23:in `load'
-/usr/local/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"@import \"base\";\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 15 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/layouts/responsive-sidebars.scss\A         from line 11 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/layouts/responsive-sidebars-rtl.scss"; }
+  /* line 145, ../../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+/*
+ * Center the page.
+ */
+/* line 44, ../../sass/layouts/responsive-sidebars.scss */
+#page,
+.region-bottom {
+  /* For screen sizes larger than 1200px, prevent excessively long lines of text
+  by setting a max-width. */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+ * Apply the shared properties of grid items in a single, efficient ruleset.
+ */
+/* line 64, ../../sass/layouts/responsive-sidebars.scss */
+#header,
+#content,
+#navigation,
+.region-sidebar-first,
+.region-sidebar-second,
+#footer {
+  padding-left: 0px;
+  padding-right: 0px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/*
+ * Containers for grid items and flow items.
+ */
+/* line 52, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+#header:before, #header:after,
+#main:before,
+#main:after,
+#footer:before,
+#footer:after {
+  content: "";
+  display: table;
+}
+/* line 56, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+#header:after,
+#main:after,
+#footer:after {
+  clear: both;
+}
+
+@media all and (max-width: 629px) {
+  /* line 82, ../../sass/layouts/responsive-sidebars.scss */
+  #main {
+    float: right;
+    width: 100%;
+    margin-right: 0%;
+    margin-left: -100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    height: 100%;
+  }
+  /* line 89, ../../sass/layouts/responsive-sidebars.scss */
+  #main #content {
+    float: right;
+    width: 100%;
+    margin-right: 0%;
+    margin-left: -100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  /* line 92, ../../sass/layouts/responsive-sidebars.scss */
+  #main #logo {
+    display: none;
+  }
+
+  /* line 98, ../../sass/layouts/responsive-sidebars.scss */
+  table {
+    float: right;
+    width: 100%;
+    margin-right: 0%;
+    margin-left: -100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    clear: right;
+  }
+
+  /* line 105, ../../sass/layouts/responsive-sidebars.scss */
+  .messages {
+    clear: right;
+    float: right;
+    width: 50%;
+    margin-right: 0%;
+    margin-left: -50%;
+    padding-left: 0px;
+    padding-right: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    display: block;
+  }
+
+  /* line 114, ../../sass/layouts/responsive-sidebars.scss */
+  #navigation .not-front-page {
+    display: none;
+    padding-top: 18px;
+  }
+
+  /* line 121, ../../sass/layouts/responsive-sidebars.scss */
+  .logged-in #footer {
+    display: none;
+  }
+}
+@media all and (min-width: 630px) {
+  /*
+  * Use 5 grid columns for larger screens.
+  */
+  /*
+  * The layout when there is only one sidebar, the left one.
+  */
+  /* line 138, ../../sass/layouts/responsive-sidebars.scss */
+  #navigation {
+    /* Span 3 columns, starting in 2nd column from left. */
+    clear: right;
+    float: right;
+    width: 100%;
+    margin-right: 0%;
+    margin-left: -100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  /* line 144, ../../sass/layouts/responsive-sidebars.scss */
+  #main {
+    /* Span 5 columns, starting in 2nd column from left. */
+    background-color: #eeeeee;
+    float: right;
+    width: 100%;
+    margin-right: 0%;
+    margin-left: -100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    clear: right;
+  }
+
+  /* line 154, ../../sass/layouts/responsive-sidebars.scss */
+  #content {
+    float: right;
+    width: 60%;
+    margin-right: 20%;
+    margin-left: -80%;
+    padding-left: 0px;
+    padding-right: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  /* line 161, ../../sass/layouts/responsive-sidebars.scss */
+  .sidebar-first .region-sidebar-first {
+    /* Span 1 column, starting in 1st column from left. */
+  }
+
+  /* line 169, ../../sass/layouts/responsive-sidebars.scss */
+  #footer .logged-in {
+    display: none;
+    float: right;
+    width: 100%;
+    margin-right: 0%;
+    margin-left: -100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}

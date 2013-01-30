@@ -55,7 +55,7 @@
 /*
  * Containers for grid items and flow items.
  */
-/* line 52, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 52, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #header:before, #header:after,
 #main:before,
 #main:after,
@@ -64,7 +64,7 @@
   content: "";
   display: table;
 }
-/* line 56, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 56, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 #header:after,
 #main:after,
 #footer:after {

@@ -60,21 +60,12 @@
  *   api.drupal.org website is a good place to find which file contains which
  *   function.) Then you can copy the original function in its entirety and
  *   paste it in this template.php file, changing the prefix from theme_ to
-<<<<<<< HEAD
- *   STARTERKIT_. For example:
- *
- *     original, found in modules/field/field.module: theme_field()
- *     theme override, found in template.php: STARTERKIT_field()
- *
- *   where STARTERKIT is the name of your sub-theme. For example, the
-=======
  *   zwerm_. For example:
  *
  *     original, found in modules/field/field.module: theme_field()
  *     theme override, found in template.php: zwerm_field()
  *
  *   where zwerm is the name of your sub-theme. For example, the
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
  *   zen_classic theme would define a zen_classic_field() function.
  *
  *   Note that base themes can also override theme functions. And those
@@ -120,21 +111,13 @@
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_maintenance_page(&$variables, $hook) {
-  // When a variable is manipulated or added in preprocess_html or
-  // preprocess_page, that same work is probably needed for the maintenance page
-  // as well, so we can just re-use those functions to do that work here.
-  STARTERKIT_preprocess_html($variables, $hook);
-  STARTERKIT_preprocess_page($variables, $hook);
-=======
+
 function zwerm_preprocess_maintenance_page(&$variables, $hook) {
   // When a variable is manipulated or added in preprocess_html or
   // preprocess_page, that same work is probably needed for the maintenance page
   // as well, so we can just re-use those functions to do that work here.
   zwerm_preprocess_html($variables, $hook);
   zwerm_preprocess_page($variables, $hook);
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 }
 // */
 
@@ -147,11 +130,7 @@ function zwerm_preprocess_maintenance_page(&$variables, $hook) {
  *   The name of the template being rendered ("html" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_html(&$variables, $hook) {
-=======
 function zwerm_preprocess_html(&$variables, $hook) {
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   $variables['sample_variable'] = t('Lorem ipsum.');
 
   // The body tag's classes are controlled by the $classes_array variable. To
@@ -169,11 +148,7 @@ function zwerm_preprocess_html(&$variables, $hook) {
  *   The name of the template being rendered ("page" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_page(&$variables, $hook) {
-=======
 function zwerm_preprocess_page(&$variables, $hook) {
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -187,19 +162,12 @@ function zwerm_preprocess_page(&$variables, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_node(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
 
-  // Optionally, run node-type-specific preprocess functions, like
-  // STARTERKIT_preprocess_node_page() or STARTERKIT_preprocess_node_story().
-=======
 function zwerm_preprocess_node(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 
   // Optionally, run node-type-specific preprocess functions, like
   // zwerm_preprocess_node_page() or zwerm_preprocess_node_story().
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
     $function($variables, $hook);
@@ -216,11 +184,7 @@ function zwerm_preprocess_node(&$variables, $hook) {
  *   The name of the template being rendered ("comment" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_comment(&$variables, $hook) {
-=======
 function zwerm_preprocess_comment(&$variables, $hook) {
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -234,11 +198,7 @@ function zwerm_preprocess_comment(&$variables, $hook) {
  *   The name of the template being rendered ("region" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_region(&$variables, $hook) {
-=======
 function zwerm_preprocess_region(&$variables, $hook) {
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
   //if (strpos($variables['region'], 'sidebar_') === 0) {
   //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
@@ -255,11 +215,8 @@ function zwerm_preprocess_region(&$variables, $hook) {
  *   The name of the template being rendered ("block" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_block(&$variables, $hook) {
-=======
+
 function zwerm_preprocess_block(&$variables, $hook) {
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   // Add a count to all the blocks in the region.
   // $variables['classes_array'][] = 'count-' . $variables['block_id'];
 
@@ -270,9 +227,6 @@ function zwerm_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
-<<<<<<< HEAD
-=======
-
 
     /*
      * @param $variables
@@ -327,4 +281,3 @@ function zwerm_preprocess_block(&$variables, $hook) {
      }
 
 
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98

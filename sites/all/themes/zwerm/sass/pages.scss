@@ -8,20 +8,6 @@
  */
 
 @import "base";
-<<<<<<< HEAD
-
-
-/*
- * Body
- */
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-#page {
-=======
 @import "fonts";
 
 //$header-color : #000000;
@@ -56,7 +42,6 @@ body {
   display:block;
   height:100%;
   width:100%;
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 }
 
 /*
@@ -78,48 +63,11 @@ body {
   }
 }
 
-<<<<<<< HEAD
-=======
-//hide info on text formatting in comments
-.filter-wrapper {
-  display: none;
-}
-
-//hide "add comment" link
-.comment-add.first.last.active
-{
-  display:none;
-}
-
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 /*
  * Header
  */
 
 #header {
-<<<<<<< HEAD
-}
-
-#logo { /* Wrapping link for logo */
-  float: left; /* LTR */
-  margin: 0;
-  padding: 0;
-
-  img {
-    vertical-align: bottom;
-  }
-}
-
-#name-and-slogan { /* Wrapper for website name and slogan */
-  float: left;
-}
-
-#site-name { /* The name of the website */
-  margin: 0;
-  font-size: 2em;
-  line-height: 1.5em;
-
-=======
   background-color: $header-color;
   position: fixed;
   height : $header-height-small-viewport;
@@ -194,7 +142,6 @@ body {
   font-size: 2em;
   line-height: 1.5em;
   color:$header-color;
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   a:link,
   a:visited {
     color: #000;
@@ -207,11 +154,7 @@ body {
   }
 }
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 #site-slogan { /* The slogan (or tagline) of a website */
   margin: 0;
   font-size: 1em;
@@ -221,28 +164,17 @@ body {
   clear: both; /* Clear the logo */
 }
 
-<<<<<<< HEAD
-=======
 .page-node
 {
   background-color: #eeeeee;
 }
 
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 /*
  * Main (container for everything else)
  */
 
 #main {
-<<<<<<< HEAD
-}
 
-/*
- * Content
- */
-
-#content {
-=======
   display:block;
   height:100%;
   width:100%;
@@ -270,7 +202,6 @@ body {
     padding-top:0px;
 
   }
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 }
 
 .region-highlighted {
@@ -308,11 +239,7 @@ tr.odd {
 
 div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
   margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
-<<<<<<< HEAD
-
-=======
   display: inline-block;
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   ul {
     margin-top: 0;
     margin-bottom: 0;
@@ -320,30 +247,20 @@ div.messages { /* Important messages (status, warning, and error) for the user. 
 }
 
 div.status { /* Normal priority messages */
-<<<<<<< HEAD
-=======
   background-color: $score-navbar-color;
   font-size: 0.8em;
   color: #ffffff;
   line-height: 1.4em;
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 }
 
 div.warning,
 tr.warning { /* Medium priority messages */
-<<<<<<< HEAD
-  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
-=======
   display:none;
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 }
 
 div.error,
 tr.error { /* High priority messages. See also the .error declaration below. */
-<<<<<<< HEAD
-=======
   display:none;
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 }
 
 .error { /* Errors that are separate from div.messages status messages. */
@@ -382,10 +299,7 @@ span.field-label { /* The inline field label used by the Fences module */
 
 .item-list .pager { /* A list of page numbers when more than 1 page of content is available */
   padding: 0;
-<<<<<<< HEAD
-=======
   margin-top:-15px;
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 
   li { /* Each page number in the pager list */
     padding: 0 0.5em;
@@ -406,11 +320,7 @@ span.field-label { /* The inline field label used by the Fences module */
  */
 
 .region-sidebar-first {
-<<<<<<< HEAD
-}
-=======
   }
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 
 /*
  * Second sidebar (on right in LTR languages, on left in RTL)
@@ -422,7 +332,6 @@ span.field-label { /* The inline field label used by the Fences module */
 .region-sidebar-second {
 }
 
-<<<<<<< HEAD
 /*
  * Footer
  */
@@ -436,7 +345,6 @@ span.field-label { /* The inline field label used by the Fences module */
 
 .region-bottom { /* Wrapper for any blocks placed in the page bottom region */
 }
-=======
 
 /*
  * Page bottom
@@ -633,4 +541,3 @@ a {
 
 
 
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
