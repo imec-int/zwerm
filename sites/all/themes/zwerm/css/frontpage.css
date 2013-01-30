@@ -9,18 +9,13 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 /* line 4, ../sass/frontpage.scss */
 .page-frontpage {
   background-color: #eeeeee;
 }
 /* line 7, ../sass/frontpage.scss */
 .page-frontpage .views-field-title {
-  font-family: romina;
+  font-family: "Romina";
   text-align: center;
 }
 @media all and (max-width: 629px) {

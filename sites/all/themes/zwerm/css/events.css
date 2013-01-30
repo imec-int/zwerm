@@ -9,11 +9,6 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 @media all and (min-width: 630px) {
   /* line 4, ../sass/events.scss */
   body.node-type-nodetype-event {
@@ -38,7 +33,7 @@ body.node-type-nodetype-event .submitted_on {
 }
 /* line 37, ../sass/events.scss */
 body.node-type-nodetype-event h1 {
-  font-family: Romina;
+  font-family: "Romina";
   padding-top: 10px;
   text-align: center;
 }

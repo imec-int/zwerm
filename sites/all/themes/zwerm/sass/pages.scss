@@ -8,6 +8,7 @@
  */
 
 @import "base";
+@import "fonts";
 
 //$header-color : #000000;
 //$team-blue-color : #79B1BD;
@@ -198,8 +199,7 @@ body {
 
   h1
   {
-    font-family: Romina;
-    //padding-top:$pages-title-top-padding;
+    font-family: "Romina";
     text-align: center;
   }
 
@@ -477,7 +477,7 @@ a {
   {
     h1
     {
-      font-family: romina;
+      font-family: "Romina";
       text-align: center;
       padding-top: $pages-title-top-padding;
     }
@@ -524,7 +524,7 @@ a {
   {
     h1
     {
-      font-family: romina;
+      //font-family: romina;
       text-align: center;
       //padding-top: $pages-title-top-padding;
     }
