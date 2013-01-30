@@ -49,13 +49,20 @@
   margin: 0 0 0 0;
 }
 
-.geochallenge-details {
+.geochallenge-details, .geochallenge-confirmation-details {
   margin: 20px 0 0 0;
   padding: 10px 10px 10px 10px;
   background-color: $score-navbar-color;
   font-size: 0.8em;
   color: #ffffff;
   line-height: 1.4em;
+
+  p {
+    margin: 0 0 10px 0;
+  }
+}
+
+.geochallenge-details {
   display: none;
 }
 
@@ -108,7 +115,7 @@
   }
 }
 
-.geochallenge-add-poi a {
+.geochallenge-add-poi a, .geochallenge-back-button a {
   display: block;
   background-color: $green-marking-color;
   text-align: center;
@@ -125,8 +132,11 @@
   }
 }
 
+.geochallenge-back-button {
+  display: none;
+}
+
 #block-formblock-poi {
-  //display: none;
   margin-top: -24px;
 }
 
@@ -162,5 +172,39 @@
 }
 
 .geofield-help {
+  display: none;
+}
+
+.geochallenge-confirmation-button-wrapper {
+  margin: 2px 0 25px 0;
+}
+
+.geochallenge-buttons {
+  width: 49%;
+  text-align: center;
+  padding: 8px 0;
+  margin: 10px 0 25px 0;
+}
+
+.geochallenge-buttons a {
+  font-family: Romina;
+  font-size: 1.4em;
+}
+
+.geochallenge-confirm-poi {
+  background-color: $green-marking-color;
+  float: left;
+}
+
+.geochallenge-reject-poi {
+  background-color: $team-red-color;
+  float: right;
+}
+
+.rules-link-poi_confirm_accept {
+  display: none;
+}
+
+.rules-link-poi_confirm_reject {
   display: none;
 }
