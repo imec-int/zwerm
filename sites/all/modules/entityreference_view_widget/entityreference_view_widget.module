@@ -47,8 +47,9 @@ function entityreference_view_widget_menu() {
  */
 function entityreference_view_widget_theme() {
   return array(
-    'entityreference_view_widget' => array(
+    'widget' => array(
       'render element' => 'form',
+      'template' => 'entityreference-view-widget',
     ),
     'entityreference_view_widget_selected_items' => array(
       'render element' => 'element',
@@ -77,6 +78,8 @@ function entityreference_view_widget_ajax() {
     unset($_POST['ajax_html_ids']);
   }
 
+  // Include the node.pages when processing the form
+  form_load_include($form_state, 'inc', 'node', 'node.pages');
   list($form, $form_state) = ajax_get_form();
   drupal_process_form($form['#form_id'], $form, $form_state);
 
@@ -207,13 +210,18 @@ function entityreference_view_widget_field_widget_form(&$form, &$form_state, $fi
   $view->set_display($target_view[1]);
   // If the widget has been rebuilt via #ajax, change the exposed filter and
   // pager values, if needed.
-  if (isset($form_state['values'][$field_name][$field_language])) {
+  $ajax = isset($form_state['values'][$field_name][$field_language]);
+  if ($ajax) {
     $values = $form_state['values'][$field_name];
     // Set exposed_raw_input and exposed_data just like views_exposed_form_submit() does.
     if (!empty($values['exposed_filters'])) {
       $exposed_input = $values['exposed_filters'];
       $view->exposed_raw_input = $exposed_input;
       $view->exposed_data = $exposed_input;
+      // Also set exposed_input, to prevent get_exposed_input() from using the
+      // previous outdated values
+      unset($exposed_input['submit']);
+      $view->exposed_input = $exposed_input;
     }
 
     // Only change the page if the rebuild wasn't triggered by an exposed filter,
@@ -230,11 +238,13 @@ function entityreference_view_widget_field_widget_form(&$form, &$form_state, $fi
   }
   $view->build();
   $view->execute($target_view[1]);
-  $output = $view->render();
+  // Display errors here if there is no full page build.
+  $output = $ajax ? theme('status_messages') : '';
+  $output .= $view->render();
 
   $element += array(
     '#element_validate' => array('entityreference_view_widget_validate'),
-    '#theme' => 'entityreference_view_widget',
+    '#theme' => 'widget',
     '#theme_wrappers' => array('fieldset'),
     '#attributes' => array('class' => array('entityreference-view-widget')),
   );
@@ -280,29 +290,63 @@ function entityreference_view_widget_field_widget_form(&$form, &$form_state, $fi
     '#submit' => array('entityreference_view_widget_exposed_filters_pager_submit'),
   );
 
-  // Add a list of selected items (each item is a full rendered entity).
-  if (!empty($selected_entity_ids)) {
-    $selected_entities = entity_load($entity_type, $selected_entity_ids);
-    $entity_view = entity_view($entity_type, $selected_entities, 'entityreference_view_widget');
-    $entity_view = reset($entity_view);
-    $i = 0;
-    foreach ($selected_entities as $entity_id => $entity) {
-      // Remove the checkbox placeholder, it's not needed in this context.
-      unset($entity_view[$entity_id]['entityreference_view_widget_action']);
+  if (!$view->display_handler->options['hide_left']) {
+    // Add a list of selected items (each item is a full rendered entity).
+    if (!empty($selected_entity_ids)) {
+      $selected_entities = entity_load($entity_type, $selected_entity_ids);
+      $entity_view = entity_view($entity_type, $selected_entities, 'entityreference_view_widget');
+      $entity_view = reset($entity_view);
+      $i = 0;
+      foreach ($selected_entities as $entity_id => $entity) {
+        // Remove the checkbox placeholder, it's not needed in this context.
+        unset($entity_view[$entity_id]['entityreference_view_widget_action']);
 
-      $entity_view[$entity_id]['_weight'] = array(
-        '#parents' =>  array($field_name, $field_language, 'items', $entity_id, '_weight'),
-        '#type' => 'weight',
-        '#title' => t('Weight for @title', array('@title' => entity_label($entity_type, $entity))),
-        '#title_display' => 'invisible',
-        '#delta' => count($selected_entities),
-        '#default_value' => $i,
+        $entity_view[$entity_id]['_weight'] = array(
+          '#parents' =>  array($field_name, $field_language, 'items', $entity_id, '_weight'),
+          '#type' => 'weight',
+          '#title' => t('Weight for @title', array('@title' => entity_label($entity_type, $entity))),
+          '#title_display' => 'invisible',
+          '#delta' => count($selected_entities),
+          '#default_value' => $i,
+        );
+        $entity_view[$entity_id]['remove'] = array(
+          '#parents' =>  array($field_name, $field_language, 'items', $entity_id, 'remove'),
+          '#type' => 'checkbox',
+          '#title' => t('Remove'),
+          '#weight' => -10,
+          '#refresh_items' => TRUE,
+          '#ajax' => array(
+            'path' => 'entityreference_view_widget/ajax/' . $field_name,
+            'wrapper' => 'edit-' . str_replace('_', '-', $field_name),
+            'method' => 'replace',
+            'progress' => array(
+              'type' => 'throbber',
+              'message' => '',
+            ),
+          ),
+        );
+        $i++;
+      }
+      $element['selected_items'] = $entity_view;
+      $element['selected_items']['#theme'] = 'entityreference_view_widget_selected_items';
+    }
+    else {
+      // Add empty text.
+      $element['selected_items'] = array(
+        '#markup' => t('No items have been selected.'),
       );
-      $entity_view[$entity_id]['remove'] = array(
-        '#parents' =>  array($field_name, $field_language, 'items', $entity_id, 'remove'),
+    }
+  }
+
+  // Create the checkboxes that will replace the placeholders in entities
+  // displayed through the view.
+  $substitutions = array();
+  $result_entities = $view->query->get_result_entities($view->result);
+  foreach ($result_entities[1] as $row_id => $entity) {
+    $entity_id = entity_id($entity_type, $entity);
+    if (!$view->display_handler->options['hide_left']) {
+      $element['add'][$entity_id] = array(
         '#type' => 'checkbox',
-        '#title' => t('Remove'),
-        '#weight' => -10,
         '#refresh_items' => TRUE,
         '#ajax' => array(
           'path' => 'entityreference_view_widget/ajax/' . $field_name,
@@ -314,37 +358,13 @@ function entityreference_view_widget_field_widget_form(&$form, &$form_state, $fi
           ),
         ),
       );
-      $i++;
     }
-    $element['selected_items'] = $entity_view;
-    $element['selected_items']['#theme'] = 'entityreference_view_widget_selected_items';
-  }
-  else {
-    // Add empty text.
-    $element['selected_items'] = array(
-      '#markup' => t('No items have been selected.'),
-    );
-  }
-
-  // Create the checkboxes that will replace the placeholders in entities
-  // displayed through the view.
-  $substitutions = array();
-  $result_entities = $view->query->get_result_entities($view->result);
-  foreach ($result_entities[1] as $row_id => $entity) {
-    $entity_id = entity_id($entity_type, $entity);
-    $element['add'][$entity_id] = array(
-      '#type' => 'checkbox',
-      '#refresh_items' => TRUE,
-      '#ajax' => array(
-        'path' => 'entityreference_view_widget/ajax/' . $field_name,
-        'wrapper' => 'edit-' . str_replace('_', '-', $field_name),
-        'method' => 'replace',
-        'progress' => array(
-          'type' => 'throbber',
-          'message' => '',
-        ),
-      ),
-    );
+    else {
+      $element['add'][$entity_id] = array(
+        '#type' => 'checkbox',
+        '#refresh_items' => TRUE,
+      );
+    }
     $substitutions[] = array(
       'placeholder' => '<!--entityreference-view-widget-action-' . $entity_id . '-->',
       'entity_id' => $entity_id,
@@ -359,11 +379,10 @@ function entityreference_view_widget_field_widget_form(&$form, &$form_state, $fi
 }
 
 /**
- * Theme function for the widget form.
+ * Implements hook_preprocess_HOOK().
  */
-function theme_entityreference_view_widget($variables) {
-
-    $form = $variables['form'];
+function entityreference_view_widget_preprocess_widget(&$variables) {
+  $form = $variables['form'];
 
   // Replace the placeholders in the view with actual checkboxes.
   $search = array();
@@ -375,50 +394,19 @@ function theme_entityreference_view_widget($variables) {
   }
   $form['view']['#markup'] = str_replace($search, $replace, $form['view']['#markup']);
 
-  // Create sections and arrange the form elements in them.
-  $form['left'] = array(
-    '#type' => 'container',
-    '#attributes' => array(
-      'class' => array('entityreference-view-widget-left')
-    ),
-  );
-  $form['left']['selected_items'] = $form['selected_items'];
-  $form['right'] = array(
-    '#type' => 'container',
-    '#attributes' => array(
-      'class' => array('entityreference-view-widget-right')
-    ),
-  );
-  $form['right']['top'] = array(
-    '#type' => 'container',
-    '#attributes' => array(
-      'class' => array('entityreference-view-widget-right-top')
-    ),
-    '#weight' => -1,
-  );
+  $variables['selected_items'] = drupal_render($form['selected_items']);
+  $variables['filters'] = drupal_render($form['filters']);
+  $variables['pager_submit'] = drupal_render($form['pager_submit']);
+  $variables['view'] = drupal_render($form['view']);
 
-  if (!empty($form['filters'])) {
-    $form['right']['top']['filters'] = $form['filters'];
-    $form['right']['top']['filters']['pager'] = $form['pager_submit'];
-  }
-  else {
-    $form['right']['top']['pager'] = $form['pager_submit'];
-  }
-
-  $form['right']['view'] = $form['view'];
-  $form['bottom'] = array(
-    '#markup' => '<div class="clearfix"></div>',
-  );
-
-  // Remove the elements that have been moved to appropriate sections.
   unset($form['filters']);
   unset($form['selected_items']);
   unset($form['view']);
   unset($form['pager_submit']);
 
-  // Render and add remaining form fields.
-  return drupal_render_children($form);
+  $variables['extra'] = drupal_render_children($form);
 }
+
 
 /**
  * Returns HTML for the selected entities (usually displaed in the left sidebar).

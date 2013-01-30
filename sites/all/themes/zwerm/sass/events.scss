@@ -1,0 +1,76 @@
+@import "base";
+
+body.node-type-nodetype-event
+{
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    background-color: $white-background-color;
+  }
+
+    p.submitted
+  {
+    display: none;
+  }
+
+  .submitted
+  {
+    .user-picture,
+    {
+      display:none;
+    }
+  }
+  .submitted_by,
+  {
+    .username
+    {
+      display:none;
+    }
+  }
+
+  .submitted_on
+  {
+    display:none;
+  }
+
+
+  h1
+  {
+    font-family: "Romina";
+    padding-top:$pages-title-top-padding;
+    text-align: center;
+  }
+
+  .field-type-datestamp
+  {
+    text-align: center;
+  }
+
+  .field-name-field-event-team
+  {
+    display:none;
+  }
+
+  .field-name-field-event-address
+  {
+    font-size:x-large;
+    margin-bottom:30px;
+    line-height: 1.5em;
+
+  }
+
+  .field-name-field-event-date
+  {
+    margin-top:5px;
+  }
+
+  span.locality
+  {
+    //margin-left:-17px;
+  }
+
+  #block-views-event-content-type-map-block-1
+  {
+    margin-bottom: 10px;
+  }
+
+}

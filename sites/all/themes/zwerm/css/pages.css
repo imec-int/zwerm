@@ -1,34 +1,13 @@
 /*
-Syntax error: File to import not found or unreadable: fonts.
-              Load paths:
-                /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass
-                /usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/blueprint/stylesheets
-                /usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets
-                /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass-extensions/zen-grids/stylesheets
-                Compass::SpriteImporter
+Syntax error: Invalid CSS after "@import "base";": expected selector or at-rule, was "<<<<<<< HEAD"
         on line 11 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/pages.scss
 
 Backtrace:
 /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/pages.scss:11
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/import_node.rb:64:in `rescue in import'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/import_node.rb:42:in `import'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/import_node.rb:25:in `imported_file'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:227:in `rescue in visit_import'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:232:in `visit_import'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:28:in `parse'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:342:in `_to_tree'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
 /usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
@@ -43,15 +22,14 @@ Backtrace:
 /usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
 /usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
 /usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:95:in `block (4 levels) in perform'
 /Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `call'
 /Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
 /Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:39:in `delete'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:32:in `block in deleted'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:31:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:31:in `deleted'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:16:in `refresh'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `block in modified'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `each'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
 /Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
 /Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `each'
 /Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block in run'
@@ -73,4 +51,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: fonts.\A               Load paths:\A                 /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass\A                 /usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/blueprint/stylesheets\A                 /usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets\A                 /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass-extensions/zen-grids/stylesheets\A                 Compass::SpriteImporter\A         on line 11 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/pages.scss"; }
+  content: "Syntax error: Invalid CSS after \"@import \"base\";\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 11 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/pages.scss"; }

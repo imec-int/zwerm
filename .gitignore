@@ -6,7 +6,6 @@ etc
 logs
 tmp
 .DS_Store
-.idea
 .sass-cache
 gitPush
 
@@ -21,14 +20,13 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 
-#Ignore osX specific files
+
+#Ignore osX specific files 
 .DS_Store
 .idea
 gitPush
 __MACOSX/
+.idea/workspace.xml
 
-#Theme-related
 */.sass-cache/*
 sites/all/themes/zwerm/.sass-cache/
-
-

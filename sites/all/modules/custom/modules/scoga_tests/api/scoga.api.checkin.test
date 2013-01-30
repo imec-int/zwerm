@@ -1,0 +1,92 @@
+<?php
+    /**
+     * Camille Reynders, http://www.creynders.be
+     * 09/08/12 - 12:08
+     */
+    module_load_include( 'api.checkin.inc', 'scoga', 'api/scoga' );
+
+    class ScogaAPICheckinTestCaseCaseCase extends UnitTestCase {
+        public function getInfo(){
+            return array(
+                'name'        => 'SCOGA checkin test case',
+                'description' => 'SCOGA checkin test case',
+                'group'       => 'SCOGA',
+            );
+        }
+
+        public function setUp() {
+            parent::setUp( array( 'scoga','user_relationships' ) );
+        }
+
+        private function createCheckinNode(){
+            $settings = array(
+                'type' => SCOGA_CHECKIN_NODETYPE,
+            );
+            $created_node = $this->drupalCreateNode( $settings );
+            return $created_node;
+        }
+
+        private function createCheckinNodesList( $num_of_nodes = 5 ){
+            $nodes = array();
+            $nids = array();
+            $n = $num_of_nodes;
+            for( $i = 0; $i < $n; $i++ ){
+                $node = $this->createCheckinNode();
+                $nodes[] = $node;
+                $nids[] = $node->nid;
+            }
+            return array(
+                'nodes' => $nodes,
+                'nids' => $nids,
+            );
+        }
+
+        public function test_scoga_get_last_checkintime_of_player(){
+
+            //setup
+            $created_node = $this->createCheckinNode();
+
+            //test
+            $checkin_time = scoga_get_last_checkintime_of_player( $created_node->uid );
+            $this->assertIdentical( $checkin_time, $created_node->created );
+
+            //teardown
+            node_delete( $created_node->nid );
+        }
+
+        public function test_scoga_get_checkin_node_by_index(){
+            $num_of_nodes = 5;
+            $index = 1;
+
+            //setup
+            $list = $this->createCheckinNodesList( $num_of_nodes );
+
+            //test it should work with positive indices
+            $loaded_node = scoga_get_checkin_node_by_index( $index );
+            $created_node = $list[ 'nodes' ][ $index ];
+            $this->assertEqual( $created_node->nid, $loaded_node->nid );
+
+            //test it should work with DESC too
+           $loaded_node = scoga_get_checkin_node_by_index( $index, 'DESC' );
+            $created_node = $list[ 'nodes' ][ ( $num_of_nodes -1 ) - $index ];
+            $this->assertEqual( $created_node->nid, $loaded_node->nid );
+
+            //teradwon
+            node_delete_multiple( $list[ 'nids' ] );
+        }
+
+        public function test_scoga_create_combocheckin_relationship_type(){
+            global $user;
+
+            //setup
+            $iteration = 'test_' . time();
+
+            //test it creates a combocheckin relationship type
+            $relationship_type = scoga_create_combocheckin_relationship_type( $iteration );
+            $this->assertNotNull( $relationship_type );
+            $this->assertNotNull( $relationship_type->rtid );
+
+            //teardown
+            user_relationships_type_delete( $relationship_type->rtid );
+        }
+    }

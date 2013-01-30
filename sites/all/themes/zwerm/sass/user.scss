@@ -1,0 +1,81 @@
+@import "base";
+
+.page-user
+{
+  .tabs, #select_list, h3, dl, #content .tabs
+  {
+    display: none;
+  }
+
+  a
+  {
+    color:black;
+  }
+
+  .field-name-field-user-firstname,.field-name-field-user-surname
+  {
+    display:none;
+  }
+
+  .comment
+  {
+    .field-name-field-user-firstname,.field-name-field-user-surname
+    {
+      display:block;
+    }
+  }
+
+
+
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    a.privatemsg-send-link
+    {
+      color: $green-marking-color;
+    }
+  }
+
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    a.privatemsg-send-link
+    {
+      color:$white-background-color;
+    }
+  }
+
+  .user-picture
+  {
+    float: left;
+    padding-right: 10px;
+  }
+
+  .profile {
+    margin-left: 4%;
+  }
+
+  .privatemsg-send-link.privatemsg-send-link-profile {
+    display: inline-block;
+  }
+
+  .field.field-name-field-user-firstname.field-type-text.field-label-hidden {
+    float: left;
+    padding-right: 4px;
+  }
+
+  li
+  {
+    list-style-type: none;
+  }
+
+  .item-list
+  {
+    padding-top: 25px;
+    display:block
+  }
+
+  ul.userpoints-points
+  {
+    margin-left: 80px;
+    margin-top: -24px;
+  }
+}

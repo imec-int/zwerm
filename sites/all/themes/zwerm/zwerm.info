@@ -12,8 +12,14 @@
 ; page at admin/appearance.
 
 screenshot  = screenshot.png
+<<<<<<< HEAD
 name        = Zwerm Scoga Theme
 description = Theme for the Zwerm implementation of Scoga
+=======
+name        = Zwerm Scoga theme
+description = A Zen sub-theme for the Zwerm instance of Scoga
+
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 
 ; This theme is compatible with Drupal 7 core. And it is a sub-theme of Zen.
 
@@ -46,6 +52,7 @@ base theme  = zen
 stylesheets[all][] = system.menus.css
 
 ; Then we add our own stylesheets.
+<<<<<<< HEAD
 stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/wireframes.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
@@ -55,11 +62,49 @@ stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/blocks.css
 stylesheets[all][] = css/navigation.css
 stylesheets[all][] = css/views-styles.css
+=======
+
+;stylesheets[all][] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.css
+stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/wireframes.css
+stylesheets[all][] = css/page-backgrounds.css
+stylesheets[all][] = css/pages.css
+stylesheets[all][] = css/team-score.css
+stylesheets[all][] = css/messages-new.css
+stylesheets[all][] = css/frontpage.css
+stylesheets[all][] = css/team-view.css
+stylesheets[all][] = css/blocks.css
+stylesheets[all][] = css/navigation.css
+stylesheets[all][] = css/views-styles.css
+stylesheets[all][] = css/players-per-team.css
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 stylesheets[all][] = css/nodes.css
 stylesheets[all][] = css/comments.css
 stylesheets[all][] = css/forms.css
 stylesheets[all][] = css/fields.css
 stylesheets[all][] = css/print.css
+<<<<<<< HEAD
+=======
+stylesheets[all][] = css/not-checkin.css
+stylesheets[all][] = css/events.css
+stylesheets[all][] = css/score-nav.css
+stylesheets[all][] = css/tabs.css
+stylesheets[all][] = css/login.css
+stylesheets[all][] = css/user.css
+stylesheets[all][] = css/layouts/responsive-sidebars.css
+stylesheets[all][] = css/wish.css
+stylesheets[all][] = css/poll.css
+stylesheets[all][] = css/messages.css
+stylesheets[all][] = css/play.css
+stylesheets[all][] = css/recent-points.css
+stylesheets[all][] = css/geochallenges.css
+
+
+
+
+
+;stylesheets[all][] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.css
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
 ; Instead, Zen now adds conditional-comment-included classes to the html
@@ -75,7 +120,13 @@ stylesheets[all][] = css/print.css
 
 ; Optionally add some JavaScripts to your theme.
 
+<<<<<<< HEAD
 ;scripts[] = js/script.js
+=======
+scripts[] = js/script.js
+;scripts[] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.js
+;scripts[] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.js
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 
 
 

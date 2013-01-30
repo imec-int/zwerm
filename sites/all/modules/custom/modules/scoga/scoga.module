@@ -1,0 +1,277 @@
+<?php
+    /**
+     * All hooks are placed in this file.
+     * They relay their calls to appropriate handlers, which are declared in the /restricted directory
+     *
+     * For instance: if you want to use hook_node_insert
+     * 1. declare a function <code>scoga_node_insert</code> inside this file
+     * 2. create a /restricted/scoga.node.inc file (it's called scoga.node.inc, since the hook is invoked from the node module,
+     * consequently if you declare a user_relationships hook you create a file /restricted/scoga.user_relationships.inc)
+     * 3. declare a function <code>scoga_handle_node_insert</code> inside the scoga.node.inc file
+     * 4. inside the <code>scoga_node_insert</code> function include the scoga.node.inc file and call the handler function:
+     * <code>
+    module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+    scoga_handle_node_insert( $node );
+     * </code>
+     *
+     * the handler is always called : scoga_handle_<hookname>
+     *
+     *
+     * Benefits:
+     * 1/ all hook implementations are centralized inside one file (scoga.module) which gives a very clean overview of all the hooks used. Also, it allows for easy switching on and off of hooks
+     * 2/ only the appropriate files are parsed and processed -> better execution times
+     * 3/ by structuring the handlers inside scoga.<module>.inc files, it allows for fast look ups of hook handlers.
+     * No need to search where a function is defined.
+     * 4/ avoids turning scoga.module to one, huge, monolithic code repository
+     *
+     * User: creynder
+     * Date: 12/04/12
+     * Time: 10:19
+     * To change this template use File | Settings | File Templates.
+     */
+
+
+    module_load_include( 'api.constants.inc', 'scoga', 'api/scoga' );
+    module_load_include( 'api.inc', 'scoga', 'api/scoga' );
+    module_load_include( 'services.inc', 'scoga', 'restricted/scoga' ); // DO NOT REMOVE: otherwise service resources go to schrödinger state: i.e. they exist and do not exist at the same time
+
+
+    /**
+     * implements hook_install
+     */
+    function scoga_install(){
+        module_load_include( 'install.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_install();
+    }
+
+    /**
+     * implements hook_uninstall
+     */
+    function scoga_uninstall(){
+        module_load_include( 'install.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_uninstall();
+    }
+
+    /**
+     * Implements hook_services_resources().
+     */
+
+    function scoga_services_resources(){
+        module_load_include( 'services.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_services_resources();
+    }
+
+    /**
+     * implement hook_menu()
+     */
+
+    function scoga_menu(){
+        module_load_include( 'menu.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_menu();
+    }
+
+
+    /**
+     * implement hook_cron
+     */
+    function scoga_cron(){
+        module_load_include( 'cron.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_cron();
+    }
+
+    /**
+     * implements hook_scoga_current_campaign_started
+     * @param $new_nid
+     */
+    function scoga_scoga_current_campaign_started( $new_nid ){
+        module_load_include( 'scoga.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_scoga_current_campaign_started( $new_nid );
+    }
+    /**
+     * implements hook_scoga_current_campaign_finished
+     * @param $new_nid
+     */
+    function scoga_scoga_current_campaign_finished( $old_nid ){
+        module_load_include( 'scoga.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_scoga_current_campaign_finished( $old_nid );
+    }
+
+
+//    /**
+//     * implements hook_user_insert
+//     * @param $edit
+//     * @param $account
+//     * @param $category
+//     */
+//    function scoga_user_insert(&$edit, $account, $category){
+//        module_load_include( 'user.inc', 'scoga', 'restricted/scoga' );
+//        scoga_handle_user_insert( $account );
+//    }
+
+
+    /**
+     * Implements hook_permission().
+     */
+    function scoga_permission(){
+        module_load_include( 'permission.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_permission();
+    }
+
+    /**
+     * implements hook_form_FORM_ID_alter
+     * @param $form
+     * @param $form_state
+     * @param $form_id
+     */
+    function scoga_form_nodetype_wished_item_node_form_alter( &$form, $form_state, $form_id ){
+        module_load_include( 'form.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_form_nodetype_wished_item_node_form_alter( $form, $form_state, $form_id );
+    }
+
+
+
+    /**
+     * implements hook_form_FORM_ID_alter
+     *
+     * @param $form
+     * @param $form_state
+     * @param $form_id
+     */
+    function scoga_form_nodetype_wish_fulfilled_node_form_alter( &$form, $form_state, $form_id ){
+        module_load_include( 'form.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_form_nodetype_wish_fulfilled_node_form_alter( $form, $form_state, $form_id );
+    }
+
+    /**
+     * implements hook_node_insert
+     * @param $node
+     */
+    function scoga_node_insert($node){
+        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_node_insert( $node );
+    }
+
+
+    /**
+     * implements hook_node_update
+     * @param $node
+     */
+    function scoga_node_update( $node ){
+        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_node_update( $node );
+    }
+
+    /**
+     * implements hook_node_delete
+     * @param $node
+     */
+    function scoga_node_delete( $node ){
+        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_node_delete( $node );
+    }
+
+    /**
+     * implements hook_variable_group_info
+     * @return array
+     */
+    function scoga_variable_group_info(){
+        module_load_include( 'variable.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_variable_group_info();
+    }
+
+    /**
+     * implements hook_variable_info
+     * @param $options
+     * @return array
+     */
+    function scoga_variable_info( $options ){
+        module_load_include( 'variable.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_variable_info( $options );
+    }
+
+    /**
+     * implements hook_variable_type_info
+     * @return array
+     */
+    function scoga_variable_type_info(){
+        module_load_include( 'variable.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_variable_type_info();
+    }
+
+    /**
+     * implements hook_theme
+     * @param $existing
+     * @param $type
+     * @param $theme
+     * @param $path
+     * @return array
+    */
+    function scoga_theme($existing, $type, $theme, $path)
+    {
+        module_load_include( 'theme.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_theme($existing, $type, $theme, $path);
+    }
+
+    /**
+     * implements hook_points, see userpoints/README.txt
+     * @param String $op
+         'setting'
+           Pass a field set and fields that would be displayed in the userpoints
+           settings page. For example, this can be used for your program to ask
+           the admin to set a number of points for certain actions your module
+           performs. The function should return an array object conforming to
+           FormsAPI structure.
+
+         'points before'
+           Calls your module, and others, before the points are processed. You can
+           prevent points from being awarded by returning FALSE.
+
+         'points after'
+           Calls your module, and others, after points are processed. You can take
+           certain actions if you so wish. Return value is ignored.
+     * @param array $params the original $params array as sent to userpoints_userpointsapi
+     *    'points' => # of points (int) (required)
+     *    'moderate' => TRUE/FALSE
+     *    'uid' => $user->uid
+     *    'time_stamp' => unix time of the points assignment date
+     *    'operation' => 'published' 'moderated' etc.
+     *    'tid' => 'category ID'
+     *    'expirydate' => timestamp or 0, 0 = non-expiring; NULL = site default
+     *    'description' => 'description'
+     *    'reference' => reserved for module specific use
+     *    'display' => whether or not to display "points awarded" message
+     *    'txn_id' => Transaction ID of points, If present an UPDATE is performed
+     *    'entity_id' => ID of an entity in the Database. ex. $node->id or $user->uid
+     *    'entity_type' => string of the entity type. ex. 'node' or 'user' NOT 'node-content-custom'
+
+     */
+    function scoga_userpoints($op, $params = array()){
+        module_load_include( 'userpoints.inc', 'scoga', 'restricted/scoga' );
+
+        switch( $op ){
+            case 'points after':
+                scoga_handle_userpoints_after( $params );
+                break;
+        }
+
+    }
+
+
+    /**
+     * implements hook_poll_save_vote hack
+     * @param $poll_node
+     * @param $choice
+     */
+    function scoga_poll_save_vote( $poll_node, $choice ){
+        module_load_include( 'poll.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_poll_save_vote( $poll_node, $choice );
+    }
+
+    /**
+     * implements hook_poll_cancel_vote hack
+     * @param $poll_node
+     */
+    function scoga_poll_cancel_vote( $poll_node ){
+        module_load_include( 'poll.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_poll_cancel_vote( $poll_node );
+    }

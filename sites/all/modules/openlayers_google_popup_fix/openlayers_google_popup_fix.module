@@ -1,0 +1,31 @@
+<?php
+/**
+ * Implementation of hook_block_info().
+ */
+function openlayers_google_popup_fix_block_info() {
+  $blocks['openlayers-google-popup-fix'] = array(
+    'info' => t('openlayers-google-popup-fix'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implementation of hook_block_view().
+ */
+function openlayers_google_popup_fix_block_view($delta = '') {
+  switch ($delta) {
+    case 'openlayers-google-popup-fix':
+      $block = array(
+        'content' => array(
+          '#attached' => array(
+            'js' => array(
+              drupal_get_path('module', 'openlayers_google_popup_fix') . '/js/openlayers_google_popup_fix.js',
+            ),
+          ),
+        ),
+      );
+      break;
+  }
+  return $block;
+}
+

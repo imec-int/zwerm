@@ -75,7 +75,9 @@ function content_type_groups_menu() {
  * Changes the node type references for content type groups.
  */
 function content_type_groups_node_type_update($info) {
-  ContentTypeGroup::renameContentType($info->old_type, $info->type);
+  if (isset($info->old_type)) {
+    ContentTypeGroup::renameContentType($info->old_type, $info->type);
+  }
 }
 
 /**

@@ -457,7 +457,7 @@ input.form-submit { margin:0 10px 0 0; }
 */
 ul.social-bookmarks { margin:0; padding:0; }
 
-ul.social-bookmarks li {display:inline-block; float:left; list-style-type:none; margin:0; cursor:pointer; }
+ul.social-bookmarks li {display:inline-block; float:left; list-style-type:none; margin:0; }
 
 ul.social-bookmarks li a { display:inline-block; width:25px; height:24px; padding:0 3px;  margin:0 auto; text-align:center; overflow:hidden; outline:none; }
 

@@ -1,25 +1,72 @@
-/**
- * @file
- * RTL companion for the navigation.css file.
- */
+/*
+Syntax error: Invalid CSS after "...-for-ie8: true;": expected selector or at-rule, was "<<<<<<< HEAD"
+        on line 30 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss
+        from line 6 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation-rtl.scss
 
-
-ul li.collapsed {
-  *list-style-image: url(../images/menu-collapsed-rtl.png);
-  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABNJREFUCB1j4GASYFJgcmD+A4IADUIDfIUMT4wAAAAASUVORK5CYII=');
-}
-
-#navigation ul.links, /* Main menu and secondary menu links */
-#navigation ul.menu { /* Menu block links */
-  text-align: right;
-}
-
-#navigation ul.links li,
-#navigation ul.menu li { /* A simple method to get navigation links to appear in one line. */
-  float: right;
-  padding: 0 0 0 10px;
-}
-
-#secondary-menu {
-  float: left;
-}
+Backtrace:
+/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss:30
+/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation-rtl.scss:6
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:28:in `parse'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:342:in `_to_tree'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:274:in `to_tree'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:222:in `visit_import'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `call'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `block in modified'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `each'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `each'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block in run'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `loop'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `run'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/monitor.rb:26:in `run'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm.rb:70:in `monitor'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
+/usr/local/bin/compass:23:in `load'
+/usr/local/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...-for-ie8: true;\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 30 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss\A         from line 6 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation-rtl.scss"; }

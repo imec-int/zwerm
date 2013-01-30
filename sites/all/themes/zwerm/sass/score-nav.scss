@@ -1,0 +1,88 @@
+@import "base";
+
+#score_nav_bar
+{
+  background-color: $footer-color;
+  width:100%;
+  //float: left;
+  height:$score-navbar-height;
+
+
+  ul
+  {
+    width:99%;
+    height: $score-navbar-height;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+
+  li
+  {
+    font-size: small;
+    background-color: $score-navbar-color ;
+    //padding-right: 1px;
+    list-style-type: none;
+    display:block;
+    float:left;
+    height:50px;
+    width:32%;
+    margin-left: 1px;
+    margin-right: 1px;
+
+    a
+    {
+      color:$score-navbar-non-active-link-color;
+      display:block;
+      //margin-left: auto;
+      //margin-right: auto;
+      text-align:center;
+      width:99%;
+      padding-top: 13px;
+
+    }
+
+    a.active
+    {
+      color:white;
+    }
+
+  }
+}
+
+@media all and (max-width: $end_of_small_viewport)
+{
+  #score_nav_bar
+  {
+    li
+    {
+      height:30px;
+      margin-top:19px;
+      a
+      {
+        padding-top: 3px;
+      }
+    }
+
+    ul
+    {
+      margin-top: -7px;
+    }
+  }
+}
+
+@media all and (min-width: $start_of_large_viewport)
+{
+  #score_nav_bar
+  {
+    li
+    {
+      margin-top:5px;
+    }
+  }
+
+}
+

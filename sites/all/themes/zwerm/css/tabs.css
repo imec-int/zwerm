@@ -1,153 +1,54 @@
-/**
- * @file
- * Tabs Styling
- *
- * Adds styles for the primary and secondary tabs.
- *
- * Compare this with default CSS found in the system module's stylesheet (a copy
- * of which is in drupal7-reference.css.)
- */
-
-
 /*
- * Basic positioning styles shared by primary and secondary tabs.
- */
+Syntax error: Invalid CSS after "@import "base";": expected selector or at-rule, was "<<<<<<< HEAD"
+        on line 13 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/tabs.scss
 
-ul.primary,
-ul.secondary {
-  overflow: hidden;
-  *zoom: 1;
-  border-bottom: 1px solid #bbbbbb;
-  list-style: none;
-  margin: 1em 0 1.5em;
-  padding: 0 2px;
-  white-space: nowrap;
-}
-
-ul.primary li,
-ul.secondary li {
-  float: left; /* LTR */
-  margin: 0.5em 3px 0;
-}
-
-ul.primary a,
-ul.secondary a {
-  border: 1px solid #e9e9e9;
-  border-right: 0;
-  border-bottom: 0;
-  display: block;
-  line-height: 1.5em;
-  text-decoration: none;
-}
-
-/*
- * Primary tabs
- */
-
-ul.primary li {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  -ms-border-top-left-radius: 4px;
-  -o-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  -ms-border-top-right-radius: 4px;
-  -o-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  text-shadow: white 1px 1px 0;
-  border: 1px solid #bbbbbb;
-  border-bottom: 0;
-  margin: 0.5em 0 0 3px; /* LTR */
-}
-
-ul.primary li.active {
-  border-bottom: 1px solid white;
-  margin-bottom: -1px; /* Overlap the ul's border. */
-}
-
-ul.primary a:link,
-ul.primary a:visited {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  -ms-border-top-left-radius: 4px;
-  -o-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  -ms-border-top-right-radius: 4px;
-  -o-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -webkit-transition: background-color 0.3s;
-  -moz-transition: background-color 0.3s;
-  -ms-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  color: #333;
-  background-color: #dedede;
-  letter-spacing: 1px;
-  padding: 0 1em;
-  text-align: center;
-}
-
-ul.primary a:hover,
-ul.primary a:focus {
-  background-color: #e9e9e9;
-  border-color: #f2f2f2;
-}
-
-ul.primary a.active {
-  background-color: transparent;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#00E9E9E9');
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e9e9), color-stop(100%, rgba(233, 233, 233, 0)));
-  background-image: -webkit-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
-  background-image: -moz-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
-  background-image: -o-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
-  background-image: -ms-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
-  background-image: linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
-  border-color: #fff;
-}
-
-/*
- * Secondary tabs
- */
-
-ul.secondary {
-  font-size: .9em;
-  margin-top: -1.5em; /* Collapse bottom margin of ul.primary. */
-  padding-bottom: .5em;
-}
-
-ul.secondary a:link,
-ul.secondary a:visited {
-  -webkit-border-radius: 0.75em;
-  -moz-border-radius: 0.75em;
-  -ms-border-radius: 0.75em;
-  -o-border-radius: 0.75em;
-  border-radius: 0.75em;
-  -webkit-transition: background-color 0.3s;
-  -moz-transition: background-color 0.3s;
-  -ms-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  text-shadow: white 1px 1px 0;
-  background-color: #f2f2f2;
-  color: #666;
-  padding: 0 .5em;
-}
-
-ul.secondary a:hover,
-ul.secondary a:focus {
-  background-color: #dedede;
-  border-color: #999;
-  color: #333;
-}
-
-ul.secondary a.active,
-ul.secondary a:active {
-  text-shadow: #333333 1px 1px 0;
-  background-color: #666;
-  border-color: #000;
-  color: #fff;
-}
+Backtrace:
+/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/tabs.scss:13
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:28:in `parse'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:342:in `_to_tree'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
+/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `call'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `block in modified'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `each'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `each'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block in run'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `loop'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `run'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/monitor.rb:26:in `run'
+/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm.rb:70:in `monitor'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
+/usr/local/bin/compass:23:in `load'
+/usr/local/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"@import \"base\";\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 13 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/tabs.scss"; }

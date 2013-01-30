@@ -1,0 +1,91 @@
+@import "base";
+
+@media all and (max-width: 481px) {
+  .page-team3 .views-field-title-1
+  {
+    font-family: Romina;
+    font-size: x-large;
+  }
+}
+
+@media all and (min-width: 482px) {
+  .views-field-title, .views-field-title-1
+  {
+    font-family: Romina;
+    font-size: xx-large;
+  }
+}
+
+@media all and (min-width: $start_of_large_viewport)
+{
+  //te make footer not overlap with text
+  .view
+  {
+    margin-bottom: $nav_height_large_viewport+10 ;
+  }
+}
+
+.page-team, body.page-team3
+{
+  background-color: $white-background-color;
+
+  .views-field-title, .views-field-title-1
+  {
+    //font-family: Romina;
+    //font-size: xx-large;
+  }
+
+  .views-field-nothing
+  {
+    display:block;
+  }
+
+  .field-name-field-team-image
+  {
+    display: inline;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .views-row
+  {
+    padding-top:35px;
+    padding-left:25px;
+  }
+
+  .color-79b1bd
+  {
+    background-color: #79b1bd;
+    @include team-members-button;
+  }
+
+  .color-dc6058
+  {
+    background-color: #dc6058;
+    @include team-members-button;
+  }
+
+  .points
+  {
+    color:$team-overview-score-color;
+  }
+}
+
+.page-team
+{
+  .field-type-text-with-summary
+  {
+    padding-top: 123px;
+  }
+}
+
+.page-team3
+ {
+   .field-type-text-with-summary
+   {
+     padding-top: 28px;
+   }
+ }
+
+
+

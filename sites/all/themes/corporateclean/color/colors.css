@@ -3,11 +3,13 @@
 body { color: #7a7a7a; background:#1a1a1a; }
 
 a, li a.active,
-#footer a:hover, #footer li a.active:hover, #footer-bottom a:hover, #foote-bottom li a.active:hover,
+#footer a:hover, #footer li a.active:hover, #footer-bottom a:hover, #footer-bottom li a.active:hover,
 #header a, #header-menu ul.menu li a:hover, #header-menu ul.menu li a.active, #header-menu ul.menu li ul.menu li a:hover,
 .front .node h1.front-heading { color:#1487d4; }
 
-#header-menu a, #header-menu ul.menu li a, #footer a, #footer li a.active, #footer-bottom a, #footer-bottom li a.active { color:#ffffff; }
+#header-menu a, #header-menu ul.menu li a { color:#ffffff; }
+
+#footer a, #footer li a.active, #footer-bottom a, #footer-bottom li a.active { color:#e4e4e4; }
 
 h1, h2, h3, h4, h5, h6 { color:#1487d4; text-shadow: 1px 1px 1px #eaf1ea; }
 

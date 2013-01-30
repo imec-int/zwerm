@@ -18,16 +18,16 @@ function node_export_drush_command() {
       'nids' => "A list of space-separated node IDs to export.",
     ),
     'options' => array(
-      '--file' => "The filename of the output file.  If supplied, the node code will be exported to that file, otherwise it will export to stdout.",
-      '--format' => "If supplied, node code will be output using a particular export format, if available. (e.g. serialize)",
-      '--status' => "Filter for 'status'; A boolean value (0 or 1) indicating whether the node is published (visible to non-administrators).",
-      '--promote' => "Filter for 'promote'; A boolean value (0 or 1) indicating whether the node should be displayed on the front page.",
-      '--sticky' => "Filter for 'sticky'; A boolean value (0 or 1) indicating whether the node should be displayed at the top of lists in which it appears.",
-      '--translate' => "Filter for 'translate'; A boolean value (0 or 1) indicating whether the node translation needs to be updated.",
-      '--language' => "Filter for 'language'; The language code (e.g. de or en-US) of this node.",
-      '--type' => "Filter for 'type'; The machine-readable name (e.g. story or page) of the type of this node.",
-      '--sql' => "Filter by SQL (EXPERIMENTAL); An SQL query string that returns nids (e.g. \"SELECT nid FROM nodes WHERE nid < 10\").",
-      '--code' => "Filter by PHP code (EXPERIMENTAL); PHP code that prints or returns, an array or CSV string of nids (e.g. \"custom_get_my_nids();\"). Don't include PHP tags.",
+      'file' => "The filename of the output file.  If supplied, the node code will be exported to that file, otherwise it will export to stdout.",
+      'format' => "If supplied, node code will be output using a particular export format, if available. (e.g. serialize)",
+      'status' => "Filter for 'status'; A boolean value (0 or 1) indicating whether the node is published (visible to non-administrators).",
+      'promote' => "Filter for 'promote'; A boolean value (0 or 1) indicating whether the node should be displayed on the front page.",
+      'sticky' => "Filter for 'sticky'; A boolean value (0 or 1) indicating whether the node should be displayed at the top of lists in which it appears.",
+      'translate' => "Filter for 'translate'; A boolean value (0 or 1) indicating whether the node translation needs to be updated.",
+      'language' => "Filter for 'language'; The language code (e.g. de or en-US) of this node.",
+      'type' => "Filter for 'type'; The machine-readable name (e.g. story or page) of the type of this node.",
+      'sql' => "Filter by SQL (EXPERIMENTAL); An SQL query string that returns nids (e.g. \"SELECT nid FROM nodes WHERE nid < 10\").",
+      'code' => "Filter by PHP code (EXPERIMENTAL); PHP code that prints or returns, an array or CSV string of nids (e.g. \"custom_get_my_nids();\"). Don't include PHP tags.",
     ),
     'examples' => array(
       'drush node-export-export 45 46 47 --file=filename' =>
@@ -40,8 +40,8 @@ function node_export_drush_command() {
     'callback' => 'drush_node_export_callback_import',
     'description' => "Import nodes previously exported with Node export.",
     'options' => array(
-      '--uid' => "User ID of user to save nodes as. If not given will use the user with an ID of 1. You may specify 0 for the Anonymous user.",
-      '--file' => "The filename of the input file.  If supplied, the node code will be imported from that file, otherwise it will import to stdin.",
+      'uid' => "User ID of user to save nodes as. If not given will use the user with an ID of 1. You may specify 0 for the Anonymous user.",
+      'file' => "The filename of the input file.  If supplied, the node code will be imported from that file, otherwise it will import to stdin.",
     ),
     'examples' => array(
       'drush node-export-import --file=filename' =>

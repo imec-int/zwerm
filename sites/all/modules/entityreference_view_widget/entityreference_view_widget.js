@@ -7,7 +7,7 @@
       // When a pager link is clicked, store its 'page' value in a hidden
       // form element, and submit the form via ajax to trigger the rebuild.
       $('ul.pager a', context).click(function(event) {
-        var match = this.href.match(/page=(.*)/);
+        var match = this.href.match(/page=([0-9]*)/);
         var page = 0;
         if (match) {
           var page = match[1];
@@ -19,7 +19,7 @@
         event.preventDefault();
       });
     }
-  }
+  };
 
   /**
    * Custom tableDrag behavior for the widget.
@@ -32,7 +32,7 @@
       }
 
       // Hide the "Show row weights" link.
-      $('.entityreference-view-widget-left .tabledrag-toggle-weight').hide();
+      $('.entityreference-view-widget .widget-left .tabledrag-toggle-weight').hide();
 
       // Remove the message that gets added before the table after a row
       // has been dragged. Unfortunatelly, this will remove the message

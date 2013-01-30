@@ -255,11 +255,7 @@ function panels_flexible_panels($display, $settings, $layout) {
   $items = array();
   panels_flexible_convert_settings($settings, $layout);
   foreach ($settings['items'] as $id => $item) {
-    // Remove garbage values.
-    if (!isset($item['type'])) {
-      unset($items[$id]);
-    }
-    else if ($item['type'] == 'region') {
+    if ($item['type'] == 'region') {
       $items[$id] = $item['title'];
     }
   }

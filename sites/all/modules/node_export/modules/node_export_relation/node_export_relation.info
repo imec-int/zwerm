@@ -1,11 +1,12 @@
-name = Node export relation
-description = Helps maintain relationships between nodes.  Supports node references and organic groups.
+name = Node export relation (deprecated)
+description = Helps maintain relationships.  Supports node references, taxonomy, and organic groups.
 dependencies[] = node_export
+dependencies[] = uuid
 core = 7.x
 package = "Node export"
-; Information added by drupal.org packaging script on 2012-01-13
-version = "7.x-3.x-dev"
+; Information added by drupal.org packaging script on 2012-06-28
+version = "7.x-3.0-rc3+38-dev"
 core = "7.x"
 project = "node_export"
-datestamp = "1326415347"
+datestamp = "1340886846"
 

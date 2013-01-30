@@ -1,0 +1,10 @@
+<?php
+/**
+ * User: creynder
+ * Date: 06/08/12
+ * Time: 10:32
+ */
+
+    function scoga_tests_node_insert( $node ){
+        //dd( $node, 'NODE CREATED !!' );
+    }

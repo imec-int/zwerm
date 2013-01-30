@@ -1,0 +1,168 @@
+<?php
+
+    module_load_include('test', 'simpletest_clone');
+
+    /* ***********************************************************************************************/
+    /* THIS TEST RUNS ON LIVE DATA -- testing otherwise impossible due to ridiculous execution times */
+    /* DO NOT ENABLE ON PRODUCTION SITE                                                              */
+    /* ***********************************************************************************************/
+
+
+
+    /**
+     *
+     * Camille Reynders, http://www.creynders.be
+     * 06/08/12 - 10:48
+     */
+    class ScogaAPITestCase extends UnitTestCase{
+
+        const TEST_NODETYPE = 'test_nodetype';
+        const TEST_VOCABULARY = 'test_vocab';
+
+        public function getInfo(){
+            return array(
+                'name' => 'SCOGA API test',
+                'description' => 'Test global SCOGA API functionality',
+                'group' => 'SCOGA',
+            );
+        }
+
+        public function setUp() {
+            parent::setUp( 'scoga' );
+        }
+
+
+        private function createTestNodeType(){
+            $name = self::TEST_NODETYPE;
+            $settings = array(
+                'type' => $name,
+                'name' => $name,
+            );
+            return $this->drupalCreateContentType( $settings );
+        }
+
+        private function deleteTestNodeType(){
+            node_type_delete( self::TEST_NODETYPE );
+        }
+
+        private function createTestNode( $title = 'test node' ){
+            $node_options = array(
+                'type' => self::TEST_NODETYPE,
+                'title' => $title
+            );
+
+            return $this->drupalCreateNode( $node_options );
+        }
+
+        private function createTestVocabulary(){
+            $machine_name = self::TEST_VOCABULARY;
+
+            $vocabulary = new stdClass();
+            $vocabulary->name = $machine_name;
+            $vocabulary->machine_name = $machine_name;
+            taxonomy_vocabulary_save( $vocabulary );
+
+            return taxonomy_vocabulary_machine_name_load( $machine_name);
+        }
+
+        private function deleteTestVocabulary( $vid ){
+            taxonomy_vocabulary_delete( $vid );
+        }
+
+        public function test_scoga_create_term(){
+            $vocabulary = $this->createTestVocabulary();
+
+            $name = 'test term';
+            $saved_term = scoga_create_term( $vocabulary->vid, $name );
+
+            //assert it returns correct object
+
+            $this->assertIdentical( $saved_term->name, $name );
+            $this->assertNotNull( $saved_term->tid, 'tid should be auto-populated' );
+
+            //assert it was correctly saved into DB
+
+            $loaded_term = taxonomy_term_load( $saved_term->tid );
+            $this->assertIdentical( $saved_term->name, $loaded_term->name );
+            $this->assertIdentical( $saved_term->tid, $loaded_term->tid );
+
+            //clean up
+            $this->deleteTestVocabulary( $vocabulary->vid );
+
+        }
+
+        public function test_scoga_validate_uint(){
+            $variable = array();
+            $error_message = 'The value is not an unsigned integer';
+
+            $variable[ 'value' ] = -1;
+            $this->assertIdentical( scoga_validate_uint( $variable ), $error_message, 'should return error for negative values' );
+
+            $variable[ 'value' ] = 'foo';
+            $this->assertIdentical( scoga_validate_uint( $variable ), $error_message, 'should return error for alhabetic values' );
+
+            $variable[ 'value' ] = 1;
+            $this->assertNull( scoga_validate_uint( $variable ), 'should return null for unsinged integers' );
+        }
+
+        public function test_scoga_add_seconds_till_next_unit(){
+            $new_time = scoga_add_seconds_till_next_unit( 1335443816, 60 * 60 );
+            $this->assertIdentical( 1335445200, $new_time, 'should return next full hour' );
+
+            $new_time = scoga_add_seconds_till_next_unit( 1335443816, 60 );
+            $this->assertIdentical( 1335443820, $new_time, 'should return next full minute' );
+        }
+
+        public function test_set_field_value(){
+
+            //w/o options
+            $node = scoga_set_field_value( new stdClass(), 'test_field', 'foo' );
+            $this->assertIdentical( $node->test_field[ LANGUAGE_NONE ][ 0 ][ 'value' ], 'foo' );
+
+            //for different column
+            $options = array(
+                'field_column' => 'foo_column',
+            );
+            $node = scoga_set_field_value( new stdClass(), 'test_field', 'foo', $options );
+            $this->assertIdentical( $node->test_field[ LANGUAGE_NONE ][ 0 ][ $options[ 'field_column' ] ], 'foo' );
+
+            //for different language
+            $options = array(
+                'langcode' => 'NL',
+            );
+            $node = scoga_set_field_value( new stdClass(), 'test_field', 'foo', $options );
+            $this->assertIdentical( $node->test_field[ $options[ 'langcode' ] ][ 0 ][ 'value' ], 'foo' );
+
+            //for different delta
+            $options = array(
+                'delta' => 99,
+            );
+            $node = scoga_set_field_value( new stdClass(), 'test_field', 'foo', $options );
+            $this->assertIdentical( $node->test_field[ LANGUAGE_NONE ][ $options[ 'delta' ] ][ 'value' ], 'foo' );
+
+        }
+
+        public function test_get_field_value(){
+            $body = 'Lorem ipsum';
+
+            //setup
+            $this->createTestNodeType();
+
+            //node created and retrieved with default
+            $created_node = $this->createTestNode( 'test_get_field_value node 1' );
+            scoga_set_field_value( $created_node, 'body', $body );
+            node_save( $created_node );
+
+            $loaded_node = node_load( $created_node->nid );
+            $value = scoga_get_field_value( $loaded_node, 'body' );
+
+            $this->assertIdentical( $body, $value );
+
+            //teardown
+            node_delete( $created_node->nid );
+            $this->deleteTestNodeType();
+
+        }
+
+
+    }

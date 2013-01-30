@@ -27,7 +27,10 @@ $legacy-support-for-ie6: false;
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: true;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 //
 // Font faces, stacks and sizes.
 //
@@ -77,7 +80,10 @@ $base-font-family: $verdana; // The font family set on the html element.
 $font-body:        $verdana;
 $font-monospace:   $courier;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 //
 // Colors, etc.
 //
@@ -98,3 +104,60 @@ $indent-amount: 30px;
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 
 @import "custom";           // Import our custom mixins last.
+<<<<<<< HEAD
+=======
+
+//
+// Zwerm-specific
+//
+
+$end_of_small_viewport : 629px;
+$start_of_large_viewport : 630px;
+
+//for small viewport
+$header-height-small-viewport: 40px;
+
+
+//for large viewport
+$header-height-large-viewport : 200px;
+$nav_height_large_viewport : 23px;
+$logo-width-large-viewport : 19%;
+
+
+//common to viewports
+$li-height : 60px;
+$score-navbar-height : 60px;
+$pages-title-top-padding : 10px;
+
+$header-color : #000000;
+$team-overview-score-color : #aaaaaa;
+$footer-color : #333333;
+$team-blue-color : #79b1bd;
+$team-red-color : #dc6058;
+$white-background-color : #eeeeee;
+$green-marking-color : #7fb083;
+$score-navbar-color : #484848;
+$score-navbar-non-active-link-color: #808080;
+
+//calculation of navigation menu width for large viewport
+$number_of_items_in_navmenu : 6;
+$space_outside_of_navmenus : 12.5; //in percentage
+$width_per_item : percentage((100 - ($space_outside_of_navmenus * 2)) / $number_of_items_in_navmenu / 100);
+
+@media all and (max-width: $end_of_small_viewport)
+{
+  .color-dc6058
+  {
+    background-color: #DC6058;
+  }
+
+  .color-79b1bd
+  {
+    background-color: #79b1bd;
+  }
+
+}
+
+
+
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98

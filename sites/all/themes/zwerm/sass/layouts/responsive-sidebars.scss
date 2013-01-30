@@ -12,10 +12,19 @@
 @import "base";
 
 
+<<<<<<< HEAD
 // We are going to create a 980px wide, 5 column grid with 20px gutters between
 // columns (applied as 10px of left/right padding on each column).
 $zen-column-count:  5;
 $zen-gutter-width:  20px;
+=======
+// We are going to create a 980px wide, 5 column gri  d with 20px gutters between
+// columns (applied as 10px of left/right padding on each column).
+//$zen-column-count:  5;
+//$zen-gutter-width:  20px;
+$zen-gutter-width:  0px;
+
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 
 
 // IE6-7 don't support box-sizing: border-box. We can fix this in 1 of 3 ways:
@@ -32,7 +41,11 @@ $zen-gutter-width:  20px;
 
 // You can generate more efficient CSS if you manually apply the
 // zen-grid-item-base mixin to all grid items from within a single ruleset.
+<<<<<<< HEAD
 $zen-auto-include-item-base: false;
+=======
+$zen-auto-include-item-base: true;
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 // $zen-auto-include-flow-item-base: false;
 
 
@@ -42,11 +55,21 @@ $zen-auto-include-item-base: false;
 
 #page,
 .region-bottom {
+<<<<<<< HEAD
   /* For screen sizes larger than 1200px, prevent excessively long lines of text
      by setting a max-width. */
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
+=======
+/* For screen sizes larger than 1200px, prevent excessively long lines of text
+by setting a max-width. */
+  margin-left: auto;
+  margin-right: auto;
+  //max-width: 1200px;
+  //min-height: 100%;
+  //position:relative;
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 }
 
 /*
@@ -61,6 +84,10 @@ $zen-auto-include-item-base: false;
 .region-sidebar-second,
 #footer {
   @include zen-grid-item-base();
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
 }
 
 /*
@@ -73,6 +100,7 @@ $zen-auto-include-item-base: false;
   @include zen-grid-container();
 }
 
+<<<<<<< HEAD
 /*
  * Navigation bar
  */
@@ -208,6 +236,101 @@ $zen-auto-include-item-base: false;
 
     .region-sidebar-second { /* Span 1 column, starting in 5th column from left. */
       @include zen-grid-item(1, 5);
+=======
+@media all and (max-width: $end_of_small_viewport) {
+$zen-column-count: 2;
+
+#main {
+  //padding-top: 3em; /* Move all the children of #main down to make room. */
+  //@include zen-clear();
+  //position: relative;
+  @include zen-grid-item(2, 1);
+  height:100%;
+
+  #content, {
+    @include zen-grid-item(2, 1);
+  }
+  #logo {
+    display : none;
+  }
+}
+
+table
+{
+  @include zen-grid-item(2, 1);
+  @include zen-clear();
+
+}
+
+.messages
+{
+  @include zen-clear();
+  @include zen-grid-item(1, 1);
+  display: block;
+}
+
+
+#navigation {
+  .not-front-page
+  {
+    display:none;
+    padding-top: 18px;
+  }
+}
+
+.logged-in #footer
+{
+  display:none;
+}
+
+}
+
+@media all and (min-width: $start_of_large_viewport)
+{
+/*
+* Use 5 grid columns for larger screens.
+*/
+$zen-column-count: 5;
+//v v v v v
+/*
+* The layout when there is only one sidebar, the left one.
+*/
+
+  #navigation{ /* Span 3 columns, starting in 2nd column from left. */
+    @include zen-clear();
+    @include zen-grid-item(5, 1);
+  }
+
+
+  #main{ /* Span 5 columns, starting in 2nd column from left. */
+    background-color : $white-background-color;
+    @include zen-grid-item(5, 1);
+    @include zen-clear();
+    //needed for floating footer
+    //height : 175%;
+    //width: 980px;
+    //color:white;
+  }
+
+  #content {
+    @include zen-grid-item(3, 2);
+    //@include zen-grid-item(5, 1);
+  }
+
+  .sidebar-first {
+
+    .region-sidebar-first { /* Span 1 column, starting in 1st column from left. */
+      //@include zen-grid-item(2, 5);
+    }
+  }
+
+  #footer
+  {
+    .logged-in
+    {
+      display:none;
+      @include zen-grid-item(5, 1);
+>>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
     }
   }
 }

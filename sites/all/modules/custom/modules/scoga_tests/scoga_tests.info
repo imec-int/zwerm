@@ -1,0 +1,10 @@
+name = "SCOGA tests module"
+description = "Test module for SCOGA -- RUNS ON LIVE DATA -- DO NOT, NOT, NOT, NOT ENABLE ON PRODUCTION SITE. YOU HAVE BEEN WARNED !"
+core = 7.x
+package = SCOGA
+dependencies[] = scoga
+files[] = FunctionalTestCase.php
+files[] = UnitTestCase.php
+files[] = api/scoga.api.test
+files[] = api/scoga.api.campaign.test
+files[] = api/scoga.api.checkin.test

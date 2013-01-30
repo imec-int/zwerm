@@ -24,7 +24,6 @@
     </div>
   <?php endif; ?>
 
-  <?php if (!empty($columns)): ?>
   <div class="panels-section-columns">
     <?php foreach ($columns as $column_id => $column): ?>
       <div class="panels-section-column panels-section-column-<?php print $column_id; ?> ">
@@ -34,5 +33,5 @@
       </div>
     <?php endforeach; ?>
   </div>
-  <?php endif; ?>
+  <?php print $category; ?>
 </div>

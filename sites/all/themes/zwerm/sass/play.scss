@@ -1,0 +1,136 @@
+@import "base";
+
+
+@media all and (max-width: $end_of_small_viewport) {
+  body.page-get-points
+  {
+    background-color: $white-background-color;
+
+    #content
+    {
+      padding-top: 0px;
+      li
+      {
+        //default style of list items in get-points list
+        height:$li-height;
+        background-color:white;
+        //margin-bottom: 3px;
+      }
+    }
+  }
+
+
+}
+
+
+@media all and (min-width: $start_of_large_viewport) {
+  .page-get-points
+  {
+
+
+    #content
+    {
+      li
+      {
+        height:$li-height;
+        background-color:white;
+        //margin-bottom: 3px;
+      }
+    }
+  }
+  body.page-get-points
+  {
+    background-color: $white-background-color;
+  }
+
+
+}
+
+
+.page-get-points
+{
+
+  #page-title
+  {
+    @include page-title;
+  }
+
+  #content
+  {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    ul
+    {
+      border-top-style: none;
+    }
+
+    .list_header
+    {
+      padding-top: 19px;
+      padding-left: 26px;
+    }
+
+    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
+    {
+      background-color: $green-marking-color;
+    }
+
+    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after, li.list_header_geochallenge:after,li.list_header_poi_confirmation:after
+    {
+        content: url('../images/expand_icon.png');
+    }
+
+    li:after
+    {
+      content:">";
+      display:inline;
+      float:right;
+      padding-top:19px;
+      padding-right:25px;
+      font-size: large;
+    }
+
+    a
+    {
+      color:black;
+      margin-left: 25px;
+      margin-top: 10px;
+    }
+
+    #select_list
+    {
+      ul
+      {
+        margin-top:2px;
+        //white-space: nowrap;
+      }
+      a
+      {
+        line-height: 3.8em;
+      }
+    }
+
+    #main-content
+    {
+      display: none;
+    }
+  }
+
+  .link_truncated {
+    @include text-truncation;
+  }
+
+  .time_to_end
+  {
+    background-color: white;
+    border-bottom-style: solid;
+    border-width: 1px;
+    padding-left: 25px;
+
+  }
+
+  .time_interval_label,.time_interval {
+    display: inline;
+  }
+}
