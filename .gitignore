@@ -1,7 +1,18 @@
+drush-dump-db.sh
+dashboard.php
+
 ext
 etc
 logs
 tmp
+.DS_Store
+.idea
+.sass-cache
+gitPush
+
+# ignore transaltion template files
+potx.*
+*.pot
 
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
@@ -9,3 +20,15 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+
+#Ignore osX specific files
+.DS_Store
+.idea
+gitPush
+__MACOSX/
+
+#Theme-related
+*/.sass-cache/*
+sites/all/themes/zwerm/.sass-cache/
+
+
