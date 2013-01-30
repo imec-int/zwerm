@@ -1,9 +1,9 @@
 /*
-Syntax error: Invalid CSS after "@import "base";": expected selector or at-rule, was "<<<<<<< HEAD"
-        on line 8 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation.scss
+Syntax error: Invalid CSS after " */": expected selector or at-rule, was "<<<<<<< HEAD"
+        on line 45 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation.scss
 
 Backtrace:
-/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation.scss:8
+/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation.scss:45
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
 /usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:28:in `parse'
@@ -51,4 +51,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"@import \"base\";\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 8 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation.scss"; }
+  content: "Syntax error: Invalid CSS after \" */\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 45 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/navigation.scss"; }

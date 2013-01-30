@@ -1,54 +1,203 @@
-/*
-Syntax error: Invalid CSS after "}": expected selector or at-rule, was "<<<<<<< HEAD"
-        on line 46 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/views-styles.scss
+/**
+ * @file
+ * Views Styling
+ */
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
 
-Backtrace:
-/Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/views-styles.scss:46
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/scss/parser.rb:28:in `parse'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:342:in `_to_tree'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
-/usr/local/lib/ruby/gems/1.9.1/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `call'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:73:in `run_callback'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:55:in `callback_action'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/path.rb:35:in `update'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:39:in `block in modified'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:37:in `modified'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/state/directory.rb:18:in `refresh'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `each'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:17:in `block in run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `loop'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/backends/polling.rb:15:in `run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm/monitor.rb:26:in `run'
-/Users/tanguycoenen/.gem/ruby/1.9.1/gems/fssm-0.2.9/lib/fssm.rb:70:in `monitor'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `call'
-/usr/local/lib/ruby/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
-/usr/local/bin/compass:23:in `load'
-/usr/local/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"}\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 46 of /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/views-styles.scss"; }
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+/*
+ * Views' admin tabs
+ *
+ * The views admin tabs use the same classes as the secondary tabs. We prevent
+ * some of our tab styling from bleeding into (and breaking) the Views admin
+ * pages. If your sub-theme isn't used for admin pages, you can remove this
+ * entire section.
+ */
+/* line 18, ../sass/views-styles.scss */
+.views-displays .secondary li {
+  float: none;
+  margin: 0 6px 0;
+}
+/* line 24, ../sass/views-styles.scss */
+.views-displays .secondary a:link,
+.views-displays .secondary a:visited {
+  text-shadow: none;
+  padding: 2px 7px 3px;
+}
+/* line 29, ../sass/views-styles.scss */
+.views-displays .secondary .open > a {
+  -webkit-border-radius: 7px 7px 0 0;
+  -moz-border-radius: 7px 7px 0 0;
+  -ms-border-radius: 7px 7px 0 0;
+  -o-border-radius: 7px 7px 0 0;
+  border-radius: 7px 7px 0 0;
+}
+/* line 31, ../sass/views-styles.scss */
+.views-displays .secondary .open > a:hover {
+  color: #333;
+}
+/* line 36, ../sass/views-styles.scss */
+.views-displays .secondary .action-list li {
+  margin: 0;
+}
+/* line 38, ../sass/views-styles.scss */
+.views-displays .secondary .action-list li:first-child {
+  -webkit-border-radius: 0 7px 0 0;
+  -moz-border-radius: 0 7px 0 0;
+  -ms-border-radius: 0 7px 0 0;
+  -o-border-radius: 0 7px 0 0;
+  border-radius: 0 7px 0 0;
+}
+/* line 41, ../sass/views-styles.scss */
+.views-displays .secondary .action-list li:last-child {
+  -webkit-border-radius: 0 0 7px 7px;
+  -moz-border-radius: 0 0 7px 7px;
+  -ms-border-radius: 0 0 7px 7px;
+  -o-border-radius: 0 0 7px 7px;
+  border-radius: 0 0 7px 7px;
+}
+
+/* line 48, ../sass/views-styles.scss */
+tr.team_red {
+  background-color: #dc6058;
+}
+/* line 52, ../sass/views-styles.scss */
+tr.team_red td.loggedInUser {
+  color: #dc6058;
+}
+
+/* line 58, ../sass/views-styles.scss */
+tr.team_blue {
+  background-color: #79b1bd;
+}
+/* line 62, ../sass/views-styles.scss */
+tr.team_blue td.loggedInUser {
+  color: #79b1bd;
+}
+
+/* line 68, ../sass/views-styles.scss */
+tr.loggedInUser {
+  background-color: #ffffff;
+}
+
+/* line 73, ../sass/views-styles.scss */
+.view-view-team-members-of-current-user {
+  display: inline-block;
+}
+
+/* line 78, ../sass/views-styles.scss */
+body.section-leaderboard, body.page-team-players, .page-points-in-campaign {
+  height: 100%;
+  background-color: #eeeeee;
+}
+/* line 82, ../sass/views-styles.scss */
+body.section-leaderboard #content, body.page-team-players #content, .page-points-in-campaign #content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 88, ../sass/views-styles.scss */
+body.section-leaderboard #main, body.page-team-players #main, .page-points-in-campaign #main {
+  background-color: #eeeeee;
+}
+/* line 93, ../sass/views-styles.scss */
+body.section-leaderboard table, body.page-team-players table, .page-points-in-campaign table {
+  margin-top: 0px;
+  width: 100%;
+}
+/* line 99, ../sass/views-styles.scss */
+body.section-leaderboard .view, body.page-team-players .view, .page-points-in-campaign .view {
+  width: 100%;
+}
+/* line 105, ../sass/views-styles.scss */
+body.section-leaderboard tr, body.page-team-players tr, .page-points-in-campaign tr {
+  height: 60px;
+  color: #ffffff;
+  border-bottom-width: 3px;
+  border-bottom-color: #000000;
+}
+/* line 114, ../sass/views-styles.scss */
+body.section-leaderboard td, body.page-team-players td, .page-points-in-campaign td {
+  margin-bottom: 2px;
+}
+/* line 119, ../sass/views-styles.scss */
+body.section-leaderboard .views-field-field-user-team, body.page-team-players .views-field-field-user-team, .page-points-in-campaign .views-field-field-user-team {
+  display: none;
+}
+/* line 124, ../sass/views-styles.scss */
+body.section-leaderboard .views-field-name, body.page-team-players .views-field-name, .page-points-in-campaign .views-field-name {
+  display: none;
+}
+/* line 129, ../sass/views-styles.scss */
+body.section-leaderboard .views-field-php, body.page-team-players .views-field-php, .page-points-in-campaign .views-field-php {
+  font-family: Romina;
+  font-size: x-large;
+  padding-left: 10px;
+}
+/* line 136, ../sass/views-styles.scss */
+body.section-leaderboard .leaderboard_separator, body.page-team-players .leaderboard_separator, .page-points-in-campaign .leaderboard_separator {
+  height: 10px;
+  background-color: black;
+}
+/* line 141, ../sass/views-styles.scss */
+body.section-leaderboard .leaderboard_separator td, body.page-team-players .leaderboard_separator td, .page-points-in-campaign .leaderboard_separator td {
+  width: 100%;
+  height: 10px;
+}
+/* line 148, ../sass/views-styles.scss */
+body.section-leaderboard .field-name-field-user-firstname, body.page-team-players .field-name-field-user-firstname, .page-points-in-campaign .field-name-field-user-firstname {
+  display: inline-block;
+}
+/* line 153, ../sass/views-styles.scss */
+body.section-leaderboard .field-name-field-user-surname, body.page-team-players .field-name-field-user-surname, .page-points-in-campaign .field-name-field-user-surname {
+  display: inline-block;
+  padding-left: 4px;
+}
+/* line 161, ../sass/views-styles.scss */
+body.section-leaderboard td.views-field-field-user-firstname, body.page-team-players td.views-field-field-user-firstname, .page-points-in-campaign td.views-field-field-user-firstname {
+  height: 16px;
+  padding-left: 5px;
+}
+/* line 167, ../sass/views-styles.scss */
+body.section-leaderboard td.points, body.page-team-players td.points, .page-points-in-campaign td.points {
+  display: inline-block;
+  height: 10px;
+  position: relative;
+  top: 7px;
+}
+/* line 175, ../sass/views-styles.scss */
+body.section-leaderboard td.relations, body.page-team-players td.relations, .page-points-in-campaign td.relations {
+  display: inline-block;
+  position: relative;
+  top: -7px;
+  left: 120px;
+}
+/* line 183, ../sass/views-styles.scss */
+body.section-leaderboard th, body.page-team-players th, .page-points-in-campaign th {
+  display: none;
+}
+/* line 188, ../sass/views-styles.scss */
+body.section-leaderboard td.name, body.page-team-players td.name, .page-points-in-campaign td.name {
+  display: none;
+}
+/* line 193, ../sass/views-styles.scss */
+body.section-leaderboard td.uid, body.page-team-players td.uid, .page-points-in-campaign td.uid {
+  display: none;
+}
+/* line 198, ../sass/views-styles.scss */
+body.section-leaderboard tr.loggedInUser, body.page-team-players tr.loggedInUser, .page-points-in-campaign tr.loggedInUser {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* line 205, ../sass/views-styles.scss */
+.pager-next a, .pager-previous a {
+  color: black;
+}

@@ -147,11 +147,7 @@ function zwerm_preprocess_html(&$variables, $hook) {
  *   The name of the template being rendered ("page" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_page(&$variables, $hook) {
-=======
 function zwerm_preprocess_page(&$variables, $hook) {
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -165,19 +161,12 @@ function zwerm_preprocess_page(&$variables, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_node(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
 
-  // Optionally, run node-type-specific preprocess functions, like
-  // STARTERKIT_preprocess_node_page() or STARTERKIT_preprocess_node_story().
-=======
 function zwerm_preprocess_node(&$variables, $hook) {
   $variables['sample_variable'] = t('Lorem ipsum.');
 
   // Optionally, run node-type-specific preprocess functions, like
   // zwerm_preprocess_node_page() or zwerm_preprocess_node_story().
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
     $function($variables, $hook);
@@ -194,11 +183,7 @@ function zwerm_preprocess_node(&$variables, $hook) {
  *   The name of the template being rendered ("comment" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_comment(&$variables, $hook) {
-=======
 function zwerm_preprocess_comment(&$variables, $hook) {
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   $variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -212,11 +197,7 @@ function zwerm_preprocess_comment(&$variables, $hook) {
  *   The name of the template being rendered ("region" in this case.)
  */
 /* -- Delete this line if you want to use this function
-<<<<<<< HEAD
-function STARTERKIT_preprocess_region(&$variables, $hook) {
-=======
 function zwerm_preprocess_region(&$variables, $hook) {
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
   //if (strpos($variables['region'], 'sidebar_') === 0) {
   //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
@@ -244,7 +225,6 @@ function zwerm_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
-
 
     /*
      * @param $variables
@@ -299,4 +279,3 @@ function zwerm_preprocess_block(&$variables, $hook) {
      }
 
 
->>>>>>> a9c61bfcdacc16ddf885084e42688f34a11f1f98
