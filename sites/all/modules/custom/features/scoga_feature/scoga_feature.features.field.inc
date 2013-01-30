@@ -3035,7 +3035,7 @@ DO NOT MODIFY ONCE SET!',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
