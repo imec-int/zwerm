@@ -75,7 +75,7 @@ function scoga_feature_flag_default_flags() {
     ),
     'api_version' => 2,
   );
-  // Exported flag: "Unsolvable wish".
+  // Exported flag: "Markeer als onuitvoerbaar".
   $flags['flag_unsolvable_wish'] = array(
     'content_type' => 'node',
     'title' => 'Unsolvable wish',
@@ -234,7 +234,7 @@ NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'help' => '',
     ),
     'nodetype_wished_item' => array(
-      'name' => t('Wished Item'),
+      'name' => t('Wens'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

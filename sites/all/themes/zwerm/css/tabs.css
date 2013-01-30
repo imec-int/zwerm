@@ -18,11 +18,6 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 /* line 18, ../sass/tabs.scss */
 #content .tabs {
   background-color: #333333;

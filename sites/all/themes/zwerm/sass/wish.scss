@@ -4,6 +4,11 @@
 {
   background-color: $white-background-color;
 
+  .flag-message
+  {
+    font-size:0;
+  }
+
   @media all and (max-width: $end_of_small_viewport)
   {
     #main
@@ -79,7 +84,8 @@
 
   .field-name-field-wisheditem-award
   {
-    margin-top: -23px;
+    //margin-top: -23px;
+    display: inline;
     .field-label
     {
       float:left;

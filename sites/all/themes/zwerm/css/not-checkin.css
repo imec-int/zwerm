@@ -9,11 +9,6 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 @media all and (min-width: 630px) {
   /* line 4, ../sass/not-checkin.scss */
   body.page-not-partner {
