@@ -844,7 +844,7 @@ function scoga_geochallenges_field_default_fields() {
         'handler_settings' => array(
           'behaviors' => array(
             'views-select-list' => array(
-              'status' => 0,
+              'status' => 1,
             ),
           ),
           'sort' => array(
@@ -1023,7 +1023,7 @@ function scoga_geochallenges_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '10',
+        'weight' => '7',
       ),
     ),
   );
@@ -1063,15 +1063,15 @@ function scoga_geochallenges_field_default_fields() {
             'geofield_map_baselayers_satellite' => 1,
             'geofield_map_controltype' => 'default',
             'geofield_map_draggable' => 0,
-            'geofield_map_height' => '300px',
+            'geofield_map_height' => '250px',
             'geofield_map_maptype' => 'satellite',
             'geofield_map_mtc' => 'standard',
             'geofield_map_overview' => 0,
             'geofield_map_overview_opened' => 0,
-            'geofield_map_pancontrol' => 1,
+            'geofield_map_pancontrol' => 0,
             'geofield_map_scale' => 0,
             'geofield_map_scrollwheel' => 0,
-            'geofield_map_streetview_show' => 1,
+            'geofield_map_streetview_show' => 0,
             'geofield_map_width' => '100%',
             'geofield_map_zoom' => '17',
           ),
