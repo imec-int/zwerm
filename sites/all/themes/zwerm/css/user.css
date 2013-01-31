@@ -1,10 +1,10 @@
 @media all and (max-width: 629px) {
-  /* line 140, ../sass/_base.scss */
+  /* line 140, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss */
   .color-dc6058 {
     background-color: #DC6058;
   }
 
-  /* line 145, ../sass/_base.scss */
+  /* line 145, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss */
   .color-79b1bd {
     background-color: #79b1bd;
   }
@@ -27,13 +27,13 @@
 }
 @media all and (min-width: 630px) {
   /* line 33, ../sass/user.scss */
-  .page-user a.privatemsg-send-link {
+  .page-user a.privatemsg-send-link, .page-user a.edit_account_link {
     color: #7fb083;
   }
 }
 @media all and (max-width: 629px) {
   /* line 41, ../sass/user.scss */
-  .page-user a.privatemsg-send-link {
+  .page-user a.privatemsg-send-link, .page-user a.edit_account_link {
     color: #eeeeee;
   }
 }
