@@ -29,7 +29,7 @@
 
   @media all and (min-width: $start_of_large_viewport)
   {
-    a.privatemsg-send-link
+    a.privatemsg-send-link,a.edit_account_link
     {
       color: $green-marking-color;
     }
@@ -37,7 +37,7 @@
 
   @media all and (max-width: $end_of_small_viewport)
   {
-    a.privatemsg-send-link
+    a.privatemsg-send-link,a.edit_account_link
     {
       color:$white-background-color;
     }
