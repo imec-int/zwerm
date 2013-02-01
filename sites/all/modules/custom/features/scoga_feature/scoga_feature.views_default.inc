@@ -3810,7 +3810,7 @@ return true;*/';
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Wished item';
+  $handler->display->display_options['fields']['title']['label'] = 'Wens';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
@@ -4348,7 +4348,7 @@ return true;*/';
     t('Offset'),
     t('author'),
     t('Content entity referenced from field_user_team'),
-    t('Wished item'),
+    t('Wens'),
     t('Gebruikersnaam'),
     t('Datum van inzending'),
     t('Titel'),
