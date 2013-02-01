@@ -187,6 +187,9 @@ $team = $node->field_event_team;     */
             <div id="content" class="column" role="main">
                 <?php print render($page['highlighted']); ?>
                 <?php print $breadcrumb; ?>
+              <?php if (!drupal_is_front_page()): ?>
+              <?php print $messages; ?>
+              <?php endif; ?>
                 <!-- <a id="main-content"></a> -->
                 <?php print render($title_prefix); ?>
                 <?php if ($title): ?>
@@ -200,9 +203,6 @@ $team = $node->field_event_team;     */
                 <?php endif; ?>
                 <?php print render($page['content']); ?>
                 <?php //print $feed_icons; ?>
-                <?php if (!drupal_is_front_page()): ?>
-                    <?php print $messages; ?>
-                <?php endif; ?>
             </div><!-- /#content -->
             <?php
             // Render the sidebars to see if there's anything in them.

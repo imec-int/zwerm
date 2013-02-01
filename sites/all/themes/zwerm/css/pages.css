@@ -283,7 +283,6 @@ div.status {
 div.warning,
 tr.warning {
   /* Medium priority messages */
-  display: none;
 }
 
 /* line 273, ../sass/pages.scss */
@@ -515,6 +514,7 @@ a {
   /* line 490, ../sass/pages.scss */
   #header {
     background-image: url(../images/zwerm_logo_black_background.png);
+    background-size: 10%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 19%;
@@ -522,30 +522,30 @@ a {
     display: block;
   }
 
-  /* line 500, ../sass/pages.scss */
+  /* line 501, ../sass/pages.scss */
   #content {
     padding-top: 40px;
     position: relative;
     top: 120px;
   }
 
-  /* line 507, ../sass/pages.scss */
+  /* line 508, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
     padding-top: 200px;
   }
 
-  /* line 514, ../sass/pages.scss */
+  /* line 515, ../sass/pages.scss */
   #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
     display: none;
   }
 
-  /* line 519, ../sass/pages.scss */
+  /* line 520, ../sass/pages.scss */
   .region-sidebar-first {
     padding-top: 200px;
   }
 
-  /* line 526, ../sass/pages.scss */
+  /* line 527, ../sass/pages.scss */
   #type_page h1 {
     text-align: center;
   }

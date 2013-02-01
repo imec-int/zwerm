@@ -3035,7 +3035,7 @@ DO NOT MODIFY ONCE SET!',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
@@ -3076,8 +3076,9 @@ DO NOT MODIFY ONCE SET!',
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_wisheditem_award',
-      'label' => 'Reward',
+      'label' => 'Te verdienen punten',
       'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -4187,6 +4188,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('State');
   t('Surname');
   t('Tags');
+  t('Te verdienen punten');
   t('Team');
   t('Team colour');
   t('This field is provided just in case an event is happening at a location w/o address. 
