@@ -88,4 +88,8 @@ body.page-team-score {
   .page-team-score .points {
     color: white;
   }
+  /* line 112, ../sass/team-score.scss */
+  .page-team-score #main {
+    background-color: black;
+  }
 }
