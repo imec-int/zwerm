@@ -13,12 +13,12 @@
 #score_nav_bar {
   background-color: #333333;
   width: 100%;
-  height: 60px;
+  height: 67px;
 }
 /* line 12, ../sass/score-nav.scss */
 #score_nav_bar ul {
   width: 99%;
-  height: 60px;
+  height: 67px;
   margin-top: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -53,12 +53,12 @@
 @media all and (max-width: 629px) {
   /* line 61, ../sass/score-nav.scss */
   #score_nav_bar li {
-    height: 30px;
-    margin-top: 19px;
+    height: 39px;
+    margin-top: 18px;
   }
   /* line 65, ../sass/score-nav.scss */
   #score_nav_bar li a {
-    padding-top: 3px;
+    padding-top: 7px;
   }
   /* line 71, ../sass/score-nav.scss */
   #score_nav_bar ul {
@@ -68,6 +68,6 @@
 @media all and (min-width: 630px) {
   /* line 82, ../sass/score-nav.scss */
   #score_nav_bar li {
-    margin-top: 5px;
+    margin-top: 8px;
   }
 }
