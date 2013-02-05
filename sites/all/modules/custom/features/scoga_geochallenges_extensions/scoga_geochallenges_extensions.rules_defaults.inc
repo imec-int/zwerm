@@ -84,7 +84,8 @@ function scoga_geochallenges_extensions_default_rules_configuration() {
             ],
             "DO" : [
               { "php_eval" : { "code" : "watchdog(\\u0027SCOGA Test\\u0027,\\u0027Rejecting this one\\u0027);" } },
-              { "data_set" : { "data" : [ "node:field-status" ], "value" : "2" } }
+              { "data_set" : { "data" : [ "node:field-status" ], "value" : "2" } },
+              { "php_eval" : { "code" : "module_load_include( \\u0027api.points.inc\\u0027, \\u0027scoga\\u0027, \\u0027api\\/scoga\\u0027 );\\r\\n$geochallenge_node = node_load($geochallenge_node-\\u003Enid);\\r\\n\\r\\n\\/\\/Award points to POI Checker\\r\\n\\/\\/watchdog(\\u0027SCOGA\\u0027,\\u0027reward of \\u0027.$geochallenge_node-\\u003Efield_geochallenge_reward_check[\\u0027und\\u0027][0][\\u0027value\\u0027].\\u0027 for \\u0027.$node-\\u003Efield_poi_confirm_ref_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027]);\\r\\nscoga_award_points_to_user( $node-\\u003Efield_poi_confirm_ref_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027], $geochallenge_node-\\u003Efield_geochallenge_reward_check[\\u0027und\\u0027][0][\\u0027value\\u0027], \\u0022Geochallenge punt gecontroleerd\\u0022 );" } }
             ],
             "LABEL" : "POI Confirm Reject"
           }

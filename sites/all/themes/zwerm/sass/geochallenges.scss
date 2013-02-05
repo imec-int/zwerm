@@ -208,3 +208,64 @@
 .rules-link-poi_confirm_reject {
   display: none;
 }
+
+.page-kaart .olPopupCloseBox {
+  //display: none;
+  //padding
+  background-image: url('../images/x.gif');
+  //border: 1px solid white;
+  margin: 4px 20px 0 0;
+}
+
+.page-kaart .view-poi-overview {
+  margin: 15px 0 50px 0;
+}
+
+.page-kaart #popup_contentDiv {
+  background-color: $green-marking-color;
+  color: white;
+  padding: 8px 20px 0 5px;
+  font-size: 0.9em;
+  text-align: center;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.page-kaart #popup_GroupDiv {
+
+  img {
+    display: none;
+  }
+
+.openlayers-tooltip-name {
+  font-family: Romina;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+}
+
+.views-exposed-form {
+  background-color: $green-marking-color;
+  padding: 5px 10px;
+  color: white;
+  margin-top: 10px;
+  border-bottom: 2px solid white;
+  label {
+    font-family: romina;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  #edit-field-ref-geo-challenge-target-id {
+    width: 200px;
+    background-color: $green-marking-color;
+    color: white;
+    border-color: white;
+  }
+  #edit-field-ref-geo-challenge-target-id:focus {
+    border-color: white;
+  }
+}
+
+

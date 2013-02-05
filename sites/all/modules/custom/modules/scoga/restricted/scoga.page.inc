@@ -62,13 +62,17 @@
      */
     function scoga_overview_of_assignments_to_get_point()
     {
+
+        global $user;
+        $user_data = user_load($user->uid);
+        $user_team = $user_data->field_user_team['und']['0']['target_id'];
         $output='';
+        $assignment_titles = array();
+        $assignment_paths = array();
         //add time interval to end of current campaign
         module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
         $time_interval_elements = scoga_get_current_campaign_expiration_time();
         $output .= theme('time_interval',array('interval_elements' => $time_interval_elements));
-        $assignment_titles = array();
-        $assignment_paths = array();
         //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
         $assignment_titles[] = t('Check-in : find new partners');
         $assignment_paths[] = SCOGA_NOT_PARTNER_PAGE;
@@ -76,11 +80,11 @@
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';
         //add other playable elements to output
-        _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign',&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('Poll','Question',t('Active questions'),'field_campaign',&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',&$assignment_titles,&$assignment_paths);
-        _scoga_add_POI_confirmations_to_output('field_campaign',&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL,&$assignment_titles,&$assignment_paths);
+        _scoga_add_POI_confirmations_to_output(&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,&$assignment_titles,&$assignment_paths);
         $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
     }
@@ -95,15 +99,28 @@
      * @param $titles
      * @param $paths
      */
-    function _scoga_add_nodes_to_output($content_type,$label,$header,$campaign_ref_field,$titles,$paths)
+    function _scoga_add_nodes_to_output($content_type,$label,$header,$campaign_ref_field,$team_ref_field,$user_team,$titles,$paths)
     {
+        //todo : $current_campaign_id should be calculated only once, in function calling this one
         $current_campaign_id = scoga_get_campaign_nid_for_time(time());
         $nodeQuery = new EntityFieldQuery;
-        $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
-            ->entityCondition('bundle', $content_type)
-            ->fieldCondition($campaign_ref_field,'target_id', $current_campaign_id, '=')
-            ->propertyCondition( 'status', '1' )
-            ->execute();
+        if($team_ref_field != NULL)
+        {
+            $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
+                ->entityCondition('bundle', $content_type)
+                ->fieldCondition($campaign_ref_field,'target_id', $current_campaign_id, '=')
+                ->fieldCondition($team_ref_field,'target_id', $user_team, '=')
+                ->propertyCondition( 'status', '1' )
+                ->execute();
+        }
+        else
+        {
+            $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
+                ->entityCondition('bundle', $content_type)
+                ->fieldCondition($campaign_ref_field,'target_id', $current_campaign_id, '=')
+                ->propertyCondition( 'status', '1' )
+                ->execute();
+        }
         $nodes = node_load_multiple(array_keys($nodes_properties['node']));
         if (sizeOf($nodes)!=0)
         {
@@ -128,7 +145,7 @@
         }
     }
 
-    function _scoga_add_POI_confirmations_to_output($campaign_ref_field,$titles,$paths)
+    function _scoga_add_POI_confirmations_to_output($titles,$paths)
     {
         global $user;
         $current_campaign_id = scoga_get_campaign_nid_for_time(time());
@@ -139,12 +156,15 @@
             ->fieldCondition('field_poi_confirm_ref_user', 'target_id', $user->uid )
             ->fieldCondition('field_geochallenge_ref_campaign', 'target_id', $current_campaign_id )
             ->execute();
-        $nodes = node_load_multiple(array_keys($nodes_properties['node']));
-        if (sizeOf($nodes)!=0)
+        if (isset($nodes_properties['node']))
         {
-            $titles[] = t('POIs to confirm');
-            $paths[] = '';
-            _scoga_fill_titles_and_path($nodes,&$titles,&$paths,t('POI confirmation'));
+        $nodes = node_load_multiple(array_keys($nodes_properties['node']));
+            if (sizeOf($nodes)!=0)
+            {
+                $titles[] = t('POIs to confirm');
+                $paths[] = '';
+                _scoga_fill_titles_and_path($nodes,&$titles,&$paths,t('POI confirmation'));
+            }
         }
     }
 ?>
