@@ -47,57 +47,67 @@ li a.active {
  * Navigation bar
  */
 @media all and (max-width: 629px) {
-  /* line 51, ../sass/navigation.scss */
+  /* line 52, ../sass/navigation.scss */
+  .color-79b1bd #navigation li {
+    background-color: #84B7C2;
+  }
+
+  /* line 63, ../sass/navigation.scss */
+  .color-dc6058 #navigation li {
+    background-color: #f38176;
+  }
+
+  /* line 73, ../sass/navigation.scss */
   .not-front #navigation {
     background-color: #7fb083;
   }
-  /* line 60, ../sass/navigation.scss */
+  /* line 82, ../sass/navigation.scss */
   .not-front #navigation a {
     padding-left: 15%;
     font-family: Romina;
   }
-  /* line 65, ../sass/navigation.scss */
+  /* line 87, ../sass/navigation.scss */
   .not-front #navigation .menu_item {
     background-color: #7bac7d;
     margin-left: 10%;
     margin-right: 10%;
   }
-  /* line 72, ../sass/navigation.scss */
+  /* line 94, ../sass/navigation.scss */
   .not-front #navigation #Info {
     background-image: url(../images/info.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 78, ../sass/navigation.scss */
+  /* line 100, ../sass/navigation.scss */
   .not-front #navigation #Speel {
     background-image: url(../images/spelen.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 84, ../sass/navigation.scss */
+  /* line 106, ../sass/navigation.scss */
   .not-front #navigation #Teams {
     background-image: url(../images/teams.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 90, ../sass/navigation.scss */
+  /* line 112, ../sass/navigation.scss */
   .not-front #navigation #Score {
     background-image: url(../images/score.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 96, ../sass/navigation.scss */
+  /* line 118, ../sass/navigation.scss */
   .not-front #navigation #Inbox {
     background-image: url(../images/berichten.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 102, ../sass/navigation.scss */
+  /* line 124, ../sass/navigation.scss */
   .not-front #navigation #Map {
     background-image: url(../images/map.png);
     background-position-y: 5%;
@@ -105,11 +115,11 @@ li a.active {
     background-size: contain;
   }
 
-  /* line 114, ../sass/navigation.scss */
+  /* line 136, ../sass/navigation.scss */
   .page-frontpage #menu_container, .page-frontpage #home_text {
     display: none;
   }
-  /* line 119, ../sass/navigation.scss */
+  /* line 141, ../sass/navigation.scss */
   .page-frontpage #navigation {
     display: block;
     float: none;
@@ -117,17 +127,17 @@ li a.active {
     height: 100%;
     padding-top: 40px;
   }
-  /* line 127, ../sass/navigation.scss */
+  /* line 149, ../sass/navigation.scss */
   .page-frontpage #navigation #main-menu {
     margin-left: 1%;
     margin-top: 15%;
     height: 100%;
   }
-  /* line 134, ../sass/navigation.scss */
+  /* line 156, ../sass/navigation.scss */
   .page-frontpage #navigation .block {
     margin-bottom: 0;
   }
-  /* line 139, ../sass/navigation.scss */
+  /* line 161, ../sass/navigation.scss */
   .page-frontpage #navigation .block-menu .block-title,
   .page-frontpage #navigation .block-menu-block .block-title {
     position: absolute !important;
@@ -136,7 +146,7 @@ li a.active {
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
   }
-  /* line 144, ../sass/navigation.scss */
+  /* line 166, ../sass/navigation.scss */
   .page-frontpage #navigation ul.links,
   .page-frontpage #navigation ul.menu {
     /* Menu block links */
@@ -145,7 +155,7 @@ li a.active {
     text-align: left;
     /* LTR */
   }
-  /* line 149, ../sass/navigation.scss */
+  /* line 171, ../sass/navigation.scss */
   .page-frontpage #navigation ul.links li,
   .page-frontpage #navigation ul.menu li {
     /* A simple method to get navigation links to appear in one line. */
@@ -154,11 +164,11 @@ li a.active {
     list-style-type: none;
     list-style-image: none;
   }
-  /* line 158, ../sass/navigation.scss */
+  /* line 180, ../sass/navigation.scss */
   .page-frontpage #navigation .selectedItem {
     background-color: #7fb083;
   }
-  /* line 163, ../sass/navigation.scss */
+  /* line 185, ../sass/navigation.scss */
   .page-frontpage #navigation #Info {
     background-image: url(../images/info.png);
     background-position-x: 50%;
@@ -166,7 +176,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 169, ../sass/navigation.scss */
+  /* line 191, ../sass/navigation.scss */
   .page-frontpage #navigation #Speel {
     background-image: url(../images/spelen.png);
     background-position-x: 50%;
@@ -174,7 +184,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 175, ../sass/navigation.scss */
+  /* line 197, ../sass/navigation.scss */
   .page-frontpage #navigation #Teams {
     background-image: url(../images/teams.png);
     background-position-x: 50%;
@@ -182,7 +192,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 181, ../sass/navigation.scss */
+  /* line 203, ../sass/navigation.scss */
   .page-frontpage #navigation #Score {
     background-image: url(../images/score.png);
     background-position-x: 50%;
@@ -190,7 +200,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 187, ../sass/navigation.scss */
+  /* line 209, ../sass/navigation.scss */
   .page-frontpage #navigation #Inbox {
     background-image: url(../images/berichten.png);
     background-position-x: 50%;
@@ -198,7 +208,7 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 193, ../sass/navigation.scss */
+  /* line 215, ../sass/navigation.scss */
   .page-frontpage #navigation #Map {
     background-image: url(../images/map.png);
     background-position-x: 50%;
@@ -206,15 +216,15 @@ li a.active {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  /* line 199, ../sass/navigation.scss */
+  /* line 221, ../sass/navigation.scss */
   .page-frontpage #navigation #Account {
     text-replace: "Login" "Account";
   }
-  /* line 204, ../sass/navigation.scss */
+  /* line 226, ../sass/navigation.scss */
   .page-frontpage #navigation .menu_item {
     padding-top: 70%;
   }
-  /* line 211, ../sass/navigation.scss */
+  /* line 233, ../sass/navigation.scss */
   .page-frontpage #navigation li {
     display: block;
     height: 25%;
@@ -227,7 +237,7 @@ li a.active {
     text-align: center;
     box-align: center;
   }
-  /* line 223, ../sass/navigation.scss */
+  /* line 245, ../sass/navigation.scss */
   .page-frontpage #navigation li a:link {
     color: #FFFFFF;
     text-decoration: none;
@@ -235,7 +245,7 @@ li a.active {
     font-weight: bold;
     font-family: Romina;
   }
-  /* line 231, ../sass/navigation.scss */
+  /* line 253, ../sass/navigation.scss */
   .page-frontpage #navigation li a:visited {
     color: #FFFFFF;
     text-decoration: none;
@@ -246,7 +256,7 @@ li a.active {
   }
 }
 @media all and (min-width: 630px) {
-  /* line 246, ../sass/navigation.scss */
+  /* line 268, ../sass/navigation.scss */
   #navigation {
     position: fixed;
     top: 0px;
@@ -259,29 +269,29 @@ li a.active {
     background-position-x: 3px;
     background-repeat: no-repeat;
   }
-  /* line 259, ../sass/navigation.scss */
+  /* line 281, ../sass/navigation.scss */
   #navigation #main-menu {
     width: 100%;
   }
-  /* line 267, ../sass/navigation.scss */
+  /* line 289, ../sass/navigation.scss */
   #navigation li {
     float: left;
     width: 12.5%;
     text-align: center;
     padding: 0px;
   }
-  /* line 275, ../sass/navigation.scss */
+  /* line 297, ../sass/navigation.scss */
   #navigation .first {
     margin-left: 12.5%;
   }
 }
 @media all and (min-width: 401px) and (max-width: 630px) {
-  /* line 297, ../sass/navigation.scss */
+  /* line 319, ../sass/navigation.scss */
   .page-frontpage #navigation li {
     width: 28%;
     padding-bottom: 50px;
   }
-  /* line 302, ../sass/navigation.scss */
+  /* line 324, ../sass/navigation.scss */
   .page-frontpage #navigation #main-menu {
     margin-top: 0px;
   }
@@ -289,7 +299,7 @@ li a.active {
 /*
 * Main menu and Secondary menu links
 */
-/* line 317, ../sass/navigation.scss */
+/* line 339, ../sass/navigation.scss */
 .not-front #main-menu {
   width: 100%;
   position: fixed;
@@ -297,18 +307,8 @@ li a.active {
   z-index: 1000;
 }
 
-/* line 325, ../sass/navigation.scss */
+/* line 347, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
-}
-
-/* line 334, ../sass/navigation.scss */
-.color-79b1bd #navigation li {
-  background-color: #84B7C2;
-}
-
-/* line 345, ../sass/navigation.scss */
-.color-dc6058 #navigation li {
-  background-color: #f38176;
 }
