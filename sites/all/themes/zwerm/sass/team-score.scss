@@ -35,14 +35,14 @@ body.page-team-score
   .color-79b1bd
   {
     color:#79b1bd;
-    background-color: $white-background-color;
+    //background-color: $white-background-color;
 
   }
 
   .color-dc6058
   {
     color:#dc6058;
-    background-color: $white-background-color;
+    //background-color: $white-background-color;
   }
 
 
@@ -77,6 +77,36 @@ body.page-team-score
     {
       margin-left: 3%;
       width:100%
+    }
+
+    .color-79b1bd
+    {
+      color:#79b1bd;
+      background-color: $white-background-color;
+
+    }
+
+    .color-dc6058
+    {
+      color:#dc6058;
+      background-color: $white-background-color;
+    }
+
+  }
+
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    .color-79b1bd
+    {
+      color:#79b1bd;
+    }
+    .color-dc6058
+    {
+      color:#dc6058;
+    }
+    .points
+    {
+      color:white;
     }
   }
 

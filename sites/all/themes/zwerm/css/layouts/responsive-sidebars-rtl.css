@@ -179,7 +179,7 @@
   /* line 146, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 5 columns, starting in 2nd column from left. */
-    background-color: #eeeeee;
+    background-color: black;
     float: right;
     width: 100%;
     margin-right: 0%;
@@ -194,7 +194,7 @@
     clear: right;
   }
 
-  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 157, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     float: right;
     width: 60%;
@@ -209,12 +209,12 @@
     word-wrap: break-word;
   }
 
-  /* line 163, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 164, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
   }
 
-  /* line 171, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 172, ../../sass/layouts/responsive-sidebars.scss */
   #footer .logged-in {
     display: none;
     float: right;
