@@ -179,7 +179,7 @@
   /* line 146, ../../sass/layouts/responsive-sidebars.scss */
   #main {
     /* Span 5 columns, starting in 2nd column from left. */
-    background-color: black;
+    background-color: #eeeeee;
     float: right;
     width: 100%;
     margin-right: 0%;
