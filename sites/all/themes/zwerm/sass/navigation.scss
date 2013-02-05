@@ -312,9 +312,15 @@ li a.active {
 * Main menu and Secondary menu links
 */
 
-#main-menu {
-  width:100%;
-  //margin-left:2%;
+.not-front
+{
+  #main-menu
+  {
+    width:100%;
+    position:fixed;
+    background-color:$green-marking-color;
+    z-index:1000;
+  }
 }
 
 #secondary-menu {

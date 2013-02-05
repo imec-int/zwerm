@@ -289,12 +289,15 @@ li a.active {
 /*
 * Main menu and Secondary menu links
 */
-/* line 315, ../sass/navigation.scss */
-#main-menu {
+/* line 318, ../sass/navigation.scss */
+.not-front #main-menu {
   width: 100%;
+  position: fixed;
+  background-color: #7fb083;
+  z-index: 1000;
 }
 
-/* line 320, ../sass/navigation.scss */
+/* line 326, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
