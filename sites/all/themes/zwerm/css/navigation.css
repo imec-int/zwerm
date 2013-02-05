@@ -274,24 +274,28 @@ li a.active {
     width: 100%;
   }
   /* line 289, ../sass/navigation.scss */
+  #navigation a {
+    font-weight: bold;
+  }
+  /* line 294, ../sass/navigation.scss */
   #navigation li {
     float: left;
     width: 12.5%;
     text-align: center;
     padding: 0px;
   }
-  /* line 297, ../sass/navigation.scss */
+  /* line 302, ../sass/navigation.scss */
   #navigation .first {
     margin-left: 12.5%;
   }
 }
 @media all and (min-width: 401px) and (max-width: 630px) {
-  /* line 319, ../sass/navigation.scss */
+  /* line 324, ../sass/navigation.scss */
   .page-frontpage #navigation li {
     width: 28%;
     padding-bottom: 50px;
   }
-  /* line 324, ../sass/navigation.scss */
+  /* line 329, ../sass/navigation.scss */
   .page-frontpage #navigation #main-menu {
     margin-top: 0px;
   }
@@ -299,7 +303,7 @@ li a.active {
 /*
 * Main menu and Secondary menu links
 */
-/* line 339, ../sass/navigation.scss */
+/* line 344, ../sass/navigation.scss */
 .not-front #main-menu {
   width: 100%;
   position: fixed;
@@ -307,7 +311,7 @@ li a.active {
   z-index: 1000;
 }
 
-/* line 347, ../sass/navigation.scss */
+/* line 352, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
