@@ -227,7 +227,7 @@ li a.active {
     text-align: center;
     box-align: center;
   }
-  /* line 224, ../sass/navigation.scss */
+  /* line 223, ../sass/navigation.scss */
   .page-frontpage #navigation li a:link {
     color: #FFFFFF;
     text-decoration: none;
@@ -235,7 +235,7 @@ li a.active {
     font-weight: bold;
     font-family: Romina;
   }
-  /* line 232, ../sass/navigation.scss */
+  /* line 231, ../sass/navigation.scss */
   .page-frontpage #navigation li a:visited {
     color: #FFFFFF;
     text-decoration: none;
@@ -246,7 +246,7 @@ li a.active {
   }
 }
 @media all and (min-width: 630px) {
-  /* line 247, ../sass/navigation.scss */
+  /* line 246, ../sass/navigation.scss */
   #navigation {
     position: fixed;
     top: 0px;
@@ -259,29 +259,29 @@ li a.active {
     background-position-x: 3px;
     background-repeat: no-repeat;
   }
-  /* line 260, ../sass/navigation.scss */
+  /* line 259, ../sass/navigation.scss */
   #navigation #main-menu {
     width: 100%;
   }
-  /* line 268, ../sass/navigation.scss */
+  /* line 267, ../sass/navigation.scss */
   #navigation li {
     float: left;
     width: 12.5%;
     text-align: center;
     padding: 0px;
   }
-  /* line 276, ../sass/navigation.scss */
+  /* line 275, ../sass/navigation.scss */
   #navigation .first {
     margin-left: 12.5%;
   }
 }
 @media all and (min-width: 401px) and (max-width: 630px) {
-  /* line 298, ../sass/navigation.scss */
+  /* line 297, ../sass/navigation.scss */
   .page-frontpage #navigation li {
     width: 28%;
     padding-bottom: 50px;
   }
-  /* line 303, ../sass/navigation.scss */
+  /* line 302, ../sass/navigation.scss */
   .page-frontpage #navigation #main-menu {
     margin-top: 0px;
   }
@@ -289,7 +289,7 @@ li a.active {
 /*
 * Main menu and Secondary menu links
 */
-/* line 318, ../sass/navigation.scss */
+/* line 317, ../sass/navigation.scss */
 .not-front #main-menu {
   width: 100%;
   position: fixed;
@@ -297,8 +297,18 @@ li a.active {
   z-index: 1000;
 }
 
-/* line 326, ../sass/navigation.scss */
+/* line 325, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */
+}
+
+/* line 334, ../sass/navigation.scss */
+.color-79b1bd #navigation li {
+  background-color: #84B7C2;
+}
+
+/* line 345, ../sass/navigation.scss */
+.color-dc6058 #navigation li {
+  background-color: #f38176;
 }
