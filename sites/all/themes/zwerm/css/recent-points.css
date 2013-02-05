@@ -33,3 +33,8 @@
 .page-points-in-campaign .views-field-name {
   display: block;
 }
+
+/* line 39, ../sass/recent-points.scss */
+body.page-points-in-campaign {
+  background-color: black;
+}
