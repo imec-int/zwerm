@@ -13,10 +13,6 @@
 .page-points-in-campaign {
   background-color: #eeeeee;
 }
-/* line 8, ../sass/recent-points.scss */
-.page-points-in-campaign #main {
-  background-color: #eeeeee;
-}
 /* line 13, ../sass/recent-points.scss */
 .page-points-in-campaign thead {
   display: none;
@@ -36,4 +32,9 @@
 /* line 33, ../sass/recent-points.scss */
 .page-points-in-campaign .views-field-name {
   display: block;
+}
+
+/* line 39, ../sass/recent-points.scss */
+body.page-points-in-campaign {
+  background-color: black;
 }

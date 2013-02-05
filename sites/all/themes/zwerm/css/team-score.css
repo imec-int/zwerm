@@ -1,10 +1,10 @@
 @media all and (max-width: 629px) {
-  /* line 140, ../sass/_base.scss */
+  /* line 140, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss */
   .color-dc6058 {
     background-color: #DC6058;
   }
 
-  /* line 145, ../sass/_base.scss */
+  /* line 145, /Users/tanguycoenen/Dropbox/Dev/scoga_2/sites/all/themes/zwerm/sass/_base.scss */
   .color-79b1bd {
     background-color: #79b1bd;
   }
@@ -35,12 +35,10 @@ body.page-team-score {
 /* line 36, ../sass/team-score.scss */
 .page-team-score .color-79b1bd {
   color: #79b1bd;
-  background-color: #eeeeee;
 }
 /* line 43, ../sass/team-score.scss */
 .page-team-score .color-dc6058 {
   color: #dc6058;
-  background-color: #eeeeee;
 }
 /* line 51, ../sass/team-score.scss */
 .page-team-score field-title, .page-team-score .views-field-title-1 {
@@ -65,5 +63,33 @@ body.page-team-score {
   .page-team-score .view-content {
     margin-left: 3%;
     width: 100%;
+  }
+  /* line 83, ../sass/team-score.scss */
+  .page-team-score .color-79b1bd {
+    color: #79b1bd;
+    background-color: #eeeeee;
+  }
+  /* line 90, ../sass/team-score.scss */
+  .page-team-score .color-dc6058 {
+    color: #dc6058;
+    background-color: #eeeeee;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 100, ../sass/team-score.scss */
+  .page-team-score .color-79b1bd {
+    color: #79b1bd;
+  }
+  /* line 104, ../sass/team-score.scss */
+  .page-team-score .color-dc6058 {
+    color: #dc6058;
+  }
+  /* line 108, ../sass/team-score.scss */
+  .page-team-score .points {
+    color: white;
+  }
+  /* line 112, ../sass/team-score.scss */
+  .page-team-score #main {
+    background-color: black;
   }
 }

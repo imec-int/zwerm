@@ -283,6 +283,7 @@ div.status {
 div.warning,
 tr.warning {
   /* Medium priority messages */
+  display: none;
 }
 
 /* line 273, ../sass/pages.scss */
