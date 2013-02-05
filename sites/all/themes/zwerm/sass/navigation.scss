@@ -213,7 +213,6 @@ li a.active {
         height: 25%;
         width:28%;
         padding: 0 0px 0 0;
-        //background-color: #84B7C2;
         background-repeat: no-repeat;
         background-position: center;
         padding: 1%;
@@ -325,6 +324,28 @@ li a.active {
 
 #secondary-menu {
   float: right; /* LTR */
+}
+
+.color-79b1bd
+{
+  #navigation
+  {
+    li
+    {
+      background-color: #84B7C2;
+    }
+  }
+}
+
+.color-dc6058
+{
+  #navigation
+  {
+    li
+    {
+      background-color: #f38176;
+    }
+  }
 }
 
 
