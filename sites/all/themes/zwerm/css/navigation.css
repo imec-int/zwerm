@@ -294,9 +294,10 @@ li a.active {
   width: 100%;
   position: fixed;
   background-color: #7fb083;
+  z-index: 1000;
 }
 
-/* line 325, ../sass/navigation.scss */
+/* line 326, ../sass/navigation.scss */
 #secondary-menu {
   float: right;
   /* LTR */

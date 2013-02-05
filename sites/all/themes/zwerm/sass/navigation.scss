@@ -319,6 +319,7 @@ li a.active {
     width:100%;
     position:fixed;
     background-color:$green-marking-color;
+    z-index:1000;
   }
 }
 
