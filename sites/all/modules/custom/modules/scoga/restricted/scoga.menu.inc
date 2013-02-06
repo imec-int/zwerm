@@ -43,12 +43,12 @@
             'page callback'     => 'scoga_overview_of_assignments_to_get_point',
             'access arguments'  => array( SCOGA_PERM_PAGE_ACCESS_GET_POINTS ),
         );
-        $items['example-charts'] = array(
-            'title' => 'Example',
+        $items[SCOGA_TEAM_SCORE_PAGE] = array(
+            'title'             => 'Team Score',
             'file'              => 'restricted/scoga.page.inc',
-            'page callback' => 'example_page',
-            'access arguments' => array('access content'),
-            'type' => MENU_CALLBACK,
+            'page callback'     => 'scoga_team_score_graph',
+            'access arguments'  => array('access content'),
+            'type'              => MENU_NORMAL_ITEM,
         );
         return $items;
     }

@@ -185,7 +185,7 @@ function example_menu() {
 /**
  * Callback function for menu item.
  */
-function example_page() {
+function scoga_team_score_graph() {
     $returnvalues = array();
     module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
     module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
@@ -259,6 +259,9 @@ function example_page() {
         ),
         'xAxis' => array(
             'labelField' => 'date',
+        ),
+        'yAxis' => array(
+            'title' => 'Score'
         ),
         'data' => $returnvalues,
         'type' => 'line',
