@@ -13,4 +13,6 @@
 
         module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
         scoga_determine_current_campaign();
+        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+        scoga_determine_campaignteam_creation();
     }
