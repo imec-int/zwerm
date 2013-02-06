@@ -1766,6 +1766,10 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
 
   /* Display: Extended team view with score */
   $handler = $view->new_display('page', 'Extended team view with score', 'page_3');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '2';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Image */
   $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
