@@ -137,10 +137,10 @@
   <?php if ($page && $poi_confirmation_status == 0): ?>
     <div class="geochallenge-confirmation-button-wrapper clearfix">
         <div class="geochallenge-buttons geochallenge-confirm-poi">
-          <a href=""><span><?php echo $node->field_poi_unit_name['und'][0]['value']; ?> Goedkeuren</span></a>
+          <a href=""><span><?php //echo $node->field_poi_unit_name['und'][0]['value']; ?> Goedkeuren</span></a>
         </div>
         <div class="geochallenge-buttons geochallenge-reject-poi">
-            <a href=""><span><?php echo $node->field_poi_unit_name['und'][0]['value']; ?> Afkeuren</span></a>
+            <a href=""><span><?php //echo $node->field_poi_unit_name['und'][0]['value']; ?> Afkeuren</span></a>
         </div>
     </div>
   <?php endif; ?>

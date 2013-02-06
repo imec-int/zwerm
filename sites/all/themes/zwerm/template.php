@@ -281,6 +281,7 @@ function zwerm_preprocess_node(&$vars)
   //$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
   $vars['submitted']['name'] = $vars['name'];
   $vars['submitted']['date'] = $vars['date'];
+  $hook = "node";
 
   // Optionally, run node-type-specific preprocess functions, like
   // zwerm_preprocess_node_page() or zwerm_preprocess_node_story().
