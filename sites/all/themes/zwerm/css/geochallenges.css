@@ -161,48 +161,53 @@
   display: none;
 }
 
+/* line 148, ../sass/geochallenges.scss */
+#main {
+  background-color: black;
+}
+
 @media all and (max-width: 629px) {
-  /* line 149, ../sass/geochallenges.scss */
+  /* line 154, ../sass/geochallenges.scss */
   #main {
     min-height: 460px;
   }
 
-  /* line 153, ../sass/geochallenges.scss */
+  /* line 158, ../sass/geochallenges.scss */
   .olControlPanZoomBar {
     display: none;
   }
 
-  /* line 157, ../sass/geochallenges.scss */
+  /* line 162, ../sass/geochallenges.scss */
   .openlayers-container {
     padding-right: 40px;
   }
 
-  /* line 161, ../sass/geochallenges.scss */
+  /* line 166, ../sass/geochallenges.scss */
   .openlayers-map {
     border-right: 2px solid white;
   }
 
-  /* line 165, ../sass/geochallenges.scss */
+  /* line 170, ../sass/geochallenges.scss */
   .field-widget-geofield-openlayers {
     background-color: #7fb083;
   }
 
-  /* line 169, ../sass/geochallenges.scss */
+  /* line 174, ../sass/geochallenges.scss */
   .geochallenge-add-poi-instructions {
     border-bottom: 2px solid white;
   }
 }
-/* line 174, ../sass/geochallenges.scss */
+/* line 179, ../sass/geochallenges.scss */
 .geofield-help {
   display: none;
 }
 
-/* line 178, ../sass/geochallenges.scss */
+/* line 183, ../sass/geochallenges.scss */
 .geochallenge-confirmation-button-wrapper {
   margin: 2px 0 25px 0;
 }
 
-/* line 182, ../sass/geochallenges.scss */
+/* line 187, ../sass/geochallenges.scss */
 .geochallenge-buttons {
   width: 49%;
   text-align: center;
@@ -210,46 +215,46 @@
   margin: 10px 0 25px 0;
 }
 
-/* line 189, ../sass/geochallenges.scss */
+/* line 194, ../sass/geochallenges.scss */
 .geochallenge-buttons a {
   font-family: Romina;
   font-size: 1.4em;
 }
 
-/* line 194, ../sass/geochallenges.scss */
+/* line 199, ../sass/geochallenges.scss */
 .geochallenge-confirm-poi {
   background-color: #7fb083;
   float: left;
 }
 
-/* line 199, ../sass/geochallenges.scss */
+/* line 204, ../sass/geochallenges.scss */
 .geochallenge-reject-poi {
   background-color: #dc6058;
   float: right;
 }
 
-/* line 204, ../sass/geochallenges.scss */
+/* line 209, ../sass/geochallenges.scss */
 .rules-link-poi_confirm_accept {
   display: none;
 }
 
-/* line 208, ../sass/geochallenges.scss */
+/* line 213, ../sass/geochallenges.scss */
 .rules-link-poi_confirm_reject {
   display: none;
 }
 
-/* line 212, ../sass/geochallenges.scss */
+/* line 217, ../sass/geochallenges.scss */
 .page-kaart .olPopupCloseBox {
   background-image: url("../images/x.gif");
   margin: 4px 20px 0 0;
 }
 
-/* line 220, ../sass/geochallenges.scss */
+/* line 225, ../sass/geochallenges.scss */
 .page-kaart .view-poi-overview {
   margin: 15px 0 50px 0;
 }
 
-/* line 224, ../sass/geochallenges.scss */
+/* line 229, ../sass/geochallenges.scss */
 .page-kaart #popup_contentDiv {
   background-color: #7fb083;
   color: white;
@@ -260,18 +265,18 @@
   border-radius: 8px;
 }
 
-/* line 236, ../sass/geochallenges.scss */
+/* line 241, ../sass/geochallenges.scss */
 .page-kaart #popup_GroupDiv img {
   display: none;
 }
-/* line 240, ../sass/geochallenges.scss */
+/* line 245, ../sass/geochallenges.scss */
 .page-kaart #popup_GroupDiv .openlayers-tooltip-name {
   font-family: Romina;
   font-size: 1.2em;
   font-weight: bold;
 }
 
-/* line 248, ../sass/geochallenges.scss */
+/* line 253, ../sass/geochallenges.scss */
 .views-exposed-form {
   background-color: #7fb083;
   padding: 5px 10px;
@@ -279,20 +284,20 @@
   margin-top: 10px;
   border-bottom: 2px solid white;
 }
-/* line 254, ../sass/geochallenges.scss */
+/* line 259, ../sass/geochallenges.scss */
 .views-exposed-form label {
   font-family: romina;
   font-size: 1.2em;
   margin-bottom: 10px;
 }
-/* line 260, ../sass/geochallenges.scss */
+/* line 265, ../sass/geochallenges.scss */
 .views-exposed-form #edit-field-ref-geo-challenge-target-id {
   width: 400px;
   background-color: #7fb083;
   color: white;
   border-color: white;
 }
-/* line 266, ../sass/geochallenges.scss */
+/* line 271, ../sass/geochallenges.scss */
 .views-exposed-form #edit-field-ref-geo-challenge-target-id:focus {
   border-color: white;
 }

@@ -144,6 +144,11 @@
   display: none;
 }
 
+#main
+{
+  background-color: black;
+}
+
 @media all and (max-width: $end_of_small_viewport)
 {
   #main {
