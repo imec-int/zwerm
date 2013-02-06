@@ -43,6 +43,13 @@
             'page callback'     => 'scoga_overview_of_assignments_to_get_point',
             'access arguments'  => array( SCOGA_PERM_PAGE_ACCESS_GET_POINTS ),
         );
+        $items['example-charts'] = array(
+            'title' => 'Example',
+            'file'              => 'restricted/scoga.page.inc',
+            'page callback' => 'example_page',
+            'access arguments' => array('access content'),
+            'type' => MENU_CALLBACK,
+        );
         return $items;
     }
 
