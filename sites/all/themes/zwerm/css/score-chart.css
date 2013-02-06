@@ -9,3 +9,8 @@
     background-color: #79b1bd;
   }
 }
+/* line 6, ../sass/score-chart.scss */
+.page-team-score-graph tspan {
+  font-weight: bold;
+  font-size: 11px;
+}

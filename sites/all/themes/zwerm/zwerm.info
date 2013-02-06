@@ -79,6 +79,7 @@ stylesheets[all][] = css/messages.css
 stylesheets[all][] = css/play.css
 stylesheets[all][] = css/recent-points.css
 stylesheets[all][] = css/geochallenges.css
+stylesheets[all][] = css/score-chart.css
 
 
 

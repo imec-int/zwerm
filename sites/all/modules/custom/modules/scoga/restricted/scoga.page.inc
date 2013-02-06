@@ -196,7 +196,7 @@ function scoga_team_score_graph() {
     $nodes_team1 = node_load_multiple($nid_team1);
     foreach($nodes_team1 as $node)
     {
-        $points = $node->field_campaignteam_totalpoints[und][0][value];
+        $points = $node->field_campaignteam_totalpoints['und'][0]['value'];
         $date =  date('m/d/Y', $node->created);
         $datapoint = array('date'=>$date,'points1'=>$points);
         $returnvalues[$date]= $datapoint;
@@ -207,7 +207,7 @@ function scoga_team_score_graph() {
     $nodes_team2 = node_load_multiple($nid_team2);
     foreach($nodes_team2 as $node)
     {
-        $points = $node->field_campaignteam_totalpoints[und][0][value];
+        $points = $node->field_campaignteam_totalpoints['und'][0]['value'];
         $date =  date('m/d/Y', $node->created);
         if (isset($returnvalues[$date]))
         {
@@ -247,6 +247,7 @@ function scoga_team_score_graph() {
     //configure graph
     $options_line = array(
         'title' => 'Score per team',
+        'backgroundColor' => 'black',
         'fields' => array(
             'points1' => array(
                 'label' => t($teams[0]->title),
@@ -261,7 +262,7 @@ function scoga_team_score_graph() {
             'labelField' => 'date',
         ),
         'yAxis' => array(
-            'title' => 'Score'
+            'title' => ' ',
         ),
         'data' => $returnvalues,
         'type' => 'line',

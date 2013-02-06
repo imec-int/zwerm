@@ -30,14 +30,16 @@ class HighchartsHandler implements VisualizationHandlerInterface {
 
     // Chart.
     $highchart->chart = (object) array(
-      'plotBackgroundColor' => NULL,
+      'plotBackgroundColor' => 'black',
       'plotBorderWidth' => NULL,
       'plotShadow' => FALSE,
+      'backgroundColor' => 'black',
     );
 
     // Set title.
     $highchart->title = new stdClass();
-    $highchart->title->text = $options['title'];
+    //$highchart->title->text = $options['title'];
+    $highchart->title->text = '';
 
     $x_axis = array();
     if (!empty($options['xAxis']['labelField'])) {
@@ -57,8 +59,13 @@ class HighchartsHandler implements VisualizationHandlerInterface {
         'title' => (object) array(
           'text' => $options['yAxis']['title'],
         ),
+        'gridLineColor' => 'black'
       );
     }
+
+    $highchart->legend = (object) array (
+        'borderWidth' => 0
+    );
 
     // Series.
     $highchart->series = array();

@@ -275,3 +275,19 @@
         module_load_include( 'poll.inc', 'scoga', 'restricted/scoga' );
         scoga_handle_poll_cancel_vote( $poll_node );
     }
+
+    /**
+     * implements hook_block_info
+     */
+    function scoga_block_info(){
+        module_load_include( 'block.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_block_info();
+    }
+
+    /**
+     * implements hook_block_view
+     */
+    function scoga_block_view($delta='') {
+        module_load_include( 'block.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_block_view( $delta );
+    }
