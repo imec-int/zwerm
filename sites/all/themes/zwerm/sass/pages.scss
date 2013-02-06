@@ -258,6 +258,7 @@ div.messages { /* Important messages (status, warning, and error) for the user. 
 }
 
 div.status { /* Normal priority messages */
+  width:100%;
   background-color: $score-navbar-color;
   font-size: 0.8em;
   color: #ffffff;

@@ -288,7 +288,7 @@
 }
 /* line 261, ../sass/geochallenges.scss */
 .views-exposed-form #edit-field-ref-geo-challenge-target-id {
-  min-widthwidth: 400px;
+  width: 400px;
   background-color: #7fb083;
   color: white;
   border-color: white;

@@ -31,34 +31,33 @@
 }
 /* line 40, ../sass/poll.scss */
 .node-type-poll #main .form-submit {
-  width: 60%;
-  margin-left: 20%;
+  width: 200px;
   font-size: small;
 }
-/* line 46, ../sass/poll.scss */
+/* line 45, ../sass/poll.scss */
 .node-type-poll #main .field-label {
   float: left;
   font-weight: normal;
 }
-/* line 52, ../sass/poll.scss */
+/* line 51, ../sass/poll.scss */
 .node-type-poll .node .poll {
   margin: 2em 0;
   width: 90%;
 }
-/* line 56, ../sass/poll.scss */
+/* line 55, ../sass/poll.scss */
 .node-type-poll .node .poll #edit-choice {
   margin: 0 0 1.5em;
 }
-/* line 59, ../sass/poll.scss */
+/* line 58, ../sass/poll.scss */
 .node-type-poll .poll .vote-form {
   text-align: left;
   /* LTR */
 }
-/* line 62, ../sass/poll.scss */
+/* line 61, ../sass/poll.scss */
 .node-type-poll .poll .vote-form .choices {
   margin: 0;
 }
-/* line 65, ../sass/poll.scss */
+/* line 64, ../sass/poll.scss */
 .node-type-poll .poll .percent {
   font-size: 0.857em;
   font-style: italic;
@@ -68,12 +67,12 @@
   float: right;
   text-align: right;
 }
-/* line 74, ../sass/poll.scss */
+/* line 73, ../sass/poll.scss */
 .node-type-poll .poll .text {
   clear: right;
   margin-right: 2.25em;
 }
-/* line 78, ../sass/poll.scss */
+/* line 77, ../sass/poll.scss */
 .node-type-poll .poll .total {
   font-size: 0.929em;
   font-style: italic;
@@ -82,38 +81,38 @@
   clear: both;
   margin-right: 10px;
 }
-/* line 85, ../sass/poll.scss */
+/* line 84, ../sass/poll.scss */
 .node-type-poll .node .poll {
   margin: 1.8em 0 0;
 }
-/* line 88, ../sass/poll.scss */
+/* line 87, ../sass/poll.scss */
 .node-type-poll .node .poll .text {
   margin-right: 6.75em;
 }
-/* line 91, ../sass/poll.scss */
+/* line 90, ../sass/poll.scss */
 .node-type-poll .node .poll #edit-choice {
   margin: 0 0 1.2em;
 }
-/* line 94, ../sass/poll.scss */
+/* line 93, ../sass/poll.scss */
 .node-type-poll .poll .bar .foreground {
   height: 20px;
   margin-right: 10px;
   background-color: #7fb083;
 }
-/* line 99, ../sass/poll.scss */
+/* line 98, ../sass/poll.scss */
 .node-type-poll #footer-wrapper .poll .bar {
   background-color: #666;
 }
-/* line 102, ../sass/poll.scss */
+/* line 101, ../sass/poll.scss */
 .node-type-poll #footer-wrapper .poll .bar .foreground {
   background-color: #ddd;
 }
-/* line 107, ../sass/poll.scss */
+/* line 106, ../sass/poll.scss */
 .node-type-poll #content .tabs, .node-type-poll .field-name-field-poll-team {
   display: none;
 }
 @media all and (max-width: 629px) {
-  /* line 115, ../sass/poll.scss */
+  /* line 114, ../sass/poll.scss */
   .node-type-poll article {
     margin-left: 5%;
   }
