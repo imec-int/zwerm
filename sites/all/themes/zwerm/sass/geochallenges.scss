@@ -38,11 +38,12 @@
   text-align: center;
   font-family: Romina;
   font-size: 1.5em;
-  margin: 5px 0 20px 0;
+  margin: 5px 0 8px 0;
 }
 
 .field-name-field-description {
   font-size: 1.2em;
+  margin: 0 0 10px 0;
 }
 
 .node-type-geo-challenge .view-poi-per-challenge {
@@ -142,6 +143,13 @@
 
 .geochallenge-add-poi-mobile-scrollarea {
   display: none;
+}
+.section-kaart
+{
+#main
+  {
+    background-color: black;
+  }
 }
 
 @media all and (max-width: $end_of_small_viewport)

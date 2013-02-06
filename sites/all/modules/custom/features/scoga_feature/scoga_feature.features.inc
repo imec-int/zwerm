@@ -75,7 +75,7 @@ function scoga_feature_flag_default_flags() {
     ),
     'api_version' => 2,
   );
-  // Exported flag: "Markeer als onuitvoerbaar".
+  // Exported flag: "Unsolvable wish".
   $flags['flag_unsolvable_wish'] = array(
     'content_type' => 'node',
     'title' => 'Unsolvable wish',

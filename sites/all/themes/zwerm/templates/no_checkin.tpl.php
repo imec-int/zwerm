@@ -1,4 +1,4 @@
-<?php
+ <?php
     /*
      * Bundles the $names and $uids as a list and sends this to item_list.tpl.php
      * for formatting as an item list

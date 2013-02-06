@@ -18,7 +18,6 @@ function scoga_handle_theme($existing, $type, $theme, $path)
             'template' => 'get_points'
         ),
         'item_list_no_checkin' => array(
-            //'variables' => array('assignment_titles' => NULL) ,
             'path' =>'sites/all/themes/zwerm/templates',
             'template' => 'get_points'
         ),
