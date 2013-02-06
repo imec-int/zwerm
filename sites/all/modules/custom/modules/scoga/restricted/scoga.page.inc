@@ -190,40 +190,41 @@ function example_page() {
     module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
     module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
     $current_campaign_id = scoga_get_campaign_nid_for_time(time());
-    $nid_team1 = scoga_get_campaignteam_nids_by_references($current_campaign_id,1);
+    $teams = scoga_get_team_vos_by_campaign_nid($current_campaign_id);
+    //load data for team1
+    $nid_team1 = scoga_get_campaignteam_nids_by_references($current_campaign_id,$teams[0]->nid);
     $nodes_team1 = node_load_multiple($nid_team1);
-    //dsm($nodes_team1);
     foreach($nodes_team1 as $node)
     {
         $points = $node->field_campaignteam_totalpoints[und][0][value];
-        $date =  $node->created;
-        //todo : change points1 label to name of team
+        $date =  date('m/d/Y', $node->created);
         $datapoint = array('date'=>$date,'points1'=>$points);
         $returnvalues[$date]= $datapoint;
     }
-    $nid_team2 = scoga_get_campaignteam_nids_by_references($current_campaign_id,2);
+    //load data for team2
+    //merge data of team1 with team 2
+    $nid_team2 = scoga_get_campaignteam_nids_by_references($current_campaign_id,$teams[1]->nid);
     $nodes_team2 = node_load_multiple($nid_team2);
     foreach($nodes_team2 as $node)
     {
         $points = $node->field_campaignteam_totalpoints[und][0][value];
-        $date =  $node->created;
+        $date =  date('m/d/Y', $node->created);
         if (isset($returnvalues[$date]))
         {
             $returnvalues[$date]['points2']=$points;
         }
         else
         {
-            //todo : change points1 label to name of team
             $datapoint = array('date'=>$date,'points1'=>$points);
             $returnvalues[$date]= $datapoint;
         }
     }
+
     //make sure there are point values for each data point, otherwise, these values will be assumed to be 0
     $previous_point1 = 0;
     $previous_point2 = 0;
     foreach ($returnvalues as $date=>$datapoint)
     {
-        dsm('foreach ($returnvalues as $date=>$datapoint)');
         if (!isset($datapoint['points1']))
         {
             $datapoint['points1'] = $previous_point1;
@@ -242,30 +243,17 @@ function example_page() {
         }
         $returnvalues[$date] = $datapoint;
     }
-    dsm($returnvalues);
 
-
-
-    $data = array(
-        array('fruit' => 'apple', 'votes1' => 16, 'votes2' => 18,'team' =>1),
-        array('fruit' => 'mango', 'votes1' => 10, 'votes2' => 15, 'team' =>1),
-        array('fruit' => 'banana', 'votes1' => 34,'votes2' => 36,'team' =>1),
-        array('fruit' => 'peach', 'votes1' => 20,'votes2' => 28, 'team' =>1),
-        array('fruit' => 'orange', 'votes1' => 15,'votes2' => 19, 'team' =>1),
-
-    );
-
-
-
+    //configure graph
     $options_line = array(
         'title' => 'Score per team',
         'fields' => array(
             'points1' => array(
-                'label' => t('points1'),
+                'label' => t($teams[0]->title),
                 'enabled' => TRUE,
             ),
             'points2' => array(
-                'label' => t('points2'),
+                'label' => t($teams[1]->title),
                 'enabled' => TRUE,
             ),
         ),
