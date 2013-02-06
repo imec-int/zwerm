@@ -193,6 +193,7 @@ function scoga_team_score_graph() {
     $teams = scoga_get_team_vos_by_campaign_nid($current_campaign_id);
     //load data for team1
     $nid_team1 = scoga_get_campaignteam_nids_by_references($current_campaign_id,$teams[0]->nid);
+    $nid_team1 = array_reverse($nid_team1);
     $nodes_team1 = node_load_multiple($nid_team1);
     foreach($nodes_team1 as $node)
     {
@@ -201,9 +202,11 @@ function scoga_team_score_graph() {
         $datapoint = array('date'=>$date,'points1'=>$points);
         $returnvalues[$date]= $datapoint;
     }
+
     //load data for team2
     //merge data of team1 with team 2
     $nid_team2 = scoga_get_campaignteam_nids_by_references($current_campaign_id,$teams[1]->nid);
+    $nid_team2 = array_reverse($nid_team2);
     $nodes_team2 = node_load_multiple($nid_team2);
     foreach($nodes_team2 as $node)
     {
@@ -221,7 +224,7 @@ function scoga_team_score_graph() {
     }
 
     //make sure there are point values for each data point, otherwise, these values will be assumed to be 0
-    $previous_point1 = 0;
+    /*$previous_point1 = 0;
     $previous_point2 = 0;
     foreach ($returnvalues as $date=>$datapoint)
     {
@@ -242,7 +245,7 @@ function scoga_team_score_graph() {
             $previous_point2 = $datapoint['points2'];
         }
         $returnvalues[$date] = $datapoint;
-    }
+    }*/
 
     //configure graph
     $options_line = array(
