@@ -291,3 +291,11 @@
         module_load_include( 'block.inc', 'scoga', 'restricted/scoga' );
         return scoga_handle_block_view( $delta );
     }
+
+    /**
+     * Implements hook_ctools_plugin_directory().
+     */
+    function scoga_ctools_plugin_directory($module, $plugin) {
+        module_load_include( 'ctools.inc', 'scoga', 'restricted/scoga' );
+        return scoga_handle_ctools_plugin_directory($module, $plugin);
+    }

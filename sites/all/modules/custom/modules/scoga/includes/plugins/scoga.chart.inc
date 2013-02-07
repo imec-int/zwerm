@@ -75,6 +75,7 @@ class HighchartsHandler implements VisualizationHandlerInterface {
         $serie = new stdClass();
         $serie->name = $column['label'];
         $serie->type = $options['type'];
+        $serie->color = $column['colour'];
 
         $serie->data = array();
         foreach ($data as $row) {
@@ -86,12 +87,11 @@ class HighchartsHandler implements VisualizationHandlerInterface {
           else {
             $serie->data[] = $value;
           }
-        }
 
+        }
         $highchart->series[] = $serie;
       }
     }
-
     $highchart->plotOptions = new stdClass();
     $highchart->plotOptions->pie = (object) array(
       'allowPointSelect' => TRUE,
@@ -117,7 +117,6 @@ class HighchartsHandler implements VisualizationHandlerInterface {
       'library' => 'highcharts',
       'options' => $highchart,
     );
-
     // Add Drupal.settings for this chart.
     drupal_add_js(array('visualization' => array($chart_id => $information)), array('type' => 'setting'));
   }
