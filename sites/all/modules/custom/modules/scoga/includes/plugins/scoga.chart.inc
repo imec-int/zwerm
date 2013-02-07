@@ -25,7 +25,6 @@ class HighchartsHandler implements VisualizationHandlerInterface {
    * Renders a chart using Highcharts.
    */
   public function render($chart_id, $data, $options) {
-    //todo revert this file to original version and see how extensions can be extended in custom module
     // Chart options.
     $highchart = new stdClass();
 
