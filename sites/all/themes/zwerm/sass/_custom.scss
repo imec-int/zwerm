@@ -119,5 +119,14 @@
   vertical-align: top;
 }
 
+@mixin action-button
+{
+  background-color: $footer-color;
+  height:30px;
+  color:white;
+  border:0;
+  border-radius: 3px;
+}
+
 
 
