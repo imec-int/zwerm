@@ -66,6 +66,7 @@ class HighchartsHandler implements VisualizationHandlerInterface {
 
     $highchart->legend = (object) array (
         'borderWidth' => 0
+
     );
 
     // Series.
