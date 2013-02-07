@@ -200,7 +200,7 @@ function scoga_team_score_graph() {
     foreach($nodes_team1 as $node)
     {
         $points = $node->field_campaignteam_totalpoints['und'][0]['value'];
-        $date =  date('m/d/Y', $node->created);
+        $date =  date('d/m/Y', $node->created);
         $datapoint = array('date'=>$date,'points1'=>$points);
         $returnvalues[$date]= $datapoint;
     }
@@ -213,7 +213,7 @@ function scoga_team_score_graph() {
     foreach($nodes_team2 as $node)
     {
         $points = $node->field_campaignteam_totalpoints['und'][0]['value'];
-        $date =  date('m/d/Y', $node->created);
+        $date =  date('d/m/Y', $node->created);
         if (isset($returnvalues[$date]))
         {
             $returnvalues[$date]['points2']=$points;
