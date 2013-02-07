@@ -44,7 +44,7 @@
   {
     li
     {
-      background-color:$green-marking-color;
+      //background-color:$green-marking-color;
       a
       {
         padding-left: 20px;
@@ -63,12 +63,24 @@
     }
 
     //theme the action links
-    ul.inline li
+    ul.inline
     {
       display:block;
-      a
+      margin-bottom: 80px;
+      li
       {
-        color: black;
+        display:inline;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        float: left;
+        a
+        {
+          //color: black;
+          @include action-button;
+          padding:7px;
+          margin-bottom: 5px;
+          font-size: small;
+        }
       }
     }
 
