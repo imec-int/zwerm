@@ -196,7 +196,6 @@ function scoga_team_score_graph() {
     $nid_team1 = array_reverse($nid_team1);
     $colour_team1 = '#'.$teams[0]->colour;
     $colour_team2 = '#'.$teams[1]->colour;
-    dsm($colour_team2);
     $nodes_team1 = node_load_multiple($nid_team1);
     foreach($nodes_team1 as $node)
     {
@@ -226,30 +225,6 @@ function scoga_team_score_graph() {
         }
     }
 
-    //make sure there are point values for each data point, otherwise, these values will be assumed to be 0
-    /*$previous_point1 = 0;
-    $previous_point2 = 0;
-    foreach ($returnvalues as $date=>$datapoint)
-    {
-        if (!isset($datapoint['points1']))
-        {
-            $datapoint['points1'] = $previous_point1;
-        }
-        else
-        {
-            $previous_point1 = $datapoint['points1'];
-        }
-        if (!isset($datapoint['points2']))
-        {
-            $datapoint['points2'] = $previous_point2;
-        }
-        else
-        {
-            $previous_point2 = $datapoint['points2'];
-        }
-        $returnvalues[$date] = $datapoint;
-    }*/
-
     //configure graph
     $options_line = array(
         'title' => 'Score per team',
@@ -257,12 +232,12 @@ function scoga_team_score_graph() {
         'fields' => array(
             'points1' => array(
                 'label' => t($teams[0]->title),
-                'lineColor' => $colour_team1,
+                'colour' => $colour_team1,
                 'enabled' => TRUE,
             ),
             'points2' => array(
                 'label' => t($teams[1]->title),
-                'series.data.marker.lineColor' => $colour_team2,
+                'colour' => $colour_team2,
                 'enabled' => TRUE,
             ),
         ),
