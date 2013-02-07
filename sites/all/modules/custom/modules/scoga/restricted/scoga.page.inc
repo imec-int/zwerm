@@ -194,6 +194,9 @@ function scoga_team_score_graph() {
     //load data for team1
     $nid_team1 = scoga_get_campaignteam_nids_by_references($current_campaign_id,$teams[0]->nid);
     $nid_team1 = array_reverse($nid_team1);
+    $colour_team1 = '#'.$teams[0]->colour;
+    $colour_team2 = '#'.$teams[1]->colour;
+    dsm($colour_team2);
     $nodes_team1 = node_load_multiple($nid_team1);
     foreach($nodes_team1 as $node)
     {
@@ -254,10 +257,12 @@ function scoga_team_score_graph() {
         'fields' => array(
             'points1' => array(
                 'label' => t($teams[0]->title),
+                'lineColor' => $colour_team1,
                 'enabled' => TRUE,
             ),
             'points2' => array(
                 'label' => t($teams[1]->title),
+                'series.data.marker.lineColor' => $colour_team2,
                 'enabled' => TRUE,
             ),
         ),
