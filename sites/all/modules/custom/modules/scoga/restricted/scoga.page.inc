@@ -80,11 +80,11 @@
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';
         //add other playable elements to output
-        _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL,&$assignment_titles,&$assignment_paths);
-        _scoga_add_POI_confirmations_to_output(&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,$assignment_titles,$assignment_paths);
+        _scoga_add_nodes_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,$assignment_titles,$assignment_paths);
+        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL,$assignment_titles,$assignment_paths);
+        _scoga_add_POI_confirmations_to_output($assignment_titles,$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,$assignment_titles,$assignment_paths);
         $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
     }
@@ -99,7 +99,7 @@
      * @param $titles
      * @param $paths
      */
-    function _scoga_add_nodes_to_output($content_type,$label,$header,$campaign_ref_field,$team_ref_field,$user_team,$titles,$paths)
+    function _scoga_add_nodes_to_output($content_type,$label,$header,$campaign_ref_field,$team_ref_field,$user_team,&$titles,&$paths)
     {
         //todo : $current_campaign_id should be calculated only once, in function calling this one
         $current_campaign_id = scoga_get_campaign_nid_for_time(time());
@@ -145,7 +145,7 @@
         }
     }
 
-    function _scoga_add_POI_confirmations_to_output($titles,$paths)
+    function _scoga_add_POI_confirmations_to_output(&$titles,&$paths)
     {
         global $user;
         $current_campaign_id = scoga_get_campaign_nid_for_time(time());
