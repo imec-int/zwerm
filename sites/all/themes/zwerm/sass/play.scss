@@ -26,7 +26,10 @@
 @media all and (min-width: $start_of_large_viewport) {
   .page-get-points
   {
-
+    #main
+    {
+      background-color: black;
+    }
 
     #content
     {
