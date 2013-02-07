@@ -126,7 +126,7 @@
         {
             $titles[] = t($header);
             $paths[] = '';
-            _scoga_fill_titles_and_path($nodes,&$titles,&$paths,$label);
+            _scoga_fill_titles_and_path($nodes,$titles,$paths,$label);
         }
     }
 
@@ -136,7 +136,7 @@
      * @param $paths
      * @param $label
      */
-    function _scoga_fill_titles_and_path($nodes,$titles,$paths,$label)
+    function _scoga_fill_titles_and_path($nodes,&$titles,&$paths,$label)
     {
         foreach($nodes as $node_item)
         {
@@ -163,7 +163,7 @@
             {
                 $titles[] = t('POIs to confirm');
                 $paths[] = '';
-                _scoga_fill_titles_and_path($nodes,&$titles,&$paths,t('POI confirmation'));
+                _scoga_fill_titles_and_path($nodes,$titles,$paths,t('POI confirmation'));
             }
         }
     }
