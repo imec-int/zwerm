@@ -13,58 +13,68 @@
 .page-user .tabs, .page-user #select_list, .page-user h3, .page-user dl, .page-user #content .tabs {
   display: none;
 }
-/* line 11, ../sass/user.scss */
-.page-user a {
-  color: black;
+/* line 12, ../sass/user.scss */
+.page-user .profile a.privatemsg-send-link, .page-user .profile a.edit_account_link {
+  background-color: #333333;
+  height: 30px;
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  font-size: small;
+  padding: 7px;
 }
-/* line 16, ../sass/user.scss */
-.page-user .field-name-field-user-firstname, .page-user .field-name-field-user-surname {
+/* line 21, ../sass/user.scss */
+.page-user .edit_account {
+  display: inline;
+}
+/* line 26, ../sass/user.scss */
+.page-user .field-name-field-user-firstname, .page-user .field-name-field-user-surname, .page-user .userpoints-links {
   display: none;
 }
-/* line 23, ../sass/user.scss */
+/* line 33, ../sass/user.scss */
 .page-user .comment .field-name-field-user-firstname, .page-user .comment .field-name-field-user-surname {
   display: block;
 }
 @media all and (min-width: 630px) {
-  /* line 33, ../sass/user.scss */
+  /* line 43, ../sass/user.scss */
   .page-user a.privatemsg-send-link, .page-user a.edit_account_link {
     color: #7fb083;
   }
 }
 @media all and (max-width: 629px) {
-  /* line 41, ../sass/user.scss */
+  /* line 51, ../sass/user.scss */
   .page-user a.privatemsg-send-link, .page-user a.edit_account_link {
     color: #eeeeee;
   }
 }
-/* line 47, ../sass/user.scss */
+/* line 57, ../sass/user.scss */
+.page-user .userpoints-view.first.last {
+  display: none;
+}
+/* line 62, ../sass/user.scss */
 .page-user .user-picture {
   float: left;
   padding-right: 10px;
 }
-/* line 52, ../sass/user.scss */
+/* line 67, ../sass/user.scss */
 .page-user .profile {
   margin-left: 4%;
 }
-/* line 56, ../sass/user.scss */
-.page-user .privatemsg-send-link.privatemsg-send-link-profile {
-  display: inline-block;
-}
-/* line 60, ../sass/user.scss */
+/* line 75, ../sass/user.scss */
 .page-user .field.field-name-field-user-firstname.field-type-text.field-label-hidden {
   float: left;
   padding-right: 4px;
 }
-/* line 66, ../sass/user.scss */
+/* line 81, ../sass/user.scss */
 .page-user li {
   list-style-type: none;
 }
-/* line 71, ../sass/user.scss */
+/* line 86, ../sass/user.scss */
 .page-user .item-list {
   padding-top: 25px;
   display: block;
 }
-/* line 77, ../sass/user.scss */
+/* line 92, ../sass/user.scss */
 .page-user ul.userpoints-points {
   margin-left: 80px;
   margin-top: -24px;
