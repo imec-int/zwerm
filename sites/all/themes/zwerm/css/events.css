@@ -56,23 +56,23 @@ body.node-type-nodetype-event h1 {
 }
 /* line 63, ../sass/events.scss */
 body.node-type-nodetype-event .field-type-datestamp {
-  text-align: center;
+  font-size: 14px;
 }
-/* line 68, ../sass/events.scss */
+/* line 69, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-team {
   display: none;
 }
-/* line 73, ../sass/events.scss */
+/* line 74, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-address {
   font-size: x-large;
   margin-bottom: 30px;
   line-height: 1.5em;
 }
-/* line 81, ../sass/events.scss */
+/* line 82, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-date {
   margin-top: 5px;
 }
-/* line 91, ../sass/events.scss */
+/* line 92, ../sass/events.scss */
 body.node-type-nodetype-event #block-views-event-content-type-map-block-1 {
   margin-bottom: 10px;
 }
