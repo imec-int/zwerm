@@ -129,3 +129,9 @@
     margin-left: 5%;
   }
 }
+@media all and (min-width: 630px) {
+  /* line 132, ../sass/poll.scss */
+  .node-type-poll .username {
+    color: black;
+  }
+}
