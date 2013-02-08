@@ -46,35 +46,40 @@
   .page-user a.privatemsg-send-link, .page-user a.edit_account_link {
     color: #eeeeee;
   }
+  /* line 56, ../sass/user.scss */
+  .page-user .edit_account {
+    display: block;
+    margin-top: 10px;
+  }
 }
-/* line 57, ../sass/user.scss */
+/* line 63, ../sass/user.scss */
 .page-user .userpoints-view.first.last {
   display: none;
 }
-/* line 62, ../sass/user.scss */
+/* line 68, ../sass/user.scss */
 .page-user .user-picture {
   float: left;
   padding-right: 10px;
 }
-/* line 67, ../sass/user.scss */
+/* line 73, ../sass/user.scss */
 .page-user .profile {
   margin-left: 4%;
 }
-/* line 75, ../sass/user.scss */
+/* line 81, ../sass/user.scss */
 .page-user .field.field-name-field-user-firstname.field-type-text.field-label-hidden {
   float: left;
   padding-right: 4px;
 }
-/* line 81, ../sass/user.scss */
+/* line 87, ../sass/user.scss */
 .page-user li {
   list-style-type: none;
 }
-/* line 86, ../sass/user.scss */
+/* line 92, ../sass/user.scss */
 .page-user .item-list {
   padding-top: 25px;
   display: block;
 }
-/* line 92, ../sass/user.scss */
+/* line 98, ../sass/user.scss */
 .page-user ul.userpoints-points {
   margin-left: 80px;
   margin-top: -24px;
