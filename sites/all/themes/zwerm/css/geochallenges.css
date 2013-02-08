@@ -197,18 +197,26 @@
   .geochallenge-add-poi-instructions {
     border-bottom: 2px solid white;
   }
+
+  /* line 181, ../sass/geochallenges.scss */
+  #edit-field-ref-geo-challenge-target-id {
+    width: 200px;
+    background-color: #7fb083;
+    color: white;
+    border-color: white;
+  }
 }
-/* line 182, ../sass/geochallenges.scss */
+/* line 189, ../sass/geochallenges.scss */
 .geofield-help {
   display: none;
 }
 
-/* line 186, ../sass/geochallenges.scss */
+/* line 193, ../sass/geochallenges.scss */
 .geochallenge-confirmation-button-wrapper {
   margin: 2px 0 25px 0;
 }
 
-/* line 190, ../sass/geochallenges.scss */
+/* line 197, ../sass/geochallenges.scss */
 .geochallenge-buttons {
   width: 49%;
   text-align: center;
@@ -216,46 +224,46 @@
   margin: 10px 0 25px 0;
 }
 
-/* line 197, ../sass/geochallenges.scss */
+/* line 204, ../sass/geochallenges.scss */
 .geochallenge-buttons a {
   font-family: Romina;
   font-size: 1.4em;
 }
 
-/* line 202, ../sass/geochallenges.scss */
+/* line 209, ../sass/geochallenges.scss */
 .geochallenge-confirm-poi {
   background-color: #7fb083;
   float: left;
 }
 
-/* line 207, ../sass/geochallenges.scss */
+/* line 214, ../sass/geochallenges.scss */
 .geochallenge-reject-poi {
   background-color: #dc6058;
   float: right;
 }
 
-/* line 212, ../sass/geochallenges.scss */
+/* line 219, ../sass/geochallenges.scss */
 .rules-link-poi_confirm_accept {
   display: none;
 }
 
-/* line 216, ../sass/geochallenges.scss */
+/* line 223, ../sass/geochallenges.scss */
 .rules-link-poi_confirm_reject {
   display: none;
 }
 
-/* line 220, ../sass/geochallenges.scss */
+/* line 227, ../sass/geochallenges.scss */
 .page-kaart .olPopupCloseBox {
   background-image: url("../images/x.gif");
   margin: 4px 20px 0 0;
 }
 
-/* line 228, ../sass/geochallenges.scss */
+/* line 235, ../sass/geochallenges.scss */
 .page-kaart .view-poi-overview {
   margin: 15px 0 50px 0;
 }
 
-/* line 232, ../sass/geochallenges.scss */
+/* line 239, ../sass/geochallenges.scss */
 .page-kaart #popup_contentDiv {
   background-color: #7fb083;
   color: white;
@@ -266,18 +274,18 @@
   border-radius: 8px;
 }
 
-/* line 244, ../sass/geochallenges.scss */
+/* line 251, ../sass/geochallenges.scss */
 .page-kaart #popup_GroupDiv img {
   display: none;
 }
-/* line 248, ../sass/geochallenges.scss */
+/* line 255, ../sass/geochallenges.scss */
 .page-kaart #popup_GroupDiv .openlayers-tooltip-name {
   font-family: Romina;
   font-size: 1.2em;
   font-weight: bold;
 }
 
-/* line 256, ../sass/geochallenges.scss */
+/* line 263, ../sass/geochallenges.scss */
 .views-exposed-form {
   background-color: #7fb083;
   padding: 5px 10px;
@@ -285,20 +293,20 @@
   margin-top: 10px;
   border-bottom: 2px solid white;
 }
-/* line 262, ../sass/geochallenges.scss */
+/* line 269, ../sass/geochallenges.scss */
 .views-exposed-form label {
   font-family: romina;
   font-size: 1.2em;
   margin-bottom: 10px;
 }
-/* line 268, ../sass/geochallenges.scss */
+/* line 275, ../sass/geochallenges.scss */
 .views-exposed-form #edit-field-ref-geo-challenge-target-id {
   width: 400px;
   background-color: #7fb083;
   color: white;
   border-color: white;
 }
-/* line 274, ../sass/geochallenges.scss */
+/* line 281, ../sass/geochallenges.scss */
 .views-exposed-form #edit-field-ref-geo-challenge-target-id:focus {
   border-color: white;
 }
