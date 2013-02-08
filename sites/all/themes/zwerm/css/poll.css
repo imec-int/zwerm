@@ -128,9 +128,13 @@
   .node-type-poll article {
     margin-left: 5%;
   }
+  /* line 129, ../sass/poll.scss */
+  .node-type-poll h1 {
+    background-color: #7fb083;
+  }
 }
 @media all and (min-width: 630px) {
-  /* line 132, ../sass/poll.scss */
+  /* line 136, ../sass/poll.scss */
   .node-type-poll .username {
     color: black;
   }
