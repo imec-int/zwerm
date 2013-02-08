@@ -178,11 +178,14 @@
     border-bottom: 2px solid white;
   }
 
-  #edit-field-ref-geo-challenge-target-id {
-    width: 200px;
-    background-color: $green-marking-color;
-    color: white;
-    border-color: white;
+  .views-exposed-form
+  {
+    #edit-field-ref-geo-challenge-target-id {
+      width: 200px;
+      background-color: $green-marking-color;
+      color: white;
+      border-color: white;
+    }
   }
 }
 
