@@ -7,6 +7,11 @@ body.node-type-nodetype-event
     #main
     {
       padding-left: 10px;
+      .openlayers-container
+      {
+        padding-right: 20px;
+        padding-left: 10px;
+      }
     }
   }
 
