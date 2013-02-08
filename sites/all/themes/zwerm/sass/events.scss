@@ -2,6 +2,14 @@
 
 body.node-type-nodetype-event
 {
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    #main
+    {
+      padding-left: 10px;
+    }
+  }
+
   @media all and (min-width: $start_of_large_viewport)
   {
     background-color: $white-background-color;
