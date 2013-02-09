@@ -13,7 +13,7 @@
       {
         //default style of list items in get-points list
         height:$li-height;
-        background-color:white;
+        //background-color:white;
         //margin-bottom: 3px;
       }
     }
@@ -43,15 +43,40 @@
   }
   body.page-get-points
   {
-    background-color: $white-background-color;
+    //background-color: $white-background-color;
+    background-color: black;
   }
 
 
 }
 
+.color-79b1bd
+{
+  #content
+  {
+    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
+    {
+      //background-color: $green-marking-color;
+      background-color: #79b1bd;
+    }
+  }
+}
+
+.color-dc6058
+{
+  #content
+  {
+    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
+    {
+      //background-color: $green-marking-color;
+      background-color: #dc6058;
+    }
+  }
+}
 
 .page-get-points
 {
+
 
   #page-title
   {
@@ -74,10 +99,7 @@
       padding-left: 26px;
     }
 
-    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
-    {
-      background-color: $green-marking-color;
-    }
+
 
     li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after, li.list_header_geochallenge:after,li.list_header_poi_confirmation:after
     {

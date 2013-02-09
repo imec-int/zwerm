@@ -21,7 +21,6 @@
   /* line 13, ../sass/play.scss */
   body.page-get-points #content li {
     height: 60px;
-    background-color: white;
   }
 }
 @media all and (min-width: 630px) {
@@ -37,10 +36,20 @@
 
   /* line 45, ../sass/play.scss */
   body.page-get-points {
-    background-color: #eeeeee;
+    background-color: black;
   }
 }
-/* line 57, ../sass/play.scss */
+/* line 58, ../sass/play.scss */
+.color-79b1bd #content li.list_header_event, .color-79b1bd #content li.list_header_wish, .color-79b1bd #content li.list_header_question, .color-79b1bd #content li.list_header_geochallenge, .color-79b1bd #content li.list_header_poi_confirmation {
+  background-color: #79b1bd;
+}
+
+/* line 70, ../sass/play.scss */
+.color-dc6058 #content li.list_header_event, .color-dc6058 #content li.list_header_wish, .color-dc6058 #content li.list_header_question, .color-dc6058 #content li.list_header_geochallenge, .color-dc6058 #content li.list_header_poi_confirmation {
+  background-color: #dc6058;
+}
+
+/* line 82, ../sass/play.scss */
 .page-get-points #page-title {
   background-color: #333333;
   color: white;
@@ -51,29 +60,25 @@
   line-height: 2.6em;
   letter-spacing: 2px;
 }
-/* line 62, ../sass/play.scss */
+/* line 87, ../sass/play.scss */
 .page-get-points #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 67, ../sass/play.scss */
+/* line 92, ../sass/play.scss */
 .page-get-points #content ul {
   border-top-style: none;
 }
-/* line 72, ../sass/play.scss */
+/* line 97, ../sass/play.scss */
 .page-get-points #content .list_header {
   padding-top: 19px;
   padding-left: 26px;
 }
-/* line 78, ../sass/play.scss */
-.page-get-points #content li.list_header_event, .page-get-points #content li.list_header_wish, .page-get-points #content li.list_header_question, .page-get-points #content li.list_header_geochallenge, .page-get-points #content li.list_header_poi_confirmation {
-  background-color: #7fb083;
-}
-/* line 83, ../sass/play.scss */
+/* line 105, ../sass/play.scss */
 .page-get-points #content li.list_header_event:after, .page-get-points #content li.list_header_wish:after, .page-get-points #content li.list_header_question:after, .page-get-points #content li.list_header_geochallenge:after, .page-get-points #content li.list_header_poi_confirmation:after {
   content: url("../images/expand_icon.png");
 }
-/* line 88, ../sass/play.scss */
+/* line 110, ../sass/play.scss */
 .page-get-points #content li:after {
   content: ">";
   display: inline;
@@ -82,25 +87,25 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 98, ../sass/play.scss */
+/* line 120, ../sass/play.scss */
 .page-get-points #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 107, ../sass/play.scss */
+/* line 129, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
 }
-/* line 112, ../sass/play.scss */
+/* line 134, ../sass/play.scss */
 .page-get-points #content #select_list a {
   line-height: 3.8em;
 }
-/* line 118, ../sass/play.scss */
+/* line 140, ../sass/play.scss */
 .page-get-points #content #main-content {
   display: none;
 }
-/* line 123, ../sass/play.scss */
+/* line 145, ../sass/play.scss */
 .page-get-points .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
@@ -109,14 +114,14 @@
   overflow: hidden;
   vertical-align: top;
 }
-/* line 128, ../sass/play.scss */
+/* line 150, ../sass/play.scss */
 .page-get-points .time_to_end {
   background-color: white;
   border-bottom-style: solid;
   border-width: 1px;
   padding-left: 25px;
 }
-/* line 136, ../sass/play.scss */
+/* line 158, ../sass/play.scss */
 .page-get-points .time_interval_label, .page-get-points .time_interval {
   display: inline;
 }
