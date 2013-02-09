@@ -286,7 +286,6 @@ function zwerm_preprocess_node(&$vars)
   // Optionally, run node-type-specific preprocess functions, like
   // zwerm_preprocess_node_page() or zwerm_preprocess_node_story().
   $function = __FUNCTION__ . '_' . $vars['node']->type;
-
   if (function_exists($function)) {
     $function($vars, $hook);
   }

@@ -1,12 +1,29 @@
 @media all and (max-width: 629px) {
-  /* line 140, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
+  /* line 140, ../sass/_base.scss */
   .color-dc6058 {
     background-color: #DC6058;
   }
 
-  /* line 145, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
+  /* line 145, ../sass/_base.scss */
   .color-79b1bd {
     background-color: #79b1bd;
+  }
+}
+@media all and (max-width: 629px) {
+  /* line 8, ../sass/events.scss */
+  body.node-type-nodetype-event #main {
+    padding-left: 10px;
+  }
+  /* line 11, ../sass/events.scss */
+  body.node-type-nodetype-event #main .openlayers-container {
+    padding-right: 20px;
+    padding-left: 10px;
+  }
+  /* line 16, ../sass/events.scss */
+  body.node-type-nodetype-event #main h1 {
+    background-color: #7fb083;
+    font-size: 20px;
+    margin-left: -10px;
   }
 }
 @media all and (min-width: 630px) {
@@ -15,47 +32,47 @@
     background-color: #eeeeee;
   }
 }
-/* line 11, ../sass/events.scss */
+/* line 30, ../sass/events.scss */
 body.node-type-nodetype-event p.submitted {
   display: none;
 }
-/* line 18, ../sass/events.scss */
+/* line 37, ../sass/events.scss */
 body.node-type-nodetype-event .submitted .user-picture {
   display: none;
 }
-/* line 25, ../sass/events.scss */
+/* line 44, ../sass/events.scss */
 body.node-type-nodetype-event .submitted_by .username {
   display: none;
 }
-/* line 31, ../sass/events.scss */
+/* line 50, ../sass/events.scss */
 body.node-type-nodetype-event .submitted_on {
   display: none;
 }
-/* line 37, ../sass/events.scss */
+/* line 56, ../sass/events.scss */
 body.node-type-nodetype-event h1 {
   font-family: "Romina";
   padding-top: 10px;
   text-align: center;
 }
-/* line 44, ../sass/events.scss */
+/* line 63, ../sass/events.scss */
 body.node-type-nodetype-event .field-type-datestamp {
-  text-align: center;
+  font-size: 14px;
 }
-/* line 49, ../sass/events.scss */
+/* line 69, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-team {
   display: none;
 }
-/* line 54, ../sass/events.scss */
+/* line 74, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-address {
   font-size: x-large;
   margin-bottom: 30px;
   line-height: 1.5em;
 }
-/* line 62, ../sass/events.scss */
+/* line 82, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-date {
   margin-top: 5px;
 }
-/* line 72, ../sass/events.scss */
+/* line 92, ../sass/events.scss */
 body.node-type-nodetype-event #block-views-event-content-type-map-block-1 {
   margin-bottom: 10px;
 }

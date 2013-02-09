@@ -42,8 +42,11 @@
             ->execute();
 
 
-        $uids = array_keys( $result[ $entity_type ] );
-        return $uids;
+        if( $uids = array_keys( $result[ $entity_type ] ) ){
+            return $uids;
+        }
+
+        return array();
     }
 
     function scoga_get_player_vos_by_team_nid( $team_nid, $exclude = FALSE ){

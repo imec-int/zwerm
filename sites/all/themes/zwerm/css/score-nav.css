@@ -70,4 +70,8 @@
   #score_nav_bar li {
     margin-top: 8px;
   }
+  /* line 87, ../sass/score-nav.scss */
+  #score_nav_bar a {
+    font-weight: bold;
+  }
 }

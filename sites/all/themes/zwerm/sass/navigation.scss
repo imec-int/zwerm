@@ -203,6 +203,11 @@ li a.active {
       {
         background-image : url(../images/score.png);
         @include nav-image-style-front();
+        a
+        {
+          margin-bottom: 10px;
+          height: 20px;
+        }
       }
 
       #Inbox
@@ -285,6 +290,11 @@ li a.active {
 
     }
 
+    a
+    {
+      font-weight:bold;
+    }
+
     li
     {
       float:left;
@@ -318,6 +328,7 @@ li a.active {
       li
       {
         width:28%;
+        height:50%;
         padding-bottom: 50px;
       }
       #main-menu

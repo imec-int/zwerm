@@ -1,10 +1,10 @@
 @media all and (max-width: 629px) {
-  /* line 140, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
+  /* line 140, ../sass/_base.scss */
   .color-dc6058 {
     background-color: #DC6058;
   }
 
-  /* line 145, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
+  /* line 145, ../sass/_base.scss */
   .color-79b1bd {
     background-color: #79b1bd;
   }
@@ -21,22 +21,35 @@
   /* line 13, ../sass/play.scss */
   body.page-get-points #content li {
     height: 60px;
-    background-color: white;
   }
 }
 @media all and (min-width: 630px) {
-  /* line 34, ../sass/play.scss */
+  /* line 30, ../sass/play.scss */
+  .page-get-points #main {
+    background-color: black;
+  }
+  /* line 37, ../sass/play.scss */
   .page-get-points #content li {
     height: 60px;
     background-color: white;
   }
 
-  /* line 42, ../sass/play.scss */
+  /* line 45, ../sass/play.scss */
   body.page-get-points {
-    background-color: #eeeeee;
+    background-color: black;
   }
 }
-/* line 54, ../sass/play.scss */
+/* line 58, ../sass/play.scss */
+.color-79b1bd #content li.list_header_event, .color-79b1bd #content li.list_header_wish, .color-79b1bd #content li.list_header_question, .color-79b1bd #content li.list_header_geochallenge, .color-79b1bd #content li.list_header_poi_confirmation {
+  background-color: #79b1bd;
+}
+
+/* line 70, ../sass/play.scss */
+.color-dc6058 #content li.list_header_event, .color-dc6058 #content li.list_header_wish, .color-dc6058 #content li.list_header_question, .color-dc6058 #content li.list_header_geochallenge, .color-dc6058 #content li.list_header_poi_confirmation {
+  background-color: #dc6058;
+}
+
+/* line 82, ../sass/play.scss */
 .page-get-points #page-title {
   background-color: #333333;
   color: white;
@@ -47,29 +60,25 @@
   line-height: 2.6em;
   letter-spacing: 2px;
 }
-/* line 59, ../sass/play.scss */
+/* line 87, ../sass/play.scss */
 .page-get-points #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 64, ../sass/play.scss */
+/* line 92, ../sass/play.scss */
 .page-get-points #content ul {
   border-top-style: none;
 }
-/* line 69, ../sass/play.scss */
+/* line 97, ../sass/play.scss */
 .page-get-points #content .list_header {
   padding-top: 19px;
   padding-left: 26px;
 }
-/* line 75, ../sass/play.scss */
-.page-get-points #content li.list_header_event, .page-get-points #content li.list_header_wish, .page-get-points #content li.list_header_question, .page-get-points #content li.list_header_geochallenge, .page-get-points #content li.list_header_poi_confirmation {
-  background-color: #7fb083;
-}
-/* line 80, ../sass/play.scss */
+/* line 105, ../sass/play.scss */
 .page-get-points #content li.list_header_event:after, .page-get-points #content li.list_header_wish:after, .page-get-points #content li.list_header_question:after, .page-get-points #content li.list_header_geochallenge:after, .page-get-points #content li.list_header_poi_confirmation:after {
   content: url("../images/expand_icon.png");
 }
-/* line 85, ../sass/play.scss */
+/* line 110, ../sass/play.scss */
 .page-get-points #content li:after {
   content: ">";
   display: inline;
@@ -78,25 +87,25 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 95, ../sass/play.scss */
+/* line 120, ../sass/play.scss */
 .page-get-points #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 104, ../sass/play.scss */
+/* line 129, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
 }
-/* line 109, ../sass/play.scss */
+/* line 134, ../sass/play.scss */
 .page-get-points #content #select_list a {
   line-height: 3.8em;
 }
-/* line 115, ../sass/play.scss */
+/* line 140, ../sass/play.scss */
 .page-get-points #content #main-content {
   display: none;
 }
-/* line 120, ../sass/play.scss */
+/* line 145, ../sass/play.scss */
 .page-get-points .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
@@ -105,14 +114,14 @@
   overflow: hidden;
   vertical-align: top;
 }
-/* line 125, ../sass/play.scss */
+/* line 150, ../sass/play.scss */
 .page-get-points .time_to_end {
   background-color: white;
   border-bottom-style: solid;
   border-width: 1px;
   padding-left: 25px;
 }
-/* line 133, ../sass/play.scss */
+/* line 158, ../sass/play.scss */
 .page-get-points .time_interval_label, .page-get-points .time_interval {
   display: inline;
 }

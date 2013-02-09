@@ -1,10 +1,10 @@
 @media all and (max-width: 629px) {
-  /* line 140, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
+  /* line 140, ../sass/_base.scss */
   .color-dc6058 {
     background-color: #DC6058;
   }
 
-  /* line 145, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
+  /* line 145, ../sass/_base.scss */
   .color-79b1bd {
     background-color: #79b1bd;
   }
@@ -62,7 +62,7 @@
   border-style: solid;
   border-width: 1px;*/
 }
-/* line 94, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_custom.scss */
+/* line 94, ../sass/_custom.scss */
 .page-team .color-79b1bd a, body.page-team3 .color-79b1bd a {
   font-weight: normal;
 }
@@ -80,7 +80,7 @@
   border-style: solid;
   border-width: 1px;*/
 }
-/* line 94, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_custom.scss */
+/* line 94, ../sass/_custom.scss */
 .page-team .color-dc6058 a, body.page-team3 .color-dc6058 a {
   font-weight: normal;
 }

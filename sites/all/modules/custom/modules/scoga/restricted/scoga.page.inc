@@ -80,11 +80,11 @@
         $assignment_titles[] = t ('Make a wish');
         $assignment_paths[] = 'node/add/nodetype-wished-item';
         //add other playable elements to output
-        _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL,&$assignment_titles,&$assignment_paths);
-        _scoga_add_POI_confirmations_to_output(&$assignment_titles,&$assignment_paths);
-        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,&$assignment_titles,&$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,$assignment_titles,$assignment_paths);
+        _scoga_add_nodes_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,$assignment_titles,$assignment_paths);
+        _scoga_add_nodes_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL,$assignment_titles,$assignment_paths);
+        _scoga_add_POI_confirmations_to_output($assignment_titles,$assignment_paths);
+        _scoga_add_nodes_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,$assignment_titles,$assignment_paths);
         $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         return $output;
     }
@@ -99,7 +99,7 @@
      * @param $titles
      * @param $paths
      */
-    function _scoga_add_nodes_to_output($content_type,$label,$header,$campaign_ref_field,$team_ref_field,$user_team,$titles,$paths)
+    function _scoga_add_nodes_to_output($content_type,$label,$header,$campaign_ref_field,$team_ref_field,$user_team,&$titles,&$paths)
     {
         //todo : $current_campaign_id should be calculated only once, in function calling this one
         $current_campaign_id = scoga_get_campaign_nid_for_time(time());
@@ -126,7 +126,7 @@
         {
             $titles[] = t($header);
             $paths[] = '';
-            _scoga_fill_titles_and_path($nodes,&$titles,&$paths,$label);
+            _scoga_fill_titles_and_path($nodes,$titles,$paths,$label);
         }
     }
 
@@ -136,7 +136,7 @@
      * @param $paths
      * @param $label
      */
-    function _scoga_fill_titles_and_path($nodes,$titles,$paths,$label)
+    function _scoga_fill_titles_and_path($nodes,&$titles,&$paths,$label)
     {
         foreach($nodes as $node_item)
         {
@@ -145,7 +145,7 @@
         }
     }
 
-    function _scoga_add_POI_confirmations_to_output($titles,$paths)
+    function _scoga_add_POI_confirmations_to_output(&$titles,&$paths)
     {
         global $user;
         $current_campaign_id = scoga_get_campaign_nid_for_time(time());
@@ -163,8 +163,99 @@
             {
                 $titles[] = t('POIs to confirm');
                 $paths[] = '';
-                _scoga_fill_titles_and_path($nodes,&$titles,&$paths,t('POI confirmation'));
+                _scoga_fill_titles_and_path($nodes,$titles,$paths,t('POI confirmation'));
             }
         }
     }
+
+/**
+ * Implements hook_menu().
+ */
+function example_menu() {
+    $items['example-charts'] = array(
+        'title' => 'Example',
+        'page callback' => 'example_page',
+        'access arguments' => array('access content'),
+        'type' => MENU_CALLBACK,
+    );
+
+    return $items;
+}
+
+/**
+ * Callback function for menu item.
+ */
+function scoga_team_score_graph() {
+    $returnvalues = array();
+    module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
+    module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+    $current_campaign_id = scoga_get_campaign_nid_for_time(time());
+    $teams = scoga_get_team_vos_by_campaign_nid($current_campaign_id);
+    //load data for team1
+    $nid_team1 = scoga_get_campaignteam_nids_by_references($current_campaign_id,$teams[0]->nid);
+    $nid_team1 = array_reverse($nid_team1);
+    $colour_team1 = '#'.$teams[0]->colour;
+    $colour_team2 = '#'.$teams[1]->colour;
+    $nodes_team1 = node_load_multiple($nid_team1);
+    foreach($nodes_team1 as $node)
+    {
+        $points = $node->field_campaignteam_totalpoints['und'][0]['value'];
+        $date =  date('d/m/Y', $node->created);
+        $datapoint = array('date'=>$date,'points1'=>$points);
+        $returnvalues[$date]= $datapoint;
+    }
+
+    //load data for team2
+    //merge data of team1 with team 2
+    $nid_team2 = scoga_get_campaignteam_nids_by_references($current_campaign_id,$teams[1]->nid);
+    $nid_team2 = array_reverse($nid_team2);
+    $nodes_team2 = node_load_multiple($nid_team2);
+    foreach($nodes_team2 as $node)
+    {
+        $points = $node->field_campaignteam_totalpoints['und'][0]['value'];
+        $date =  date('d/m/Y', $node->created);
+        if (isset($returnvalues[$date]))
+        {
+            $returnvalues[$date]['points2']=$points;
+        }
+        else
+        {
+            $datapoint = array('date'=>$date,'points1'=>$points);
+            $returnvalues[$date]= $datapoint;
+        }
+    }
+
+    //configure graph
+    $options_line = array(
+        'title' => 'Score per team',
+        'backgroundColor' => 'black',
+        'fields' => array(
+            'points1' => array(
+                'label' => t($teams[0]->title),
+                'colour' => $colour_team1,
+                'enabled' => TRUE,
+            ),
+            'points2' => array(
+                'label' => t($teams[1]->title),
+                'colour' => $colour_team2,
+                'enabled' => TRUE,
+            ),
+        ),
+        'xAxis' => array(
+            'labelField' => 'date',
+        ),
+        'yAxis' => array(
+            'title' => ' ',
+        ),
+        'data' => $returnvalues,
+        'type' => 'line',
+    );
+
+    $build['line'] =  array(
+        '#theme' => 'visualization',
+        '#options' => $options_line,
+    );
+
+    return $build;
+}
 ?>
