@@ -153,7 +153,9 @@
         if( is_array( $param ) ){
             $output = array();
             foreach( $param as $payload ){
-                $output[ ] = $callback( $payload );
+                if( $item = $callback( $payload ) ){
+                    $output[] = $item;
+                }
             }
             return $output;
         }
