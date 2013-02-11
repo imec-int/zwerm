@@ -464,7 +464,7 @@
         watchdog( 'SCOGA', 'scoga_service_players_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         if( array_key_exists( 'uids', $params ) ){
-            return scoga_get_player_vos_by_uids( $params[ 'nids' ] );
+            return scoga_get_player_vos_by_uids( $params[ 'uids' ] );
         }
 
         return array();

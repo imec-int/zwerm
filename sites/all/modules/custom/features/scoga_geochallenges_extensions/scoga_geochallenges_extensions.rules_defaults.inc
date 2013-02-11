@@ -174,7 +174,7 @@ function scoga_geochallenges_extensions_default_rules_configuration() {
               "type" : "integer",
               "value" : {
                 "select" : "node:field-ref-geo-challenge:nid",
-                "php" : { "code" : "$geochallenge = node_load($value);\\r\\n$campaign_nid = $geochallenge-\\u003Efield_geochallenge_ref_campaign[\\u0027und\\u0027][0][\\u0027target_id\\u0027];\\r\\nreturn $campaign_nid;" }
+                "php" : { "code" : "$geochallenge = node_load($value);\\r\\n$campaign_nid = $geochallenge-\\u003Efield_campaign[\\u0027und\\u0027][0][\\u0027target_id\\u0027];\\r\\nreturn $campaign_nid;" }
               }
             },
             "PROVIDE" : { "variable_added" : { "geochallenge_campaign_nid" : "Geochallenge Campain NID" } }

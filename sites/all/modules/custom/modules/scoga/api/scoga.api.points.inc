@@ -21,7 +21,7 @@
      * @return array
      */
     function scoga_get_transaction_vos_after_txnid( $last_txnid = 0 ){
-        if( $last_txnid > 0 ){
+        if( $last_txnid >= 0 ){
             $query =
                 " SELECT txn_id, time_stamp "
                     . "FROM {userpoints_txn} "
