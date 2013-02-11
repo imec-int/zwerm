@@ -108,7 +108,7 @@ li a.active {
     background-size: contain;
   }
   /* line 124, ../sass/navigation.scss */
-  .not-front #navigation #Map {
+  .not-front #navigation #Kaart {
     background-image: url(../images/map.png);
     background-position-y: 5%;
     background-repeat: no-repeat;
@@ -214,7 +214,7 @@ li a.active {
     background-size: 80%;
   }
   /* line 220, ../sass/navigation.scss */
-  .page-frontpage #navigation #Map {
+  .page-frontpage #navigation #Kaart {
     background-image: url(../images/map.png);
     background-position-x: 40%;
     background-position-y: 30%;
