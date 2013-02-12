@@ -120,7 +120,7 @@ li a.active {
         @include nav-image-style-non-front();
       }
 
-      #Map
+      #Kaart
       {
         background-image : url(../images/map.png);
         @include nav-image-style-non-front();
@@ -203,6 +203,11 @@ li a.active {
       {
         background-image : url(../images/score.png);
         @include nav-image-style-front();
+        a
+        {
+          margin-bottom: 10px;
+          height: 20px;
+        }
       }
 
       #Inbox
@@ -211,7 +216,7 @@ li a.active {
         @include nav-image-style-front();
       }
 
-      #Map
+      #Kaart
       {
         background-image : url(../images/map.png);
         @include nav-image-style-front();
@@ -323,6 +328,7 @@ li a.active {
       li
       {
         width:28%;
+        height:50%;
         padding-bottom: 50px;
       }
       #main-menu

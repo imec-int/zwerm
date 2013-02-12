@@ -21,6 +21,7 @@
         public $surname;
         public $avatar_url;
         public $points;
+        public $card_id;
     }
 
     /**
@@ -42,8 +43,11 @@
             ->execute();
 
 
-        $uids = array_keys( $result[ $entity_type ] );
-        return $uids;
+        if( $uids = array_keys( $result[ $entity_type ] ) ){
+            return $uids;
+        }
+
+        return array();
     }
 
     function scoga_get_player_vos_by_team_nid( $team_nid, $exclude = FALSE ){
@@ -159,7 +163,7 @@
         $team_nid = scoga_get_eid_from_field( $player_entity, 'field_user_team', $options );
         $firstname = scoga_get_field_value( $player_entity, 'field_user_firstname', $options );
         $surname = scoga_get_field_value( $player_entity, 'field_user_surname', $options );
-
+        $cardID = scoga_get_field_value( $player_entity, 'field_card_id', $options );
         $image = ( $player_entity->picture )
             ? $player_entity->picture->uri
             : '';
@@ -173,6 +177,7 @@
         $output->team_nid = $team_nid;
         $output->username = $player_entity->name;
         $output->uid = $player_entity->uid;
+        $output->card_id = isset( $cardID ) ? $cardID : '';
 
         return $output;
     }
@@ -243,6 +248,17 @@
      */
     function scoga_get_all_player_accounts(){
         return user_load_multiple( scoga_get_all_player_uids() );
+    }
+
+    function scoga_set_player_active( $uid ){
+        $user_account = user_load( $uid );
+        $options = array(
+            'entity_type'   => 'user',
+        );
+        if( scoga_get_field_value( $user_account, 'field_user_active', $options ) == 0 ){
+            scoga_set_field_value( $user_account, 'field_user_active', 1, $options );
+            user_save( $user_account );
+        }
     }
 
 //    function scoga_assign_random_teams_to_players(){

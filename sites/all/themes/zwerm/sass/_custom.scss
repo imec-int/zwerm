@@ -72,10 +72,10 @@
 }
 
 @mixin nav-image-style-front {
-  background-position-x: 50%;
-  background-position-y: 5%;
+  background-position-x: 40%;
+  background-position-y: 30%;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 80%;
 }
 
 @mixin team-members-button {

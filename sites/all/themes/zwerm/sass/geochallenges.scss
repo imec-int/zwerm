@@ -152,6 +152,29 @@
   }
 }
 
+.views-exposed-form {
+  background-color: $green-marking-color;
+  padding: 5px 10px;
+  color: white;
+  margin-top: 10px;
+  border-bottom: 2px solid white;
+  label {
+    font-family: romina;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  #edit-field-ref-geo-challenge-target-id {
+    width: 400px;
+    background-color: $green-marking-color;
+    color: white;
+    border-color: white;
+  }
+  #edit-field-ref-geo-challenge-target-id:focus {
+    border-color: white;
+  }
+}
+
 @media all and (max-width: $end_of_small_viewport)
 {
   #main {
@@ -176,6 +199,16 @@
 
   .geochallenge-add-poi-instructions {
     border-bottom: 2px solid white;
+  }
+
+  .views-exposed-form
+  {
+    #edit-field-ref-geo-challenge-target-id {
+      width: 200px;
+      background-color: $green-marking-color;
+      color: white;
+      border-color: white;
+    }
   }
 }
 
@@ -253,27 +286,6 @@
 
 }
 
-.views-exposed-form {
-  background-color: $green-marking-color;
-  padding: 5px 10px;
-  color: white;
-  margin-top: 10px;
-  border-bottom: 2px solid white;
-  label {
-    font-family: romina;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
 
-  #edit-field-ref-geo-challenge-target-id {
-    width: 400px;
-    background-color: $green-marking-color;
-    color: white;
-    border-color: white;
-  }
-  #edit-field-ref-geo-challenge-target-id:focus {
-    border-color: white;
-  }
-}
 
 
