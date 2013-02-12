@@ -80,6 +80,7 @@ stylesheets[all][] = css/play.css
 stylesheets[all][] = css/recent-points.css
 stylesheets[all][] = css/geochallenges.css
 stylesheets[all][] = css/score-chart.css
+stylesheets[all][] = js/jquery-ui/css/dark-hive/jquery-ui-1.10.0.custom.min.css
 
 
 
@@ -102,6 +103,7 @@ stylesheets[all][] = css/score-chart.css
 ; Optionally add some JavaScripts to your theme.
 
 scripts[] = js/script.js
+scripts[] = js/jquery-ui/js/jquery-ui-1.10.0.custom.min.js
 ;scripts[] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.js
 ;scripts[] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.js
 

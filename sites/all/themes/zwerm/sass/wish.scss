@@ -1,5 +1,25 @@
 @import "base";
 
+
+.page-node-add-nodetype-wished-item
+{
+  .help
+  {
+    @include help-button;
+    margin-top: -51px;
+    margin-right: 0px;
+  }
+}
+.node-type-nodetype-wished-item
+{
+  .help
+  {
+    @include help-button;
+    margin-top: -123px;
+    margin-right: 0px;
+  }
+}
+
 .page-node-add-nodetype-wished-item,.node-type-nodetype-wished-item
 {
   background-color: $white-background-color;
@@ -7,6 +27,11 @@
   .flag-message
   {
     font-size:0;
+  }
+
+  #dialog
+  {
+    display: none;
   }
 
   @media all and (max-width: $end_of_small_viewport)

@@ -24,6 +24,7 @@
     background-color: #7fb083;
     font-size: 20px;
     margin-left: -10px;
+    padding-top: 0px;
   }
 }
 @media all and (min-width: 630px) {
@@ -32,47 +33,68 @@
     background-color: #eeeeee;
   }
 }
-/* line 30, ../sass/events.scss */
+/* line 31, ../sass/events.scss */
+body.node-type-nodetype-event #dialog {
+  display: none;
+}
+/* line 36, ../sass/events.scss */
+body.node-type-nodetype-event .help {
+  display: inline-block;
+  float: right;
+  margin-top: -39px;
+  margin-right: 10px;
+  background-color: white;
+  width: 26px;
+  margin-top: -51px;
+  margin-right: 0px;
+}
+/* line 140, ../sass/_custom.scss */
+body.node-type-nodetype-event .help a {
+  color: black;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+/* line 43, ../sass/events.scss */
 body.node-type-nodetype-event p.submitted {
   display: none;
 }
-/* line 37, ../sass/events.scss */
+/* line 50, ../sass/events.scss */
 body.node-type-nodetype-event .submitted .user-picture {
   display: none;
 }
-/* line 44, ../sass/events.scss */
+/* line 57, ../sass/events.scss */
 body.node-type-nodetype-event .submitted_by .username {
   display: none;
 }
-/* line 50, ../sass/events.scss */
+/* line 63, ../sass/events.scss */
 body.node-type-nodetype-event .submitted_on {
   display: none;
 }
-/* line 56, ../sass/events.scss */
+/* line 69, ../sass/events.scss */
 body.node-type-nodetype-event h1 {
   font-family: "Romina";
   padding-top: 10px;
   text-align: center;
 }
-/* line 63, ../sass/events.scss */
+/* line 76, ../sass/events.scss */
 body.node-type-nodetype-event .field-type-datestamp {
   font-size: 14px;
 }
-/* line 69, ../sass/events.scss */
+/* line 82, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-team {
   display: none;
 }
-/* line 74, ../sass/events.scss */
+/* line 87, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-address {
   font-size: x-large;
   margin-bottom: 30px;
   line-height: 1.5em;
 }
-/* line 82, ../sass/events.scss */
+/* line 95, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-date {
   margin-top: 5px;
 }
-/* line 92, ../sass/events.scss */
+/* line 105, ../sass/events.scss */
 body.node-type-nodetype-event #block-views-event-content-type-map-block-1 {
   margin-bottom: 10px;
 }
