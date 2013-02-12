@@ -120,7 +120,7 @@ li a.active {
         @include nav-image-style-non-front();
       }
 
-      #Map
+      #Kaart
       {
         background-image : url(../images/map.png);
         @include nav-image-style-non-front();
@@ -216,7 +216,7 @@ li a.active {
         @include nav-image-style-front();
       }
 
-      #Map
+      #Kaart
       {
         background-image : url(../images/map.png);
         @include nav-image-style-front();
