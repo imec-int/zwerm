@@ -2,6 +2,9 @@
 /**
  * Formats $items as an html list
  */
+    print ('<div id="dialog" title="Het speel venster">');
+    print ('In dit scherm vind je verschillende opdrachten die je toelaten punten te verdienen.');
+    print('</div>');
     print ('<div id="select_list" class="clearfix">');
         print ('<ul>');
             $items = $variables['items'];

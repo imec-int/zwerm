@@ -146,6 +146,27 @@
     {
       display: none;
     }
+
+    #dialog
+    {
+      display: none;
+    }
+
+    .help
+    {
+      display: inline-block;
+      float: right;
+      margin-top: -39px;
+      margin-right: 10px;
+      background-color: white;
+      width: 26px;
+      a
+      {
+        color: black;
+        margin-left: 9px;
+        margin-top: 10px;
+      }
+    }
   }
 
   .link_truncated {
@@ -164,4 +185,6 @@
   .time_interval_label,.time_interval {
     display: inline;
   }
+
+
 }

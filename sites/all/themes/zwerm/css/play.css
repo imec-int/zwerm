@@ -112,6 +112,25 @@
   display: none;
 }
 /* line 151, ../sass/play.scss */
+.page-get-points #content #dialog {
+  display: none;
+}
+/* line 156, ../sass/play.scss */
+.page-get-points #content .help {
+  display: inline-block;
+  float: right;
+  margin-top: -39px;
+  margin-right: 10px;
+  background-color: white;
+  width: 26px;
+}
+/* line 164, ../sass/play.scss */
+.page-get-points #content .help a {
+  color: black;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+/* line 172, ../sass/play.scss */
 .page-get-points .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
@@ -120,14 +139,14 @@
   overflow: hidden;
   vertical-align: top;
 }
-/* line 156, ../sass/play.scss */
+/* line 177, ../sass/play.scss */
 .page-get-points .time_to_end {
   background-color: white;
   border-bottom-style: solid;
   border-width: 1px;
   padding-left: 25px;
 }
-/* line 164, ../sass/play.scss */
+/* line 185, ../sass/play.scss */
 .page-get-points .time_interval_label, .page-get-points .time_interval {
   display: inline;
 }
