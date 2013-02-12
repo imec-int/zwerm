@@ -250,6 +250,17 @@
         return user_load_multiple( scoga_get_all_player_uids() );
     }
 
+    function scoga_set_player_active( $uid ){
+        $user_account = user_load( $uid );
+        $options = array(
+            'entity_type'   => 'user',
+        );
+        if( scoga_get_field_value( $user_account, 'field_user_active', $options ) == 0 ){
+            scoga_set_field_value( $user_account, 'field_user_active', 1, $options );
+            user_save( $user_account );
+        }
+    }
+
 //    function scoga_assign_random_teams_to_players(){
 //        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
 //        $team_nids = scoga_get_team_nids();
