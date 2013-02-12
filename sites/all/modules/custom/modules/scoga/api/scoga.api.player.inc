@@ -21,6 +21,7 @@
         public $surname;
         public $avatar_url;
         public $points;
+        public $card_id;
     }
 
     /**
@@ -162,7 +163,7 @@
         $team_nid = scoga_get_eid_from_field( $player_entity, 'field_user_team', $options );
         $firstname = scoga_get_field_value( $player_entity, 'field_user_firstname', $options );
         $surname = scoga_get_field_value( $player_entity, 'field_user_surname', $options );
-
+        $cardID = scoga_get_field_value( $player_entity, 'field_card_id', $options );
         $image = ( $player_entity->picture )
             ? $player_entity->picture->uri
             : '';
@@ -176,6 +177,7 @@
         $output->team_nid = $team_nid;
         $output->username = $player_entity->name;
         $output->uid = $player_entity->uid;
+        $output->card_id = isset( $cardID ) ? $cardID : '';
 
         return $output;
     }
