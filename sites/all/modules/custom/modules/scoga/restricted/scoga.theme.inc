@@ -30,7 +30,12 @@ function scoga_handle_theme($existing, $type, $theme, $path)
             'variables' => array('interval_elements' => NULL) ,
             'path' => 'sites/all/themes/zwerm/templates',
             'template' => 'time_interval'
-        )
+        ),
+        'nodetype_wished_item_node_form' => array(
+            'render element' => 'form',
+            'path' =>'sites/all/themes/zwerm/templates',
+            'template' => 'wished-item-form',
+        ),
     );
 }
 
