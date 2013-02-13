@@ -7,6 +7,9 @@
     {
         module_load_include( 'api.inc', 'scoga', 'api/scoga' );
         $active_relationsip_tid = scoga_get_current_combocheckin_rtid();
+        global $user;
+        $user_data = user_load($user->uid);
+        $user_team = $user_data->field_user_team['und']['0']['target_id'];
         //get all the active users & store all the active users in an array
         $active_user_names = array();
         $active_user_uids = array();
@@ -16,7 +19,10 @@
                   FROM {users} users
                   LEFT JOIN {field_data_field_user_active} = field_data_field_user_active
                   ON users.uid = field_data_field_user_active.entity_id
-                  WHERE ((field_data_field_user_active.field_user_active_value=1))";
+                  LEFT JOIN {field_data_field_user_team} field_data_field_user_team
+                  ON users.uid = field_data_field_user_team.entity_id
+                  WHERE ((field_data_field_user_active.field_user_active_value=1))
+                  AND field_data_field_user_team.field_user_team_target_id = ".$user_team;
                   //WHERE (( (users.status <> '0') ))";
         $result = db_query($query);
         foreach ($result as $row)
@@ -39,7 +45,6 @@
                   AND ((user_relationships.requester_id = ".$user->uid."
                   OR user_relationships.requestee_id = ".$user->uid."))
                   AND user_relationships.rtid = ".$active_relationsip_tid."))";
-
         $result = db_query($query);
         foreach ($result as $row)
         {
@@ -228,7 +233,6 @@ function scoga_team_score_graph() {
             $returnvalues[$date]= $datapoint;
         }
     }
-    dsm($returnvalues);
     //configure graph
     $options_line = array(
         'title' => 'Score per team',
