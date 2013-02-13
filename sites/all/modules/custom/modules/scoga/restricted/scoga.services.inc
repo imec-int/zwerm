@@ -467,7 +467,7 @@
             return scoga_get_player_vos_by_uids( $params[ 'uids' ] );
         }
 
-        return array();
+        return scoga_get_active_player_vos();
     }
 
     function scoga_service_transaction_index( $params ){
