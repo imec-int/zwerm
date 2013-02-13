@@ -51,7 +51,8 @@
         $no_checkin_users_names = array_diff ($active_user_names,$checkin_partner_names);
         $no_checkin_users_uids = array_diff ( $active_user_uids, $checkin_partner_uids);
         //theme the output
-        $output = theme('no_checkin',array('names' => $no_checkin_users_names,'uids' => $no_checkin_users_uids));
+        $output = '<div class="help"><a >?</a></div>';
+        $output .= theme('no_checkin',array('names' => $no_checkin_users_names,'uids' => $no_checkin_users_uids));
         return $output;
 
     }
@@ -67,6 +68,7 @@
         $user_data = user_load($user->uid);
         $user_team = $user_data->field_user_team['und']['0']['target_id'];
         $output='';
+        $output.= '<div class="help"><a >?</a></div>';
         $assignment_titles = array();
         $assignment_paths = array();
         //add time interval to end of current campaign

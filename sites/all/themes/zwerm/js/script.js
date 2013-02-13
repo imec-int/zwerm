@@ -73,7 +73,14 @@
         });
     });
 
-  $(document).ready(function(){
+    $(document).ready(function(){
+        jQuery(".help").click(function()
+        {
+            $("#dialog").dialog();
+        });
+    });
+
+    $(document).ready(function(){
     $('.geochallenge-add-poi').show();
     $('.geochallenge-add-poi').click(function()
     {

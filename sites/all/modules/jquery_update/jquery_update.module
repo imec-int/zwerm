@@ -123,6 +123,7 @@ function jquery_update_settings_form() {
     '#options' => array(
       '1.5' => '1.5',
       '1.7' => '1.7',
+      '1.8' => '1.8',
     ),
     '#default_value' => variable_get('jquery_update_jquery_version', '1.5'),
     '#description' => t('Select which jQuery version branch to use.'),
@@ -174,6 +175,9 @@ function jquery_update_jquery_replace(&$javascript, $cdn, $path, $min, $version)
       break;
     case '1.7':
       $trueversion = '1.7.1';
+      break;
+    case '1.8':
+      $trueversion = '1.8.2';
       break;
   }
   $javascript['jquery']['version'] = $trueversion;
