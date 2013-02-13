@@ -17,6 +17,7 @@
         _prepare_combo_checkins( $new_campaign_node );
         _prepare_userpoints( $new_campaign_node );
         _prepare_campaignteams( $new_campaign_node );
+        _create_service_message( $new_campaign_node );
 
     }
 
@@ -84,4 +85,11 @@
         $relationship_type = scoga_create_combocheckin_relationship_type( $new_campaign_node->title );
         scoga_set_current_combocheckin_rtid( $relationship_type->rtid );
         watchdog( 'SCOGA', 'created new combo checkin relationship', array(), WATCHDOG_INFO );
+    }
+
+    function _create_service_message( $campaign_node ){
+        module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
+        $body = t( 'A new campaign has started' );
+        $title = t( 'New campaign @title', array( '@title' => $campaign_node->title ) );
+        scoga_create_message_entity( $body, $title, 1 );
     }
