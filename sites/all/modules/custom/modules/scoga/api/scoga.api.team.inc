@@ -265,6 +265,17 @@
         return $output;
     }
 
+    function scoga_get_opposing_teams_nid($player_team,$current_campaign_id){
+        $teams = scoga_get_team_vos_by_campaign_nid($current_campaign_id);
+        $returnvalues = array();
+        foreach ($teams as $team)
+        {
+            if ($team->nid != $player_team)
+                $returnvalues[] = $team->nid;
+        }
+        return $returnvalues;
+    }
+
 //    function scoga_get_next_team(){
 //        $nids = scoga_get_team_nids();
 //        $index = array_search( scoga_get_current_team_nid(), $nids );
