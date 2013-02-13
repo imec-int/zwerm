@@ -189,6 +189,8 @@ function example_menu() {
  */
 function scoga_team_score_graph() {
     $returnvalues = array();
+    $zerodatapoint = array('date'=>'start','points1'=>0,'points2'=>0);
+    $returnvalues['start'] = $zerodatapoint;
     module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
     module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
     $current_campaign_id = scoga_get_campaign_nid_for_time(time());
@@ -206,7 +208,6 @@ function scoga_team_score_graph() {
         $datapoint = array('date'=>$date,'points1'=>$points);
         $returnvalues[$date]= $datapoint;
     }
-
     //load data for team2
     //merge data of team1 with team 2
     $nid_team2 = scoga_get_campaignteam_nids_by_references($current_campaign_id,$teams[1]->nid);
@@ -216,6 +217,7 @@ function scoga_team_score_graph() {
     {
         $points = $node->field_campaignteam_totalpoints['und'][0]['value'];
         $date =  date('d/m', $node->created);
+
         if (isset($returnvalues[$date]))
         {
             $returnvalues[$date]['points2']=$points;
@@ -226,7 +228,7 @@ function scoga_team_score_graph() {
             $returnvalues[$date]= $datapoint;
         }
     }
-
+    dsm($returnvalues);
     //configure graph
     $options_line = array(
         'title' => 'Score per team',
