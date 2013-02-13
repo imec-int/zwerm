@@ -14,7 +14,7 @@
         public $title;
         public $colour;
         public $total_points;
-        public $players;
+        //public $players;
 
     }
 
@@ -216,7 +216,7 @@
         $output->nid = $team_node->nid;
         $output->colour = scoga_get_field_value( $team_node, 'field_team_colour' );
         $output->title = $team_node->title;
-        $output->players = scoga_get_player_vos_by_team_nid( $team_node->nid );
+        //$output->players = scoga_get_player_vos_by_team_nid( $team_node->nid );
         //$output->total_points = scoga_get_teampoints_vos_by_references( $team_node->nid );
         return $output;
     }
