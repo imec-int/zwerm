@@ -34,9 +34,7 @@
         foreach ($rows as $row_count => $row): ?>
             <?php $playerRank = $row['php']; ?>
             <?php $nul_appended_playerRank =  '0'.strval($userLeaderboardPosition+1);?>
-            <?php //dsm(intval($playerRank));?>
-            <?php //dsm($userLeaderboardPosition); ?>
-            <?php if ((intval($userLeaderboardPosition)>7)&&(intval($playerRank) == $userLeaderboardPosition-3)): ?>
+            <?php if ((intval($userLeaderboardPosition)>6)&&(intval($playerRank) == $userLeaderboardPosition-3)): ?>
                 <tr class="leaderboard_separator <?php print implode(' ', $row_classes[$row_count]); ?>">
                    <td colspan="4">...</td>
                 </tr>
