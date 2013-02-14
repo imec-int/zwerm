@@ -26,7 +26,6 @@
                   WHERE field_data_field_user_active.field_user_active_value=1
                   AND field_data_field_user_team.field_user_team_target_id = :team_id
                   AND user_relationships.requester_id != :uid
-                  AND user_relationships.requestee_id != :uid
                   AND user_relationships.rtid = :active_rel_id
                   AND uid !=:uid";
         $result = db_query($query, array(':team_id'=>$user_team,
