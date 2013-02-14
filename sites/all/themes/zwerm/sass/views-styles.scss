@@ -125,7 +125,7 @@ body.section-leaderboard, body.page-team-players, .page-points-in-campaign
 
   .views-field-name
   {
-    display:none;
+    //display:none;
   }
 
   .views-field-php
@@ -147,14 +147,18 @@ body.section-leaderboard, body.page-team-players, .page-points-in-campaign
     }
   }
 
-  .field-name-field-user-firstname
+  .field-name-field-user-firstname,.field-name-field-user-surname
   {
-    display:inline-block;
+    //display:inline-block;
+    display: none;
+
   }
 
-  .field-name-field-user-surname
+  //.field-name-field-user-surname
+  .views-field-field-user-surname
   {
-    display:inline-block;
+    //display:inline-block;
+    display: none;
     padding-left: 4px;
 
   }
@@ -181,7 +185,7 @@ body.section-leaderboard, body.page-team-players, .page-points-in-campaign
 
   td.name
   {
-    display:none;
+    //display:none;
   }
 
   td.uid
