@@ -16,18 +16,24 @@
         $query = "SELECT DISTINCT
                   users.name AS users_name,
                   users.uid AS uid
-                  FROM {users} users
-                  LEFT JOIN {user_relationships} user_relationships
-                  ON users.uid = user_relationships.requestee_id
-                  LEFT JOIN {field_data_field_user_active} = field_data_field_user_active
+                  FROM users users
+                  LEFT JOIN field_data_field_user_active = field_data_field_user_active
                   ON users.uid = field_data_field_user_active.entity_id
-                  LEFT JOIN {field_data_field_user_team} field_data_field_user_team
+                  LEFT JOIN field_data_field_user_team field_data_field_user_team
                   ON users.uid = field_data_field_user_team.entity_id
                   WHERE field_data_field_user_active.field_user_active_value=1
                   AND field_data_field_user_team.field_user_team_target_id = :team_id
-                  AND user_relationships.requester_id != :uid
-                  AND user_relationships.rtid = :active_rel_id
-                  AND uid !=:uid";
+                  AND uid !=276
+                  AND uid NOT IN
+                  (
+                      SELECT DISTINCT
+                      users.uid AS uid
+                      FROM users users
+                      LEFT JOIN user_relationships user_relationships
+                      ON users.uid = user_relationships.requestee_id
+                      WHERE user_relationships.requester_id = :uid
+                      AND user_relationships.rtid = :active_rel_id
+	              )";
         $result = db_query($query, array(':team_id'=>$user_team,
                                          ':uid'=>$user->uid,
                                          ':active_rel_id' => $active_relationsip_tid
