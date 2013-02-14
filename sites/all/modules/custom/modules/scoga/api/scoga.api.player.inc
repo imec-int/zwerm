@@ -164,7 +164,7 @@
                 break;
             default :
                 // multiple matches
-                throw new Exception( 'card registered multiple times' );
+                throw new Exception( t( 'card registered multiple times' ) );
         }
 
         return FALSE;
@@ -175,7 +175,7 @@
      *
      * @param $player_entity
      *
-     * @return array
+     * @return Player
      */
     function scoga_create_player_vo( $player_entity ){
         $options = array(
