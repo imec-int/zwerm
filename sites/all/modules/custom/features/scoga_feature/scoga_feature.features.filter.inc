@@ -18,11 +18,6 @@ function scoga_feature_filter_default_formats() {
     'status' => '1',
     'weight' => '0',
     'filters' => array(
-      'filter_htmlcorrector' => array(
-        'weight' => '-49',
-        'status' => '1',
-        'settings' => array(),
-      ),
       'filter_autop' => array(
         'weight' => '-48',
         'status' => '1',

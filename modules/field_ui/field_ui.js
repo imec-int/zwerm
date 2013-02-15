@@ -96,8 +96,7 @@ jQuery.fn.fieldUIPopulateOptions = function (options, selected) {
       var is_selected = ((typeof selected != 'undefined' && value == selected) || (typeof selected == 'undefined' && text == previousSelectedText));
       html += '<option value="' + value + '"' + (is_selected ? ' selected="selected"' : '') + '>' + text + '</option>';
     });
-
-    $(this).html(html).attr('disabled', disabled ? 'disabled' : '');
+    $(this).html(html).prop('disabled', disabled ? 'disabled' : '');
   });
 };
 
@@ -250,7 +249,7 @@ Drupal.fieldUIOverview = {
 
       // Disabled elements do not appear in POST ajax data, so we mark the
       // elements disabled only after firing the request.
-      $(ajaxElements).attr('disabled', true);
+      $(ajaxElements).prop('disabled', true);
     }
   }
 };

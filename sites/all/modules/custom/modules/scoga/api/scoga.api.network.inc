@@ -35,7 +35,7 @@
     }
 
     function scoga_get_relationship_vos_after_rid( $last_rid = 0 ){
-        if( $last_rid > 0 ){
+        if( $last_rid >= 0 ){
             $query =
                 " SELECT rid, requester_id, requestee_id "
                     . "FROM {user_relationships} "

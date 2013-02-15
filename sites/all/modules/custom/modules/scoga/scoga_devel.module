@@ -1,0 +1,16 @@
+<?php
+/**
+ * Camille Reynders, http://www.creynders.be
+ * 05/02/13 - 09:57
+ */
+
+    module_load_include( 'api.inc', 'scoga_devel', 'api/scoga_devel' );
+
+    /**
+     * implements hook_node_delete
+     * @param $node
+     */
+    function scoga_devel_node_delete( $node ){
+        module_load_include( 'node.inc', 'scoga_devel', 'restricted/scoga_devel' );
+        scoga_devel_handle_node_delete( $node );
+    }

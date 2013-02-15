@@ -38,24 +38,32 @@
   text-align: center;
   font-family: Romina;
   font-size: 1.5em;
-  margin: 5px 0 20px 0;
+  margin: 5px 0 8px 0;
 }
 
 .field-name-field-description {
   font-size: 1.2em;
+  margin: 0 0 10px 0;
 }
 
 .node-type-geo-challenge .view-poi-per-challenge {
   margin: 0 0 0 0;
 }
 
-.geochallenge-details {
+.geochallenge-details, .geochallenge-confirmation-details {
   margin: 20px 0 0 0;
   padding: 10px 10px 10px 10px;
   background-color: $score-navbar-color;
   font-size: 0.8em;
   color: #ffffff;
   line-height: 1.4em;
+
+  p {
+    margin: 0 0 10px 0;
+  }
+}
+
+.geochallenge-details {
   display: none;
 }
 
@@ -108,7 +116,7 @@
   }
 }
 
-.geochallenge-add-poi a {
+.geochallenge-add-poi a, .geochallenge-back-button a {
   display: block;
   background-color: $green-marking-color;
   text-align: center;
@@ -125,13 +133,46 @@
   }
 }
 
+.geochallenge-back-button {
+  display: none;
+}
+
 #block-formblock-poi {
-  //display: none;
   margin-top: -24px;
 }
 
 .geochallenge-add-poi-mobile-scrollarea {
   display: none;
+}
+.section-kaart
+{
+#main
+  {
+    background-color: black;
+  }
+}
+
+.views-exposed-form {
+  background-color: $green-marking-color;
+  padding: 5px 10px;
+  color: white;
+  margin-top: 10px;
+  border-bottom: 2px solid white;
+  label {
+    font-family: romina;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  #edit-field-ref-geo-challenge-target-id {
+    width: 400px;
+    background-color: $green-marking-color;
+    color: white;
+    border-color: white;
+  }
+  #edit-field-ref-geo-challenge-target-id:focus {
+    border-color: white;
+  }
 }
 
 @media all and (max-width: $end_of_small_viewport)
@@ -159,8 +200,92 @@
   .geochallenge-add-poi-instructions {
     border-bottom: 2px solid white;
   }
+
+  .views-exposed-form
+  {
+    #edit-field-ref-geo-challenge-target-id {
+      width: 200px;
+      background-color: $green-marking-color;
+      color: white;
+      border-color: white;
+    }
+  }
 }
 
 .geofield-help {
   display: none;
 }
+
+.geochallenge-confirmation-button-wrapper {
+  margin: 2px 0 25px 0;
+}
+
+.geochallenge-buttons {
+  width: 49%;
+  text-align: center;
+  padding: 8px 0;
+  margin: 10px 0 25px 0;
+}
+
+.geochallenge-buttons a {
+  font-family: Romina;
+  font-size: 1.4em;
+}
+
+.geochallenge-confirm-poi {
+  background-color: $green-marking-color;
+  float: left;
+}
+
+.geochallenge-reject-poi {
+  background-color: $team-red-color;
+  float: right;
+}
+
+.rules-link-poi_confirm_accept {
+  display: none;
+}
+
+.rules-link-poi_confirm_reject {
+  display: none;
+}
+
+.page-kaart .olPopupCloseBox {
+  //display: none;
+  //padding
+  background-image: url('../images/x.gif');
+  //border: 1px solid white;
+  margin: 4px 20px 0 0;
+}
+
+.page-kaart .view-poi-overview {
+  margin: 15px 0 50px 0;
+}
+
+.page-kaart #popup_contentDiv {
+  background-color: $green-marking-color;
+  color: white;
+  padding: 8px 20px 0 5px;
+  font-size: 0.9em;
+  text-align: center;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.page-kaart #popup_GroupDiv {
+
+  img {
+    display: none;
+  }
+
+.openlayers-tooltip-name {
+  font-family: Romina;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+}
+
+
+
+

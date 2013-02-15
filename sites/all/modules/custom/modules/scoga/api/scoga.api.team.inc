@@ -14,7 +14,7 @@
         public $title;
         public $colour;
         public $total_points;
-        public $players;
+        //public $players;
 
     }
 
@@ -117,7 +117,7 @@
 
     function scoga_determine_campaignteam_creation(){
         $campaign_nid = scoga_get_current_campaign_nid();
-        if( $campaign_nid> -1 ){
+        if( $campaign_nid> SCOGA_NULL_CAMPAIGN_NID ){
             $nids = scoga_get_campaignteam_nids_by_references( $campaign_nid, NULL, time() );
             if( count( $nids ) < 1 ){
                 scoga_create_campaignteam_entities_for_campaign( node_load( $campaign_nid ) );
@@ -216,7 +216,7 @@
         $output->nid = $team_node->nid;
         $output->colour = scoga_get_field_value( $team_node, 'field_team_colour' );
         $output->title = $team_node->title;
-        $output->players = scoga_get_player_vos_by_team_nid( $team_node->nid );
+        //$output->players = scoga_get_player_vos_by_team_nid( $team_node->nid );
         //$output->total_points = scoga_get_teampoints_vos_by_references( $team_node->nid );
         return $output;
     }
@@ -243,8 +243,7 @@
     }
 
     function scoga_get_teampoints_vos_by_references( $campaign_nid, $team_nid ){
-        $campaignteam_nids = scoga_get_campaignteam_nids_by_references( $campaign_nid, $team_nid );
-        $campaignteam_entities = node_load_multiple( $campaignteam_nids );
+        $campaignteam_entities = scoga_get_campaignteam_nodes_by_references( $campaign_nid, $team_nid );
         $output = array();
         foreach( $campaignteam_entities as $campaignteam_entity ){
             $teampoints_vo = scoga_create_teampoints_vo( $campaignteam_entity );
@@ -253,11 +252,28 @@
         return $output;
     }
 
+    function scoga_get_campaignteam_nodes_by_references( $campaign_nid, $team_nid ){
+        $campaignteam_nids = scoga_get_campaignteam_nids_by_references( $campaign_nid, $team_nid );
+        $campaignteam_entities = node_load_multiple( $campaignteam_nids );
+        return $campaignteam_entities;
+    }
+
     function scoga_create_teampoints_vo( $campaignteam_node ){
         $output = new TeamPoints();
         $output->points = scoga_get_field_value( $campaignteam_node, 'field_campaignteam_totalpoints' );
         $output->timestamp = $campaignteam_node->created;
         return $output;
+    }
+
+    function scoga_get_opposing_teams_nid($player_team,$current_campaign_id){
+        $teams = scoga_get_team_vos_by_campaign_nid($current_campaign_id);
+        $returnvalues = array();
+        foreach ($teams as $team)
+        {
+            if ($team->nid != $player_team)
+                $returnvalues[] = $team->nid;
+        }
+        return $returnvalues;
     }
 
 //    function scoga_get_next_team(){

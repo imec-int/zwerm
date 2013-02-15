@@ -48,9 +48,11 @@ body.section-messages
     }
     a
     {
-      color:red;
-      margin-left: -28px;
-
+      @include action-button;
+      padding: 7px;
+      font-size: small;
+      margin-left: -11px;
+      margin-bottom: 10px;
     }
   }
 
@@ -98,7 +100,7 @@ body.section-messages
 
   .action-links {
     margin-top: 0px;
-    margin-bottom: -30px;
+    //margin-bottom: -30px;
   }
 
   .privatemsg-unread td {
@@ -132,5 +134,12 @@ body.section-messages
   .description, #edit-cancel
   {
     display:none;
+  }
+}
+@media all and (max-width: $end_of_small_viewport) {
+
+  .action-links {
+    margin-top: 0px;
+    margin-bottom: -30px;
   }
 }

@@ -1,3 +1,4 @@
+userdata.php
 drush-dump-db.sh
 dashboard.php
 
@@ -8,6 +9,7 @@ tmp
 .DS_Store
 .sass-cache
 gitPush
+merge_file*
 
 # ignore transaltion template files
 potx.*
@@ -30,3 +32,6 @@ __MACOSX/
 
 */.sass-cache/*
 sites/all/themes/zwerm/.sass-cache/
+
+#Caching-related
+apc.php

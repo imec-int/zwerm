@@ -9,6 +9,95 @@
  */
 function scoga_geochallenges_extensions_default_rules_configuration() {
   $items = array();
+  $items['rules_link_condition_poi_confirm_accept'] = entity_import('rules_config', '{ "rules_link_condition_poi_confirm_accept" : {
+      "LABEL" : "Rules link: POI Confirm Accept condition",
+      "PLUGIN" : "and",
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : { "node" : { "label" : "node", "type" : "node" } },
+      "AND" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "poi_confirmation" : "poi_confirmation" } }
+          }
+        },
+        { "data_is" : { "data" : [ "node:field-status" ], "value" : "0" } }
+      ]
+    }
+  }');
+  $items['rules_link_condition_poi_confirm_reject'] = entity_import('rules_config', '{ "rules_link_condition_poi_confirm_reject" : {
+      "LABEL" : "Rules link: POI Confirm Reject condition",
+      "PLUGIN" : "and",
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : { "node" : { "label" : "node", "type" : "node" } },
+      "AND" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "poi_confirmation" : "poi_confirmation" } }
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_link_set_poi_confirm_accept'] = entity_import('rules_config', '{ "rules_link_set_poi_confirm_accept" : {
+      "LABEL" : "Rules link: POI Confirm Accept rules set",
+      "PLUGIN" : "rule set",
+      "REQUIRES" : [ "rules", "php" ],
+      "USES VARIABLES" : { "node" : { "type" : "node", "label" : "node" } },
+      "RULES" : [
+        { "RULE" : {
+            "PROVIDE" : { "entity_fetched" : { "geochallenge_node" : "Geochallenge Node" } },
+            "IF" : [
+              { "node_is_of_type" : {
+                  "node" : [ "node" ],
+                  "type" : { "value" : { "poi_confirmation" : "poi_confirmation" } }
+                }
+              }
+            ],
+            "DO" : [
+              { "data_set" : { "data" : [ "node:field-status" ], "value" : "1" } },
+              { "entity_fetch" : {
+                  "USING" : { "type" : "node", "id" : [ "node:field-ref-geochallenge:nid" ] },
+                  "PROVIDE" : { "entity_fetched" : { "geochallenge_node" : "Geochallenge Node" } }
+                }
+              },
+              { "php_eval" : { "code" : "module_load_include( \\u0027api.points.inc\\u0027, \\u0027scoga\\u0027, \\u0027api\\/scoga\\u0027 );\\r\\n$geochallenge_node = node_load($geochallenge_node-\\u003Enid);\\r\\n\\r\\n\\/\\/Award points to POI Spotter\\r\\n\\/\\/watchdog(\\u0027SCOGA\\u0027,\\u0027reward of \\u0027.$geochallenge_node-\\u003Efield_geochallenge_reward_spot[\\u0027und\\u0027][0][\\u0027value\\u0027].\\u0027 for \\u0027.$node-\\u003Euid.\\u0027 in \\u0027.$geochallenge_node-\\u003Elanguage);\\r\\nscoga_award_points_to_user( $node-\\u003Euid, $geochallenge_node-\\u003Efield_geochallenge_reward_spot[\\u0027und\\u0027][0][\\u0027value\\u0027], \\u0022Geochallenge punt goedgekeurd!\\u0022 );\\r\\n\\r\\n\\/\\/Award points to POI Checker\\r\\n\\/\\/watchdog(\\u0027SCOGA\\u0027,\\u0027reward of \\u0027.$geochallenge_node-\\u003Efield_geochallenge_reward_check[\\u0027und\\u0027][0][\\u0027value\\u0027].\\u0027 for \\u0027.$node-\\u003Efield_poi_confirm_ref_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027]);\\r\\nscoga_award_points_to_user( $node-\\u003Efield_poi_confirm_ref_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027], $geochallenge_node-\\u003Efield_geochallenge_reward_check[\\u0027und\\u0027][0][\\u0027value\\u0027], \\u0022Geochallenge punt gecontroleerd\\u0022 );" } }
+            ],
+            "LABEL" : "Confirm a POI Confirmation"
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_link_set_poi_confirm_reject'] = entity_import('rules_config', '{ "rules_link_set_poi_confirm_reject" : {
+      "LABEL" : "Rules link: POI Confirm Reject rules set",
+      "PLUGIN" : "rule set",
+      "REQUIRES" : [ "rules", "php" ],
+      "USES VARIABLES" : { "node" : { "type" : "node", "label" : "node" } },
+      "RULES" : [
+        { "RULE" : {
+            "PROVIDE" : { "entity_fetched" : { "geochallenge_node" : "Geochallenge Node" } },
+            "IF" : [
+              { "node_is_of_type" : {
+                  "node" : [ "node" ],
+                  "type" : { "value" : { "poi_confirmation" : "poi_confirmation" } }
+                }
+              }
+            ],
+            "DO" : [
+              { "data_set" : { "data" : [ "node:field-status" ], "value" : "2" } },
+              { "entity_fetch" : {
+                  "USING" : { "type" : "node", "id" : [ "node:field-ref-geochallenge:nid" ] },
+                  "PROVIDE" : { "entity_fetched" : { "geochallenge_node" : "Geochallenge Node" } }
+                }
+              },
+              { "php_eval" : { "code" : "module_load_include( \\u0027api.points.inc\\u0027, \\u0027scoga\\u0027, \\u0027api\\/scoga\\u0027 );\\r\\n$geochallenge_node = node_load($geochallenge_node-\\u003Enid);\\r\\n\\r\\n\\/\\/Award points to POI Checker\\r\\nwatchdog(\\u0027SCOGA\\u0027,\\u0027reward of \\u0027.$geochallenge_node-\\u003Efield_geochallenge_reward_check[\\u0027und\\u0027][0][\\u0027value\\u0027].\\u0027 for \\u0027.$node-\\u003Efield_poi_confirm_ref_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027]);\\r\\nscoga_award_points_to_user( $node-\\u003Efield_poi_confirm_ref_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027], $geochallenge_node-\\u003Efield_geochallenge_reward_check[\\u0027und\\u0027][0][\\u0027value\\u0027], \\u0022Geochallenge punt gecontroleerd\\u0022 );" } }
+            ],
+            "LABEL" : "POI Confirm Reject"
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_preprocess_new_poi_for_geochallenge'] = entity_import('rules_config', '{ "rules_preprocess_new_poi_for_geochallenge" : {
       "LABEL" : "Preprocess new POI for Geochallenge",
       "PLUGIN" : "reaction rule",
@@ -16,7 +105,8 @@ function scoga_geochallenges_extensions_default_rules_configuration() {
       "REQUIRES" : [ "rules", "php" ],
       "ON" : [ "node_presave" ],
       "IF" : [
-        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "poi" : "poi" } } } }
+        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "poi" : "poi" } } } },
+        { "entity_is_new" : { "entity" : [ "node" ] } }
       ],
       "DO" : [
         { "variable_add" : {
@@ -84,7 +174,7 @@ function scoga_geochallenges_extensions_default_rules_configuration() {
               "type" : "integer",
               "value" : {
                 "select" : "node:field-ref-geo-challenge:nid",
-                "php" : { "code" : "$geochallenge = node_load($value);\\r\\n$campaign_nid = $geochallenge-\\u003Efield_geochallenge_ref_campaign[\\u0027und\\u0027][0][\\u0027target_id\\u0027];\\r\\nreturn $campaign_nid;" }
+                "php" : { "code" : "$geochallenge = node_load($value);\\r\\n$campaign_nid = $geochallenge-\\u003Efield_campaign[\\u0027und\\u0027][0][\\u0027target_id\\u0027];\\r\\nreturn $campaign_nid;" }
               }
             },
             "PROVIDE" : { "variable_added" : { "geochallenge_campaign_nid" : "Geochallenge Campain NID" } }

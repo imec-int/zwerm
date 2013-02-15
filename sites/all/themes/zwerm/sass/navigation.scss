@@ -42,33 +42,30 @@ li a.active {
 /*
  * Navigation bar
  */
-<<<<<<< HEAD
 
-#navigation {
-  /* overflow: hidden; */ /* Sometimes you want to prevent overlapping with main div. */
-
-  .block {
-    margin-bottom: 0;
-  }
-
-  .block-menu .block-title,
-  .block-menu-block .block-title {
-    @include element-invisible();
-  }
-
-  ul.links, /* Main menu and secondary menu links */
-  ul.menu { /* Menu block links */
-    margin: 0;
-    padding: 0;
-    text-align: left; /* LTR */
-
-    li { /* A simple method to get navigation links to appear in one line. */
-      float: left; /* LTR */
-      padding: 0 10px 0 0; /* LTR */
-      list-style-type: none;
-      list-style-image: none;
-=======
 @media all and (max-width: $end_of_small_viewport) {
+
+  .color-79b1bd
+  {
+    #navigation
+    {
+      li
+      {
+        background-color: #84B7C2;
+      }
+    }
+  }
+
+  .color-dc6058
+  {
+    #navigation
+    {
+      li
+      {
+        background-color: #f38176;
+      }
+    }
+  }
 
   //the nav menu for everything that is not the front page : collapsable Javascript
   .not-front
@@ -124,7 +121,7 @@ li a.active {
         @include nav-image-style-non-front();
       }
 
-      #Map
+      #Kaart
       {
         background-image : url(../images/map.png);
         @include nav-image-style-non-front();
@@ -207,6 +204,11 @@ li a.active {
       {
         background-image : url(../images/score.png);
         @include nav-image-style-front();
+        a
+        {
+          margin-bottom: 10px;
+          height: 20px;
+        }
       }
 
       #Inbox
@@ -215,7 +217,7 @@ li a.active {
         @include nav-image-style-front();
       }
 
-      #Map
+      #Kaart
       {
         background-image : url(../images/map.png);
         @include nav-image-style-front();
@@ -239,7 +241,6 @@ li a.active {
         height: 25%;
         width:28%;
         padding: 0 0px 0 0;
-        //background-color: #84B7C2;
         background-repeat: no-repeat;
         background-position: center;
         padding: 1%;
@@ -290,6 +291,11 @@ li a.active {
 
     }
 
+    a
+    {
+      font-weight:bold;
+    }
+
     li
     {
       float:left;
@@ -323,6 +329,7 @@ li a.active {
       li
       {
         width:28%;
+        height:50%;
         padding-bottom: 50px;
       }
       #main-menu
@@ -338,9 +345,15 @@ li a.active {
 * Main menu and Secondary menu links
 */
 
-#main-menu {
-  width:100%;
-  //margin-left:2%;
+.not-front
+{
+  #main-menu
+  {
+    width:100%;
+    position:fixed;
+    background-color:$green-marking-color;
+    z-index:1000;
+  }
 }
 
 #secondary-menu {

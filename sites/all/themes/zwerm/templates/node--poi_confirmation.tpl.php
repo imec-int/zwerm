@@ -82,9 +82,8 @@
  * @see zen_preprocess_node()
  * @see template_process()
  */
-dsm($node);
 ?>
-<article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article class="node-<?php print $node->nid; ?> <?php print $classes; ?> <?php print $poi_confirmation_status_class ?> clearfix"<?php print $attributes; ?>>
 
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header>
@@ -107,13 +106,43 @@ dsm($node);
       <?php endif; ?>
     </header>
   <?php else: ?>
-    <div class="geochallenge-subtitle">Controleer dit punt</div>
+    <div class="geochallenge-subtitle">Controleer en bevestig dit punt</div>
   <?php endif; ?>
 
+
+  <?php if ($page && $poi_confirmation_status == 0): ?>
+    <div class="geochallenge-confirmation-details">
+        <p>
+            1. Controleer of dit punt op de kaart overeenstemt met de realiteit. (Ga liefst ter plaatse even kijken om echt zeker te zijn.)
+        </p>
+        <p>
+            2. Daarna kan je het punt goedkeuren of afkeuren via de knoppen hieronder.
+        </p>
+        <p>
+            3. Let op: Je controleert dit punt samen met nog 1 andere speler. Enkel wanneer jullie beide tot hetzelfde besluit kwamen worden de punten voor dit punt toegekend. Wees dus zeker...En eerlijk ;)
+        </p>
+    </div>
+  <?php endif; ?>
+<?php if ($page && $poi_confirmation_status == 0): ?>
+    <div class="geochallenge-back-button">
+      <?php print(l('Terug','get_points')); ?>
+    </div>
+  <?php endif; ?>
   <?php
   // We hide the comments and links now so that we can render them later.
   hide($content['comments']);
   hide($content['links']);
   print render($content);
   ?>
+  <?php if ($page && $poi_confirmation_status == 0): ?>
+    <div class="geochallenge-confirmation-button-wrapper clearfix">
+        <div class="geochallenge-buttons geochallenge-confirm-poi">
+          <a href=""><span><?php //echo $node->field_poi_unit_name['und'][0]['value']; ?> Goedkeuren</span></a>
+        </div>
+        <div class="geochallenge-buttons geochallenge-reject-poi">
+            <a href=""><span><?php //echo $node->field_poi_unit_name['und'][0]['value']; ?> Afkeuren</span></a>
+        </div>
+    </div>
+  <?php endif; ?>
+
 </article><!-- /.node -->

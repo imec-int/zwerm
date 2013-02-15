@@ -2,12 +2,44 @@
 
 body.node-type-nodetype-event
 {
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    #main
+    {
+      padding-left: 10px;
+      .openlayers-container
+      {
+        padding-right: 20px;
+        padding-left: 10px;
+      }
+      h1
+      {
+        background-color:$green-marking-color ;
+        font-size:20px;
+        margin-left: -10px;
+        padding-top: 0px;
+      }
+    }
+  }
+
   @media all and (min-width: $start_of_large_viewport)
   {
     background-color: $white-background-color;
   }
 
-    p.submitted
+  #dialog
+  {
+    display: none;
+  }
+
+  .help
+  {
+    @include help-button;
+    margin-top: -51px;
+    margin-right: 0px;
+  }
+
+  p.submitted
   {
     display: none;
   }
@@ -42,7 +74,8 @@ body.node-type-nodetype-event
 
   .field-type-datestamp
   {
-    text-align: center;
+    //text-align: center;
+    font-size: 14px;
   }
 
   .field-name-field-event-team

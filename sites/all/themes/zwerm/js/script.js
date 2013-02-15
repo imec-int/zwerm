@@ -73,7 +73,14 @@
         });
     });
 
-  $(document).ready(function(){
+    $(document).ready(function(){
+        jQuery(".help").click(function()
+        {
+            $("#dialog").dialog();
+        });
+    });
+
+    $(document).ready(function(){
     $('.geochallenge-add-poi').show();
     $('.geochallenge-add-poi').click(function()
     {
@@ -88,10 +95,34 @@
       return false;
     });
 
-    jQuery(".geochallenge-add-psoi").click(function()
+    jQuery(".geochallenge-confirm-poi").click(function()
     {
-
+      var r = window.confirm("Ben je zeker dat je dit punt wil goedkeuren?");
+      if (r==true)
+      {
+        $(".geochallenge-buttons").hide();
+        $(".rules-link-poi_confirm_accept a").trigger('click');
+        $(".geochallenge-confirmation-details").hide();
+        $(".geochallenge-back-button").show();
+        alert('Bedankt! Je keuze wordt geregistreerd en van zodra je medespeler ook diens keuze heeft gemaakt, krijg je (hopelijk!) je punten toegekend!');
+      }
+      return(false);
     });
+
+    jQuery(".geochallenge-reject-poi").click(function()
+    {
+      var r = window.confirm("Ben je zeker dat je dit punt wil afkeuren?");
+      if (r==true)
+      {
+        $(".geochallenge-buttons").hide();
+        $(".rules-link-poi_confirm_reject a").trigger('click');
+        $(".geochallenge-confirmation-details").hide();
+        $(".geochallenge-back-button").show();
+        alert('Bedankt! Je keuze werd geregistreerd en van zodra je medespeler ook diens keuze heeft gemaakt, krijg je (hopelijk!) je punten toegekend!');
+      }
+      return(false);
+    });
+
   });
 
 

@@ -13,6 +13,7 @@
             SCOGA_ARTICLE_NODETYPE,
             SCOGA_POLL_NODETYPE,
             SCOGA_EVENT_NODETYPE,
+            SCOGA_GEOCHALLENGE_NODETYPE,
         );
 
         public $nid;
@@ -67,7 +68,11 @@
             ->condition( 'node_table.nid', $nid, '>' )
             ->condition( 'node_table.status', 1 )
             ->where( '( campaign_field_table.field_campaign_target_id=' . $campaign_nid . ') OR ( campaign_field_table.field_campaign_target_id IS NULL )')
-            ->execute();
+            ->orderBy( 'node_table.nid', 'DESC' )
+        ;
+        if(  $nid <= 0 ){
+            $query->range( 0, 5 );
+        }
         $result = $query->execute();
         $nids = array();
         foreach( $result as $record ) {
