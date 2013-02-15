@@ -60,7 +60,11 @@
             jQuery(".collapsible").hide();
             jQuery(".question").slideToggle(500);
         });
-
+        jQuery(".list_header_poi_confirmation").click(function()
+        {
+            jQuery(".collapsible").hide();
+            jQuery(".POI_conf").slideToggle(500);
+        });
         jQuery("#menu_container").click(function()
         {
             jQuery('html, body').animate({scrollTop:0}, 'fast');
@@ -69,7 +73,14 @@
         });
     });
 
-  $(document).ready(function(){
+    $(document).ready(function(){
+        jQuery(".help").click(function()
+        {
+            $("#dialog").dialog();
+        });
+    });
+
+    $(document).ready(function(){
     $('.geochallenge-add-poi').show();
     $('.geochallenge-add-poi').click(function()
     {
@@ -79,25 +90,39 @@
       jQuery('html, body').animate({
           scrollTop: $(".geochallenge-add-poi").offset().top-202
         }, 'fast');
-      jQuery(".geochallenge-add-poi").addClass('button-pressed');
-
-      //var ol = $('.openlayers-map').data('openlayers');//assuming there is just one map on the page
-      //console.log(ol);
+      $(".geochallenge-add-poi").addClass('button-pressed');
 
       return false;
     });
 
-    jQuery(".geochallenge-add-psoi").click(function()
+    jQuery(".geochallenge-confirm-poi").click(function()
     {
-      //$(".openlayers-container-map-poi_per_challenge_map").hide();
-      //$("#block-formblock-poi").show();
-      //return false;
-
-      var ol = $('.openlayers-map').data('openlayers');//assuming there is just one map on the page
-      ol.draw
-      alert(ol);
-      return false;
+      var r = window.confirm("Ben je zeker dat je dit punt wil goedkeuren?");
+      if (r==true)
+      {
+        $(".geochallenge-buttons").hide();
+        $(".rules-link-poi_confirm_accept a").trigger('click');
+        $(".geochallenge-confirmation-details").hide();
+        $(".geochallenge-back-button").show();
+        alert('Bedankt! Je keuze wordt geregistreerd en van zodra je medespeler ook diens keuze heeft gemaakt, krijg je (hopelijk!) je punten toegekend!');
+      }
+      return(false);
     });
+
+    jQuery(".geochallenge-reject-poi").click(function()
+    {
+      var r = window.confirm("Ben je zeker dat je dit punt wil afkeuren?");
+      if (r==true)
+      {
+        $(".geochallenge-buttons").hide();
+        $(".rules-link-poi_confirm_reject a").trigger('click');
+        $(".geochallenge-confirmation-details").hide();
+        $(".geochallenge-back-button").show();
+        alert('Bedankt! Je keuze werd geregistreerd en van zodra je medespeler ook diens keuze heeft gemaakt, krijg je (hopelijk!) je punten toegekend!');
+      }
+      return(false);
+    });
+
   });
 
 

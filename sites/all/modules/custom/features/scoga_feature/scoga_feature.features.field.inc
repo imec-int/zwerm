@@ -2960,8 +2960,9 @@ DO NOT MODIFY ONCE SET!',
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'body',
-      'label' => 'Body',
+      'label' => 'Je wens',
       'required' => 0,
       'settings' => array(
         'display_summary' => 1,
@@ -3076,8 +3077,9 @@ DO NOT MODIFY ONCE SET!',
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_wisheditem_award',
-      'label' => 'Reward',
+      'label' => 'Te verdienen punten',
       'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -3552,8 +3554,9 @@ DO NOT MODIFY ONCE SET!',
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_poll_reward',
-      'label' => 'Reward',
+      'label' => 'Te verdienen punten',
       'required' => 1,
       'settings' => array(
         'max' => '',
@@ -4174,6 +4177,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Fulfiller');
   t('HEX');
   t('Image');
+  t('Je wens');
   t('Location');
   t('Machine name');
   t('Optionally an RFID reader can be coupled to a Team, otherwise it\'s possible to have combo checkins when two team members checkin at different hollow trees. This should obviously be avoided.');
@@ -4183,10 +4187,10 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('RFID Reader');
   t('Reader ID');
   t('Registered user');
-  t('Reward');
   t('State');
   t('Surname');
   t('Tags');
+  t('Te verdienen punten');
   t('Team');
   t('Team colour');
   t('This field is provided just in case an event is happening at a location w/o address. 

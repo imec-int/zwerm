@@ -1,0 +1,7 @@
+;Id$
+name = Scoga DEVEL
+description = SCOGA devel functionalities. THIS SHOULD BE TURNED OFF ON THE PRODUCTION SERVER
+package = Scoga
+version = 7.x-1.0
+core = 7.x
+dependencies[] = scoga

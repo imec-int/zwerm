@@ -1,3 +1,4 @@
+userdata.php
 drush-dump-db.sh
 dashboard.php
 
@@ -30,3 +31,6 @@ __MACOSX/
 #Theme-related
 */.sass-cache/*
 sites/all/themes/zwerm/.sass-cache/
+
+#Caching-related
+apc.php

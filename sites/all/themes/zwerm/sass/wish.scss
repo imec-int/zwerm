@@ -1,8 +1,47 @@
 @import "base";
 
+
+.page-node-add-nodetype-wished-item
+{
+  .help
+  {
+    @include help-button;
+    margin-top: -51px;
+    margin-right: 0px;
+  }
+}
+.node-type-nodetype-wished-item
+{
+  .help
+  {
+    @include help-button;
+    margin-top: -123px;
+    margin-right: 0px;
+  }
+}
+
 .page-node-add-nodetype-wished-item,.node-type-nodetype-wished-item
 {
   background-color: $white-background-color;
+
+  .flag-message
+  {
+    font-size:0;
+  }
+
+  .help
+  {
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin-top: 43px;
+    margin-right: 9px;
+  }
+
+  #dialog
+  {
+    display: none;
+  }
 
   @media all and (max-width: $end_of_small_viewport)
   {
@@ -16,6 +55,13 @@
         {
           width: 94%;
         }
+      }
+      h1
+      {
+        font-size: 20px;
+        background-color: $green-marking-color;
+        margin-left: -10px;
+        margin-right: -15px;
       }
     }
   }
@@ -39,7 +85,7 @@
   {
     li
     {
-      background-color:$green-marking-color;
+      //background-color:$green-marking-color;
       a
       {
         padding-left: 20px;
@@ -58,12 +104,24 @@
     }
 
     //theme the action links
-    ul.inline li
+    ul.inline
     {
       display:block;
-      a
+      margin-bottom: 80px;
+      li
       {
-        color: black;
+        display:inline;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        float: left;
+        a
+        {
+          //color: black;
+          @include action-button;
+          padding:7px;
+          margin-bottom: 5px;
+          font-size: small;
+        }
       }
     }
 
@@ -79,7 +137,8 @@
 
   .field-name-field-wisheditem-award
   {
-    margin-top: -23px;
+    //margin-top: -23px;
+    display: inline;
     .field-label
     {
       float:left;

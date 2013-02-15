@@ -21,6 +21,8 @@
      *    'entity_type' => string of the entity type. ex. 'node' or 'user' NOT 'node-content-custom'
      */
     function scoga_handle_userpoints_after( $params = array()){
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
+        scoga_set_player_active( $params['uid'] );
         module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
         scoga_transfer_transaction_points_to_team( $params );
     }

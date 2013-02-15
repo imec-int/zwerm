@@ -9,11 +9,6 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 /* line 4, ../sass/login.scss */
 .page-user.not-logged-in {
   background-color: #333333;
@@ -28,65 +23,73 @@
 .page-user.not-logged-in .active {
   display: none;
 }
-/* line 20, ../sass/login.scss */
-.page-user.not-logged-in #user-login {
-  margin-top: 30%;
-}
-/* line 23, ../sass/login.scss */
+/* line 22, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-name {
   position: relative;
 }
-/* line 26, ../sass/login.scss */
+/* line 25, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-name label {
   position: absolute;
   top: 9px;
   left: 7%;
   color: #aaa;
 }
-/* line 34, ../sass/login.scss */
+/* line 33, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-pass {
   position: relative;
 }
-/* line 37, ../sass/login.scss */
+/* line 36, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item-pass label {
   position: absolute;
   top: 9px;
   left: 7%;
   color: #aaa;
 }
-/* line 46, ../sass/login.scss */
+/* line 45, ../sass/login.scss */
 .page-user.not-logged-in #user-login input {
   border-radius: 4px;
   height: 35px;
 }
-/* line 52, ../sass/login.scss */
+/* line 51, ../sass/login.scss */
 .page-user.not-logged-in #user-login .form-item {
   width: 90%;
   margin-left: 3%;
   margin-right: 5%;
 }
-/* line 59, ../sass/login.scss */
+/* line 58, ../sass/login.scss */
 .page-user.not-logged-in #user-login .get-new-password {
   margin-left: 3%;
   margin-right: 4%;
   float: right;
 }
-/* line 64, ../sass/login.scss */
+/* line 63, ../sass/login.scss */
 .page-user.not-logged-in #user-login .get-new-password a {
   color: red;
 }
-/* line 70, ../sass/login.scss */
-.page-user.not-logged-in #edit-submit {
+/* line 69, ../sass/login.scss */
+.page-user.not-logged-in #user-login #edit-submit {
   background-color: #7fb083;
   color: white;
   border-radius: 4px;
 }
-/* line 78, ../sass/login.scss */
-.page-user.not-logged-in #edit-actions {
+/* line 77, ../sass/login.scss */
+.page-user.not-logged-in #user-login #edit-actions {
   width: 92%;
   margin-left: 3%;
 }
-/* line 84, ../sass/login.scss */
-.page-user.not-logged-in #content .tabs {
+/* line 83, ../sass/login.scss */
+.page-user.not-logged-in #user-login #content .tabs {
   display: none;
+}
+@media all and (max-width: 629px) {
+  /* line 91, ../sass/login.scss */
+  .page-user.not-logged-in #user-login {
+    margin-top: 30%;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 100, ../sass/login.scss */
+  .page-user.not-logged-in #user-login {
+    margin-top: 30px;
+  }
 }

@@ -9,11 +9,6 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 @media all and (min-width: 630px) {
   /* line 4, ../sass/not-checkin.scss */
   body.page-not-partner {
@@ -49,7 +44,7 @@ body.page-not-partner #content #page-title {
   letter-spacing: 2px;
   margin-bottom: -2px;
   line-height: 3.5em;
-  text-align: left;
+  text-align: center;
   font-size: large;
   padding-left: 5px;
 }
@@ -85,4 +80,23 @@ body.page-not-partner #content #select_list a {
 /* line 79, ../sass/not-checkin.scss */
 body.page-not-partner #content #main-content {
   display: none;
+}
+/* line 84, ../sass/not-checkin.scss */
+body.page-not-partner #content #dialog {
+  display: none;
+}
+/* line 89, ../sass/not-checkin.scss */
+body.page-not-partner #content .help {
+  display: inline-block;
+  float: right;
+  margin-top: -39px;
+  margin-right: 10px;
+  background-color: white;
+  width: 26px;
+}
+/* line 140, ../sass/_custom.scss */
+body.page-not-partner #content .help a {
+  color: black;
+  margin-left: 9px;
+  margin-top: 10px;
 }

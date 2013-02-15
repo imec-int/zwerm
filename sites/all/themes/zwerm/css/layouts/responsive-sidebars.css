@@ -19,11 +19,6 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 /*
  * Center the page.
  */
@@ -195,7 +190,7 @@
     clear: left;
   }
 
-  /* line 156, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 157, ../../sass/layouts/responsive-sidebars.scss */
   #content {
     float: left;
     width: 60%;
@@ -210,12 +205,12 @@
     word-wrap: break-word;
   }
 
-  /* line 163, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 164, ../../sass/layouts/responsive-sidebars.scss */
   .sidebar-first .region-sidebar-first {
     /* Span 1 column, starting in 1st column from left. */
   }
 
-  /* line 171, ../../sass/layouts/responsive-sidebars.scss */
+  /* line 172, ../../sass/layouts/responsive-sidebars.scss */
   #footer .logged-in {
     display: none;
     float: left;

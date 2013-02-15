@@ -28,6 +28,9 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filteren';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = 1;
+  $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = 1;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -43,7 +46,7 @@ function scoga_geochallenges_extensions_views_default_views() {
     'other_bottom' => 'title',
     'other_left' => 'title',
     'name_field' => 'title',
-    'description_field' => '',
+    'description_field' => 'field_comment',
   );
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
@@ -51,8 +54,25 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 0;
   /* Field: Content: Location */
   $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
   $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
@@ -61,6 +81,32 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['fields']['field_location']['settings'] = array(
     'data' => 'full',
   );
+  /* Field: Content: Comment */
+  $handler->display->display_options['fields']['field_comment']['id'] = 'field_comment';
+  $handler->display->display_options['fields']['field_comment']['table'] = 'field_data_field_comment';
+  $handler->display->display_options['fields']['field_comment']['field'] = 'field_comment';
+  $handler->display->display_options['fields']['field_comment']['label'] = '';
+  $handler->display->display_options['fields']['field_comment']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_comment']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_comment']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_comment']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_comment']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_comment']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_comment']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_comment']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_comment']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_comment']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_comment']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_comment']['field_api_classes'] = 1;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -85,9 +131,10 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['field'] = 'field_ref_geo_challenge_target_id';
   $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['operator_id'] = 'field_ref_geo_challenge_target_id_op';
-  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['label'] = 'Geo Challenge';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['label'] = 'Filter op een geo-challenge';
   $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['operator'] = 'field_ref_geo_challenge_target_id_op';
   $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['identifier'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['reduce'] = 0;
 
   /* Display: OpenLayers Data Overlay */
   $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_1');
@@ -97,13 +144,15 @@ function scoga_geochallenges_extensions_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Zwerm Kaart';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'openlayers_map';
   $handler->display->display_options['style_options']['map'] = 'poi_overview_map';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['path'] = 'overview';
+  $handler->display->display_options['path'] = 'kaart';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Kaart';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -147,7 +196,7 @@ function scoga_geochallenges_extensions_views_default_views() {
     t('Master'),
     t('POI\'s'),
     t('more'),
-    t('Apply'),
+    t('Filteren'),
     t('Reset'),
     t('Sort by'),
     t('Asc'),
@@ -156,10 +205,12 @@ function scoga_geochallenges_extensions_views_default_views() {
     t('- All -'),
     t('Offset'),
     t('Location'),
-    t('Geo Challenge'),
+    t('Filter op een geo-challenge'),
     t('OpenLayers Data Overlay'),
     t('Page'),
+    t('Zwerm Kaart'),
     t('Block'),
+    t('Geo Challenge'),
   );
   $export['poi_overview'] = $view;
 

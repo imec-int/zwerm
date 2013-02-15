@@ -9,17 +9,8 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 /* line 4, ../sass/recent-points.scss */
 .page-points-in-campaign {
-  background-color: #eeeeee;
-}
-/* line 8, ../sass/recent-points.scss */
-.page-points-in-campaign #main {
   background-color: #eeeeee;
 }
 /* line 13, ../sass/recent-points.scss */
@@ -41,4 +32,9 @@
 /* line 33, ../sass/recent-points.scss */
 .page-points-in-campaign .views-field-name {
   display: block;
+}
+
+/* line 39, ../sass/recent-points.scss */
+body.page-points-in-campaign {
+  background-color: black;
 }

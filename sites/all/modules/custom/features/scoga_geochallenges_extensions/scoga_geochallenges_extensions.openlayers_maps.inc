@@ -18,7 +18,7 @@ function scoga_geochallenges_extensions_openlayers_maps() {
   $openlayers_maps->description = 'A map for a large overview with multiple SCOGA POI layers';
   $openlayers_maps->data = array(
     'width' => 'auto',
-    'height' => '400px',
+    'height' => '350px',
     'image_path' => 'sites/all/modules/openlayers/themes/default_dark/img/',
     'css_path' => 'sites/all/modules/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',
@@ -26,7 +26,7 @@ function scoga_geochallenges_extensions_openlayers_maps() {
     'center' => array(
       'initial' => array(
         'centerpoint' => '3.7199356355641, 51.055020528332',
-        'zoom' => '14',
+        'zoom' => '15',
       ),
       'restrict' => array(
         'restrictextent' => 0,
@@ -34,18 +34,16 @@ function scoga_geochallenges_extensions_openlayers_maps() {
       ),
     ),
     'behaviors' => array(
+      'openlayers_behavior_fullscreen' => array(
+        'activated' => 0,
+      ),
       'openlayers_behavior_keyboarddefaults' => array(),
       'openlayers_behavior_attribution' => array(
         'seperator' => '',
       ),
-      'openlayers_behavior_layerswitcher' => array(
-        'ascending' => 1,
-        'roundedCorner' => 1,
-        'roundedCornerColor' => '#222222',
-      ),
       'openlayers_behavior_navigation' => array(
         'zoomWheelEnabled' => 1,
-        'zoomBoxEnabled' => 1,
+        'zoomBoxEnabled' => 0,
         'documentDrag' => 0,
       ),
       'openlayers_behavior_panzoombar' => array(
@@ -66,39 +64,44 @@ function scoga_geochallenges_extensions_openlayers_maps() {
     'layer_weight' => array(
       'poi_overview_openlayers_1' => '0',
       'poi_per_challenge_data_openlayers_1' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'openlayers_geojson_picture_this' => '0',
       'geofield_formatter' => '0',
     ),
     'layer_styles' => array(
       'geofield_formatter' => '0',
       'openlayers_geojson_picture_this' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'poi_per_challenge_data_openlayers_1' => '0',
-      'poi_overview_openlayers_1' => '0',
+      'poi_overview_openlayers_1' => 'scoga_marker_green_1_invert',
     ),
     'layer_styles_select' => array(
       'geofield_formatter' => '0',
       'openlayers_geojson_picture_this' => '0',
+      'event_map_overlay_openlayers_1' => '0',
       'poi_per_challenge_data_openlayers_1' => '0',
-      'poi_overview_openlayers_1' => '0',
+      'poi_overview_openlayers_1' => 'scoga_marker_green_1',
     ),
     'layer_activated' => array(
       'poi_overview_openlayers_1' => 'poi_overview_openlayers_1',
       'geofield_formatter' => 0,
       'openlayers_geojson_picture_this' => 0,
+      'event_map_overlay_openlayers_1' => 0,
       'poi_per_challenge_data_openlayers_1' => 0,
     ),
     'layer_switcher' => array(
       'poi_overview_openlayers_1' => 'poi_overview_openlayers_1',
       'geofield_formatter' => 0,
       'openlayers_geojson_picture_this' => 0,
+      'event_map_overlay_openlayers_1' => 0,
       'poi_per_challenge_data_openlayers_1' => 0,
     ),
     'projection' => '900913',
     'displayProjection' => '4326',
     'styles' => array(
-      'default' => 'default',
-      'select' => 'default_select',
-      'temporary' => 'default',
+      'default' => 'scoga_marker_green_1',
+      'select' => 'scoga_marker_green_1',
+      'temporary' => 'scoga_marker_green_1',
     ),
   );
   $export['poi_overview_map'] = $openlayers_maps;
@@ -192,7 +195,7 @@ function scoga_geochallenges_extensions_openlayers_maps() {
   $openlayers_maps->description = 'A Map for adding POI to SCOGA Geo Challenges';
   $openlayers_maps->data = array(
     'width' => 'auto',
-    'height' => '400px',
+    'height' => '375px',
     'image_path' => 'sites/all/modules/openlayers/themes/default_dark/img/',
     'css_path' => 'sites/all/modules/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',
@@ -248,14 +251,14 @@ function scoga_geochallenges_extensions_openlayers_maps() {
       'openlayers_geojson_picture_this' => '0',
       'event_map_overlay_openlayers_1' => '0',
       'poi_overview_openlayers_1' => '0',
-      'poi_per_challenge_data_openlayers_1' => 'default_marker_blue',
+      'poi_per_challenge_data_openlayers_1' => 'scoga_marker_green_1_invert',
     ),
     'layer_styles_select' => array(
       'geofield_formatter' => '0',
       'openlayers_geojson_picture_this' => '0',
       'event_map_overlay_openlayers_1' => '0',
       'poi_overview_openlayers_1' => '0',
-      'poi_per_challenge_data_openlayers_1' => 'default_marker_blue',
+      'poi_per_challenge_data_openlayers_1' => 'scoga_marker_green_1_invert',
     ),
     'layer_activated' => array(
       'poi_per_challenge_data_openlayers_1' => 'poi_per_challenge_data_openlayers_1',
@@ -274,9 +277,9 @@ function scoga_geochallenges_extensions_openlayers_maps() {
     'projection' => '900913',
     'displayProjection' => '4326',
     'styles' => array(
-      'default' => 'default',
-      'select' => 'default_select',
-      'temporary' => 'default',
+      'default' => 'scoga_marker_green_1',
+      'select' => 'scoga_marker_green_1',
+      'temporary' => 'scoga_marker_green_1',
     ),
   );
   $export['scoga_poi_input'] = $openlayers_maps;

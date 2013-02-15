@@ -6,13 +6,23 @@
   {
     display: none;
   }
-
-  a
+  .profile
   {
-    color:black;
+    a.privatemsg-send-link, a.edit_account_link
+    {
+      //color:black;
+      @include action-button;
+      font-size: small;
+      padding:7px;
+    }
   }
 
-  .field-name-field-user-firstname,.field-name-field-user-surname
+  .edit_account
+  {
+    display: inline;
+  }
+
+  .field-name-field-user-firstname,.field-name-field-user-surname, .userpoints-links
   {
     display:none;
   }
@@ -29,7 +39,7 @@
 
   @media all and (min-width: $start_of_large_viewport)
   {
-    a.privatemsg-send-link
+    a.privatemsg-send-link,a.edit_account_link
     {
       color: $green-marking-color;
     }
@@ -37,10 +47,21 @@
 
   @media all and (max-width: $end_of_small_viewport)
   {
-    a.privatemsg-send-link
+    a.privatemsg-send-link,a.edit_account_link
     {
       color:$white-background-color;
     }
+
+    .edit_account
+    {
+      display: block;
+      margin-top: 10px;
+    }
+  }
+
+  .userpoints-view.first.last
+  {
+    display: none;
   }
 
   .user-picture
@@ -54,7 +75,7 @@
   }
 
   .privatemsg-send-link.privatemsg-send-link-profile {
-    display: inline-block;
+    //display: inline-block;
   }
 
   .field.field-name-field-user-firstname.field-type-text.field-label-hidden {

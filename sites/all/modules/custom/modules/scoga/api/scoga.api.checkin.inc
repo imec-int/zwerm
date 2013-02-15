@@ -24,6 +24,7 @@
         public $cardID;
         public $expires;
         public $nid;
+        public $player;
     }
 
     /**
@@ -112,6 +113,7 @@
         $checkin_vo = new Checkin();
         $checkin_vo->nid = $checkin_node->nid;
         $checkin_vo->cardID = $card_id;
+        $checkin_vo->player = scoga_create_player_vo( $user_account );
 
         $conn_points = array();
 

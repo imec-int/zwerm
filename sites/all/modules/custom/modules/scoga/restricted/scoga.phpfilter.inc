@@ -66,7 +66,7 @@ function scoga_filter_leaderboard($userPosition,$counter,$point_taxo_id,$campaig
 
         //if $static->userPosition ==1 , this means that user was not in $view result and has no points
         //in that case, only show top 10 results
-        if ($userPosition == 1)
+        if ($userPosition == 1 || $userPosition < 8)
         {
             if ($numberOnLeaderboard>9)
             {
@@ -79,7 +79,7 @@ function scoga_filter_leaderboard($userPosition,$counter,$point_taxo_id,$campaig
         }
         else
         {
-            if (($numberOnLeaderboard < 3) || ($loggedInUserPosition-5 < $numberOnLeaderboard && $numberOnLeaderboard < $loggedInUserPosition+3))
+            if (($numberOnLeaderboard < 3) || ($loggedInUserPosition-6 < $numberOnLeaderboard && $numberOnLeaderboard < $loggedInUserPosition+3))
             {
                 return false;
             }

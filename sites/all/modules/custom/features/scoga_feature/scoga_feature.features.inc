@@ -75,7 +75,7 @@ function scoga_feature_flag_default_flags() {
     ),
     'api_version' => 2,
   );
-  // Exported flag: "Unsolvable wish".
+  // Exported flag: "Markeer als onuitvoerbaar".
   $flags['flag_unsolvable_wish'] = array(
     'content_type' => 'node',
     'title' => 'Unsolvable wish',
@@ -152,11 +152,11 @@ function scoga_feature_image_default_styles() {
 function scoga_feature_node_info() {
   $items = array(
     'article' => array(
-      'name' => t('Article'),
+      'name' => t('Artikel'),
       'base' => 'node_content',
-      'description' => t('Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'),
+      'description' => t('Gebruik <em>artikelen</em> voor tijdsgebonden inhoud zoals nieuws, persberichten of blog-berichten.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_campaign' => array(
@@ -164,7 +164,7 @@ function scoga_feature_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_campaign_team' => array(
@@ -172,7 +172,7 @@ function scoga_feature_node_info() {
       'base' => 'node_content',
       'description' => t('Assigns a specific team to a specific campaign, this is a separate node type, to allow for specific settings per team per campaign, like the points modifier and the total points'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_checkin' => array(
@@ -180,15 +180,15 @@ function scoga_feature_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_event' => array(
-      'name' => t('Event'),
+      'name' => t('Activiteit'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_logmessages' => array(
@@ -206,7 +206,7 @@ NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_service_page' => array(
@@ -222,7 +222,7 @@ NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_wish_fulfilled' => array(
@@ -230,15 +230,15 @@ NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'nodetype_wished_item' => array(
-      'name' => t('Wished Item'),
+      'name' => t('Wens'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );

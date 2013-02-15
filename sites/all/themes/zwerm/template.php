@@ -226,56 +226,72 @@ function zwerm_preprocess_block(&$variables, $hook) {
 // */
 
 
-    /*
-     * @param $variables
-     *
-     * Used to add the team color to the page, based on
-     * the team of the logged in user
-     *
-     */
-    function zwerm_preprocess_html(&$variables)
-    {
-        global $user;
+/*
+* @param $variables
+*
+* Used to add the team color to the page, based on
+* the team of the logged in user
+*
+*/
+function zwerm_preprocess_html(&$variables)
+{
+  global $user;
 
-        //if visiting a user profile, get the color code of the user to whom the profile belongs, not the logged in user
-        $user_profile_owner = menu_get_object('user');
-        if (isset($user_profile_owner))
-        {
-            $user_profile_id = menu_get_object('user')->uid;
-            $variables['classes_array'][] = _scoga_get_user_team_color($user_profile_id);
-        }
-        else
-            $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
-    }
+  //if visiting a user profile, get the color code of the user to whom the profile belongs, not the logged in user
+  $user_profile_owner = menu_get_object('user');
+  if (isset($user_profile_owner)) {
+    $user_profile_id = menu_get_object('user')->uid;
+    $variables['classes_array'][] = _scoga_get_user_team_color($user_profile_id);
+  } else
+    $variables['classes_array'][] = _scoga_get_user_team_color($user->uid);
+}
 
 
-    /**
-      *
-      * @param $uid
-      *
-      * @return string
-      */
-     function _scoga_get_user_team_color($uid)
-     {
-         $returnValue = "";
-         $query = db_query('
+/**
+ *
+ * @param $uid
+ *
+ * @return string
+ */
+function _scoga_get_user_team_color($uid)
+{
+  $returnValue = "";
+  $query = db_query('
                    SELECT field_team_colour_value
                    FROM field_data_field_team_colour as ftc
                    INNER JOIN field_data_field_user_team as fut on fut.field_user_team_target_id = ftc.entity_id
-                   WHERE fut.entity_id= :uid',array(':uid' =>$uid));
-         foreach ($query as $record)
-         {
-             $returnValue = 'color-'.$record->field_team_colour_value;
-         }
-         return $returnValue;
-     }
+                   WHERE fut.entity_id= :uid', array(':uid' => $uid));
+  foreach ($query as $record) {
+    $returnValue = 'color-' . $record->field_team_colour_value;
+  }
+  return $returnValue;
+}
 
-     function zwerm_preprocess_node(&$vars)
-     {
-        //changes the submitted by string
-        //$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
-        $vars['submitted']['name'] = $vars['name'];
-        $vars['submitted']['date'] = $vars['date'];
-     }
+function zwerm_preprocess_node_poi_confirmation(&$vars, $hook)
+{
+  if ($vars['node']->field_status['und'][0]['value'] == 0) {
+    $vars['poi_confirmation_status_class'] = 'geochallenge_poi_confirmation_unconfirmed';
+  }
+  $vars['poi_confirmation_status'] = $vars['node']->field_status['und'][0]['value'];
+}
+
+function zwerm_preprocess_node(&$vars)
+{
+  //changes the submitted by string
+  //$variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
+  $vars['submitted']['name'] = $vars['name'];
+  $vars['submitted']['date'] = $vars['date'];
+  $hook = "node";
+
+  // Optionally, run node-type-specific preprocess functions, like
+  // zwerm_preprocess_node_page() or zwerm_preprocess_node_story().
+  $function = __FUNCTION__ . '_' . $vars['node']->type;
+  if (function_exists($function)) {
+    $function($vars, $hook);
+  }
+
+}
+
+
 
 

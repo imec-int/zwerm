@@ -8,6 +8,7 @@
  */
 
 @import "base";
+@import "fonts";
 
 //$header-color : #000000;
 //$team-blue-color : #79B1BD;
@@ -198,12 +199,20 @@ body {
 
   h1
   {
-    font-family: Romina;
-    //padding-top:$pages-title-top-padding;
+    font-family: "Romina";
     text-align: center;
   }
 
 
+}
+
+#edit-submit, .form-submit,  {
+  /*background-color: $footer-color;
+  height:30px;
+  color:white;
+  border:0;
+  border-radius: 3px;   */
+  @include action-button;
 }
 
 .page-frontpage
@@ -258,6 +267,7 @@ div.messages { /* Important messages (status, warning, and error) for the user. 
 }
 
 div.status { /* Normal priority messages */
+  width:100%;
   background-color: $score-navbar-color;
   font-size: 0.8em;
   color: #ffffff;
@@ -392,6 +402,15 @@ span.field-label { /* The inline field label used by the Fences module */
   width : 100%;
   padding-top: 3px;
   height:33px;
+
+  .leaf:nth-of-type(2)
+  {
+    margin-top: -21px;
+    width: 34%;
+    margin-left: 33%;
+    position: absolute;
+    text-align: center;
+  }
 }
 
 //needed for footer to remain at bottom
@@ -443,6 +462,7 @@ tr.colordc6058 {
     @include hyperlink-style;
     padding-right: 10px;
     padding-left: 10px;
+    font-weight:bold;
   }
 }
 
@@ -477,7 +497,7 @@ a {
   {
     h1
     {
-      font-family: romina;
+      font-family: "Romina";
       text-align: center;
       padding-top: $pages-title-top-padding;
     }
@@ -489,6 +509,7 @@ a {
 {
   #header{
     background-image: url(../images/zwerm_logo_black_background.png);
+    background-size: 10%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: $logo-width-large-viewport;
@@ -524,7 +545,7 @@ a {
   {
     h1
     {
-      font-family: romina;
+      //font-family: romina;
       text-align: center;
       //padding-top: $pages-title-top-padding;
     }

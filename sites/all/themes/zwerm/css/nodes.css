@@ -15,11 +15,6 @@
     background-color: #79b1bd;
   }
 }
-@font-face {
-  font-family: "Romina";
-  src: url("../fonts/VSV-RominaSquared-Regular.ttf");
-}
-
 /* line 11, ../sass/nodes.scss */
 .node {
   /* Node wrapper */

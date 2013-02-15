@@ -11,9 +11,9 @@
       padding-top: 0px;
       li
       {
-        //default style of list items in get-points list
         height:$li-height;
         background-color:white;
+        //background-color: $green-marking-color;
         //margin-bottom: 3px;
       }
     }
@@ -26,29 +26,58 @@
 @media all and (min-width: $start_of_large_viewport) {
   .page-get-points
   {
-
+    #main
+    {
+      background-color: black;
+    }
 
     #content
     {
       li
       {
         height:$li-height;
-        background-color:white;
+        //background-color:white;
+        background-color: $green-marking-color;
         //margin-bottom: 3px;
       }
     }
   }
   body.page-get-points
   {
-    background-color: $white-background-color;
+    //background-color: $white-background-color;
+    background-color: black;
   }
 
 
 }
 
+.color-79b1bd
+{
+  #content
+  {
+    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
+    {
+      background-color: $green-marking-color;
+      //background-color: #79b1bd;
+    }
+  }
+}
+
+.color-dc6058
+{
+  #content
+  {
+    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
+    {
+      background-color: $green-marking-color;
+      //background-color: #dc6058;
+    }
+  }
+}
 
 .page-get-points
 {
+
 
   #page-title
   {
@@ -71,14 +100,16 @@
       padding-left: 26px;
     }
 
-    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge
-    {
-      background-color: $green-marking-color;
-    }
 
-    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after, li.list_header_geochallenge:after
+
+    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after, li.list_header_geochallenge:after,li.list_header_poi_confirmation:after
     {
         content: url('../images/expand_icon.png');
+        display: inline;
+        float: left;
+        padding-top: 22px;
+        padding-right: 0px;
+        font-size: large;
     }
 
     li:after
@@ -86,7 +117,7 @@
       content:">";
       display:inline;
       float:right;
-      padding-top:19px;
+      padding-top:18px;
       padding-right:25px;
       font-size: large;
     }
@@ -115,6 +146,16 @@
     {
       display: none;
     }
+
+    #dialog
+    {
+      display: none;
+    }
+
+    .help
+    {
+      @include help-button
+    }
   }
 
   .link_truncated {
@@ -133,4 +174,6 @@
   .time_interval_label,.time_interval {
     display: inline;
   }
+
+
 }

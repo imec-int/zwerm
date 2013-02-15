@@ -21,10 +21,13 @@
       display:none;
     }
   }
-
   .submitted_on
   {
     display:none;
+  }
+  #edit-comment-body
+  {
+    width: 94%;
   }
 
 
@@ -38,14 +41,21 @@
     }
     .form-submit
     {
-      width: 60%;
-      margin-left: 20%;
+      width: 200px;
       font-size: small;
     }
     .field-label
     {
       float:left;
       font-weight: normal;
+    }
+    h1
+    {
+      font-size:20px;
+    }
+    input
+    {
+      width: 92%;
     }
   }
 
@@ -114,6 +124,17 @@
     article
     {
       margin-left: 5%;
+    }
+    h1
+    {
+      background-color:$green-marking-color ;
+    }
+  }
+  @media all and (min-width: $start_of_large_viewport)
+  {
+    .username
+    {
+      color:black;
     }
   }
 }
