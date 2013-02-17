@@ -55,31 +55,39 @@
      */
     function scoga_overview_of_assignments_to_get_point()
     {
-        global $user;
-        $user_data = user_load($user->uid);
-        $user_team = $user_data->field_user_team['und']['0']['target_id'];
         module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
         $current_campaign_id = scoga_get_campaign_nid_for_time(time());
         $output='';
-        $output.= '<div class="help"><a >?</a></div>';
-        $assignment_titles = array();
-        $assignment_paths = array();
-        //add time interval to end of current campaign
-        $time_interval_elements = scoga_get_current_campaign_expiration_time();
-        $output .= theme('time_interval',array('interval_elements' => $time_interval_elements));
-        //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
-        $assignment_titles[] = t('Check-in : find new partners');
-        $assignment_paths[] = SCOGA_NOT_PARTNER_PAGE;
-        //add link to wish creation page to output
-        $assignment_titles[] = t ('Make a wish');
-        $assignment_paths[] = 'node/add/nodetype-wished-item';
-        //add other playable elements to output
-        _scoga_add_assignments_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
-        _scoga_add_polls_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
-        _scoga_add_assignments_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL, $current_campaign_id,$assignment_titles,$assignment_paths);
-        _scoga_add_POI_confirmations_to_output($assignment_titles,$assignment_paths);
-        _scoga_add_assignments_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,$current_campaign_id,$assignment_titles,$assignment_paths);
-        $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
+        if ($current_campaign_id>0)
+        {
+            global $user;
+            $user_data = user_load($user->uid);
+            $user_team = $user_data->field_user_team['und']['0']['target_id'];
+            $output='';
+            $output.= '<div class="help"><a >?</a></div>';
+            $assignment_titles = array();
+            $assignment_paths = array();
+            //add time interval to end of current campaign
+            $time_interval_elements = scoga_get_current_campaign_expiration_time();
+            $output .= theme('time_interval',array('interval_elements' => $time_interval_elements));
+            //add link to node based on path stored in SCOGA_SETTING_CHECKIN_EXPLANATION_NID to output
+            $assignment_titles[] = t('Check-in : find new partners');
+            $assignment_paths[] = SCOGA_NOT_PARTNER_PAGE;
+            //add link to wish creation page to output
+            $assignment_titles[] = t ('Make a wish');
+            $assignment_paths[] = 'node/add/nodetype-wished-item';
+            //add other playable elements to output
+            _scoga_add_assignments_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
+            _scoga_add_polls_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
+            _scoga_add_assignments_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL, $current_campaign_id,$assignment_titles,$assignment_paths);
+            _scoga_add_POI_confirmations_to_output($assignment_titles,$assignment_paths);
+            _scoga_add_assignments_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,$current_campaign_id,$assignment_titles,$assignment_paths);
+            $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
+        }
+        else
+        {
+            $output .= '<div class="no_active"">'.t('No campaign is currently active').'</div>';
+        }
         return $output;
     }
 

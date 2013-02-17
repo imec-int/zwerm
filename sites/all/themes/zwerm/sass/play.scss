@@ -17,6 +17,12 @@
         //margin-bottom: 3px;
       }
     }
+    .no_active
+    {
+      text-align: center;
+      color: black;
+      margin-top: 20px;;
+    }
   }
 
 
@@ -40,6 +46,13 @@
         background-color: $green-marking-color;
         //margin-bottom: 3px;
       }
+    }
+
+    .no_active
+    {
+      text-align: center;
+      color: white;
+      margin-top: 20px;
     }
   }
   body.page-get-points
@@ -174,6 +187,4 @@
   .time_interval_label,.time_interval {
     display: inline;
   }
-
-
 }
