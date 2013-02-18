@@ -164,7 +164,7 @@
                 break;
             default :
                 // multiple matches
-                throw new Exception( t( 'card registered multiple times' ) );
+                throw new Exception( t( 'card registered multiple times' ), CODE_CARD_MULTIPLE );
         }
 
         return FALSE;

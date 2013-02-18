@@ -20,6 +20,7 @@
          * @var number
          */
         public $nid;
+
     }
 
     class SingleCheckin extends CheckinBase{
@@ -27,11 +28,6 @@
          * @var string
          */
         public $type = SCOGA_CHECKIN_TYPE_SINGLE;
-
-        /**
-         * @var number
-         */
-        public $nid;
 
         /**
          * @var number timestamp
@@ -47,6 +43,11 @@
          * @var Player
          */
         public $player;
+
+        /**
+         * @var string
+         */
+        public $card_id;
     }
 
     class ComboCheckin extends CheckinBase{
@@ -87,8 +88,8 @@
      * @return SingleCheckin
      */
     function scoga_register_single_checkin( $card_id, $reader_node, $now, $campaign_nid ){
-
         $checkin_vo = new SingleCheckin();
+        $checkin_vo->card_id = $card_id;
 
         /*
         * get reader node by reader ID, this is NOT a nid,
@@ -117,7 +118,7 @@
             $player_entity = scoga_get_player_entity_by_card_id( $card_id );
         }catch ( Exception $error ){
             $checkin_vo->message = $error->getMessage();
-            $checkin_vo->code = CODE_UNKNOWN_ERROR;
+            $checkin_vo->code = $error->getCode();
             return $checkin_vo;
         }
 
@@ -158,6 +159,8 @@
             '@time'   => $checkin_time_formatted,
         );
 
+        $checkin_vo->expires = $now + scoga_get_combocheckin_timeframe();
+
         if( scoga_player_has_cooled_down( $player_entity ) ){
             $checkin_vo->message =  t( '@user checked in with @reader at @time', $title_params );
             $checkin_vo->code = CODE_CHECKIN_SUCCESS;
@@ -168,7 +171,6 @@
                 'checkin'
             );
             $checkin_vo->transaction = scoga_create_transaction_vo_from_assoc_arr( $transaction_arr );
-            $checkin_vo->expires = $now + scoga_get_combocheckin_timeframe();
             $new_checkin_node->status=1;
         }else{
             $checkin_vo->message =  t( '@user needs to cool down', $title_params );
@@ -183,7 +185,6 @@
     }
 
     function scoga_register_combo_checkin( $card_id, $reader_node, $now, $campaign_nid ){
-
         $prev_single_checkin_nid = _get_last_checkin_node_nid( $reader_node->nid, $campaign_nid );
 
         $current_single_checkin_vo = scoga_register_single_checkin( $card_id, $reader_node, $now, $campaign_nid );
@@ -193,6 +194,7 @@
             CODE_CARD_NOT_REGISTERED,
             CODE_NOT_ALLOWED,
             CODE_INVALID_READER,
+            CODE_CARD_MULTIPLE
         );
 
         if( array_search( $current_single_checkin_vo->code, $fatal_codes ) !== FALSE ){

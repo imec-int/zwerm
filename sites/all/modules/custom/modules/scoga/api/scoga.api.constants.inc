@@ -91,10 +91,10 @@
     define( 'CODE_PLAYER_NEEDS_COOLDOWN',       1050 );
     define( 'CODE_CHECKIN_SUCCESS',             1060 );
     define( 'CODE_COMBO_SUCCESS',               1070 );
-    define( 'CODE_COMBO_TIMEOUT',               1071 );
-    define( 'CODE_RELATIONSHIP_EXISTS',         1072 );
-    define( 'CODE_OTHER_TEAM',                  1080 );
-    define( 'CODE_SAME_USER',                   1090 );
+    define( 'CODE_COMBO_TIMEOUT',               1080 );
+    define( 'CODE_RELATIONSHIP_EXISTS',         1090 );
+    define( 'CODE_OTHER_TEAM',                  1100 );
+    define( 'CODE_SAME_USER',                   1110 );
     define( 'CODE_CARD_MULTIPLE',               2020 );
     define( 'CODE_CARD_REGISTRATION_SUCCESS',   2030 );
 

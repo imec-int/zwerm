@@ -204,6 +204,13 @@
                         'optional'      => TRUE,
                         'default value' => -1
                     ),
+                    array(
+                        'name'          => 'type',
+                        'type'          => 'string',
+                        'source'        => 'data',
+                        'optional'      => TRUE,
+                        'default value' => 'single'
+                    ),
 
                 )
             )
@@ -520,9 +527,9 @@
             $current_campaign_nid = scoga_get_current_campaign_nid();
 
             if( $type == SCOGA_CHECKIN_TYPE_COMBO ){
-                $result = scoga_register_combo_checkin( $card_id, $reader_node, $current_campaign_nid, $type );
+                $result = scoga_register_combo_checkin( $card_id, $reader_node, $timestamp, $current_campaign_nid );
             }else{
-                $result = scoga_register_single_checkin( $card_id, $reader_node, $current_campaign_nid, $type );
+                $result = scoga_register_single_checkin( $card_id, $reader_node, $timestamp, $current_campaign_nid );
             }
         }catch ( Exception $e ){
             $message = $e->getMessage();
