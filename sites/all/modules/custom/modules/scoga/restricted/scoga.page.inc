@@ -89,7 +89,8 @@
             $assignment_titles[] = t ('Make a wish');
             $assignment_paths[] = 'node/add/nodetype-wished-item';
             //add other playable elements to output
-            $assignment_vo = new $assignment_vo();
+            $assignment_vo = new assignment_vo();
+            //add events
             $assignment_vo -> content_type = 'nodetype_event';
             $assignment_vo -> label = 'Event';
             $assignment_vo -> header = 'Active events';
@@ -97,12 +98,30 @@
             $assignment_vo -> team_ref_field = 'field_event_team';
             $assignment_vo -> user_team = $user_team;
             $assignment_vo -> current_campaign_id = $current_campaign_id;
-            _scoga_add_assignments_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
-            _scoga_add_polls_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
-            _scoga_add_polls_to_output('Algemene opdrachten','Alg. Opdracht',t('Algemene opdrachten'),'field_campaign','field_genric_assignment_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
-            _scoga_add_assignments_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL, $current_campaign_id,$assignment_titles,$assignment_paths);
+            _scoga_add_assignments_to_output($assignment_vo,$assignment_titles,$assignment_paths);
+            //add polls
+            $assignment_vo -> content_type = 'Poll';
+            $assignment_vo -> label = 'Question';
+            $assignment_vo -> header = 'Active questions';
+            $assignment_vo -> team_ref_field = 'field_poll_team';
+            _scoga_add_trans_team_assignment_to_output($assignment_vo,$assignment_titles,$assignment_paths);
+            //add geo challenges
+            $assignment_vo -> content_type = 'geo_challenge';
+            $assignment_vo -> label = 'GeoChallenge';
+            $assignment_vo -> header = 'Active GeoChallenges';
+            //GeoChallenges are created for all teams
+            $assignment_vo -> team_ref_field = NULL;
+            $assignment_vo -> campaign_ref_field = 'field_geochallenge_ref_campaign';
+            _scoga_add_assignments_to_output($assignment_vo,$assignment_titles,$assignment_paths);
+            //add POI confirmations
             _scoga_add_POI_confirmations_to_output($assignment_titles,$assignment_paths);
-            _scoga_add_assignments_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,$current_campaign_id,$assignment_titles,$assignment_paths);
+            //add wishes
+            $assignment_vo -> content_type = 'nodetype_wished_item';
+            $assignment_vo -> label = 'Wish';
+            $assignment_vo -> header = 'Posted wishes';
+            $assignment_vo -> campaign_ref_field = 'field_wisheditem_campaign';
+            //todo select only wishes posted by the other team
+            _scoga_add_assignments_to_output($assignment_vo,$assignment_titles,$assignment_paths);
             $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         }
         else
@@ -114,102 +133,73 @@
 
     /**
      * Loads nodes from DB and adds them to the output, preceded by a header
-     * @param $content_type
-     * @param $label
-     * @param $header
-     * @param $campaign_ref_field
-     * @param $titles
-     * @param $paths
      */
-    function _scoga_add_assignments_to_output($content_type,$label,$header,$campaign_ref_field,$team_ref_field,$user_team,$current_campaign_id,&$titles,&$paths)
+    function _scoga_add_assignments_to_output($assignment_vo,&$titles,&$paths)
     {
-        $nodes_properties = _scoga_get_assignments_by_type($team_ref_field, $content_type, $campaign_ref_field, $current_campaign_id, $user_team,$titles,$paths);
+        $nodes_properties = _scoga_get_assignments_by_type($assignment_vo,$titles,$paths);
         $nodes = node_load_multiple(array_keys($nodes_properties['node']));
-        _scoga_process_assignment_query_results($header,$label,$nodes,$titles,$paths);
+        _scoga_process_assignment_query_results($assignment_vo,$nodes,$titles,$paths);
     }
-
-    function _scoga_add_assignments_to_output_obj($assignment_arguments,&$titles,&$paths)
-    {
-        $nodes_properties = _scoga_get_assignments_by_type($team_ref_field, $content_type, $campaign_ref_field, $current_campaign_id, $user_team,$titles,$paths);
-        $nodes = node_load_multiple(array_keys($nodes_properties['node']));
-        _scoga_process_assignment_query_results($header,$label,$nodes,$titles,$paths);
-    }
-
 
     /**
-     * @param $content_type
-     * @param $label
-     * @param $header
-     * @param $campaign_ref_field
-     * @param $team_ref_field
-     * @param $user_team
-     * @param $current_campaign_id
+     * @param $assignment_vo
      * @param $titles
      * @param $paths
      */
-    function _scoga_add_polls_to_output($content_type,$label,$header,$campaign_ref_field,$team_ref_field,$user_team,$current_campaign_id,&$titles,&$paths)
+    function _scoga_add_trans_team_assignment_to_output($assignment_vo,&$titles,&$paths)
     {
         module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
-        var_dump($content_type);
-        $opposing_teams = scoga_get_opposing_teams_nid($user_team,$current_campaign_id);
-        var_dump('$user_team '.$user_team);
-        var_dump('$current_campaign_id '.$current_campaign_id);
-        var_dump('$opposing_teams '.$opposing_teams[0]);
-        $nodes_properties_opposing_team = _scoga_get_assignments_by_type($team_ref_field, $content_type, $campaign_ref_field, $current_campaign_id, $opposing_teams[0],$titles,$paths);
-        var_dump($nodes_properties_opposing_team);
-        $nodes_properties_all_teams = _scoga_get_assignments_by_type(NULL, $content_type, $campaign_ref_field, $current_campaign_id,NULL,$titles,$paths);
-        var_dump('$nodes_properties_all_teams'.$nodes_properties_all_teams);
+        $opposing_teams = scoga_get_opposing_teams_nid($assignment_vo ->user_team,$assignment_vo -> current_campaign_id);
+        $nodes_properties_opposing_team = _scoga_get_assignments_by_type($assignment_vo, $campaign_ref_field, $current_campaign_id, $opposing_teams[0],$titles,$paths);
+        $assignment_vo -> team_ref_field = NULL;
+        $nodes_properties_all_teams = _scoga_get_assignments_by_type($assignment_vo,$titles,$paths);
         $nodes_properties = array_diff_key($nodes_properties_all_teams['node'],$nodes_properties_opposing_team['node']);
         $nodes = node_load_multiple(array_keys($nodes_properties));
-        _scoga_process_assignment_query_results($header,$label,$nodes,$titles,$paths);
+        _scoga_process_assignment_query_results($assignment_vo,$nodes,$titles,$paths);
     }
 
     /**
-     * @param $team_ref_field
-     * @param $content_type
-     * @param $campaign_ref_field
-     * @param $current_campaign_id
-     * @param $user_team
+     * @param $assign_arg
      * @param $titles
      * @param $paths
      * @return mixed
      */
-    function _scoga_get_assignments_by_type($team_ref_field, $content_type, $campaign_ref_field, $current_campaign_id, $user_team,&$titles,&$paths)
+    function _scoga_get_assignments_by_type($assign_arg,&$titles,&$paths)
     {
         $nodeQuery = new EntityFieldQuery;
-        if ($team_ref_field != NULL) {
+        if ($assign_arg -> team_ref_field != NULL) {
             $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
-                ->entityCondition('bundle', $content_type)
-                ->fieldCondition($campaign_ref_field, 'target_id', $current_campaign_id, '=')
-                ->fieldCondition($team_ref_field, 'target_id', $user_team, '=')
+                ->entityCondition('bundle', $assign_arg -> content_type)
+                ->fieldCondition($assign_arg -> campaign_ref_field, 'target_id', $assign_arg -> current_campaign_id, '=')
+                ->fieldCondition($assign_arg -> team_ref_field, 'target_id', $assign_arg -> user_team, '=')
                 ->propertyCondition('status', '1')
                 ->execute();
             return $nodes_properties;
         }
         else {
             $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
-                ->entityCondition('bundle', $content_type)
-                ->fieldCondition($campaign_ref_field, 'target_id', $current_campaign_id, '=')
+                ->entityCondition('bundle', $assign_arg -> content_type)
+                ->fieldCondition($assign_arg -> campaign_ref_field, 'target_id', $assign_arg -> current_campaign_id, '=')
                 ->propertyCondition('status', '1')
                 ->execute();
             return $nodes_properties;
         }
     }
 
+
     /**
-     * @param $header
-     * @param $label
+     * @param $assign_args
      * @param $nodes
      * @param $titles
      * @param $paths
      */
-    function _scoga_process_assignment_query_results($header,$label,$nodes,&$titles,&$paths)
+    function _scoga_process_assignment_query_results($assign_args,$nodes,&$titles,&$paths)
     {
         if (sizeOf($nodes)!=0)
         {
-            $titles[] = t($header);
+            $titles[] = t($assign_args -> header);
             $paths[] = '';
-            _scoga_set_assignment_titles_and_paths($nodes,$titles,$paths,$label);
+            _scoga_set_assignment_titles_and_paths($nodes,$titles,$paths,$assign_args -> label);
         }
     }
 
