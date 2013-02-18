@@ -87,8 +87,10 @@
   padding-top: 19px;
   padding-left: 26px;
 }
-/* line 119, ../sass/play.scss */
-.page-get-points #content li.list_header_event:after, .page-get-points #content li.list_header_wish:after, .page-get-points #content li.list_header_question:after, .page-get-points #content li.list_header_geochallenge:after, .page-get-points #content li.list_header_poi_confirmation:after {
+/* line 121, ../sass/play.scss */
+.page-get-points #content li.list_header_event:after, .page-get-points #content li.list_header_wish:after, .page-get-points #content li.list_header_question:after,
+.page-get-points #content li.list_header_geochallenge:after, .page-get-points #content li.list_header_poi_confirmation:after,
+.page-get-points #content li.list_header_active_generic_assignment:after {
   content: url("../images/expand_icon.png");
   display: inline;
   float: left;
@@ -96,7 +98,7 @@
   padding-right: 0px;
   font-size: large;
 }
-/* line 129, ../sass/play.scss */
+/* line 131, ../sass/play.scss */
 .page-get-points #content li:after {
   content: ">";
   display: inline;
@@ -105,29 +107,29 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 139, ../sass/play.scss */
+/* line 141, ../sass/play.scss */
 .page-get-points #content a {
   color: black;
   margin-left: 25px;
   margin-top: 10px;
 }
-/* line 148, ../sass/play.scss */
+/* line 150, ../sass/play.scss */
 .page-get-points #content #select_list ul {
   margin-top: 2px;
 }
-/* line 153, ../sass/play.scss */
+/* line 155, ../sass/play.scss */
 .page-get-points #content #select_list a {
   line-height: 3.8em;
 }
-/* line 159, ../sass/play.scss */
+/* line 161, ../sass/play.scss */
 .page-get-points #content #main-content {
   display: none;
 }
-/* line 164, ../sass/play.scss */
+/* line 166, ../sass/play.scss */
 .page-get-points #content #dialog {
   display: none;
 }
-/* line 169, ../sass/play.scss */
+/* line 171, ../sass/play.scss */
 .page-get-points #content .help {
   display: inline-block;
   float: right;
@@ -142,7 +144,7 @@
   margin-left: 9px;
   margin-top: 10px;
 }
-/* line 174, ../sass/play.scss */
+/* line 176, ../sass/play.scss */
 .page-get-points .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
@@ -151,14 +153,14 @@
   overflow: hidden;
   vertical-align: top;
 }
-/* line 179, ../sass/play.scss */
+/* line 181, ../sass/play.scss */
 .page-get-points .time_to_end {
   background-color: white;
   border-bottom-style: solid;
   border-width: 1px;
   padding-left: 25px;
 }
-/* line 187, ../sass/play.scss */
+/* line 189, ../sass/play.scss */
 .page-get-points .time_interval_label, .page-get-points .time_interval {
   display: inline;
 }
