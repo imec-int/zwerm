@@ -1,4 +1,16 @@
 <?php
+
+    class assignment_vo
+    {
+        public $content_type;
+        public $label;
+        public $header;
+        public $campaign_ref_field;
+        public $team_ref_field;
+        public $user_team;
+        public $current_campaign_id;
+    }
+
     /*
      * Construct the list of /not_checkin candidates that the logged in user has not checkin in with in the current campaign
      * and from the same team as the player
@@ -77,8 +89,17 @@
             $assignment_titles[] = t ('Make a wish');
             $assignment_paths[] = 'node/add/nodetype-wished-item';
             //add other playable elements to output
+            $assignment_vo = new $assignment_vo();
+            $assignment_vo -> content_type = 'nodetype_event';
+            $assignment_vo -> label = 'Event';
+            $assignment_vo -> header = 'Active events';
+            $assignment_vo -> campaign_ref_field = 'field_campaign';
+            $assignment_vo -> team_ref_field = 'field_event_team';
+            $assignment_vo -> user_team = $user_team;
+            $assignment_vo -> current_campaign_id = $current_campaign_id;
             _scoga_add_assignments_to_output('nodetype_event','Event','Active events','field_campaign','field_event_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
             _scoga_add_polls_to_output('Poll','Question',t('Active questions'),'field_campaign','field_poll_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
+            _scoga_add_polls_to_output('Algemene opdrachten','Alg. Opdracht',t('Algemene opdrachten'),'field_campaign','field_genric_assignment_team',$user_team,$current_campaign_id,$assignment_titles,$assignment_paths);
             _scoga_add_assignments_to_output('geo_challenge','GeoChallenge','Active GeoChallenges','field_geochallenge_ref_campaign',NULL,NULL, $current_campaign_id,$assignment_titles,$assignment_paths);
             _scoga_add_POI_confirmations_to_output($assignment_titles,$assignment_paths);
             _scoga_add_assignments_to_output('nodetype_wished_item','Wish','Posted wishes','field_wisheditem_campaign',NULL,NULL,$current_campaign_id,$assignment_titles,$assignment_paths);
@@ -107,6 +128,13 @@
         _scoga_process_assignment_query_results($header,$label,$nodes,$titles,$paths);
     }
 
+    function _scoga_add_assignments_to_output_obj($assignment_arguments,&$titles,&$paths)
+    {
+        $nodes_properties = _scoga_get_assignments_by_type($team_ref_field, $content_type, $campaign_ref_field, $current_campaign_id, $user_team,$titles,$paths);
+        $nodes = node_load_multiple(array_keys($nodes_properties['node']));
+        _scoga_process_assignment_query_results($header,$label,$nodes,$titles,$paths);
+    }
+
 
     /**
      * @param $content_type
@@ -122,9 +150,15 @@
     function _scoga_add_polls_to_output($content_type,$label,$header,$campaign_ref_field,$team_ref_field,$user_team,$current_campaign_id,&$titles,&$paths)
     {
         module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+        var_dump($content_type);
         $opposing_teams = scoga_get_opposing_teams_nid($user_team,$current_campaign_id);
+        var_dump('$user_team '.$user_team);
+        var_dump('$current_campaign_id '.$current_campaign_id);
+        var_dump('$opposing_teams '.$opposing_teams[0]);
         $nodes_properties_opposing_team = _scoga_get_assignments_by_type($team_ref_field, $content_type, $campaign_ref_field, $current_campaign_id, $opposing_teams[0],$titles,$paths);
+        var_dump($nodes_properties_opposing_team);
         $nodes_properties_all_teams = _scoga_get_assignments_by_type(NULL, $content_type, $campaign_ref_field, $current_campaign_id,NULL,$titles,$paths);
+        var_dump('$nodes_properties_all_teams'.$nodes_properties_all_teams);
         $nodes_properties = array_diff_key($nodes_properties_all_teams['node'],$nodes_properties_opposing_team['node']);
         $nodes = node_load_multiple(array_keys($nodes_properties));
         _scoga_process_assignment_query_results($header,$label,$nodes,$titles,$paths);
