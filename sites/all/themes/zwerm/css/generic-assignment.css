@@ -13,3 +13,7 @@
 .node-generic-assignment header {
   display: none;
 }
+/* line 10, ../sass/generic-assignment.scss */
+.node-generic-assignment a {
+  color: grey;
+}
