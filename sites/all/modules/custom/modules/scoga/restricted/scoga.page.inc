@@ -90,6 +90,9 @@
             $assignment_paths[] = 'node/add/nodetype-wished-item';
             //add other playable elements to output
             $assignment_vo = new assignment_vo();
+            module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+            $opposing_teams = scoga_get_opposing_teams_nid($user_team,$current_campaign_id);
+            $assignment_vo -> opposing_team = $opposing_teams[0];
             //add events
             $assignment_vo -> content_type = 'nodetype_event';
             $assignment_vo -> label = 'Event';
@@ -126,8 +129,9 @@
             $assignment_vo -> label = 'Wish';
             $assignment_vo -> header = 'Posted wishes';
             $assignment_vo -> campaign_ref_field = 'field_wisheditem_campaign';
-            //todo select only wishes posted by the other team
-            _scoga_add_assignments_to_output($assignment_vo,$assignment_titles,$assignment_paths);
+            //wishes to be answered should have been posted by someone in opposing team
+            $assignment_vo -> user_team = $assignment_vo -> opposing_team;
+            _scoga_add_wishes_to_output($assignment_vo,$assignment_titles,$assignment_paths);
             $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         }
         else
@@ -147,6 +151,27 @@
         _scoga_process_assignment_query_results($assignment_vo,$nodes,$titles,$paths);
     }
 
+    function _scoga_add_wishes_to_output($assignment_vo,&$assignment_titles,&$assignment_paths)
+    {
+        $nodes = array();
+        $query = "SELECT nid FROM node
+        LEFT JOIN field_data_field_wisheditem_campaign AS campaign ON node.nid=campaign.entity_id
+        LEFT JOIN field_data_field_user_team AS team ON node.uid=team.entity_id
+        WHERE node.type = 'nodetype_wished_item'
+        AND team.field_user_team_target_id = :user_id
+        AND campaign.field_wisheditem_campaign_target_id= :campaign_id";
+        $result = db_query($query,
+            array(':user_id'=>$assignment_vo -> user_team,
+                  ':campaign_id' =>   $assignment_vo -> current_campaign_id
+        ));
+        foreach ($result as $row)
+        {
+            $nodes[] = node_load($row->nid);
+        }
+        _scoga_process_assignment_query_results($assignment_vo,$nodes,$assignment_titles,$assignment_paths);
+    }
+
+
     /**
      * Trans team assignments can be set to none in the team field and will then be valid for all teams
      * @param $assignment_vo
@@ -155,10 +180,10 @@
      */
     function _scoga_add_trans_team_assignment_to_output($assignment_vo,&$titles,&$paths)
     {
-        module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
-        $opposing_teams = scoga_get_opposing_teams_nid($assignment_vo ->user_team,$assignment_vo -> current_campaign_id);
+        //module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
+        //$opposing_teams = scoga_get_opposing_teams_nid($assignment_vo ->user_team,$assignment_vo -> current_campaign_id);
         $user_team = $assignment_vo ->user_team;
-        $assignment_vo->user_team = $opposing_teams[0];
+        $assignment_vo->user_team = $assignment_vo -> opposing_team;
         $nodes_properties_opposing_team = _scoga_get_assignments_by_type($assignment_vo,$titles,$paths);
         //var_dump($nodes_properties_opposing_team);
         $assignment_vo -> team_ref_field = NULL;
@@ -179,27 +204,27 @@
     }
 
     /**
-     * @param $assign_arg
+     * @param $assignment_vo
      * @param $titles
      * @param $paths
      * @return mixed
      */
-    function _scoga_get_assignments_by_type($assign_arg,&$titles,&$paths)
+    function _scoga_get_assignments_by_type($assignment_vo,&$titles,&$paths)
     {
         $nodeQuery = new EntityFieldQuery;
-        if ($assign_arg -> team_ref_field != NULL) {
+        if ($assignment_vo -> team_ref_field != NULL) {
             $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
-                ->entityCondition('bundle', $assign_arg -> content_type)
-                ->fieldCondition($assign_arg -> campaign_ref_field, 'target_id', $assign_arg -> current_campaign_id, '=')
-                ->fieldCondition($assign_arg -> team_ref_field, 'target_id', $assign_arg -> user_team, '=')
+                ->entityCondition('bundle', $assignment_vo -> content_type)
+                ->fieldCondition($assignment_vo -> campaign_ref_field, 'target_id', $assignment_vo -> current_campaign_id, '=')
+                ->fieldCondition($assignment_vo -> team_ref_field, 'target_id', $assignment_vo -> user_team, '=')
                 ->propertyCondition('status', '1')
                 ->execute();
             return $nodes_properties;
         }
         else {
             $nodes_properties = $nodeQuery->entityCondition('entity_type', 'node')
-                ->entityCondition('bundle', $assign_arg -> content_type)
-                ->fieldCondition($assign_arg -> campaign_ref_field, 'target_id', $assign_arg -> current_campaign_id, '=')
+                ->entityCondition('bundle', $assignment_vo -> content_type)
+                ->fieldCondition($assignment_vo -> campaign_ref_field, 'target_id', $assignment_vo -> current_campaign_id, '=')
                 ->propertyCondition('status', '1')
                 ->execute();
             return $nodes_properties;
@@ -208,18 +233,18 @@
 
 
     /**
-     * @param $assign_args
+     * @param $assignment_vo
      * @param $nodes
      * @param $titles
      * @param $paths
      */
-    function _scoga_process_assignment_query_results($assign_args,$nodes,&$titles,&$paths)
+    function _scoga_process_assignment_query_results($assignment_vo,$nodes,&$titles,&$paths)
     {
         if (sizeOf($nodes)!=0)
         {
-            $titles[] = t($assign_args -> header);
+            $titles[] = t($assignment_vo -> header);
             $paths[] = '';
-            _scoga_set_assignment_titles_and_paths($nodes,$titles,$paths,$assign_args -> label);
+            _scoga_set_assignment_titles_and_paths($nodes,$titles,$paths,$assignment_vo -> label);
         }
     }
 
