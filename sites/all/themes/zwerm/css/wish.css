@@ -54,20 +54,28 @@
   font-size: 0;
 }
 /* line 33, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .help, .node-type-nodetype-wished-item .help {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin-top: 43px;
+  margin-right: 9px;
+}
+/* line 42, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item #dialog, .node-type-nodetype-wished-item #dialog {
   display: none;
 }
 @media all and (max-width: 629px) {
-  /* line 42, ../sass/wish.scss */
+  /* line 51, ../sass/wish.scss */
   .page-node-add-nodetype-wished-item #main #content, .node-type-nodetype-wished-item #main #content {
     margin-left: 2%;
     width: 94%;
   }
-  /* line 46, ../sass/wish.scss */
+  /* line 55, ../sass/wish.scss */
   .page-node-add-nodetype-wished-item #main #content #edit-title, .node-type-nodetype-wished-item #main #content #edit-title {
     width: 94%;
   }
-  /* line 51, ../sass/wish.scss */
+  /* line 60, ../sass/wish.scss */
   .page-node-add-nodetype-wished-item #main h1, .node-type-nodetype-wished-item #main h1 {
     font-size: 20px;
     background-color: #7fb083;
@@ -76,40 +84,40 @@
   }
 }
 @media all and (min-width: 630px) {
-  /* line 65, ../sass/wish.scss */
+  /* line 74, ../sass/wish.scss */
   .page-node-add-nodetype-wished-item #edit-delete, .node-type-nodetype-wished-item #edit-delete {
     margin-bottom: 58px;
   }
 }
-/* line 71, ../sass/wish.scss */
+/* line 80, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item #edit-preview-changes, .node-type-nodetype-wished-item #edit-preview-changes {
   display: none;
 }
-/* line 81, ../sass/wish.scss */
+/* line 90, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .node-nodetype-wished-item li a, .node-type-nodetype-wished-item .node-nodetype-wished-item li a {
   padding-left: 20px;
 }
-/* line 87, ../sass/wish.scss */
+/* line 96, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .node-nodetype-wished-item header, .node-type-nodetype-wished-item .node-nodetype-wished-item header {
   padding-left: 20px;
 }
-/* line 93, ../sass/wish.scss */
+/* line 102, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .node-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .node-nodetype-wished-item .user-picture {
   padding-right: 16px;
 }
-/* line 99, ../sass/wish.scss */
+/* line 108, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline {
   display: block;
   margin-bottom: 80px;
 }
-/* line 103, ../sass/wish.scss */
+/* line 112, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li {
   display: inline;
   margin-bottom: 20px;
   margin-top: 10px;
   float: left;
 }
-/* line 109, ../sass/wish.scss */
+/* line 118, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li a {
   background-color: #333333;
   height: 30px;
@@ -120,52 +128,52 @@
   margin-bottom: 5px;
   font-size: small;
 }
-/* line 120, ../sass/wish.scss */
+/* line 129, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li {
   display: block;
 }
-/* line 123, ../sass/wish.scss */
+/* line 132, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a {
   color: white;
 }
-/* line 130, ../sass/wish.scss */
+/* line 139, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .field-name-field-wisheditem-award, .node-type-nodetype-wished-item .field-name-field-wisheditem-award {
   display: inline;
 }
-/* line 134, ../sass/wish.scss */
+/* line 143, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .field-name-field-wisheditem-award .field-label, .node-type-nodetype-wished-item .field-name-field-wisheditem-award .field-label {
   float: left;
 }
-/* line 139, ../sass/wish.scss */
+/* line 148, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .user-picture {
   display: inline;
   float: left;
 }
-/* line 145, ../sass/wish.scss */
+/* line 154, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .field-edit-link, .node-type-nodetype-wished-item .field-edit-link {
   display: none;
 }
-/* line 150, ../sass/wish.scss */
+/* line 159, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .filter-wrapper, .node-type-nodetype-wished-item .filter-wrapper {
   display: none;
 }
-/* line 155, ../sass/wish.scss */
+/* line 164, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .wysiwyg-toggle-wrapper, .node-type-nodetype-wished-item .wysiwyg-toggle-wrapper {
   display: none;
 }
-/* line 160, ../sass/wish.scss */
+/* line 169, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item #edit-preview, .node-type-nodetype-wished-item #edit-preview {
   display: none;
 }
-/* line 165, ../sass/wish.scss */
+/* line 174, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .username, .node-type-nodetype-wished-item .username {
   color: black;
 }
-/* line 169, ../sass/wish.scss */
+/* line 178, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item #edit-body, .node-type-nodetype-wished-item #edit-body {
   width: 101%;
 }
-/* line 174, ../sass/wish.scss */
+/* line 183, ../sass/wish.scss */
 .page-node-add-nodetype-wished-item .form-field-name-field-wisheditem-image, .node-type-nodetype-wished-item .form-field-name-field-wisheditem-image {
   display: none;
 }
