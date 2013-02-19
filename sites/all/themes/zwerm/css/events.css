@@ -86,7 +86,7 @@ body.node-type-nodetype-event .field-name-field-event-team {
 }
 /* line 87, ../sass/events.scss */
 body.node-type-nodetype-event .field-name-field-event-address {
-  font-size: x-large;
+  font-size: large;
   margin-bottom: 30px;
   line-height: 1.5em;
 }
