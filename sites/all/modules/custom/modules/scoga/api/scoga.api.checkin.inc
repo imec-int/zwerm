@@ -128,8 +128,6 @@
             return $checkin_vo;
         }
 
-        $checkin_vo->player = scoga_create_player_vo( $player_entity );
-
         /*
         * check if user has correct permissions
         */
@@ -181,6 +179,8 @@
         $new_checkin_node->title = $checkin_vo->message;
         node_save( $new_checkin_node );
         $checkin_vo->nid = $new_checkin_node->nid;
+        $checkin_vo->player = scoga_create_player_vo( user_load( $player_entity->uid ) );
+
         return $checkin_vo;
     }
 
@@ -276,6 +276,9 @@
         node_save( $current_combo_checkin_node );
 
         $current_combo_checkin_vo->nid = $current_combo_checkin_node->nid;
+        $current_combo_checkin_vo->single->player = scoga_create_player_vo( user_load( $current_player_vo->uid ));
+        $current_combo_checkin_vo->partner = scoga_create_player_vo( user_load( $prev_player_vo->uid ) );
+
         return $current_combo_checkin_vo;
     }
 
