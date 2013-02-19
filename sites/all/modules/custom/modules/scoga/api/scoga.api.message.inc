@@ -131,6 +131,7 @@
         $node->uid = $uid;
         $node->status = '1';
         $node->language = $lang;
+        scoga_set_field_value( $node, 'field_campaign', scoga_get_current_campaign_nid() );
         $node = node_submit( $node );
         node_save( $node );
         return $node;
