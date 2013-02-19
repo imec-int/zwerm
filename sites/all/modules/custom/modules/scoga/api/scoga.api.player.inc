@@ -74,6 +74,28 @@
 //        return FALSE;
 //    }
 
+    function scoga_get_active_player_vos(){
+        $uids = scoga_get_active_player_uids();
+        $vos = scoga_get_player_vos_by_uids( $uids );
+        return $vos;
+    }
+
+    function scoga_get_active_player_uids(){
+        $query = new EntityFieldQuery();
+        $entity_type = 'user';
+        $result = $query
+            ->entityCondition( 'entity_type', $entity_type )
+            ->fieldCondition( 'field_user_active', 'value', 1, '=' )
+            ->execute();
+
+
+        if( $uids = array_keys( $result[ $entity_type ] ) ){
+            return $uids;
+        }
+
+        return array();
+    }
+
     /**
      * retrieve a list of player VO's
      *
@@ -142,7 +164,7 @@
                 break;
             default :
                 // multiple matches
-                throw new Exception( 'card registered multiple times' );
+                throw new Exception( t( 'card registered multiple times' ), CODE_CARD_MULTIPLE );
         }
 
         return FALSE;
@@ -153,7 +175,7 @@
      *
      * @param $player_entity
      *
-     * @return array
+     * @return Player
      */
     function scoga_create_player_vo( $player_entity ){
         $options = array(

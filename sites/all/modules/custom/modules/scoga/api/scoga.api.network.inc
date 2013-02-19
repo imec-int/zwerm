@@ -26,6 +26,11 @@
         return $output;
     }
 
+    /**
+     * @param $entity
+     *
+     * @return Relationship
+     */
     function scoga_create_relationship_vo( $entity ){
         $output = new Relationship();
         $output->rid = $entity->rid;

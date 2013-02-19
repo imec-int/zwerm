@@ -86,7 +86,11 @@
             ->execute();
 
         //possible multiple matches
-        return array_keys( $reader_entities[ $entity_type ] );
+        if( isset($reader_entities[ $entity_type ]) ){
+            return array_keys( $reader_entities[ $entity_type ] );
+        }
+
+        return array();
     }
 
 

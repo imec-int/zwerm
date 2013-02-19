@@ -3798,8 +3798,9 @@ DO NOT MODIFY ONCE SET!',
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_poll_reward',
-      'label' => 'Reward',
+      'label' => 'Beloning',
       'required' => 1,
       'settings' => array(
         'max' => '',
@@ -4410,6 +4411,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
 ');
   t('Active user');
   t('Address');
+  t('Beloning');
   t('Body');
   t('Campaign');
   t('Campaign period');
@@ -4430,7 +4432,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('RFID Reader');
   t('Reader ID');
   t('Registered user');
-  t('Reward');
   t('State');
   t('Surname');
   t('Tags');

@@ -31,3 +31,6 @@ __MACOSX/
 #Theme-related
 */.sass-cache/*
 sites/all/themes/zwerm/.sass-cache/
+
+#Caching-related
+apc.php
