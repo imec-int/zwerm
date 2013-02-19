@@ -2,7 +2,7 @@
 
 
 @media all and (max-width: $end_of_small_viewport) {
-  body.page-get-points
+  body.page-spelopdrachten
   {
     background-color: $white-background-color;
 
@@ -30,7 +30,7 @@
 
 
 @media all and (min-width: $start_of_large_viewport) {
-  .page-get-points
+  .page-spelopdrachten
   {
     #main
     {
@@ -55,7 +55,7 @@
       margin-top: 20px;
     }
   }
-  body.page-get-points
+  body.page-spelopdrachten
   {
     //background-color: $white-background-color;
     background-color: black;
@@ -88,7 +88,7 @@
   }
 }
 
-.page-get-points
+.page-spelopdrachten
 {
 
 
