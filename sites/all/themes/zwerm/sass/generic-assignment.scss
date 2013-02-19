@@ -11,3 +11,15 @@
     color:grey;
   }
 }
+
+@media all and (max-width: $end_of_small_viewport)
+{
+  .node-type-generic-assignment
+  {
+    .node-generic-assignment
+    {
+      padding-left: 10px;
+      padding:10px;
+    }
+  }
+}
