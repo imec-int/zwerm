@@ -399,7 +399,7 @@ function scoga_feature_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => 0,
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
