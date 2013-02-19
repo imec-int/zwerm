@@ -24,4 +24,11 @@
     padding-left: 10px;
     padding: 10px;
   }
+  /* line 25, ../sass/generic-assignment.scss */
+  .node-type-generic-assignment h1 {
+    background-color: #7fb083;
+    font-size: 20px;
+    margin-left: -10px;
+    padding-top: 0px;
+  }
 }
