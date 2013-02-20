@@ -250,7 +250,8 @@
   display: none;
 }
 
-.page-kaart .olPopupCloseBox {
+.page-kaart .olPopupCloseBox,
+.section-geochallenges .olPopupCloseBox {
   //display: none;
   //padding
   background-image: url('../images/x.gif');
@@ -258,11 +259,13 @@
   margin: 4px 20px 0 0;
 }
 
-.page-kaart .view-poi-overview {
+.page-kaart .view-poi-overview,
+.section-geochallenges .view-poi-overview {
   margin: 15px 0 50px 0;
 }
 
-.page-kaart #popup_contentDiv {
+.page-kaart #popup_contentDiv,
+.section-geochallenges #popup_contentDiv {
   background-color: $green-marking-color;
   color: white;
   padding: 8px 20px 0 5px;
@@ -283,6 +286,19 @@
   font-size: 1.2em;
   font-weight: bold;
 }
+
+}
+
+.section-geochallenges #popup_GroupDiv {
+  img {
+    display: none;
+  }
+
+  .openlayers-tooltip-name {
+    font-family: Romina;
+    font-size: 1em;
+    font-weight: bold;
+  }
 
 }
 
