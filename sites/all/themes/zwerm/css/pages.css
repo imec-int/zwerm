@@ -428,13 +428,13 @@ span.field-label {
 }
 /* line 386, ../sass/pages.scss */
 #select_list a:link {
-  color: #FFFFFF;
+  color: #7fb083;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 /* line 390, ../sass/pages.scss */
 #select_list a:visited {
-  color: #FFFFFF;
+  color: #7fb083;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -496,7 +496,7 @@ tr.colordc6058 {
 }
 /* line 461, ../sass/pages.scss */
 #block-menu-menu-footer a {
-  color: #FFFFFF;
+  color: #7fb083;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   padding-right: 10px;
@@ -506,7 +506,7 @@ tr.colordc6058 {
 
 /* line 469, ../sass/pages.scss */
 a {
-  color: #FFFFFF;
+  color: #7fb083;
   text-decoration: none;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
