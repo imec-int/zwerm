@@ -278,19 +278,22 @@
   display: none;
 }
 
-/* line 253, ../sass/geochallenges.scss */
-.page-kaart .olPopupCloseBox {
+/* line 254, ../sass/geochallenges.scss */
+.page-kaart .olPopupCloseBox,
+.section-geochallenges .olPopupCloseBox {
   background-image: url("../images/x.gif");
   margin: 4px 20px 0 0;
 }
 
-/* line 261, ../sass/geochallenges.scss */
-.page-kaart .view-poi-overview {
+/* line 263, ../sass/geochallenges.scss */
+.page-kaart .view-poi-overview,
+.section-geochallenges .view-poi-overview {
   margin: 15px 0 50px 0;
 }
 
-/* line 265, ../sass/geochallenges.scss */
-.page-kaart #popup_contentDiv {
+/* line 268, ../sass/geochallenges.scss */
+.page-kaart #popup_contentDiv,
+.section-geochallenges #popup_contentDiv {
   background-color: #7fb083;
   color: white;
   padding: 8px 20px 0 5px;
@@ -300,13 +303,24 @@
   border-radius: 8px;
 }
 
-/* line 277, ../sass/geochallenges.scss */
+/* line 280, ../sass/geochallenges.scss */
 .page-kaart #popup_GroupDiv img {
   display: none;
 }
-/* line 281, ../sass/geochallenges.scss */
+/* line 284, ../sass/geochallenges.scss */
 .page-kaart #popup_GroupDiv .openlayers-tooltip-name {
   font-family: Romina;
   font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* line 293, ../sass/geochallenges.scss */
+.section-geochallenges #popup_GroupDiv img {
+  display: none;
+}
+/* line 297, ../sass/geochallenges.scss */
+.section-geochallenges #popup_GroupDiv .openlayers-tooltip-name {
+  font-family: Romina;
+  font-size: 1em;
   font-weight: bold;
 }
