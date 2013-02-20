@@ -21,6 +21,7 @@
         public $surname;
         public $avatar_url;
         public $points;
+        public $card_id;
     }
 
     /**
@@ -72,6 +73,28 @@
 //
 //        return FALSE;
 //    }
+
+    function scoga_get_active_player_vos(){
+        $uids = scoga_get_active_player_uids();
+        $vos = scoga_get_player_vos_by_uids( $uids );
+        return $vos;
+    }
+
+    function scoga_get_active_player_uids(){
+        $query = new EntityFieldQuery();
+        $entity_type = 'user';
+        $result = $query
+            ->entityCondition( 'entity_type', $entity_type )
+            ->fieldCondition( 'field_user_active', 'value', 1, '=' )
+            ->execute();
+
+
+        if( $uids = array_keys( $result[ $entity_type ] ) ){
+            return $uids;
+        }
+
+        return array();
+    }
 
     /**
      * retrieve a list of player VO's
@@ -141,7 +164,7 @@
                 break;
             default :
                 // multiple matches
-                throw new Exception( 'card registered multiple times' );
+                throw new Exception( t( 'card registered multiple times' ), CODE_CARD_MULTIPLE );
         }
 
         return FALSE;
@@ -152,7 +175,7 @@
      *
      * @param $player_entity
      *
-     * @return array
+     * @return Player
      */
     function scoga_create_player_vo( $player_entity ){
         $options = array(
@@ -162,7 +185,7 @@
         $team_nid = scoga_get_eid_from_field( $player_entity, 'field_user_team', $options );
         $firstname = scoga_get_field_value( $player_entity, 'field_user_firstname', $options );
         $surname = scoga_get_field_value( $player_entity, 'field_user_surname', $options );
-
+        $cardID = scoga_get_field_value( $player_entity, 'field_card_id', $options );
         $image = ( $player_entity->picture )
             ? $player_entity->picture->uri
             : '';
@@ -176,6 +199,7 @@
         $output->team_nid = $team_nid;
         $output->username = $player_entity->name;
         $output->uid = $player_entity->uid;
+        $output->card_id = isset( $cardID ) ? $cardID : '';
 
         return $output;
     }
@@ -246,6 +270,17 @@
      */
     function scoga_get_all_player_accounts(){
         return user_load_multiple( scoga_get_all_player_uids() );
+    }
+
+    function scoga_set_player_active( $uid ){
+        $user_account = user_load( $uid );
+        $options = array(
+            'entity_type'   => 'user',
+        );
+        if( scoga_get_field_value( $user_account, 'field_user_active', $options ) == 0 ){
+            scoga_set_field_value( $user_account, 'field_user_active', 1, $options );
+            user_save( $user_account );
+        }
     }
 
 //    function scoga_assign_random_teams_to_players(){

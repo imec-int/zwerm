@@ -7,9 +7,9 @@ files[] = jquery_update.install
 
 configure = admin/config/development/jquery_update
 
-; Information added by drupal.org packaging script on 2012-03-08
-version = "7.x-2.1+9-dev"
+; Information added by drupal.org packaging script on 2013-02-09
+version = "7.x-2.3"
 core = "7.x"
 project = "jquery_update"
-datestamp = "1331166263"
+datestamp = "1360375905"
 

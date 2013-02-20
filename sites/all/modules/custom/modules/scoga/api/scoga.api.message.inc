@@ -119,7 +119,7 @@
      *
      * @return stdClass
      */
-    function scoga_create_message_entity( $message, $title, $uid ){
+    function scoga_create_message_entity( $message, $title, $uid, $campaign_nid ){
         $lang = LANGUAGE_NONE;
         $node = new stdClass();
         $node->type = SCOGA_MESSAGES_NODETYPE;
@@ -131,6 +131,7 @@
         $node->uid = $uid;
         $node->status = '1';
         $node->language = $lang;
+        scoga_set_eid_in_field( $node, 'field_campaign', $campaign_nid );
         $node = node_submit( $node );
         node_save( $node );
         return $node;

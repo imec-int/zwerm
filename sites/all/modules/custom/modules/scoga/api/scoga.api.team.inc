@@ -14,7 +14,7 @@
         public $title;
         public $colour;
         public $total_points;
-        public $players;
+        //public $players;
 
     }
 
@@ -216,7 +216,7 @@
         $output->nid = $team_node->nid;
         $output->colour = scoga_get_field_value( $team_node, 'field_team_colour' );
         $output->title = $team_node->title;
-        $output->players = scoga_get_player_vos_by_team_nid( $team_node->nid );
+        //$output->players = scoga_get_player_vos_by_team_nid( $team_node->nid );
         //$output->total_points = scoga_get_teampoints_vos_by_references( $team_node->nid );
         return $output;
     }
@@ -263,6 +263,17 @@
         $output->points = scoga_get_field_value( $campaignteam_node, 'field_campaignteam_totalpoints' );
         $output->timestamp = $campaignteam_node->created;
         return $output;
+    }
+
+    function scoga_get_opposing_teams_nid($player_team,$current_campaign_id){
+        $teams = scoga_get_team_vos_by_campaign_nid($current_campaign_id);
+        $returnvalues = array();
+        foreach ($teams as $team)
+        {
+            if ($team->nid != $player_team)
+                $returnvalues[] = $team->nid;
+        }
+        return $returnvalues;
     }
 
 //    function scoga_get_next_team(){

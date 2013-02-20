@@ -79,6 +79,16 @@ body.page-not-partner
     {
       display: none;
     }
+
+    #dialog
+    {
+      display: none;
+    }
+
+    .help
+    {
+      @include help-button
+    }
   }
 }
 

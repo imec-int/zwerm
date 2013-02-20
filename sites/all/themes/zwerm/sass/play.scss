@@ -2,7 +2,7 @@
 
 
 @media all and (max-width: $end_of_small_viewport) {
-  body.page-get-points
+  body.page-spelopdrachten
   {
     background-color: $white-background-color;
 
@@ -11,11 +11,17 @@
       padding-top: 0px;
       li
       {
-        //default style of list items in get-points list
         height:$li-height;
-        //background-color:white;
+        background-color:white;
+        //background-color: $green-marking-color;
         //margin-bottom: 3px;
       }
+    }
+    .no_active
+    {
+      text-align: center;
+      color: black;
+      margin-top: 20px;
     }
   }
 
@@ -24,7 +30,7 @@
 
 
 @media all and (min-width: $start_of_large_viewport) {
-  .page-get-points
+  .page-spelopdrachten
   {
     #main
     {
@@ -36,12 +42,20 @@
       li
       {
         height:$li-height;
-        background-color:white;
+        //background-color:white;
+        background-color: $green-marking-color;
         //margin-bottom: 3px;
       }
     }
+
+    .no_active
+    {
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+    }
   }
-  body.page-get-points
+  body.page-spelopdrachten
   {
     //background-color: $white-background-color;
     background-color: black;
@@ -54,10 +68,10 @@
 {
   #content
   {
-    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
+    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation,li.list_header_active_generic_assignment
     {
-      //background-color: $green-marking-color;
-      background-color: #79b1bd;
+      background-color: $green-marking-color;
+      //background-color: #79b1bd;
     }
   }
 }
@@ -66,15 +80,15 @@
 {
   #content
   {
-    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation
+    li.list_header_event, li.list_header_wish, li.list_header_question, li.list_header_geochallenge,li.list_header_poi_confirmation,li.list_header_active_generic_assignment
     {
-      //background-color: $green-marking-color;
-      background-color: #dc6058;
+      background-color: $green-marking-color;
+      //background-color: #dc6058;
     }
   }
 }
 
-.page-get-points
+.page-spelopdrachten
 {
 
 
@@ -101,9 +115,16 @@
 
 
 
-    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after, li.list_header_geochallenge:after,li.list_header_poi_confirmation:after
+    li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after,
+    li.list_header_geochallenge:after,li.list_header_poi_confirmation:after,
+    li.list_header_active_generic_assignment:after
     {
         content: url('../images/expand_icon.png');
+        display: inline;
+        float: left;
+        padding-top: 22px;
+        padding-right: 0px;
+        font-size: large;
     }
 
     li:after
@@ -111,7 +132,7 @@
       content:">";
       display:inline;
       float:right;
-      padding-top:19px;
+      padding-top:18px;
       padding-right:25px;
       font-size: large;
     }
@@ -119,7 +140,7 @@
     a
     {
       color:black;
-      margin-left: 25px;
+      margin-left: 46px;
       margin-top: 10px;
     }
 
@@ -139,6 +160,16 @@
     #main-content
     {
       display: none;
+    }
+
+    #dialog
+    {
+      display: none;
+    }
+
+    .help
+    {
+      @include help-button
     }
   }
 

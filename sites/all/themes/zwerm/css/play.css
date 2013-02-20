@@ -11,46 +11,59 @@
 }
 @media all and (max-width: 629px) {
   /* line 6, ../sass/play.scss */
-  body.page-get-points {
+  body.page-spelopdrachten {
     background-color: #eeeeee;
   }
   /* line 10, ../sass/play.scss */
-  body.page-get-points #content {
+  body.page-spelopdrachten #content {
     padding-top: 0px;
   }
   /* line 13, ../sass/play.scss */
-  body.page-get-points #content li {
-    height: 60px;
-  }
-}
-@media all and (min-width: 630px) {
-  /* line 30, ../sass/play.scss */
-  .page-get-points #main {
-    background-color: black;
-  }
-  /* line 37, ../sass/play.scss */
-  .page-get-points #content li {
+  body.page-spelopdrachten #content li {
     height: 60px;
     background-color: white;
   }
+  /* line 21, ../sass/play.scss */
+  body.page-spelopdrachten .no_active {
+    text-align: center;
+    color: black;
+    margin-top: 20px;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 36, ../sass/play.scss */
+  .page-spelopdrachten #main {
+    background-color: black;
+  }
+  /* line 43, ../sass/play.scss */
+  .page-spelopdrachten #content li {
+    height: 60px;
+    background-color: #7fb083;
+  }
+  /* line 52, ../sass/play.scss */
+  .page-spelopdrachten .no_active {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+  }
 
-  /* line 45, ../sass/play.scss */
-  body.page-get-points {
+  /* line 59, ../sass/play.scss */
+  body.page-spelopdrachten {
     background-color: black;
   }
 }
-/* line 58, ../sass/play.scss */
-.color-79b1bd #content li.list_header_event, .color-79b1bd #content li.list_header_wish, .color-79b1bd #content li.list_header_question, .color-79b1bd #content li.list_header_geochallenge, .color-79b1bd #content li.list_header_poi_confirmation {
-  background-color: #79b1bd;
+/* line 72, ../sass/play.scss */
+.color-79b1bd #content li.list_header_event, .color-79b1bd #content li.list_header_wish, .color-79b1bd #content li.list_header_question, .color-79b1bd #content li.list_header_geochallenge, .color-79b1bd #content li.list_header_poi_confirmation, .color-79b1bd #content li.list_header_active_generic_assignment {
+  background-color: #7fb083;
 }
 
-/* line 70, ../sass/play.scss */
-.color-dc6058 #content li.list_header_event, .color-dc6058 #content li.list_header_wish, .color-dc6058 #content li.list_header_question, .color-dc6058 #content li.list_header_geochallenge, .color-dc6058 #content li.list_header_poi_confirmation {
-  background-color: #dc6058;
+/* line 84, ../sass/play.scss */
+.color-dc6058 #content li.list_header_event, .color-dc6058 #content li.list_header_wish, .color-dc6058 #content li.list_header_question, .color-dc6058 #content li.list_header_geochallenge, .color-dc6058 #content li.list_header_poi_confirmation, .color-dc6058 #content li.list_header_active_generic_assignment {
+  background-color: #7fb083;
 }
 
-/* line 82, ../sass/play.scss */
-.page-get-points #page-title {
+/* line 96, ../sass/play.scss */
+.page-spelopdrachten #page-title {
   background-color: #333333;
   color: white;
   font-family: arial;
@@ -60,53 +73,79 @@
   line-height: 2.6em;
   letter-spacing: 2px;
 }
-/* line 87, ../sass/play.scss */
-.page-get-points #content {
+/* line 101, ../sass/play.scss */
+.page-spelopdrachten #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 92, ../sass/play.scss */
-.page-get-points #content ul {
+/* line 106, ../sass/play.scss */
+.page-spelopdrachten #content ul {
   border-top-style: none;
 }
-/* line 97, ../sass/play.scss */
-.page-get-points #content .list_header {
+/* line 111, ../sass/play.scss */
+.page-spelopdrachten #content .list_header {
   padding-top: 19px;
   padding-left: 26px;
 }
-/* line 105, ../sass/play.scss */
-.page-get-points #content li.list_header_event:after, .page-get-points #content li.list_header_wish:after, .page-get-points #content li.list_header_question:after, .page-get-points #content li.list_header_geochallenge:after, .page-get-points #content li.list_header_poi_confirmation:after {
+/* line 121, ../sass/play.scss */
+.page-spelopdrachten #content li.list_header_event:after, .page-spelopdrachten #content li.list_header_wish:after, .page-spelopdrachten #content li.list_header_question:after,
+.page-spelopdrachten #content li.list_header_geochallenge:after, .page-spelopdrachten #content li.list_header_poi_confirmation:after,
+.page-spelopdrachten #content li.list_header_active_generic_assignment:after {
   content: url("../images/expand_icon.png");
+  display: inline;
+  float: left;
+  padding-top: 22px;
+  padding-right: 0px;
+  font-size: large;
 }
-/* line 110, ../sass/play.scss */
-.page-get-points #content li:after {
+/* line 131, ../sass/play.scss */
+.page-spelopdrachten #content li:after {
   content: ">";
   display: inline;
   float: right;
-  padding-top: 19px;
+  padding-top: 18px;
   padding-right: 25px;
   font-size: large;
 }
-/* line 120, ../sass/play.scss */
-.page-get-points #content a {
+/* line 141, ../sass/play.scss */
+.page-spelopdrachten #content a {
   color: black;
-  margin-left: 25px;
+  margin-left: 46px;
   margin-top: 10px;
 }
-/* line 129, ../sass/play.scss */
-.page-get-points #content #select_list ul {
+/* line 150, ../sass/play.scss */
+.page-spelopdrachten #content #select_list ul {
   margin-top: 2px;
 }
-/* line 134, ../sass/play.scss */
-.page-get-points #content #select_list a {
+/* line 155, ../sass/play.scss */
+.page-spelopdrachten #content #select_list a {
   line-height: 3.8em;
 }
-/* line 140, ../sass/play.scss */
-.page-get-points #content #main-content {
+/* line 161, ../sass/play.scss */
+.page-spelopdrachten #content #main-content {
   display: none;
 }
-/* line 145, ../sass/play.scss */
-.page-get-points .link_truncated {
+/* line 166, ../sass/play.scss */
+.page-spelopdrachten #content #dialog {
+  display: none;
+}
+/* line 171, ../sass/play.scss */
+.page-spelopdrachten #content .help {
+  display: inline-block;
+  float: right;
+  margin-top: -39px;
+  margin-right: 10px;
+  background-color: white;
+  width: 26px;
+}
+/* line 140, ../sass/_custom.scss */
+.page-spelopdrachten #content .help a {
+  color: black;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+/* line 176, ../sass/play.scss */
+.page-spelopdrachten .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
   width: 85%;
@@ -114,14 +153,14 @@
   overflow: hidden;
   vertical-align: top;
 }
-/* line 150, ../sass/play.scss */
-.page-get-points .time_to_end {
+/* line 181, ../sass/play.scss */
+.page-spelopdrachten .time_to_end {
   background-color: white;
   border-bottom-style: solid;
   border-width: 1px;
   padding-left: 25px;
 }
-/* line 158, ../sass/play.scss */
-.page-get-points .time_interval_label, .page-get-points .time_interval {
+/* line 189, ../sass/play.scss */
+.page-spelopdrachten .time_interval_label, .page-spelopdrachten .time_interval {
   display: inline;
 }
