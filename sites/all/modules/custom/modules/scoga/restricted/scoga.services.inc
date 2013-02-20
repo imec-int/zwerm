@@ -631,8 +631,8 @@
         return $result;
     }
 
-    function scoga_service_config_index( $params ){
-        watchdog( 'SCOGA', 'scoga_service_config_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
+    function scoga_service_config_index(){
+        watchdog( 'SCOGA', 'scoga_service_config_index', array(  ), WATCHDOG_NOTICE );
 
         module_load_include( 'api.config.inc', 'scoga', 'api/scoga' );
         return scoga_get_config_vo();
