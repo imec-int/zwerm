@@ -1,0 +1,34 @@
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+/* line 6, ../sass/generic-assignment.scss */
+.node-generic-assignment header {
+  display: none;
+}
+/* line 10, ../sass/generic-assignment.scss */
+.node-generic-assignment a {
+  color: grey;
+}
+
+@media all and (max-width: 629px) {
+  /* line 20, ../sass/generic-assignment.scss */
+  .node-type-generic-assignment .node-generic-assignment {
+    padding-left: 10px;
+    padding: 10px;
+  }
+  /* line 25, ../sass/generic-assignment.scss */
+  .node-type-generic-assignment h1 {
+    background-color: #7fb083;
+    font-size: 20px;
+    margin-left: -10px;
+    padding-top: 0px;
+  }
+}

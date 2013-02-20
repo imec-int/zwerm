@@ -71,7 +71,7 @@
 
     define( 'SCOGA_ADMIN_PAGE',             'admin/config/scoga' );
     define( 'SCOGA_NOT_PARTNER_PAGE',             'not_partner' );
-    define( 'SCOGA_GET_POINTS_PAGE', 'get_points');
+    define( 'SCOGA_GET_POINTS_PAGE', 'spelopdrachten');
     define( 'SCOGA_CREDITS_UUID',           'f3538084-2198-5064-cd37-8b0b39ba32b4' );
     define( 'SCOGA_PLAYER_ROLE',            4 );
     define( 'SCOGA_TIME_FORMAT',            'H:i:s d/m/Y' );
@@ -79,18 +79,24 @@
     define( 'SCOGA_SALT',                   '97zw3rM&:*');
     define( 'FLASH_HTML_FORMAT',            'flash_html');
     define( 'SCOGA_NULL_CAMPAIGN_NID',      0 );
+    define( 'SCOGA_CHECKIN_TYPE_SINGLE',    'single' );
+    define( 'SCOGA_CHECKIN_TYPE_COMBO',    'combo' );
 
     //--( RESPONSE CODES )--//
-    define( 'CODE_NO_CAMPAIGN',             1010 );
-    define( 'CODE_CARD_NOT_REGISTERED',     1020 );
-    define( 'CODE_NOT_ALLOWED',             1030 );
-    define( 'CODE_INVALID_READER',          1040 );
-    define( 'CODE_PLAYER_NEEDS_COOLDOWN',   1050 );
-    define( 'CODE_CHECKIN_SUCCESS',         1060 );
-    define( 'CODE_COMBO_SUCCESS',           1070 );
-    define( 'CODE_READER_UNREGISTERED',     2010 );
-    define( 'CODE_CARD_MULTIPLE',         2020 );
-    define( 'CODE_CARD_REGISTRATION_SUCCESS', 2030 );
+    define( 'CODE_UNKNOWN_ERROR',               1000 );
+    define( 'CODE_NO_CAMPAIGN',                 1010 );
+    define( 'CODE_CARD_NOT_REGISTERED',         1020 );
+    define( 'CODE_NOT_ALLOWED',                 1030 );
+    define( 'CODE_INVALID_READER',              1040 );
+    define( 'CODE_PLAYER_NEEDS_COOLDOWN',       1050 );
+    define( 'CODE_CHECKIN_SUCCESS',             1060 );
+    define( 'CODE_COMBO_SUCCESS',               1070 );
+    define( 'CODE_COMBO_TIMEOUT',               1080 );
+    define( 'CODE_RELATIONSHIP_EXISTS',         1090 );
+    define( 'CODE_OTHER_TEAM',                  1100 );
+    define( 'CODE_SAME_USER',                   1110 );
+    define( 'CODE_CARD_MULTIPLE',               2020 );
+    define( 'CODE_CARD_REGISTRATION_SUCCESS',   2030 );
 
 
 

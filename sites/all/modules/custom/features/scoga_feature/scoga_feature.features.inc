@@ -159,6 +159,14 @@ function scoga_feature_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'generic_assignment' => array(
+      'name' => t('Generic assignment'),
+      'base' => 'node_content',
+      'description' => t('This is an assignment content type that is not linked to an automatic point awarding mechanism, but can be used to place assignments in the play list. '),
+      'has_title' => '1',
+      'title_label' => t('Titel'),
+      'help' => '',
+    ),
     'nodetype_campaign' => array(
       'name' => t('Campaign'),
       'base' => 'node_content',

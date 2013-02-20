@@ -65,6 +65,11 @@
             jQuery(".collapsible").hide();
             jQuery(".POI_conf").slideToggle(500);
         });
+        jQuery(".list_header_active_generic_assignment").click(function()
+        {
+            jQuery(".collapsible").hide();
+            jQuery(".generic_assignment").slideToggle(500);
+        });
         jQuery("#menu_container").click(function()
         {
             jQuery('html, body').animate({scrollTop:0}, 'fast');

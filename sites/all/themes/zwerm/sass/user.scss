@@ -1,5 +1,18 @@
 @import "base";
 
+.page-user-edit
+{
+  #edit-locale, #edit-signature-settings
+  {
+    display: none;
+  }
+
+  a
+  {
+   color:$green-marking-color;
+  }
+}
+
 .page-user
 {
   .tabs, #select_list, h3, dl, #content .tabs

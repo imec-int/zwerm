@@ -1,1 +1,166 @@
-@media all and (max-width: 629px){.color-dc6058{background-color:#DC6058}.color-79b1bd{background-color:#79b1bd}}@media all and (max-width: 629px){body.page-get-points{background-color:#eee}body.page-get-points #content{padding-top:0px}body.page-get-points #content li{height:60px;background-color:white}}@media all and (min-width: 630px){.page-get-points #main{background-color:black}.page-get-points #content li{height:60px;background-color:#7fb083}body.page-get-points{background-color:black}}.color-79b1bd #content li.list_header_event,.color-79b1bd #content li.list_header_wish,.color-79b1bd #content li.list_header_question,.color-79b1bd #content li.list_header_geochallenge,.color-79b1bd #content li.list_header_poi_confirmation{background-color:#7fb083}.color-dc6058 #content li.list_header_event,.color-dc6058 #content li.list_header_wish,.color-dc6058 #content li.list_header_question,.color-dc6058 #content li.list_header_geochallenge,.color-dc6058 #content li.list_header_poi_confirmation{background-color:#7fb083}.page-get-points #page-title{background-color:#333;color:white;font-family:arial;font-size:x-large;text-align:center;height:60px;line-height:2.6em;letter-spacing:2px}.page-get-points #content{padding-left:0px;padding-right:0px}.page-get-points #content ul{border-top-style:none}.page-get-points #content .list_header{padding-top:19px;padding-left:26px}.page-get-points #content li.list_header_event:after,.page-get-points #content li.list_header_wish:after,.page-get-points #content li.list_header_question:after,.page-get-points #content li.list_header_geochallenge:after,.page-get-points #content li.list_header_poi_confirmation:after{content:url("../images/expand_icon.png");display:inline;float:left;padding-top:22px;padding-right:0px;font-size:large}.page-get-points #content li:after{content:">";display:inline;float:right;padding-top:18px;padding-right:25px;font-size:large}.page-get-points #content a{color:black;margin-left:25px;margin-top:10px}.page-get-points #content #select_list ul{margin-top:2px}.page-get-points #content #select_list a{line-height:3.8em}.page-get-points #content #main-content{display:none}.page-get-points #content #dialog{display:none}.page-get-points #content .help{display:inline-block;float:right;margin-top:-39px;margin-right:10px;background-color:white;width:26px}.page-get-points #content .help a{color:black;margin-left:9px;margin-top:10px}.page-get-points .link_truncated{text-overflow:ellipsis;display:inline-block;width:85%;white-space:nowrap;overflow:hidden;vertical-align:top}.page-get-points .time_to_end{background-color:white;border-bottom-style:solid;border-width:1px;padding-left:25px}.page-get-points .time_interval_label,.page-get-points .time_interval{display:inline}
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+@media all and (max-width: 629px) {
+  /* line 6, ../sass/play.scss */
+  body.page-spelopdrachten {
+    background-color: #eeeeee;
+  }
+  /* line 10, ../sass/play.scss */
+  body.page-spelopdrachten #content {
+    padding-top: 0px;
+  }
+  /* line 13, ../sass/play.scss */
+  body.page-spelopdrachten #content li {
+    height: 60px;
+    background-color: white;
+  }
+  /* line 21, ../sass/play.scss */
+  body.page-spelopdrachten .no_active {
+    text-align: center;
+    color: black;
+    margin-top: 20px;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 36, ../sass/play.scss */
+  .page-spelopdrachten #main {
+    background-color: black;
+  }
+  /* line 43, ../sass/play.scss */
+  .page-spelopdrachten #content li {
+    height: 60px;
+    background-color: #7fb083;
+  }
+  /* line 52, ../sass/play.scss */
+  .page-spelopdrachten .no_active {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+  }
+
+  /* line 59, ../sass/play.scss */
+  body.page-spelopdrachten {
+    background-color: black;
+  }
+}
+/* line 72, ../sass/play.scss */
+.color-79b1bd #content li.list_header_event, .color-79b1bd #content li.list_header_wish, .color-79b1bd #content li.list_header_question, .color-79b1bd #content li.list_header_geochallenge, .color-79b1bd #content li.list_header_poi_confirmation, .color-79b1bd #content li.list_header_active_generic_assignment {
+  background-color: #7fb083;
+}
+
+/* line 84, ../sass/play.scss */
+.color-dc6058 #content li.list_header_event, .color-dc6058 #content li.list_header_wish, .color-dc6058 #content li.list_header_question, .color-dc6058 #content li.list_header_geochallenge, .color-dc6058 #content li.list_header_poi_confirmation, .color-dc6058 #content li.list_header_active_generic_assignment {
+  background-color: #7fb083;
+}
+
+/* line 96, ../sass/play.scss */
+.page-spelopdrachten #page-title {
+  background-color: #333333;
+  color: white;
+  font-family: arial;
+  font-size: x-large;
+  text-align: center;
+  height: 60px;
+  line-height: 2.6em;
+  letter-spacing: 2px;
+}
+/* line 101, ../sass/play.scss */
+.page-spelopdrachten #content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 106, ../sass/play.scss */
+.page-spelopdrachten #content ul {
+  border-top-style: none;
+}
+/* line 111, ../sass/play.scss */
+.page-spelopdrachten #content .list_header {
+  padding-top: 19px;
+  padding-left: 26px;
+}
+/* line 121, ../sass/play.scss */
+.page-spelopdrachten #content li.list_header_event:after, .page-spelopdrachten #content li.list_header_wish:after, .page-spelopdrachten #content li.list_header_question:after,
+.page-spelopdrachten #content li.list_header_geochallenge:after, .page-spelopdrachten #content li.list_header_poi_confirmation:after,
+.page-spelopdrachten #content li.list_header_active_generic_assignment:after {
+  content: url("../images/expand_icon.png");
+  display: inline;
+  float: left;
+  padding-top: 22px;
+  padding-right: 0px;
+  font-size: large;
+}
+/* line 131, ../sass/play.scss */
+.page-spelopdrachten #content li:after {
+  content: ">";
+  display: inline;
+  float: right;
+  padding-top: 18px;
+  padding-right: 25px;
+  font-size: large;
+}
+/* line 141, ../sass/play.scss */
+.page-spelopdrachten #content a {
+  color: black;
+  margin-left: 46px;
+  margin-top: 10px;
+}
+/* line 150, ../sass/play.scss */
+.page-spelopdrachten #content #select_list ul {
+  margin-top: 2px;
+}
+/* line 155, ../sass/play.scss */
+.page-spelopdrachten #content #select_list a {
+  line-height: 3.8em;
+}
+/* line 161, ../sass/play.scss */
+.page-spelopdrachten #content #main-content {
+  display: none;
+}
+/* line 166, ../sass/play.scss */
+.page-spelopdrachten #content #dialog {
+  display: none;
+}
+/* line 171, ../sass/play.scss */
+.page-spelopdrachten #content .help {
+  display: inline-block;
+  float: right;
+  margin-top: -39px;
+  margin-right: 10px;
+  background-color: white;
+  width: 26px;
+}
+/* line 140, ../sass/_custom.scss */
+.page-spelopdrachten #content .help a {
+  color: black;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+/* line 176, ../sass/play.scss */
+.page-spelopdrachten .link_truncated {
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+}
+/* line 181, ../sass/play.scss */
+.page-spelopdrachten .time_to_end {
+  background-color: white;
+  border-bottom-style: solid;
+  border-width: 1px;
+  padding-left: 25px;
+}
+/* line 189, ../sass/play.scss */
+.page-spelopdrachten .time_interval_label, .page-spelopdrachten .time_interval {
+  display: inline;
+}
