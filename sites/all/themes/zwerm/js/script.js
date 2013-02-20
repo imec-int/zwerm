@@ -44,6 +44,12 @@
             }
         });
 
+        fields.change(function(){
+            if (this.value){
+                $(this).prev().hide();
+            }
+        });
+
         jQuery(".collapsible").hide();
         jQuery(".list_header_geochallenge").click(function()
         {
