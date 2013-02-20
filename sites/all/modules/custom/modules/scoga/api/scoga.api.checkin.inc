@@ -210,6 +210,8 @@
 
         $prev_single_checkin_node = node_load( $prev_single_checkin_nid );
         $prev_player_entity = user_load( $prev_single_checkin_node->uid );
+
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
         $prev_player_vo = scoga_create_player_vo( $prev_player_entity );
 
         $current_player_vo = $current_single_checkin_vo->player;
@@ -263,6 +265,7 @@
         $relationship_vo = scoga_create_relationship_vo( $relationship_node );
         $current_combo_checkin_vo->relationship = $relationship_vo;
 
+        module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
         $transaction_arr = scoga_award_points_to_user( $prev_player_vo->uid, scoga_get_combocheckin_reward(), 'combo' );
         $current_combo_checkin_vo->transactions[] = scoga_create_transaction_vo_from_assoc_arr( $transaction_arr );
         $transaction_arr = scoga_award_points_to_user( $current_player_vo->uid, scoga_get_combocheckin_reward(), 'combo' );
