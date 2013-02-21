@@ -6,6 +6,11 @@
     font-family: Romina;
     font-size: x-large;
   }
+  #main #content
+  {
+    padding-left: 15px;
+    padding-right: 25px;
+  }
 }
 
 @media all and (min-width: 482px) {
@@ -27,9 +32,12 @@
 
 .page-team, body.page-team3
 {
-  a
+  .field-item
   {
-   color:$green-marking-color;
+    a
+    {
+     color:$green-marking-color;
+    }
   }
   background-color: $white-background-color;
 

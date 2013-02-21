@@ -1,9 +1,5 @@
 <?php
 /**
- * User: tanguycoenen
- * Date: 18/12/12
- * Time: 17:11
-
  * @file views-view.tpl.php
  * Main view template
  *
@@ -30,6 +26,9 @@
  * @ingroup views_templates
  */
 ?>
+<div class="<?php print $classes; ?>">
+    <?php print ('<div class="niet_spelgebied">Woon je niet in het spelgebied? Maar wel in de wijk? En wil je toch graag meedoen?
+    Stuur een mailtje naar zwerm@gent.be om een rfid kaart aan te vragen.</div>'); ?>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
     <?php print $title; ?>
@@ -52,20 +51,10 @@
         <?php print $attachment_before; ?>
     </div>
     <?php endif; ?>
-    <div id='score_nav_bar'>
-        <?php print theme('links',
-        array('links' => menu_navigation_links('menu-score-navigation-bar'),
-            'attributes' => array('class'=> array('links', 'menu-score-navigation-bar')) ));
-        ?>
-    <div id='team_score_graph'>
-        <?php
-            $block = module_invoke('scoga', 'block_view', 'team_score_graph_block');
-            print render($block['content']);
-        ?>
-    </div>
+
     <?php if ($rows): ?>
     <div class="view-content">
-        <?php //print $rows; ?>
+        <?php print $rows; ?>
     </div>
     <?php elseif ($empty): ?>
     <div class="view-empty">
