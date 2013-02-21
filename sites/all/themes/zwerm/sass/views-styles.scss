@@ -92,7 +92,7 @@ body.section-leaderboard, body.page-team-players, .page-points-in-campaign
   {
     //background-color: $white-background-color;
     background-color:black;
-    .pager, li.pager-next, li.pager-previous
+    .pager, .pager-next a, .pager-previous a
     {
       color:white;
     }
