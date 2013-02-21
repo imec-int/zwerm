@@ -33,26 +33,22 @@
 .page-team, body.page-team3 {
   background-color: #eeeeee;
 }
-/* line 31, ../sass/team-view.scss */
-.page-team a, body.page-team3 a {
-  color: #7fb083;
-}
-/* line 43, ../sass/team-view.scss */
+/* line 39, ../sass/team-view.scss */
 .page-team .views-field-nothing, body.page-team3 .views-field-nothing {
   display: block;
 }
-/* line 48, ../sass/team-view.scss */
+/* line 44, ../sass/team-view.scss */
 .page-team .field-name-field-team-image, body.page-team3 .field-name-field-team-image {
   display: inline;
   float: left;
   margin-right: 20px;
 }
-/* line 55, ../sass/team-view.scss */
+/* line 51, ../sass/team-view.scss */
 .page-team .views-row, body.page-team3 .views-row {
   padding-top: 35px;
   padding-left: 25px;
 }
-/* line 61, ../sass/team-view.scss */
+/* line 57, ../sass/team-view.scss */
 .page-team .color-79b1bd, body.page-team3 .color-79b1bd {
   background-color: #79b1bd;
   margin-top: 10px;
@@ -70,7 +66,7 @@
 .page-team .color-79b1bd a, body.page-team3 .color-79b1bd a {
   font-weight: normal;
 }
-/* line 67, ../sass/team-view.scss */
+/* line 63, ../sass/team-view.scss */
 .page-team .color-dc6058, body.page-team3 .color-dc6058 {
   background-color: #dc6058;
   margin-top: 10px;
@@ -88,17 +84,17 @@
 .page-team .color-dc6058 a, body.page-team3 .color-dc6058 a {
   font-weight: normal;
 }
-/* line 73, ../sass/team-view.scss */
+/* line 69, ../sass/team-view.scss */
 .page-team .points, body.page-team3 .points {
   color: #aaaaaa;
 }
 
-/* line 81, ../sass/team-view.scss */
+/* line 77, ../sass/team-view.scss */
 .page-team .field-type-text-with-summary {
   padding-top: 123px;
 }
 
-/* line 89, ../sass/team-view.scss */
+/* line 85, ../sass/team-view.scss */
 .page-team3 .field-type-text-with-summary {
   padding-top: 28px;
 }
