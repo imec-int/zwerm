@@ -1,362 +1,26 @@
 <?php
 /**
  * @file
- * scoga_feature.features.field.inc
+ * scoga_birds.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function scoga_feature_field_default_fields() {
+function scoga_birds_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-sensetale_device-field_active'.
-  $fields['node-sensetale_device-field_active'] = array(
+  // Exported field: 'node-scoga_sensor_device-field_ref_sensor_device_team'.
+  $fields['node-scoga_sensor_device-field_ref_sensor_device_team'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_active',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
+      'field_name' => 'field_ref_sensor_device_team',
+      'field_permissions' => array(
+        'type' => '0',
       ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => '0',
-          1 => '1',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_boolean',
-    ),
-    'field_instance' => array(
-      'bundle' => 'sensetale_device',
-      'default_value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'list',
-          'settings' => array(),
-          'type' => 'list_default',
-          'weight' => 5,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_active',
-      'label' => 'Active',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'display_label' => 1,
-        ),
-        'type' => 'options_onoff',
-        'weight' => '6',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-sensetale_device-field_location'.
-  $fields['node-sensetale_device-field_location'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_location',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'geofield',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'geofield',
-    ),
-    'field_instance' => array(
-      'bundle' => 'sensetale_device',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'geofield',
-          'settings' => array(
-            'data' => 'full',
-          ),
-          'type' => 'geofield_wkt',
-          'weight' => 1,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_location',
-      'label' => 'Location',
-      'required' => 0,
-      'settings' => array(
-        'local_solr' => array(
-          'enabled' => FALSE,
-          'lat_field' => 'lat',
-          'lng_field' => 'lng',
-        ),
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'geofield',
-        'settings' => array(
-          'data_storage' => 'collection',
-          'openlayers_map' => 'scoga_test_1',
-        ),
-        'type' => 'geofield_openlayers',
-        'weight' => '3',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-sensetale_device-field_sensetale_id'.
-  $fields['node-sensetale_device-field_sensetale_id'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_sensetale_id',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '255',
-      ),
-      'translatable' => '0',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'sensetale_device',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_sensetale_id',
-      'label' => 'Sensetale ID',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '2',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-sensetale_device-field_subtitle'.
-  $fields['node-sensetale_device-field_subtitle'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_subtitle',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '255',
-      ),
-      'translatable' => '0',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'sensetale_device',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 2,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_subtitle',
-      'label' => 'Subtitle',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '1',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-sensetale_sensor_event-field_device_id'.
-  $fields['node-sensetale_sensor_event-field_device_id'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_device_id',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '40',
-      ),
-      'translatable' => '0',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'sensetale_sensor_event',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 3,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_device_id',
-      'label' => 'Device ID',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '2',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-sensetale_sensor_event-field_sensetale_sensor'.
-  $fields['node-sensetale_sensor_event-field_sensetale_sensor'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_sensetale_sensor',
       'foreign keys' => array(
         'node' => array(
           'columns' => array(
@@ -382,12 +46,12 @@ function scoga_feature_field_default_fields() {
           ),
           'sort' => array(
             'direction' => 'ASC',
-            'field' => 'field_description:value',
-            'property' => 'title',
-            'type' => 'property',
+            'field' => 'body:value',
+            'property' => 'nid',
+            'type' => 'none',
           ),
           'target_bundles' => array(
-            'sensetale_sensors' => 'sensetale_sensors',
+            'nodetype_team' => 'nodetype_team',
           ),
         ),
         'handler_submit' => 'Change handler',
@@ -397,7 +61,7 @@ function scoga_feature_field_default_fields() {
       'type' => 'entityreference',
     ),
     'field_instance' => array(
-      'bundle' => 'sensetale_sensor_event',
+      'bundle' => 'scoga_sensor_device',
       'default_value' => NULL,
       'default_value_function' => '',
       'deleted' => '0',
@@ -410,18 +74,25 @@ function scoga_feature_field_default_fields() {
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
+          'weight' => 1,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '6',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_sensetale_sensor',
-      'label' => 'Sensetale Device',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_ref_sensor_device_team',
+      'label' => 'Team',
       'required' => 0,
       'settings' => array(
         'behaviors' => array(
@@ -443,19 +114,202 @@ function scoga_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '1',
+        'weight' => '32',
       ),
     ),
   );
 
-  // Exported field: 'node-sensetale_sensor_event-field_sensor_name'.
-  $fields['node-sensetale_sensor_event-field_sensor_name'] = array(
+  // Exported field: 'node-scoga_sensor_device-field_ref_sensor_device_user'.
+  $fields['node-scoga_sensor_device-field_ref_sensor_device_user'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_sensor_name',
+      'field_name' => 'field_ref_sensor_device_user',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'field_card_id:value',
+            'property' => 'uid',
+            'type' => 'none',
+          ),
+          'target_bundles' => array(),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'user',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'scoga_sensor_device',
+      'default_value' => NULL,
+      'default_value_function' => '',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => 2,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_ref_sensor_device_user',
+      'label' => 'User',
+      'required' => 0,
+      'settings' => array(
+        'behaviors' => array(
+          'prepopulate' => array(
+            'action' => 'none',
+            'fallback' => 'none',
+            'skip_perm' => '0',
+            'status' => 0,
+          ),
+        ),
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '33',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-scoga_sensor_device-field_sensor_device_location'.
+  $fields['node-scoga_sensor_device-field_sensor_device_location'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_sensor_device_location',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'geofield',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'geofield',
+    ),
+    'field_instance' => array(
+      'bundle' => 'scoga_sensor_device',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'geofield',
+          'settings' => array(
+            'data' => 'full',
+          ),
+          'type' => 'geofield_wkt',
+          'weight' => 3,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_sensor_device_location',
+      'label' => 'Location',
+      'required' => 0,
+      'settings' => array(
+        'local_solr' => array(
+          'enabled' => FALSE,
+          'lat_field' => 'lat',
+          'lng_field' => 'lng',
+        ),
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'geofield',
+        'settings' => array(
+          'data_storage' => 'single',
+          'openlayers_map' => 'scoga_poi_input',
+        ),
+        'type' => 'geofield_openlayers',
+        'weight' => '34',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-scoga_sensor_device-field_sensor_id'.
+  $fields['node-scoga_sensor_device-field_sensor_id'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_sensor_id',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -472,23 +326,29 @@ function scoga_feature_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(
-        'max_length' => '40',
+        'max_length' => '100',
       ),
       'translatable' => '0',
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'sensetale_sensor_event',
+      'bundle' => 'scoga_sensor_device',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'A unique identifier of this sensor device',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 1,
+          'weight' => 0,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -498,8 +358,9 @@ function scoga_feature_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_sensor_name',
-      'label' => 'Sensor name',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_sensor_id',
+      'label' => 'Sensor ID',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
@@ -512,19 +373,131 @@ function scoga_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '31',
       ),
     ),
   );
 
-  // Exported field: 'node-sensetale_sensor_event-field_sensor_value'.
-  $fields['node-sensetale_sensor_event-field_sensor_value'] = array(
+  // Exported field: 'node-scoga_sensor_device_event-field_ref_sensor_device'.
+  $fields['node-scoga_sensor_device_event-field_ref_sensor_device'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_sensor_value',
+      'field_name' => 'field_ref_sensor_device',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'body:value',
+            'property' => 'nid',
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'scoga_sensor_device' => 'scoga_sensor_device',
+          ),
+        ),
+        'handler_submit' => 'Change handler',
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'scoga_sensor_device_event',
+      'default_value' => NULL,
+      'default_value_function' => '',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => 0,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_ref_sensor_device',
+      'label' => 'Sensor device',
+      'required' => 0,
+      'settings' => array(
+        'behaviors' => array(
+          'prepopulate' => array(
+            'action' => 'none',
+            'fallback' => 'none',
+            'skip_perm' => '0',
+            'status' => 0,
+          ),
+        ),
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '31',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-scoga_sensor_device_event-field_sensor_type'.
+  $fields['node-scoga_sensor_device_event-field_sensor_type'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_sensor_type',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -541,13 +514,92 @@ function scoga_feature_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(
-        'max_length' => '10',
+        'max_length' => '50',
       ),
       'translatable' => '0',
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'sensetale_sensor_event',
+      'bundle' => 'scoga_sensor_device_event',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 1,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_sensor_type',
+      'label' => 'Sensor type',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '32',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-scoga_sensor_device_event-field_sensor_val'.
+  $fields['node-scoga_sensor_device_event-field_sensor_val'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_sensor_val',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '20',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'scoga_sensor_device_event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -559,6 +611,12 @@ function scoga_feature_field_default_fields() {
           'type' => 'text_default',
           'weight' => 2,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -567,7 +625,8 @@ function scoga_feature_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_sensor_value',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_sensor_val',
       'label' => 'Sensor value',
       'required' => 0,
       'settings' => array(
@@ -581,19 +640,22 @@ function scoga_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '33',
       ),
     ),
   );
 
-  // Exported field: 'node-sensetale_sensor_event-field_sensor_value_timestamp'.
-  $fields['node-sensetale_sensor_event-field_sensor_value_timestamp'] = array(
+  // Exported field: 'node-scoga_sensor_device_event-field_sensor_val_timestamp'.
+  $fields['node-scoga_sensor_device_event-field_sensor_val_timestamp'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_sensor_value_timestamp',
+      'field_name' => 'field_sensor_val_timestamp',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -610,13 +672,13 @@ function scoga_feature_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(
-        'max_length' => '15',
+        'max_length' => '20',
       ),
       'translatable' => '0',
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'sensetale_sensor_event',
+      'bundle' => 'scoga_sensor_device_event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -626,7 +688,13 @@ function scoga_feature_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 4,
+          'weight' => 3,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -636,7 +704,8 @@ function scoga_feature_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_sensor_value_timestamp',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_sensor_val_timestamp',
       'label' => 'Sensor value timestamp',
       'required' => 0,
       'settings' => array(
@@ -650,22 +719,22 @@ function scoga_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '34',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Active');
-  t('Device ID');
+  t('A unique identifier of this sensor device');
   t('Location');
-  t('Sensetale Device');
-  t('Sensetale ID');
-  t('Sensor name');
+  t('Sensor ID');
+  t('Sensor device');
+  t('Sensor type');
   t('Sensor value');
   t('Sensor value timestamp');
-  t('Subtitle');
+  t('Team');
+  t('User');
 
   return $fields;
 }
