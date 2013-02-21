@@ -5,12 +5,15 @@
   {
     font-family: Romina;
     font-size: x-large;
+
+    #main #content
+    {
+      padding-left: 15px;
+      padding-right: 25px;
+    }
+
   }
-  #main #content
-  {
-    padding-left: 15px;
-    padding-right: 25px;
-  }
+
 }
 
 @media all and (min-width: 482px) {
