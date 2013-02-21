@@ -108,7 +108,7 @@ body.section-leaderboard #main, body.page-team-players #main, .page-points-in-ca
   background-color: black;
 }
 /* line 96, ../sass/views-styles.scss */
-body.section-leaderboard #main .pager, body.page-team-players #main .pager, .page-points-in-campaign #main .pager {
+body.section-leaderboard #main .pager, body.section-leaderboard #main .pager-next, body.section-leaderboard #main .pager-previous, body.page-team-players #main .pager, body.page-team-players #main .pager-next, body.page-team-players #main .pager-previous, .page-points-in-campaign #main .pager, .page-points-in-campaign #main .pager-next, .page-points-in-campaign #main .pager-previous {
   color: white;
 }
 /* line 102, ../sass/views-styles.scss */
