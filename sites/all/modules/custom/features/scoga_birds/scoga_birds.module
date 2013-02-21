@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SCOGA Birds feature.
+ */
+
+include_once 'scoga_birds.features.inc';
