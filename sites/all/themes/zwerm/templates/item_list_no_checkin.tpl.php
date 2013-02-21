@@ -2,8 +2,8 @@
 /**
  * Formats $items as an html list
  */
-    print ('<div id="dialog" title="Checkin partners">');
-    print ('In dit scherm vind je de spelers uit je team waar je nog nooit mee hebt ingechecked en dus punten kunt verdienen door samen in te checken aan de Holle boom. Click op de naam van een speler om meer gegevens te krijgen of een bericht te sturen.');
+    print ('<div id="dialog" title="Check-in partners">');
+    print ('Hier zie je een overzicht van de spelers uit je team waar je nog nooit mee hebt ingecheckt.  Vergeet niet dat je meer punten kan verdienden door samen met teamgenoten in te checken bij de holle boom! Klik op de naam van een speler om hem of haar uit te nodigen voor een gezamenlijke check-in!');
     print('</div>');
     print ('<div id="select_list" class="clearfix">');
         print ('<ul>');
