@@ -511,24 +511,29 @@ a {
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
-/* line 474, ../sass/pages.scss */
+/* line 476, ../sass/pages.scss */
+article a {
+  color: #7fb083;
+}
+
+/* line 482, ../sass/pages.scss */
 .selectedItem {
   background-color: #7fb083;
 }
 
 @media all and (max-width: 629px) {
-  /* line 482, ../sass/pages.scss */
+  /* line 490, ../sass/pages.scss */
   #block-block-3 {
     display: none;
   }
 
-  /* line 489, ../sass/pages.scss */
+  /* line 497, ../sass/pages.scss */
   .section-het-spel article {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  /* line 499, ../sass/pages.scss */
+  /* line 507, ../sass/pages.scss */
   #type_page h1 {
     font-family: "Romina";
     text-align: center;
@@ -536,7 +541,7 @@ a {
   }
 }
 @media all and (min-width: 630px) {
-  /* line 510, ../sass/pages.scss */
+  /* line 518, ../sass/pages.scss */
   #header {
     background-image: url(../images/zwerm_logo_black_background.png);
     background-size: 10%;
@@ -547,30 +552,30 @@ a {
     display: block;
   }
 
-  /* line 521, ../sass/pages.scss */
+  /* line 529, ../sass/pages.scss */
   #content {
     padding-top: 40px;
     position: relative;
     top: 120px;
   }
 
-  /* line 528, ../sass/pages.scss */
+  /* line 536, ../sass/pages.scss */
   #type_page, #type_nodetype_event {
     height: 100%;
     padding-top: 200px;
   }
 
-  /* line 535, ../sass/pages.scss */
+  /* line 543, ../sass/pages.scss */
   #home_nav, #menu_container, #menu_text, #zwerm_logo_text {
     display: none;
   }
 
-  /* line 540, ../sass/pages.scss */
+  /* line 548, ../sass/pages.scss */
   .region-sidebar-first {
     padding-top: 200px;
   }
 
-  /* line 547, ../sass/pages.scss */
+  /* line 555, ../sass/pages.scss */
   #type_page h1 {
     text-align: center;
   }
