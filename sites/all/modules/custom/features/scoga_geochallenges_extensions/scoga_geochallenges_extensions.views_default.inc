@@ -49,6 +49,12 @@ function scoga_geochallenges_extensions_views_default_views() {
     'description_field' => 'field_comment',
   );
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_ref_geo_challenge_target_id']['id'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['relationships']['field_ref_geo_challenge_target_id']['table'] = 'field_data_field_ref_geo_challenge';
+  $handler->display->display_options['relationships']['field_ref_geo_challenge_target_id']['field'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['relationships']['field_ref_geo_challenge_target_id']['label'] = 'Inhoud entity referenced from field_ref_geo_challenge';
+  $handler->display->display_options['relationships']['field_ref_geo_challenge_target_id']['required'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -112,6 +118,20 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Campaign (field_campaign) */
+  $handler->display->display_options['arguments']['field_campaign_target_id']['id'] = 'field_campaign_target_id';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['table'] = 'field_data_field_campaign';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['field'] = 'field_campaign_target_id';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['relationship'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['default_argument_options']['code'] = 'return scoga_get_current_campaign_nid();';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['field_campaign_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_campaign_target_id']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['field_campaign_target_id']['not'] = 0;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -204,7 +224,9 @@ function scoga_geochallenges_extensions_views_default_views() {
     t('Items per page'),
     t('- All -'),
     t('Offset'),
+    t('Inhoud entity referenced from field_ref_geo_challenge'),
     t('Location'),
+    t('All'),
     t('Filter op een geo-challenge'),
     t('OpenLayers Data Overlay'),
     t('Page'),
