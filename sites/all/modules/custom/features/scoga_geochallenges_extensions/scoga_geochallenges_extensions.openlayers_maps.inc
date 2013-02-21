@@ -18,7 +18,7 @@ function scoga_geochallenges_extensions_openlayers_maps() {
   $openlayers_maps->description = 'A map for a large overview with multiple SCOGA POI layers';
   $openlayers_maps->data = array(
     'width' => 'auto',
-    'height' => '430px',
+    'height' => '350px',
     'image_path' => 'sites/all/modules/openlayers/themes/default_dark/img/',
     'css_path' => 'sites/all/modules/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',

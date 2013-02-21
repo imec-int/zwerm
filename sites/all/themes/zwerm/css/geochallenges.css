@@ -3,12 +3,12 @@
  * Geochallenges related styling
  */
 @media all and (max-width: 629px) {
-  /* line 140, ../sass/_base.scss */
+  /* line 140, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
   .color-dc6058 {
     background-color: #DC6058;
   }
 
-  /* line 145, ../sass/_base.scss */
+  /* line 145, /Users/wvdbosch/Dropbox/Development/PHPStorm/smartip/sites/all/themes/zwerm/sass/_base.scss */
   .color-79b1bd {
     background-color: #79b1bd;
   }
@@ -173,7 +173,7 @@
   padding: 5px 10px;
   color: white;
   margin-top: 10px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
 }
 /* line 161, ../sass/geochallenges.scss */
 .views-exposed-form label {
@@ -211,7 +211,7 @@
 
   /* line 192, ../sass/geochallenges.scss */
   .openlayers-map {
-    border-right: 2px solid black;
+    border-right: 2px solid white;
   }
 
   /* line 196, ../sass/geochallenges.scss */
@@ -314,23 +314,13 @@
   font-weight: bold;
 }
 
-/* line 291, ../sass/geochallenges.scss */
-.page-kaart #page-title {
-  display: none;
-}
-
-/* line 296, ../sass/geochallenges.scss */
+/* line 293, ../sass/geochallenges.scss */
 .section-geochallenges #popup_GroupDiv img {
   display: none;
 }
-/* line 300, ../sass/geochallenges.scss */
+/* line 297, ../sass/geochallenges.scss */
 .section-geochallenges #popup_GroupDiv .openlayers-tooltip-name {
   font-family: Romina;
   font-size: 1em;
   font-weight: bold;
-}
-
-/* line 308, ../sass/geochallenges.scss */
-.section-geochallenges #main {
-  background-color: #000000;
 }

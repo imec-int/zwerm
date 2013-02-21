@@ -157,7 +157,7 @@
   padding: 5px 10px;
   color: white;
   margin-top: 10px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   label {
     font-family: romina;
     font-size: 1.2em;
@@ -190,7 +190,7 @@
   }
 
   .openlayers-map {
-    border-right: 2px solid black;
+    border-right: 2px solid white;
   }
 
   .field-widget-geofield-openlayers {
@@ -281,15 +281,12 @@
     display: none;
   }
 
-  .openlayers-tooltip-name {
-    font-family: Romina;
-    font-size: 1.2em;
-    font-weight: bold;
-  }
+.openlayers-tooltip-name {
+  font-family: Romina;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-.page-kaart #page-title {
-  display: none;
 }
 
 .section-geochallenges #popup_GroupDiv {
@@ -305,8 +302,6 @@
 
 }
 
-.section-geochallenges #main {
-  background-color: #000000;
-}
+
 
 

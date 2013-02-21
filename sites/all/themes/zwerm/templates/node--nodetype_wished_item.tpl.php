@@ -109,7 +109,7 @@
 
     <?php
     print ('<div id="dialog" title="Het speel venster">');
-    print ('Door dit wijkzoekertje in vervulling te laten gaan, kun je punten verdienen.');
+    print ('Door deze wens in vervulling te laten gaan, kun je punten verdienen.');
     print('</div>');
     print('<div class="help"><a >?</a></div>');
     // We hide the comments and links now so that we can render them later.
