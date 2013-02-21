@@ -27,6 +27,10 @@
 
 .page-team, body.page-team3
 {
+  a
+  {
+   color:$green-marking-color;
+  }
   background-color: $white-background-color;
 
   .views-field-title, .views-field-title-1
