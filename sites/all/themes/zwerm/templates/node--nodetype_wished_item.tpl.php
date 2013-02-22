@@ -121,12 +121,14 @@
             global $user;
             if($user->uid==$node->uid)
             {
+                print('<div class="buttons">');
                 print ('<div class="set_as_fulfilled">
                         <a href="'.$base_path.'/node/add/nodetype-wish-fulfilled">'.t('Stel in als vervuld').'</a>
                     </div>');
-                print ('<div class="edit_wish">
+                print ('<div class="edit_wijkzoeker">
                         <a href="'.$base_path.'/node/'.$node->nid.'/edit">'.t('Bewerken').'</a>
                     </div>');
+                print('</div>');
             }
             else
             {
