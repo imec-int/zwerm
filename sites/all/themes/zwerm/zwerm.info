@@ -81,6 +81,7 @@ stylesheets[all][] = css/recent-points.css
 stylesheets[all][] = css/geochallenges.css
 stylesheets[all][] = css/score-chart.css
 stylesheets[all][] = css/generic-assignment.css
+stylesheets[all][] = css/wish-fullfilled.css
 stylesheets[all][] = js/jquery-ui/css/dark-hive/jquery-ui-1.10.0.custom.min.css
 
 

@@ -185,16 +185,6 @@
     {
 
         $nodes = array();
-        /*$query = "SELECT nid FROM node
-            LEFT JOIN field_data_field_wisheditem_campaign AS campaign ON node.nid=campaign.entity_id
-            LEFT JOIN field_data_field_wisheditem_state AS state on node.nid=state.entity_id
-            LEFT JOIN field_data_field_user_team AS team ON node.uid=team.entity_id
-            WHERE node.type = 'nodetype_wished_item'
-            AND field_wisheditem_state_value = 'open'
-            AND team.field_user_team_target_id = :user_id
-            AND campaign.field_wisheditem_campaign_target_id= :campaign_id
-            ";*/
-
         $query = "SELECT nid FROM node
             LEFT JOIN field_data_field_wisheditem_campaign AS campaign ON node.nid=campaign.entity_id
             LEFT JOIN field_data_field_wisheditem_state AS state on node.nid=state.entity_id
