@@ -234,7 +234,7 @@ NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'help' => '',
     ),
     'nodetype_wish_fulfilled' => array(
-      'name' => t('Wish fulfilled'),
+      'name' => t('Wijkzoekertje vervuld'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

@@ -2984,6 +2984,7 @@ DO NOT MODIFY ONCE SET!',
     'field_instance' => array(
       'bundle' => 'nodetype_wish_fulfilled',
       'default_value' => NULL,
+      'default_value_function' => '',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -3010,10 +3011,19 @@ DO NOT MODIFY ONCE SET!',
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_wishfulfilled_fulfiller',
-      'label' => 'Fulfiller',
+      'label' => 'Speler die het wijkzoekertje heeft vervuld',
       'required' => 1,
       'settings' => array(
+        'behaviors' => array(
+          'prepopulate' => array(
+            'action' => 'none',
+            'fallback' => 'none',
+            'skip_perm' => '0',
+            'status' => 0,
+          ),
+        ),
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -3079,6 +3089,7 @@ DO NOT MODIFY ONCE SET!',
     'field_instance' => array(
       'bundle' => 'nodetype_wish_fulfilled',
       'default_value' => NULL,
+      'default_value_function' => '',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -3105,10 +3116,19 @@ DO NOT MODIFY ONCE SET!',
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_wishfulfilled_wisheditem',
-      'label' => 'Wished item',
+      'label' => 'Wijkzoekertje',
       'required' => 1,
       'settings' => array(
+        'behaviors' => array(
+          'prepopulate' => array(
+            'action' => 'none',
+            'fallback' => 'none',
+            'skip_perm' => '0',
+            'status' => 0,
+          ),
+        ),
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -4419,7 +4439,6 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Date');
   t('Enter a comma-separated list of words to describe your content.');
   t('First name');
-  t('Fulfiller');
   t('Genric assignment team');
   t('HEX');
   t('Image');
@@ -4433,6 +4452,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('RFID Reader');
   t('Reader ID');
   t('Registered user');
+  t('Speler die het wijkzoekertje heeft vervuld');
   t('State');
   t('Surname');
   t('Tags');
@@ -4447,9 +4467,9 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
 DO NOT MODIFY ONCE SET!');
   t('Upload an image to go with this article.');
   t('When chosen this node will only be shown when the campaign is the current campaign');
+  t('Wijkzoekertje');
   t('Will be overwritten by the system, DO NOT EDIT MANUALLY');
   t('Will only be shown when the chose campaign is the current one');
-  t('Wished item');
   t('campaign');
 
   return $fields;
