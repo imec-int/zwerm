@@ -204,6 +204,13 @@
                         'optional'      => TRUE,
                         'default value' => -1
                     ),
+                    array(
+                        'name'          => 'type',
+                        'type'          => 'string',
+                        'source'        => 'data',
+                        'optional'      => TRUE,
+                        'default value' => 'single'
+                    ),
 
                 )
             )
@@ -500,6 +507,7 @@
     function scoga_service_checkin_create( $params ){
         watchdog( 'SCOGA', 'scoga_service_checkin_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_INFO );
         module_load_include( 'api.checkin.inc', 'scoga', 'api/scoga' );
+        module_load_include( 'api.reader.inc', 'scoga', 'api/scoga' );
 
         /*
         * catch parameters
@@ -508,12 +516,21 @@
         $reader_id = $params[ 'readerID' ];
         $remote_signature = $params[ 's' ];
         $timestamp = $params[ 'time' ];
+        $type = $params[ 'type' ];
         try{
             $unenc_signature = $timestamp . $reader_id . SCOGA_SALT. $card_id;
             if( hash( 'sha256', $unenc_signature ) != $remote_signature ){
                 throw new ErrorException( 'incorrect signature' );
             }
-            $result = scoga_register_checkin( $card_id, $reader_id );
+
+            $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
+            $current_campaign_nid = scoga_get_current_campaign_nid();
+
+            if( $type == SCOGA_CHECKIN_TYPE_COMBO ){
+                $result = scoga_register_combo_checkin( $card_id, $reader_node, $timestamp, $current_campaign_nid );
+            }else{
+                $result = scoga_register_single_checkin( $card_id, $reader_node, $timestamp, $current_campaign_nid );
+            }
         }catch ( Exception $e ){
             $message = $e->getMessage();
             watchdog( 'SCOGA', $message );
@@ -614,8 +631,8 @@
         return $result;
     }
 
-    function scoga_service_config_index( $params ){
-        watchdog( 'SCOGA', 'scoga_service_config_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
+    function scoga_service_config_index(){
+        watchdog( 'SCOGA', 'scoga_service_config_index', array(  ), WATCHDOG_NOTICE );
 
         module_load_include( 'api.config.inc', 'scoga', 'api/scoga' );
         return scoga_get_config_vo();

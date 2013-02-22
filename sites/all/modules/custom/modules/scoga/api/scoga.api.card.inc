@@ -25,7 +25,7 @@
         $reader_node = scoga_get_reader_entity_by_reader_id( $reader_id );
         if( $reader_node === FALSE ){
             $result->message = t( 'RFID reader with id @reader_id not registered', array( '@reader_id' => $reader_id ) );
-            $result->code = CODE_READER_UNREGISTERED;
+            $result->code = CODE_INVALID_READER;
             return $result;
         }
 

@@ -91,5 +91,5 @@
         module_load_include( 'api.message.inc', 'scoga', 'api/scoga' );
         $body = t( 'A new campaign has started' );
         $title = t( 'New campaign @title', array( '@title' => $campaign_node->title ) );
-        scoga_create_message_entity( $body, $title, 1 );
+        scoga_create_message_entity( $body, $title, 1, $campaign_node->nid );
     }

@@ -47,6 +47,14 @@
                         {
                             $classes .= ' list_header_poi_confirmation';
                         }
+                        if (strpos($item,t('Active generic assignments'))!=false)
+                        {
+                            $classes .= ' list_header_active_generic_assignment';
+                        }
+                        if (strpos($item,t('Wishes by you'))!=false)
+                        {
+                            $classes .= ' list_header_wishes_user';
+                        }
                         print("<li class=\"".$classes."\"><div class=link_truncated>".$item."</div></li>");
                     }
                     //when there is a path, it should be treated as a an actual selectable item
@@ -62,6 +70,10 @@
                             $classes .= ' question collapsible';
                         if (strpos($item,t('POI'))!=false)
                             $classes .= ' POI_conf collapsible';
+                        if (strpos($item,t('Generic assignment'))!=false)
+                            $classes .= ' generic_assignment collapsible';
+                        if (strpos($item,t('Wish by you'))!=false)
+                            $classes .= ' wish_by_user collapsible';
                         print("<li class=\"".$classes."\" onmousedown=\"li_mousedown('".$path."',this);\"><div class=link_truncated>".$item."</div></li>");
                     }
 

@@ -98,91 +98,95 @@ body.section-leaderboard, body.page-team-players, .page-points-in-campaign {
   height: 100%;
   background-color: black;
 }
-/* line 84, ../sass/views-styles.scss */
+/* line 86, ../sass/views-styles.scss */
 body.section-leaderboard #content, body.page-team-players #content, .page-points-in-campaign #content {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 90, ../sass/views-styles.scss */
+/* line 92, ../sass/views-styles.scss */
 body.section-leaderboard #main, body.page-team-players #main, .page-points-in-campaign #main {
   background-color: black;
 }
 /* line 96, ../sass/views-styles.scss */
+body.section-leaderboard #main .pager, body.section-leaderboard #main .pager-next a, body.section-leaderboard #main .pager-previous a, body.page-team-players #main .pager, body.page-team-players #main .pager-next a, body.page-team-players #main .pager-previous a, .page-points-in-campaign #main .pager, .page-points-in-campaign #main .pager-next a, .page-points-in-campaign #main .pager-previous a {
+  color: white;
+}
+/* line 102, ../sass/views-styles.scss */
 body.section-leaderboard table, body.page-team-players table, .page-points-in-campaign table {
   margin-top: 0px;
   width: 100%;
 }
-/* line 102, ../sass/views-styles.scss */
+/* line 108, ../sass/views-styles.scss */
 body.section-leaderboard .view, body.page-team-players .view, .page-points-in-campaign .view {
   width: 100%;
 }
-/* line 108, ../sass/views-styles.scss */
+/* line 114, ../sass/views-styles.scss */
 body.section-leaderboard tr, body.page-team-players tr, .page-points-in-campaign tr {
   height: 60px;
   color: #ffffff;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
 }
-/* line 117, ../sass/views-styles.scss */
+/* line 123, ../sass/views-styles.scss */
 body.section-leaderboard td, body.page-team-players td, .page-points-in-campaign td {
   margin-bottom: 2px;
 }
-/* line 122, ../sass/views-styles.scss */
+/* line 128, ../sass/views-styles.scss */
 body.section-leaderboard .views-field-field-user-team, body.page-team-players .views-field-field-user-team, .page-points-in-campaign .views-field-field-user-team {
   display: none;
 }
-/* line 132, ../sass/views-styles.scss */
+/* line 138, ../sass/views-styles.scss */
 body.section-leaderboard .views-field-php, body.page-team-players .views-field-php, .page-points-in-campaign .views-field-php {
   font-family: Romina;
   font-size: x-large;
   padding-left: 10px;
 }
-/* line 139, ../sass/views-styles.scss */
+/* line 145, ../sass/views-styles.scss */
 body.section-leaderboard .leaderboard_separator, body.page-team-players .leaderboard_separator, .page-points-in-campaign .leaderboard_separator {
   height: 10px;
   background-color: black;
 }
-/* line 144, ../sass/views-styles.scss */
+/* line 150, ../sass/views-styles.scss */
 body.section-leaderboard .leaderboard_separator td, body.page-team-players .leaderboard_separator td, .page-points-in-campaign .leaderboard_separator td {
   width: 100%;
   height: 10px;
 }
-/* line 151, ../sass/views-styles.scss */
+/* line 157, ../sass/views-styles.scss */
 body.section-leaderboard .field-name-field-user-firstname, body.section-leaderboard .field-name-field-user-surname, body.page-team-players .field-name-field-user-firstname, body.page-team-players .field-name-field-user-surname, .page-points-in-campaign .field-name-field-user-firstname, .page-points-in-campaign .field-name-field-user-surname {
   display: none;
 }
-/* line 159, ../sass/views-styles.scss */
+/* line 165, ../sass/views-styles.scss */
 body.section-leaderboard .views-field-field-user-surname, body.page-team-players .views-field-field-user-surname, .page-points-in-campaign .views-field-field-user-surname {
   display: none;
   padding-left: 4px;
 }
-/* line 168, ../sass/views-styles.scss */
+/* line 174, ../sass/views-styles.scss */
 body.section-leaderboard td.views-field-field-user-firstname, body.page-team-players td.views-field-field-user-firstname, .page-points-in-campaign td.views-field-field-user-firstname {
   height: 16px;
   padding-left: 5px;
 }
-/* line 174, ../sass/views-styles.scss */
+/* line 180, ../sass/views-styles.scss */
 body.section-leaderboard td.relations, body.page-team-players td.relations, .page-points-in-campaign td.relations {
   display: inline-block;
   position: relative;
   top: -7px;
   left: 120px;
 }
-/* line 182, ../sass/views-styles.scss */
+/* line 188, ../sass/views-styles.scss */
 body.section-leaderboard th, body.page-team-players th, .page-points-in-campaign th {
   display: none;
 }
-/* line 192, ../sass/views-styles.scss */
+/* line 198, ../sass/views-styles.scss */
 body.section-leaderboard td.uid, body.page-team-players td.uid, .page-points-in-campaign td.uid {
   display: none;
 }
-/* line 197, ../sass/views-styles.scss */
+/* line 203, ../sass/views-styles.scss */
 body.section-leaderboard tr.loggedInUser, body.page-team-players tr.loggedInUser, .page-points-in-campaign tr.loggedInUser {
   background-color: #ffffff;
   color: #000000;
 }
 
-/* line 204, ../sass/views-styles.scss */
+/* line 210, ../sass/views-styles.scss */
 .pager-next a, .pager-previous a {
   color: black;
 }

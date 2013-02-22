@@ -18,12 +18,16 @@
   font-family: "Romina";
   text-align: center;
 }
+/* line 15, ../sass/frontpage.scss */
+.page-frontpage #content a {
+  color: #7fb083;
+}
 @media all and (max-width: 629px) {
   /* line 4, ../sass/frontpage.scss */
   .page-frontpage {
     background-color: #79b1bd;
   }
-  /* line 17, ../sass/frontpage.scss */
+  /* line 25, ../sass/frontpage.scss */
   .page-frontpage .views-row {
     display: none;
   }

@@ -75,7 +75,7 @@ function scoga_feature_flag_default_flags() {
     ),
     'api_version' => 2,
   );
-  // Exported flag: "Markeer als onuitvoerbaar".
+  // Exported flag: "Unsolvable wish".
   $flags['flag_unsolvable_wish'] = array(
     'content_type' => 'node',
     'title' => 'Unsolvable wish',
@@ -155,6 +155,14 @@ function scoga_feature_node_info() {
       'name' => t('Artikel'),
       'base' => 'node_content',
       'description' => t('Gebruik <em>artikelen</em> voor tijdsgebonden inhoud zoals nieuws, persberichten of blog-berichten.'),
+      'has_title' => '1',
+      'title_label' => t('Titel'),
+      'help' => '',
+    ),
+    'generic_assignment' => array(
+      'name' => t('Generic assignment'),
+      'base' => 'node_content',
+      'description' => t('This is an assignment content type that is not linked to an automatic point awarding mechanism, but can be used to place assignments in the play list. '),
       'has_title' => '1',
       'title_label' => t('Titel'),
       'help' => '',

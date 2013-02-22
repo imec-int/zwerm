@@ -109,7 +109,7 @@
 
     <?php
     print ('<div id="dialog" title="Het speel venster">');
-    print ('Door aan dit envent kun je punten scoren. Ga met je kaart naar het event en voer de beschreven activeit uit.');
+    print ('Door aan dit event deel te nemen kun je punten scoren. Ga met je kaart naar de plaats van het event en voer de beschreven activiteit uit.');
     print('</div>');
     print('<div class="help"><a >?</a></div>');
     // We hide the comments and links now so that we can render them later.

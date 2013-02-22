@@ -5,7 +5,15 @@
   {
     font-family: Romina;
     font-size: x-large;
+
+    #main #content
+    {
+      padding-left: 15px;
+      padding-right: 25px;
+    }
+
   }
+
 }
 
 @media all and (min-width: 482px) {
@@ -27,6 +35,13 @@
 
 .page-team, body.page-team3
 {
+  .field-item
+  {
+    a
+    {
+     color:$green-marking-color;
+    }
+  }
   background-color: $white-background-color;
 
   .views-field-title, .views-field-title-1

@@ -139,15 +139,17 @@ function scoga_geochallenges_extensions_default_rules_configuration() {
     }
   }');
   $items['rules_process_new_poi_for_geochallenge'] = entity_import('rules_config', '{ "rules_process_new_poi_for_geochallenge" : {
-      "LABEL" : "Process new POI for Geochallenge",
+      "LABEL" : "POI for Geochallenge with confirmation processing",
       "PLUGIN" : "reaction rule",
       "TAGS" : [ "geochallenges", "scoga" ],
       "REQUIRES" : [ "rules", "php" ],
       "ON" : [ "node_insert" ],
       "IF" : [
-        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "poi" : "poi" } } } }
+        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "poi" : "poi" } } } },
+        { "php_eval" : { "code" : "$poi_node = node_load($node-\\u003Enid);\\r\\n$geochallenge_node = node_load($poi_node-\\u003Efield_ref_geo_challenge[\\u0027und\\u0027][0][\\u0027target_id\\u0027]);\\r\\nif ($geochallenge_node-\\u003Efield_options[\\u0027und\\u0027][1][\\u0027value\\u0027] == \\u0027poi_confirm\\u0027) {\\r\\n  return true;\\r\\n} else {\\r\\n  return false;\\r\\n}" } }
       ],
       "DO" : [
+        { "redirect" : { "url" : [ "node:field-ref-geo-challenge:url" ] } },
         { "entity_create" : {
             "USING" : {
               "type" : "node",
@@ -215,8 +217,7 @@ function scoga_geochallenges_extensions_default_rules_configuration() {
             "value" : [ "geochallenge-campaign-node" ]
           }
         },
-        { "drupal_message" : { "message" : "Bedankt om dit punt toe te voegen! Het zal nu worden gecontroleerd door een van je medespelers. Van zodra dat gebeurd is, worden je punten toegekend! " } },
-        { "redirect" : { "url" : [ "node:field-ref-geo-challenge:url" ] } }
+        { "drupal_message" : { "message" : "Bedankt om dit punt toe te voegen! Het zal nu worden gecontroleerd door een van je medespelers. Van zodra dat gebeurd is, worden je punten toegekend! " } }
       ]
     }
   }');
