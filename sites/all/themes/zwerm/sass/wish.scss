@@ -24,6 +24,11 @@
 {
   background-color: $white-background-color;
 
+  #content .tabs
+  {
+    display:none;
+  }
+
   .flag-message
   {
     font-size:0;
@@ -132,7 +137,7 @@
       }
     }
 
-    .set_as_fulfilled
+    .set_as_fulfilled,.edit-wish
     {
       display:block;
       margin-bottom: 80px;
