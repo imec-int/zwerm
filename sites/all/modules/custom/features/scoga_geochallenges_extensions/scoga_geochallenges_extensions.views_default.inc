@@ -87,7 +87,7 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['fields']['field_location']['settings'] = array(
     'data' => 'full',
   );
-  /* Field: Content: Comment */
+  /* Field: Content: Commentaar */
   $handler->display->display_options['fields']['field_comment']['id'] = 'field_comment';
   $handler->display->display_options['fields']['field_comment']['table'] = 'field_data_field_comment';
   $handler->display->display_options['fields']['field_comment']['field'] = 'field_comment';
@@ -172,6 +172,7 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['path'] = 'kaart';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Kaart';
@@ -212,6 +213,225 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['label'] = 'Geo Challenge';
   $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['operator'] = 'field_ref_geo_challenge_target_id_op';
   $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['identifier'] = 'field_ref_geo_challenge_target_id';
+
+  /* Display: Birds Data Overlay */
+  $handler = $view->new_display('openlayers', 'Birds Data Overlay', 'openlayers_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Birds';
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filteren';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = 0;
+  $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = 1;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'openlayers_data';
+  $handler->display->display_options['style_options']['data_source'] = array(
+    'value' => 'wkt',
+    'other_lat' => 'name',
+    'other_lon' => 'name',
+    'wkt' => 'field_sensor_device_location',
+    'other_top' => 'name',
+    'other_right' => 'name',
+    'other_bottom' => 'name',
+    'other_left' => 'name',
+    'name_field' => 'name',
+    'description_field' => '#row',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_ref_sensor_device_user_target_id']['id'] = 'field_ref_sensor_device_user_target_id';
+  $handler->display->display_options['relationships']['field_ref_sensor_device_user_target_id']['table'] = 'field_data_field_ref_sensor_device_user';
+  $handler->display->display_options['relationships']['field_ref_sensor_device_user_target_id']['field'] = 'field_ref_sensor_device_user_target_id';
+  $handler->display->display_options['relationships']['field_ref_sensor_device_user_target_id']['required'] = 0;
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_ref_sensor_device_node']['id'] = 'reverse_field_ref_sensor_device_node';
+  $handler->display->display_options['relationships']['reverse_field_ref_sensor_device_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_ref_sensor_device_node']['field'] = 'reverse_field_ref_sensor_device_node';
+  $handler->display->display_options['relationships']['reverse_field_ref_sensor_device_node']['label'] = 'Inhoud referencing Inhoud from field_ref_sensor_device';
+  $handler->display->display_options['relationships']['reverse_field_ref_sensor_device_node']['required'] = 0;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'field_ref_sensor_device_user_target_id';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['name']['link_to_user'] = 0;
+  $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
+  $handler->display->display_options['fields']['name']['format_username'] = 1;
+  /* Field: Content: Location */
+  $handler->display->display_options['fields']['field_sensor_device_location']['id'] = 'field_sensor_device_location';
+  $handler->display->display_options['fields']['field_sensor_device_location']['table'] = 'field_data_field_sensor_device_location';
+  $handler->display->display_options['fields']['field_sensor_device_location']['field'] = 'field_sensor_device_location';
+  $handler->display->display_options['fields']['field_sensor_device_location']['label'] = '';
+  $handler->display->display_options['fields']['field_sensor_device_location']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_sensor_device_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_sensor_device_location']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_sensor_device_location']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_sensor_device_location']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_sensor_device_location']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_sensor_device_location']['settings'] = array(
+    'data' => 'full',
+  );
+  $handler->display->display_options['fields']['field_sensor_device_location']['field_api_classes'] = 1;
+  /* Field: Content: Sensor value timestamp */
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['id'] = 'field_sensor_val_timestamp';
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['table'] = 'field_data_field_sensor_val_timestamp';
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['field'] = 'field_sensor_val_timestamp';
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['relationship'] = 'reverse_field_ref_sensor_device_node';
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['label'] = '';
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['text'] = '[field_sensor_val_timestamp-value]';
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_sensor_val_timestamp']['field_api_classes'] = 1;
+  /* Field: Gebruiker: Team */
+  $handler->display->display_options['fields']['field_user_team']['id'] = 'field_user_team';
+  $handler->display->display_options['fields']['field_user_team']['table'] = 'field_data_field_user_team';
+  $handler->display->display_options['fields']['field_user_team']['field'] = 'field_user_team';
+  $handler->display->display_options['fields']['field_user_team']['relationship'] = 'field_ref_sensor_device_user_target_id';
+  $handler->display->display_options['fields']['field_user_team']['label'] = '';
+  $handler->display->display_options['fields']['field_user_team']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_user_team']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_user_team']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_user_team']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_team']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_user_team']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_user_team']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_user_team']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_user_team']['field_api_classes'] = 1;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_value'] = 'return $row->field_sensor_val_timestamp;';
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php 
+//sadly we load the event node (views messes up here)
+if ($value):
+  $event=node_load($value);
+  $timestamp = $event->field_sensor_val_timestamp[\'und\'][0][\'value\'];
+  $today = date(\'j\');
+  $timestamp_day = date(\'j\',$timestamp);
+  if ($today == $timestamp_day) {
+    $timestamp_text = "om ".date(\'G:i\',$timestamp);
+  } else {
+    $timestamp_text = "op ".date(\'j/n\',$timestamp)." om ".date(\'G:i\',$timestamp);
+  }
+?>
+hoorde laatst iemand fluiten <?php print $timestamp_text; ?>
+<?php else: ?>
+hoorde nog niemand fluiten tijdens deze campagne!
+<?php endif; ?>';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'scoga_sensor_device' => 'scoga_sensor_device',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
   $translatables['poi_overview'] = array(
     t('Master'),
     t('POI\'s'),
@@ -233,6 +453,10 @@ function scoga_geochallenges_extensions_views_default_views() {
     t('Zwerm Kaart'),
     t('Block'),
     t('Geo Challenge'),
+    t('Birds Data Overlay'),
+    t('Gebruiker entity referenced from field_ref_sensor_device_user'),
+    t('Inhoud referencing Inhoud from field_ref_sensor_device'),
+    t('[field_sensor_val_timestamp-value]'),
   );
   $export['poi_overview'] = $view;
 

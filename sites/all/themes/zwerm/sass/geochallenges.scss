@@ -19,10 +19,15 @@
   #edit-submit{
     background-color: $green-marking-color;
     text-align: center;
-    padding: 10px 0 10px 0;
+    padding: 5px 0 5px 0;
     margin: 2px 0 30px 0;
     font-family: "Romina";
     font-size: 1.4em;
+    height: 2em;
+  }
+
+  #edit-field-comment {
+    padding: 0 10px;
   }
 }
 
@@ -44,6 +49,7 @@
 .field-name-field-description {
   font-size: 1.2em;
   margin: 0 0 10px 0;
+  color: black;
 }
 
 .node-type-geo-challenge .view-poi-per-challenge {
@@ -91,9 +97,6 @@
   }
 }
 
-.geochallenge-details-label {
-
-}
 
 .geochallenge-details-value {
   margin: 0 0 0 5px;
@@ -124,6 +127,7 @@
   margin: 2px 0 2px 0;
   font-family: Romina;
   font-size: 1.4em;
+  color: #ffffff;
 
   span {
     background-image: url('../images/expand_icon.png');
@@ -156,7 +160,6 @@
   background-color: $green-marking-color;
   padding: 5px 10px;
   color: white;
-  margin-top: 10px;
   border-bottom: 2px solid black;
   label {
     font-family: romina;
@@ -259,9 +262,12 @@
   margin: 4px 20px 0 0;
 }
 
-.page-kaart .view-poi-overview,
 .section-geochallenges .view-poi-overview {
   margin: 15px 0 50px 0;
+}
+
+.page-kaart .view-poi-overview {
+  margin: 0px 0 2px 0;
 }
 
 .page-kaart #popup_contentDiv,
@@ -305,6 +311,4 @@
 
 }
 
-.section-geochallenges #main {
-  background-color: #000000;
-}
+
