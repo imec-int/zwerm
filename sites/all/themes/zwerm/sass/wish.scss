@@ -93,7 +93,7 @@
     display: none;
   }
 
-  .node-nodetype-wished-item, .node-type-nodetype-wished-item
+  .node-nodetype-wished-item
   {
     li
     {
@@ -137,6 +137,30 @@
       }
     }
 
+    .buttons
+    {
+      display:inline-block;
+      margin-bottom: 10px;
+    }
+
+    .edit_wijkzoeker
+    {
+      display:block;
+      margin-bottom: 80px;
+      display:inline;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      padding-left: 15px;
+      float: left;
+      a
+      {
+        @include action-button;
+        padding:7px;
+        margin-bottom: 5px;
+        font-size: small;
+      }
+    }
+
     .set_as_fulfilled
     {
       display:block;
@@ -147,25 +171,6 @@
       float: left;
       a
       {
-        //color: black;
-        @include action-button;
-        padding:7px;
-        margin-bottom: 5px;
-        font-size: small;
-      }
-    }
-
-    .edit-wish
-    {
-      display:block;
-      margin-bottom: 80px;
-      display:inline;
-      margin-bottom: 20px;
-      margin-top: 10px;
-      float: left;
-      a
-      {
-        //color: black;
         @include action-button;
         padding:7px;
         margin-bottom: 5px;
