@@ -103,31 +103,31 @@
   display: none;
 }
 /* line 102, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item li a, .node-type-nodetype-wished-item .node-nodetype-wished-item li a {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item li a, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item li a, .node-type-nodetype-wished-item .node-nodetype-wished-item li a, .node-type-nodetype-wished-item .node-type-nodetype-wished-item li a {
   padding-left: 20px;
 }
 /* line 108, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item header, .node-type-nodetype-wished-item .node-nodetype-wished-item header {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item header, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item header, .node-type-nodetype-wished-item .node-nodetype-wished-item header, .node-type-nodetype-wished-item .node-type-nodetype-wished-item header {
   padding-left: 20px;
 }
 /* line 114, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .node-nodetype-wished-item .user-picture {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .user-picture, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .node-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .node-type-nodetype-wished-item .user-picture {
   padding-right: 16px;
 }
 /* line 120, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item ul.inline, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline, .node-type-nodetype-wished-item .node-type-nodetype-wished-item ul.inline {
   display: block;
   margin-bottom: 80px;
 }
 /* line 124, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item ul.inline li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li, .node-type-nodetype-wished-item .node-type-nodetype-wished-item ul.inline li {
   display: inline;
   margin-bottom: 20px;
   margin-top: 10px;
   float: left;
 }
 /* line 130, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li a {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li a, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item ul.inline li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li a, .node-type-nodetype-wished-item .node-type-nodetype-wished-item ul.inline li a {
   background-color: #333333;
   height: 30px;
   color: white;
@@ -138,7 +138,7 @@
   font-size: small;
 }
 /* line 141, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item .set_as_fulfilled, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled, .node-type-nodetype-wished-item .node-type-nodetype-wished-item .set_as_fulfilled {
   display: block;
   margin-bottom: 80px;
   display: inline;
@@ -147,7 +147,7 @@
   float: left;
 }
 /* line 149, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item .set_as_fulfilled a, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a, .node-type-nodetype-wished-item .node-type-nodetype-wished-item .set_as_fulfilled a {
   background-color: #333333;
   height: 30px;
   color: white;
@@ -158,7 +158,7 @@
   font-size: small;
 }
 /* line 159, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item .edit-wish, .node-type-nodetype-wished-item .node-nodetype-wished-item .edit-wish {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .edit-wish, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item .edit-wish, .node-type-nodetype-wished-item .node-nodetype-wished-item .edit-wish, .node-type-nodetype-wished-item .node-type-nodetype-wished-item .edit-wish {
   display: block;
   margin-bottom: 80px;
   display: inline;
@@ -167,7 +167,7 @@
   float: left;
 }
 /* line 167, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item .edit-wish a, .node-type-nodetype-wished-item .node-nodetype-wished-item .edit-wish a {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .edit-wish a, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item .edit-wish a, .node-type-nodetype-wished-item .node-nodetype-wished-item .edit-wish a, .node-type-nodetype-wished-item .node-type-nodetype-wished-item .edit-wish a {
   background-color: #333333;
   height: 30px;
   color: white;
@@ -178,11 +178,11 @@
   font-size: small;
 }
 /* line 177, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item ul.inline.clearfix li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li, .node-type-nodetype-wished-item .node-type-nodetype-wished-item ul.inline.clearfix li {
   display: block;
 }
 /* line 180, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a, .page-node-add-nodetype-wished-item .node-type-nodetype-wished-item ul.inline.clearfix li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a, .node-type-nodetype-wished-item .node-type-nodetype-wished-item ul.inline.clearfix li a {
   color: white;
 }
 /* line 187, ../sass/wish.scss */
