@@ -57,8 +57,8 @@ function scoga_birds_update($birds)
     $co2_events_count = count($co2_events);
     if ($co2_events_count > 0) {
       $latest_co2_value = $co2_events[$co2_events_count-1];
-    }
-    */
+    }*/
+
 
   }
 
