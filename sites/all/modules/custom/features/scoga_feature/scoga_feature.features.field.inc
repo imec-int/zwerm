@@ -3207,7 +3207,7 @@ DO NOT MODIFY ONCE SET!',
       'entity_type' => 'node',
       'fences_wrapper' => 'div',
       'field_name' => 'body',
-      'label' => 'Je wens',
+      'label' => 'Je wijkzoekertje',
       'required' => 0,
       'settings' => array(
         'display_summary' => 1,
@@ -4423,7 +4423,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
   t('Genric assignment team');
   t('HEX');
   t('Image');
-  t('Je wens');
+  t('Je wijkzoekertje');
   t('Location');
   t('Machine name');
   t('Optionally an RFID reader can be coupled to a Team, otherwise it\'s possible to have combo checkins when two team members checkin at different hollow trees. This should obviously be avoided.');

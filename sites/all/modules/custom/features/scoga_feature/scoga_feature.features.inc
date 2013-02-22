@@ -242,7 +242,7 @@ NOT MEANT FOR MANUAL CONSTRUCTION.'),
       'help' => '',
     ),
     'nodetype_wished_item' => array(
-      'name' => t('Wens'),
+      'name' => t('Wijkzoekertje'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
