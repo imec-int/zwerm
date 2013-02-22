@@ -53,12 +53,12 @@
   }
 }
 /* line 72, ../sass/play.scss */
-.color-79b1bd #content li.list_header_event, .color-79b1bd #content li.list_header_wish, .color-79b1bd #content li.list_header_question, .color-79b1bd #content li.list_header_geochallenge, .color-79b1bd #content li.list_header_poi_confirmation, .color-79b1bd #content li.list_header_active_generic_assignment {
+.color-79b1bd #content li.list_header_event, .color-79b1bd #content li.list_header_wish, .color-79b1bd #content li.list_header_question, .color-79b1bd #content li.list_header_geochallenge, .color-79b1bd #content li.list_header_poi_confirmation, .color-79b1bd #content li.list_header_active_generic_assignment, .color-79b1bd #content li.list_header_wishes_user {
   background-color: #7fb083;
 }
 
 /* line 84, ../sass/play.scss */
-.color-dc6058 #content li.list_header_event, .color-dc6058 #content li.list_header_wish, .color-dc6058 #content li.list_header_question, .color-dc6058 #content li.list_header_geochallenge, .color-dc6058 #content li.list_header_poi_confirmation, .color-dc6058 #content li.list_header_active_generic_assignment {
+.color-dc6058 #content li.list_header_event, .color-dc6058 #content li.list_header_wish, .color-dc6058 #content li.list_header_question, .color-dc6058 #content li.list_header_geochallenge, .color-dc6058 #content li.list_header_poi_confirmation, .color-dc6058 #content li.list_header_active_generic_assignment, .color-dc6058 #content li.list_header_wishes_user {
   background-color: #7fb083;
 }
 
@@ -87,10 +87,11 @@
   padding-top: 19px;
   padding-left: 26px;
 }
-/* line 121, ../sass/play.scss */
+/* line 122, ../sass/play.scss */
 .page-spelopdrachten #content li.list_header_event:after, .page-spelopdrachten #content li.list_header_wish:after, .page-spelopdrachten #content li.list_header_question:after,
 .page-spelopdrachten #content li.list_header_geochallenge:after, .page-spelopdrachten #content li.list_header_poi_confirmation:after,
-.page-spelopdrachten #content li.list_header_active_generic_assignment:after {
+.page-spelopdrachten #content li.list_header_active_generic_assignment:after,
+.page-spelopdrachten #content li.list_header_wishes_user:after {
   content: url("../images/expand_icon.png");
   display: inline;
   float: left;
@@ -98,7 +99,7 @@
   padding-right: 0px;
   font-size: large;
 }
-/* line 131, ../sass/play.scss */
+/* line 132, ../sass/play.scss */
 .page-spelopdrachten #content li:after {
   content: ">";
   display: inline;
@@ -107,29 +108,29 @@
   padding-right: 25px;
   font-size: large;
 }
-/* line 141, ../sass/play.scss */
+/* line 142, ../sass/play.scss */
 .page-spelopdrachten #content a {
   color: black;
   margin-left: 46px;
   margin-top: 10px;
 }
-/* line 150, ../sass/play.scss */
+/* line 151, ../sass/play.scss */
 .page-spelopdrachten #content #select_list ul {
   margin-top: 2px;
 }
-/* line 155, ../sass/play.scss */
+/* line 156, ../sass/play.scss */
 .page-spelopdrachten #content #select_list a {
   line-height: 3.8em;
 }
-/* line 161, ../sass/play.scss */
+/* line 162, ../sass/play.scss */
 .page-spelopdrachten #content #main-content {
   display: none;
 }
-/* line 166, ../sass/play.scss */
+/* line 167, ../sass/play.scss */
 .page-spelopdrachten #content #dialog {
   display: none;
 }
-/* line 171, ../sass/play.scss */
+/* line 172, ../sass/play.scss */
 .page-spelopdrachten #content .help {
   display: inline-block;
   float: right;
@@ -144,7 +145,7 @@
   margin-left: 9px;
   margin-top: 10px;
 }
-/* line 176, ../sass/play.scss */
+/* line 177, ../sass/play.scss */
 .page-spelopdrachten .link_truncated {
   text-overflow: ellipsis;
   display: inline-block;
@@ -153,14 +154,14 @@
   overflow: hidden;
   vertical-align: top;
 }
-/* line 181, ../sass/play.scss */
+/* line 182, ../sass/play.scss */
 .page-spelopdrachten .time_to_end {
   background-color: white;
   border-bottom-style: solid;
   border-width: 1px;
   padding-left: 25px;
 }
-/* line 189, ../sass/play.scss */
+/* line 190, ../sass/play.scss */
 .page-spelopdrachten .time_interval_label, .page-spelopdrachten .time_interval {
   display: inline;
 }

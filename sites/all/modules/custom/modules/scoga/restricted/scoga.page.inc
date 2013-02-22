@@ -9,6 +9,7 @@
         public $team_ref_field;
         public $user_team;
         public $current_campaign_id;
+        public $user;
     }
 
     /*
@@ -132,6 +133,13 @@
             //wishes to be answered should have been posted by someone in opposing team
             $assignment_vo -> user_team = $assignment_vo -> opposing_team;
             _scoga_add_wishes_to_output($assignment_vo,$assignment_titles,$assignment_paths);
+            //add wishes posted by user
+            $assignment_vo -> content_type = 'nodetype_wished_item';
+            $assignment_vo -> label = 'Wish by you';
+            $assignment_vo -> header = 'Wishes by you';
+            $assignment_vo -> campaign_ref_field = 'field_wisheditem_campaign';
+            $assignment_vo -> user = $user->uid;
+            _scoga_add_own_wishes_to_output($assignment_vo,$assignment_titles,$assignment_paths);
             $output .= theme('get_points',array('assignment_titles' => $assignment_titles,'assignment_paths' => $assignment_paths));
         }
         else
@@ -166,6 +174,31 @@
             array(':user_id'=>$assignment_vo -> user_team,
                   ':campaign_id' =>   $assignment_vo -> current_campaign_id
         ));
+        foreach ($result as $row)
+        {
+            $nodes[] = node_load($row->nid);
+        }
+        _scoga_process_assignment_query_results($assignment_vo,$nodes,$assignment_titles,$assignment_paths);
+    }
+
+    function _scoga_add_own_wishes_to_output($assignment_vo,&$assignment_titles,&$assignment_paths)
+    {
+
+        $nodes = array();
+        $query = "SELECT nid FROM node
+            LEFT JOIN field_data_field_wisheditem_campaign AS campaign ON node.nid=campaign.entity_id
+            LEFT JOIN field_data_field_wisheditem_state AS state on node.nid=state.entity_id
+            WHERE node.type = 'nodetype_wished_item'
+            AND field_wisheditem_state_value = 'open'
+            AND campaign.field_wisheditem_campaign_target_id= :campaign_id
+            AND uid=:uid
+            ";
+
+        $result = db_query($query,
+            array(
+                ':campaign_id' =>   $assignment_vo -> current_campaign_id,
+                ':uid' => $assignment_vo -> user
+            ));
         foreach ($result as $row)
         {
             $nodes[] = node_load($row->nid);

@@ -69,12 +69,9 @@ function scoga_geochallenges_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 7,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -228,7 +225,7 @@ function scoga_geochallenges_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => 6,
+          'weight' => '2',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -304,7 +301,7 @@ function scoga_geochallenges_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => 5,
+          'weight' => '1',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -387,7 +384,7 @@ function scoga_geochallenges_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '4',
+          'weight' => '6',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -462,7 +459,7 @@ function scoga_geochallenges_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '3',
+          'weight' => '5',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -540,7 +537,7 @@ function scoga_geochallenges_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '1',
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -584,6 +581,9 @@ function scoga_geochallenges_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_comment',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -607,7 +607,7 @@ function scoga_geochallenges_field_default_fields() {
       'bundle' => 'poi',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Wil je nog extra opmerkingen of commentaar meegeven rond dit punt? Laat je dan hier (kort en bondig) gaan!',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -631,8 +631,9 @@ function scoga_geochallenges_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'fences_wrapper' => 'div',
       'field_name' => 'field_comment',
-      'label' => 'Comment',
+      'label' => 'Commentaar',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
@@ -1635,6 +1636,7 @@ function scoga_geochallenges_field_default_fields() {
   t('Campaign');
   t('Checking reward');
   t('Comment');
+  t('Commentaar');
   t('Defines which player activities are enabled for this challenge');
   t('Description');
   t('Geo Challenge');
@@ -1651,6 +1653,7 @@ function scoga_geochallenges_field_default_fields() {
   t('The name of a single unit of this POI type. For example, if you want to ask people to add trees, you would enter \'tree\'. (Lowercaps)');
   t('The plural form of the unit of POIs that need to be added. If you want players to add trees, then enter \'trees\' (lowercaps)');
   t('User');
+  t('Wil je nog extra opmerkingen of commentaar meegeven rond dit punt? Laat je dan hier (kort en bondig) gaan!');
 
   return $fields;
 }

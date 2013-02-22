@@ -472,6 +472,14 @@ a {
   @include hyperlink-style;
 }
 
+article
+{
+  a
+  {
+    color:$green-marking-color;
+  }
+}
+
 .selectedItem
 {
   background-color: $green-marking-color;

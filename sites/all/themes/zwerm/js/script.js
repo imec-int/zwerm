@@ -19,7 +19,8 @@
         window.scrollTo(0,1);
 
         // Find each of our input fields
-        var fields = $("form#user-login input");
+        //var fields = $("form#user-login input name,form#user-login input pass");
+        var fields = $("#edit-name,#edit-pass");
 
         // If a field gets focus then hide the label
         // (which is the previous element in the DOM).
@@ -32,6 +33,20 @@
         fields.blur(function(){
             if (!this.value) {
                 $(this).prev().show();
+            }
+        });
+
+        //if some browser feature has already added a value to the field,
+        //like retrieved credentials from keychain, hide the labels
+        fields.each(function(){
+            if (this.value){
+                $(this).prev().hide();
+            }
+        });
+
+        fields.change(function(){
+            if (this.value){
+                $(this).prev().hide();
             }
         });
 
@@ -69,6 +84,11 @@
         {
             jQuery(".collapsible").hide();
             jQuery(".generic_assignment").slideToggle(500);
+        });
+        jQuery(".list_header_wishes_user").click(function()
+        {
+            jQuery(".collapsible").hide();
+            jQuery(".wish_by_user").slideToggle(500);
         });
         jQuery("#menu_container").click(function()
         {
