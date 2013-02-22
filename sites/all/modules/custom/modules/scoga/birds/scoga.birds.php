@@ -8,8 +8,8 @@ $sensetale_login_details = array("username" => "zwerm", "password" => "gent_zwer
 $scoga_login_details = array("username" => "admin", "password" => "y_iQtn+-%7_<",);
 
 //$scoga_url = "http://localhost/smartip";
-$scoga_url = "http://staging.zwermgent.be";
-//$scoga_url = "http://www.zwermgent.be";
+//$scoga_url = "http://staging.zwermgent.be";
+$scoga_url = "https://www.zwermgent.be";
 
 $birds = array(
   'Bird 6' => '012896008852888',
