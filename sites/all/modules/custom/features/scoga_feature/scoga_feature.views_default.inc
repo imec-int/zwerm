@@ -2319,7 +2319,7 @@ return true;';
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['body']['field_api_classes'] = 1;
-  /* Sort criterion: Content: Sticky */
+  /* Sorteercriterium: Inhoud: Vastgeplakt (sticky) */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
@@ -2378,7 +2378,7 @@ return true;';
   $handler->display->display_options['filters']['type']['value'] = array(
     'page' => 'page',
   );
-  /* Filter criterion: Content: Nid */
+  /* Filtercriterium: Inhoud: Nid */
   $handler->display->display_options['filters']['nid']['id'] = 'nid';
   $handler->display->display_options['filters']['nid']['table'] = 'node';
   $handler->display->display_options['filters']['nid']['field'] = 'nid';
@@ -3416,9 +3416,13 @@ return true;*/';
   $handler = $view->new_display('page_with_page_title', 'Points in current campaign page', 'page_with_page_title_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['row_class'] = 'color[field_team_colour] ';
@@ -3530,7 +3534,7 @@ return true;*/';
   $handler->display->display_options['fields']['points']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
-  /* Field: User: Name */
+  /* Veld: Gebruiker: Naam */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3642,7 +3646,7 @@ return true;*/';
     t('Offset'),
     t('Description'),
     t('Points in current campaign page'),
-    t('All'),
+    t('Alle'),
   );
   $export['view_transactions'] = $view;
 
@@ -3874,7 +3878,7 @@ return true;*/';
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Wens';
+  $handler->display->display_options['fields']['title']['label'] = 'Wijkzoekertje';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
@@ -4410,8 +4414,8 @@ return true;*/';
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('author'),
-    t('Content entity referenced from field_user_team'),
+    t('auteur'),
+    t('Inhoud entity referenced from field_user_team'),
     t('Wens'),
     t('Gebruikersnaam'),
     t('Datum van inzending'),
