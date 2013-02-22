@@ -109,7 +109,7 @@
 
     <?php
     print ('<div id="dialog" title="Het speel venster">');
-    print ('Door deze wens in vervulling te laten gaan, kun je punten verdienen.');
+    print ('Door dit wijkzoekertje te vervullen kun je punten verdienen.');
     print('</div>');
     print('<div class="help"><a >?</a></div>');
     // We hide the comments and links now so that we can render them later.
@@ -117,8 +117,23 @@
     hide($content['links']);
     print render($content);
     ?>
+    <?php
+            global $user;
+            if($user->uid==$node->uid)
+            {
+                print ('<div class="set_as_fulfilled">
+                        <a href="'.$base_path.'/node/add/nodetype-wish-fulfilled">'.t('Stel in als vervuld').'</a>
+                    </div>');
+                print ('<div class="edit_wish">
+                        <a href="'.$base_path.'/node/'.$node->nid.'/edit">'.t('Bewerken').'</a>
+                    </div>');
+            }
+            else
+            {
+                print render($content['links']);
+            }
+            ?>
 
-    <?php print render($content['links']); ?>
 
     <?php print render($content['comments']); ?>
 

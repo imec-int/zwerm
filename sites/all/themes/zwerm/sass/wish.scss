@@ -24,6 +24,11 @@
 {
   background-color: $white-background-color;
 
+  #content .tabs
+  {
+    display:none;
+  }
+
   .flag-message
   {
     font-size:0;
@@ -88,7 +93,7 @@
     display: none;
   }
 
-  .node-nodetype-wished-item
+  .node-nodetype-wished-item, .node-type-nodetype-wished-item
   {
     li
     {
@@ -129,6 +134,42 @@
           margin-bottom: 5px;
           font-size: small;
         }
+      }
+    }
+
+    .set_as_fulfilled
+    {
+      display:block;
+      margin-bottom: 80px;
+      display:inline;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      float: left;
+      a
+      {
+        //color: black;
+        @include action-button;
+        padding:7px;
+        margin-bottom: 5px;
+        font-size: small;
+      }
+    }
+
+    .edit-wish
+    {
+      display:block;
+      margin-bottom: 80px;
+      display:inline;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      float: left;
+      a
+      {
+        //color: black;
+        @include action-button;
+        padding:7px;
+        margin-bottom: 5px;
+        font-size: small;
       }
     }
 
