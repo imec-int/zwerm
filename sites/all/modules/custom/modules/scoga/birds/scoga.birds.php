@@ -96,8 +96,6 @@ function scoga_sensetale_report_device_sensor_event($device_name, $sensor, $valu
 "field_sensor_val":{"und":{"0":{"value":"'.$value.'"}}}
 }';
   $response = call_api("POST", $scoga_url . "/rest/node", $data, $cookie);
-  error_log($response);
-  error_log("sensor event logged via " . $scoga_url . "/rest/node");
 }
 
 function call_api($method, $url, $data = false, $cookie = false)
