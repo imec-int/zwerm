@@ -117,15 +117,17 @@
     hide($content['links']);
     print render($content);
     ?>
-
-    <?php print render($content['links']); ?>
     <?php
             global $user;
             if($user->uid==$node->uid)
             {
-            print ('<div class="set_as_fulfilled">
+                print ('<div class="set_as_fulfilled">
                         <a href="'.$base_path.'/node/add/nodetype-wish-fulfilled">'.t('Stel in als vervuld').'</a>
                     </div>');
+            }
+            else
+            {
+                print render($content['links']);
             }
             ?>
 
