@@ -47,13 +47,13 @@ function scoga_feature_views_default_views() {
   );
   $handler->display->display_options['row_options']['hide_empty'] = 1;
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
-  /* Relatie: Handler defect of ontbreekt */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_assignment_participants_target_id']['id'] = 'field_assignment_participants_target_id';
   $handler->display->display_options['relationships']['field_assignment_participants_target_id']['table'] = 'field_data_field_assignment_participants';
   $handler->display->display_options['relationships']['field_assignment_participants_target_id']['field'] = 'field_assignment_participants_target_id';
   $handler->display->display_options['relationships']['field_assignment_participants_target_id']['label'] = 'User entity referenced from field_assignment_participants';
   $handler->display->display_options['relationships']['field_assignment_participants_target_id']['required'] = 0;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -69,7 +69,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Veld: Handler defect of ontbreekt */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_assignment_participants']['id'] = 'field_assignment_participants';
   $handler->display->display_options['fields']['field_assignment_participants']['table'] = 'field_data_field_assignment_participants';
   $handler->display->display_options['fields']['field_assignment_participants']['field'] = 'field_assignment_participants';
@@ -91,7 +91,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['field_assignment_participants']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_assignment_participants']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_assignment_participants']['hide_alter_empty'] = 1;
-  /* Veld: Handler defect of ontbreekt */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_assignment_period']['id'] = 'field_assignment_period';
   $handler->display->display_options['fields']['field_assignment_period']['table'] = 'field_data_field_assignment_period';
   $handler->display->display_options['fields']['field_assignment_period']['field'] = 'field_assignment_period';
@@ -114,32 +114,32 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['field_assignment_period']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_assignment_period']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_assignment_period']['hide_alter_empty'] = 1;
-  /* Sorteercriterium: Handler defect of ontbreekt */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['field_assignment_period_value2']['id'] = 'field_assignment_period_value2';
   $handler->display->display_options['sorts']['field_assignment_period_value2']['table'] = 'field_data_field_assignment_period';
   $handler->display->display_options['sorts']['field_assignment_period_value2']['field'] = 'field_assignment_period_value2';
   $handler->display->display_options['sorts']['field_assignment_period_value2']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_assignment_period_value2']['expose']['label'] = 'End time';
-  /* Sorteercriterium: Handler defect of ontbreekt */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['field_assignment_awardpoints_value']['id'] = 'field_assignment_awardpoints_value';
   $handler->display->display_options['sorts']['field_assignment_awardpoints_value']['table'] = 'field_data_field_assignment_awardpoints';
   $handler->display->display_options['sorts']['field_assignment_awardpoints_value']['field'] = 'field_assignment_awardpoints_value';
   $handler->display->display_options['sorts']['field_assignment_awardpoints_value']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'nodetype_assignment' => 'nodetype_assignment',
   );
-  /* Filtercriterium: Gebruiker: Huidige */
+  /* Filter criterion: User: Current */
   $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
   $handler->display->display_options['filters']['uid_current']['table'] = 'users';
   $handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
@@ -157,7 +157,7 @@ function scoga_feature_views_default_views() {
     t('Master'),
     t('My assignments'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -166,9 +166,10 @@ function scoga_feature_views_default_views() {
     t('- Alle -'),
     t('Offset'),
     t('User entity referenced from field_assignment_participants'),
-    t('Kapotte handler field_data_field_assignment_participants.field_assignment_participants'),
+    t('Broken handler field_data_field_assignment_participants.field_assignment_participants'),
     t('End time'),
     t('Page'),
+    t('more'),
   );
   $export['assignments_for_current_user'] = $view;
 
@@ -235,12 +236,12 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
   $handler->display->display_options['style_options']['empty_table'] = 0;
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = 0;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -263,7 +264,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -286,7 +287,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['created']['empty_zero'] = 0;
   $handler->display->display_options['fields']['created']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['created']['date_format'] = 'short';
-  /* Veld: Inhoud: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
@@ -310,7 +311,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['type']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['type']['link_to_node'] = 0;
   $handler->display->display_options['fields']['type']['machine_name'] = 0;
-  /* Veld: Inhoud: Heeft nieuwe inhoud */
+  /* Field: Content: Has new content */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'history';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
@@ -335,7 +336,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['timestamp']['link_to_node'] = 0;
   $handler->display->display_options['fields']['timestamp']['comments'] = 0;
-  /* Veld: Inhoud: Nieuwe reacties */
+  /* Field: Content: New comments */
   $handler->display->display_options['fields']['new_comments']['id'] = 'new_comments';
   $handler->display->display_options['fields']['new_comments']['table'] = 'node';
   $handler->display->display_options['fields']['new_comments']['field'] = 'new_comments';
@@ -360,14 +361,14 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['new_comments']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['new_comments']['format_plural'] = 0;
   $handler->display->display_options['fields']['new_comments']['link_to_comment'] = 1;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Gebruiker: Huidige */
+  /* Filter criterion: User: Current */
   $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
   $handler->display->display_options['filters']['uid_current']['table'] = 'users';
   $handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
@@ -381,7 +382,7 @@ function scoga_feature_views_default_views() {
     t('Master'),
     t('My content'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -389,13 +390,14 @@ function scoga_feature_views_default_views() {
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('auteur'),
-    t('Titel'),
-    t('Datum van inzending'),
+    t('author'),
+    t('Title'),
+    t('Post date'),
     t('Type'),
     t('.'),
     t(','),
     t('Page'),
+    t('more'),
   );
   $export['content_of_current_user'] = $view;
 
@@ -425,7 +427,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'openlayers_map';
   $handler->display->display_options['style_options']['map'] = 'event_formatter_map';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -441,12 +443,12 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -463,12 +465,13 @@ function scoga_feature_views_default_views() {
   $translatables['event_content_type_map'] = array(
     t('Master'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
     t('Aflopend'),
     t('Page'),
+    t('more'),
     t('Block'),
   );
   $export['event_content_type_map'] = $view;
@@ -512,7 +515,7 @@ function scoga_feature_views_default_views() {
     'description_field' => '',
   );
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -528,7 +531,7 @@ function scoga_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Veld: Inhoud: Location */
+  /* Field: Content: Location */
   $handler->display->display_options['fields']['field_event_location']['id'] = 'field_event_location';
   $handler->display->display_options['fields']['field_event_location']['table'] = 'field_data_field_event_location';
   $handler->display->display_options['fields']['field_event_location']['field'] = 'field_event_location';
@@ -558,12 +561,12 @@ function scoga_feature_views_default_views() {
     'data' => 'full',
   );
   $handler->display->display_options['fields']['field_event_location']['field_api_classes'] = 1;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextuele filter: Inhoud: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -579,14 +582,14 @@ else return 0;';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -602,7 +605,7 @@ else return 0;';
   $translatables['event_map_overlay'] = array(
     t('Master'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -610,8 +613,9 @@ else return 0;';
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Alle'),
+    t('All'),
     t('OpenLayers Data Overlay'),
+    t('more'),
   );
   $export['event_map_overlay'] = $view;
 
@@ -647,12 +651,12 @@ else return 0;';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relatie: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -677,7 +681,7 @@ else return 0;';
   $handler->display->display_options['fields']['picture']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = 1;
   $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -703,7 +707,7 @@ else return 0;';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Gebruiker: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -727,7 +731,7 @@ else return 0;';
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
-  /* Veld: Gebruiker: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -751,7 +755,7 @@ else return 0;';
   $handler->display->display_options['fields']['field_user_surname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 0;
-  /* Veld: Userpoints: Current points in category */
+  /* Field: Userpoints: Current points in category */
   $handler->display->display_options['fields']['points']['id'] = 'points';
   $handler->display->display_options['fields']['points']['table'] = 'userpoints';
   $handler->display->display_options['fields']['points']['field'] = 'points';
@@ -775,11 +779,11 @@ else return 0;';
   $handler->display->display_options['fields']['points']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
-  /* Sorteercriterium: Gebruiker: Naam */
+  /* Sort criterion: User: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'users';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Contextuele filter: Inhoud: Titel */
+  /* Contextual filter: Content: Title */
   $handler->display->display_options['arguments']['title']['id'] = 'title';
   $handler->display->display_options['arguments']['title']['table'] = 'node';
   $handler->display->display_options['arguments']['title']['field'] = 'title';
@@ -798,7 +802,7 @@ else return 0;';
     1 => 'OR',
     2 => 'AND',
   );
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -897,7 +901,7 @@ else return 0;';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Team colour */
+  /* Field: Content: Team colour */
   $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
@@ -925,7 +929,7 @@ else return 0;';
   $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
-  /* Veld: field counter */
+  /* Field: field counter */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
@@ -960,7 +964,7 @@ return $reformattedNr;
 ';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Veld: Gebruiker: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -985,7 +989,7 @@ return $reformattedNr;
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 1;
-  /* Veld: Gebruiker: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -1011,7 +1015,7 @@ return $reformattedNr;
   $handler->display->display_options['fields']['field_user_surname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 1;
-  /* Veld: Gebruiker: Team */
+  /* Field: Gebruiker: Team */
   $handler->display->display_options['fields']['field_user_team']['id'] = 'field_user_team';
   $handler->display->display_options['fields']['field_user_team']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['fields']['field_user_team']['field'] = 'field_user_team';
@@ -1038,7 +1042,7 @@ return $reformattedNr;
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_user_team']['field_api_classes'] = 0;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1066,7 +1070,7 @@ return $reformattedNr;
   $handler->display->display_options['fields']['name']['link_to_user'] = 0;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Userpoints: Current points in category */
+  /* Field: Userpoints: Current points in category */
   $handler->display->display_options['fields']['points_1']['id'] = 'points_1';
   $handler->display->display_options['fields']['points_1']['table'] = 'userpoints';
   $handler->display->display_options['fields']['points_1']['field'] = 'points';
@@ -1093,7 +1097,7 @@ return $reformattedNr;
   $handler->display->display_options['fields']['points_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points_1']['format_plural'] = 0;
   $handler->display->display_options['fields']['points_1']['suffix'] = ' punten';
-  /* Veld: Gebruiker: Uid */
+  /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -1119,7 +1123,7 @@ return $reformattedNr;
   $handler->display->display_options['fields']['uid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['uid']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['uid']['link_to_user'] = 0;
-  /* Veld: Taxonomie term: Term-ID */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -1144,13 +1148,13 @@ return $reformattedNr;
   $handler->display->display_options['fields']['tid']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['tid']['format_plural'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Userpoints: Current points in category */
+  /* Sort criterion: Userpoints: Current points in category */
   $handler->display->display_options['sorts']['points']['id'] = 'points';
   $handler->display->display_options['sorts']['points']['table'] = 'userpoints';
   $handler->display->display_options['sorts']['points']['field'] = 'points';
   $handler->display->display_options['sorts']['points']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextuele filter: Taxonomie term: Term-ID */
+  /* Contextual filter: Taxonomy term: Term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -1164,14 +1168,14 @@ return $reformattedNr;
   $handler->display->display_options['arguments']['tid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['tid']['not'] = 0;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: select items for leaderboard */
+  /* Filter criterion: select items for leaderboard */
   $handler->display->display_options['filters']['php']['id'] = 'php';
   $handler->display->display_options['filters']['php']['table'] = 'views';
   $handler->display->display_options['filters']['php']['field'] = 'php';
@@ -1191,7 +1195,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $translatables['leader'] = array(
     t('Master'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -1199,17 +1203,18 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Inhoud entity referenced from field_user_team'),
+    t('Content entity referenced from field_user_team'),
     t('Gebruikersnaam'),
     t('Naam'),
     t('Punten'),
     t('.'),
     t(','),
-    t('Alle'),
+    t('All'),
     t('Leaderboard'),
+    t('more'),
     t('$user->uid'),
     t(' punten'),
-    t('Term-ID'),
+    t('Term ID'),
   );
   $export['leader'] = $view;
 
@@ -1245,12 +1250,12 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = 0;
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
-  /* Relatie: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1267,7 +1272,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['name']['empty_zero'] = 0;
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
-  /* Veld: Gebruiker: Team */
+  /* Field: Gebruiker: Team */
   $handler->display->display_options['fields']['field_user_team']['id'] = 'field_user_team';
   $handler->display->display_options['fields']['field_user_team']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['fields']['field_user_team']['field'] = 'field_user_team';
@@ -1296,12 +1301,12 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_user_team']['field_api_classes'] = 1;
-  /* Sorteercriterium: Gebruiker: Aanmaakdatum */
+  /* Sort criterion: User: Created date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'users';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextuele filter: Inhoud: Titel */
+  /* Contextual filter: Content: Title */
   $handler->display->display_options['arguments']['title']['id'] = 'title';
   $handler->display->display_options['arguments']['title']['table'] = 'node';
   $handler->display->display_options['arguments']['title']['field'] = 'title';
@@ -1315,7 +1320,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['arguments']['title']['limit'] = '0';
   $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
   $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1330,7 +1335,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     t('Master'),
     t('Actieve leden'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -1338,9 +1343,10 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Inhoud entity referenced from field_user_team'),
-    t('Alle'),
+    t('Content entity referenced from field_user_team'),
+    t('All'),
     t('Page'),
+    t('more'),
   );
   $export['players_by_team'] = $view;
 
@@ -1380,7 +1386,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['style_options']['columns'] = '5';
   $handler->display->display_options['style_options']['fill_single_line'] = 1;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1406,11 +1412,11 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Sorteercriterium: Gebruiker: Naam */
+  /* Sort criterion: User: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'users';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Contextuele filter: User relationships: Requester user */
+  /* Contextual filter: User relationships: Requester user */
   $handler->display->display_options['arguments']['requester_id']['id'] = 'requester_id';
   $handler->display->display_options['arguments']['requester_id']['table'] = 'user_relationships';
   $handler->display->display_options['arguments']['requester_id']['field'] = 'requester_id';
@@ -1422,7 +1428,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['arguments']['requester_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['requester_id']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['requester_id']['not'] = 1;
-  /* Contextuele filter: User relationships: Requestee user */
+  /* Contextual filter: User relationships: Requestee user */
   $handler->display->display_options['arguments']['requestee_id']['id'] = 'requestee_id';
   $handler->display->display_options['arguments']['requestee_id']['table'] = 'user_relationships';
   $handler->display->display_options['arguments']['requestee_id']['field'] = 'requestee_id';
@@ -1434,7 +1440,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['arguments']['requestee_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['requestee_id']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['requestee_id']['not'] = 1;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1453,7 +1459,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     t('Master'),
     t('Players you haven\'t checked in with before'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -1461,8 +1467,9 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Alle'),
+    t('All'),
     t('Page'),
+    t('more'),
     t('Spike'),
   );
   $export['players_no_checkin'] = $view;
@@ -1499,17 +1506,17 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = 0;
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
-  /* Relatie: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['id'] = 'field_campaignteam_team_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['table'] = 'field_data_field_campaignteam_team';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['field'] = 'field_campaignteam_team_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_team_target_id']['required'] = 0;
-  /* Relatie: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['id'] = 'field_campaignteam_campaign_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['table'] = 'field_data_field_campaignteam_campaign';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['field'] = 'field_campaignteam_campaign_target_id';
   $handler->display->display_options['relationships']['field_campaignteam_campaign_target_id']['required'] = 0;
-  /* Veld: Inhoud: Image */
+  /* Field: Content: Image */
   $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
   $handler->display->display_options['fields']['field_team_image']['table'] = 'field_data_field_team_image';
   $handler->display->display_options['fields']['field_team_image']['field'] = 'field_team_image';
@@ -1541,7 +1548,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   );
   $handler->display->display_options['fields']['field_team_image']['group_column'] = 'entity_id';
   $handler->display->display_options['fields']['field_team_image']['field_api_classes'] = 1;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1565,7 +1572,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title']['link_to_node'] = 0;
-  /* Veld: Inhoud: Team colour */
+  /* Field: Content: Team colour */
   $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
@@ -1590,7 +1597,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 0;
-  /* Veld: Global: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -1615,7 +1622,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
   $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 0;
-  /* Veld: Inhoud: Body */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -1642,7 +1649,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['body']['type'] = 'text_plain';
   $handler->display->display_options['fields']['body']['field_api_classes'] = 1;
-  /* Veld: Inhoud: Total points */
+  /* Field: Content: Total points */
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['id'] = 'field_campaignteam_totalpoints';
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['table'] = 'field_data_field_campaignteam_totalpoints';
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['field'] = 'field_campaignteam_totalpoints';
@@ -1674,7 +1681,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     'prefix_suffix' => 1,
   );
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['field_api_classes'] = 1;
-  /* Veld: Content revision: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
@@ -1699,12 +1706,12 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['title_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title_1']['link_to_node'] = 0;
   $handler->display->display_options['fields']['title_1']['link_to_node_revision'] = 0;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextuele filter: Inhoud: Campaign (field_campaignteam_campaign) */
+  /* Contextual filter: Content: Campaign (field_campaignteam_campaign) */
   $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['id'] = 'field_campaignteam_campaign_target_id';
   $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['table'] = 'field_data_field_campaignteam_campaign';
   $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['field'] = 'field_campaignteam_campaign_target_id';
@@ -1717,14 +1724,14 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['field_campaignteam_campaign_target_id']['not'] = 0;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1736,14 +1743,14 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   /* Display: Extended team view */
   $handler = $view->new_display('page', 'Extended team view', 'page');
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1763,7 +1770,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Content: Image */
   $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
   $handler->display->display_options['fields']['field_team_image']['table'] = 'field_data_field_team_image';
   $handler->display->display_options['fields']['field_team_image']['field'] = 'field_team_image';
@@ -1795,7 +1802,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_team_image']['field_api_classes'] = 1;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
@@ -1820,7 +1827,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['title_1']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title_1']['link_to_node'] = 0;
-  /* Veld: Inhoud: Total points */
+  /* Field: Content: Total points */
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['id'] = 'field_campaignteam_totalpoints';
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['table'] = 'field_data_field_campaignteam_totalpoints';
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['field'] = 'field_campaignteam_totalpoints';
@@ -1853,7 +1860,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     'prefix_suffix' => 1,
   );
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['field_api_classes'] = 0;
-  /* Veld: Global: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -1878,7 +1885,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
   $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 0;
-  /* Veld: Inhoud: Campaign */
+  /* Field: Content: Campaign */
   $handler->display->display_options['fields']['field_campaignteam_campaign']['id'] = 'field_campaignteam_campaign';
   $handler->display->display_options['fields']['field_campaignteam_campaign']['table'] = 'field_data_field_campaignteam_campaign';
   $handler->display->display_options['fields']['field_campaignteam_campaign']['field'] = 'field_campaignteam_campaign';
@@ -1908,7 +1915,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_campaignteam_campaign']['field_api_classes'] = 1;
-  /* Veld: Inhoud: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -1933,7 +1940,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['nid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nid']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['nid']['link_to_node'] = 0;
-  /* Veld: Inhoud: Body */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -1960,7 +1967,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['body']['field_api_classes'] = 1;
-  /* Veld: Inhoud: Team colour */
+  /* Field: Content: Team colour */
   $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
@@ -1989,14 +1996,14 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2008,7 +2015,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   /* Display: Team view with only score */
   $handler = $view->new_display('page', 'Team view with only score', 'page_2');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Team colour */
+  /* Field: Content: Team colour */
   $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
@@ -2036,7 +2043,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
-  /* Veld: Inhoud: Image */
+  /* Field: Content: Image */
   $handler->display->display_options['fields']['field_team_image']['id'] = 'field_team_image';
   $handler->display->display_options['fields']['field_team_image']['table'] = 'field_data_field_team_image';
   $handler->display->display_options['fields']['field_team_image']['field'] = 'field_team_image';
@@ -2068,7 +2075,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_team_image']['field_api_classes'] = 1;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
@@ -2095,7 +2102,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['title_1']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title_1']['link_to_node'] = 0;
-  /* Veld: Inhoud: Total points */
+  /* Field: Content: Total points */
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['id'] = 'field_campaignteam_totalpoints';
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['table'] = 'field_data_field_campaignteam_totalpoints';
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['field'] = 'field_campaignteam_totalpoints';
@@ -2128,7 +2135,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     'prefix_suffix' => 1,
   );
   $handler->display->display_options['fields']['field_campaignteam_totalpoints']['field_api_classes'] = 0;
-  /* Veld: Inhoud: Campaign */
+  /* Field: Content: Campaign */
   $handler->display->display_options['fields']['field_campaignteam_campaign']['id'] = 'field_campaignteam_campaign';
   $handler->display->display_options['fields']['field_campaignteam_campaign']['table'] = 'field_data_field_campaignteam_campaign';
   $handler->display->display_options['fields']['field_campaignteam_campaign']['field'] = 'field_campaignteam_campaign';
@@ -2158,7 +2165,7 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_campaignteam_campaign']['field_api_classes'] = 1;
-  /* Veld: Inhoud: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -2184,21 +2191,21 @@ return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static
   $handler->display->display_options['fields']['nid']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['nid']['link_to_node'] = 0;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'nodetype_campaign_team' => 'nodetype_campaign_team',
   );
-  /* Filtercriterium: Campaign is current campaign */
+  /* Filter criterion: Campaign is current campaign */
   $handler->display->display_options['filters']['php']['id'] = 'php';
   $handler->display->display_options['filters']['php']['table'] = 'views';
   $handler->display->display_options['filters']['php']['field'] = 'php';
@@ -2214,17 +2221,18 @@ return true;';
   $translatables['team_overview'] = array(
     t('Master'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
     t('Aflopend'),
-    t('Inhoud entity referenced from field_campaignteam_team'),
-    t('Inhoud entity referenced from field_campaignteam_campaign'),
+    t('Content entity referenced from field_campaignteam_team'),
+    t('Content entity referenced from field_campaignteam_campaign'),
     t('<a href=\'team/players/[title] \'>Bekijk actieve leden</a>'),
-    t('Titel'),
-    t('Alle'),
+    t('Title'),
+    t('All'),
     t('Extended team view'),
+    t('more'),
     t('Page'),
     t('Extended team view with score'),
     t('[field_campaignteam_totalpoints] punten'),
@@ -2261,7 +2269,7 @@ return true;';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2285,7 +2293,7 @@ return true;';
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title']['link_to_node'] = 0;
-  /* Veld: Inhoud: Body */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -2311,31 +2319,31 @@ return true;';
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['body']['field_api_classes'] = 1;
-  /* Sorteercriterium: Inhoud: Vastgeplakt (sticky) */
+  /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Aangeraden op de voorpagina */
+  /* Filter criterion: Content: Promoted to front page */
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
   $handler->display->display_options['filters']['promote']['value'] = '1';
   $handler->display->display_options['filters']['promote']['group'] = 0;
   $handler->display->display_options['filters']['promote']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2344,11 +2352,11 @@ return true;';
     'page' => 'page',
     'poll' => 'poll',
   );
-  /* Filtercriterium: Inhoud: Body (body) */
+  /* Filter criterion: Content: Body (body) */
   $handler->display->display_options['filters']['body_value']['id'] = 'body_value';
   $handler->display->display_options['filters']['body_value']['table'] = 'field_data_body';
   $handler->display->display_options['filters']['body_value']['field'] = 'body_value';
-  /* Filtercriterium: Inhoud: Titel */
+  /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
@@ -2356,21 +2364,21 @@ return true;';
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'page' => 'page',
   );
-  /* Filtercriterium: Inhoud: Nid */
+  /* Filter criterion: Content: Nid */
   $handler->display->display_options['filters']['nid']['id'] = 'nid';
   $handler->display->display_options['filters']['nid']['table'] = 'node';
   $handler->display->display_options['filters']['nid']['field'] = 'nid';
@@ -2393,7 +2401,7 @@ return true;';
   $translatables['view_front_page'] = array(
     t('Master'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -2402,6 +2410,7 @@ return true;';
     t('- Alle -'),
     t('Offset'),
     t('Page'),
+    t('more'),
     t('Feed'),
     t('Voorpagina-feed'),
   );
@@ -2439,12 +2448,12 @@ return true;';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relatie: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -2469,7 +2478,7 @@ return true;';
   $handler->display->display_options['fields']['picture']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = 1;
   $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2495,7 +2504,7 @@ return true;';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Gebruiker: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -2519,7 +2528,7 @@ return true;';
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
-  /* Veld: Gebruiker: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -2543,7 +2552,7 @@ return true;';
   $handler->display->display_options['fields']['field_user_surname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 0;
-  /* Veld: Userpoints: Current points in category */
+  /* Field: Userpoints: Current points in category */
   $handler->display->display_options['fields']['points']['id'] = 'points';
   $handler->display->display_options['fields']['points']['table'] = 'userpoints';
   $handler->display->display_options['fields']['points']['field'] = 'points';
@@ -2567,11 +2576,11 @@ return true;';
   $handler->display->display_options['fields']['points']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
-  /* Sorteercriterium: Gebruiker: Naam */
+  /* Sort criterion: User: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'users';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Contextuele filter: Inhoud: Titel */
+  /* Contextual filter: Content: Title */
   $handler->display->display_options['arguments']['title']['id'] = 'title';
   $handler->display->display_options['arguments']['title']['table'] = 'node';
   $handler->display->display_options['arguments']['title']['field'] = 'title';
@@ -2586,14 +2595,14 @@ return true;';
   $handler->display->display_options['arguments']['title']['limit'] = '0';
   $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
   $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Userpoints: Points category */
+  /* Filter criterion: Userpoints: Points category */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'userpoints';
   $handler->display->display_options['filters']['tid']['field'] = 'tid';
@@ -2605,7 +2614,7 @@ return true;';
   $handler = $view->new_display('page', 'Team members of current user', 'page');
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -2630,7 +2639,7 @@ return true;';
   $handler->display->display_options['fields']['picture']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = 1;
   $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2656,7 +2665,7 @@ return true;';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Gebruiker: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -2680,7 +2689,7 @@ return true;';
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
-  /* Veld: Gebruiker: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -2705,7 +2714,7 @@ return true;';
   $handler->display->display_options['fields']['field_user_surname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 0;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextuele filter: Gebruiker: Team (field_user_team) */
+  /* Contextual filter: Gebruiker: Team (field_user_team) */
   $handler->display->display_options['arguments']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
   $handler->display->display_options['arguments']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['arguments']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
@@ -2721,20 +2730,20 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['arguments']['field_user_team_target_id']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['field_user_team_target_id']['not'] = 0;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Gebruiker: Huidige */
+  /* Filter criterion: User: Current */
   $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
   $handler->display->display_options['filters']['uid_current']['table'] = 'users';
   $handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
   $handler->display->display_options['filters']['uid_current']['value'] = '0';
   $handler->display->display_options['filters']['uid_current']['group'] = 1;
-  /* Filtercriterium: Gebruiker: Laatste login */
+  /* Filter criterion: User: Last login */
   $handler->display->display_options['filters']['login']['id'] = 'login';
   $handler->display->display_options['filters']['login']['table'] = 'users';
   $handler->display->display_options['filters']['login']['field'] = 'login';
@@ -2815,7 +2824,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Gebruiker: Uid */
+  /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -2839,7 +2848,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['uid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['uid']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['uid']['link_to_user'] = 0;
-  /* Veld: Inhoud: Team colour */
+  /* Field: Content: Team colour */
   $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
@@ -2867,7 +2876,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -2892,7 +2901,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['picture']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = 1;
   $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2918,7 +2927,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Gebruiker: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -2948,7 +2957,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     'trim_length' => '600',
   );
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 1;
-  /* Veld: Gebruiker: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
@@ -2973,7 +2982,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['field_user_surname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_surname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_surname']['field_api_classes'] = 0;
-  /* Veld: Userpoints: Current points in category */
+  /* Field: Userpoints: Current points in category */
   $handler->display->display_options['fields']['points']['id'] = 'points';
   $handler->display->display_options['fields']['points']['table'] = 'userpoints';
   $handler->display->display_options['fields']['points']['field'] = 'points';
@@ -2999,7 +3008,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['points']['separator'] = '.';
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextuele filter: Inhoud: Titel */
+  /* Contextual filter: Content: Title */
   $handler->display->display_options['arguments']['title']['id'] = 'title';
   $handler->display->display_options['arguments']['title']['table'] = 'node';
   $handler->display->display_options['arguments']['title']['field'] = 'title';
@@ -3014,7 +3023,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['arguments']['title']['limit'] = '0';
   $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
   $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
-  /* Contextuele filter: Taxonomie term: Term-ID */
+  /* Contextual filter: Taxonomy term: Term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -3028,7 +3037,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['arguments']['tid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['tid']['not'] = 0;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -3055,7 +3064,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextuele filter: Inhoud: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -3075,7 +3084,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('Master'),
     t('%1'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -3083,14 +3092,15 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Inhoud entity referenced from field_user_team'),
+    t('Content entity referenced from field_user_team'),
     t('Gebruikersnaam'),
     t('Naam'),
     t('Punten'),
     t('.'),
     t(','),
-    t('Alle'),
+    t('All'),
     t('Team members of current user'),
+    t('more'),
     t('Players by team'),
     t('Uid'),
     t('user/[uid]'),
@@ -3132,18 +3142,18 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['row_options']['separator'] = '-';
   $handler->display->display_options['row_options']['hide_empty'] = 0;
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
-  /* Relatie: Userpoints Transactions: Gebruiker */
+  /* Relationship: Userpoints Transactions: User */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'userpoints_txn';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = 0;
-  /* Relatie: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['relationship'] = 'uid';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Veld: Userpoints Transactions: Punten */
+  /* Field: Userpoints Transactions: Points */
   $handler->display->display_options['fields']['points']['id'] = 'points';
   $handler->display->display_options['fields']['points']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['points']['field'] = 'points';
@@ -3167,7 +3177,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['points']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3194,7 +3204,7 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Userpoints Transactions: Tijdstip */
+  /* Field: Userpoints Transactions: Timestamp */
   $handler->display->display_options['fields']['time_stamp']['id'] = 'time_stamp';
   $handler->display->display_options['fields']['time_stamp']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['time_stamp']['field'] = 'time_stamp';
@@ -3218,12 +3228,12 @@ return $user_profile->field_user_team[ LANGUAGE_NONE ][ 0 ][ \'target_id\' ];';
   $handler->display->display_options['fields']['time_stamp']['empty_zero'] = 0;
   $handler->display->display_options['fields']['time_stamp']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['time_stamp']['date_format'] = 'time ago';
-  /* Sorteercriterium: Userpoints Transactions: Tijdstip */
+  /* Sort criterion: Userpoints Transactions: Timestamp */
   $handler->display->display_options['sorts']['time_stamp']['id'] = 'time_stamp';
   $handler->display->display_options['sorts']['time_stamp']['table'] = 'userpoints_txn';
   $handler->display->display_options['sorts']['time_stamp']['field'] = 'time_stamp';
   $handler->display->display_options['sorts']['time_stamp']['order'] = 'DESC';
-  /* Filtercriterium: Global: PHP */
+  /* Filter criterion: Global: PHP */
   $handler->display->display_options['filters']['php']['id'] = 'php';
   $handler->display->display_options['filters']['php']['table'] = 'views';
   $handler->display->display_options['filters']['php']['field'] = 'php';
@@ -3302,7 +3312,7 @@ return true;*/';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Userpoints Transactions: Punten */
+  /* Field: Userpoints Transactions: Points */
   $handler->display->display_options['fields']['points']['id'] = 'points';
   $handler->display->display_options['fields']['points']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['points']['field'] = 'points';
@@ -3326,7 +3336,7 @@ return true;*/';
   $handler->display->display_options['fields']['points']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3353,7 +3363,7 @@ return true;*/';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Userpoints Transactions: Tijdstip */
+  /* Field: Userpoints Transactions: Timestamp */
   $handler->display->display_options['fields']['time_stamp']['id'] = 'time_stamp';
   $handler->display->display_options['fields']['time_stamp']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['time_stamp']['field'] = 'time_stamp';
@@ -3377,7 +3387,7 @@ return true;*/';
   $handler->display->display_options['fields']['time_stamp']['empty_zero'] = 0;
   $handler->display->display_options['fields']['time_stamp']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['time_stamp']['date_format'] = 'time ago';
-  /* Veld: Userpoints Transactions: Beschrijving */
+  /* Field: Userpoints Transactions: Description */
   $handler->display->display_options['fields']['description']['id'] = 'description';
   $handler->display->display_options['fields']['description']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['description']['field'] = 'description';
@@ -3468,7 +3478,7 @@ return true;*/';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Team colour */
+  /* Field: Content: Team colour */
   $handler->display->display_options['fields']['field_team_colour']['id'] = 'field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['table'] = 'field_data_field_team_colour';
   $handler->display->display_options['fields']['field_team_colour']['field'] = 'field_team_colour';
@@ -3496,7 +3506,7 @@ return true;*/';
   $handler->display->display_options['fields']['field_team_colour']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_team_colour']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_team_colour']['field_api_classes'] = 1;
-  /* Veld: Userpoints Transactions: Punten */
+  /* Field: Userpoints Transactions: Points */
   $handler->display->display_options['fields']['points']['id'] = 'points';
   $handler->display->display_options['fields']['points']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['points']['field'] = 'points';
@@ -3520,7 +3530,7 @@ return true;*/';
   $handler->display->display_options['fields']['points']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3547,7 +3557,7 @@ return true;*/';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Userpoints Transactions: Beschrijving */
+  /* Field: Userpoints Transactions: Description */
   $handler->display->display_options['fields']['description']['id'] = 'description';
   $handler->display->display_options['fields']['description']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['description']['field'] = 'description';
@@ -3570,7 +3580,7 @@ return true;*/';
   $handler->display->display_options['fields']['description']['hide_empty'] = 0;
   $handler->display->display_options['fields']['description']['empty_zero'] = 0;
   $handler->display->display_options['fields']['description']['hide_alter_empty'] = 1;
-  /* Veld: Userpoints Transactions: Tijdstip */
+  /* Field: Userpoints Transactions: Timestamp */
   $handler->display->display_options['fields']['time_stamp']['id'] = 'time_stamp';
   $handler->display->display_options['fields']['time_stamp']['table'] = 'userpoints_txn';
   $handler->display->display_options['fields']['time_stamp']['field'] = 'time_stamp';
@@ -3595,7 +3605,7 @@ return true;*/';
   $handler->display->display_options['fields']['time_stamp']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['time_stamp']['date_format'] = 'short';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextuele filter: Taxonomie term: Term-ID */
+  /* Contextual filter: Taxonomy term: Term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -3614,24 +3624,25 @@ return true;*/';
     t('Master'),
     t('Recent points'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
     t('Aflopend'),
-    t('Gebruikers'),
-    t('Inhoud entity referenced from field_user_team'),
+    t('Users'),
+    t('Content entity referenced from field_user_team'),
     t('.'),
     t(','),
     t('Recent points block'),
+    t('more'),
     t('Points page'),
     t('Punten'),
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Beschrijving'),
+    t('Description'),
     t('Points in current campaign page'),
-    t('Alle'),
+    t('All'),
   );
   $export['view_transactions'] = $view;
 
@@ -3663,12 +3674,12 @@ return true;*/';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3685,7 +3696,7 @@ return true;*/';
   $handler->display->display_options['fields']['name']['empty_zero'] = 0;
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
-  /* Veld: Gebruiker: First name */
+  /* Field: Gebruiker: First name */
   $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['table'] = 'field_data_field_user_firstname';
   $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
@@ -3708,20 +3719,20 @@ return true;*/';
   $handler->display->display_options['fields']['field_user_firstname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_user_firstname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_user_firstname']['field_api_classes'] = 0;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
-  /* Veld: Gebruiker: Surname */
+  /* Field: Gebruiker: Surname */
   $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['table'] = 'field_data_field_user_surname';
   $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
-  /* Sorteercriterium: Gebruiker: Aanmaakdatum */
+  /* Sort criterion: User: Created date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'users';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextuele filter: Gebruiker: Uid */
+  /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -3732,14 +3743,14 @@ return true;*/';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['uid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['uid']['not'] = 1;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Titel */
+  /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
@@ -3770,14 +3781,14 @@ return true;*/';
   $handler->display->display_options['row_options']['view_mode'] = 'entityreference_view_widget';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Titel */
+  /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
@@ -3793,7 +3804,7 @@ return true;*/';
   $translatables['view_users_by_team'] = array(
     t('Master'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -3801,13 +3812,14 @@ return true;*/';
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Inhoud entity referenced from field_user_team'),
+    t('Content entity referenced from field_user_team'),
     t('First name'),
-    t('Afbeelding'),
+    t('Picture'),
     t('Surname'),
-    t('Alle'),
+    t('All'),
     t('Titel'),
     t('Entity Reference View Widget'),
+    t('more'),
     t('Team'),
   );
   $export['view_users_by_team'] = $view;
@@ -3847,18 +3859,18 @@ return true;*/';
   $handler->display->display_options['row_options']['view_mode'] = 'viewmode_revealing';
   $handler->display->display_options['row_options']['links'] = 1;
   $handler->display->display_options['row_options']['comments'] = 0;
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = 0;
-  /* Relatie: Entity Reference: Referenced Entity */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_user_team_target_id']['id'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['table'] = 'field_data_field_user_team';
   $handler->display->display_options['relationships']['field_user_team_target_id']['field'] = 'field_user_team_target_id';
   $handler->display->display_options['relationships']['field_user_team_target_id']['relationship'] = 'uid';
   $handler->display->display_options['relationships']['field_user_team_target_id']['required'] = 0;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3882,7 +3894,7 @@ return true;*/';
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3909,7 +3921,7 @@ return true;*/';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -3935,27 +3947,27 @@ return true;*/';
   $handler->display->display_options['fields']['picture']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = 1;
   $handler->display->display_options['fields']['picture']['image_style'] = 'avatar_pinhead';
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Datum van inzending';
   $handler->display->display_options['sorts']['created']['granularity'] = 'minute';
-  /* Sorteercriterium: Inhoud: Titel */
+  /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['title']['expose']['label'] = 'Titel';
-  /* Sorteercriterium: Gebruiker: Naam */
+  /* Sort criterion: User: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'users';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
   $handler->display->display_options['sorts']['name']['relationship'] = 'uid';
   $handler->display->display_options['sorts']['name']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['name']['expose']['label'] = 'Wisher';
-  /* Contextuele filter: Inhoud: Titel */
+  /* Contextual filter: Content: Title */
   $handler->display->display_options['arguments']['title']['id'] = 'title';
   $handler->display->display_options['arguments']['title']['table'] = 'node';
   $handler->display->display_options['arguments']['title']['field'] = 'title';
@@ -3971,21 +3983,21 @@ return true;*/';
   $handler->display->display_options['arguments']['title']['limit'] = '0';
   $handler->display->display_options['arguments']['title']['transform_dash'] = 0;
   $handler->display->display_options['arguments']['title']['break_phrase'] = 0;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'nodetype_wished_item' => 'nodetype_wished_item',
   );
-  /* Filtercriterium: Inhoud: State (field_wisheditem_state) */
+  /* Filter criterion: Content: State (field_wisheditem_state) */
   $handler->display->display_options['filters']['field_wisheditem_state_value']['id'] = 'field_wisheditem_state_value';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['table'] = 'field_data_field_wisheditem_state';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['field'] = 'field_wisheditem_state_value';
@@ -4006,19 +4018,19 @@ return true;*/';
   $handler->display->display_options['row_options']['comments'] = 0;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'nodetype_wished_item' => 'nodetype_wished_item',
   );
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  /* Filtercriterium: Inhoud: State (field_wisheditem_state) */
+  /* Filter criterion: Content: State (field_wisheditem_state) */
   $handler->display->display_options['filters']['field_wisheditem_state_value']['id'] = 'field_wisheditem_state_value';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['table'] = 'field_data_field_wisheditem_state';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['field'] = 'field_wisheditem_state_value';
@@ -4073,12 +4085,12 @@ return true;*/';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4101,7 +4113,7 @@ return true;*/';
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -4124,7 +4136,7 @@ return true;*/';
   $handler->display->display_options['fields']['created']['empty_zero'] = 0;
   $handler->display->display_options['fields']['created']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['created']['date_format'] = 'short';
-  /* Veld: Inhoud: Te verdienen punten */
+  /* Field: Content: Te verdienen punten */
   $handler->display->display_options['fields']['field_wisheditem_award']['id'] = 'field_wisheditem_award';
   $handler->display->display_options['fields']['field_wisheditem_award']['table'] = 'field_data_field_wisheditem_award';
   $handler->display->display_options['fields']['field_wisheditem_award']['field'] = 'field_wisheditem_award';
@@ -4150,7 +4162,7 @@ return true;*/';
   $handler->display->display_options['fields']['field_wisheditem_award']['field_api_classes'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextuele filter: Inhoud: Author uid */
+  /* Contextual filter: Content: Author uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'node';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -4163,14 +4175,14 @@ return true;*/';
   $handler->display->display_options['arguments']['uid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['uid']['not'] = 0;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'nodetype_wished_item' => 'nodetype_wished_item',
   );
-  /* Filtercriterium: Inhoud: State (field_wisheditem_state) */
+  /* Filter criterion: Content: State (field_wisheditem_state) */
   $handler->display->display_options['filters']['field_wisheditem_state_value']['id'] = 'field_wisheditem_state_value';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['table'] = 'field_data_field_wisheditem_state';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['field'] = 'field_wisheditem_state_value';
@@ -4207,7 +4219,7 @@ return true;*/';
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Te verdienen punten */
+  /* Field: Content: Te verdienen punten */
   $handler->display->display_options['fields']['field_wisheditem_award']['id'] = 'field_wisheditem_award';
   $handler->display->display_options['fields']['field_wisheditem_award']['table'] = 'field_data_field_wisheditem_award';
   $handler->display->display_options['fields']['field_wisheditem_award']['field'] = 'field_wisheditem_award';
@@ -4231,7 +4243,7 @@ return true;*/';
   $handler->display->display_options['fields']['field_wisheditem_award']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_wisheditem_award']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_wisheditem_award']['field_api_classes'] = 0;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4255,7 +4267,7 @@ return true;*/';
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -4282,7 +4294,7 @@ return true;*/';
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -4307,42 +4319,42 @@ return true;*/';
   $handler->display->display_options['fields']['created']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['created']['date_format'] = 'time ago';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Datum van inzending';
   $handler->display->display_options['sorts']['created']['granularity'] = 'minute';
-  /* Sorteercriterium: Inhoud: Titel */
+  /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['expose']['label'] = 'Titel';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'nodetype_wished_item' => 'nodetype_wished_item',
   );
-  /* Filtercriterium: Inhoud: State (field_wisheditem_state) */
+  /* Filter criterion: Content: State (field_wisheditem_state) */
   $handler->display->display_options['filters']['field_wisheditem_state_value']['id'] = 'field_wisheditem_state_value';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['table'] = 'field_data_field_wisheditem_state';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['field'] = 'field_wisheditem_state_value';
   $handler->display->display_options['filters']['field_wisheditem_state_value']['value'] = array(
     'open' => 'open',
   );
-  /* Filtercriterium: Inhoud: Titel */
+  /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
@@ -4369,12 +4381,12 @@ return true;*/';
   $handler->display->display_options['row_options']['view_mode'] = 'entityreference_view_widget';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextuele filter: Inhoud: Author uid */
+  /* Contextual filter: Content: Author uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'node';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -4390,7 +4402,7 @@ return true;*/';
     t('Master'),
     t('Latest wishes'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -4398,18 +4410,21 @@ return true;*/';
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('auteur'),
-    t('Inhoud entity referenced from field_user_team'),
+    t('author'),
+    t('Content entity referenced from field_user_team'),
     t('Wens'),
     t('Gebruikersnaam'),
     t('Datum van inzending'),
     t('Titel'),
     t('Wisher'),
-    t('Alle'),
+    t('All'),
     t('Wishlist for team %1'),
     t('Wishlist by team'),
+    t('more'),
     t('Wishlist of current user'),
     t('My wishlist'),
+    t('Title'),
+    t('Post date'),
     t('Te behalen punten'),
     t('Wishlist block'),
     t('Recent wishes'),
@@ -4471,7 +4486,7 @@ return true;*/';
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
   $handler->display->display_options['style_options']['empty_table'] = 0;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4494,7 +4509,7 @@ return true;*/';
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Veld: Inhoud: Gepubliceerd */
+  /* Field: Content: Published */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
@@ -4518,7 +4533,7 @@ return true;*/';
   $handler->display->display_options['fields']['status']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['status']['type'] = 'unicode-yes-no';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Veld: Inhoud: Nieuwe reacties */
+  /* Field: Content: New comments */
   $handler->display->display_options['fields']['new_comments']['id'] = 'new_comments';
   $handler->display->display_options['fields']['new_comments']['table'] = 'node';
   $handler->display->display_options['fields']['new_comments']['field'] = 'new_comments';
@@ -4543,12 +4558,12 @@ return true;*/';
   $handler->display->display_options['fields']['new_comments']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['new_comments']['format_plural'] = 0;
   $handler->display->display_options['fields']['new_comments']['link_to_comment'] = 1;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextuele filter: Inhoud: Author uid */
+  /* Contextual filter: Content: Author uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'node';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -4560,7 +4575,7 @@ return true;*/';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['uid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['uid']['not'] = 0;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4575,7 +4590,7 @@ return true;*/';
     t('Master'),
     t('My wishlist'),
     t('meer'),
-    t('Toepassen'),
+    t('Apply'),
     t('Opnieuw instellen'),
     t('Sorteer op'),
     t('Oplopend'),
@@ -4583,13 +4598,14 @@ return true;*/';
     t('Items per pagina'),
     t('- Alle -'),
     t('Offset'),
-    t('Titel'),
-    t('Gepubliceerd'),
+    t('Title'),
+    t('Published'),
     t('Reacties'),
     t('.'),
     t(','),
-    t('Alle'),
+    t('All'),
     t('Wishlist for current user'),
+    t('more'),
   );
   $export['view_wishlist_for_user'] = $view;
 

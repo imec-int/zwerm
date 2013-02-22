@@ -133,6 +133,25 @@ function scoga_feature_default_services_endpoint() {
         ),
       ),
     ),
+    'system' => array(
+      'alias' => 'system',
+      'actions' => array(
+        'connect' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
+    'user' => array(
+      'alias' => 'user',
+      'actions' => array(
+        'login' => array(
+          'enabled' => 1,
+        ),
+        'logout' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
   );
   $endpoint->debug = 0;
   $export['rest'] = $endpoint;
