@@ -121,7 +121,8 @@
             $assignment_vo -> header = 'Active GeoChallenges';
             //GeoChallenges are created for all teams
             $assignment_vo -> team_ref_field = NULL;
-            $assignment_vo -> campaign_ref_field = 'field_geochallenge_ref_campaign';
+            //$assignment_vo -> campaign_ref_field = 'field_geochallenge_ref_campaign';
+            $assignment_vo -> campaign_ref_field = 'field_campaign';
             _scoga_add_assignments_to_output($assignment_vo,$assignment_titles,$assignment_paths);
             //add POI confirmations
             _scoga_add_POI_confirmations_to_output($assignment_titles,$assignment_paths);
@@ -220,7 +221,6 @@
         $user_team = $assignment_vo ->user_team;
         $assignment_vo->user_team = $assignment_vo -> opposing_team;
         $nodes_properties_opposing_team = _scoga_get_assignments_by_type($assignment_vo,$titles,$paths);
-        //var_dump($nodes_properties_opposing_team);
         $assignment_vo -> team_ref_field = NULL;
         $assignment_vo ->user_team = $user_team;
         if (!isset($nodes_properties_opposing_team['node']))
@@ -232,7 +232,6 @@
         {
             $nodes_properties_all_teams['node'] = array();
         }
-        //var_dump($nodes_properties_all_teams);
         $nodes_properties = array_diff_key($nodes_properties_all_teams['node'],$nodes_properties_opposing_team['node']);
         $nodes = node_load_multiple(array_keys($nodes_properties));
         _scoga_process_assignment_query_results($assignment_vo,$nodes,$titles,$paths);
