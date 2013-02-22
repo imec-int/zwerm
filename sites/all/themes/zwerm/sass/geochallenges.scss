@@ -19,10 +19,15 @@
   #edit-submit{
     background-color: $green-marking-color;
     text-align: center;
-    padding: 10px 0 10px 0;
+    padding: 5px 0 5px 0;
     margin: 2px 0 30px 0;
     font-family: "Romina";
     font-size: 1.4em;
+    height: 2em;
+  }
+
+  #edit-field-comment {
+    padding: 0 10px;
   }
 }
 
@@ -44,6 +49,7 @@
 .field-name-field-description {
   font-size: 1.2em;
   margin: 0 0 10px 0;
+  color: black;
 }
 
 .node-type-geo-challenge .view-poi-per-challenge {
@@ -91,9 +97,6 @@
   }
 }
 
-.geochallenge-details-label {
-
-}
 
 .geochallenge-details-value {
   margin: 0 0 0 5px;
@@ -124,6 +127,7 @@
   margin: 2px 0 2px 0;
   font-family: Romina;
   font-size: 1.4em;
+  color: #ffffff;
 
   span {
     background-image: url('../images/expand_icon.png');
@@ -145,9 +149,9 @@
   display: none;
 }
 .section-kaart
-{
-#main
   {
+  #main
+    {
     background-color: black;
   }
 }
@@ -156,8 +160,7 @@
   background-color: $green-marking-color;
   padding: 5px 10px;
   color: white;
-  margin-top: 10px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid black;
   label {
     font-family: romina;
     font-size: 1.2em;
@@ -190,7 +193,7 @@
   }
 
   .openlayers-map {
-    border-right: 2px solid white;
+    border-right: 2px solid black;
   }
 
   .field-widget-geofield-openlayers {
@@ -202,7 +205,7 @@
   }
 
   .views-exposed-form
-  {
+    {
     #edit-field-ref-geo-challenge-target-id {
       width: 200px;
       background-color: $green-marking-color;
@@ -250,7 +253,8 @@
   display: none;
 }
 
-.page-kaart .olPopupCloseBox {
+.page-kaart .olPopupCloseBox,
+.section-geochallenges .olPopupCloseBox {
   //display: none;
   //padding
   background-image: url('../images/x.gif');
@@ -258,11 +262,16 @@
   margin: 4px 20px 0 0;
 }
 
-.page-kaart .view-poi-overview {
+.section-geochallenges .view-poi-overview {
   margin: 15px 0 50px 0;
 }
 
-.page-kaart #popup_contentDiv {
+.page-kaart .view-poi-overview {
+  margin: 0px 0 2px 0;
+}
+
+.page-kaart #popup_contentDiv,
+.section-geochallenges #popup_contentDiv {
   background-color: $green-marking-color;
   color: white;
   padding: 8px 20px 0 5px;
@@ -278,14 +287,28 @@
     display: none;
   }
 
-.openlayers-tooltip-name {
-  font-family: Romina;
-  font-size: 1.2em;
-  font-weight: bold;
+  .openlayers-tooltip-name {
+    font-family: Romina;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
 }
 
+.page-kaart #page-title {
+  display: none;
 }
 
+.section-geochallenges #popup_GroupDiv {
+  img {
+    display: none;
+  }
 
+  .openlayers-tooltip-name {
+    font-family: Romina;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+}
 
 

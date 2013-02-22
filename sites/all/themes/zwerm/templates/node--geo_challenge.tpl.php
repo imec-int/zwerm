@@ -143,7 +143,7 @@
             Werd het punt nog niet toegevoegd? Dan is het nu aan jou. Zoek dan op de kaart naar de juiste locatie. (Inzoomen kan via de knopjes aan de linkerkant.)
         </p>
         <p>
-            Als je de juiste locatie gevonden hebt, druk je op de<span class="control-icon"></span>knop en plaats het punt vervolgens zo nauwkeurig mogelijk op de kaart.
+            Als je de juiste locatie gevonden hebt, druk je op de<span class="control-icon"></span>knop (in de rechterbovenhoek van het kaartje) en plaats het punt vervolgens zo nauwkeurig mogelijk op de kaart.
         </p>
 
         <p>

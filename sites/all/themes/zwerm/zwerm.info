@@ -55,7 +55,6 @@ stylesheets[all][] = css/pages.css
 stylesheets[all][] = css/team-score.css
 stylesheets[all][] = css/messages-new.css
 stylesheets[all][] = css/frontpage.css
-stylesheets[all][] = css/team-view.css
 stylesheets[all][] = css/blocks.css
 stylesheets[all][] = css/navigation.css
 stylesheets[all][] = css/views-styles.css
@@ -72,6 +71,7 @@ stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/login.css
 stylesheets[all][] = css/user.css
 stylesheets[all][] = css/layouts/responsive-sidebars.css
+stylesheets[all][] = css/team-view.css
 stylesheets[all][] = css/wish.css
 stylesheets[all][] = css/poll.css
 stylesheets[all][] = css/messages.css
@@ -80,6 +80,7 @@ stylesheets[all][] = css/recent-points.css
 stylesheets[all][] = css/geochallenges.css
 stylesheets[all][] = css/score-chart.css
 stylesheets[all][] = css/generic-assignment.css
+stylesheets[all][] = css/wish-fullfilled.css
 stylesheets[all][] = js/jquery-ui/css/dark-hive/jquery-ui-1.10.0.custom.min.css
 
 

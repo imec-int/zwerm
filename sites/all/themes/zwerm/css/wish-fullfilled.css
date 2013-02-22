@@ -1,0 +1,16 @@
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+/* line 5, ../sass/wish-fullfilled.scss */
+.page-node-add-nodetype-wish-fulfilled #nodetype-wish-fulfilled-node-form {
+  padding-left: 15px;
+  padding-right: 15px;
+}

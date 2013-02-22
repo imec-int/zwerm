@@ -1,0 +1,234 @@
+@media all and (max-width: 629px) {
+  /* line 140, ../sass/_base.scss */
+  .color-dc6058 {
+    background-color: #DC6058;
+  }
+
+  /* line 145, ../sass/_base.scss */
+  .color-79b1bd {
+    background-color: #79b1bd;
+  }
+}
+/* line 7, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .help {
+  display: inline-block;
+  float: right;
+  margin-top: -39px;
+  margin-right: 10px;
+  background-color: white;
+  width: 26px;
+  margin-top: -51px;
+  margin-right: 0px;
+}
+/* line 140, ../sass/_custom.scss */
+.page-node-add-nodetype-wished-item .help a {
+  color: black;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+
+/* line 16, ../sass/wish.scss */
+.node-type-nodetype-wished-item .help {
+  display: inline-block;
+  float: right;
+  margin-top: -39px;
+  margin-right: 10px;
+  background-color: white;
+  width: 26px;
+  margin-top: -123px;
+  margin-right: 0px;
+}
+/* line 140, ../sass/_custom.scss */
+.node-type-nodetype-wished-item .help a {
+  color: black;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+
+/* line 24, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item, .node-type-nodetype-wished-item {
+  background-color: #eeeeee;
+}
+/* line 28, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #content .tabs, .node-type-nodetype-wished-item #content .tabs {
+  display: none;
+}
+/* line 33, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .flag-message, .node-type-nodetype-wished-item .flag-message {
+  font-size: 0;
+}
+/* line 38, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .help, .node-type-nodetype-wished-item .help {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin-top: 43px;
+  margin-right: 9px;
+}
+/* line 47, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #dialog, .node-type-nodetype-wished-item #dialog {
+  display: none;
+}
+@media all and (max-width: 629px) {
+  /* line 56, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main #content, .node-type-nodetype-wished-item #main #content {
+    margin-left: 2%;
+    width: 94%;
+  }
+  /* line 60, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main #content #edit-title, .node-type-nodetype-wished-item #main #content #edit-title {
+    width: 94%;
+  }
+  /* line 65, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #main h1, .node-type-nodetype-wished-item #main h1 {
+    font-size: 20px;
+    background-color: #7fb083;
+    margin-left: -10px;
+    margin-right: -15px;
+  }
+}
+@media all and (min-width: 630px) {
+  /* line 79, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item #edit-delete, .node-type-nodetype-wished-item #edit-delete {
+    margin-bottom: 58px;
+  }
+  /* line 84, ../sass/wish.scss */
+  .page-node-add-nodetype-wished-item .help, .node-type-nodetype-wished-item .help {
+    margin-top: 211px;
+    margin-right: 19.5%;
+  }
+}
+/* line 92, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-preview-changes, .node-type-nodetype-wished-item #edit-preview-changes {
+  display: none;
+}
+/* line 102, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item li a, .node-type-nodetype-wished-item .node-nodetype-wished-item li a {
+  padding-left: 20px;
+}
+/* line 108, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item header, .node-type-nodetype-wished-item .node-nodetype-wished-item header {
+  padding-left: 20px;
+}
+/* line 114, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .node-nodetype-wished-item .user-picture {
+  padding-right: 16px;
+}
+/* line 120, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline {
+  display: block;
+  margin-bottom: 80px;
+}
+/* line 124, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li {
+  display: inline;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  float: left;
+}
+/* line 130, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline li a {
+  background-color: #333333;
+  height: 30px;
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  padding: 7px;
+  margin-bottom: 5px;
+  font-size: small;
+}
+/* line 141, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .buttons, .node-type-nodetype-wished-item .node-nodetype-wished-item .buttons {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+/* line 147, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .edit_wijkzoeker, .node-type-nodetype-wished-item .node-nodetype-wished-item .edit_wijkzoeker {
+  display: block;
+  margin-bottom: 80px;
+  display: inline;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding-left: 15px;
+  float: left;
+}
+/* line 156, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .edit_wijkzoeker a, .node-type-nodetype-wished-item .node-nodetype-wished-item .edit_wijkzoeker a {
+  background-color: #333333;
+  height: 30px;
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  padding: 7px;
+  margin-bottom: 5px;
+  font-size: small;
+}
+/* line 165, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled {
+  display: block;
+  margin-bottom: 80px;
+  display: inline;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  float: left;
+}
+/* line 173, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a {
+  background-color: #333333;
+  height: 30px;
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  padding: 7px;
+  margin-bottom: 5px;
+  font-size: small;
+}
+/* line 182, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li {
+  display: block;
+}
+/* line 185, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a, .node-type-nodetype-wished-item .node-nodetype-wished-item ul.inline.clearfix li a {
+  color: white;
+}
+/* line 192, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-name-field-wisheditem-award, .node-type-nodetype-wished-item .field-name-field-wisheditem-award {
+  display: inline;
+}
+/* line 196, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-name-field-wisheditem-award .field-label, .node-type-nodetype-wished-item .field-name-field-wisheditem-award .field-label {
+  float: left;
+}
+/* line 201, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .user-picture, .node-type-nodetype-wished-item .user-picture {
+  display: inline;
+  float: left;
+}
+/* line 207, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .field-edit-link, .node-type-nodetype-wished-item .field-edit-link {
+  display: none;
+}
+/* line 212, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .filter-wrapper, .node-type-nodetype-wished-item .filter-wrapper {
+  display: none;
+}
+/* line 217, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .wysiwyg-toggle-wrapper, .node-type-nodetype-wished-item .wysiwyg-toggle-wrapper {
+  display: none;
+}
+/* line 222, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-preview, .node-type-nodetype-wished-item #edit-preview {
+  display: none;
+}
+/* line 227, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .username, .node-type-nodetype-wished-item .username {
+  color: black;
+}
+/* line 231, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item #edit-body, .node-type-nodetype-wished-item #edit-body {
+  width: 101%;
+}
+/* line 236, ../sass/wish.scss */
+.page-node-add-nodetype-wished-item .form-field-name-field-wisheditem-image, .node-type-nodetype-wished-item .form-field-name-field-wisheditem-image {
+  display: none;
+}
