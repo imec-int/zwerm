@@ -138,7 +138,7 @@
   font-size: small;
 }
 /* line 141, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled, .page-node-add-nodetype-wished-item .node-nodetype-wished-item .edit-wish, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled, .node-type-nodetype-wished-item .node-nodetype-wished-item .edit-wish {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled {
   display: block;
   margin-bottom: 80px;
   display: inline;
@@ -147,7 +147,7 @@
   float: left;
 }
 /* line 149, ../sass/wish.scss */
-.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a, .page-node-add-nodetype-wished-item .node-nodetype-wished-item .edit-wish a, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a, .node-type-nodetype-wished-item .node-nodetype-wished-item .edit-wish a {
+.page-node-add-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a, .node-type-nodetype-wished-item .node-nodetype-wished-item .set_as_fulfilled a {
   background-color: #333333;
   height: 30px;
   color: white;
