@@ -36,7 +36,7 @@
                   ON users.uid = field_data_field_user_team.entity_id
                   WHERE field_data_field_user_active.field_user_active_value=1
                   AND field_data_field_user_team.field_user_team_target_id = :team_id
-                  AND uid !=276
+                  AND uid !=:uid
                   AND uid NOT IN
                   (
                       SELECT DISTINCT
@@ -53,7 +53,10 @@
                                         ));
         foreach ($result as $row)
         {
-            $no_checkin_candidates[$row->uid] = $row->users_name;
+            if (strpos($row->users_name,'Vogel')===false)
+            {
+                $no_checkin_candidates[$row->uid] = $row->users_name;
+            }
         }
         //theme the output
         $output = '<div class="help"><a >?</a></div>';
