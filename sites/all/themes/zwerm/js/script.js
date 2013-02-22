@@ -85,6 +85,11 @@
             jQuery(".collapsible").hide();
             jQuery(".generic_assignment").slideToggle(500);
         });
+        jQuery(".list_header_wishes_user").click(function()
+        {
+            jQuery(".collapsible").hide();
+            jQuery(".wish_by_user").slideToggle(500);
+        });
         jQuery("#menu_container").click(function()
         {
             jQuery('html, body').animate({scrollTop:0}, 'fast');

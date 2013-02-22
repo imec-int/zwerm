@@ -117,7 +117,8 @@
 
     li.list_header_event:after, li.list_header_wish:after, li.list_header_question:after,
     li.list_header_geochallenge:after,li.list_header_poi_confirmation:after,
-    li.list_header_active_generic_assignment:after
+    li.list_header_active_generic_assignment:after,
+    li.list_header_wishes_user:after
     {
         content: url('../images/expand_icon.png');
         display: inline;
