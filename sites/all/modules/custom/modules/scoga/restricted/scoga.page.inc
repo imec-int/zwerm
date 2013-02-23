@@ -159,8 +159,11 @@
     function _scoga_add_assignments_to_output($assignment_vo,&$titles,&$paths)
     {
         $nodes_properties = _scoga_get_assignments_by_type($assignment_vo,$titles,$paths);
-        $nodes = node_load_multiple(array_keys($nodes_properties['node']));
-        _scoga_process_assignment_query_results($assignment_vo,$nodes,$titles,$paths);
+        if (isset($nodes_properties['node']))
+        {
+            $nodes = node_load_multiple(array_keys($nodes_properties['node']));
+            _scoga_process_assignment_query_results($assignment_vo,$nodes,$titles,$paths);
+        }
     }
 
     function _scoga_add_wishes_to_output($assignment_vo,&$assignment_titles,&$assignment_paths)
