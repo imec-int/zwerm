@@ -158,7 +158,6 @@ function scoga_geochallenges_extensions_views_default_views() {
 
   /* Display: OpenLayers Data Overlay */
   $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_1');
-  $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
 
@@ -223,7 +222,6 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filteren';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = 0;
   $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = 1;
-  $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'openlayers_data';
   $handler->display->display_options['style_options']['data_source'] = array(
@@ -648,9 +646,6 @@ hoorde nog niemand fluiten tijdens deze campagne!
 
   /* Display: OpenLayers Data Overlay */
   $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_1');
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $translatables['poi_per_challenge_data'] = array(

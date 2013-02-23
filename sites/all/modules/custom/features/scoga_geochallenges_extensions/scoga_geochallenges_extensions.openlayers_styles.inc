@@ -17,7 +17,7 @@ function scoga_geochallenges_extensions_openlayers_styles() {
   $openlayers_styles->title = 'SCOGA Green Marker 1';
   $openlayers_styles->description = 'SCOGA Green Marker 1';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'http://localhost/smartip/sites/all/themes/zwerm/images/scoga_marker_green_1.png',
+    'externalGraphic' => 'sites/all/themes/zwerm/images/scoga_marker_green_1.png',
     'pointRadius' => 16,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',
@@ -42,7 +42,7 @@ function scoga_geochallenges_extensions_openlayers_styles() {
   $openlayers_styles->title = 'SCOGA Green Marker 1 Inverted';
   $openlayers_styles->description = 'SCOGA Green Marker 1 Inverted';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'http://localhost/smartip/sites/all/themes/zwerm/images/scoga_marker_green_1_invert.png',
+    'externalGraphic' => 'sites/all/themes/zwerm/images/scoga_marker_green_1_invert.png',
     'pointRadius' => 16,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',
