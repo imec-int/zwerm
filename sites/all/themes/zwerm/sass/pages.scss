@@ -63,17 +63,6 @@ body {
   }
 }
 
-//hide info on text formatting in comments
-.filter-wrapper {
-  display: none;
-}
-
-//hide "add comment" link
-.comment-add.first.last.active
-{
-  display:none;
-}
-
 /*
  * Header
  */
@@ -166,7 +155,6 @@ body {
 }
 
 
-
 #site-slogan { /* The slogan (or tagline) of a website */
   margin: 0;
   font-size: 1em;
@@ -186,6 +174,7 @@ body {
  */
 
 #main {
+
   display:block;
   height:100%;
   width:100%;
@@ -353,6 +342,19 @@ span.field-label { /* The inline field label used by the Fences module */
 .region-sidebar-second {
 }
 
+/*
+ * Footer
+ */
+
+#footer {
+}
+
+/*
+ * Page bottom
+ */
+
+.region-bottom { /* Wrapper for any blocks placed in the page bottom region */
+}
 
 /*
  * Page bottom

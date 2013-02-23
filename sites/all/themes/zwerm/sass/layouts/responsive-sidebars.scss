@@ -18,8 +18,6 @@
 //$zen-gutter-width:  20px;
 $zen-gutter-width:  0px;
 
-
-
 // IE6-7 don't support box-sizing: border-box. We can fix this in 1 of 3 ways:
 // - Drop support for IE 6/7. :-) In the _base.scss, set $legacy-support-for-ie6
 //   and $legacy-support-for-ie7 to false.
@@ -65,7 +63,6 @@ by setting a max-width. */
 .region-sidebar-second,
 #footer {
   @include zen-grid-item-base();
-
 }
 
 /*
@@ -77,6 +74,7 @@ by setting a max-width. */
 #footer {
   @include zen-grid-container();
 }
+
 
 @media all and (max-width: $end_of_small_viewport) {
 $zen-column-count: 2;

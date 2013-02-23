@@ -47,7 +47,6 @@ base theme  = zen
 stylesheets[all][] = system.menus.css
 
 ; Then we add our own stylesheets.
-
 ;stylesheets[all][] = css/vendors/jquery.mobile-1.0.1/jquery.mobile-1.0.1.css
 stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/wireframes.css
@@ -81,6 +80,7 @@ stylesheets[all][] = css/recent-points.css
 stylesheets[all][] = css/geochallenges.css
 stylesheets[all][] = css/score-chart.css
 stylesheets[all][] = css/generic-assignment.css
+stylesheets[all][] = css/wish-fullfilled.css
 stylesheets[all][] = js/jquery-ui/css/dark-hive/jquery-ui-1.10.0.custom.min.css
 
 
@@ -88,7 +88,6 @@ stylesheets[all][] = js/jquery-ui/css/dark-hive/jquery-ui-1.10.0.custom.min.css
 
 
 ;stylesheets[all][] = css/vendors/jquery.mobile.custom/jquery.mobile.custom.min.css
-
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
 ; Instead, Zen now adds conditional-comment-included classes to the html
 ; element, such as .lt-ie9, .lt-ie8, .lt-ie7. More information on this

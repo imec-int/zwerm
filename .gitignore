@@ -7,9 +7,9 @@ etc
 logs
 tmp
 .DS_Store
-.idea
 .sass-cache
 gitPush
+merge_file*
 
 # ignore transaltion template files
 potx.*
@@ -22,13 +22,14 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 
+
 #Ignore osX specific files 
 .DS_Store
-.idea
+.idea/
 gitPush
 __MACOSX/
+.idea/workspace.xml
 
-#Theme-related
 */.sass-cache/*
 sites/all/themes/zwerm/.sass-cache/
 

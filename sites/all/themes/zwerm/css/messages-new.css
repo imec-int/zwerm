@@ -1,15 +1,1 @@
-@media all and (max-width: 629px) {
-  /* line 140, ../sass/_base.scss */
-  .color-dc6058 {
-    background-color: #DC6058;
-  }
-
-  /* line 145, ../sass/_base.scss */
-  .color-79b1bd {
-    background-color: #79b1bd;
-  }
-}
-/* line 4, ../sass/messages-new.scss */
-#edit-cancel {
-  color: black;
-}
+@media all and (max-width: 629px){.color-dc6058{background-color:#DC6058}.color-79b1bd{background-color:#79b1bd}}#edit-cancel{color:black}
