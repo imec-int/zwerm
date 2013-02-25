@@ -22,22 +22,20 @@
      */
     function scoga_get_transaction_vos_after_txnid( $last_txnid = 0 ){
         if( $last_txnid >= 0 ){
+            module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
             $query =
-                " SELECT txn_id, time_stamp "
+                " SELECT txn_id, time_stamp, uid "
                     . "FROM {userpoints_txn} "
                     . "WHERE tid = :tid "
-                    . "AND txn_id > :txnid ";
+                    . "AND txn_id > :txnid "
+                    . "AND uid IN (:uids) "
+            ;
 
             $rows = db_query( $query, array(
                 ':tid'          => scoga_get_current_userpoints_category_tid(),
                 ':txnid'        => $last_txnid,
+                ':uids'         => scoga_get_all_player_uids(),
             ) );
-
-//            $options = array(
-//                'link'             => FALSE,
-//                'truncate'         => FALSE,
-//                'skip_description' => FALSE,
-//            );
 
             $result = array();
             foreach( $rows as $row ){
