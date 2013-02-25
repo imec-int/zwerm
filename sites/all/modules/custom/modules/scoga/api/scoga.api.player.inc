@@ -44,6 +44,7 @@
 
 
         if( $uids = array_keys( $result[ $entity_type ] ) ){
+            $uids = _filter_player_uids_from_selection( $uids );
             return $uids;
         }
 
@@ -90,6 +91,7 @@
 
 
         if( $uids = array_keys( $result[ $entity_type ] ) ){
+            $uids = _filter_player_uids_from_selection( $uids );
             return $uids;
         }
 
@@ -251,12 +253,23 @@
      * @return array
      */
     function scoga_get_all_player_uids(){
+        return _filter_player_uids_from_selection();
+    }
+
+    function _filter_player_uids_from_selection( $selected_uids = array() ){
         $uids = array();
 
         $query = 'SELECT DISTINCT(r.uid)
             FROM {users_roles} AS r
             WHERE r.rid IN (:rids)';
-        $result = db_query( $query, array( ':rids' => array( SCOGA_PLAYER_ROLE ) ) );
+
+        if( count( $selected_uids ) > 0 ){
+            $query .= ' AND r.uid IN (:uids)';
+        }
+        $result = db_query( $query, array(
+            ':rids' => array( SCOGA_PLAYER_ROLE ),
+            ':uids' => $selected_uids
+        ) );
 
         foreach( $result as $row ){
             $uids[ ] = $row->uid;
@@ -281,6 +294,16 @@
             scoga_set_field_value( $user_account, 'field_user_active', 1, $options );
             user_save( $user_account );
         }
+    }
+
+    /**
+     * @param $uid
+     *
+     * @return bool
+     */
+    function scoga_user_has_player_role( $uid ){
+        $uids = _filter_player_uids_from_selection( array( $uid ) );
+        return (boolean) ( count( $uids)  > 0 );
     }
 
 //    function scoga_assign_random_teams_to_players(){

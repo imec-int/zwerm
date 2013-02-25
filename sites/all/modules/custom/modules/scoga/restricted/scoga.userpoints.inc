@@ -22,9 +22,12 @@
      */
     function scoga_handle_userpoints_after( $params = array()){
         if( $params[ 'tid' ] == scoga_get_current_userpoints_category_tid() ){
+            $user_uid = $params['uid'];
             module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
-            scoga_set_player_active( $params['uid'] );
-            module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
-            scoga_transfer_transaction_points_to_team( $params );
+            if( scoga_user_has_player_role( $user_uid ) ){
+                scoga_set_player_active( $user_uid );
+                module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
+                scoga_transfer_transaction_points_to_team( $params );
+            }
         }
     }
