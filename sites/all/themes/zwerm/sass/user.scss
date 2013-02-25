@@ -7,9 +7,12 @@
     display: none;
   }
 
-  a
+  #content
   {
-   color:$green-marking-color;
+    a
+    {
+     color:$green-marking-color;
+    }
   }
 }
 
