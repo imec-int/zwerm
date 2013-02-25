@@ -98,6 +98,28 @@ function scoga_geochallenges_extensions_default_rules_configuration() {
       ]
     }
   }');
+  $items['rules_poi_for_geochallenge_without_confirmation_processing'] = entity_import('rules_config', '{ "rules_poi_for_geochallenge_without_confirmation_processing" : {
+      "LABEL" : "POI for Geochallenge without confirmation processing",
+      "PLUGIN" : "reaction rule",
+      "TAGS" : [ "geochallenges", "scoga" ],
+      "REQUIRES" : [ "rules", "php" ],
+      "ON" : [ "node_insert" ],
+      "IF" : [
+        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "poi" : "poi" } } } },
+        { "php_eval" : { "code" : "$poi_node = node_load($node-\\u003Enid);\\r\\n$geochallenge_node = node_load($poi_node-\\u003Efield_ref_geo_challenge[\\u0027und\\u0027][0][\\u0027target_id\\u0027]);\\r\\nif ($geochallenge_node-\\u003Efield_options[\\u0027und\\u0027][1][\\u0027value\\u0027] == \\u0027poi_confirm\\u0027) {\\r\\n  return false;\\r\\n} else {\\r\\n  return true;\\r\\n}" } }
+      ],
+      "DO" : [
+        { "entity_fetch" : {
+            "USING" : { "type" : "node", "id" : [ "node:field-ref-geo-challenge:nid" ] },
+            "PROVIDE" : { "entity_fetched" : { "geochallenge_node" : "Geochallenge Node" } }
+          }
+        },
+        { "redirect" : { "url" : [ "node:field-ref-geo-challenge:url" ] } },
+        { "drupal_message" : { "message" : "Bedankt om dit punt toe te voegen!" } },
+        { "php_eval" : { "code" : "module_load_include( \\u0027api.points.inc\\u0027, \\u0027scoga\\u0027, \\u0027api\\/scoga\\u0027 );\\r\\n$geochallenge_node = node_load($geochallenge_node-\\u003Enid);\\r\\n\\r\\n\\/\\/Award points to POI Spotter\\r\\nscoga_award_points_to_user( $node-\\u003Euid, $geochallenge_node-\\u003Efield_geochallenge_reward_spot[\\u0027und\\u0027][0][\\u0027value\\u0027], \\u0022Geochallenge punt toegevoegd!\\u0022 );" } }
+      ]
+    }
+  }');
   $items['rules_preprocess_new_poi_for_geochallenge'] = entity_import('rules_config', '{ "rules_preprocess_new_poi_for_geochallenge" : {
       "LABEL" : "Preprocess new POI for Geochallenge",
       "PLUGIN" : "reaction rule",

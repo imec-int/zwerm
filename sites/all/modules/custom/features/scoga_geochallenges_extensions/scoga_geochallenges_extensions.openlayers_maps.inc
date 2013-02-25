@@ -229,10 +229,12 @@ function scoga_geochallenges_extensions_openlayers_maps() {
         'zoomWorldIcon' => 0,
         'panIcons' => 1,
       ),
-      'openlayers_behavior_tooltip' => array(
+      'openlayers_behavior_popup' => array(
         'layers' => array(
           'poi_per_challenge_data_openlayers_1' => 'poi_per_challenge_data_openlayers_1',
         ),
+        'panMapIfOutOfView' => 1,
+        'keepInMap' => 0,
       ),
     ),
     'default_layer' => 'google_hybrid_scoga',
@@ -262,7 +264,7 @@ function scoga_geochallenges_extensions_openlayers_maps() {
       'poi_overview_openlayers_1' => '0',
       'poi_overview_openlayers_2' => '0',
       'event_map_overlay_openlayers_1' => '0',
-      'poi_per_challenge_data_openlayers_1' => 'scoga_marker_green_1_invert',
+      'poi_per_challenge_data_openlayers_1' => 'scoga_marker_green_1',
     ),
     'layer_activated' => array(
       'poi_per_challenge_data_openlayers_1' => 'poi_per_challenge_data_openlayers_1',
@@ -283,7 +285,7 @@ function scoga_geochallenges_extensions_openlayers_maps() {
     'projection' => '900913',
     'displayProjection' => '4326',
     'styles' => array(
-      'default' => 'scoga_marker_green_1',
+      'default' => 'scoga_marker_green_1_invert',
       'select' => 'scoga_marker_green_1',
       'temporary' => 'scoga_marker_green_1',
     ),
