@@ -73,6 +73,13 @@
                         'source'      => 'param',
                         'optional'    => TRUE,
                     ),
+                    array(
+                        'name'        => 'readerID',
+                        'type'        => 'string',
+                        'description' => 'The ID of the reader, NOT USED except for logging purposes',
+                        'source'      => 'param',
+                        'optional'    => TRUE,
+                    ),
                 )
             )
         );
