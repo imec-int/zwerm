@@ -7,26 +7,36 @@
     function scoga_register_eventfulfilled( $card_id, $passphrase ){
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
 
+        $feedback_params = array( '@cardID' => $card_id );
+
         if( ! $player_account = scoga_get_player_entity_by_card_id( $card_id ) ){
-            throw new ErrorException( t( 'user with card ID "@cardID" not found', array( '@cardID' => $card_id ) ) );
+            throw new ErrorException( t( 'user with card ID "@cardID" not found', $feedback_params ) );
         }
+
+        $feedback_params['@user']=$player_account->name;
 
         if( ! $event_node = scoga_get_single_event_node_by_passphrase( $passphrase ) ){
             throw new ErrorException( t( 'Incorrect passphrase for event' ) );
         }
 
+        $feedback_params[ '@event' ] = $event_node->title;
+
         $existing_nids = scoga_get_eventfulfilled_nids_by_references( $player_account->uid, $event_node->nid );
         if(count( $existing_nids ) > 0 ){
-            throw new ErrorException( t( '@user already received points for event "@event"', array( '@user' => $player_account->name, '@event' => $event_node->title ) ) );
+            throw new ErrorException( t( '@user already received points for event "@event"', $feedback_params ) );
         }
 
         if( ! $ef_node = scoga_create_eventfulfilled_node( $player_account, $event_node ) ){
-            throw new ErrorException( t( 'Unknown error occurred. @user did not receive points for event "@event"', array( '@user' => $player_account->name, '@event' => $event_node->title ) ) );
+            throw new ErrorException( t( 'Unknown error occurred. @user did not receive points for event "@event"', $feedback_params ) );
         }
         $reward = scoga_get_field_value( $event_node, 'field_event_reward' );
         $reason = t('event fulfilled');
         module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
         scoga_award_points_to_user( $player_account->uid, $reward, $reason );
+
+        $feedback_params['@points']=$reward;
+
+        return t( '@user received @points point(s) for event "@event"', $feedback_params );
     }
 
     function scoga_create_eventfulfilled_node( $player_account, $event_node ){
