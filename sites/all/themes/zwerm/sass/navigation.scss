@@ -271,6 +271,35 @@ li a.active {
 
 //stylign the navigation menu or large viewports
 @media all and (min-width: $start_of_large_viewport) {
+  .logged-in
+  {
+    #navigation
+    {
+      li
+      {
+        float:left;
+        width: $width_per_item_header_menu_logged_in;
+        text-align: center;
+        padding:0px;
+      }
+    }
+  }
+
+  .not-logged-in
+  {
+    #navigation
+    {
+      li
+      {
+        float:left;
+        width: $width_per_item_header_menu_not_logged_in;
+        text-align: center;
+        padding:0px;
+      }
+    }
+  }
+
+
   #navigation {
     position:fixed;
     top: 0px;
@@ -295,15 +324,7 @@ li a.active {
     {
       font-weight:bold;
     }
-
-    li
-    {
-      float:left;
-      width: $width_per_item_header_menu;
-      text-align: center;
-      padding:0px;
-    }
-
+\
     .first
     {
       margin-left: percentage(($space_outside_of_navmenus)/100);
