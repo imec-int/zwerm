@@ -119,6 +119,7 @@ features[rules_config][] = rules_set_player_active_after_logging_in
 features[rules_config][] = rules_set_player_registered_after_saving_profile
 features[services_endpoint][] = rest
 features[taxonomy][] = tags
+features[user_role][] = coach
 features[user_role][] = player
 features[variable][] = comment_anonymous_article
 features[variable][] = comment_anonymous_generic_assignment
