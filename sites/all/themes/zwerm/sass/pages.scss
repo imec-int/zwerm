@@ -407,11 +407,11 @@ span.field-label { /* The inline field label used by the Fences module */
 
   .leaf:nth-of-type(2)
   {
-    margin-top: -21px;
-    width: 34%;
-    margin-left: 33%;
-    position: absolute;
-    text-align: center;
+    //margin-top: -21px;
+    //width: 34%;
+    //margin-left: 33%;
+    //position: absolute;
+    //text-align: center;
   }
 }
 
@@ -439,26 +439,29 @@ tr.colordc6058 {
 }
 
 
-#block-menu-menu-footer {
+
+
+
+#block-menu-menu-footer
+{
   .block-title {
     display:none;
   }
-  li {
-    display:block;
-    height : 50px;
-    }
-  ul {
-    display:block;
-    border-width:1px;
-    padding: 0 0 0 0;
+  .logout
+  {
+    //float : right;
+    //margin-top: -22px;
   }
   .first {
-    float : left;
-    margin-top: -22px;
+    margin-left: 12.5%;
+    //float : left;
+    //margin-top: -22px;
   }
   .last {
-    float : right;
-    margin-top: -22px;
+    //float : right;
+    //margin-top: -22px;
+    margin-right: 12.5%;
+
   }
   a {
     @include hyperlink-style;
@@ -520,6 +523,53 @@ article
 //large viewport
 @media all and (min-width: $start_of_large_viewport)
 {
+
+  .logged-in{
+    #block-menu-menu-footer
+    {
+      ul {
+        display:block;
+        border-width:1px;
+        padding: 0 0 0 0;
+        li {
+          float:left;
+          width: $width_per_item_footer_menu_logged-in;
+          text-align: center;
+          padding:0px;
+          margin-top: -21px;
+        }
+        li.leaf
+        {
+          list-style-type: none;
+          list-style-image: none;
+        }
+      }
+    }
+  }
+
+  .not-logged-in{
+    #block-menu-menu-footer
+    {
+      ul {
+        display:block;
+        border-width:1px;
+        padding: 0 0 0 0;
+        li {
+          float:left;
+          width: $width_per_item_footer_menu_not_logged-in;
+          text-align: center;
+          padding:0px;
+          margin-top: -21px;
+        }
+        li.leaf
+        {
+          list-style-type: none;
+          list-style-image: none;
+        }
+      }
+    }
+  }
+
   #header{
     background-image: url(../images/zwerm_logo_black_background.png);
     background-size: 10%;
