@@ -24,6 +24,7 @@
             'scoga_pages'       =>  scoga_outline_services_pages(),
             'scoga_config'      => scoga_outline_services_config(),
             'scoga_players'     => scoga_outline_services_players(),
+            'scoga_events'      => scoga_outline_services_event_fulfilled(),
         );
     }
 
@@ -430,6 +431,43 @@
         );
     }
 
+    function scoga_outline_services_event_fulfilled( $params = array() ){
+        return array(
+            'create' => array(
+                'help'             => 'Creates a node of content type "event fulfilled"',
+                'file'             => array(
+                    'file'   => 'services.inc',
+                    'module' => 'scoga',
+                ),
+                'callback'         => 'scoga_service_event_fulfilled_create',
+                'access arguments' => array( SCOGA_PERM_REST_ACCESS_CREATE_EVENT_FULFILLED ),
+                'args'             => array(
+                    array(
+                        'name'        => 'cardID',
+                        'type'        => 'string',
+                        'description' => 'The unique ID of the card',
+                        'source'      => 'data',
+                        'optional'    => FALSE,
+                    ),
+                    array(
+                        'name'        => 'passphrase',
+                        'type'        => 'string',
+                        'description' => 'The unique passphrase of the event',
+                        'source'      => 'data',
+                        'optional'    => FALSE,
+                    ),
+                    array(
+                        'name'          => 's',
+                        'type'          => 'string',
+                        'source'        => 'data',
+                        'optional'      => TRUE,
+                        'default value' => -1
+                    ),
+                )
+            )
+        );
+    }
+
     function scoga_service_network_index( $params = array() ){
         watchdog( 'SCOGA', 'scoga_service_network_index: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_DEBUG );
         module_load_include( 'api.network.inc', 'scoga', 'api/scoga' );
@@ -540,7 +578,7 @@
             }
         }catch ( Exception $e ){
             $message = $e->getMessage();
-            watchdog( 'SCOGA', $message );
+            watchdog( 'SCOGA', 'Checkin could not be created: @message', array( '@message' => $message ), WATCHDOG_ERROR );
             $result = $message;
         }
         return $result;
@@ -631,7 +669,7 @@
             $result = scoga_send_admin_mail( $message, $subject );
         }catch ( Exception $e ){
             $message = $e->getMessage();
-            watchdog( 'SCOGA', $message, array(), WATCHDOG_ERROR );
+            watchdog( 'SCOGA', 'Mail could not be sent: @message', array( '@message' => $message ), WATCHDOG_ERROR );
             $result = $message;
         }
 
@@ -643,4 +681,26 @@
 
         module_load_include( 'api.config.inc', 'scoga', 'api/scoga' );
         return scoga_get_config_vo();
+    }
+
+    function scoga_service_event_fulfilled_create( $params ){
+        watchdog( 'SCOGA', 'scoga_service_event_fulfilled_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
+        $remote_signature = $params[ 's' ];
+        $card_id = $params[ 'cardID' ];
+        $passphrase = $params[ 'passphrase' ];
+        try{
+            $unenc_signature = $card_id . SCOGA_SALT. $passphrase;
+            $enc_signature = hash( 'sha256', $unenc_signature );
+            if( $enc_signature != $remote_signature ){
+                throw new ErrorException( 'incorrect signature' );
+            }
+            module_load_include( 'api.event.inc', 'scoga', 'api/scoga' );
+            $result = scoga_register_eventfulfilled( $card_id, $passphrase );
+        }catch ( Exception $e ){
+            $message = $e->getMessage();
+            watchdog( 'SCOGA', 'Event fulfilled could not be created: @message', array( '@message' => $message ), WATCHDOG_ERROR );
+            $result = $message;
+        }
+
+        return $result;
     }

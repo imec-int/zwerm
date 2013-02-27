@@ -19,6 +19,7 @@
     define( 'SCOGA_POI_NODETYPE',               'poi' );
     define( 'SCOGA_POICONFIRIMATION_NODETYPE',  'poi_confirmation' );
     define( 'SCOGA_GENERIC_ASSIGNMENT',         'generic_assignment' );
+    define( 'SCOGA_EVENTFULFILLED_NODETYPE',    'nodetype_event_fulfilled' );
 
     //--( SETTINGS )--//
 
@@ -66,7 +67,7 @@
     define( 'SCOGA_PERM_REST_ACCESS_PAGES_DATA',        'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_MAIL',              'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_CONFIG',              'access content' );
-
+    define( 'SCOGA_PERM_REST_ACCESS_CREATE_EVENT_FULFILLED', 'access content' );
 
 //--( VALUES )--//
 
