@@ -1185,7 +1185,7 @@ $static->current_userpoints_category_tid = scoga_get_current_userpoints_category
 //$static->counter set to 0 in filter setup code
 //$static->userPosition set to 0 in filter setup code
 module_load_include( \'phpfilter.inc\', \'scoga\', \'restricted/scoga\' );
-return scoga_filter_leaderboard(&$static->userPosition,&$static->counter,$static->current_userpoints_category_tid,$row->tid,$view);';
+return scoga_filter_leaderboard($static->userPosition,$static->counter,$static->current_userpoints_category_tid,$row->tid,$view);';
   $handler->display->display_options['path'] = 'leaderboard';
   $translatables['leader'] = array(
     t('Master'),
@@ -2320,6 +2320,10 @@ return true;';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   /* Filtercriterium: Inhoud: Aangeraden op de voorpagina */
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
@@ -2360,7 +2364,7 @@ return true;';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 0;
+  $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filtercriterium: Inhoud: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -2369,11 +2373,19 @@ return true;';
   $handler->display->display_options['filters']['type']['value'] = array(
     'page' => 'page',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filtercriterium: Inhoud: Nid */
+  $handler->display->display_options['filters']['nid_1']['id'] = 'nid_1';
+  $handler->display->display_options['filters']['nid_1']['table'] = 'node';
+  $handler->display->display_options['filters']['nid_1']['field'] = 'nid';
+  $handler->display->display_options['filters']['nid_1']['value']['value'] = '3588';
+  $handler->display->display_options['filters']['nid_1']['group'] = 2;
   /* Filtercriterium: Inhoud: Nid */
   $handler->display->display_options['filters']['nid']['id'] = 'nid';
   $handler->display->display_options['filters']['nid']['table'] = 'node';
   $handler->display->display_options['filters']['nid']['field'] = 'nid';
   $handler->display->display_options['filters']['nid']['value']['value'] = '3';
+  $handler->display->display_options['filters']['nid']['group'] = 2;
   $handler->display->display_options['path'] = 'frontpage';
 
   /* Display: Feed */
@@ -3523,6 +3535,7 @@ return true;*/';
   $handler->display->display_options['fields']['points']['empty_zero'] = 0;
   $handler->display->display_options['fields']['points']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['points']['format_plural'] = 0;
+  $handler->display->display_options['fields']['points']['suffix'] = ' pt';
   /* Veld: Gebruiker: Naam */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -3634,6 +3647,7 @@ return true;*/';
     t('Offset'),
     t('Beschrijving'),
     t('Points in current campaign page'),
+    t(' pt'),
     t('Alle'),
   );
   $export['view_transactions'] = $view;

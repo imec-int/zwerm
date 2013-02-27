@@ -18,6 +18,7 @@
     define( 'SCOGA_GEOCHALLENGE_NODETYPE',      'geo_challenge' );
     define( 'SCOGA_POI_NODETYPE',               'poi' );
     define( 'SCOGA_POICONFIRIMATION_NODETYPE',  'poi_confirmation' );
+    define( 'SCOGA_GENERIC_ASSIGNMENT',         'generic_assignment' );
 
     //--( SETTINGS )--//
 
