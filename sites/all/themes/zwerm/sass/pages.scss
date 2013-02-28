@@ -490,6 +490,20 @@ tr.colordc6058 {
         list-style-type: none;
         list-style-image: none;
       }
+      .leaf
+      {
+
+        a.facebook
+        {
+          background-image: url(../images/icon-facebook.png);
+          background-size: 34px;
+          background-repeat: no-repeat;
+          background-position-x: 50%;
+          background-position-y: 0px;
+          padding-top: 21px;
+          font-size: 0px;
+        }
+      }
     }
   }
 }
@@ -516,6 +530,8 @@ tr.colordc6058 {
     padding-right: 10px;
     padding-left: 10px;
     font-weight:bold;
+    font-size: 13px;
+
   }
 }
 

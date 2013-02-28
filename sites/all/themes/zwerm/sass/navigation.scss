@@ -127,6 +127,12 @@ li a.active {
         @include nav-image-style-non-front();
       }
 
+      #Login
+      {
+        background-image : url(http://www.zwermgent.be/sites/default/files/solo-sparrow.png);
+        @include nav-image-style-non-front();
+      }
+
     }
   }
 
@@ -221,6 +227,15 @@ li a.active {
       {
         background-image : url(../images/map.png);
         @include nav-image-style-front();
+      }
+
+      #Login
+      {
+        background-image : url(http://www.zwermgent.be/sites/default/files/solo-sparrow.png);
+        @include nav-image-style-front();
+        ackground-position-x: 30%;
+        background-position-y: 44%;
+        background-size: 65%;
       }
 
       #Account
