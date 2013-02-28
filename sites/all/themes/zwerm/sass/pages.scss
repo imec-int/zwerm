@@ -400,23 +400,8 @@ span.field-label { /* The inline field label used by the Fences module */
   padding-top: 3px;
   height:33px;
 
-  .leaf:nth-of-type(2)
-  {
-    margin-top: -21px;
-    width: 34%;
-    margin-left: 33%;
-    position: absolute;
-    text-align: center;
-    background-image: url(../images/icon-facebook.png);
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position-x: 50%;
-  }
-  .facebook
-  {
-    font-size: 0px;
 
-  }
+
 }
 
 //needed for footer to remain at bottom
@@ -461,6 +446,20 @@ tr.colordc6058 {
       {
         list-style-type: none;
         list-style-image: none;
+      }
+      .leaf
+      {
+
+        a.facebook
+        {
+          background-image: url(../images/icon-facebook.png);
+          background-size: 34px;
+          background-repeat: no-repeat;
+          background-position-x: 50%;
+          background-position-y: 0px;
+          padding-top: 21px;
+          font-size: 0px;
+        }
       }
     }
   }
