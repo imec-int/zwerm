@@ -10,6 +10,12 @@
 function scoga_feature_user_default_roles() {
   $roles = array();
 
+  // Exported role: coach.
+  $roles['coach'] = array(
+    'name' => 'coach',
+    'weight' => '4',
+  );
+
   // Exported role: player.
   $roles['player'] = array(
     'name' => 'player',
