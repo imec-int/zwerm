@@ -439,7 +439,57 @@ tr.colordc6058 {
 }
 
 
+.logged-in{
+  #block-menu-menu-footer
+  {
+    ul {
+      display:block;
+      border-width:1px;
+      padding: 0 0 0 0;
+      li {
+        float:left;
+        width: $width_per_item_footer_menu_logged-in;
+        text-align: center;
+        padding:0px;
+        margin-top: -21px;
+      }
+      li.leaf
+      {
+        list-style-type: none;
+        list-style-image: none;
+      }
+    }
+  }
+}
 
+.not-logged-in{
+  #block-menu-menu-footer
+  {
+    .first {
+      margin-left: 10;
+    }
+    .last {
+      margin-right: 10%;
+    }
+    ul {
+      display:block;
+      border-width:1px;
+      padding: 0 0 0 0;
+      li {
+        float:left;
+        width: $width_per_item_footer_menu_not_logged-in;
+        text-align: center;
+        padding:0px;
+        margin-top: -21px;
+      }
+      li.leaf
+      {
+        list-style-type: none;
+        list-style-image: none;
+      }
+    }
+  }
+}
 
 
 #block-menu-menu-footer
@@ -454,14 +504,9 @@ tr.colordc6058 {
   }
   .first {
     margin-left: 12.5%;
-    //float : left;
-    //margin-top: -22px;
   }
   .last {
-    //float : right;
-    //margin-top: -22px;
     margin-right: 12.5%;
-
   }
   a {
     @include hyperlink-style;
@@ -523,52 +568,6 @@ article
 //large viewport
 @media all and (min-width: $start_of_large_viewport)
 {
-
-  .logged-in{
-    #block-menu-menu-footer
-    {
-      ul {
-        display:block;
-        border-width:1px;
-        padding: 0 0 0 0;
-        li {
-          float:left;
-          width: $width_per_item_footer_menu_logged-in;
-          text-align: center;
-          padding:0px;
-          margin-top: -21px;
-        }
-        li.leaf
-        {
-          list-style-type: none;
-          list-style-image: none;
-        }
-      }
-    }
-  }
-
-  .not-logged-in{
-    #block-menu-menu-footer
-    {
-      ul {
-        display:block;
-        border-width:1px;
-        padding: 0 0 0 0;
-        li {
-          float:left;
-          width: $width_per_item_footer_menu_not_logged-in;
-          text-align: center;
-          padding:0px;
-          margin-top: -21px;
-        }
-        li.leaf
-        {
-          list-style-type: none;
-          list-style-image: none;
-        }
-      }
-    }
-  }
 
   #header{
     background-image: url(../images/zwerm_logo_black_background.png);

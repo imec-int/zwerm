@@ -138,10 +138,13 @@ $number_of_items_in_navmenu : 3;
 $width_per_item_header_menu_not_logged_in: percentage((100 - ($space_outside_of_navmenus * 2)) / $number_of_items_in_navmenu / 100);
 
 //calculation of footer menu item width for large viewport
+
+$space_outside_of_navmenus : 12.5;
 $number_of_items_in_navmenu : 3;
 $width_per_item_footer_menu_logged-in: percentage((100 - ($space_outside_of_navmenus * 2)) / $number_of_items_in_navmenu / 100);
 
-$number_of_items_in_navmenu : 2;
+$space_outside_of_navmenus : 12.5;
+$number_of_items_in_navmenu : 1;
 $width_per_item_footer_menu_not_logged-in: percentage((100 - ($space_outside_of_navmenus * 2)) / $number_of_items_in_navmenu / 100);
 
 
