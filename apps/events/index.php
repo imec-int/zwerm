@@ -7,10 +7,8 @@
 
     $hash = hash( 'MD5', microtime() . SALT );
 
-    if( $_POST ){
-        transfer_from_post_to_session( KEY_PASSPHRASE );
-        transfer_from_post_to_session( KEY_EVENT_NID );
-    }
+    transfer_from_post_to_session( KEY_PASSPHRASE );
+    transfer_from_post_to_session( KEY_EVENT_NID );
 
     function get_hash(){
         global $hash;
