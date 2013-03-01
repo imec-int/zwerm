@@ -127,6 +127,12 @@ li a.active {
         @include nav-image-style-non-front();
       }
 
+      #Login
+      {
+        background-image : url(http://www.zwermgent.be/sites/default/files/solo-sparrow.png);
+        @include nav-image-style-non-front();
+      }
+
     }
   }
 
@@ -223,6 +229,15 @@ li a.active {
         @include nav-image-style-front();
       }
 
+      #Login
+      {
+        background-image : url(http://www.zwermgent.be/sites/default/files/solo-sparrow.png);
+        @include nav-image-style-front();
+        ackground-position-x: 30%;
+        background-position-y: 44%;
+        background-size: 65%;
+      }
+
       #Account
       {
         text-replace: "Login" "Account" ;
@@ -271,6 +286,35 @@ li a.active {
 
 //stylign the navigation menu or large viewports
 @media all and (min-width: $start_of_large_viewport) {
+  .logged-in
+  {
+    #navigation
+    {
+      li
+      {
+        float:left;
+        width: $width_per_item_header_menu_logged_in;
+        text-align: center;
+        padding:0px;
+      }
+    }
+  }
+
+  .not-logged-in
+  {
+    #navigation
+    {
+      li
+      {
+        float:left;
+        width: $width_per_item_header_menu_not_logged_in;
+        text-align: center;
+        padding:0px;
+      }
+    }
+  }
+
+
   #navigation {
     position:fixed;
     top: 0px;
@@ -294,14 +338,6 @@ li a.active {
     a
     {
       font-weight:bold;
-    }
-
-    li
-    {
-      float:left;
-      width:$width_per_item;
-      text-align: center;
-      padding:0px;
     }
 
     .first
