@@ -4,16 +4,25 @@
  * 27/02/13 - 10:13
  */
 
-    function scoga_register_eventfulfilled( $event_nid, $card_id, $remote_p, $hash ){
+    function scoga_register_eventfulfilled( $event_nid, $card_id, $remote_p, $hash, $remote_signature ){
 
         $result = new Result();
-
-        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
-
         $feedback_params = array(
             '@cardID' => $card_id,
             '@eventNID' => $event_nid,
         );
+
+
+        $unenc_signature = $hash . $event_nid . SCOGA_SALT;
+        $enc_signature = hash( 'sha256', $unenc_signature );
+        if( $enc_signature != $remote_signature ){
+            $result->message = t( 'incorrect signature', $feedback_params );
+            $result->code = CODE_INCORRECT_SIGNATURE;
+            return $result;
+        }
+
+
+        module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
 
         if( ! $player_account = scoga_get_player_entity_by_card_id( $card_id ) ){
             $result->message = t( 'user with card ID "@cardID" not found', $feedback_params );

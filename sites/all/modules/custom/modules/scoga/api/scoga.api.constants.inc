@@ -103,6 +103,7 @@
     define( 'CODE_INCORRECT_PASS_OR_EVENT',     3020 );
     define( 'CODE_PLAYER_ALREADY_FULFILLED',    3030 );
     define( 'CODE_EVENT_SUCCESS',               3040 );
+    define( 'CODE_INCORRECT_SIGNATURE',          3050 );
 
 
 

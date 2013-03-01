@@ -704,19 +704,8 @@
         $passphrase = $params[ 'p' ];
         $hash = $params[ 'h' ];
         $event_nid = $params[ 'eventNID' ];
-        try{
-            $unenc_signature = $hash . $event_nid . SCOGA_SALT;
-            $enc_signature = hash( 'sha256', $unenc_signature );
-            if( $enc_signature != $remote_signature ){
-                throw new ErrorException( 'incorrect signature' );
-            }
-            module_load_include( 'api.event.inc', 'scoga', 'api/scoga' );
-            $result = scoga_register_eventfulfilled( $event_nid, $card_id, $passphrase, $hash );
-        }catch ( Exception $e ){
-            $message = $e->getMessage();
-            watchdog( 'SCOGA', 'Event fulfilled could not be created: @message', array( '@message' => $message ), WATCHDOG_ERROR );
-            $result = $message;
-        }
+        module_load_include( 'api.event.inc', 'scoga', 'api/scoga' );
+        $result = scoga_register_eventfulfilled( $event_nid, $card_id, $passphrase, $hash, $remote_signature );
 
         return $result;
     }
