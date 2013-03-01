@@ -106,6 +106,13 @@ function scoga_feature_default_services_endpoint() {
         ),
       ),
     ),
+    'scoga_events' => array(
+      'operations' => array(
+        'create' => array(
+          'enabled' => 1,
+        ),
+      ),
+    ),
     'node' => array(
       'operations' => array(
         'retrieve' => array(
