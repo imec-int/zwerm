@@ -450,7 +450,7 @@
                         'optional'    => FALSE,
                     ),
                     array(
-                        'name'        => 'passphrase',
+                        'name'        => 'p',
                         'type'        => 'string',
                         'description' => 'The unique passphrase of the event',
                         'source'      => 'data',
@@ -461,7 +461,21 @@
                         'type'          => 'string',
                         'source'        => 'data',
                         'optional'      => TRUE,
-                        'default value' => -1
+                        'default value' => ''
+                    ),
+                    array(
+                        'name'          => 'h',
+                        'type'          => 'string',
+                        'source'        => 'data',
+                        'optional'      => TRUE,
+                        'default value' => ''
+                    ),
+                    array(
+                        'name'          => 'eventNID',
+                        'type'          => 'string',
+                        'source'        => 'data',
+                        'optional'      => TRUE,
+                        'default value' => 0
                     ),
                 )
             )
@@ -687,15 +701,17 @@
         watchdog( 'SCOGA', 'scoga_service_event_fulfilled_create: @params', array( '@params' => implode( ', ', $params ) ), WATCHDOG_NOTICE );
         $remote_signature = $params[ 's' ];
         $card_id = $params[ 'cardID' ];
-        $passphrase = $params[ 'passphrase' ];
+        $passphrase = $params[ 'p' ];
+        $hash = $params[ 'h' ];
+        $event_nid = $params[ 'eventNID' ];
         try{
-            $unenc_signature = $card_id . SCOGA_SALT. $passphrase;
+            $unenc_signature = $hash . $event_nid . SCOGA_SALT;
             $enc_signature = hash( 'sha256', $unenc_signature );
             if( $enc_signature != $remote_signature ){
                 throw new ErrorException( 'incorrect signature' );
             }
             module_load_include( 'api.event.inc', 'scoga', 'api/scoga' );
-            $result = scoga_register_eventfulfilled( $card_id, $passphrase );
+            $result = scoga_register_eventfulfilled( $event_nid, $card_id, $passphrase, $hash );
         }catch ( Exception $e ){
             $message = $e->getMessage();
             watchdog( 'SCOGA', 'Event fulfilled could not be created: @message', array( '@message' => $message ), WATCHDOG_ERROR );

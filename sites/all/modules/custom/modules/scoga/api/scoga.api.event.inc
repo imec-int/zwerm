@@ -4,30 +4,52 @@
  * 27/02/13 - 10:13
  */
 
-    function scoga_register_eventfulfilled( $card_id, $passphrase ){
+    function scoga_register_eventfulfilled( $event_nid, $card_id, $remote_p, $hash ){
+
+        $result = new Result();
+
         module_load_include( 'api.player.inc', 'scoga', 'api/scoga' );
 
-        $feedback_params = array( '@cardID' => $card_id );
+        $feedback_params = array(
+            '@cardID' => $card_id,
+            '@eventNID' => $event_nid,
+        );
 
         if( ! $player_account = scoga_get_player_entity_by_card_id( $card_id ) ){
-            throw new ErrorException( t( 'user with card ID "@cardID" not found', $feedback_params ) );
+            $result->message = t( 'user with card ID "@cardID" not found', $feedback_params );
+            $result->code = CODE_USER_NOT_FOUND;
+            return $result;
         }
 
         $feedback_params['@user']=$player_account->name;
 
-        if( ! $event_node = scoga_get_single_event_node_by_passphrase( $passphrase ) ){
-            throw new ErrorException( t( 'Incorrect passphrase for event' ) );
+        if( ! $event_node = node_load( $event_nid ) ){
+            $result->message = t( 'Incorrect passphrase or event with ID "@eventNID" not found', $feedback_params );
+            $result->code = CODE_INCORRECT_PASS_OR_EVENT;
+            return $result;
         }
 
         $feedback_params[ '@event' ] = $event_node->title;
 
+        $unenc_passphrase = scoga_get_field_value( $event_node, 'field_event_passphrase' ) . SCOGA_SALT . $hash;
+        $local_p =hash( 'sha256', $unenc_passphrase );
+        if( $local_p != $remote_p ){
+            $result->message = t( 'Incorrect passphrase or event with ID "@eventNID" not found', $feedback_params );
+            $result->code = CODE_INCORRECT_PASS_OR_EVENT;
+            return $result;
+        }
+
         $existing_nids = scoga_get_eventfulfilled_nids_by_references( $player_account->uid, $event_node->nid );
         if(count( $existing_nids ) > 0 ){
-            throw new ErrorException( t( '@user already received points for event "@event"', $feedback_params ) );
+            $result->message = t( '@user already received points for event "@event"', $feedback_params );
+            $result->code = CODE_PLAYER_ALREADY_FULFILLED;
+            return $result;
         }
 
         if( ! $ef_node = scoga_create_eventfulfilled_node( $player_account, $event_node ) ){
-            throw new ErrorException( t( 'Unknown error occurred. @user did not receive points for event "@event"', $feedback_params ) );
+            $result->message = t( 'Unknown error occurred. @user did not receive points for event "@event"', $feedback_params );
+            $result->code = CODE_UNKNOWN_ERROR;
+            return $result;
         }
         $reward = scoga_get_field_value( $event_node, 'field_event_reward' );
         $reason = t('event fulfilled');
@@ -36,7 +58,9 @@
 
         $feedback_params['@points']=$reward;
 
-        return t( '@user received @points point(s) for event "@event"', $feedback_params );
+        $result->message = t( '@user received @points point(s) for event "@event"', $feedback_params );
+        $result->code = CODE_EVENT_SUCCESS;
+        return $result;
     }
 
     function scoga_create_eventfulfilled_node( $player_account, $event_node ){
@@ -59,42 +83,6 @@
 
         return $ef_node;
 
-    }
-
-    /**
-     * retrieves event node by passphrase.
-     * returns FALSE when not found
-     * @param string $passphrase
-     *
-     * @return bool|stdClass
-     */
-    function scoga_get_single_event_node_by_passphrase( $passphrase = '' ){
-        $nid = scoga_get_single_event_nid_by_passphrase( $passphrase );
-        if( $nid > 0 ){
-            return node_load( $nid );
-        }
-
-        return FALSE;
-    }
-
-        /**
-         * @param string $passphrase uniquely identifying passphrase
-         *
-         * @return int returns -1 when none found and
-         */
-    function scoga_get_single_event_nid_by_passphrase( $passphrase = '' ){
-        $nids = scoga_get_event_nids_by_passphrase( $passphrase );
-        switch( count( $nids ) ){
-            default:
-                watchdog( 'SCOGA', 'multiple events with same passphrase: @nids', array( '@nids' => implode( ',', $nids ) ), WATCHDOG_ERROR );
-                //N.B. fall through
-            case 1:
-                return $nids[ 0 ];
-            case 0:
-                watchdog( 'SCOGA', 'event with passphrase "@passphrase" not found', array( '@passphrase' => $passphrase ), WATCHDOG_WARNING );
-                //N.B. fall through
-        }
-        return -1;
     }
 
     /**
@@ -132,10 +120,12 @@
             case 0:
                 break;
             case 1:
+
                 if( $existing_nids[ 0 ] == $event_node->nid ){
                     //no problemo, it's the same node
                     break;
                 }
+
             //N.B. fall through
             default:
                 //multiple found

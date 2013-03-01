@@ -99,6 +99,10 @@
     define( 'CODE_SAME_USER',                   1110 );
     define( 'CODE_CARD_MULTIPLE',               2020 );
     define( 'CODE_CARD_REGISTRATION_SUCCESS',   2030 );
+    define( 'CODE_USER_NOT_FOUND',              3010 );
+    define( 'CODE_INCORRECT_PASS_OR_EVENT',     3020 );
+    define( 'CODE_PLAYER_ALREADY_FULFILLED',    3030 );
+    define( 'CODE_EVENT_SUCCESS',               3040 );
 
 
 
