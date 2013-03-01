@@ -52,19 +52,8 @@
             <h1>Zwerm</h1>
       </div>
       <div data-role="content">
-          <?php
-          if( $_POST ){
-              var_dump( $_POST );
-          }
-          ?>
-          <br/>
-          <?
-          if( $_SESSION ){
-              var_dump( $_SESSION );
-          }
-            ?>
           <div id="div-warnings">
-              <H4 >&nbsp;</H4>
+              <H4 id="result">&nbsp;</H4>
               <H4 class="<?= ( session_has_key( KEY_EVENT_NID ) ) ? 'hidden' : ''; ?>">Opgelet: Je hebt nog geen Event ID opgegeven.</H4>
                 <H4  class="<?= ( session_has_key( KEY_PASSPHRASE ) ) ? 'hidden' : ''; ?>">Opgelet: Je hebt nog geen toegangscode opgegeven.</H4>
           </div>
@@ -74,7 +63,7 @@
               <input id="field-h" type="hidden" name="h" value="<?= get_hash() ?>" />
               <input id="field-s" type="hidden" name="s" value="<?= get_signature() ?>" />
               <div id="div-card_id" data-role="fieldcontain">
-                <label for="field-card-id">Kaart nummer <a id="warning-cant-scan" href="#" data-role="button" data-icon="alert" data-iconpos="notext" data-theme="c" data-inline="true">Alert</a></label>
+                <label for="field-card-id">Kaart nummer</label>
                 <input type="text" name="cardID" id="field-card-id" value="" data-clear-btn="true" onblur="showFocusWarning();" onfocus="hideFocusWarning();" />
               </div>
               <!--
@@ -86,24 +75,5 @@
           </form>
       </div>
     </div>
-    <div data-role="page"  id="page-loading">
-
-      <div data-role="header">
-            <h1>Zwerm</h1>
-      </div>
-      <div data-role="content">
-          <H4>Gegevens worden geladen</H4>
-           </div>
-    </div>
-    <div data-role="dialog"  id="page-blank">
-
-      <div data-role="header">
-            <h1>Zwerm</h1>
-      </div>
-      <div data-role="content">
-          <H4 id="result">&nbsp;</H4>
-          <a id="button-close-blank" href="#" data-role="button" data-rel="back">OK</a>
-           </div>
-     </div>
     </body>
     </html>

@@ -57,11 +57,15 @@ function togglePasswordVisibility(){
 }
 
 function showFocusWarning() {
-    $( '#warning-cant-scan' ).show();
+    //$( '#warning-cant-scan' ).show();
+    $('#field-card-id' ).attr( 'placeholder', '...Je kunt nu niet scannen.' );
+    //$('#field-card-id' ).addClass( 'warning' );
 }
 
 function hideFocusWarning(){
-    $( '#warning-cant-scan' ).hide();
+    //$( '#warning-cant-scan' ).hide();
+    $('#field-card-id' ).attr( 'placeholder', '' );
+    //$('#field-card-id' ).removeClass( 'warning' );
 }
 
 function setFocusOnCardIDField(){
@@ -101,9 +105,10 @@ function submitEventsRequest(  ){
            //$.mobile.changePage('#page-loading' );
        },
        complete: function() {
-           $.mobile.changePage('#page-blank', { transition : '' } );
+           //$.mobile.changePage('#page-blank', { transition : '' } );
            $.mobile.loading( 'hide' );
            $("#submit-button").button("enable");
+           setFocusOnCardIDField();
        }
    	}
        //console.log( params );
@@ -111,8 +116,11 @@ function submitEventsRequest(  ){
            .done(function(data, textStatus, jqXHR){
                 //setFocusOnCardIDField();
                 //alert( data.message );
-
-                $( '#result' ).html( '<h4>' + data.message + '</h4>' );
+                if( data.code == '3040' ){
+                    $( '#result' ).html( '<h4>' + data.message + '</h4>' );
+                }else{
+                    $( '#result' ).html( '<h4 class="warning">' + data.message + '</h4>' );
+                }
            })
            .fail(function(jqXHR, textStatus, errorThrown){
                 //setFocusOnCardIDField();
