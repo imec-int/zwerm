@@ -20,7 +20,9 @@
     }
 
     function get_from_session( $key ){
-        return $_SESSION[ SESSION_NAME ][ $key ];
+        if( session_has_key( $key ) ){
+            return $_SESSION[ SESSION_NAME ][ $key ];
+        }
     }
 
     function store_in_session( $key, $value ){
