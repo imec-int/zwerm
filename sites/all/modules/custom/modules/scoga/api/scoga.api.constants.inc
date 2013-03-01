@@ -19,6 +19,7 @@
     define( 'SCOGA_POI_NODETYPE',               'poi' );
     define( 'SCOGA_POICONFIRIMATION_NODETYPE',  'poi_confirmation' );
     define( 'SCOGA_GENERIC_ASSIGNMENT',         'generic_assignment' );
+    define( 'SCOGA_EVENTFULFILLED_NODETYPE',    'nodetype_event_fulfilled' );
 
     //--( SETTINGS )--//
 
@@ -66,7 +67,7 @@
     define( 'SCOGA_PERM_REST_ACCESS_PAGES_DATA',        'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_MAIL',              'access content' );
     define( 'SCOGA_PERM_REST_ACCESS_CONFIG',              'access content' );
-
+    define( 'SCOGA_PERM_REST_ACCESS_CREATE_EVENT_FULFILLED', 'access content' );
 
 //--( VALUES )--//
 
@@ -98,6 +99,10 @@
     define( 'CODE_SAME_USER',                   1110 );
     define( 'CODE_CARD_MULTIPLE',               2020 );
     define( 'CODE_CARD_REGISTRATION_SUCCESS',   2030 );
+    define( 'CODE_USER_NOT_FOUND',              3010 );
+    define( 'CODE_INCORRECT_PASS_OR_EVENT',     3020 );
+    define( 'CODE_PLAYER_ALREADY_FULFILLED',    3030 );
+    define( 'CODE_EVENT_SUCCESS',               3040 );
 
 
 

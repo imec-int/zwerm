@@ -1,0 +1,43 @@
+.hidden{
+    display: none;
+}
+
+.warning{
+    color: #FF2222;
+}
+
+#div-warnings{
+    height: 180px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+
+#label-card-id{
+    width: 250px;
+}
+
+#div-card_id{
+    max-width: 250px;
+}
+/*
+
+html { background-color: #333; }
+@media only screen and (min-width: 600px){
+    .ui-page {
+        width: 600px !important;
+        margin: 0 auto !important;
+        position: relative !important;
+        border-right: 5px #666 outset !important;
+        border-left: 5px #666 outset !important;
+    }
+}
+*/

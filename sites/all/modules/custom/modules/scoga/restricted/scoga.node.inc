@@ -16,6 +16,8 @@
             case SCOGA_WISHFULFILLED_NODETYPE:
                 _handle_wishfulfilled_inserted( $node );
                 break;
+            case SCOGA_EVENT_NODETYPE:
+                _handle_event_inserted( $node );
         }
     }
 
@@ -35,6 +37,8 @@
             case SCOGA_WISHEDITEM_NODETYPE :
                 _handle_wisheditem_updated( $node );
                 break;
+            case SCOGA_EVENT_NODETYPE:
+                _handle_event_updated( $node );
         }
     }
 
@@ -76,4 +80,14 @@
         scoga_delete_combocheckin_relationship_type( $node->title );
     }
 
+
+    function _handle_event_inserted( $node ){
+        module_load_include( 'api.event.inc', 'scoga', 'api/scoga' );
+        scoga_check_nonunique_passphrase( $node );
+    }
+
+    function _handle_event_updated( $node ){
+        module_load_include( 'api.event.inc', 'scoga', 'api/scoga' );
+        scoga_check_nonunique_passphrase( $node );
+    }
 
