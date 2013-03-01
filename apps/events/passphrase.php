@@ -17,6 +17,7 @@
             <label for="field-passphrase">Toegangscode</label>
             <input type="password" name="passphrase" id="field-passphrase" value="<?= session_has_key( KEY_PASSPHRASE ) ? get_from_session( KEY_PASSPHRASE ) : ''; ?>"  />
           </div>
+          <!--
           <div id="div-passphrase-toggle" data-role="fieldcontain">
             <label for="field-passphrase-toggle">Toon toegangscode</label>
             <select id="field-passphrase-toggle" name="field-passphrase-toggle" data-role="slider" >
@@ -24,6 +25,7 @@
                 <option value="on">Aan</option>
             </select>
           </div>
+          -->
           <div>
               <input type="submit" value="Bewaren" data-icon="edit"/>
           </div>
