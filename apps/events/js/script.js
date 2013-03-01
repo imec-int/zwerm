@@ -132,6 +132,8 @@ function submitEventsRequest(  ){
 $(document).on('pageshow', '#page-front',  function(){
     setFocusOnCardIDField();
 });
+/*
 $(document).on('pageshow', '#page-passphrase',  function(){
     $( "#field-passphrase-toggle" ).on( "slidestop", togglePasswordVisibility );
 });
+*/

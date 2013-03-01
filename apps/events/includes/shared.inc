@@ -16,7 +16,7 @@
     }
 
     function session_has_key( $key ){
-        return session_exists() && isset( $_SESSION[ SESSION_NAME ][ $key ] );
+        return session_exists() && isset( $_SESSION[ SESSION_NAME ][ $key ] ) && $_SESSION[ SESSION_NAME ][ $key ] != '';
     }
 
     function get_from_session( $key ){
@@ -29,10 +29,10 @@
     }
 
     function transfer_from_post_to_session( $key ){
-        if( $key && $_POST[ $key ] ){
+        if( $key ){
             store_in_session( $key, $_POST[ $key ] );
         }else{
-            clear_from_session( $key );
+            store_in_session( $key, '' );
         }
     }
 
