@@ -17,7 +17,7 @@ function scoga_birds_openlayers_styles() {
   $openlayers_styles->title = 'SCOGA Bird Marker Green';
   $openlayers_styles->description = 'SCOGA Bird Marker Green';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'http://localhost/smartip/sites/all/themes/zwerm/images/scoga_marker_bird.png',
+    'externalGraphic' => 'sites/all/themes/zwerm/images/scoga_marker_bird.png',
     'pointRadius' => 16,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',
@@ -42,7 +42,7 @@ function scoga_birds_openlayers_styles() {
   $openlayers_styles->title = 'SCOGA Bird Marker White';
   $openlayers_styles->description = 'SCOGA Bird Marker White';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'http://localhost/smartip/sites/all/themes/zwerm/images/scoga_marker_bird_invert.png',
+    'externalGraphic' => 'sites/all/themes/zwerm/images/scoga_marker_bird_invert.png',
     'pointRadius' => 16,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',
