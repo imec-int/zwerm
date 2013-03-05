@@ -109,7 +109,7 @@
 
     <?php
     print ('<div id="dialog" title="Het speel venster">');
-    print ('Door dit wijkzoekertje te vervullen kun je punten verdienen.');
+    print ('Door dit wijkzoekertje te vervullen kun je ook zelf punten verdienen. Meer uitleg vind je op de <a href="https://www.zwermgent.be/info#wijkzoeker" target=blanc color=blue>info pagina</a>');
     print('</div>');
     print('<div class="help"><a >?</a></div>');
     // We hide the comments and links now so that we can render them later.
