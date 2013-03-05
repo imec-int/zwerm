@@ -76,12 +76,27 @@ function setFocusOnCardIDField(){
     },0);
 }
 
+function parseBigEndian(str) {
+    var dec = parseInt( str );
+    var hex = dec.toString( 16 );
+    var $reversedBytes = [];
+    while( hex.length > 0 ){
+        $reversedBytes.push( hex.substring(0,2) );
+        hex = hex.substring(2, hex.length);
+    }
+    return $reversedBytes.reverse().join('');
+};
+
 function submitEventsRequest(  ){
 
     var uri = '/rest/scoga_events'; //'/rest/scoga_events';
 
+    var littleEndianCardID = parseBigEndian($( '#field-card-id' ).val());
+
+    var convertedCardID = littleEndianCardID + '000000';
+
     var data = {
-   		cardID : $( '#field-card-id' ).val(),
+   		cardID : convertedCardID,
    		s : $( '#field-s' ).val(),
         h : $( '#field-h' ).val(),
         eventNID : $( '#field-event-nid' ).val(),
