@@ -52,7 +52,7 @@
               <H4 class="<?= ( session_has_key( KEY_EVENT_NID ) ) ? 'hidden' : ''; ?>">Opgelet: Je hebt nog geen Event ID opgegeven.</H4>
                 <H4  class="<?= ( session_has_key( KEY_PASSPHRASE ) ) ? 'hidden' : ''; ?>">Opgelet: Je hebt nog geen toegangscode opgegeven.</H4>
           </div>
-          <form id="form-card-id">
+          <div id="div-cardid-form">
               <input id="field-passphrase" type="hidden" name="p" value="<?= get_passphrase(); ?>" />
               <input id="field-event-nid" type="hidden" name="eventNID" value="<?= get_from_session( KEY_EVENT_NID ); ?>" />
               <input id="field-h" type="hidden" name="h" value="<?= get_hash() ?>" />
@@ -67,7 +67,7 @@
               <div>
                   <input id="submit-button" type="button" value="Verstuur" data-icon="forward" onclick="submitEventsRequest(); return false;"/>
               </div>
-          </form>
+          </div>
       </div>
     </div>
     </body>
