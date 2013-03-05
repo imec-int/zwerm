@@ -23,6 +23,8 @@
         if( session_has_key( $key ) ){
             return $_SESSION[ SESSION_NAME ][ $key ];
         }
+
+        return '';
     }
 
     function store_in_session( $key, $value ){
