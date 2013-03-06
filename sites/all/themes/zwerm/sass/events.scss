@@ -2,6 +2,7 @@
 
 body.node-type-nodetype-event
 {
+
   @media all and (max-width: $end_of_small_viewport)
   {
     #main
@@ -104,6 +105,9 @@ body.node-type-nodetype-event
   #block-views-event-content-type-map-block-1
   {
     margin-bottom: 10px;
+    img
+    {
+      max-width: none;
+    }
   }
-
 }

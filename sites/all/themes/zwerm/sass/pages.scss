@@ -342,12 +342,7 @@ span.field-label { /* The inline field label used by the Fences module */
 .region-sidebar-second {
 }
 
-/*
- * Footer
- */
 
-#footer {
-}
 
 /*
  * Page bottom
@@ -405,14 +400,8 @@ span.field-label { /* The inline field label used by the Fences module */
   padding-top: 3px;
   height:33px;
 
-  .leaf:nth-of-type(2)
-  {
-    margin-top: -21px;
-    width: 34%;
-    margin-left: 33%;
-    position: absolute;
-    text-align: center;
-  }
+
+
 }
 
 //needed for footer to remain at bottom
@@ -439,32 +428,110 @@ tr.colordc6058 {
 }
 
 
-#block-menu-menu-footer {
+.logged-in{
+  #block-menu-menu-footer
+  {
+    ul {
+      display:block;
+      border-width:1px;
+      padding: 0 0 0 0;
+      li {
+        float:left;
+        width: $width_per_item_footer_menu_logged-in;
+        text-align: center;
+        padding:0px;
+        margin-top: -21px;
+      }
+      li.leaf
+      {
+        list-style-type: none;
+        list-style-image: none;
+      }
+      .leaf
+      {
+
+        a.facebook
+        {
+          background-image: url(../images/icon-facebook.png);
+          background-size: 34px;
+          background-repeat: no-repeat;
+          background-position-x: 50%;
+          background-position-y: 0px;
+          padding-top: 21px;
+          font-size: 0px;
+        }
+      }
+    }
+  }
+}
+
+.not-logged-in{
+  #block-menu-menu-footer
+  {
+    .first {
+      margin-left: 10;
+    }
+    .last {
+      margin-right: 10%;
+    }
+    ul {
+      display:block;
+      border-width:1px;
+      padding: 0 0 0 0;
+      li {
+        float:left;
+        width: $width_per_item_footer_menu_not_logged-in;
+        text-align: center;
+        padding:0px;
+        margin-top: -21px;
+      }
+      li.leaf
+      {
+        list-style-type: none;
+        list-style-image: none;
+      }
+      .leaf
+      {
+
+        a.facebook
+        {
+          background-image: url(../images/icon-facebook.png);
+          background-size: 34px;
+          background-repeat: no-repeat;
+          background-position-x: 50%;
+          background-position-y: 0px;
+          padding-top: 21px;
+          font-size: 0px;
+        }
+      }
+    }
+  }
+}
+
+
+#block-menu-menu-footer
+{
   .block-title {
     display:none;
   }
-  li {
-    display:block;
-    height : 50px;
-    }
-  ul {
-    display:block;
-    border-width:1px;
-    padding: 0 0 0 0;
+  .logout
+  {
+    //float : right;
+    //margin-top: -22px;
   }
   .first {
-    float : left;
-    margin-top: -22px;
+    margin-left: 12.5%;
   }
   .last {
-    float : right;
-    margin-top: -22px;
+    margin-right: 12.5%;
   }
   a {
     @include hyperlink-style;
     padding-right: 10px;
     padding-left: 10px;
     font-weight:bold;
+    font-size: 13px;
+
   }
 }
 
@@ -520,6 +587,7 @@ article
 //large viewport
 @media all and (min-width: $start_of_large_viewport)
 {
+
   #header{
     background-image: url(../images/zwerm_logo_black_background.png);
     background-size: 10%;

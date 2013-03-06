@@ -614,7 +614,7 @@ function scoga_geochallenges_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '2',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -647,6 +647,96 @@ function scoga_geochallenges_field_default_fields() {
         ),
         'type' => 'text_textarea',
         'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-poi-field_foto'.
+  $fields['node-poi-field_foto'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_foto',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'poi',
+      'deleted' => '0',
+      'description' => 'Voeg een foto toe om dit punt extra in de verf te zetten! Bij sommige geo-challenges krijg je er zelfs extra punten voor!',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '3',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_foto',
+      'label' => 'Foto',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 0,
+        'default_image' => 0,
+        'file_directory' => 'geochallenges',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '1 MB',
+        'max_resolution' => '',
+        'min_resolution' => '200x200',
+        'title_field' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '32',
       ),
     ),
   );
@@ -699,7 +789,7 @@ function scoga_geochallenges_field_default_fields() {
             'geofield_map_zoom' => '8',
           ),
           'type' => 'geofield_map_map',
-          'weight' => '2',
+          'weight' => '0',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -784,7 +874,7 @@ function scoga_geochallenges_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '5',
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -881,7 +971,7 @@ function scoga_geochallenges_field_default_fields() {
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => '3',
+          'weight' => '1',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1639,6 +1729,7 @@ function scoga_geochallenges_field_default_fields() {
   t('Commentaar');
   t('Defines which player activities are enabled for this challenge');
   t('Description');
+  t('Foto');
   t('Geo Challenge');
   t('Geochallenge');
   t('Location');
@@ -1653,6 +1744,7 @@ function scoga_geochallenges_field_default_fields() {
   t('The name of a single unit of this POI type. For example, if you want to ask people to add trees, you would enter \'tree\'. (Lowercaps)');
   t('The plural form of the unit of POIs that need to be added. If you want players to add trees, then enter \'trees\' (lowercaps)');
   t('User');
+  t('Voeg een foto toe om dit punt extra in de verf te zetten! Bij sommige geo-challenges krijg je er zelfs extra punten voor!');
   t('Wil je nog extra opmerkingen of commentaar meegeven rond dit punt? Laat je dan hier (kort en bondig) gaan!');
 
   return $fields;
