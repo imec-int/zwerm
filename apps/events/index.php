@@ -54,6 +54,9 @@
             <h1>Zwerm</h1>
       </div>
       <div data-role="content">
+          <div>
+              <?php var_dump( $_SESSION ); ?>
+          </div>
           <div id="div-warnings">
               <H4 id="result">&nbsp;</H4>
               <H4 class="<?= ( session_has_key( KEY_EVENT_NID ) ) ? 'hidden' : ''; ?>">Opgelet: Je hebt nog geen Event ID opgegeven.</H4>
