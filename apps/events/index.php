@@ -7,6 +7,13 @@
 
     $hash = hash( 'MD5', microtime() . SALT );
 
+    if( ! session_has_key( KEY_PASSPHRASE ) ){
+        store_in_session( KEY_PASSPHRASE, '' );
+    }
+    if( ! session_has_key( KEY_EVENT_NID ) ){
+        store_in_session( KEY_EVENT_NID, '' );
+    }
+
     if( $_POST ){
         transfer_from_post_to_session( KEY_PASSPHRASE );
         transfer_from_post_to_session( KEY_EVENT_NID );
