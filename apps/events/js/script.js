@@ -89,8 +89,6 @@ function parseBigEndian(str) {
 
 function submitEventsRequest(  ){
 
-    var token = $( '#field-token' ).val();
-    alert( token );
     var uri = '/rest/scoga_events'; //'/rest/scoga_events';
 
     var littleEndianCardID = parseBigEndian($( '#field-card-id' ).val());
@@ -108,11 +106,6 @@ function submitEventsRequest(  ){
     $( '#field-card-id' ).val( '' );
 
    	//send POST urlencoded, receive JSON
-    /*
-,
-           headers : {
-         			Cookie : null
-         		},     */
 
    	var params = {
            //context : this,
@@ -137,7 +130,6 @@ function submitEventsRequest(  ){
        //console.log( params );
    	var jqxhr = $.ajax( params )
            .done(function(data, textStatus, jqXHR){
-                alert( data );
                 //setFocusOnCardIDField();
                 //alert( data.message );
                 if( data.code == '3040' ){
@@ -147,7 +139,6 @@ function submitEventsRequest(  ){
                 }
            })
            .fail(function(jqXHR, textStatus, errorThrown){
-                alert( errorThrown );
                 //setFocusOnCardIDField();
                 $( '#result' ).html( '<h4>' + data.message + '</h4>' );
            });
