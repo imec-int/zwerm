@@ -140,7 +140,7 @@ function submitEventsRequest(  ){
            })
            .fail(function(jqXHR, textStatus, errorThrown){
                 //setFocusOnCardIDField();
-                $( '#result' ).html( '<h4>' + data.message + '</h4>' );
+                $( '#result' ).html( '<h4>' + errorThrown + '</h4>' );
            });
        ;
 }
