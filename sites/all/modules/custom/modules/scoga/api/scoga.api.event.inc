@@ -63,7 +63,7 @@
         $reward = scoga_get_field_value( $event_node, 'field_event_reward' );
         $reason = t('event fulfilled');
         module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
-        scoga_award_points_to_user( $player_account->uid, $reward, $reason );
+        //scoga_award_points_to_user( $player_account->uid, $reward, $reason );
 
         $feedback_params['@points']=$reward;
 
@@ -88,7 +88,7 @@
 
         $ef_node->title = t('@user fulfilled event @event',array( '@user' => $player_account->name, '@event' => $event_node->title ) );
 
-        node_save( $ef_node );
+        //node_save( $ef_node );
 
         return $ef_node;
 
