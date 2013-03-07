@@ -105,6 +105,8 @@ function submitEventsRequest(  ){
 
     $( '#field-card-id' ).val( '' );
 
+    alert( encodeURIComponent( data ) );
+
    	//send POST urlencoded, receive JSON
    	var params = {
            //context : this,
