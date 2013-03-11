@@ -39,6 +39,32 @@
         return $output;
     }
 
+    function scoga_count_relationsips_by_user ( $uid )
+    {
+        //watchdog('scoga','scoga_count_relationsips_by_user');
+        $rows =  scoga_get_relationships_by_user ( $uid );
+        var_dump ($rows);
+        //return('****');
+        //return( var_dump ($rows));
+        //print mysql_num_rows($rows);
+        return $rows->rowCount();
+    }
+
+    function scoga_get_relationships_by_user ( $uid )
+    {
+        watchdog('scoga',$uid);
+        watchdog('scoga',scoga_get_current_combocheckin_rtid());
+        $query = "SELECT rid, requester_id, requestee_id FROM user_relationships
+                  WHERE rtid = :rtid
+                  AND requester_id = :uid GROUP BY rid";
+        $rows = db_query( $query, array(
+           ':rtid' => scoga_get_current_combocheckin_rtid(),
+           ':uid'  => $uid
+        ));
+        var_dump($rows);
+        return $rows;
+    }
+
     function scoga_get_relationship_vos_after_rid( $last_rid = 0 ){
         if( $last_rid >= 0 ){
             $query =
