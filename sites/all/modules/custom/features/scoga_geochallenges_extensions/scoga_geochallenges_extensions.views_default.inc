@@ -274,6 +274,39 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['fields']['field_comment']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_comment']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_comment']['field_api_classes'] = 1;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'poi' => 'poi',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['table'] = 'node';
+  $handler->display->display_options['filters']['status_1']['field'] = 'status';
+  $handler->display->display_options['filters']['status_1']['relationship'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['filters']['status_1']['value'] = '1';
+  $handler->display->display_options['filters']['status_1']['group'] = 1;
+  /* Filter criterion: Content: Geo Challenge (field_ref_geo_challenge) */
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['id'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['table'] = 'field_data_field_ref_geo_challenge';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['field'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['operator_id'] = 'field_ref_geo_challenge_target_id_op';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['label'] = 'Filter op een geo challenge';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['operator'] = 'field_ref_geo_challenge_target_id_op';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['identifier'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['reduce'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
@@ -286,6 +319,30 @@ function scoga_geochallenges_extensions_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'poi' => 'poi',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  /* Filter criterion: Content: Geo Challenge (field_ref_geo_challenge) */
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['id'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['table'] = 'field_data_field_ref_geo_challenge';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['field'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['operator_id'] = 'field_ref_geo_challenge_target_id_op';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['label'] = 'Filter op een geochallenge';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['operator'] = 'field_ref_geo_challenge_target_id_op';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['identifier'] = 'field_ref_geo_challenge_target_id';
+  $handler->display->display_options['filters']['field_ref_geo_challenge_target_id']['expose']['reduce'] = 0;
   $handler->display->display_options['path'] = 'kaart';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Kaart';
@@ -505,7 +562,7 @@ $result = $query
   ->entityCondition(\'bundle\', \'scoga_sensor_device_event\')
   ->fieldCondition(\'field_ref_sensor_device\', \'target_id\', $row->nid , \'=\')
   ->fieldCondition(\'field_sensor_type\', \'value\', \'whistle\' , \'=\')
-  //->propertyOrderBy(\'nid\', \'DESC\')
+  ->propertyOrderBy(\'nid\', \'DESC\')
   ->range(0, 1)
   ->execute();
 if (key($result) == \'node\') {
@@ -616,8 +673,10 @@ en detecteerde een CO2 waarde van <?php print $co2_value; ?> deeltjes per miljoe
     t('[field_comment]
 [field_foto]
 '),
+    t('Filter op een geo challenge'),
     t('Page'),
     t('Zwerm Kaart'),
+    t('Filter op een geochallenge'),
     t('Block'),
     t('Geo Challenge'),
     t('Birds Data Overlay'),

@@ -29,7 +29,7 @@ function scoga_birds_default_rules_configuration() {
             "PROVIDE" : { "entity_fetched" : { "sensor_device_node" : "sensor device node" } }
           }
         },
-        { "php_eval" : { "code" : "module_load_include( \\u0027api.points.inc\\u0027, \\u0027scoga\\u0027, \\u0027api\\/scoga\\u0027 );\\r\\nscoga_award_points_to_user( $sensor_device_node-\\u003Efield_ref_sensor_device_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027], 1, \\u0022Hoorde gefluit op straat\\u0022);" } }
+        { "php_eval" : { "code" : "module_load_include( \\u0027api.points.inc\\u0027, \\u0027scoga\\u0027, \\u0027api\\/scoga\\u0027 );\\r\\nwatchdog(\\u0027SCOGA Birds\\u0027,\\u0027Awarding points for :\\u0027.$sensor_device_node-\\u003Etitle.\\u0027, user :\\u0027.$sensor_device_node-\\u003Efield_ref_sensor_device_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027]);\\r\\nscoga_award_points_to_user( $sensor_device_node-\\u003Efield_ref_sensor_device_user[\\u0027und\\u0027][0][\\u0027target_id\\u0027], 10, \\u0022Hoorde gefluit op straat!\\u0022);" } }
       ]
     }
   }');
