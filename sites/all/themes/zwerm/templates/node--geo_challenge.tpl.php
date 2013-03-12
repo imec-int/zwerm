@@ -116,18 +116,29 @@
 
   <?php if ($page): ?>
     <div class="geochallenge-details">
+        <div class="geochallenge-counter">
+            <span class="geochallenge-details-label">Reeds toegevoegd door jou:</span>
+            <span class="geochallenge-details-value">
+               <?php print $user_geochallenge_poi_count ?>
+              <?php if ($geochallenge_node_limit) : ?>
+              <?php if ($geochallenge_poi_left > 0) : ?>
+                    - Je mag binnen deze Geo-Challenge nog <?php print $geochallenge_poi_left; ?> punten toevoegen.
+                <?php else: ?>
+                    - Je hebt je maximum aantal punten voor deze geo-challenge bereikt. Bedankt voor je hulp!
+                <?php endif; ?>
+              <?php endif; ?>
+            </span>
+        </div>
+        <!--
         <div class="geochallenge-spotted-friendly">
-            <span class="geochallenge-details-label">Reeds gespot & gechecked in jou buurt:</span>
+            <span class="geochallenge-details-label">Aantal punten dat door jou team werd gespot:</span>
             <span class="geochallenge-details-value">--</span>
         </div>
         <div class="geochallenge-spotted-enemy">
-            <span class="geochallenge-details-label">Reeds gespot & gechecked door de tegenspelers:</span>
+            <span class="geochallenge-details-label">Reeds gespot door het andere team:</span>
             <span class="geochallenge-details-value">--</span>
         </div>
-        <div class="geochallenge-tobechecked-you">
-            <span class="geochallenge-details-label">Nog te checken door jou:</span>
-            <span class="geochallenge-details-value">--</span>
-        </div>
+        -->
     </div>
     <div class="geochallenge-add-poi">
         <a href=""><span><?php echo $node->field_poi_unit_name['und'][0]['value']; ?> toevoegen</span></a>

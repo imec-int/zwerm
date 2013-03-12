@@ -275,6 +275,27 @@ function zwerm_preprocess_node_poi_confirmation(&$vars, $hook)
   $vars['poi_confirmation_status'] = $vars['node']->field_status['und'][0]['value'];
 }
 
+function zwerm_preprocess_node_geo_challenge(&$vars, $hook)
+{
+  //We fetch the geochallenge POI limit and the user's quota so far
+  module_load_include( 'api.geochallenge.inc', 'scoga', 'api/scoga' );
+
+  $geochallenge_nid = arg(1);
+  $geochallenge_node_limit = scoga_fetch_geochallenge_poi_limit($geochallenge_nid);
+  $user_geochallenge_poi_count = scoga_fetch_user_poi_count($geochallenge_nid);
+
+  $geochallenge_poi_left = $geochallenge_node_limit - $user_geochallenge_poi_count;
+  if ($geochallenge_poi_left < 0) {
+    $geochallenge_poi_left = 0;
+  }
+
+  if ($geochallenge_node_limit > 0) {
+    $vars['geochallenge_node_limit'] = $geochallenge_node_limit;
+  }
+  $vars['user_geochallenge_poi_count'] = $user_geochallenge_poi_count;
+  $vars['geochallenge_poi_left'] = $geochallenge_poi_left;
+}
+
 function zwerm_preprocess_node(&$vars)
 {
   //changes the submitted by string
