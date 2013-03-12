@@ -578,7 +578,23 @@ function scoga_feature_field_default_fields() {
       'module' => 'entityreference',
       'settings' => array(
         'handler' => 'base',
-        'handler_settings' => array(),
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'direction' => 'ASC',
+            'field' => 'body:value',
+            'property' => 'nid',
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'nodetype_team' => 'nodetype_team',
+          ),
+        ),
+        'handler_submit' => 'Change handler',
         'target_type' => 'node',
       ),
       'translatable' => '0',
@@ -1947,7 +1963,7 @@ example: 10/05/2012, the campaign ends on 09/05/2012 23:59:59<br/>
       'entity_types' => array(),
       'field_name' => 'field_event_passphrase',
       'field_permissions' => array(
-        'type' => '1',
+        'type' => '2',
       ),
       'foreign keys' => array(
         'format' => array(
@@ -3400,9 +3416,13 @@ DO NOT MODIFY ONCE SET!',
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => 60,
+        ),
+        'type' => 'entityreference_autocomplete',
         'weight' => '32',
       ),
     ),
