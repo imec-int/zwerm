@@ -7,6 +7,13 @@
 
     $hash = hash( 'MD5', microtime() . SALT );
 
+    if( ! session_has_key( KEY_PASSPHRASE ) ){
+        store_in_session( KEY_PASSPHRASE, '' );
+    }
+    if( ! session_has_key( KEY_EVENT_NID ) ){
+        store_in_session( KEY_EVENT_NID, '' );
+    }
+
     if( $_POST ){
         transfer_from_post_to_session( KEY_PASSPHRASE );
         transfer_from_post_to_session( KEY_EVENT_NID );
@@ -34,9 +41,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Zwerm Activiteit</title>
         <link type="text/css" rel="stylesheet" href="css/styles.css" media="all" />
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css">
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.0.min.css">
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.mobile-1.3.0.min.js"></script>
         <script src="js/script.js"></script>
     </head>
     <body>

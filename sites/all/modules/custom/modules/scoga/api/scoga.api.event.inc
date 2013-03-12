@@ -158,7 +158,8 @@
         $query
             ->entityCondition( 'entity_type', $entity_type )
             ->entityCondition( 'bundle', SCOGA_EVENTFULFILLED_NODETYPE )
-            ->fieldCondition( 'field_eventfulfilled_event', 'target_id', $event_nid, '=' );
+            ->propertyCondition( 'uid', $player_uid )
+            ->fieldCondition( 'field_eventfulfilled_event', 'target_id', $event_nid, '=' )
         ;
         $result = $query->execute();
         if( isset( $result[ $entity_type ] ) ){

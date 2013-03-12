@@ -11,14 +11,54 @@
   {
     display:none;
   }
-
   .views-field-picture
   {
+    padding-right:10px;
     img
     {
-      height: 50px;
+      height: 40px;
+      //width:50px;
       display: block;
       margin-left: 5px;
+      //margin-right: 5px;
+      padding-right: 10px;
+    }
+  }
+  td.views-field-php
+  {
+    font-size: 16px;
+    float: right;
+    position: relative;
+    top: 30px;
+    //right: -76px;
+    left: 116px;
+    ////padding-right: 9px;
+    display: block;
+    width: 116px;
+  }
+  td.views-field-points
+  {
+    font-size: 16px;
+    font-family: Romina;
+    padding-left: 10px;
+    display: inline;
+    float: right;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    padding-right: 9px;
+  }
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    td.views-field-php
+    {
+      float: right;
+      position: static;
+      display: block;
+      width: 94px;
     }
   }
 }
+
+
+

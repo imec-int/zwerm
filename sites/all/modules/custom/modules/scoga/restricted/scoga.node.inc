@@ -42,6 +42,13 @@
         }
     }
 
+    function scoga_handle_node_validate( $node, $form, &$form_state ) {
+        switch( $node->type ){
+          case SCOGA_POI_NODETYPE :
+            _handle_poi_validate( $node, $form, $form_state );
+        }
+    }
+
 
     function _handle_wishfulfilled_inserted( $node ){
         module_load_include( 'api.wishlist.inc', 'scoga', 'api/scoga' );
@@ -89,5 +96,10 @@
     function _handle_event_updated( $node ){
         module_load_include( 'api.event.inc', 'scoga', 'api/scoga' );
         scoga_check_nonunique_passphrase( $node );
+    }
+
+    function _handle_poi_validate( $node, $form, &$form_state ){
+      module_load_include( 'api.geochallenge.inc', 'scoga', 'api/scoga' );
+      scoga_validate_poi_limit( $node, $form, $form_state );
     }
 

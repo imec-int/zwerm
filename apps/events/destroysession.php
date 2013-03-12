@@ -4,5 +4,6 @@
  * 04/03/13 - 13:03
  */
 
+    session_start();
     session_unset();     // unset $_SESSION variable for the run-time
     session_destroy();

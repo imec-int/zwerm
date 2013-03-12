@@ -106,6 +106,7 @@ function submitEventsRequest(  ){
     $( '#field-card-id' ).val( '' );
 
    	//send POST urlencoded, receive JSON
+
    	var params = {
            //context : this,
    		type : "POST",
@@ -139,7 +140,7 @@ function submitEventsRequest(  ){
            })
            .fail(function(jqXHR, textStatus, errorThrown){
                 //setFocusOnCardIDField();
-                $( '#result' ).html( '<h4>' + data.message + '</h4>' );
+                $( '#result' ).html( '<h4>' + errorThrown + '</h4>' );
            });
        ;
 }
