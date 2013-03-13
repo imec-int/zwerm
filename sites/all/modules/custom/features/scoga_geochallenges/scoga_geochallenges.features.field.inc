@@ -71,7 +71,7 @@ function scoga_geochallenges_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '3',
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -338,6 +338,72 @@ function scoga_geochallenges_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-geo_challenge-field_max_poi_per_player'.
+  $fields['node-geo_challenge-field_max_poi_per_player'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_max_poi_per_player',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'number',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'number_integer',
+    ),
+    'field_instance' => array(
+      'bundle' => 'geo_challenge',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Hoeveel punten mogen er maximum door elke speler worden ingevoerd ?',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_max_poi_per_player',
+      'label' => 'Maximum POI per player',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '0',
+        'prefix' => '',
+        'suffix' => 'punten per speler',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '11',
+      ),
+    ),
+  );
+
   // Exported field: 'node-geo_challenge-field_options'.
   $fields['node-geo_challenge-field_options'] = array(
     'field_config' => array(
@@ -384,7 +450,7 @@ function scoga_geochallenges_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -459,7 +525,7 @@ function scoga_geochallenges_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -537,7 +603,7 @@ function scoga_geochallenges_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1732,7 +1798,9 @@ function scoga_geochallenges_field_default_fields() {
   t('Foto');
   t('Geo Challenge');
   t('Geochallenge');
+  t('Hoeveel punten mogen er maximum door elke speler worden ingevoerd ?');
   t('Location');
+  t('Maximum POI per player');
   t('POI');
   t('POI Unit name');
   t('POI Unit name (plural)');

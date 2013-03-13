@@ -171,6 +171,18 @@
     }
 
     /**
+     * implements hook_node_validate
+     *
+     * @param $node
+     * @param $form
+     * @param $form_state
+     */
+    function scoga_node_validate($node, $form, &$form_state) {
+        module_load_include( 'node.inc', 'scoga', 'restricted/scoga' );
+        scoga_handle_node_validate( $node, $form, $form_state );
+    }
+
+    /**
      * implements hook_variable_group_info
      * @return array
      */

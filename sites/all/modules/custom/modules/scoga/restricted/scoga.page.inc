@@ -173,10 +173,15 @@
         }
     }
 
+    /**
+     * @param $assignment_vo
+     * @param $assignment_titles
+     * @param $assignment_paths
+     */
     function _scoga_add_wishes_to_output($assignment_vo,&$assignment_titles,&$assignment_paths)
     {
         $nodes = array();
-        $query = "SELECT nid FROM node
+        /*$query = "SELECT nid FROM node
         LEFT JOIN field_data_field_wisheditem_campaign AS campaign ON node.nid=campaign.entity_id
         LEFT JOIN field_data_field_wisheditem_state AS state on node.nid=state.entity_id
         LEFT JOIN field_data_field_user_team AS team ON node.uid=team.entity_id
@@ -187,7 +192,17 @@
         $result = db_query($query,
             array(':user_id'=>$assignment_vo -> user_team,
                   ':campaign_id' =>   $assignment_vo -> current_campaign_id
-        ));
+        ));*/
+        $query = "SELECT nid FROM node
+        LEFT JOIN field_data_field_wisheditem_campaign AS campaign ON node.nid=campaign.entity_id
+        LEFT JOIN field_data_field_wisheditem_state AS state on node.nid=state.entity_id
+        LEFT JOIN field_data_field_user_team AS team ON node.uid=team.entity_id
+        WHERE node.type = 'nodetype_wished_item'
+        AND field_wisheditem_state_value = 'open'
+        AND campaign.field_wisheditem_campaign_target_id= :campaign_id";
+        $result = db_query($query,
+            array(':campaign_id' =>   $assignment_vo -> current_campaign_id
+            ));
         foreach ($result as $row)
         {
             $nodes[] = node_load($row->nid);
@@ -195,6 +210,12 @@
         _scoga_process_assignment_query_results($assignment_vo,$nodes,$assignment_titles,$assignment_paths);
     }
 
+    /**
+     * So players can see the wished they created in the play list
+     * @param $assignment_vo
+     * @param $assignment_titles
+     * @param $assignment_paths
+     */
     function _scoga_add_own_wishes_to_output($assignment_vo,&$assignment_titles,&$assignment_paths)
     {
 

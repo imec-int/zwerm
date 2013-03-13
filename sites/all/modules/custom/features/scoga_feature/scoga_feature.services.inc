@@ -114,6 +114,7 @@ function scoga_feature_default_services_endpoint() {
       ),
     ),
     'node' => array(
+      'alias' => 'node',
       'operations' => array(
         'retrieve' => array(
           'enabled' => 1,
