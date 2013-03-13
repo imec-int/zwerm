@@ -84,6 +84,7 @@ features[field][] = node-nodetype_wished_item-field_wisheditem_state
 features[field][] = node-page-body
 features[field][] = node-poll-field_poll_reward
 features[field][] = node-poll-field_poll_team
+features[field][] = node-question-field_question_reward
 features[field][] = user-user-field_card_id
 features[field][] = user-user-field_user_active
 features[field][] = user-user-field_user_firstname
