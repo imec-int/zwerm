@@ -18,6 +18,7 @@
                 break;
             case SCOGA_EVENT_NODETYPE:
                 _handle_event_inserted( $node );
+                break;
         }
     }
 
@@ -39,6 +40,10 @@
                 break;
             case SCOGA_EVENT_NODETYPE:
                 _handle_event_updated( $node );
+                break;
+            case SCOGA_ANSWER_NODETYPE:
+                _handle_answer_updated( $node );
+                break;
         }
     }
 
@@ -91,3 +96,8 @@
         scoga_check_nonunique_passphrase( $node );
     }
 
+
+    function _handle_answer_updated( $node ){
+        module_load_include( 'api.answers.inc', 'scoga', 'api/scoga' );
+        scoga_handle_answer_approval( $node );
+    }

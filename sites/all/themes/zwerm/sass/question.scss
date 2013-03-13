@@ -1,0 +1,62 @@
+@import "base";
+
+.node-type-question
+{
+  #main
+  {
+    h1
+    {
+      font-size:20px;
+    }
+    .field-label
+    {
+      float:left;
+      font-weight: normal;
+    }
+  }
+  .field-name-field-question-reward, .view-answers-to-a-question .views-row{
+    margin-bottom: 10px;
+  }
+  .view-answers-to-a-question{
+    .views-field-title{
+        font-size: 20px;
+    }
+    .views-row{
+      background-image: url('../images/solo-sparrow-icon.png');
+      background-repeat: no-repeat;
+      padding-left: 30px;  /* width of the image plus a little extra padding */
+      display: block;  /* may not need this, but I've found I do */    }
+  }
+
+  .username
+  {
+    color:black;
+    font-size: 14px;
+  }
+
+  .answer_field_answer_question{
+    @include action-button;
+    text-align: center;
+    width: 300px;
+    a{
+      color: #ffffff;
+      font-size: small;
+    }
+  }
+
+  //small viewport
+  @media all and (max-width: $end_of_small_viewport)
+  {
+    article
+    {
+      margin-left: 5%;
+    }
+    h1
+    {
+      background-color:$green-marking-color ;
+    }
+  }
+  @media all and (min-width: $start_of_large_viewport)
+  {
+  }
+}

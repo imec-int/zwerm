@@ -20,6 +20,7 @@
     define( 'SCOGA_POICONFIRIMATION_NODETYPE',  'poi_confirmation' );
     define( 'SCOGA_GENERIC_ASSIGNMENT',         'generic_assignment' );
     define( 'SCOGA_EVENTFULFILLED_NODETYPE',    'nodetype_event_fulfilled' );
+    define( 'SCOGA_ANSWER_NODETYPE',            'answer' );
 
     //--( SETTINGS )--//
 
