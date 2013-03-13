@@ -555,6 +555,11 @@ article
   background-color: $green-marking-color;
 }
 
+.comment
+{
+  background-color: $green-marking-color;
+}
+
 //small viewport
 @media all and (max-width: $end_of_small_viewport)
 {
@@ -566,6 +571,7 @@ article
       color:white;
     }
   }
+
 
   #block-block-3
   {
