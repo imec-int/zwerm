@@ -90,6 +90,11 @@
             jQuery(".collapsible").hide();
             jQuery(".wish_by_user").slideToggle(500);
         });
+        jQuery(".list_header_writein_question").click(function()
+        {
+            jQuery(".collapsible").hide();
+            jQuery(".writein_question").slideToggle(500);
+        });
         jQuery("#menu_container").click(function()
         {
             jQuery('html, body').animate({scrollTop:0}, 'fast');

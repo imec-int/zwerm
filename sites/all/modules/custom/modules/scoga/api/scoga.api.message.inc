@@ -15,6 +15,7 @@
             SCOGA_EVENT_NODETYPE,
             SCOGA_GEOCHALLENGE_NODETYPE,
             SCOGA_GENERIC_ASSIGNMENT,
+            SCOGA_QUESTION_NODETYPE,
         );
 
         public $nid;

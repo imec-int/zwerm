@@ -18,6 +18,7 @@
                 break;
             case SCOGA_EVENT_NODETYPE:
                 _handle_event_inserted( $node );
+                break;
         }
     }
 
@@ -39,6 +40,17 @@
                 break;
             case SCOGA_EVENT_NODETYPE:
                 _handle_event_updated( $node );
+                break;
+            case SCOGA_ANSWER_NODETYPE:
+                _handle_answer_updated( $node );
+                break;
+        }
+    }
+
+    function scoga_handle_node_validate( $node, $form, &$form_state ) {
+        switch( $node->type ){
+          case SCOGA_POI_NODETYPE :
+            _handle_poi_validate( $node, $form, $form_state );
         }
     }
 
@@ -91,3 +103,12 @@
         scoga_check_nonunique_passphrase( $node );
     }
 
+    function _handle_poi_validate( $node, $form, &$form_state ){
+      module_load_include( 'api.geochallenge.inc', 'scoga', 'api/scoga' );
+      scoga_validate_poi_limit( $node, $form, $form_state );
+    }
+
+    function _handle_answer_updated( $node ){
+        module_load_include( 'api.answers.inc', 'scoga', 'api/scoga' );
+        scoga_handle_answer_approval( $node );
+    }
