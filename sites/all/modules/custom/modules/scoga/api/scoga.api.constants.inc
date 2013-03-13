@@ -21,6 +21,7 @@
     define( 'SCOGA_GENERIC_ASSIGNMENT',         'generic_assignment' );
     define( 'SCOGA_EVENTFULFILLED_NODETYPE',    'nodetype_event_fulfilled' );
     define( 'SCOGA_ANSWER_NODETYPE',            'answer' );
+    define( 'SCOGA_QUESTION_NODETYPE',          'question' );
 
     //--( SETTINGS )--//
 
