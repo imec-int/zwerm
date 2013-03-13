@@ -8,7 +8,6 @@
     print('</div>');
     print ('<div id="select_list" class="clearfix">');
         print ('<ul>');
-        dd( $variables );
             $items = $variables['items'];
             if(isset($variables['assignment_paths']))
             {
