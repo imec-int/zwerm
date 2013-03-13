@@ -8,6 +8,7 @@
     print('</div>');
     print ('<div id="select_list" class="clearfix">');
         print ('<ul>');
+        dd( $variables );
             $items = $variables['items'];
             if(isset($variables['assignment_paths']))
             {
@@ -15,6 +16,7 @@
                 $paths = $variables['assignment_paths'];
             }
             $i = 0;
+
             foreach ($items as $key=>$item)
             {
                 $classes = '';
@@ -55,6 +57,9 @@
                         {
                             $classes .= ' list_header_wishes_user';
                         }
+                        if( strpos( $item, t('Active writein questions')) != false){
+                            $classes .= ' list_header_writein_question';
+                        }
                         print("<li class=\"".$classes."\"><div class=link_truncated>".$item."</div></li>");
                     }
                     //when there is a path, it should be treated as a an actual selectable item
@@ -74,6 +79,8 @@
                             $classes .= ' generic_assignment collapsible';
                         if (strpos($item,t('Wish by you'))!=false)
                             $classes .= ' wish_by_user collapsible';
+                        if (strpos($item,t('Writein'))!=false)
+                            $classes .= ' writein_question collapsible';
                         print("<li class=\"".$classes."\" onmousedown=\"li_mousedown('".$path."',this);\"><div class=link_truncated>".$item."</div></li>");
                     }
 

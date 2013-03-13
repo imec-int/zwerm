@@ -72,7 +72,7 @@
     function scoga_overview_of_assignments_to_get_point()
     {
         module_load_include( 'api.campaign.inc', 'scoga', 'api/scoga' );
-        $current_campaign_id = scoga_get_campaign_nid_for_time(time());
+        $current_campaign_id = scoga_get_current_campaign_nid();
         $output='';
         if ($current_campaign_id>0)
         {
@@ -112,6 +112,13 @@
             $assignment_vo -> header = 'Active questions';
             $assignment_vo -> team_ref_field = 'field_poll_team';
             _scoga_add_trans_team_assignment_to_output($assignment_vo,$assignment_titles,$assignment_paths);
+            //add questions
+            $assignment_vo -> content_type = 'question';
+            $assignment_vo -> label = 'Writein';
+            $assignment_vo -> header = 'Active writein questions';
+            $assignment_vo -> team_ref_field = NULL;
+            $assignment_vo -> campaign_ref_field = 'field_campaign';
+            _scoga_add_assignments_to_output($assignment_vo,$assignment_titles,$assignment_paths);
             //add generic assignments
             $assignment_vo -> content_type = 'generic_assignment';
             $assignment_vo -> label = 'Generic assignment';

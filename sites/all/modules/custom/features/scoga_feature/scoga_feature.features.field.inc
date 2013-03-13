@@ -4324,6 +4324,78 @@ DO NOT MODIFY ONCE SET!',
     ),
   );
 
+  // Exported field: 'node-question-field_question_reward'.
+  $fields['node-question-field_question_reward'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_question_reward',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'number',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'number_integer',
+    ),
+    'field_instance' => array(
+      'bundle' => 'question',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => '5',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_question_reward',
+      'label' => 'Te verdienen punten',
+      'required' => 1,
+      'settings' => array(
+        'max' => '',
+        'min' => '0',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '33',
+      ),
+    ),
+  );
+
   // Exported field: 'user-user-field_card_id'.
   $fields['user-user-field_card_id'] = array(
     'field_config' => array(
