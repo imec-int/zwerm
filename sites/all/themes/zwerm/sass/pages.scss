@@ -558,6 +558,15 @@ article
 //small viewport
 @media all and (max-width: $end_of_small_viewport)
 {
+
+  .section-info
+  {
+    a
+    {
+      color:white;
+    }
+  }
+
   #block-block-3
   {
     display:none;
