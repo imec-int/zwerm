@@ -6,7 +6,6 @@
 
 function scoga_handle_answer_approval( $updated_node ){
     $original_node = $updated_node->original;
-    dsm( $updated_node );
     if( $original_node->status != $updated_node->status ){
         //a toggle of publication state has been made
         $question_nids = field_get_items( 'node', $original_node, 'field_answer_question');//use field_get_item, since language can vary
