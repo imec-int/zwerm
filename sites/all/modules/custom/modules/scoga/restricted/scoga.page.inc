@@ -117,7 +117,7 @@
             $assignment_vo -> label = 'Writein';
             $assignment_vo -> header = 'Active writein questions';
             $assignment_vo -> team_ref_field = NULL;
-            $assignment_vo -> campaign_ref_field = NULL;
+            $assignment_vo -> campaign_ref_field = 'field_campaign';
             _scoga_add_assignments_to_output($assignment_vo,$assignment_titles,$assignment_paths);
             //add generic assignments
             $assignment_vo -> content_type = 'generic_assignment';
