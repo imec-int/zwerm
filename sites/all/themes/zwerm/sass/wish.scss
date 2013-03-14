@@ -48,6 +48,39 @@
     display: none;
   }
 
+  @media all and (max-width: 499px)
+  {
+    #main
+    {
+      .buttons
+      {
+        left:0px;
+      }
+    }
+  }
+
+  @media all and (min-width: 500px) and (max-width: 629px)
+  {
+    #main
+    {
+      .buttons
+      {
+        left:-200px;
+      }
+    }
+  }
+
+  @media all and (min-width: 630px) and (max-width: 785px)
+  {
+    #main
+    {
+      .buttons
+      {
+        left:0px;
+      }
+    }
+  }
+
   @media all and (max-width: $end_of_small_viewport)
   {
     #main
@@ -68,6 +101,7 @@
         margin-left: -10px;
         margin-right: -15px;
       }
+
     }
   }
 
@@ -146,6 +180,10 @@
     {
       display:inline-block;
       margin-bottom: 10px;
+      position: relative;
+      top: 36px;
+      left: -204px;
+      margin-bottom: 40px;
     }
 
     .edit_wijkzoeker
@@ -197,10 +235,12 @@
   {
     //margin-top: -23px;
     display: inline;
-    .field-label
-    {
-      float:left;
-    }
+    float:left;
+  }
+
+  .field-label
+  {
+    float:left;
   }
 
   .user-picture {
@@ -241,6 +281,4 @@
   {
     display: none;
   }
-
-
 }
