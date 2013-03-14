@@ -36,6 +36,7 @@ features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[ds_view_modes][] = viewmode_revealing
 features[features_api][] = api:1
+features[field][] = node-answer-field_answer_answer
 features[field][] = node-article-body
 features[field][] = node-article-field_campaign
 features[field][] = node-article-field_image
