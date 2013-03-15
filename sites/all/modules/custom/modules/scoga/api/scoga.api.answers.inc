@@ -16,11 +16,11 @@ function scoga_handle_answer_approval( $updated_node ){
         module_load_include( 'api.points.inc', 'scoga', 'api/scoga' );
         if( $updated_node->status == 1 ){
             //answer "approved"
-            $reason= t('Open question approved', $reason_params );
+            $reason= t('Antwoord goedgekeurd', $reason_params );
             scoga_award_points_to_user( $user_account->uid, $reward, $reason );
         }else{
             //answer unapproved
-            $reason= t('Open question unapproved', $reason_params );
+            $reason= t('Antwoord afgewezen', $reason_params );
             scoga_award_points_to_user( $user_account->uid, -$reward, $reason ); //N.B. negative reward
         }
     }
