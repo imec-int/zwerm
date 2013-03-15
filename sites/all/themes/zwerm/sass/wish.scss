@@ -52,7 +52,7 @@
   {
     #main
     {
-      .buttons
+      .buttons,.links
       {
         left:0px;
       }
@@ -63,7 +63,7 @@
   {
     #main
     {
-      .buttons
+      .buttons,.links
       {
         left:-200px;
       }
@@ -74,7 +74,7 @@
   {
     #main
     {
-      .buttons
+      .buttons,.links
       {
         left:0px;
       }
@@ -176,7 +176,7 @@
       }
     }
 
-    .buttons
+    .buttons,.links
     {
       display:inline-block;
       margin-bottom: 10px;
