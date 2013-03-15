@@ -558,6 +558,10 @@ article
 .comment
 {
   background-color: $green-marking-color;
+  h3
+  {
+    display:none;
+  }
 }
 
 //small viewport
