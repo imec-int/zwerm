@@ -33,11 +33,19 @@
   }
 }
 
-.page-team, body.page-team3
+#content .field-name-body
+{
+  a
+  {
+    color:$green-marking-color;
+  }
+}
+
+#content .page-team,body.page-team3
 {
   .field-item
   {
-    a
+    li a
     {
      color:$green-marking-color;
     }
