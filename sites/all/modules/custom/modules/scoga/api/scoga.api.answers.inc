@@ -11,7 +11,6 @@ function scoga_handle_answer_approval( $updated_node ){
         $question_nids = field_get_items( 'node', $original_node, 'field_answer_question');//use field_get_item, since language can vary
         $question_node = node_load( $question_nids[0]['nid']);
         $answer_nids = scoga_retrieve_published_answer_nids_by_references( $original_node->uid, $question_node->nid );
-        dsm( $answer_nids );
         if( count( $answer_nids ) == 1 && $answer_nids[0]==$updated_node->nid ){
             $reward = scoga_get_field_value( $question_node, 'field_question_reward' );
             $user_account = user_load( $original_node->uid );
