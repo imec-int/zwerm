@@ -555,9 +555,25 @@ article
   background-color: $green-marking-color;
 }
 
+#comment-form
+{
+  .filter-wrapper
+  {
+    display:none;
+  }
+}
+
 .comment
 {
   background-color: $green-marking-color;
+  h3
+  {
+    display:none;
+  }
+  li a
+  {
+    color:white;
+  }
 }
 
 //small viewport

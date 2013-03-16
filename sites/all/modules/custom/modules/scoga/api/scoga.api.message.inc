@@ -85,6 +85,10 @@
         return $nids;
     }
 
+    /**
+     * @param $message_node
+     * @return \Message
+     */
     function scoga_create_message_vo( $message_node ){
         $output = new Message();
         $output->nid = $message_node->nid;
