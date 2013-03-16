@@ -31,6 +31,7 @@ function scoga_retrieve_published_answer_nids_by_references( $uid, $question_nid
         ->entityCondition( 'entity_type', $entity_type )
         ->entityCondition( 'bundle', SCOGA_ANSWER_NODETYPE )
         ->propertyCondition( 'status', 1 )
+        ->propertyCondition( 'uid', $uid )
         ->fieldCondition( 'field_answer_question', 'nid', $question_nid )
         ->execute();
     if( isset( $result[ $entity_type ] ) ){
