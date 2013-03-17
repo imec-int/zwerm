@@ -24,7 +24,7 @@
 
         if( $user_remaining_credits > 0 ){
             $credits_select_data = array(
-                '_none' => '- Select a value -'
+                '_none' => t('- Select a value -')
             );
             for( $i = 0; $i < $user_remaining_credits; $i++ ){
                 $value = $i + 1;
@@ -32,7 +32,7 @@
             }
         } else{
             $credits_select_data = array(
-                '_none' => '- NOT ENOUGH CREDITS -'
+                '_none' => t('- NOT ENOUGH CREDITS -')
             );
         }
 
@@ -54,7 +54,7 @@
         $wisheditem_nids = scoga_get_wisheditem_nids_for_uid( $user_profile->uid );
 
         $wishlist_select_data = array(
-            '_none' => '- Select a value -'
+            '_none' => t('- Select a value -')
         );
         foreach( $wisheditem_nids as $nid ){
             $wisheditem_node = node_load( $nid );
@@ -78,9 +78,8 @@
         }
 
         $player_uids = scoga_get_player_uids_by_team_nid( $team_nid, TRUE ); //TRUE->excludes
-
         $player_select_data = array(
-            '_none' => '- Select a value -'
+            '_none' => t('- Select a value -')
         );
         foreach( $player_uids as $uid ){
             $player_profile = user_load( $uid );
