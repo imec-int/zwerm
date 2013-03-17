@@ -1,0 +1,11 @@
+@import "base";
+
+.node-type-question
+{
+  .answer_field_answer_question
+  {
+    @include action-button;
+    padding: 5px;
+    padding-bottom: 8px;
+  }
+}

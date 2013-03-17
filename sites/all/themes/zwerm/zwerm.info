@@ -75,6 +75,7 @@ stylesheets[all][] = css/team-view.css
 stylesheets[all][] = css/wish.css
 stylesheets[all][] = css/poll.css
 stylesheets[all][] = css/question.css
+stylesheets[all][] = css/open-question.css
 stylesheets[all][] = css/messages.css
 stylesheets[all][] = css/play.css
 stylesheets[all][] = css/recent-points.css
