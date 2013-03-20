@@ -105,7 +105,7 @@
             $assignment_vo -> team_ref_field = 'field_event_team';
             $assignment_vo -> user_team = $user_team;
             $assignment_vo -> current_campaign_id = $current_campaign_id;
-            _scoga_add_assignments_to_output($assignment_vo,$assignment_titles,$assignment_paths);
+            _scoga_add_trans_team_assignment_to_output($assignment_vo,$assignment_titles,$assignment_paths);
             //add polls
             $assignment_vo -> content_type = 'Poll';
             $assignment_vo -> label = 'Question';
@@ -250,22 +250,24 @@
      */
     function _scoga_add_trans_team_assignment_to_output($assignment_vo,&$titles,&$paths)
     {
-        //module_load_include( 'api.team.inc', 'scoga', 'api/scoga' );
-        //$opposing_teams = scoga_get_opposing_teams_nid($assignment_vo ->user_team,$assignment_vo -> current_campaign_id);
         $user_team = $assignment_vo ->user_team;
+        //get the assignments that are ONLY for the opposing team
         $assignment_vo->user_team = $assignment_vo -> opposing_team;
         $nodes_properties_opposing_team = _scoga_get_assignments_by_type($assignment_vo,$titles,$paths);
-        $assignment_vo -> team_ref_field = NULL;
-        $assignment_vo ->user_team = $user_team;
         if (!isset($nodes_properties_opposing_team['node']))
         {
             $nodes_properties_opposing_team['node'] = array();
         }
+        //get the assignments for ALL teams
+        $assignment_vo -> team_ref_field = NULL;
+        $assignment_vo ->user_team = $user_team;
         $nodes_properties_all_teams = _scoga_get_assignments_by_type($assignment_vo,$titles,$paths);
         if (!isset($nodes_properties_all_teams['node']))
         {
             $nodes_properties_all_teams['node'] = array();
         }
+        //we need the assignments that are ONLY valid for the player's team AND the ones that are valid for ALL teams
+        //this means we must subtract the assignments set for the opposing team from assignment set for all teams
         $nodes_properties = array_diff_key($nodes_properties_all_teams['node'],$nodes_properties_opposing_team['node']);
         $nodes = node_load_multiple(array_keys($nodes_properties));
         _scoga_process_assignment_query_results($assignment_vo,$nodes,$titles,$paths);
