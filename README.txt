@@ -1,11 +1,22 @@
 
 CONTENTS OF THIS FILE
 ---------------------
-
+ * About ZWERM
  * About Drupal
  * Configuration and features
  * Appearance
  * Developing for Drupal
+
+ABOUT ZWERM
+-----------
+ZWERM is a city intervention that uses a mobilization system to reach the goal of consolidating and activating social capital. By interacting with ZWERM, people should get to know each other and undertake action together that is beneficial for the collective. It is through these actions that self-organization can be supported.
+This code allows you to set up the server on which 
+* Teams can be defined.
+* Campaigns can be defined.
+* Assignments types can be defined and concrete assignments can be filled out based on these assignment ties.
+* Scores can be incremented and read by third party code by means of a REST API
+
+
 
 ABOUT DRUPAL
 ------------
